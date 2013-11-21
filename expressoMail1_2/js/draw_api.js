@@ -5229,11 +5229,11 @@ function draw_new_message(border_ID){
             });
         }*/
 	}).css({
-        "height" : ($.browser.mozilla ? "15px" : "20px"), 
+        "height" : "20px", 
         // "width": (is_webkit ? "205px" : "100px"),
         "width" : "205px",
-        "margin-top" : ($.browser.mozilla ? "10px" : "0"),
-        "margin-right" : (is_mozilla ? "30px" : "0"),
+        "margin-top" : ($.browser.mozilla ? "3px" : "0"),
+        "margin-right" : ($.browser.mozilla ? "15px" : "0"),
         "border-width": "0 0 0px 0px", 
         "transform" : "rotate(-360deg) translate(5px, -0.5px) scale(1.1)",  
         "-webkit-transform" : "rotate(-360deg) translate(0px, 0px)"
