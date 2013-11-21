@@ -286,6 +286,7 @@ cRichTextEditor.prototype.setData = function (id,data){
         CKEDITOR.instances[id].setData(data);
 }
 
+
 cRichTextEditor.prototype.dataReady = function(id,reply)
 {
 	var content = $("#content_id_"+id);
@@ -309,7 +310,6 @@ cRichTextEditor.prototype.dataReady = function(id,reply)
 						content.find('input[name="input_subject"]').focus();
 						input.focus();
 				},500);
-
 			};
 		});
 	}
