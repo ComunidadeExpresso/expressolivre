@@ -4141,7 +4141,9 @@ function input_keydowns(input, ID){
 				   e.stopPropagation();
 				   e.preventDefault();
 			}
-			
+            if ( (e.keyCode == 8) && (input.val().length == 1) ){
+                $( this ).data( "autocomplete" ).close();
+            }
 			//SELECIONA O CONTATO E EVITA OUTROS COMANDOS
 			if(e.keyCode == $.ui.keyCode.ENTER && $( this ).data( "autocomplete" ).menu.active){
 				e.preventDefault();
@@ -4242,8 +4244,8 @@ function input_keydowns(input, ID){
 	})
 	//AO SAIR DO FOCO MONTAGEM DA CAIXA DE EMAIL
 	.focusout(function(e){
-		var these = $(this);
-		// Função para monstar a caixinha de e-mail.
+        var these = $(this);
+		// Função para montar a caixinha de e-mail.
 		function makeBoxMail(){
 			if(canMakeBox && !fastSearch){
 				if(!(	f9	||	click	||	$(this).parents("tr:first").find("button").hasClass("ui-state-active")	)){
@@ -4595,6 +4597,8 @@ function input_binds(div, ID){
 
         div.find("textarea").autocomplete({
             source: function(request, response){
+                if ($.trim(request.term).length == 0)
+                    return false;
                 if ( request.term in cache ) {
                     response( cache[ request.term ] );
                     return;
@@ -4615,7 +4619,7 @@ function input_binds(div, ID){
 
             //EVENTO AO SELECIONAR UM CONTATO DINÂMICO
             select: function( event, ui ) {
-                canMakeBox = false;
+                canMakeBox = true;
 
                 event.preventDefault();
                 $(this).val("");
@@ -4640,12 +4644,9 @@ function input_binds(div, ID){
             delay : 300,
             minLength: 0
         }).bind('autocompleteopen', function(event, ui) {
-
             $(this).data('is_open',true);
-
         }).bind('autocompleteclose', function(event, ui) {
-
-            canMakeBox = true;
+            canMakeBox = false;
             $(this).data('is_open',false);
             $(this).blur().focus();
         }).data( "autocomplete" )._renderItem = function( ul, item ) {
