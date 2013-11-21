@@ -1,0 +1,197 @@
+hr {
+	border-top:1px dashed #CDC0B0;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	height:1px;
+	margin:3px 0px 3px 0px;
+}
+
+tr.alerta
+{
+	background-color: #FCC !important;
+}
+
+table.organizationList
+{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 13px;
+	border-collapse: collapse;
+	clear: both;
+}
+
+table.organizationList tbody tr th
+{
+	/*background-color: #CCCCCC;*/
+}
+
+table.organizationList tbody tr.linha0
+{
+	/*background-color: #F2F2F2;*/
+	font-size: 12px;
+}
+
+table.organizationList tbody tr.linha1
+{
+	/*background-color: #E5E5E5;*/
+	font-size: 12px;
+}
+
+table.organizationList tbody tr td a
+{
+	color: #000000 !important;
+}
+
+table.organizationList tbody tr td a:hover
+{
+	color: #009ACD !important;
+	text-decoration: underline !important;
+}
+
+table.orgchartUpdateTable
+{
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 13px;
+	border: 1px solid;
+	border-collapse: collapse;
+	clear: both;
+}
+
+table.orgchartUpdateTable tbody tr th
+{
+	background-color: #CCCCCC;
+	border: 1px solid;
+	border-style: none inset;
+	padding: 0px 20px;
+}
+
+table.orgchartUpdateTable tbody tr td
+{
+	border: 1px solid;
+	border-style: none inset;
+}
+
+table.orgchartUpdateTable tbody tr.linha0
+{
+	background-color: #F2F2F2;
+	font-size: 12px;
+}
+
+table.orgchartUpdateTable tbody tr.linha1
+{
+	background-color: #E5E5E5;
+	font-size: 12px;
+}
+
+table.orgchartUpdateTable tbody tr td a
+{
+	color: #000000 !important;
+}
+
+table.orgchartUpdateTable tbody tr td a:hover
+{
+	color: #009ACD !important;
+	text-decoration: underline !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+table.employeeList
+{
+	width: 100%;
+}
+
+table.employeeList tbody th
+{
+	/*background-color: #CCCCCC;*/
+	font-size: 13px;
+}
+
+table.employeeList tbody tr.linha0
+{
+	/*background-color: #FFF;*/
+	font-size: 12px;
+}
+
+table.employeeList tbody tr.linha1
+{
+	/*background-color: #F7F7F7;*/
+	font-size: 12px;
+}
+
+table.employeeList tbody tr.highlight0
+{
+	background-color: #FFDDDD !important;
+}
+
+table.employeeList tbody tr.highlight1
+{
+	background-color: #FFBBBB !important;
+}
+
+table.employeeList tbody tr td a
+{
+	color: #000000 !important;
+}
+
+table.employeeList tbody tr td a:hover
+{
+	color: #009ACD !important;
+	text-decoration: underline !important;
+}
+
+div.orgchartAreas
+{
+	float: left;
+	width: 20%;
+	border: 1px solid;
+	background-color: #FFFFFF;
+	clear: both;
+}
+
+div.orgchartAreas a
+{
+	color: #000000 !important;
+}
+
+div.orgchartAreas a:hover
+{
+	color: #009ACD !important;
+	text-decoration: underline !important;
+}
+
+div.orgchartAreas a.destaque
+{
+	color: #FF0000 !important;
+	text-decoration: underline !important;
+}
+
+div.orgchartEmployees
+{
+	float: right;
+	width: 79%;
+}
+
+div.orgchartFooter
+{
+	clear: both;
+}
+
+div.employeeInfo
+{
+	position: absolute;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 4px;
+}

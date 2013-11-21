@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+    /*
+    Alpha PNG support for IE
+    ------------------------------
+    Aviso, este código abaixo funciona apenas para visualização na tela. Quando este documento for impresso, o bug voltará.
+    O Hack Abaixo faz o código rodar apenas no IE. Sendo que os outros browsers como, Firefox, Opera e Safari já tem a transparencia de PNG nativo.
+    \*/
+    * html img/**/ {
+ filter:expression(
+   this.alphaxLoaded ? "" :
+   (
+       this.src.substr(this.src.length-4)==".png"
+       ?
+       (
+     (!this.complete)
+     ? "" :
+         this.runtimeStyle.filter=
+         ("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+this.src+"')")+
+         (this.onbeforeprint="this.runtimeStyle.filter='';this.src='"+this.src+"'").substr(0,0)+
+         String(this.alphaxLoaded=true).substr(0,0)+
+         (this.src="templates/celepar/images/blank.gif").substr(0,0)
+       )
+       :
+       this.runtimeStyle.filter=""
+   )
+     );
+    }

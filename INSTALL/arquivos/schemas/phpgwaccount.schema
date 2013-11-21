@@ -1,0 +1,188 @@
+# $Id egroupware : phpgwaccount.schema,v 1.0 2000/07/29 01:53:16 milosch Exp $
+
+# (C) 2001-2004 Miles Lott <milos@groupwhere.org>
+# Redistribution and use in original text and binary forms, with or
+# without modification, are permitted provided that the following
+# conditions are met:
+#
+# 1. Redistributions of this schema and/or documentation must retain
+#    the above copyright notice, this list of conditions and the
+#    following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+# 3. The name of the author may not be used to endorse or promote products
+#    derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+# STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+# IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+# lastlogin
+attributetype ( 1.3.6.1.4.1.9554.1
+	NAME 'phpgwAccountLastLogin'
+	DESC 'timestamp of last login'
+	EQUALITY integerMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+	SINGLE-VALUE )
+
+# lastloginfrom
+attributetype ( 1.3.6.1.4.1.9554.2
+	NAME 'phpgwAccountLastLoginFrom'
+	DESC 'IP address as a dotted decimal, eg. 192.168.1.1, omitting leading zeros'
+	EQUALITY caseIgnoreIA5Match
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+
+# lastpasswdchange
+attributetype ( 1.3.6.1.4.1.9554.3
+	NAME 'phpgwLastPasswdChange'
+	EQUALITY integerMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+	SINGLE-VALUE )
+
+# accounttype
+attributetype ( 1.3.6.1.4.1.9554.4
+	NAME 'phpgwAccountType'
+	DESC 'Single-char u/g for user/group'
+	EQUALITY caseExactIA5Match
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+	SINGLE-VALUE )
+
+# status
+attributetype ( 1.3.6.1.4.1.9554.5
+	NAME 'phpgwAccountStatus'
+	DESC 'Single-char A/L for active/inactive'
+	EQUALITY caseExactIA5Match
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+	SINGLE-VALUE )
+
+# expires
+attributetype ( 1.3.6.1.4.1.9554.6
+	NAME 'phpgwAccountExpires'
+	DESC 'timestamp for account expiration'
+	EQUALITY integerMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+	SINGLE-VALUE )
+
+# visible
+attributetype ( 1.3.6.1.4.1.9554.7
+	NAME 'phpgwAccountVisible'
+	DESC 'Account will be visible in catalog and search mechanism'
+	EQUALITY integerMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+	SINGLE-VALUE )
+
+# system / environment
+attributetype ( 1.3.6.1.4.1.9554.8
+	NAME 'phpgwSystem'
+	DESC 'The system who this OU (sector) belongs'
+	EQUALITY caseIgnoreIA5Match
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+# Agreement Term
+attributetype ( 1.3.6.1.4.1.9554.9
+         NAME 'phpgwAgreeTerm'
+         DESC 'If agree term has been accepted by the user'
+         EQUALITY integerMatch
+         SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+         SINGLE-VALUE )
+#================================================================
+# modificacoes feitas para o LDAP da Celepar
+# estes atributos foram adicionados pela Celepar e nao fazem parte
+# do schema original do eGroupware
+
+attributetype ( 1.3.6.1.4.1.9554.60
+        NAME 'pgeAcl'
+        DESC 'campo usado pelo portal da PGE para determinar o acesso a aplicativos'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.9554.61
+        NAME 'city'
+        DESC 'campo temporario para o direto. FIXME'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+						
+attributetype ( 1.3.6.1.4.1.9554.62
+        NAME 'cpf'
+        DESC 'campo temporario para o direto. FIXME'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+
+attributetype ( 1.3.6.1.4.1.9554.63
+        NAME 'datanascimento'
+        DESC 'campo temporario para o direto. FIXME'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+
+attributetype ( 1.3.6.1.4.1.9554.64
+        NAME 'setor'
+        DESC 'campo temporario para o direto. FIXME'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+
+attributetype ( 1.3.6.1.4.1.9554.65
+        NAME 'sexo'
+        DESC 'campo temporario para o direto. FIXME'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+
+attributetype ( 1.3.6.1.4.1.9554.66
+        NAME 'empresa'
+        DESC 'campo temporario para o direto. FIXME'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+
+attributetype ( 1.3.6.1.4.1.9554.67
+        NAME 'rg'
+        DESC 'campo especifico da Celepar'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        )
+
+attributetype ( 1.3.6.1.4.1.9554.68
+	NAME 'rgUf'
+	DESC 'campo especifico da Celepar'
+	EQUALITY caseIgnoreMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+	)
+
+attributetype ( 1.3.6.1.4.1.9554.69
+	NAME 'userPasswordRFC2617'
+        DESC 'User Password following RFC-2617'
+	EQUALITY caseIgnoreIA5Match
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128}
+	SINGLE-VALUE
+	)
+
+#=================================================================
+
+
+# Objectclass definition for phpgwAccount
+objectclass ( 1.3.6.1.4.1.9554.0 NAME 'phpgwAccount' SUP top AUXILIARY
+	DESC 'Abstraction of an account with phpgw attributes'
+	MAY ( phpgwAccountLastLogin $ phpgwAccountLastLoginFrom $ phpgwLastPasswdChange $ userPasswordRFC2617 $ phpgwAccountType $ phpgwAccountStatus $ phpgwAccountExpires $ phpgwAccountVisible $ phpgwSystem $ pgeAcl $ city $ cpf $ datanascimento $ setor $ sexo $ empresa $ rg $ rgUf $ mail $ accountStatus $ phpgwAgreeTerm))

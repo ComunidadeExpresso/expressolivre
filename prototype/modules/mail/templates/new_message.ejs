@@ -1,0 +1,155 @@
+<div class="new-msg-head-buttons table_message ui-widget-header" style="width:100%; clear: both; display: inline-block; height: 30px;">
+	<div class="new-msg-head-left-buttons" style="float: left; margin: 3px; white-space: nowrap;">		
+		<button class="send button small" title="<%= get_lang("Send Mail") %>"><%= get_lang("Send") %></button>
+		<%
+		if((preferences.save_in_folder == "-1") || (preferences.save_in_folder == "")) {
+		%>
+		<button class="save-and-send button small"><%= get_lang("Send and file") %></button>
+		<%
+		}
+		%>
+		<button class="save button small" title="<%= get_lang("Save Mail") %>"><%=get_lang("Save")%></button>
+		<%
+		if (parseInt(preferences.use_important_flag)){
+		%>
+		<button class="important button small msg-option" name="input_important_message" title="<%= get_lang("Important message") %>">&nbsp;</button>
+		<%
+		}
+		%>
+		
+		<button class="return-recept button small msg-option <%=(parseInt(preferences.return_recipient_deafault) != 0 ? "expressomail-button-icon-ative": "")%>" name="input_return_receipt" title="<%= get_lang("Return receipt") %>">&nbsp;</button>
+		
+		<%
+		if(parseInt(preferences.use_assinar_criptografar)){
+			if(parseInt(preferences.use_signature_digital_cripto)){
+		%>
+		<button class="return_cripto button small" title="<%=get_lang("Digitally sign message?")%>">&nbsp;</button>
+		<button class="return_digital button small" title="<%=get_lang("Encrypted email")%>">&nbsp;</button>
+		<%
+			}
+		}
+		%>
+	</div>
+	<div class="new-msg-head-right-buttons" style="float: right; margin: 3px; margin-rigth: 5px; white-space: nowrap;">
+		<button class="button small cc-button"><%= get_lang("Add CC") %></button>
+		<%if(allow_hidden_copy){ %>
+		<button class="button small cco-button"><%= get_lang("Add BCC") %></button>
+		<%
+		}	
+		%>
+		<button class="button small reply-to-button"><%= get_lang("Reply to") %></button>
+		<button class="button small rich-button"><%= (preferences.plain_text_editor == 1 ? get_lang("Rich Text") : get_lang("Simple Text")) %></button>
+	</div>
+</div>
+<div class="new-msg-head-data" style="font-size:11px; overflow: auto;height: 95%; width: 100%;">
+	<form method="POST" id="form_message_<%= data.id%>" name="form_message_<%= data.id%>" action="message:detail" <%= (is_ie ? "encoding=\'multipart/form-data\'" : "enctype=\'multipart/form-data\'") %>>
+		<input style="display: none; " name="abaID" value="<%= data.id %>">
+		<table style="width: 100%;height: auto;">
+			<tr class="from-tr" style="display:none;">
+				<td class="field">
+					<%= get_lang("From") %>:
+				</td>
+				<td class="value">
+					<select style="width: 99.3%;" class="from-select" name="input_from" >
+					</select>
+				</td>
+			</tr>
+			<tr class="to-tr">
+				<td class="field" style="width: 1%;">
+					<button title="<%= get_lang("Search") %> | <%= get_lang("Use F9 Key as shortcut.") %>" class="button small adress_button">
+						<%= get_lang("To") %>:
+					</button>
+				</td>
+				<td class="value" style="width: 100%;">
+					<div class="email-area ui-corner-all">
+						<textarea class="new-message-input to email-text" name="input_aux_to" type="text" value="" autocomplete="off"></textarea>	
+					</div>
+					<textarea class="new-message-input to" name="input_to" style="width:99%; resize: none;display : none;"></textarea>
+				</td>
+			</tr>
+			<tr class="cc-tr" style="display:none;">
+				<td class="field">
+					<button title="<%= get_lang("Search") %> | <%= get_lang("Use F9 Key as shortcut.") %>" class="button small adress_button">
+						Cc:
+					</button>
+				</td>
+				<td class="value">
+					<div class="email-area ui-corner-all">
+						<textarea class="new-message-input cc email-text" name="input_aux_cc" type="text" value="" autocomplete="off"></textarea>	
+					</div>
+					<textarea class="new-message-input cc" name="input_cc" style="width:99%; resize: none;display : none;"></textarea>
+				</td>
+			</tr>
+			<tr class="cco-tr" style="display:none;">
+				<td class="field">
+					<button title="<%= get_lang("Search") %> | <%= get_lang("Use F9 Key as shortcut.") %>" class="button small adress_button">
+						<%= get_lang("CCo") %>:
+					</button>
+				</td>
+				<td class="value">
+					<div class="email-area ui-corner-all">
+						<textarea class="new-message-input cco email-text" name="input_aux_cco" type="text" value="" autocomplete="off"></textarea>	
+					</div>
+					<textarea class="new-message-input cco" name="input_cco" style="width:99%; resize: none;display : none;"></textarea>
+				</td>
+			</tr>
+            <tr class="reply-to-tr" style="display:none;">
+                <td class="field" style="width: 6%;">
+                    <%= get_lang("Reply to") %>:
+                </td>
+                <td class="value" style="width: 100%;">
+                    <div class="email-area ui-corner-all">
+                        <textarea class="new-message-input reply-to email-text" name="input_aux_reply_to" type="text" value="" autocomplete="off"></textarea>	
+                    </div>
+                    <textarea class="new-message-input reply-to" name="input_reply_to" style="width:99%; resize: none;display : none;"></textarea>
+                </td>
+            </tr>
+			<tr class="subject-tr">
+				<td class="field">
+					<%=get_lang("Subject")%>:
+				</td>
+				<td class="value">
+					<input name="input_subject" class="new-message-input subject" style="width:99.2%; border-radius: 5px;"></input>
+				</td>
+			</tr>
+			<tr class="message-general-options" style="display:none;">
+				<td class="field">
+					<label for="important_message"><%=get_lang("Important message")%></label>
+					<label for="textplain_rt_checkbox"><%=get_lang("Simple text mode")%></label>
+					<label for="return_receipt"><%=get_lang("Return receipt")%></label>
+				</td>
+				<td class="value">
+					<input type="checkbox" class="checkbox" name="input_return_receipt" <%=(parseInt(preferences.return_recipient_deafault) != 0 ? "checked='True'": "")%>/>
+					<input type="checkbox" class="checkbox" name="input_important_message"/>
+					<input type="checkbox" class="checkbox" name="textplain_rt_checkbox" <%=(parseInt(preferences.plain_text_editor) == 1 ? "checked='True'" : "")%>/>
+					<%
+					if(parseInt(preferences.use_assinar_criptografar)){
+						if(parseInt(preferences.use_signature_digital_cripto)){
+					%>
+						<input type="checkbox" class="checkbox" name="input_return_digital"/>
+						<input type="checkbox" class="checkbox" name="input_return_cripto"/>
+					<%
+						}
+					}
+					%>
+				</td>
+			</tr>
+			<tr class="attachment">
+				<td class="field">
+					<%=get_lang("Attachments: ")%>
+					<input style="display:none;" name="attDisposition<%= data.id %>" id="attDisposition<%= data.id%>" value="attachment"/>
+				</td>
+				<td class="value">
+					<div id="message-attach-dialog" title="'<%=get_lang("Select messages to attach...")%>" style="clear: both; display:none;")>&nbsp;</div>
+				</td>
+			</tr>
+		</table>	
+		<div class="editor">
+			<textarea id="body_<%= data.id %>" style="width : 100%;"></textarea>
+		</div>
+		<input type="hidden" name="input_folder"/>
+		<input type="hidden" name="msg_reply_from"/>
+		<input type="hidden" name="msg_forward_from"/>
+		
+	</form>
+</div>

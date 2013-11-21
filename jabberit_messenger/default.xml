@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<preferences>
+	<!-- Message Receive -->
+	<preference key="jeti.toFrontOnNewMessage" value="false"/>
+	
+	<!-- File Transfer -->
+	<preference key="filetransfer.closeOnComplete" value="true"/>
+	<preference key="filetransfer.useLocalIP" value="true"/>
+	
+	<!--Main Jeti menu-->
+	<preference key="jeti.jetimenuShowMessage" value="false"/>
+	<preference key="jeti.jetimenuShowAccount" value="false"/>
+	<preference key="jeti.jetimenuShowOptions" value="false"/>
+	<preference key="jeti.jetimenuShowLog" value="false"/>
+	<preference key="jeti.jetimenuShowAddContact" value="false"/>
+	<preference key="jeti.jetimenuShowChat" value="false"/>
+	<preference key="jeti.jetimenuShowExit" value="false"/>
+	<preference key="jeti.jetimenuShowComment" value="false"/>
+
+	<!--Roster menu-->
+	<preference key="jeti.rostermenuShowMessage" value="false"/>
+	<preference key="jeti.rostermenuShowChat" value="false"/>
+	<preference key="jeti.rostermenuSubscriptions" value="true"/>
+	<preference key="jeti.rostermenuRemove" value="true"/>
+	<preference key="jeti.rostermenuRename" value="true"/>
+	<preference key="jeti.rostermenuGroup" value="true"/>
+	<preference key="jeti.rostermenuLocalTime" value="false"/>
+	<preference key="jeti.rostermenuLocalVersion" value="false"/>
+	<preference key="jeti.rostermenuLastSeen" value="false"/>
+	<preference key="jeti.rostermenuInvisible" value="false"/>
+	<preference key="jeti.language" value="pt"/>
+	<preference key="jeti.jetiShowError" value="false"/>
+	<preference key="jeti.hideLoginWindow" value="false"/>
+
+	<!--Hide the server selection box-->
+	<preference key="jeti.hideServerSelect" value="true"/>
+	<!--Hide the port and ssl selection in the login window-->
+	<preference key="jeti.hidePortSelect" value="true"/>
+	<!--Hide the resource input field-->
+	<preference key="jeti.hideResourceInput" value="true"/>
+	<!--Hide the register button-->
+</preferences>

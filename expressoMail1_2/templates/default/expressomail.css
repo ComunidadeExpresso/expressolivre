@@ -1,0 +1,287 @@
+/* attachments list on message screen */
+.expressomail-attachments { background:#EEE; font-size:11px; width:100%; margin:0; padding:0;}
+.expressomail-attachments-label {display:block; float:left;}
+ul.expressomail-attachments-list { list-style:none; display:block; margin-left:40px;}
+ul.expressomail-attachments-list li {}
+.expressomail-attachments-link { font-size:11px;}
+
+textarea{
+    overflow:hidden;
+    height:auto;
+/*    width:18px;
+	resize: none;*/
+}
+a.rich{
+	padding : 5px;
+	cursor : pointer;
+	text-align: center;
+}
+button.adress_button {width: 47px; text-align: center;}
+span.ui-icon.expressomail-icon-read-confirmation { background-image: url(images/notification.gif) !important; background-position: 0px 0px; width: 24px; height: 24px;}
+span.ui-icon.expressomail-icon-save { background-image: url(images/disk.png) !important; background-position: 0px 2px; width: 16px; height: 16px; background-size: 13px;}
+span.ui-icon.expressomail-icon-signature { background-image: url(images/signature.gif) !important; background-position: 8px 2px; width: 24px; height: 24px; background-size: 13px;}
+span.ui-icon.expressomail-icon-encryption{ background-image: url(images/lock.png) !important; background-position: 7px 1px; width: 24px; height: 24px; background-size: 13px;}
+span.ui-icon.expressomail-icon-send { background-image: url(images/send.png) !important; background-position: -2px 2px; width: 25px; height: 16px; background-size: 19px;}
+span.ui-icon.expressomail-icon-save_and_send { background-image: url(images/save_and_send.png) !important; width: 25px; height: 16px; background-size: 17px;}
+span.ui-icon.expressomail-icon-important { background-image: url(images/important.png) !important; background-position: 7px 1px; width: 24px; height: 24px; background-size: 13px;}
+
+/* thumbs list on message screen */
+.expressomail-thumbs { font-size:11px; width:100%; max-width:100%; margin:20px 0 0 0; border-top:1px solid #AAA; float: left}
+.expressomail-thumbs-label {}
+.message_options {}
+.expressomail-thumbs span.message_tips { display:block; padding-left:18px; line-height:18px;height:18px; background-image: url(images/menu/ktip.png); background-repeat:no-repeat;}
+ul.expressomail-thumbs-list { list-style:none; margin:0; padding:0;}
+ul.expressomail-thumbs-list li {height:80px;  max-width:120px; max-height:80px; display:block; float:left; margin: 5px; padding:0;}
+ul.expressomail-thumbs-list li img {width:auto; height:100%; border: 2px solid #FDE7BC;}
+.expressomail-thumbs-link { font-size:11px;}
+ .jcarousel-container { width: auto;}
+ 
+ button.expressomail-button-icon-ative{color:#E17009; border: 1px solid #E17009;background: none repeat scroll 0 0 #FFE1CC;}
+
+/* todo o resto */
+table.expressomail-message-body {width:100%; height:100%;}
+table.table_message {
+background: #96b3d3; /* Old browsers */
+background: -moz-linear-gradient(top, #96b3d3 0%, #b4c9e4 30%, #d9e6ef 65%, #e2e9f1 70%, #e9f0f8 78%, #e8f1fa 83%, #dbe5ef 96%, #d9e3ed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#96b3d3), color-stop(30%,#b4c9e4), color-stop(65%,#d9e6ef), color-stop(70%,#e2e9f1), color-stop(78%,#e9f0f8), color-stop(83%,#e8f1fa), color-stop(96%,#dbe5ef), color-stop(100%,#d9e3ed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* IE10+ */
+background: linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96b3d3', endColorstr='#d9e3ed',GradientType=0 ); /* IE6-9 */
+}
+table.expressomail-message-body tr{vertical-align:top;}
+
+
+
+
+.table_message_options{
+	background-color: #000;
+	
+	/* Apenas para ie qualquer versao */
+	-moz-border-collapse: separate;
+	border-color: gray;
+
+    border-spacing: 0;
+    border-style: outset;
+    border-width: 0.01;
+    cursor: default;
+    padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	
+}
+
+.table_message_options_ie{
+
+	border-collapse: collapse;
+	background-color: #000;
+	border-color: gray;
+    border-spacing: 0;
+    border-style: outset;
+    border-width: 1;
+    cursor: default;
+    padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	
+}
+
+.table_message{
+	background-color: #000;
+	
+	/* Apenas para ie qualquer versao */
+	-moz-border-collapse: separate;
+	border-color: gray;
+	border-radius: 3px 3px 3px 3px;
+    border-spacing: 0;
+    border-style: outset;
+    border-width: 1px;
+    cursor: default;
+    padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	
+}
+
+.div_message_scroll { background: none repeat scroll 0% 0% WHITE; overflow: auto; padding-right: 5px;}
+a.message-attach-link { margin-left: 20px;}
+
+.messagescol td label {padding-right:20px;}
+.messagescol td.message-general-options .checkbox {margin: 5px 5px 0 0;}
+
+.ui-dialog-dragging {
+	opacity:0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.context-menu-item.icon-important { background-image: url(images/important.png); background-position: 6px 5px !important}
+.context-menu-item.icon-export { background-image: url(images/export.png); }
+.context-menu-item.icon-move { background-image: url(images/move.png); }
+.context-menu-item.icon-seen { background-image: url(images/seen.gif); }
+.context-menu-item.icon-unseen { background-image: url(images/unseen.gif); }
+.context-menu-item.icon-normal { background-image: url(images/door.png); }
+.context-menu-item.icon-followupflag { background-image: url(images/door.png); }
+
+
+.context-menu-item.icon-search-mail { background-image: url(images/menu/search.png); }
+.context-menu-item.icon-filter { background-image: url(images/menu/filters.png); }
+.context-menu-item.icon-edit-folder { background-image: url(images/menu/editfolders.png); }
+.context-menu-item.icon-share-mailbox { background-image: url(images/menu/usersfolders.png); }
+.context-menu-item.icon-label { background-image: url(images/menu/usersfolders.png); }
+.context-menu-item.icon-tag { background-image: url(images/menu/tag.png); background-size: 12px; background-position: 6px 2px !important;}
+.context-menu-item.icon-empty-trash { background-image: url(images/menu/trash.png); }
+.context-menu-item.icon-queue { background-image: url(images/menu/queue.png); }
+
+form.fileupload { margin: 14px 0 0 -13px; float: left; margin-bottom: -20px; }
+form.fileupload .files-list { margin-left: 5px; margin-top: -14px; padding: 0.2em 0.7em; }
+form.fileupload .files-list .delete-upload { top: 7px}
+ul.attachments-list { padding: 0; }
+.button-files-upload { float:left; }
+
+form.fileupload .ui-button .ui-button-text { line-height: 2; }
+form.fileupload .ui-button { margin-left: 5px; }
+form.fileupload .message-add-original-att { margin-left: 0px; }
+.button.add.button-add-attachment{margin: -9px 0 0 8px;}
+.button.upload{margin-bottom: 4px;}
+div.fileupload-buttonbar{padding: 0.2em 0.5em }
+.archive-error{color: #F00;}
+
+.progress.in-progress{width: 100px; height: 12px;}
+
+.row.fileupload-buttonbar{margin-top: -14px; padding: 0.2em 0.7em;}
+
+.archive-attach.name{width: 310px;}
+.archive-attach.name label{display: block; position: absolute; left: 136px; top: 194px;}
+.size{min-width: 65px;}
+
+.message-attach.name{width: 200px;}
+.message-attach.size{margin:0 4px 0 4px;}
+.message-attach-error{color:red;}
+
+
+/* Estilos da tela de busca rápida de contatos */
+
+.expressomail-qs-container { font-size:11px;} 
+.expressomail-qs-container legend { font-size:1.1em; font-weight: bold; } 
+.expressomail-qs-container #accordion { margin: 5px;} 
+.expressomail-qs-container fieldset, .expressomail-qs-container div {margin:0;}
+.expressomail-qs-container .ui-autocomplete-input { height:22px; width:200px; margin-right:-1px; }
+.expressomail-qs-container #wrap-progressbar { height:22px; width:122px;  float:left; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar { text-align:center; width:100px; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar span { font-size:10px; line-height:12px; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar #progressbar { width:100px; height:10px; }
+.expressomail-qs-container .clear {clear:both;}
+/*.expressomail-qs-container #fieldset1 label {width:495px;display:inline-block; border:4px solid #72A9D3;}*/
+.expressomail-qs-container fieldset { border:1px solid #AAA; border-radius:5px; margin:5px; }
+.expressomail-qs-container #ul {list-style:none; margin:0; padding:0;}
+.expressomail-qs-container #fieldset1 {color:#444;}
+.expressomail-qs-container #fieldset1 label {font-weight:bold; display:block;}
+
+.expressomail-qs-container #list-acc-users li, .expressomail-qs-container #search-result-users li {margin-right:5px;border-radius:3px;}
+.expressomail-qs-container #list-acc-mails li {margin-right:5px;padding-bottom:4px;border-radius:3px;}
+.expressomail-qs-container #list-acc-users li:hover, .expressomail-qs-container #list-acc-mails li:hover, .expressomail-qs-container #search-result-users li:hover {background-color:#DDD;}
+.expressomail-qs-container #list-acc-users li span.ui-icon, .expressomail-qs-container #list-acc-mails li span.ui-icon, .expressomail-qs-container #search-result-users li span.ui-icon {display:none; margin:2px;}
+.expressomail-qs-container #list-acc-users li input, .expressomail-qs-container #list-acc-mails li input, .expressomail-qs-container #search-result-users li input {margin-top:5px;}
+.expressomail-qs-container #list-acc-users li label, .expressomail-qs-container #list-acc-mails li label, .expressomail-qs-container #search-result-users li label {margin-top:-5px;}
+.expressomail-qs-container #list-acc-users li:hover span, .expressomail-qs-container #list-acc-mails li:hover span, .expressomail-qs-container #search-result-users li:hover span {display:inline;}
+.expressomail-qs-container #search-result-users li span.ui-icon {display:none;}
+.expressomail-qs-container .ui-icon {float:right;}
+.expressomail-qs-container #icon-bar1 .ui-icon {float:left; margin:0 3px;}
+.expressomail-qs-container #icon-bar1 span {float:left; margin:2px 3px 0 0;}
+.expressomail-qs-container .ui-icon-trash, .expressomail-qs-container .ui-icon-edit, .expressomail-qs-container .ui-icon-close, .expressomail-qs-container .ui-icon-plus, .expressomail-qs-container .ui-icon-pencil {background-color:#EEE;}
+.expressomail-qs-container .ui-icon-trash:hover, .expressomail-qs-container .ui-icon-edit:hover, .expressomail-qs-container .ui-icon-close:hover, .expressomail-qs-container .ui-icon-plus:hover, .expressomail-qs-container .ui-icon-pencil:hover {background-color:#BBB;}
+.expressomail-qs-container .ui-autocomplete-input {width:170px;}
+.expressomail-qs-container .ui-accordion .ui-accordion-content{padding:5px;}
+
+.expressomail-qs-container .foot-note {width:905px; padding:5px;margin-top:20px;border-top:1px solid #ddd;}
+.expressomail-qs-container .acc-list {font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif; font-size:11px; color:#555; }
+.expressomail-qs-container .acc-list h3{font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif; font-size:11px; color:#555; margin:0; padding:5px 3px; background-color:#fff;}
+.expressomail-qs-container .acc-list ul{ margin:5px 0;}
+.expressomail-qs-container .acc-list ul li{ border-radius:3px; padding:5px;}
+.expressomail-qs-container .acc-list ul li:hover {background-color:#DDD;}
+.expressomail-qs-container .acc-list ul li.active {background-color:#EB8F00;}
+.expressomail-qs-container .acc-list ul li strong {display:block;}
+.expressomail-qs-container .acc-list ul li em {display:block;}
+
+/*Específico do selectable*/
+.expressomail-qs-container #feedback { font-size: 1.4em; }
+.expressomail-qs-container #selectable .ui-selecting { background: #DDECF7; }
+/* #selectable .ui-selected { background: #F39814; color: white; }   Aqui eu troquei a cor de quando era selecionada a linha */
+.expressomail-qs-container #selectable .ui-selected { background: #72A9D3; color: white; }
+
+.expressomail-qs-container #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+.expressomail-qs-container ul#selectable { overflow: hidden; width: 444px; height: 250px;}
+.expressomail-qs-container ul#selectable li { width: 435px; overflow:hidden; }
+.expressomail-qs-container ul#selectable li.ui-selected { width: 100%;  }
+.expressomail-qs-container ul#selectable li div { width: 6000px; }
+.expressomail-qs-container .ui-button-icon-only { width: 1.2em; }
+.expressomail-qs-container .ui-icon { margin-left: -8px; }
+.expressomail-qs-container .ui-widget button { border: 0 solid; } 
+
+.expressomail-qs-container .menu-control { float:right; margin-left:400px; position: absolute; z-index: 100; padding-top:5px;}
+.expressomail-qs-container .acc-list { width:444px;height:250px;float:left;border:1px solid #DDD;background-color:#EEE;border-radius:3px;margin-left:1px; margin: 10px 5px 5px 1px;}
+.expressomail-qs-container .details-container { width:300px;height:246px; float:right; margin: 5px 0;}
+
+.expressomail-qs-container .acc-list .demo {width:100%;margin-top:20px;}
+
+.dialog-modal.expressomail-qs-container  { height: 416px; padding:5px; }
+
+.ui-dialog .ui-dialog-buttonpane { padding: 0; border:none; margin: 0;}
+.expressomail-qs-container .menu-control .ui-button-text-only .ui-button-text { padding: 0.1em 0.6em; }
+
+/* search area definition */
+fieldset.search-field, fieldset.search-catalog-options {
+	border:1px solid #CFCFCF;
+	padding: 5px;
+}
+
+fieldset.search-field input, fieldset.search-catalog-options select{
+	display: inline-block;
+	border: none;
+	background-color: #FFF;
+}
+
+fieldset.search-field span {
+	display: inline-block;
+	margin:0 0 -3px 5px;
+}
+
+/* #search area definition */
+fieldset.search-field { max-width: 190px; width: 190px; margin: 0px; text-align: left; display: inline;}
+fieldset.search-field input { max-width: 165px; width: 165px; }
+
+fieldset.search-catalog-options { max-width: 124px; width: 120px; margin: 0px; text-align: left; display: inline;}
+fieldset.search-catalog-options select { max-width: 120px; width: 120px; }
+
+
+.ui-dialog .ui-dialog-titlebar-minimize {
+    height: 18px;
+    margin: -10px 0 0;
+    padding: 1px;
+    position: absolute;
+    right: 1.8em;
+    top: 50%;
+    width: 19px;
+}
+
+.ui-dialog-buttonpane .ui-button {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+ 
+.button-mod { margin-top: -2.5em; }
+
+/*print.css */
+
+.print-all-messages h1 { font-size: 1.35em; }
+.print-all-messages h2 { font-size: 1.05em; }
+.print-all-messages tbody { font-size: 0.95em; }
+.print-all-messages thead td { font-weight: bold; padding: 3px; border-bottom: solid 2px #999; }
+.print-all-messages tbody td { border-bottom: solid 1px #ccc; }
+.print-all-messages img { display: none; }
+.print-all-messages input { display: none; }

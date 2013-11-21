@@ -1,0 +1,127 @@
+
+<%
+	if (data.messages.length == 1) {
+		var followupflagged = data.messages[0].followupflagged ? data.messages[0].followupflagged : { followupflag: {id: 1} };
+		if (followupflagged.doneDeadline)
+			followupflagged.doneDeadline = Date.parseExact(followupflagged.doneDeadline, 'yyyy-MM-dd HH:mm:ss');
+		if (followupflagged.alarmDeadline)
+			followupflagged.alarmDeadline = Date.parseExact(followupflagged.alarmDeadline, 'yyyy-MM-dd HH:mm:ss');
+
+	} else if (data.messages.length > 1) {
+		var followupflagged = {
+			followupflag: {name: true, id: 1},
+			isDone: true,
+			doneDeadline: true,
+			alarmDeadline: true,
+			backgroundColor: true
+		}
+		/**
+		 * O campo só fica preenchido se o valor for igual para todas as mensagens
+		 */
+		for(var i=0; i<data.messages.length; i++){
+			if (!data.messages[i].followupflagged) {
+				followupflagged = { followupflag: {name: false, id: false} };
+				break;
+			}
+		}
+		for (var i=1; i<data.messages.length; i++) {
+			followupflagged.followupflag.name = (followupflagged.followupflag.name && data.messages[i].followupflagged.followupflag.name == data.messages[i-1].followupflagged.followupflag.name) ?
+				data.messages[i].followupflagged.followupflag.name : false;
+				
+			followupflagged.followupflag.id = (followupflagged.followupflag.id && data.messages[i].followupflagged.followupflag.id == data.messages[i-1].followupflagged.followupflag.id) ?
+				data.messages[i].followupflagged.followupflag.id : false;
+				
+			followupflagged.isDone = (followupflagged.isDone && data.messages[i].followupflagged.isDone == data.messages[i-1].followupflagged.isDone) ?
+				data.messages[i].followupflagged.isDone : false;
+				
+			followupflagged.doneDeadline = (followupflagged.doneDeadline && data.messages[i].followupflagged.doneDeadline == data.messages[i-1].followupflagged.doneDeadline) ?
+				Date.parseExact(data.messages[i].followupflagged.doneDeadline, 'yyyy-MM-dd hh:mm:ss') : false;
+				
+			followupflagged.alarmDeadline = (followupflagged.alarmDeadline && data.messages[i].followupflagged.alarmDeadline == data.messages[i-1].followupflagged.alarmDeadline) ?
+				Date.parseExact(data.messages[i].followupflagged.alarmDeadline, 'yyyy-MM-dd hh:mm:ss') : false;
+				
+			followupflagged.backgroundColor = (followupflagged.backgroundColor && data.messages[i].followupflagged.backgroundColor == data.messages[i-1].followupflagged.backgroundColor) ?
+				data.messages[i].followupflagged.backgroundColor : false;
+		}
+	}
+	var flagsId = new Array();
+	for(x=0; x<data.messages.length; x++){
+		if(data.messages[x].followupflagged)
+			flagsId[x] = data.messages[x].followupflagged.id;
+		else 
+			flagsId[x] = false;	
+	}
+%>
+<div class="followupflag-container">
+	<fieldset class="basic-fields">
+		<legend><%= get_lang("Basic")%></legend>
+		<div class="followupflag-configure">
+			<input type="hidden" class="id-followup" value="<%=(flagsId)?flagsId:''%>" name="followupflagId">
+			<label class="label-name"><%= get_lang("Flag as")%>:</label> 
+			<select name="name">
+				<% for(var i=0; i<data.followupflags.length; i++) {  %>
+					<% var selected = (data.followupflags[i].id == followupflagged.followupflag.id ) ? 'selected="selected"' : '' %>
+					<% if(data.followupflags[i].id >= 1 && data.followupflags[i].id <= 6){ var innerOption = get_lang(data.followupflags[i].name)
+					}else{var innerOption = data.followupflags[i].name}%>
+					<option value="<%= data.followupflags[i].id %>" <%= selected %>><%= innerOption %></option>
+				<% } %>
+			</select>
+			<div class="alarm-fields">
+				<input type="checkbox" name="alarm" <%=(followupflagged.alarmDeadline) ? 'checked="checked"' : '' %> /><label><%= get_lang("Alarm")%>: </label>
+				<input type="text" name="alarmDate" class="date" size="12" value="<%=(followupflagged.alarmDeadline) ? followupflagged.alarmDeadline.toString('dd/MM/yyyy') : '' %>" /> 
+				<input type="text" name="alarmTime" class="time" size="8" disabled="disabled" value="<%=(followupflagged.alarmDeadline) ? followupflagged.alarmDeadline.toString('HH:mm') : '' %>" />
+			</div>		
+		   <div class="completed-followup">
+				<input type="checkbox" name="done" <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'checked="checked"' : '' %> /><label><%= get_lang("Done")%></label>
+		   </div>		
+		</div>
+		<div class="right-data input-done">
+			<label><%= get_lang("Conclusion")%>:</label>
+			<input <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'disabled="disabled"' : '' %> type="text" name="doneDate" class="date" size="12" value="<%=(followupflagged.doneDeadline) ? followupflagged.doneDeadline.toString('dd/MM/yyyy') : '' %>" /> <%= get_lang('at') %> 
+			<input <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'disabled="disabled"' : '' %> type="text" name="doneTime" class="time" size="8" value="<%=(followupflagged.doneDeadline) ? followupflagged.doneDeadline.toString('HH:mm') : '' %>" />
+		</div> 
+	</fieldset>
+
+	<fieldset class="followups-colorpicker color-fields">
+		<legend><%= get_lang("Flag color")%></legend>
+		<div class="left-seletor-flag">
+			<% 
+				var defaultColor = false;
+				var a = ["#00820F", "#E4D000", "#004DD6", "#FF2016", "#F96300"];
+				if (followupflagged.backgroundColor) {
+					for(var i = 0; i < a.length; i++) {
+						if(a[i] == followupflagged.backgroundColor) {
+							defaultColor = a[i];
+							break;
+						}
+					}
+				}
+			%>
+			<select name="setColor">
+				<option value="default" <%= (defaultColor && !followupflagged.backgroundColor) ? 'selected="selected"' : ''%> ><%= get_lang("Default")%></option>
+				<option value="custom" <%= (!defaultColor && followupflagged.backgroundColor) ? 'selected="selected"' : ''%> ><%= get_lang("Custom")%></option>
+			</select>
+		</div>
+		<div class="followupflag-color sample-list">
+			<img src="../prototype/modules/mail/img/flagDefault1.png" alt="#00820F" class="sample-item <%= (!followupflagged.backgroundColor || followupflagged.backgroundColor == '#00820F') ? 'selected' : '' %>"">
+			<img src="../prototype/modules/mail/img/flagDefault2.png" alt="#E4D000" class="sample-item <%= (followupflagged.backgroundColor == '#E4D000') ? 'selected' : '' %>"">
+			<img src="../prototype/modules/mail/img/flagDefault3.png" alt="#004DD6" class="sample-item <%= (followupflagged.backgroundColor == '#004DD6') ? 'selected' : '' %>"">
+			<img src="../prototype/modules/mail/img/flagDefault4.png" alt="#FF2016" class="sample-item <%= (followupflagged.backgroundColor == '#FF2016') ? 'selected' : '' %>"">
+			<img src="../prototype/modules/mail/img/flagDefault5.png" alt="#F96300" class="sample-item <%= (followupflagged.backgroundColor == '#F96300') ? 'selected' : '' %>"">
+		</div>
+		<div class="followupflag-color-fields">
+			<div class="form-item">
+				<label class="flag-label"><%= get_lang("Color")%>: </label>
+				<input type="text" name="backgroundColor" class="colorwell background-color" value="<%=(followupflagged.backgroundColor) ? followupflagged.backgroundColor : '#00820F' %>" readonly="readonly" />
+				<div class="flag-edit flag-color-preview" style="background: <%=(followupflagged.backgroundColor) ? followupflagged.backgroundColor : '#00820F' %> background-image:url(../prototype/modules/mail/img/mail-sprites.png);background-position: 0 -864px;">
+				</div>
+			</div>
+			<div class="colorpicker"></div>
+		</div>
+	</fieldset>
+	<div class="menu-container footer-container menu-configure-followupflag">
+		<span class="button delete"><%= get_lang("Remove")%></span>
+		<span class="button save"><%= get_lang("Apply")%></span>
+		<span class="button cancel"><%= get_lang("Cancel")%></span>
+	</div>
+</div> 

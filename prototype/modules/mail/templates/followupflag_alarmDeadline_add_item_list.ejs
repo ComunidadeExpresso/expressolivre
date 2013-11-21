@@ -1,0 +1,6 @@
+<li class="message-item <%= data.id %>">
+	<a onclick="cExecute('$this.imap_functions.get_info_msg&msg_number=<%= data.messageNumber %>&msg_folder=<%= data.folderName %>&alarm=true', show_msg);">
+		<%= data.a %>
+	</a>
+	<a onclick='cancelAlarm(this, "<%= data.id %>", "<%= data.messageNumber %>", "<%= data.folderName %>");' class="tiny button delete">close</a>
+</li>

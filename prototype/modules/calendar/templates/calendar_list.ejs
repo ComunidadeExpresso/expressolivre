@@ -1,0 +1,114 @@
+<%
+    var signatures = {'calendar': [], 'taskGroup': [], 'sharedCalendar': []};
+    for(var i = 0; i < data.signatures.length; i++)
+    {
+        if(data.signatures[i].calendar.type == 1){
+            signatures['taskGroup'].push(data.signatures[i]);
+        }else{
+            signatures[data.signatures[i].isOwner == 1 ? 'calendar' : 'sharedCalendar'].push(data.signatures[i]); 	
+        }
+    }
+%>
+
+<div class="all-list-calendars">
+
+    <div class="my-groups-task">
+        <a title='Grupos de tarefas' class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'>Grupos de tarefas</a>
+        <span class="status-list ui-icon ui-icon-triangle-1-s"></span>
+        <a href="#" class="button new new-calendar 1">Novo Grupo</a>
+        <ul class="list-calendars my-list-calendars">
+            <% for (var i=0; i < signatures['taskGroup'].length; i++) {%>
+            <li class="list-calendars-item list-calendars-item-<%= signatures['taskGroup'][i].calendar.id %>" title="<%= signatures['taskGroup'][i].calendar.name %>">
+
+                <div>
+                    <input class="calendar-view" type="checkbox" name="" value="<%= signatures['taskGroup'][i].calendar.id %>" <% if( signatures['taskGroup'][i].hidden != '1' ) { %> checked="checked" <% } %> />
+                    <label><%= signatures['taskGroup'][i].calendar.name %></label>
+
+                </div> 
+                <a class="cal-list-options-btn my-cal-list-options-btn-<%= signatures['taskGroup'][i].calendar.id %>" style="background-color:#<%=signatures['taskGroup'][i].backgroundColor%>; border-color:#<%= signatures['taskGroup'][i].borderColor%>;">
+                    <img src="../prototype/modules/calendar/img/arrow_down.png" width="10" height="10" class="cal-list-img"/>
+                </a>
+
+
+                <div class="cal-list-options my-cal-list-options-<%= signatures['taskGroup'][i].calendar.id %> hidden">
+                    <ul>
+                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['taskGroup'][i].calendar.id%>, 1);">Configurações</a></li>
+			<li><a href="#" onclick="show_modal_import_export(0,<%= signatures['taskGroup'][i].calendar.id%>, 1);">Importar</a></li>
+                        <li><a href="#" onclick="show_modal_import_export(1,<%= signatures['taskGroup'][i].calendar.id%>, 1);">Exportar</a></li>
+                        <%if(signatures['taskGroup'][i].type == '0'){%>
+			    <li><a href="#" onclick="remove_calendar(1);">Remover Grupo</a></li>
+			<%}%>
+                    </ul>
+
+                </div>
+            </li>
+            <%}%>
+
+        </ul>
+    </div>
+
+    <div class="my-calendars">
+        <a title='Minhas agendas' class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'>Minhas agendas</a>
+        <span class="status-list ui-icon ui-icon-triangle-1-s"></span>
+        <a href="#" class="button new new-calendar 0">Nova Agenda</a>
+        <ul class="list-calendars my-list-calendars">
+            <% for (var i=0; i < signatures.calendar.length; i++) {%>
+            <li class="list-calendars-item list-calendars-item-<%= signatures['calendar'][i].calendar.id %>" title="<%= signatures['calendar'][i].calendar.name %>">
+
+                <div>
+                    <input class="calendar-view" type="checkbox" name="" value="<%= signatures['calendar'][i].calendar.id %>" <% if( signatures['calendar'][i].hidden != '1') { %> checked="checked" <% } %> />
+                    <label><%= signatures['calendar'][i].calendar.name %></label>
+
+                </div> 
+                <a class="cal-list-options-btn my-cal-list-options-btn-<%= signatures['calendar'][i].calendar.id %>" style="background-color:#<%=signatures['calendar'][i].backgroundColor%>; border-color:#<%= signatures['calendar'][i].borderColor%>;">
+                    <img src="../prototype/modules/calendar/img/arrow_down.png" width="10" height="10" class="cal-list-img"/>
+                </a>
+
+
+                <div class="cal-list-options my-cal-list-options-<%= signatures['calendar'][i].calendar.id %> hidden">
+                    <ul>
+                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['calendar'][i].calendar.id%>, 0);">Configurações</a></li>
+                        <li><a href="#" onclick="show_modal_import_export(0, <%= signatures['calendar'][i].calendar.id%>, 0);">Importar</a></li>
+                        <li><a href="#" onclick="show_modal_import_export(1, <%= signatures['calendar'][i].calendar.id%>, 0);">Exportar</a></li>
+                        <li><a href="#" onclick="show_modal_shared(<%= signatures['calendar'][i].calendar.id%>);">Compartilhar agenda</a></li>
+                        <li><a href="#" onclick="remove_calendar(0);">Remover agenda</a></li>
+                    </ul>
+
+                </div>
+            </li>
+            <%}%>
+
+        </ul>
+    </div>
+
+    <div class="signed-calendars">
+        <a title='Agendas assinadas' class="title-signed-calendars" aria-expanded='false' role='button' tabindex='0'>Agendas assinadas</a>			
+        <span class="status-list-shared ui-icon ui-icon-triangle-1-s"></span>
+        <a href="#" class="button new new-calendar-shared tiny">Nova Agenda</a>
+
+        <ul class="list-calendars signed-list-calendars">
+            <% for (var i=0; i < signatures['sharedCalendar'].length; i++) {%>
+                <li class="list-calendars-item list-calendars-item-<%= signatures['sharedCalendar'][i].calendar.id %>" title="<%= signatures['sharedCalendar'][i].calendar.name %>">
+                 <div>
+        		    <input class="calendar-view" type="checkbox" name="" value="<%= signatures['sharedCalendar'][i].calendar.id %>" <% if( signatures['sharedCalendar'][i].hidden  != '1') { %> checked="checked" <% } %> />
+        		    <label><%= signatures['sharedCalendar'][i].calendar.name %></label>
+        		 </div>
+                <a class="cal-list-options-btn my-cal-list-options-btn-<%= signatures['sharedCalendar'][i].calendar.id %>" style="background-color:#<%=signatures['sharedCalendar'][i].backgroundColor%>; border-color:#<%= signatures['sharedCalendar'][i].borderColor%>;">
+                    <img src="../prototype/modules/calendar/img/arrow_down.png" width="10" height="10" class="cal-list-img"/></a>
+                <div class="cal-list-options my-cal-list-options-<%= signatures['sharedCalendar'][i].calendar.id  %> hidden">
+                    <ul>
+                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['sharedCalendar'][i].calendar.id %>, 0);">Configurações</a></li>
+                        <li><a href="#" onclick="show_modal_import_export(0, <%= signatures['sharedCalendar'][i].calendar.id%>, 0);">Importar</a></li>
+                        <li><a href="#" onclick="show_modal_import_export(1, <%= signatures['sharedCalendar'][i].calendar.id%>, 0);">Exportar</a></li>
+                        <%if(!signatures['sharedCalendar'][i].permission.acl['required']){%>
+                            <li><a href="#" onclick="cancel_signature(<%= signatures['sharedCalendar'][i].id %>);">Cancelar assinatura</a></li>
+                        <%}%>
+                    </ul>
+
+                </div>
+
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</div>

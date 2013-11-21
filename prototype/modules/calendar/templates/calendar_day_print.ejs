@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/print.css">
+		<title>Visualização Diária</title>
+	</head>
+	<body>	
+	<div class="day">
+		<div class="title_print"> <img src="../prototype/modules/calendar/img/navbar.png"> <%= data.InfoPage %> </div>			
+		<%
+		if(data.days){
+			for(var jj in data.days.events[0]){
+		%>
+			<div class="content_month_print">	
+				<div class="allDay_list_label"><span>Dia Todo</span></div>
+				<% for(var ii=0; ii<data.days.events[0][jj].events.length; ii++){ 
+					if(!data.days.events[0][jj].events[ii].allDay)
+						continue;
+				%>
+					<%
+						var img_type = "";
+						var title_type = "";
+						if(data.days.events[0][jj].events[ii].type == '1'){
+							img_type = "../prototype/modules/calendar/img/mini-event.png";
+							title_type = "Evento";
+						}if(data.days.events[0][jj].events[ii].type == '2'){
+							img_type = "../prototype/modules/calendar/img/mini-task.png"; 
+							title_type = "Tarefa";
+						}if(data.days.events[0][jj].events[ii].type == '3'){
+							img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
+							title_type = "Atividade";
+						}
+					%>
+					<div class="calendar_day_item_print"><img title="<%= title_type %>" src="<%= img_type %>"><span><%= data.days.events[0][jj].events[ii].summary %></span></div>
+				<% } %>
+			</div>
+			<div>
+				
+			<div class="calendar_list_print">
+			<% for(var ii=0; ii<data.days.events[0][jj].events.length; ii++){ 
+				if(data.days.events[0][jj].events[ii].allDay)
+					continue;
+			%>
+				<%
+					var img_type = "";
+					var title_type = "";
+					if(data.days.events[0][jj].events[ii].type == '1'){
+						img_type = "../prototype/modules/calendar/img/mini-event.png";
+						title_type = "Evento";
+					}if(data.days.events[0][jj].events[ii].type == '2'){
+						img_type = "../prototype/modules/calendar/img/mini-task.png"; 
+						title_type = "Tarefa";
+					}if(data.days.events[0][jj].events[ii].type == '3'){
+						img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
+						title_type = "Atividade";
+					}
+				%>
+				<div class="calendar_item_print"><img title="<%= title_type %>" src="<%= img_type %>"><span><%= data.days.events[0][jj].events[ii].startHour %> - <%= data.days.events[0][jj].events[ii].endHour %> | <%= data.days.events[0][jj].events[ii].summary %></span></div>
+			<% } %>
+			</div>
+			<br>			
+			</div><!--days-->
+		<%	
+			}
+		}%>
+	</div><!--mounth-->
+	</body>
+</html>

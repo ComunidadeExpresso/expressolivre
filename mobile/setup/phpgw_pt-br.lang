@@ -1,0 +1,173 @@
+attachment	mobile	pt-br	Anexo
+Add Recipient	mobile	pt-br	Adicionar Destinatário
+At %1, %2 hours, %3 wrote:	mobile	pt-br	Em %1 às %2 horas, %3 escreveu:
+more attachment	mobile	pt-br	mais anexo
+cancel	mobile	pt-br	Cancelar
+Calendar	mobile	pt-br	Agenda
+contact center	mobile	pt-br	Endereços
+messages	mobile	pt-br	mensagens
+continue	mobile	pt-br	Continuar
+context email	mobile	pt-br	Email
+context contact	mobile	pt-br	Contato
+context commitment	mobile	pt-br	Compromisso
+Do you like to delete this message?	mobile	pt-br	Deseja excluir esta mensagem?
+download attachs	mobile	pt-br	Deseja baixar anexos em e-mails?
+Download	mobile	pt-br	Efetuar o download do anexo
+draft not save	mobile	pt-br	Rascunho não foi salvo
+draft saved	mobile	pt-br	Rascunho foi guardado com sucesso
+Drafts	mobile	pt-br	Rascunhos
+events	mobile	pt-br	Eventos
+expresso mini	mobile	pt-br	Expresso Mini
+E-mail	mobile	pt-br	Caixa de Entrada
+From	mobile	pt-br	De
+Forward	mobile	pt-br	Encaminhar
+filter by	mobile	pt-br	Filtrar por
+Logout	mobile	pt-br	Sair
+To	mobile	pt-br	Para
+cc	mobile	pt-br	Cc
+mini desktop	mobile	pt-br	Mini Desktop
+mini mobile	mobile	pt-br	Mini Mobile
+my mail	mobile	pt-br	E-mails
+my contacts	mobile	pt-br	Contatos
+my commitments	mobile	pt-br	Compromissos
+my folders	mobile	pt-br	Outras Pastas
+mark as read	mobile	pt-br	marcar como lido
+more	mobile	pt-br	mais
+mark as important	mobile	pt-br	marcar como importante
+mark as unread	mobile	pt-br	marcar como não lido
+read confirmation	mobile	pt-br	receber confirmação de leitura
+add history	mobile	pt-br	adicionar histórico
+new mail	mobile	pt-br	Novo
+save draft	mobile	pt-br	Salvar rascunho
+edit draft	mobile	pt-br	Editar rascunho
+search return	mobile	pt-br	resultado de busca
+see details	mobile	pt-br	ver detalhes
+Subject	mobile	pt-br	Assunto
+Send	mobile	pt-br	Enviar
+Reply	mobile	pt-br	Responder
+Reply to All	mobile	pt-br	Responder a Todos
+Folder	mobile	pt-br	Pasta
+of	mobile	pt-br	de
+Inbox	mobile	pt-br	Caixa de Entrada
+Return	mobile	pt-br	Retornar à lista de E-mails
+Logout	mobile	pt-br	Sair
+People	mobile	pt-br	Pessoal
+Search	mobile	pt-br	Procurar
+search message	mobile	pt-br	Buscar mensagem
+Selected	mobile	pt-br	Selecionados
+Calendar	mobile	pt-br	Agenda
+Contact Center	mobile	pt-br	Contatos
+Create mail	mobile	pt-br	Novo Mail
+E-mail	mobile	pt-br	Cx Entrada
+E-mails	mobile	pt-br	E-mails
+forward attachments	mobile	pt-br	Anexos do encaminhamento
+This message have attachment(s)	mobile	pt-br	Este e-mail possui anexo(s)
+This message don't have attachment(s)	mobile	pt-br	Este e-mail não possui anexo(s)
+This message has the follow attachments:	mobile	pt-br	Esta mensagem possui anexo:
+Tips	mobile	pt-br	Dicas
+Catalog	mobile	pt-br	Catálogo
+Phone	mobile	pt-br	Telefone
+Message sent successfully	mobile	pt-br	Mensagem enviada com sucesso
+Message not sent	mobile	pt-br	Mensagem não enviada
+More Folders...	mobile	pt-br	Mais Pastas...
+error	mobile	pt-br	Erro: 
+Some addresses in the To field were not recognized. Please make sure that all addresses are properly formed	mobile	pt-br	Alguns endereços no campo "Para" não foram reconhecidos. Por favor certifique-se que todos endereços estão corretos
+Some addresses in the CC field were not recognized. Please make sure that all addresses are properly formed	mobile	pt-br	Alguns endereços no campo "Com Cópia" não foram reconhecidos. Por favor certifique-se que todos endereços estão corretos
+Empty folder	mobile	pt-br	Pasta vazia
+Accept	mobile	pt-br	Aceitar
+Accepted	mobile	pt-br	aceitou
+Reject	mobile	pt-br	Rejeitar
+Rejected	mobile	pt-br	rejeitou
+refresh	mobile	pt-br	Atualizar
+Location	mobile	pt-br	Local
+Start Date/Time	mobile	pt-br	Data/Hora Início
+End Date/Time	mobile	pt-br	Data/Hora Término
+schedule	mobile	pt-br	Agendar
+continue scheduling	mobile	pt-br	Continuar o agendamento
+already_addeds:	mobile	pt-br	Já adicionados:
+Start Date	mobile	pt-br	Data(Início)
+End Date	mobile	pt-br	Data(Término)
+Start Time	mobile	pt-br	Hora(Início)
+End Time	mobile	pt-br	Hora(Término)
+keep add participants	mobile	pt-br	Adicionar participantes
+your suggested time of <b> %1 - %2 </b> conflicts with the following existing calendar entries:	mobile	pt-br	Horário sugerido: <B> %1 - %2 </B> está em conflito com as seguintes entradas no calendário:
+scheduling conflict	mobile	pt-br	Conflito de agendamento
+Sent	mobile	pt-br	Enviados
+ignore conflict	mobile	pt-br	Ignorar conflito
+re-edit event	mobile	pt-br	Re-Editar evento
+username_mobile	mobile	pt-br	Usuário
+password_mobile	mobile	pt-br	Senha
+the search argument must have at least 4 digits	mobile	pt-br	O argumento da busca deve possuir pelo menos 4 dígitos
+choose the participants	mobile	pt-br	Escolha os participantes
+choose the recipients	mobile	pt-br	Escolha os destinatários
+Added	mobile	pt-br	Adicionado
+To See Commitment	mobile	pt-br	Para ver compromisso
+To accept	mobile	pt-br	Aceitar
+To reject	mobile	pt-br	Rejeitar
+Trash	mobile	pt-br	Lixeira
+alarm	mobile	pt-br	Alarme
+To Delegate	mobile	pt-br	Delegar
+No matches found	mobile	pt-br	Contato não localizado
+The message was moved to trash	mobile	pt-br	A mensagem foi movida para a lixeira.
+The messages were deleted	mobile	pt-br	As mensagens foram apagadas.
+The messages were moved to trash	mobile	pt-br	As mensagens foram movidas para a lixeira.
+The messages were marked as seen	mobile	pt-br	As mensagens foram marcadas como lidas.
+Reading Message	mobile	pt-br	Lendo mensagem
+What is the maximum number of messages per page?	mobile	pt-br	Qual o número máximo de mensagens por página?
+Option	mobile	pt-br	Opção
+one or more contacts couldnt be removed	mobile	pt-br	um ou mais contatos não puderam ser removidos
+one or more groups couldnt be removed	mobile	pt-br	um ou mais grupos não puderam ser removidos
+Value	mobile	pt-br	Valor
+your search was by	mobile	pt-br	você buscou por
+Search	mobile	pt-br	Procurar
+Yesterday	mobile	pt-br	Ontem
+Monday	mobile	pt-br	Segunda-feira
+Tuesday	mobile	pt-br	Terça-feira
+Wednesday	mobile	pt-br	Quarta-feira
+Thursday	mobile	pt-br	Quinta-feira
+Friday	mobile	pt-br	Sexta-feira
+Saturday	mobile	pt-br	Sábado
+selected contacts were removed successfully	mobile	pt-br	os contatos selecionados foram removidos com sucesso
+selected groups were removed successfully	mobile	pt-br	os grupos selecionados foram removidos com sucesso
+Sunday	mobile	pt-br	Domingo
+short Monday	mobile	pt-br	Seg
+short Tuesday	mobile	pt-br	Ter
+short Wednesday	mobile	pt-br	Qua
+short Thursday	mobile	pt-br	Qui
+short Friday	mobile	pt-br	Sex
+short Saturday	mobile	pt-br	Sáb
+short Sunday	mobile	pt-br	Dom
+Spam	mobile	pt-br	Spam
+You have been successfully logged out	mobile	pt-br	Você desconectou do expresso com sucesso.
+now	mobile	pt-br	Agora
+minutes ago	mobile	pt-br	minutos atrás
+minute ago	mobile	pt-br	minuto atrás
+no results found	mobile	pt-br	nenhum resultado encontrado
+not defined	mobile	pt-br	Não definido
+New message	mobile	pt-br	Nova mensagem
+need choose one option	mobile	pt-br	É preciso escolher pelo menos uma opção de busca
+search word need not be empty and has more then four char	mobile	pt-br	É preciso informar um argumento com mais de 4 dígitos para realizar a busca
+new	mobile	pt-br	nova
+Dont have event that day	mobile	pt-br	Não tem evento neste dia.
+Dont have event that week	mobile	pt-br	Não tem evento nesta semana.
+today	mobile	pt-br	Hoje
+view day	mobile	pt-br	Dia
+view calendar	mobile	pt-br	Calendário
+view week	mobile	pt-br	Semana
+Alias	mobile	pt-br	Apelido
+Family Names	mobile	pt-br	Sobrenome
+use contact	mobile	pt-br	usar contato
+Selecteds	mobile	pt-br	Selecionados
+confirm edit	mobile	pt-br	confirmar edição
+confirm add	mobile	pt-br	confirmar adição
+title view contact	mobile	pt-br	Visualizando Contato
+title edit contact	mobile	pt-br	Editando Contato
+title add contact	mobile	pt-br	Adicionando Contato
+invalid field e-mail	mobile	pt-br	Campo E-Mail inválido
+invalid field phone	mobile	pt-br	Campo Telefone inválido
+contact save successfully	mobile	pt-br	Contato salvo com sucesso
+Name is mandatory	mobile	pt-br	Nome é obrigatório
+Tel or email is required	mobile	pt-br	Você precisa informar ou o e-mail ou o telefone
+please select one contact	mobile	pt-br	Você precisa selecionar pelo menos um contato
+please select one e-mail	mobile	pt-br	Você precisa selecionar pelo menos um E-Mail
+context group	mobile	pt-br	Grupo

@@ -1,0 +1,247 @@
+<div title="Criar Evento" class="div-addevent content">
+    <form method="POST" action="<%=(data.event.acl.organization || data.event.acl.write) ?  "schedulable:detail" : "schedulable:preview"%>" class="form-addevent content">
+
+	<fieldset id="calendar_addevent_details1">
+		<legend class="hidden">Detalhes do evento</legend>
+		<p class="input-group">
+			<input type="text" class="h1" name="summary" <%=(data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> value="<%= (data.event.summary) ? data.event.summary : '' %>"/>
+			<% if( data.event.id ){ %>
+				<input type="hidden" class="id-event" name="idEvent" value="<%= data.event.id %>"/>
+			<% } %>
+                        <% if( data.event.id && data.event.calendar ){ %>
+				<input type="hidden" class="last-calendar" name="lastCalendar" value="<%= data.event.calendar %>"/>
+			<% } %>
+		</p>
+		<p class="input-group date-info">
+			<input type="text" class="date start-date" value="<%= (data.event.startDate) ? data.event.startDate : '' %>" <%=(data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> name="startDate" />
+			<input type="text" class="time start-time<%= (data.event.allDay) ? ' hidden' : '' %>" value="<%= (data.event.startHour) ? data.event.startHour : '' %>" <%= (data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> name="startHour" /> 
+			<span>até</span>
+			<input type="text" class="date end-date" value="<%= (data.event.endDate) ? data.event.endDate : '' %>" <%= (data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> name="endDate" />
+			<input type="text" class="time end-time<%= (data.event.allDay) ? ' hidden' : '' %>" value="<%= (data.event.endHour) ? data.event.endHour : '' %>" <%=(data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> name="endHour" />
+
+			<a href="#" class="calendar_addevent_details_lnk_timezone <%=((data.event.acl.organization || data.event.acl.write)) ? '' : "hidden" %>">Fuso horário</a>
+<!--			<input type="text" name="timezone" style="display: none;" />-->
+			<select name="timezone" class="hidden calendar-addevent-details-txt-timezone">
+				<option value="">- None selected -</option>
+				<% for( var tzId in data.event.timezones ){ %>
+				  <option value="<%= tzId %>" <%= data.timezone === tzId ? 'selected="selected"' : '' %>><%= tzId + ' (' + data.event.timezones[ tzId ] + ')' %></option>
+				<% } %>
+			</select>
+			
+			<a class="button suggestion-hours small <%=(data.event.acl.organization || data.event.acl.write || !data.event.isAttendee) ? "hidden" : '' %>" href="#">Sugerir horário</a>
+			
+		</p>
+				
+		<div class="ui-widget messages-validation hidden">
+			<div style="padding: 0.2em 0.7em;" class="ui-state-error ui-corner-all"> 
+				<p class="message">
+					<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span> 
+					<label></label>
+				</p>
+			</div>
+		</div>
+		
+		<p class="input-group event-type">
+			<input type="checkbox" name="allDay" value="true" <%= (data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> <%= (data.event.allDay) ? 'checked="checked"' : '' %>/>
+			<label for="allDay">Dia inteiro</label>
+<!--
+			<input type="checkbox" class="button-repeat" />
+			<label for="calendar_addevent_details_chk_repeat">Repetir</label>-->
+		</p>
+	</fieldset>
+	<ul>
+		<li><a href="#calendar_addevent_details2">Detalhes do evento</a></li>
+		<li><a href="#calendar_addevent_details3">Repetir</a></li>
+		<li><a href="#calendar_addevent_details4">Lembretes</a></li>
+		<li><a href="#calendar_addevent_details5">Anexos</a></li>
+		<li><a href="#calendar_addevent_details6">Participantes</a></li>
+		<li><a href="#calendar_addevent_details7">Disponibilidade</a></li>
+	</ul>
+	<fieldset id="calendar_addevent_details2" class="tab-level2">
+		<legend class="hidden">Detalhes do evento</legend>
+		<p class="input-group event-info">
+			<label for="calendar_addevent_details_txt_local">Onde</label>
+			<input type="text" name="location" <%=(data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> value="<%= (data.event) ? data.event.location : '' %>"/>
+		</p>
+
+		<p class="input-group">
+			<label for="calendar_addevent_details_txtarea_description" class="for-textarea" >Descrição</label>
+			<textarea name="description" <%= (data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> ><%=(data.event) ? data.event.description : '' %></textarea>
+		</p>
+
+		<p class="input-group">
+			<label for="calendar_addevent_details_slt_cal">Agenda</label>
+			<select name="calendar">
+			<% 
+			  for (var i=0; i< data.event.calendars.length; i++) {
+			    if(data.event.calendars[i].id != data.event.calendar && Calendar.signatureOf[data.event.calendars[i].id].isOwner != '1' && !Calendar.signatureOf[data.event.calendars[i].id].permission.acl.write)
+				continue;
+			%>
+			    <% if( data.event.isShared ){ %>
+                    <% if(data.event.calendars[i].id == data.event.calendar){ %>
+                        <option value="<%= data.event.calendars[i].id %>"><%= data.event.calendars[i].name %></option>
+                    <%}%>
+
+                <% }else { %>
+
+                <option value="<%= data.event.calendars[i].id %>" <%= data.event.calendars[i].id == data.event.calendar ? 'selected="selected"':'' %>><%= data.event.calendars[i].name %></option>
+                <% } %>
+
+
+			<% } %>
+			</select>
+				<span class="creation-date-label">Evento criado em <%= data.event.creationDate[0] %> às
+					<%= data.event.creationDate[1] %> horas e <%= data.event.creationDate[2] %> minutos.
+				</span>
+		</p>
+
+
+		<fieldset class="hidden">
+			<legend class="hidden">Publicidade</legend>
+			<!--
+			<p class="input-group">
+				<label class="input-group">Mostrar-me como</label>
+				<input type="radio" checked="checked"/>
+				<label for="calendar_addevent_details_rdo_status1">Dispon?vel</label>
+				<input type="radio"/>
+				<label for="calendar_addevent_details_rdo_status2">Ocupado</label>
+			</p>
+			-->
+			<p class="input-group">
+				<label class="input-group">Privacidade</label>
+				<input type="radio" name="class" value="1" checked="checked"/>
+				<label for="calendar_addevent_details_rdo_class1">Padrão</label>
+				<input type="radio" name="class" value="2" />
+				<label for="calendar_addevent_details_rdo_class2">Público</label>
+				<input type="radio" name="class" value="3" />
+				<label for="calendar_addevent_details_rdo_class3">Privado</label>
+			</p>
+			
+		</fieldset>
+		
+	</fieldset>
+
+	<fieldset id="calendar_addevent_details3" class="tab-level2">
+		
+	</fieldset>
+	
+	<div class="overflow_add_calender">
+	<fieldset id="calendar_addevent_details4" class="tab-level2">
+		<legend class="hidden">Lembretes</legend>
+		
+		<p class="default-alarm-event <%= (!data.event.id && data.event.alarms) ? '' : 'hidden'%>">
+			<input type="checkbox" name="defaultAlarm" value="true" checked="checked"/>
+			<label class="input-default-alarm" for="defautAlarm">Usar alarmes padrões</label>
+		</p>
+	
+		<ul class="event-alarms-list">
+			<% if (data.event && data.event.alarms) {
+				for (var i=0; i< data.event.alarms.length; i++) {
+			%>
+			<li class="input-group">
+				<label>Avisar-me por </label>
+				<select name="alarmType[]">
+                                    <option value="alert" <%= data.event.alarms[i].type=='alert' ? 'selected="selected"':'' %>>Alerta</option>
+                                    <option value="mail" <%= data.event.alarms[i].type=='mail' ? 'selected="selected"':'' %>>E-mail</option>
+                                    <!--<option value="sms" <%= data.event.alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
+				</select>
+				<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.event.alarms[i].time %>"/>
+				<select name="alarmUnit[]">
+					<option value="m" <%= data.event.alarms[i].unit=='m' ? 'selected="selected"':'' %>>Minutos</option>
+					<option value="h" <%= data.event.alarms[i].unit=='h' ? 'selected="selected"':'' %>>Horas</option>
+					<option value="d" <%= data.event.alarms[i].unit=='d' ? 'selected="selected"':'' %>>Dias</option>
+				</select>
+				<input type="hidden" name="alarmId[]" value="<%=data.event.useAlarmDefault ? '' : data.event.alarms[i].id%>" />
+				<input type="hidden" name="isDefaultAlarm[]" value="<%=data.event.useAlarmDefault ? 1 : 0%>" />
+				<label> antes de cada evento.</label>
+				<a class="button remove tiny"></a>
+			</li>
+			<%	}
+			   }
+			%>
+		</ul>
+		<span class="button add button-add-alarms">Adicionar lembrete</span>
+	
+	</fieldset>
+	</div>
+	
+	<fieldset id="calendar_addevent_details6" class="tab-level2" title="Participantes">
+	</fieldset>	
+	
+	<fieldset id="calendar_addevent_details7" class="tab-level2" title="Disponibilidade">
+	</fieldset>
+	
+	<fieldset class="attachment-list hidden">
+             <%if(data.event && data.event.attachments){
+                for (var i=0; i< data.event.attachments.length; i++) {%>
+                    <input type="hidden" name="fileId[]" value="<%=data.event.attachments[i].id%>"/>
+                <%}
+            }%>
+	</fieldset>
+    </form>
+    
+<div class="overflow_add_calender">
+	<fieldset id="calendar_addevent_details5" class="tab-level2">
+        <form id="fileuploadevent" action="attachment:detail" method="POST">
+        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+        <div class="row fileupload-buttonbar">
+            <div class="button-files-upload">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <%if(data.event.acl.organization || data.event.acl.write){%>
+		    <span class="button btn-success fileinput-button">
+                    <span><i class="icon-plus icon-white"></i> Adicionar</span>
+                    <input type="file" name="files[]" multiple>
+                </span>
+				<%}%>
+				<%if(data.event.acl.organization || data.event.acl.write){%>
+					<button type="button" class="button btn-danger delete <%= data.event && data.event.attachments && data.event.attachments.length ? '' : 'hidden' %>">
+						<i class="icon-trash icon-white"></i> Remover Todos
+					</button>
+				<%}%>
+            </div>
+            <div id="fileupload-progress-event"></div>
+            <div class="files-list">
+               <ul class="attachments-list">
+			   <%if(data.event && data.event.attachments){
+					for (var i=0; i< data.event.attachments.length; i++) {
+					%>
+						<p class="input-group arquive-info">
+							<label class="lbl-archive-nome">Nome:</label>
+							<span class="archive-nome"><%=data.event.attachments[i].name%></span>
+							
+							<label class="lbl-archive-size">Tamanho:</label>
+							<span class="archive-size"><%=data.event.attachments[i].size%></span>
+							<a href="../prototype/getArchive.php?attachment=<%=data.event.attachments[i].id%>" class="button tiny upload downlaod-archive">Download</a>
+							<%if(data.event.acl.organization || data.event.acl.write){%>
+								<span class="button close tiny upload edit delete-upload" title="Deletar">Deletar</span>
+							<%}%>
+							<input type="hidden" name="fileId[]" value="<%=data.event.attachments[i].id%>"/>
+						</p>
+					<%}
+				}%>
+			   
+			   
+			   </ul>
+            </div>
+        </div>
+        <br>
+        
+    </form>
+	</fieldset>
+</div>
+	<form action="../prototype/modules/calendar/export.php" method="GET" class="form-export content">
+		<input type="hidden" class="id-event" name="event" value="<%= data.event.id %>"/>
+	</form>
+<!--	<div id="calendar_addevent_addattendee"></div>-->
+
+    <div title="" class="menu-container footer-container menu-addevent">
+	    <% if (data.event.id) { %>
+			<a title="Exportar" class="button export" href="#">Exportar</a>
+			<a title="Excluir" class="button delete" href="#">Excluir</a>
+	    <% } %>
+		<a title="Cancelar" class="button cancel" href="#">Cancelar</a>
+	    <a title="Salvar" class="button save" href="#">Salvar</a>
+    </div>
+</div>
+<!--<script src="application.js"></script>-->
+<!--<script src="application.js"></script>-->

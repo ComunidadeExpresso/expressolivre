@@ -1,0 +1,107 @@
+Addresses	contactcenter	en	Addresses
+Address 1	contactcenter	en	Address 1
+Address 2	contactcenter	en	Address 2
+Address Other	contactcenter	en	Address other
+Alias	contactcenter	en	Alias
+Alternative	contactcenter	en	Alternative
+Automatic	contactcenter	en	Automatic
+Available	contactcenter	en	Available
+Birthdate	contactcenter	en	Birthday
+Browse	common	en	Browse
+Cards View	contactcenter	en	Cards View
+Catalog %1 not showed due to error: Time limit exceeded	contactcenter	en	Catalog %1 not showed due to error: Time limit exceeded
+Catalog %1 temporarily unavailable. Please try again later!	contactcenter	en	Catalog %1 temporarily unavailable. Please try again later!
+Catalogues	contactcenter	en	Catalogues
+Cellphone	contactcenter	en	Cellphone
+City	contactcenter	en	City
+Complement	contactcenter	en	Complement
+Confirm Removal of this Contact?	contactcenter	en	Confirm Removal of this Contact?
+Connection Name	contactcenter	en	Connection Name
+Connection Value	contactcenter	en	Connection Value
+Connections	contactcenter	en	Connetions
+Contact [Full]	contactcenter	en	Contact [Full]
+Contact [Quick Add]	contactcenter	en	Contact [Quick Add]
+Contact Center	common	en	Contact Center
+contactcenter	common	en	Contact Center
+Contacting Server...	contactcenter	en	Contacting Server...
+Contacts	common	en	Contacts
+Country	contactcenter	en	Country
+Copy to personal catalog.	contactcenter	en	Copy to personal catalog
+Choose City	contactcenter	en	Choose City...
+Choose Country	contactcenter	en	Choose Country...
+Choose Prefix...	contactcenter	en	Choose Prefix...
+Choose Sex ...	contactcenter	en	Choose Sex...
+Choose State	contactcenter	en	Choose State...
+Choose Suffix...	contactcenter	en	Choose Suffix...
+Choose Type of Address	contactcenter	en	Choose Type of Address
+Choose Type of Connection	contactcenter	en	Choose Type of Connection
+Could\'nt remove group with id: %1	contactcenter	en	Could\'nt remove group with id: %1
+Couldn't contact server or server response is invalid. Contact Admin.	contactcenter	en	Couldn't contact server or server response is invalid. Contact Admin.
+Edit Contact	contactcenter	en	Edit Contact
+E-mails and Telephones	contactcenter	en	E-mails and Telephones
+Entry added with success!	contactcenter	en	Entry added with success! 
+Entry added with success. But some contacts will not receive or send messages.	contactcenter	en	Entry added with success. But some contacts will not receive or send messages.
+Export Contacts	contactcenter	en	Export Contacts
+Expresso (default)	contactcenter	en	Expresso (default)
+Family Names	contactcenter	en	Family Name
+Fax	contactcenter	en	Fax
+Female	contactcenter	en	Female
+Found %1 Entries	common	en	Found %1 Entrie(s)
+Full Name	contactcenter	en	Full Name
+Given Names	contactcenter	en	Given Names
+GPG Finger Print	contactcenter	en	GPG Finger Print
+Go	common	en	Go
+Home Phone	contactcenter	pt-br	Home
+Import Contacts	contactcenter	en	Import Contacts
+Import/Export	contactcenter	en	Import/Export
+Is Default?	contactcenter	en	Is Default?
+Main	contactcenter	en	Main
+Male	contactcenter	en	Male
+New	contactcenter	en	New
+New...	contactcenter	en	New...
+New City	contactcenter	en	New City
+New Email	contactcenter	en	New Email
+New from the same Type	contactcenter	en	New from the same Type
+New State	contactcenter	en	New State
+New Telephone	contactcenter	en	New Telephone
+No Cards	contactcenter	en	No Cards
+No City	contactcenter	en	No City
+No Entries Found!	contactcenter	en	No Entries Found!
+No State	contactcenter	en	No State
+No Cities found for this State.	contactcenter	en	No Cities found for this State.
+No States found for this Country.	contactcenter	en	No Cities found for this Country.
+Pager	contactcenter	en	Pager
+People	contactcenter	en	People
+Phone	contactcenter	en	Phone
+Postal Code	contactcenter	en	Postal Code
+PO Box	contactcenter	en	PO Box
+Prefix	contactcenter	en	Prefix
+Problems on adding your Group. Be sure that a group with this name do not exists	contactcenter	en	Problems on adding your Group. Be sure that a group with this name do not exists
+Processing Information...	contactcenter	en	Processing Information...
+Quick Add	contactcenter	en	Quick Add
+Reset	contactcenter	en	Reset
+Remove Entry ID %1!	contactcenter	en	Remove Entry ID %1!
+Remove Contact	contactcenter	en	Remove Contact
+Search for...	common	en	Search for ...
+Search for Catalog Entries	contactcenter	en	Search for Catalog Entries
+Select Photo	contactcenter	en	Select Photo
+Select the file type	contactcenter	en	Select the file type
+Select the file that contains the contacts to be imported:	contactcenter	en	Select the file that contains the contacts to be imported:
+Select the telephone	contactcenter	en	Select the telephone
+Select E-Mail	contactcenter	en	Select E-Mail
+Send Mail	common	en	Send Mail
+Sex	contactcenter	en	Sex
+Showing found entries	common	en	Showing found entries 
+State	contactcenter	en	State
+Suffix	contactcenter	en	Suffix
+Table View	contactcenter	en	Table View
+The Expresso supports the contacts importation in the CSV file format.	contactcenter	en	The Expresso supports the contacts importation in the CSV file format.
+Telephone	contactcenter	en	Telephone
+Call Extension	contactcenter	en	Call Extension
+Type new city here	contactcenter	en	Type new city here
+Type new state here	contactcenter	en	Type new state here
+Type of Connection	contactcenter	en	Type of Connection
+Type of Address	contactcenter	en	Type of Address 
+Unavailable or empty Catalog	contactcenter	en	Unavailable or empty Catalog 
+Updated Successfully!	contactcenter	en	Updated Successfully!
+Work	contactcenter	en	Work

@@ -1,0 +1,282 @@
+/**********GLOBAL RESET*************/
+body {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:medium;font-family:Arial, Helvetica, sans-serif;}
+body { -webkit-text-size-adjust: none; }
+
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, code, del, 
+dfn, em, img, q, dl, dt, dd, ol, fieldset, form,  
+label, legend, table, caption, tbody, tfoot, thead, tr, th, 
+td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;}
+
+button{height:22px; font-size:xx-small; line-height:22px; }
+checkbox {padding:0; margin:0}
+input[type="file"] {height:30px}
+
+/*INSERIDOS*/
+
+table {border-collapse:separate;border-spacing:0;}
+
+#busca table { width:100%;}
+.gd {width:90%; padding:2px 0;}
+.pq {width:10%; padding-left:5px; padding-right:5px; text-align:center;}
+.bt {width:10%; padding-left:10px; }
+
+caption, th, td {text-align:left;}
+table, td, th {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";}
+blockquote, q {quotes:"" "";}
+a img {border:none;}			
+a:link, a:visited {text-decoration: none; font-size:small;}
+li {list-style:none;}
+
+/***************Elementos******************/
+
+h1{ padding-top: 5px; height:20px; font-size:small; padding-left:5px; color:#FFFFFF; float:left;}
+dt {font-size:small; color:#3E3E3D; background:#CEE5EF; width:100%;}
+.dt-titulo, .dt-azul, .dt-branco {background:#EEF7FA; clear:both; display:table;  width:100%;}
+.dt-branco {background:#FFF;}
+.dt-titulo {background:#CEE5EF;}
+.fundo-branco-alinha{background:#FFF; margin-left:8px}
+.fundo-azul-alinha{background:#EEF7FA; margin-left:8px}
+
+.espacamento, .espacamento_contato_search{padding:5px 0 5px 25px; margin:0 0 5px 0 }
+.espacamento_contato_search{padding-left:5px;}
+#palavra-procurada {background:#C0DCE9; height:22px; padding: 6px 0 0 4px; width:auto}
+#editando{font-size:120%; color:#666; margin-left:5px}
+div > p.dt-azul > strong{ margin-left:8px; float:left }
+
+dt.seen {font-weight:normal;width:100%;}
+dt.important, dt.important a {color:#FF0000;}
+dd{ padding-top:3px; /*padding-left:25px;*/ vertical-align:middle; font-size:small;}
+input{height: 15px;} /*o float left ta dando problema nos check boxs, por isso removi */
+textarea {width:94%; margin:0 0 0 5px}
+dt select, div.menu-contexto select {font-size:x-small; border:none; color:#ffffff; background-color:#2B84AF;}
+div.menu-contexto select{font-size:small; border:none; color:#ffffff; background-color:#2B84AF;}
+div.menu-contexto a {color:#FFFFFF; text-decoration:underline;}
+#operacao_lista {font-size:small; background-color:#C9C9C9; width:100%; min-height:18px; padding:4px 0}
+#operacao_lista span {font-size:x-small;}
+#menu_rodape {background-color:#F2F2F2; width:100%}
+#menu_rodape a {color:#2B84AF; font-size:small; }
+#menu_rodape_voltar{color:#666 !important; text-decoration:underline !important; font-size:small !important;}
+.busca-email-texto {margin-left:25px !important}
+
+/*ALTERADOS*/
+/*#text_area{width:98%; margin-top:10px; margin:auto }*/
+#corpo_mensagem { display:table; color:#666; width:98%; margin:auto;font-size:small; padding:8px 0}
+.corpo_mensagem_detalhe, .corpo_mensagem_bg_branco {background:#EFF8FB; width:99.5% !important; padding-left:0.5% }
+.corpo_mensagem_bg_branco {background:#FFF}
+#corpo_mensagem #foto {padding:5px 0; text-align:center}
+#corpo_mensagem #foto img {border:1px solid #2B84AF;}
+#corpo_mensagem #nome {font-size:small; width:100%;  font-weight:bold;}
+#corpo_mensagem #itens {font-size:x-small; float:left; font-weight:bold; text-align:right; padding-right:10px;}
+#corpo_mensagem #itens-preenchidos {font-size:x-small; width:50%; float:left; font-weight:normal;}
+#corpo_mensagem input {height:15px;}
+
+#campos-correspondencia {font-weight:bold; text-align:left;color:#666; background-color:#CEE5EF; width:100%; padding:10px 0; display:table}
+#campos-correspondencia p{margin-left:0}
+.email-campos-alinhado{width:56px; text-align:right; border:#333 solid 1px; font-weight:bold; }
+ 
+
+.posiciona-esquerda {font-size:small;  float:left; font-weight:normal; text-align:left; width:80%; padding:2px 5px 0 5px;  }
+.aumenta-tamanho {width:98%; }
+.posiciona-esquerda input[type="checkbox"]{ vertical-align:baseline}
+
+.posiciona-esquerda p{ margin:5px 0 5px 5px}
+.posiciona-direita-busca { font-weight:normal; padding-top:8px; text-align:right; width:56px; float:right; margin-right:6px}
+.posiciona-direita {font-size:x-small; float:right; font-weight:normal; text-align:right; /*width:56px;*/ width:26px; padding-top:8px;}
+.posiciona-direita p { margin-bottom:3px}
+.posiciona-direita span{  font-size:x-small !important; font-weight:normal;  float:right }
+.posiciona-direita a{height:22px; color:#666;   padding:4px; font-size: x-small; }
+
+#lista_miolo {clear:both; color:#666; width:100%; /*min-height:165px;*/font-size:small; }
+#lista_miolo dd {background:#FFFFFF; width:100%; display:table  }
+#lista_miolo dd.par {background:#EEF7FA; }
+#lista_miolo #iten {width:80%; float:left; font-weight:normal; text-align:left;}
+#lista_miolo #iten a {font-size:small;}
+#lista_miolo #contagem {font-size:x-small; width:20%; float:left; font-weight:normal; text-align:left;}
+
+/***************Classes******************/
+
+/*ALTERADOS*/
+
+#busca{padding:4px 0;background-color:#E4E4E4; min-height:18px; width:100%;}
+#busca input[type="text"] {height:20px; width:94%; margin:0 5px}
+#busca input[type="button"] {height:20px; min-width:100px;}
+/*.busca input {height:10px; width:87%; float:left;}*/
+
+.limpar_div {
+	clear:both
+}
+
+.resultado-titulo{background:#D4E7F0; min-height:18px; padding:4px 0; font-weight:bold}
+.resultado-titulo strong { margin-left:25px }
+.resultado-titulo div p strong {margin-left:88px}
+
+p.urgente {color:#F00; font-style:italic; font-size:x-small }
+div.urgente {width:14px; height:12px; background:#F00; margin-left:5px; text-align:center; vertical-align:middle;color:#FFF; float:left;font-size:xx-small; padding-top:1px}
+
+.topo { width:100%; background:#333; display:table }
+.topo a{ color:#FFF; text-decoration:underline; float:right; margin:4px 20px 0 0 }
+.topo h1 { font-size:13pt }
+.topo h1 a.title { font-size:13pt; text-decoration: none; float: none; margin: 0; }
+
+.btn-generico, .btn-contexto, .btn-busca { font-size:75%; text-transform: uppercase; }
+
+.rodape{ padding-top:4px; height:16px; text-align:center; font-size:50%; background-color:#F6F6F6; color:#333333;}
+.btn-generico{color:#FFFFFF; background-color:#434343; border:none; }
+.contagem { float:right; position: relative; margin-rigth: 5px; color:#3E3E3D; }
+.nome-item{float:left; position:aboslute; font-size:11pt; color:#3E3E3D;}
+.nome-item strong, .nome-item span{ margin-left:25px}
+.nome-item-telefone{margin-left:21px}
+
+.menu-contexto {font-size:small; background-color:#3399CC; color:#FFFFFF; width:100%; min-height:18px; padding:4px 0px}
+.menu-contexto span{margin-left:5px }
+.btn-contexto {font-weight:bold ;font-size:x-small; background-color:#2B84AF; color:#FFFFFF; border:1px solid #000; margin-left:5px }
+.menor {min-height:20px !important} 
+
+/*novo*/ 
+.btn-busca {padding:4px; font-size:x-small; background-color:#2B84AF; color:#FFFFFF; border:none;  min-height:20px;}
+#voltar {margin:0; padding:0}
+
+#titulo {width:100%; margin:2px 0; padding:20px 0; background-color:#CEE5EF;  }
+#fundo-branco{background:#FFF; }
+#titulo p{font-weight:normal; width:90% }
+.titulo_mensagem {overflow: hidden; } 
+.titulo-sdt{ padding:2px 0px 0px 5px; height:20px; font-weight:bold; font-size: x-small; color:#3E3E3D; }
+
+.menu-diverso{ height:22px; padding-top:4px}
+.margin-geral{margin:0 0 5px 5px}
+.margin-rodape {margin:0 0 0 5px}
+.margin-geral a strong{font-size:x-small}
+.centraliza{ width:100%; margin:auto; text-align:center;}
+
+.menu-diverso a{ margin-right:3px; font-size:x-small; background-color:#EEF7FA; color:#434343; padding:3px 9px }	
+.menu-diverso a:hover,.menu-diverso a.letter-contact-selected {color:#FFFFFF;background-color:#3399CC; padding:3px 9px }
+.btn_off a { margin: 0 1px; display: inline;  }
+
+.reset-dt {background-color:#ffffff; width:98%; /*padding:10px 3px 3px 10px;*/}
+.reset-dt1 {width:98%; /*padding:3px 3px 3px 10px;*/}
+.dd-mensagem {height:30px;overflow: hidden;padding:3px 0px 15px 0;}
+.btn-anexo {font-size: x-small;  text-align:center; text-transform:uppercase; margin: 5px 3px 0 0; float:right }
+.btn-anexo-text {font-size: x-small;  text-align:center; text-transform:uppercase; margin: 5px 3px 0 82px; }
+.btn-anexo a {font-size: x-small;  background:#FAD364; width:40px; padding:3px; color:#333  }
+.sobre-mensagem {float:left;}
+
+#ver-detalhes {float:left;padding:2px; background-color:#FAD364; width:10%  } /*mudança*/
+#ver-detalhes a {padding:3px;color:#666;font-size:x-small; width:20px}
+
+.alerta{ font-style:italic; color:#FF3300;}
+.sinal-alerta{padding:1px 5px 1px 5px; background-color:#FF3300; color:#ffffff;}
+.titulo-secao{padding:0px 10px 0px 10px; font-size:120%; color:#ffffff; font-weight:bold;}
+
+.label-normal{font-style:italic;}
+
+#campos {width:99%; height:auto;background-color:#CEE5EF;}
+.campos-entrada{ font-size:70%; background-color:#CEE5EF;height:auto;}
+.campos-correspondencia {font-size:x-small; padding:5px;} 
+.campos-correspondencia input {height:17px;  float:left;}
+.campos-correspondencia p { }
+.campos-correspondencia p label {float:left;width:100%;}
+.campos-entrada input {height:15px;  }
+.campos-correspondencia, .campos-entrada { }
+
+.login{width:50%; margin:auto; padding:10px 0}
+.login strong { font-size:11pt; margin:0 0 0 5px; }
+.login input { font-size:11pt;width:100%; margin:3px 0}
+.login button {margin:0 5px}
+.login p{padding:3px;}
+#bg-aviso{background:#EFF8FB; padding-top:20px;}
+.avisos{background-color:#FAE1E1;}
+.aviso-positivo, .aviso-negativo{ padding:5px; font-size:x-small; color:#333333; background-color:#CEE5EF; margin:auto; width:98%;padding-left:1%;padding-right:1%;  }
+.aviso-negativo{ background-color:#FAE1E1 }
+.aviso-positivo a,.aviso-negativo a{text-decoration:underline; color:#333333;}
+
+.bg-neutro{padding:5px; background-color:#EEF7FA;} 
+
+.rotulo-complementar{font-size:x-small; text-decoration:underline; padding:3px; float:right; }
+
+.mes_corrente { padding: 0 10px }
+
+#pre-calendario {padding: 10px; background: #eef7fa ;  }
+#semanal { border: none; margin-bottom: 5px }
+#calendario {width:11%; margin:auto}
+#calendario thead tr th { color: #333; font-size:small; font-weight:bold;}
+#calendario thead tr th, #calendario tbody tr td { text-align: center } 
+.semana { color:#333;font-size:small; width:100%; font-weight:bold; width: 14%; }
+.dias { border: none }
+.dias a {
+color: #444;
+font-size: 11px;
+cursor: pointer;
+text-decoration: none;
+text-align: center;
+display: block;
+border: 1px solid #CACACA;
+width: 27px;
+height:16px;
+margin: 0px;
+padding: 3px 1px 0 0;
+position: relative;
+}
+.dias a .qtd_commitment {
+	font-size: 8px;
+	position: absolute;
+	top: 0;
+	right: 0.5px;
+	color: red;
+}
+.dias a:hover { color:#999; text-decoration: none }
+a.hoje { background: #FC0; color: #fff }
+a.dia_branco { background: #FFF }
+a.outro_mes { background: #E1E1E1; color: #8B8B8B }
+
+/*---------------------------------------- CONTATO �NICO ---------------------------------------------*/
+
+.contato-unico {width:100%; margin:auto; }
+.contato-unico-bg {background:#EFF8FB; width:100% !important } 
+.nome {font-size:small; width:62px;  font-weight:bold;  margin:5px 0; }
+.nome label {text-align:right; width:62px; float:left; clear:left; margin-right:10px }
+.contato-unico input[type="text"] { width:71%; float:left; margin-bottom:5px;   }
+
+div.bloco{overflow: hidden; }
+.container{width:100%; margin:auto; overflow:hidden; }
+#block-label{ float:left;  width:60px; text-align:right; font-weight:bold; font-size:small  }
+#block-dados{float: left; width:78%; margin-left:5px; font-size:small; font-weight:normal }
+#block-label a {color:#666}
+
+/*---------------------------------------- EMAIL ---------------------------------------------*/
+
+.email-geral{width:100%; padding:5px 0}
+.email-cabecalho,.contato-cabecalho{overflow: hidden; width:74%; height:22px; float:left;}
+.email-cabecalho p.email-cabecalho a.email-cabecalho a:visited{font-size:medium; color:#000}
+.contato-cabecalho{font-size:medium}
+.email-anexo{width:16px; height:16px; float:left;  margin-top:5px}
+.email-data{width:69px; float:right; margin:5px 3px 0 0; margin-top:5px; text-align:right; font-size:x-small;}
+.email-corpo {clear:both; padding-bottom:5px; overflow:hidden; }
+.email-margin{margin:0 5px !important}
+.bg-azul {background:#EEF7FA; padding:5px 0}
+.bg-branco{background:#FFF; padding:5px 0}
+.email-corpo-sem-check p{margin:0 23px}
+.email-corpo p{margin:0 23px}
+.email-normal a, .email-normal a:visited {color:#000}
+.email-importante a, .email-importante a:visited{color:#F00}
+.email-nao-lido a{font-weight:bold}
+.email-lido{font-weight:normal}
+.email-labels {text-align:right; width:78px; display:table; float:left; margin-right:5px; height:22px; line-height:22px }
+.email-labels a{color:#666}
+.email-inputs{ margin-left:5px;border:#000 solid 1px;width:100% }
+.email-inputs input {width:100% ;  } 
+.limpar_div_margin {margin:2px 0; }
+.limpar_div_margin input[type="text"] {width:68%}
+.limpar_div textarea{font-size:11pt}
+p.assunto {font-size:small; font-weight:normal; padding-top:3px; color:#666}
+
+/*---------------------------------------- MODIFICAÇÕES ---------------------------------------------*/
+
+.email-item{color: #3E3E3D; font-size: 12pt; font-weight:bold; font-family: Arial, Helvetica, sans-serif; vertical-align:text-bottom}
+.email-campos, .assunto {color:#3E3E3D; font:bold small Arial, Helvetica, sans-serif; text-decoration:underline !important}
+.assunto {text-decoration:none !important}
+
+.campos-email {width:94%; clear:both; margin:0 5px}
+.campos-email input {font-size:11pt; width:99%; clear:both; }
+.campos-email a{float:left; text-align:right; margin:4px 0}

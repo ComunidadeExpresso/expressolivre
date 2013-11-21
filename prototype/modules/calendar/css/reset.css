@@ -1,0 +1,240 @@
+/*
+ * Este arquivo limpa o estilo para a nova agenda, sobrescrevendo o código CSS
+ * do Expresso.
+ * Deve ser removido quando o módulo Calendar não integrar mais a versão 2.x
+ */
+
+/* Eric Meyer's Reset Reloaded based
+ * http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	/*font-size: 100%;*/
+	/*font-family: inherit;*/
+	/*vertical-align: baseline;*/
+/*	font-family: Arial,Helvetica,sans-serif;*/
+}
+
+:focus {
+	outline: 0;
+}
+body {
+	/*line-height: 1;*/
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	/*text-align: left;*/
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+
+select {
+    border: 1px solid #CFCFCF;
+    border-color: #CFCFCF;
+    color: #555;
+    background-color: #FFF;
+}
+a:link, a:visited {
+    color: #2E6E9E;
+}
+
+
+
+/* azul.css */
+/*body { background-color: #e9e9e9; }*/
+
+/*a:link,
+a:visited
+{ color: #000066; }*/
+
+/*a:hover,
+a:active
+{ color: #ff9933; }*/
+
+#divAppbox{
+	overflow-x: auto;
+	overflow-y: scroll;
+}
+
+.expresso-calendar-container input,
+.expresso-calendar-container button
+{ border-color: #CFCFCF; color: #555; }
+
+.expresso-calendar-container input[type=image]
+{ border-color: none; }
+
+.expresso-calendar-container select
+{ border-color: #CFCFCF; color: #555; }
+
+/*#divAppbox
+{ background: #fff url( ../images/bgBlockContent.jpg ) repeat-x; border-color: #9c9c9c; }
+
+#divAppboxHeader
+{ background: url( ../images/bgAppTitle.png ); border-color: #9c9c9c; color: #006; text-shadow: 0.2em 0.2em 3px #999; }
+
+#divAppIconBar
+{ background: #fff url( ../images/background-icon-bar.png ) repeat-x; border-top-color: #9c9c9c; }
+
+#divAppTextBar
+{ background-color: #fff; }
+
+#divGenTime
+{ color: #f00; }
+
+#divMain
+{ background: #fff; border-color: #7e7e7e; }
+
+#divPoweredBy
+{ background: #fff; color: #999; }
+
+#divSideboxContainer
+{ background: #fff; }
+
+#extraIcons
+{ background: #eee; border-color: #7e7e7e; }
+
+#links_bar,
+#user_info
+{ color: #fff; }
+
+#tdAppbox
+{ background-color: #fff; }
+
+#tdSidebox
+{ background: #fff; }*/
+
+/*.conteudo
+{ border-color: #4A79B1; color: #003; }
+
+.divSideboxHeader
+{ background: #416faa; color: #fff; }
+
+.extraIconsRow
+{ border-top-color: #ddd; }
+
+.greyLine
+{ border-top-color: #7e7e7e; }
+
+.grid_email_class
+{ border-bottom-color: #cfcfcf; }
+
+.image-menu
+{ background: url( ../../../../phpgwapi/templates/default/images/folder_bg.png ); }
+
+.last_menu
+{ border-bottom-color: #4a79b1; }
+
+.logo_expresso
+{ background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.jpg ) no-repeat 0 3px; }
+
+.menu
+{ background: #c8d7ea; border-color: #f4f7fc; border-bottom-color: #4a79b1; }
+
+.menu-sel
+{ background-color: #f7f7f7; border-color: #4a79b1; color: #00f; }
+
+.menu-degrade
+{ background-image: url( ../../../../phpgwapi/templates/default/images/degrade.png ); }
+
+.navbar_but
+{ background-image: url(../../../../phpgwapi/templates/default/images/back_app.png); }
+
+.navbar_butOver
+{ background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over.png ); }
+
+.navbar_butOut
+{ background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out.png ); }
+
+.tblHeadApp
+{ border-color: #9c9c9c; }
+
+.textSidebox
+{ border-top-color: #aaa; }
+
+.toolbar
+{ background-image: url( ../../../../phpgwapi/templates/default/images/fundo_topo.png ); }
+
+.linha0,
+.tr_msg_read
+{ color: #3f3f3f; background: #fff; }
+
+.linha1,
+.tr_msg_read2
+{ color: #3f3f3f; background: #f4f8fb; }
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+	background: #abc6e1;
+}
+
+.prefTable
+{
+	background-color: #f4f8fb;
+	margin: 0px 0px 10px 0px ;
+	border: 1px solid #D3DCE3;
+	border-top: 0px;
+}*/
+
+
+/* base.css */
+.expresso-calendar-container select
+{ border: 1px solid; font-family:inherit; font-size: 11px; z-index: -1; }
+
+.expresso-calendar-container input,
+.expresso-calendar-container button
+{ border: 1px solid; font-family: inherit; font-size: 11px; }
+
+.expresso-calendar-container button,
+.expresso-calendar-container input[type=button],
+.expresso-calendar-container input[type=image],
+.expresso-calendar-container input[type=submit]
+{ cursor: pointer; cursor: hand; }
+
+.expresso-calendar-container input[type=image]
+{ border: 0px none; }
+
+.expresso-calendar-container select
+{ border: 1px solid; font-family: inherit; font-size: 11px; z-index: -1; }
+
+.expresso-calendar-container td
+{ font-size: 11px; }
+
+.expresso-calendar-container {
+	font-family: "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+/* azul.css */
+input, button 
+{ border-color: #CFCFCF; color: #333; }

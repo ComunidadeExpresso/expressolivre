@@ -1,0 +1,60 @@
+active	news_admin	pt-br	Ativo
+add new article	news_admin	pt-br	Adicionar Artigo
+add new news	news_admin	pt-br	Adicionar Notícia
+add news item	news_admin	pt-br	Adicionar novo item
+all news	news_admin	pt-br	Todas as Notícias
+always	news_admin	pt-br	Disponíveis
+configuration	news_admin	pt-br	Configuração
+configure access permissions	common	pt-br	Configurar Permissões de Acesso
+configure rss exports	common	pt-br	Configurar arquivos RSS para exportação
+contains html	news_admin	pt-br	Contém HTML
+content	news_admin	pt-br	Conteúdo
+edit news item	news_admin	pt-br	Editar item
+failed to add message	news_admin	pt-br	Publicação falhou
+format for links to items	news_admin	pt-br	Formatar itens para links
+format of export	news_admin	pt-br	Formatar para exportar
+from	news_admin	pt-br	De
+global categories	news_admin	pt-br	Categorias globais
+global news	news_admin	pt-br	Boletins Globais
+global_news	news_admin	pt-br	Boletins_Globais
+image link	news_admin	pt-br	Link da Imagem
+image title	news_admin	pt-br	Título da Imagem
+image url	news_admin	pt-br	URL da Imagem
+implies read permission	news_admin	pt-br	requer permissão de leitura
+item has been deleted	news_admin	pt-br	O item foi apagado
+item not found	news_admin	pt-br	Item não encontrado
+link	news_admin	pt-br	Link
+main	news_admin	pt-br	Principal
+maintain	news_admin	pt-br	Manutenção
+maintain news	admin	pt-br	Manutenção dos Boletins
+message has been added	news_admin	pt-br	Mensagem foi adicionada
+more news	news_admin	pt-br	Mais Boletins
+new item has been added	news_admin	pt-br	Novo item foi adicionado
+news admin	news_admin	pt-br	Boletins Internos
+news administration	news_admin	pt-br	Administração de Boletins
+news item has been added	news_admin	pt-br	Item adicionado
+news item has been updated	news_admin	pt-br	Item atualizado
+news_admin	common	pt-br	Boletins Internos
+no entries found	news_admin	pt-br	nenhuma entrada encontrada
+no news	news_admin	pt-br	Não existe boletins disponíveis para esta categoria
+no rss export	news_admin	pt-br	Não existe conteúdo RSS para exportar
+number of articles to display on the main screen	news_admin	pt-br	Número de artigos a serem apresentados simultaneamente
+on	news_admin	pt-br	em
+publish date	news_admin	pt-br	Data da Publicação
+read news	news_admin	pt-br	Ler notícias
+read permissions	news_admin	pt-br	Permissões de leitura
+should news_admin display the latest article headlines on the main screen.	news_admin	pt-br	O Módulo Boletim Internos deve mostrar as manchetes dos últimos boletins na Tela Principal.
+show latest news articles?	news_admin	pt-br	Mostrar últimos artigos?
+show news articles on main page?	news_admin	pt-br	Mostrar novos artigos na página inicial?
+small view	news_admin	pt-br	visão condensada
+submitted by	common	pt-br	Enviado por
+teaser	news_admin	pt-br	Resumo
+the news content is missing	news_admin	pt-br	Falta informar o índice da notícia
+the number of articles to display on the main screen.	news_admin	pt-br	Número de artigos a serem apresentados na tela principal.
+the subject is missing	news_admin	pt-br	Falta informar o assunto
+until	news_admin	pt-br	até
+view this category	news_admin	pt-br	Visualizar esta categoria
+visible	news_admin	pt-br	Visível
+webpage news admin	news_admin	pt-br	Página de Boletins
+write	news_admin	pt-br	Escrever
+write permissions	news_admin	pt-br	Permissões para escrita

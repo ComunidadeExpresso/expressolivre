@@ -1,0 +1,298 @@
+body
+{
+	background-color: #e9e9e9;
+}
+
+a:link,
+a:visited
+{
+	color: #000066;
+}
+
+a:hover,
+a:active
+{
+	color: #ff9933;
+}
+
+a.divSideboxEntry,
+.divSideboxEntry
+{
+	background-color: #eee;
+}
+
+a.appTitles,
+.appTitles
+{
+	padding: 2px 2px;
+}
+
+a.textSidebox
+{
+	border-top-color: #aaa;
+}
+
+input,
+button
+{
+	border-color: #bbb;
+	color: #069;
+}
+
+input[type=image]
+{
+	border-color: #bbb;
+}
+
+select
+{
+	border-color: #bbb;
+	color: #006;
+}
+
+#divAppbox
+{
+	background: #e6f3d9;
+	border-color: #9c9c9c;
+}
+
+#divAppboxHeader
+{
+	background: #e6f3d9;
+	border-color: #9c9c9c;
+	color: #006;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#divAppIconBar
+{
+	background: #fff url( ../images/background-icon-bar.png ) repeat-x;
+	border-top-color: #9c9c9c;
+}
+
+#divAppTextBar
+{
+	background-color: #fff;
+}
+
+#divGenTime
+{
+	color: #f00;
+}
+
+#divMain
+{
+	background: #fff;
+	border-color: #7e7e7e;
+}
+
+#divPoweredBy
+{
+	background: #fff;
+	color: #999;
+}
+
+#divSideboxContainer
+{
+	background: #fff;
+}
+
+#extraIcons
+{
+	background: #eee;
+	border-color: #7e7e7e;
+}
+
+#links_bar,
+#user_info
+{
+	color: #fff;
+}
+
+#tdAppbox
+{
+	background-color: #fff;
+}
+
+#tdSidebox
+{
+	background: #fff;
+}
+
+.conteudo
+{
+	border-color: #4A79B1;
+	color: #003;
+}
+
+.divSideboxHeader
+{
+	background-color: #006;
+	color: #fff;
+}
+
+.extraIconsRow
+{
+	border-top-color: #ddd;
+}
+
+.greyLine
+{
+	border-top-color: #7e7e7e;
+}
+
+.grid_email_class
+{
+	border-bottom-color: #cfcfcf;
+}
+
+.image-menu
+{
+	background: #a0b2cc url( ../../../../phpgwapi/templates/default/images/folder_bg_fozi.jpg ) no-repeat scroll center bottom;
+}
+
+.last_menu
+{
+	border-bottom-color: #4a79b1;
+}
+
+.logo_expresso
+{
+	background: url( ../../../../phpgwapi/templates/default/images/logo_expresso_fozi.gif ) no-repeat;
+	height: 35px;
+	width: 264px;
+}
+
+.menu
+{
+	background: #c8d7ea;
+	border-color: #f4f7fc;
+	border-bottom-color: #4a79b1;
+}
+
+.menu-sel
+{
+	background-color: #f7f7f7;
+	border-color: #4a79b1;
+	color: #00f;
+}
+
+.menu-degrade
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/degrade.png );
+}
+
+.navbar_but
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_fozi.png );
+}
+
+.navbar_butOver
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over_fozi.png );
+}
+
+.navbar_butOut
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out_fozi.png );
+}
+
+.tblHeadApp
+{
+	border-color: #9c9c9c;
+}
+
+.textSidebox
+{
+	border-top-color: #aaa;
+}
+
+.toolbar
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/fundo_topo_fozi.jpg );
+}
+
+.linha0,
+.linha1,
+.tr_msg_read,
+.tr_msg_read2
+{
+	color: #3f3f3f;
+	background: #fff;
+}
+
+.linha1,
+.tr_msg_read2
+{
+	background: #e6f3d9;
+}
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+	background-color: #98c17f;
+}
+
+.message_options_active {
+	color: #d00;
+	font-weight: bold;
+}
+
+.message_options_inactive {
+	color: #999;
+}
+
+.message_options {
+	color: blue;
+	font-weight: bold;
+}
+
+.message_options_over {
+	color: #d00;
+	font-weight: bold
+}
+
+.table_message{
+	background: #98c17f;
+}
+
+
+
+#fmStatusBar
+{
+	margin-left: 4px;
+	margin-bottom: 3px;
+	font-size: 10px;
+}
+
+.divLoginbox
+{
+	position: relative;
+	width: 300px;
+	border: 1px solid #9c9c9c;
+}
+
+.divLoginboxHeader
+{
+	text-align: center;
+	background-color: #ddd;
+	padding-top: 2px;
+	font-size: 10px;
+	color: #666;
+}
+
+.divSidebox
+{
+	position: relative;
+	width: 147px;
+	border: 1px solid #9c9c9c;
+}
+
+.content-menu
+{
+	padding: 0px 0px 0px 0px;
+	background: #fff;
+}

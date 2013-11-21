@@ -1,0 +1,29 @@
+<html>
+<script language="javascript1.2">
+
+function addText(txt) {
+	divMsg = document.getElementById('editor_messages');
+	divMsg.innerHTML = txt;
+}
+
+function scrollwin(px)
+{
+	window.scrollBy(0,px);
+}
+
+</script>
+
+<style type="text/css">
+ body,table {	
+ 		font-family: courier, lucidatypewriter;
+        font-size: 11px;
+		color : red;
+		font-weight : bold;
+		background-color : #E8E8E8;
+	  }
+</style>
+<body>
+	<div id='editor_messages' style="position:absolute;top:0px;">
+	</div>
+</body>
+</html>

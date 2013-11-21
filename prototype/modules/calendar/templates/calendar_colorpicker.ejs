@@ -1,0 +1,34 @@
+<%
+	var selected = false;
+	if (data.colorsDefined){
+		selected = data.colorsDefined;
+
+	} else {
+	
+		for (var i=0; i<data.colorsSuggestions.length; i++) {
+			if (data.colorsSuggestions[i].selected) {
+				selected = data.colorsSuggestions[i];
+			}
+		}
+		if (!selected && data.colorsSuggestions.length>0) {
+			data.colorsSuggestions[0].selected = true;
+			selected = data.colorsSuggestions[0]
+		}
+	}
+%>
+<div>
+	<select class="color-suggestions">
+		<% for (var i=0; i<data.colorsSuggestions.length; i++) { %>
+			<option <%= data.colorsSuggestions[i].selected ? 'selected="selected"' : '' %> value="<%= i %>"><%= data.colorsSuggestions[i].name %></option>
+		<% } %>
+		<option <%= data.colorsDefined ? 'selected="selected"' : '' %> value="custom" >Personalizada</option>
+	</select>
+	<div style="margin:30px 0 0 50px; float:right; width: 130px; height: 140px;" class="fc-event fc-event-skin fc-event-vert fc-event-draggable fc-corner-top fc-corner-bottom ui-draggable ui-resizable" event-id="1"><div style="background-color: rgb(213, 19, 11); border-color: rgb(213, 19, 11); color: rgb(17, 17, 17);" class="fc-event-inner fc-event-skin"><div style="background-color: rgb(213, 19, 11); border-color: rgb(213, 19, 11); color: rgb(17, 17, 17);" class="fc-event-head fc-event-skin"><div class="fc-event-time">07:00 - 12:00</div></div><div class="fc-event-content"><div class="fc-event-title">Um pequeno texto de exemplo...</div></div><div class="fc-event-bg"></div></div><div class="ui-resizable-handle ui-resizable-s">=</div></div>
+
+	<div class="colorpicker" style="float: right;"></div>
+	<div class="form-item"><label for="fontColor" style="width:130px; display: inline-block; font-weight: bold;">Texto:</label><input type="text" name="fontColor" class="colorwell" value="<%= selected.font %>" /></div>
+	<div class="form-item"><label for="backgroundColor" style="width:130px; display: inline-block; font-weight: bold;">Área de conteúdo:</label><input type="text" name="backgroundColor" class="colorwell" value="<%= selected.background %>" /></div>
+	<div class="form-item"><label for="borderColor" style="width:130px; display: inline-block; font-weight: bold;">Bordas:</label><input type="text" name="borderColor" class="colorwell" value="<%= selected.border %>" /></div>
+
+</div>
+<div class="clear"></div>

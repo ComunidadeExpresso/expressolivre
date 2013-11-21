@@ -1,0 +1,1019 @@
+--
+-- PostgreSQL database dump
+--
+
+SET client_encoding = 'LATIN1';
+SET standard_conforming_strings = off;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET escape_string_warning = off;
+
+--
+-- Name: workflow; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE workflow WITH TEMPLATE = template0 ENCODING = 'LATIN1';
+
+
+ALTER DATABASE workflow OWNER TO postgres;
+
+CREATE USER admin_workflow WITH PASSWORD 'admin_workflow' NOCREATEDB NOCREATEUSER VALID UNTIL 'infinity';
+CREATE GROUP workflow;
+ALTER GROUP workflow ADD USER admin_workflow;
+GRANT workflow TO admin_workflow;
+CREATE USER admin_cds WITH PASSWORD 'admin_cds' NOCREATEDB NOCREATEUSER VALID UNTIL 'infinity';
+ALTER GROUP workflow ADD USER admin_cds;
+GRANT workflow TO admin_cds;
+
+\connect workflow
+
+SET client_encoding = 'LATIN1';
+SET standard_conforming_strings = off;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET escape_string_warning = off;
+
+--
+-- Name: cds; Type: SCHEMA; Schema: -; Owner: admin_cds
+--
+
+CREATE SCHEMA cds;
+
+
+ALTER SCHEMA cds OWNER TO admin_cds;
+
+SET search_path = cds, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: cdcollection; Type: TABLE; Schema: cds; Owner: admin_cds; Tablespace:
+--
+
+CREATE TABLE cdcollection (
+    cdid integer NOT NULL,
+    title character varying(200),
+    status character varying(40),
+    usuario character varying(200)
+);
+
+
+ALTER TABLE cds.cdcollection OWNER TO admin_cds;
+
+--
+-- Name: TABLE cdcollection; Type: COMMENT; Schema: cds; Owner: admin_cds
+--
+
+COMMENT ON TABLE cdcollection IS 'Exemplo de Empréstimo de CDs';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: area; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE area (
+    organizacao_id integer NOT NULL,
+    area_id integer NOT NULL,
+    area_status_id integer NOT NULL,
+    areasup_organizacao_id integer,
+    superior_area_id integer,
+    centro_custo_id integer,
+    titular_funcionario_id integer,
+    substituto_funcionario_id integer,
+    sigla character varying(20) NOT NULL,
+    descricao character varying(100) NOT NULL,
+    ativa character varying(1) NOT NULL,
+    auxiliar_funcionario_id integer
+);
+
+
+ALTER TABLE public.area OWNER TO postgres;
+
+--
+-- Name: area_area_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE area_area_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.area_area_id_seq OWNER TO postgres;
+
+--
+-- Name: area_area_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE area_area_id_seq OWNED BY area.area_id;
+
+
+--
+-- Name: area_area_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('area_area_id_seq', 1, false);
+
+
+--
+-- Name: area_status; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE area_status (
+    area_status_id integer NOT NULL,
+    organizacao_id integer NOT NULL,
+    descricao character varying(50) NOT NULL,
+    nivel integer NOT NULL
+);
+
+
+ALTER TABLE public.area_status OWNER TO postgres;
+
+--
+-- Name: area_status_area_status_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE area_status_area_status_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.area_status_area_status_id_seq OWNER TO postgres;
+
+--
+-- Name: area_status_area_status_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE area_status_area_status_id_seq OWNED BY area_status.area_status_id;
+
+
+--
+-- Name: area_status_area_status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('area_status_area_status_id_seq', 1, false);
+
+
+--
+-- Name: cargo; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE cargo (
+    cargo_id integer NOT NULL,
+    descricao character varying(150),
+    organizacao_id integer
+);
+
+
+ALTER TABLE public.cargo OWNER TO postgres;
+
+--
+-- Name: cargo_cargo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE cargo_cargo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cargo_cargo_id_seq OWNER TO postgres;
+
+--
+-- Name: cargo_cargo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE cargo_cargo_id_seq OWNED BY cargo.cargo_id;
+
+
+--
+-- Name: cargo_cargo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('cargo_cargo_id_seq', 1, false);
+
+
+--
+-- Name: centro_custo; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE centro_custo (
+    organizacao_id integer NOT NULL,
+    centro_custo_id integer NOT NULL,
+    nm_centro_custo integer NOT NULL,
+    grupo character varying(30),
+    descricao character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.centro_custo OWNER TO postgres;
+
+--
+-- Name: centro_custo_centro_custo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE centro_custo_centro_custo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.centro_custo_centro_custo_id_seq OWNER TO postgres;
+
+--
+-- Name: centro_custo_centro_custo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE centro_custo_centro_custo_id_seq OWNED BY centro_custo.centro_custo_id;
+
+
+--
+-- Name: centro_custo_centro_custo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('centro_custo_centro_custo_id_seq', 1, false);
+
+
+--
+-- Name: funcionario; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE funcionario (
+    funcionario_id integer NOT NULL,
+    area_id integer NOT NULL,
+    localidade_id integer NOT NULL,
+    centro_custo_id integer,
+    organizacao_id integer NOT NULL,
+    funcionario_status_id integer NOT NULL,
+    cargo_id integer,
+    nivel smallint,
+    funcionario_categoria_id integer,
+    titulo character varying(30)
+);
+
+
+ALTER TABLE public.funcionario OWNER TO postgres;
+
+--
+-- Name: funcionario_categoria; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE funcionario_categoria (
+    funcionario_categoria_id integer NOT NULL,
+    descricao character varying(150),
+    organizacao_id integer
+);
+
+
+ALTER TABLE public.funcionario_categoria OWNER TO postgres;
+
+--
+-- Name: funcionario_categoria_funcionario_categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE funcionario_categoria_funcionario_categoria_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.funcionario_categoria_funcionario_categoria_id_seq OWNER TO postgres;
+
+--
+-- Name: funcionario_categoria_funcionario_categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE funcionario_categoria_funcionario_categoria_id_seq OWNED BY funcionario_categoria.funcionario_categoria_id;
+
+
+--
+-- Name: funcionario_categoria_funcionario_categoria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('funcionario_categoria_funcionario_categoria_id_seq', 1, false);
+
+
+--
+-- Name: funcionario_status; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE funcionario_status (
+    funcionario_status_id integer NOT NULL,
+    descricao character varying(50) NOT NULL,
+    exibir character varying(1) NOT NULL,
+    organizacao_id integer NOT NULL
+);
+
+
+ALTER TABLE public.funcionario_status OWNER TO postgres;
+
+--
+-- Name: funcionario_status_funcionario_status_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE funcionario_status_funcionario_status_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.funcionario_status_funcionario_status_id_seq OWNER TO postgres;
+
+--
+-- Name: funcionario_status_funcionario_status_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE funcionario_status_funcionario_status_id_seq OWNED BY funcionario_status.funcionario_status_id;
+
+
+--
+-- Name: funcionario_status_funcionario_status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('funcionario_status_funcionario_status_id_seq', 1, false);
+
+
+--
+-- Name: localidade; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE localidade (
+    organizacao_id integer NOT NULL,
+    localidade_id integer NOT NULL,
+    centro_custo_id integer,
+    descricao character varying(50) NOT NULL,
+    empresa character varying(100),
+    endereco character varying(100),
+    complemento character varying(50),
+    cep character varying(9),
+    bairro character varying(30),
+    cidade character varying(50),
+    uf character varying(2)
+);
+
+
+ALTER TABLE public.localidade OWNER TO postgres;
+
+--
+-- Name: localidade_localidade_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE localidade_localidade_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.localidade_localidade_id_seq OWNER TO postgres;
+
+--
+-- Name: localidade_localidade_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE localidade_localidade_id_seq OWNED BY localidade.localidade_id;
+
+
+--
+-- Name: localidade_localidade_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('localidade_localidade_id_seq', 1, false);
+
+
+--
+-- Name: organizacao; Type: TABLE; Schema: public; Owner: postgres; Tablespace:
+--
+
+CREATE TABLE organizacao (
+    organizacao_id integer NOT NULL,
+    nome character varying(20) NOT NULL,
+    descricao character varying(100) NOT NULL,
+    url_imagem character varying(200),
+    ativa character varying(1) NOT NULL,
+    sitio character varying(100)
+);
+
+
+ALTER TABLE public.organizacao OWNER TO postgres;
+
+--
+-- Name: organizacao_organizacao_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE organizacao_organizacao_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.organizacao_organizacao_id_seq OWNER TO postgres;
+
+--
+-- Name: organizacao_organizacao_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE organizacao_organizacao_id_seq OWNED BY organizacao.organizacao_id;
+
+
+--
+-- Name: organizacao_organizacao_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('organizacao_organizacao_id_seq', 1, false);
+
+
+--
+-- Name: telefone; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE telefone (
+    telefone_id integer NOT NULL,
+    descricao character varying(50) NOT NULL,
+    numero character varying(50) NOT NULL,
+    organizacao_id integer NOT NULL
+);
+
+
+ALTER TABLE public.telefone OWNER TO postgres;
+
+--
+-- Name: telefone_telefone_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE telefone_telefone_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.telefone_telefone_id_seq OWNER TO postgres;
+
+--
+-- Name: telefone_telefone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE telefone_telefone_id_seq OWNED BY telefone.telefone_id;
+
+
+--
+-- Name: telefone_telefone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('telefone_telefone_id_seq', 1, false);
+
+
+--
+-- Name: telefone_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE telefone ALTER COLUMN telefone_id SET DEFAULT nextval('telefone_telefone_id_seq'::regclass);
+
+
+--
+-- Name: telefone_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY telefone
+    ADD CONSTRAINT telefone_pkey PRIMARY KEY (telefone_id);
+
+
+--
+-- Name: area_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE area ALTER COLUMN area_id SET DEFAULT nextval('area_area_id_seq'::regclass);
+
+
+--
+-- Name: area_status_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE area_status ALTER COLUMN area_status_id SET DEFAULT nextval('area_status_area_status_id_seq'::regclass);
+
+
+--
+-- Name: cargo_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE cargo ALTER COLUMN cargo_id SET DEFAULT nextval('cargo_cargo_id_seq'::regclass);
+
+
+--
+-- Name: centro_custo_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE centro_custo ALTER COLUMN centro_custo_id SET DEFAULT nextval('centro_custo_centro_custo_id_seq'::regclass);
+
+
+--
+-- Name: funcionario_categoria_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE funcionario_categoria ALTER COLUMN funcionario_categoria_id SET DEFAULT nextval('funcionario_categoria_funcionario_categoria_id_seq'::regclass);
+
+
+--
+-- Name: funcionario_status_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE funcionario_status ALTER COLUMN funcionario_status_id SET DEFAULT nextval('funcionario_status_funcionario_status_id_seq'::regclass);
+
+
+--
+-- Name: localidade_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE localidade ALTER COLUMN localidade_id SET DEFAULT nextval('localidade_localidade_id_seq'::regclass);
+
+
+--
+-- Name: organizacao_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE organizacao ALTER COLUMN organizacao_id SET DEFAULT nextval('organizacao_organizacao_id_seq'::regclass);
+
+
+SET search_path = cds, pg_catalog;
+
+--
+-- Data for Name: cdcollection; Type: TABLE DATA; Schema: cds; Owner: admin_cds
+--
+
+INSERT INTO cdcollection VALUES (1, 'Compact Disc 1', 'disponivel', NULL);
+INSERT INTO cdcollection VALUES (2, 'Compact Disc 2', 'disponivel', NULL);
+INSERT INTO cdcollection VALUES (3, 'Compact Disc 3', 'disponivel', NULL);
+
+
+SET search_path = cds, pg_catalog;
+
+--
+-- Name: cdcollection_pkey; Type: CONSTRAINT; Schema: cds; Owner: admin_cds; Tablespace:
+--
+
+ALTER TABLE ONLY cdcollection
+    ADD CONSTRAINT cdcollection_pkey PRIMARY KEY (cdid);
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: area_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT area_pkey PRIMARY KEY (organizacao_id, area_id);
+
+
+--
+-- Name: areastatus_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY area_status
+    ADD CONSTRAINT areastatus_pkey PRIMARY KEY (area_status_id, organizacao_id);
+
+
+--
+-- Name: centrocusto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY centro_custo
+    ADD CONSTRAINT centrocusto_pkey PRIMARY KEY (organizacao_id, centro_custo_id);
+
+
+--
+-- Name: funcionario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY funcionario
+    ADD CONSTRAINT funcionario_pkey PRIMARY KEY (funcionario_id);
+
+
+--
+-- Name: funcionario_status_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY funcionario_status
+    ADD CONSTRAINT funcionario_status_pkey PRIMARY KEY (funcionario_status_id);
+
+
+--
+-- Name: localidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY localidade
+    ADD CONSTRAINT localidade_pkey PRIMARY KEY (organizacao_id, localidade_id);
+
+
+--
+-- Name: organizacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace:
+--
+
+ALTER TABLE ONLY organizacao
+    ADD CONSTRAINT organizacao_pkey PRIMARY KEY (organizacao_id);
+
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY funcionario_status
+    ADD CONSTRAINT "$1" FOREIGN KEY (organizacao_id) REFERENCES organizacao(organizacao_id);
+
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area_status
+    ADD CONSTRAINT "$1" FOREIGN KEY (organizacao_id) REFERENCES organizacao(organizacao_id);
+
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY centro_custo
+    ADD CONSTRAINT "$1" FOREIGN KEY (organizacao_id) REFERENCES organizacao(organizacao_id);
+
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY localidade
+    ADD CONSTRAINT "$1" FOREIGN KEY (centro_custo_id, organizacao_id) REFERENCES centro_custo(centro_custo_id, organizacao_id);
+
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY funcionario
+    ADD CONSTRAINT "$1" FOREIGN KEY (organizacao_id, centro_custo_id) REFERENCES centro_custo(organizacao_id, centro_custo_id);
+
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$1" FOREIGN KEY (superior_area_id, areasup_organizacao_id) REFERENCES area(area_id, organizacao_id);
+
+
+--
+-- Name: $2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY localidade
+    ADD CONSTRAINT "$2" FOREIGN KEY (organizacao_id) REFERENCES organizacao(organizacao_id);
+
+
+--
+-- Name: $2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY funcionario
+    ADD CONSTRAINT "$2" FOREIGN KEY (organizacao_id, localidade_id) REFERENCES localidade(organizacao_id, localidade_id);
+
+
+--
+-- Name: $2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$2" FOREIGN KEY (centro_custo_id, organizacao_id) REFERENCES centro_custo(centro_custo_id, organizacao_id);
+
+
+--
+-- Name: $3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY funcionario
+    ADD CONSTRAINT "$3" FOREIGN KEY (organizacao_id, area_id) REFERENCES area(organizacao_id, area_id);
+
+
+--
+-- Name: $3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$3" FOREIGN KEY (titular_funcionario_id) REFERENCES funcionario(funcionario_id);
+
+
+--
+-- Name: $4; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY funcionario
+    ADD CONSTRAINT "$4" FOREIGN KEY (funcionario_status_id) REFERENCES funcionario_status(funcionario_status_id);
+
+
+--
+-- Name: $4; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$4" FOREIGN KEY (substituto_funcionario_id) REFERENCES funcionario(funcionario_id);
+
+
+--
+-- Name: $5; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$5" FOREIGN KEY (organizacao_id) REFERENCES organizacao(organizacao_id);
+
+
+--
+-- Name: $6; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$6" FOREIGN KEY (area_status_id, organizacao_id) REFERENCES area_status(area_status_id, organizacao_id);
+
+
+--
+-- Name: $7; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY area
+    ADD CONSTRAINT "$7" FOREIGN KEY (auxiliar_funcionario_id) REFERENCES funcionario(funcionario_id);
+
+--
+-- Name: $1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY telefone
+    ADD CONSTRAINT "$1" FOREIGN KEY (organizacao_id) REFERENCES organizacao(organizacao_id);
+
+
+--
+-- Name: cds; Type: ACL; Schema: -; Owner: admin_cds
+--
+
+REVOKE ALL ON SCHEMA cds FROM PUBLIC;
+REVOKE ALL ON SCHEMA cds FROM admin_cds;
+GRANT ALL ON SCHEMA cds TO admin_cds;
+GRANT ALL ON SCHEMA cds TO postgres;
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+SET search_path = cds, pg_catalog;
+
+--
+-- Name: cdcollection; Type: ACL; Schema: cds; Owner: admin_cds
+--
+
+REVOKE ALL ON TABLE cdcollection FROM PUBLIC;
+REVOKE ALL ON TABLE cdcollection FROM admin_cds;
+GRANT ALL ON TABLE cdcollection TO admin_cds;
+GRANT ALL ON TABLE cdcollection TO postgres WITH GRANT OPTION;
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: area; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE area FROM PUBLIC;
+REVOKE ALL ON TABLE area FROM postgres;
+GRANT ALL ON TABLE area TO postgres;
+GRANT ALL ON TABLE area TO admin_workflow;
+GRANT SELECT ON TABLE area TO PUBLIC;
+
+
+--
+-- Name: area_area_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE area_area_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE area_area_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE area_area_id_seq TO postgres;
+GRANT ALL ON SEQUENCE area_area_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE area_area_id_seq TO PUBLIC;
+
+
+--
+-- Name: area_status; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE area_status FROM PUBLIC;
+REVOKE ALL ON TABLE area_status FROM postgres;
+GRANT ALL ON TABLE area_status TO postgres;
+GRANT ALL ON TABLE area_status TO admin_workflow;
+GRANT SELECT ON TABLE area_status TO PUBLIC;
+
+
+--
+-- Name: area_status_area_status_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE area_status_area_status_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE area_status_area_status_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE area_status_area_status_id_seq TO postgres;
+GRANT ALL ON SEQUENCE area_status_area_status_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE area_status_area_status_id_seq TO PUBLIC;
+
+
+--
+-- Name: cargo; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE cargo FROM PUBLIC;
+REVOKE ALL ON TABLE cargo FROM postgres;
+GRANT ALL ON TABLE cargo TO postgres;
+GRANT ALL ON TABLE cargo TO admin_workflow;
+GRANT SELECT ON TABLE cargo TO PUBLIC;
+
+
+--
+-- Name: cargo_cargo_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE cargo_cargo_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE cargo_cargo_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE cargo_cargo_id_seq TO postgres;
+GRANT ALL ON SEQUENCE cargo_cargo_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE cargo_cargo_id_seq TO PUBLIC;
+
+
+--
+-- Name: centro_custo; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE centro_custo FROM PUBLIC;
+REVOKE ALL ON TABLE centro_custo FROM postgres;
+GRANT ALL ON TABLE centro_custo TO postgres;
+GRANT ALL ON TABLE centro_custo TO admin_workflow;
+GRANT SELECT ON TABLE centro_custo TO PUBLIC;
+
+
+--
+-- Name: centro_custo_centro_custo_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE centro_custo_centro_custo_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE centro_custo_centro_custo_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE centro_custo_centro_custo_id_seq TO postgres;
+GRANT ALL ON SEQUENCE centro_custo_centro_custo_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE centro_custo_centro_custo_id_seq TO PUBLIC;
+
+
+--
+-- Name: funcionario; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE funcionario FROM PUBLIC;
+REVOKE ALL ON TABLE funcionario FROM postgres;
+GRANT ALL ON TABLE funcionario TO postgres;
+GRANT ALL ON TABLE funcionario TO admin_workflow;
+GRANT SELECT ON TABLE funcionario TO PUBLIC;
+
+
+--
+-- Name: funcionario_categoria; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE funcionario_categoria FROM PUBLIC;
+REVOKE ALL ON TABLE funcionario_categoria FROM postgres;
+GRANT ALL ON TABLE funcionario_categoria TO postgres;
+GRANT ALL ON TABLE funcionario_categoria TO admin_workflow;
+GRANT SELECT ON TABLE funcionario_categoria TO PUBLIC;
+
+
+--
+-- Name: funcionario_categoria_funcionario_categoria_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE funcionario_categoria_funcionario_categoria_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE funcionario_categoria_funcionario_categoria_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE funcionario_categoria_funcionario_categoria_id_seq TO postgres;
+GRANT ALL ON SEQUENCE funcionario_categoria_funcionario_categoria_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE funcionario_categoria_funcionario_categoria_id_seq TO PUBLIC;
+
+
+--
+-- Name: funcionario_status; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE funcionario_status FROM PUBLIC;
+REVOKE ALL ON TABLE funcionario_status FROM postgres;
+GRANT ALL ON TABLE funcionario_status TO postgres;
+GRANT ALL ON TABLE funcionario_status TO admin_workflow;
+GRANT SELECT ON TABLE funcionario_status TO PUBLIC;
+
+
+--
+-- Name: funcionario_status_funcionario_status_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE funcionario_status_funcionario_status_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE funcionario_status_funcionario_status_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE funcionario_status_funcionario_status_id_seq TO postgres;
+GRANT ALL ON SEQUENCE funcionario_status_funcionario_status_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE funcionario_status_funcionario_status_id_seq TO PUBLIC;
+
+
+--
+-- Name: localidade; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE localidade FROM PUBLIC;
+REVOKE ALL ON TABLE localidade FROM postgres;
+GRANT ALL ON TABLE localidade TO postgres;
+GRANT ALL ON TABLE localidade TO admin_workflow;
+GRANT SELECT ON TABLE localidade TO PUBLIC;
+
+
+--
+-- Name: localidade_localidade_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE localidade_localidade_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE localidade_localidade_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE localidade_localidade_id_seq TO postgres;
+GRANT ALL ON SEQUENCE localidade_localidade_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE localidade_localidade_id_seq TO PUBLIC;
+
+
+--
+-- Name: organizacao; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE organizacao FROM PUBLIC;
+REVOKE ALL ON TABLE organizacao FROM postgres;
+GRANT ALL ON TABLE organizacao TO postgres;
+GRANT ALL ON TABLE organizacao TO admin_workflow;
+GRANT SELECT ON TABLE organizacao TO PUBLIC;
+
+
+--
+-- Name: organizacao_organizacao_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE organizacao_organizacao_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE organizacao_organizacao_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE organizacao_organizacao_id_seq TO postgres;
+GRANT ALL ON SEQUENCE organizacao_organizacao_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE organizacao_organizacao_id_seq TO PUBLIC;
+
+
+--
+-- Name: telefone; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON TABLE telefone FROM PUBLIC;
+REVOKE ALL ON TABLE telefone FROM postgres;
+GRANT ALL ON TABLE telefone TO postgres;
+GRANT ALL ON TABLE telefone TO admin_workflow;
+GRANT SELECT ON TABLE telefone TO PUBLIC;
+
+
+--
+-- Name: telefone_telefone_id_seq; Type: ACL; Schema: public; Owner: postgres
+--
+
+REVOKE ALL ON SEQUENCE telefone_telefone_id_seq FROM PUBLIC;
+REVOKE ALL ON SEQUENCE telefone_telefone_id_seq FROM postgres;
+GRANT ALL ON SEQUENCE telefone_telefone_id_seq TO postgres;
+GRANT ALL ON SEQUENCE telefone_telefone_id_seq TO admin_workflow;
+GRANT SELECT ON SEQUENCE telefone_telefone_id_seq TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

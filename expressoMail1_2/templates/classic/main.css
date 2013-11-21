@@ -1,0 +1,436 @@
+* {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.checkbox {
+	border:none !important;
+}
+
+textarea{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+.table_box{
+	width: 100%;
+	color: black;
+	background: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bbbbbb;
+	font-family: Arial;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.table_box tr{ 
+	border:0;    
+}
+
+.em_div_write_msg{
+	height: 16px;
+	background: #f7f8fa;
+}
+
+
+/* begin class msgs */
+.tr_msg_unread {
+	color: black;
+	background-color: #e8eef7 !important;
+	font-weight: bold !important;
+	border-bottom:1px solid #cfcfcf;
+    -moz-user-select: none;
+}
+.tr_msg_read, .tr_msg_read2 {
+	color: black;
+	background-color: #ffffff;
+	border-bottom:1px solid #cfcfcf;
+    -moz-user-select: none;
+}
+
+.selected_msg{
+	background-color: #ffffcc !important;
+}
+.flagged_msg{
+	color: red;
+}
+.selected_shortcut_msg{
+	color: white;
+	background-color: #5194d2 !important;
+}
+.show_img_link{
+	width : 100%;
+	color: black;
+        font-weight: bold;
+	background-color: #ffc;
+	border-bottom:1px solid #cfcfcf;
+	cursor: pointer;		 
+	-moz-user-select: none;
+}
+/* end class msgs */
+
+.show_img_link:hover {
+	color: #000 !important;
+}
+
+.action_info_table {
+	border-spacing: 0px 0px;
+}
+.action_info_th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border-width: 0px 0px 0px 0px;
+	padding: 1px 10px 0px 10px;	
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	background-color: rgb(250, 209, 99);
+	-moz-border-radius: 6px 6px 6px 6px;
+}
+
+.message_header{
+	background-color: #CCCCCC;
+}
+
+.table_message_header_box{
+	width: 100%;
+	color: black;
+	border-style: solid;
+	border-width: 0px;
+	border-collapse: collapse;
+	border-color: #bbbbbb;
+	font-family: Arial;
+	font-size: 13px;	
+	cursor: pointer;
+}
+.font-menu
+{
+    text-decoration: none;
+    text-align: center;
+    font: bold 13px Lucidatypewriter,monospace;
+    color: #505050;
+}
+
+.font-menu-sel
+{
+    text-decoration: none;
+    text-align: center;
+    font: bold 13px Lucidatypewriter,monospace;
+   	color:#0000FF;
+}
+
+.table_message{
+	background-color: #CCCCCC;
+	padding: 1px;
+	cursor: default;
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 0px 1px;
+	border-style: outset outset outset outset;
+	border-color: gray gray gray gray;
+	border-collapse: separate;
+	-moz-border-radius: 3px 3px 3px 3px;
+}
+.table_top{
+	background-color: #FFFFFF;
+	padding:1px 1px 1px 1px;
+	height:16px;
+	cursor: default;
+	margin: 0px 0px 0px 0px;
+	border-width: 0px 1px 1px 1px;
+	border-style: outset outset outset outset;
+	border-color: black black black black;	
+}
+
+.tr_message_header{
+	background-color: #EEEEEE;
+	cursor: default;
+	border-style: none none none none;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+.tr_message_body{
+	background-color: #FFFFFF;
+	cursor: default;
+	-moz-border-radius: 9px 9px 9px 9px;
+}
+
+.message_body{
+	background-color: #FFFFFF;
+	cursor: default;
+	-moz-border-radius: 9px 9px 9px 9px;
+}
+
+.header_message_field{
+	font-weight: bold;
+}
+
+.suggestion_list
+{
+background: white;
+border: 1px solid;
+padding: 4px;
+}
+        
+.suggestion_list ul
+{
+padding: 0;
+margin: 0;
+list-style-type: none;
+}
+
+.suggestion_list a
+{
+text-decoration: none;
+color: navy;
+}
+
+.suggestion_list .selected
+{
+background: navy;
+color: white;
+}
+        
+        
+.suggestion_list .selected a
+{
+color: white;
+}
+
+#autosuggest
+{
+display: none;
+} 
+
+div#tipDiv {
+  position:absolute; visibility:hidden; left:0; top:0; z-index:10000;
+  background-color:#EFEFEF; border:1px solid #337;
+  width:220px; padding:0px;
+  color:#000; font-size:11px; line-height:1.2;
+  cursor: pointer;
+}
+
+.richtext_toolbar {background-color: #C0C0C0;}
+.imagebutton {border: solid 2px #C0C0C0; background-color: #C0C0C0; float:left;}
+.select_richtext {float:left;}
+/*.image {position: relative; left: 1; top: 1; height:20; width:21; border:none;}*/
+/*.imagebutton_out: {border-style: solid 2px #C0C0C0;}*/
+/*.imagebutton_over: {border-style: outset 20px;}*/
+.sel_color{	border-width:1px;border-color:#FFFFFF;border-style:solid;cursor:pointer;}
+.unsel_color{border-width:1px;border-color:#BBBBBB;border-style:solid;}
+
+/* Conf tree	*/
+.dtree {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: #000000;
+	/*white-space: nowrap;*/
+	background-color: #FFFFFF;
+
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+
+}
+.dtree a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	white-space: nowrap;	
+}
+.dtree table{
+	margin-top: 0%;
+	padding: 0px 0px 0px 0px;
+}
+.dtree td{
+	padding: 0px 0px 0px 0px;
+}
+
+.folderscol{
+	/*width: 18%;*/
+	width: 100%;
+	/*float: left;*/
+	/*padding: 0px 0px 0px 0px;*/
+}
+
+.messagescol{
+	/*padding-left: 18.5%;*/
+	/*width: 85%;*/
+	width: 100%;
+	/*float: left*/
+	/*margin-rigth: 0px;*/
+	padding: 0px 0px 0px 0px;
+}
+
+.menu-folders
+{
+	text-align: center;
+    text-decoration: none;
+	font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+	color: rgb(0, 102, 51);
+	width: 100%;
+	height: 20px;
+
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-top: 1px solid #000000;
+		
+	cursor: default;
+    -moz-border-radius: 9px 9px 0px 0px;
+}
+
+.content-menu {
+	padding: 3px 0px 3px 5px;
+	border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	-moz-border-radius: 9px 9px 9px 9px;
+}
+.content-menu-td {
+	border: 1px solid #f7f7f7;
+}
+
+.content-folders {
+	padding: 0px 0px 0px 0px;
+	width:162px;
+	border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+    -moz-border-radius: 9px 9px 9px 9px;
+
+	position: relative;
+	overflow: auto;
+}
+
+/* Conf Filter	*/
+.filter {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	background-color : #FFFFFF;
+}
+.filter img {
+	border: 0px;
+	vertical-align: middle;
+}
+.filter a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	white-space: nowrap;
+}
+
+.message_options_active,
+.message_options_over,
+.message_options {
+	cursor: pointer;
+	white-space: nowrap;
+}
+.message_options_trash,
+.message_options_import,
+.message_options_export,
+.message_options_print,
+.message_options_move {
+        padding:0pt 1pt 1pt 8pt;
+}
+.message_options_inactive {
+         white-space: nowrap;
+        color: #999;
+}
+
+.message_options_over {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.em_sidebox_menu {
+	position: relative;
+	left: 2px;
+	padding: 0px 13px 0px 0px;
+	font-weight: bold;
+	font-size: 10px;
+	color: #666666;
+	text-decoration: none;
+	white-space: nowrap;
+	font-family: sans-serif;
+}
+
+.em_div_sidebox_menu {
+	position: relative;
+	left: 5px;
+	cursor: pointer;
+}
+.catalog{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div.quicksearchcontacts {
+	border-width: 1px;
+	border-style: solid;
+	broder-color: grey;
+	overflow: auto;
+	position: relative;
+	left: 10px;
+	height: 302px;
+	width: 577px;
+}
+
+table.quicksearchcontacts {
+	border-width: 0px 0px 0px 0px;
+	border-spacing: 0px;
+	background-color: white;
+	cursor: default;
+}
+
+tr.quicksearchcontacts_unselected {
+	background-color: white;
+}
+
+tr.quicksearchcontacts_selected {
+	background-color: #5598d7;
+	color: white;
+}
+
+td.quicksearchcontacts_cc {
+	border-style: none;
+}
+
+input.em_button_like_span {
+	border:0px none !important;
+	margin: 0px !important;
+	padding:0px !important;
+	color:blue !important;
+	background:transparent none repeat scroll 0% !important;
+	font-family:Verdana,Arial,Helvetica,sans-serif !important;
+	font-size:11px !important;
+	height:15px !important;
+}
+
+
+
+.l {
+	background-image: url() !important;
+	padding: 0 13 0 0 !important;
+	font-weight: bold !important;
+	font-size: 10px !important;
+	text-decoration: none !important;
+	font-family: sans-serif !important;
+}
+.sl {
+	background-image: url() !important; 
+	padding: 0 13 0 0 !important;
+	font-weight: bold !important;
+	font-size: 10px !important;
+	color: #0000FF !important;
+	font-family: sans-serif !important;
+}
+
+.divAppboxHeader
+{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px !important;
+	font-weight: bold !important;
+	color: #000066 !important;
+	text-align: center !important;
+	padding: 0px;
+}

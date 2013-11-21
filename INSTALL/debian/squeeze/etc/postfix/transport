@@ -1,0 +1,2 @@
+DOMAIN		lmtp:unix:/var/run/cyrus/socket/lmtp
+.DOMAIN		lmtp:unix:/var/run/cyrus/socket/lmtp

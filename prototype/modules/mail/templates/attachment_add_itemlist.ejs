@@ -1,0 +1,11 @@
+<div class="att-box ui-corner-all <%= (typeof(data.file.error) != 'boolean' ? 'invalid-email-box' : '') %>">
+    <!--<div style="position:absolute; text-align: center; line-height: 1.9em;">-->
+    	<span class="att-box-value"><%=data.file.fileName%>&nbsp;<b>(<%=data.file.fileSize%>)</b></span>
+        <span class="att-box-fullfilename" style="display:none;"><%=data.file.fullFileName%></span>
+        <span class="att-box-filesize" style="display:none;"><%=data.file.fileSize%></span>
+    	<% if(typeof(data.file.error) == 'boolean'){ %>
+    	<span class="att-box-loading">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    	<% } %>
+    	<span class="att-box-delete ui-icon-close ui-icon" style="display: inline-block;" title="<%=get_lang('Remove')%>">&nbsp;</span>
+    <!--</div>-->
+</div>

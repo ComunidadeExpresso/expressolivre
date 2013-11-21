@@ -1,0 +1,112 @@
+/* Estilos da tela de busca rápida de contatos */
+
+.expressomail-qs-container { font-size:11px;} 
+.expressomail-qs-container legend { font-size:1.1em; font-weight: bold; } 
+.expressomail-qs-container #accordion { margin: 5px;} 
+.expressomail-qs-container fieldset, .expressomail-qs-container div {margin:0;}
+.expressomail-qs-container .ui-autocomplete-input { height:22px; width:200px; margin-right:-1px; }
+.expressomail-qs-container #wrap-progressbar { height:22px; width:122px;  float:left; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar { text-align:center; width:100px; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar span { font-size:10px; line-height:12px; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar #progressbar { width:100px; height:10px; }
+.expressomail-qs-container .clear {clear:both;}
+/*.expressomail-qs-container #fieldset1 label {width:495px;display:inline-block; border:4px solid #72A9D3;}*/
+.expressomail-qs-container fieldset { border:1px solid #AAA; border-radius:5px; margin:5px; }
+.expressomail-qs-container #ul {list-style:none; margin:0; padding:0;}
+.expressomail-qs-container #fieldset1 {color:#444;}
+.expressomail-qs-container #fieldset1 label {font-weight:bold; display:block;}
+
+.expressomail-qs-container #list-acc-users li, .expressomail-qs-container #search-result-users li {margin-right:5px;border-radius:3px;}
+.expressomail-qs-container #list-acc-mails li {margin-right:5px;padding-bottom:4px;border-radius:3px;}
+.expressomail-qs-container #list-acc-users li:hover, .expressomail-qs-container #list-acc-mails li:hover, .expressomail-qs-container #search-result-users li:hover {background-color:#DDD;}
+.expressomail-qs-container #list-acc-users li span.ui-icon, .expressomail-qs-container #list-acc-mails li span.ui-icon, .expressomail-qs-container #search-result-users li span.ui-icon {display:none; margin:2px;}
+.expressomail-qs-container #list-acc-users li input, .expressomail-qs-container #list-acc-mails li input, .expressomail-qs-container #search-result-users li input {margin-top:5px;}
+.expressomail-qs-container #list-acc-users li label, .expressomail-qs-container #list-acc-mails li label, .expressomail-qs-container #search-result-users li label {margin-top:-5px;}
+.expressomail-qs-container #list-acc-users li:hover span, .expressomail-qs-container #list-acc-mails li:hover span, .expressomail-qs-container #search-result-users li:hover span {display:inline;}
+.expressomail-qs-container #search-result-users li span.ui-icon {display:none;}
+.expressomail-qs-container .ui-icon {float:right;}
+.expressomail-qs-container #icon-bar1 .ui-icon {float:left; margin:0 3px;}
+.expressomail-qs-container #icon-bar1 span {float:left; margin:2px 3px 0 0;}
+.expressomail-qs-container .ui-icon-trash, .expressomail-qs-container .ui-icon-edit, .expressomail-qs-container .ui-icon-close, .expressomail-qs-container .ui-icon-plus, .expressomail-qs-container .ui-icon-pencil {background-color:#EEE;}
+.expressomail-qs-container .ui-icon-trash:hover, .expressomail-qs-container .ui-icon-edit:hover, .expressomail-qs-container .ui-icon-close:hover, .expressomail-qs-container .ui-icon-plus:hover, .expressomail-qs-container .ui-icon-pencil:hover {background-color:#BBB;}
+.expressomail-qs-container .ui-autocomplete-input {width:170px;}
+.expressomail-qs-container .ui-accordion .ui-accordion-content{padding:5px;}
+
+.expressomail-qs-container .foot-note {width:905px; padding:5px;margin-top:20px;border-top:1px solid #ddd;}
+.expressomail-qs-container .acc-list {font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif; font-size:11px; color:#555; }
+.expressomail-qs-container .acc-list h3{font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif; font-size:11px; color:#555; margin:0; padding:5px 3px; background-color:#fff;}
+.expressomail-qs-container .acc-list ul{ margin:5px 0;}
+.expressomail-qs-container .acc-list ul li{ border-radius:3px; padding:5px;}
+.expressomail-qs-container .acc-list ul li:hover {background-color:#DDD;}
+.expressomail-qs-container .acc-list ul li.active {background-color:#EB8F00;}
+.expressomail-qs-container .acc-list ul li strong {display:block;}
+.expressomail-qs-container .acc-list ul li em {display:block;}
+
+/*Específico do selectable*/
+.expressomail-qs-container #feedback { font-size: 1.4em; }
+.expressomail-qs-container #selectable .ui-selecting { background: #DDECF7; }
+/* #selectable .ui-selected { background: #F39814; color: white; }   Aqui eu troquei a cor de quando era selecionada a linha */
+.expressomail-qs-container #selectable .ui-selected { background: #72A9D3; color: white; }
+
+.expressomail-qs-container #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+.expressomail-qs-container ul#selectable { overflow: hidden; width: 444px; height: 250px;}
+.expressomail-qs-container ul#selectable li { width: 435px; overflow:hidden; }
+.expressomail-qs-container ul#selectable li.ui-selected { width: 100%;  }
+.expressomail-qs-container ul#selectable li div { width: 6000px; }
+.expressomail-qs-container .ui-button-icon-only { width: 1.2em; }
+.expressomail-qs-container .ui-icon { margin-left: -8px; }
+.expressomail-qs-container .ui-widget button { border: 0 solid; } 
+
+.expressomail-qs-container .menu-control { float:right; margin-left:400px; position: absolute; z-index: 100; padding-top:5px;}
+.expressomail-qs-container .acc-list { width:444px;height:250px;float:left;border:1px solid #DDD;background-color:#EEE;border-radius:3px;margin-left:1px; margin: 10px 5px 5px 1px;}
+.expressomail-qs-container .details-container { width:300px;height:246px; float:right; margin: 5px 0;}
+
+.expressomail-qs-container .acc-list .demo {width:100%;margin-top:20px;}
+
+.dialog-modal.expressomail-qs-container  { height: 416px; padding:5px; }
+
+.ui-dialog .ui-dialog-buttonpane { padding: 0; border:none; margin: 0;}
+.expressomail-qs-container .menu-control .ui-button-text-only .ui-button-text { padding: 0.1em 0.6em; }
+
+/* search area definition */
+fieldset.search-field, fieldset.search-catalog-options {
+	border:1px solid #CFCFCF;
+	padding: 5px;
+}
+
+fieldset.search-field input, fieldset.search-catalog-options select{
+	display: inline-block;
+	border: none;
+	background-color: #FFF;
+}
+
+fieldset.search-field span {
+	display: inline-block;
+	margin:0 0 -3px 5px;
+}
+
+/* #search area definition */
+fieldset.search-field { max-width: 190px; width: 190px; margin: 0px; text-align: left; display: inline;}
+fieldset.search-field input { max-width: 165px; width: 165px; }
+
+fieldset.search-catalog-options { max-width: 124px; width: 120px; margin: 0px; text-align: left; display: inline;}
+fieldset.search-catalog-options select { max-width: 120px; width: 120px; }
+
+
+.ui-dialog .ui-dialog-titlebar-minimize {
+    height: 18px;
+    margin: -10px 0 0;
+    padding: 1px;
+    position: absolute;
+    right: 1.8em;
+    top: 50%;
+    width: 19px;
+}
+
+.ui-dialog-buttonpane .ui-button {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+ 
+.button-mod { margin-top: -2.5em; }

@@ -1,0 +1,55 @@
+<div class="all-list-calendars">
+<div class="my-calendars">
+	<a title='Minhas agendas' class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'>Minhas agendas</a>
+	<ul class="list-calendars my-list-calendars">	
+		<% if (agendas_usuario[0]) {
+				for (var i=0; i<agendas_usuario[0].my_calendars.length; i++) { %>
+					<li class="list-calendars-item">
+						<input type="checkbox" name="" value=""/>
+						<label><%= agendas_usuario[0].my_calendars[i].name %></label>
+						
+						<a class="cal-list-options-btn my-cal-list-options-btn-<%= i %>" onclick="show_cal_list_options('my-cal-list-options-', <%= i %>)">
+							<img src="../prototype/modules/calendar/img/arrow_down.png" width="10" height="10" class="cal-list-img"/>
+						</a>
+						<div class="cal-list-options my-cal-list-options-<%= i %> hidden">
+							<ul>
+								<li><a href="#">Configuracoes</a></li>
+								<li><a href="#">Importar</a></li>
+								<li><a href="#">Exportar</a></li>
+								<li><a href="#" class="calendar-jpicker-btn">Aplicar cor</a></li>
+							</ul>
+						</div>
+					</li>
+		<% 		}
+		   } 
+		%>
+	</ul>
+</div>
+
+<div class="signed-calendars">
+	<a title='Agendas assinadas' class="title-signed-calendars" onclick="show_list_calendars();" aria-expanded='false' role='button' tabindex='0'>Agendas assinadas</a>			
+		<ul class="list-calendars signed-list-calendars">
+			<% if (agendas_usuario[1]) {
+					for (var i=0; i<agendas_usuario[1].others_calendars.length; i++) { %>
+						<li class="list-calendars-item">
+							<input type="checkbox" name="" value=""/>
+							<label><%= agendas_usuario[1].others_calendars[i].name %></label>
+
+							<a class="cal-list-options-btn signed-cal-list-options-btn-<%= i %>" onclick="show_cal_list_options('signed-cal-list-options-', <%= i %>)"><img src="img/arrow_down.png" width="10" height="10" class="cal-list-img"></a>
+							<div class="cal-list-options signed-cal-list-options-<%= i %> hidden">
+								<ul>
+									<li><a href="#">Configuracoes</a></li>
+									<li><a href="#">Importar</a></li>
+									<li><a href="#">Exportar</a></li>
+								</ul>
+							</div>
+
+						</li>
+			<% 		}
+			} 
+			%>
+		</ul>
+	</div>
+</div>
+
+<div class="calendar-jpicker-win"></div>

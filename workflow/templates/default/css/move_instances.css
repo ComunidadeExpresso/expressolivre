@@ -1,0 +1,47 @@
+h2.activity
+{
+	font-size: 11px;
+	font-weight: bold;
+	cursor: default;
+}
+
+div.activities
+{
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	/* IE Hack */
+#	height: 50px;
+}
+
+div.activities p
+{
+	text-align: center;
+}
+
+div.window
+{
+	margin-top: 10px;
+	width: 200px;
+}
+
+div.window h3
+{
+	background-color: #000000;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 1px;
+	margin: 0px;
+}
+
+div#mainBody
+{
+	text-align: center;
+}
+
+button.moveInstancesButton
+{
+	margin-top: 20px !important;
+	padding: 5px !important;
+}

@@ -1,0 +1,95 @@
+     	<fieldset style="width:340px; height:350px; text-align:right; padding: 5px; position:absolute; margin:5px; border:0px ">
+				<legend><%=data.Inform_your_search_in_the_text_fields%></legend>
+			
+				<label><%=data.From%>:</label>
+				<input style="margin-left: 6px;" type="text" id="txt_de" size="20" value="<%=data.From_value%>"/>
+				<br style="margin-bottom:15px" />
+
+				<label><%=data.To%>:</label>
+				<input style="margin-left: 6px;" type="text" id="txt_para" size="20" />
+				<br style="margin-bottom:15px"/>
+
+				<label><%=data.Cc%>:</label>
+				<input style="margin-left: 6px;" type="text" id="txt_cc" size="20" />
+				<br style="margin-bottom:15px"/>
+
+				<label><%=data.Subject%>:</label>
+				<input style="margin-left: 6px;" type="text" id="txt_ass" size="20" />
+				<br style="margin-bottom:15px"/>
+
+				<label><%=data.Message_body%>:</label>
+				<input style="margin-left: 6px;" type="text" id="txt_body" size="20" />
+				<br style="margin-bottom:30px" />
+			
+				<div style="text-align: right; margin-bottom:10px;">
+					<label><%=data.Since_Date%>:</label>
+					<input style="margin-left: 3px; width:82px;" type="text" id="since_date" onkeypress="return dateMask(this, event);" readonly="readonly" />
+					<label><%=data.Before_Date%>:</label>
+					<input style="margin-left: 3px; width:82px;" type="text" id="before_date" onkeypress="return dateMask(this, event);" readonly="readonly" />
+				</div>
+				
+				<label><%=data.On_Date%>:</label>
+				<input style="margin-left: 3px; width:82px;" type="text" id="on_date" onkeypress="return dateMask(this, event);" readonly="readonly" />
+				<br/>
+				<br/>
+
+				<label><%=data.Flags%>:</label>
+
+				<select style="width:15em; margin-left: 6px" name="flagged" id="flagged">
+					<option value=""/>
+					<option value="FLAGGED"><%=data.Flagged%></option>
+					<option value="UNFLAGGED"><%=data.Unflagged%></option>
+				</select>
+
+				<br style="margin-bottom:15px"/>
+			
+				<select style="width:15em;" name="seen" id="seen">
+					<option value=""/>
+					<option value="SEEN"><%=data.Seen%></option>
+					<option value="UNSEEN"><%=data.Unseen%></option>
+				</select>
+			
+				<br style="margin-bottom:15px"/>
+			
+				<select style="width:15em;" name="answered" id="answered">
+					<option value=""/>
+					<option value="ANSWERED"><%=data.Answered_Forwarded%></option>
+					<option value="UNANSWERED"><%=data.Unanswered_Unforwarded%></option>
+				</select>
+			
+				<br style="margin-bottom:15px"/>
+			
+				<select style="width:15em;visibility:hidden;" name="recent" id="recent">
+					<option value=""/>
+					<option value="RECENT"><%=data.Recent%></option>
+					<option value="OLD"><%=data.Old%></option>
+				</select>
+
+				<br style="margin-bottom:60px"/>
+		</fieldset>
+
+		<fieldset style="width:395px; height:350px; padding: 5px; position:absolute; margin-left: 365px; margin-top:5px; border:0px;">
+			
+			<legend>
+				<%=data.Search_the_messages_in_these_folders%>
+			</legend>
+
+			<div id="divFoldersSearch" style="width:165px; height:150px; float:left; margin-bottom:10px; border:1px outset black; background:#F7F7F7; overflow:auto;"></div>
+			
+			<div style="float:left; height:100px; padding-top:50px; margin: 0 3px;">
+				<input type="button" id="incluir" name="incluir" value="<%=data.button_right%>" onclick="EsearchE.add_mailboxes()" class="button ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false" />
+				<br style="margin-bottom:15px" />
+				<input type="button" id="excluir" name="excluir" value="<%=data.button_left%>" onclick="EsearchE.del_mailboxes()" class="button ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false" />
+			</div>
+			
+			<div style="float:left;">
+				<select multiple="true" id="sel_search_nm_box1" name="sel_search_nm_box1" style="width:165px;height:150px; background:#F7F7F7; color:#FC6103; font-size:10px; font-family:sans-serif; font-weight:bold"></select>
+			</div>
+			
+			<br clear="both"/>
+
+			<input type="checkBox" id="check_all_msg" name="check_all_msg" onclick="EsearchE.all_mailboxes()"/>
+			
+			<b><%=data.In_all_the_folders%></b>
+			
+		</fieldset>

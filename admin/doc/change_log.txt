@@ -1,0 +1,9 @@
+Esse arquivo descreve todas as correções, alterações e novas implementações do 
+módulo Agenda de Eventos, e a partir da versão 29/11/2006 [1.0.0]
+Nilton Emilio Buhrer Neto.
+
+29/06/2007 - [1.0.0]
+- Adicionados nas configurações do servidor, dois novos campos relacionados a senha do usuário.
+Esses campos definem a política de senha do Expresso.
+- Retirados os links de administração de usuários e grupos, ferramentas originais do E-GroupWare.
+No Expresso essa administração deve ser feita pelo ExpressoAdmin.

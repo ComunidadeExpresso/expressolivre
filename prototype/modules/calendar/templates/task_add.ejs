@@ -1,0 +1,255 @@
+<div title="Criar Tarefa" class="div-addtask content">
+    <form method="POST" action="<%= data.task.isOrganizer ? 'schedulable:task' : 'schedulable:taskEdit' %>" class="form-addtask content">
+
+	<fieldset id="calendar_addtask_details1">
+		<legend class="hidden">Detalhes da tarefa</legend>
+		<p class="input-group">
+		    <input type="text" class="h1" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> name="summary" value="<%= (data.task.summary) ? data.task.summary : '' %>"/>
+		    <% if( data.task.id ){ %>
+			    <input type="hidden" class="id-task" name="idTask" value="<%= data.task.id %>"/>
+		    <% } %>
+		    <% if( data.task.id && data.task.group ){ %>
+    			<input type="hidden" class="last-group" name="lastGroup" value="<%= data.task.group %>"/>
+		    <% } %>
+		</p>
+		<p class="input-group date-info">
+            <span>Inicio</span>
+			<input type="text" class="date start-date" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= (data.task.startDate) ? data.task.startDate : '' %>" name="startDate" />
+			<input type="text" class="time start-time" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= (data.task.startHour) ? data.task.startHour : '' %>" name="startHour" />
+			<span>com previsão de término</span>
+            <input type="text" name="dueDate" class="date date-prevision" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= data.task.dueDate %>">
+            <input type="text" name="dueTime" class="time time-prevision" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= data.task.dueTime %>">
+
+            <a href="#" class="calendar_addtask_details_lnk_timezone" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>Fuso horário</a>
+			
+			
+<!--		<input type="text" name="timezone" style="display: none;" />-->
+			<select name="timezone" class="hidden calendar-addtask-details-txt-timezone" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
+				<option value="">- None selected -</option>
+				<% for( var tzId in data.task.timezones ){ %>
+				  <option value="<%= tzId %>" <%= data.timezone === tzId ? 'selected="selected"' : '' %>><%= tzId + ' (' + data.task.timezones[ tzId ] + ')' %></option>
+				<% } %>
+			</select>
+
+			<a class="button suggestion-hours small hidden" href="#">Sugerir horário</a>
+
+
+		</p>
+				
+		<div class="ui-widget messages-validation hidden">
+			<div style="padding: 0.2em 0.7em;" class="ui-state-error ui-corner-all"> 
+				<p class="message">
+					<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span> 
+					<label></label>
+				</p>
+			</div>
+		</div>
+
+		<p class="input-group subitem">
+				% Conclusão: <input type="text" name="percentage" class="done" value="<%= data.task.percentage %>">
+				<span style="margin:0 0 0 5px;">Status:</span> 
+		    <select name="taskStatus" style="margin: 0 0 0 5px;">
+                    <option class="taskStatus-noAction"<%= (data.task.taskStatus == '1') ? 'selected="selected"' : '' %> value="1">Sem ações</option>
+                    <option class="taskStatus-inProcess"<%= (data.task.taskStatus == '2') ? 'selected="selected"' : '' %> value="2">Em Processo</option>
+                    <option class="taskStatus-finished"<%= (data.task.taskStatus == '3') ? 'selected="selected"' : '' %> value="3">Finalizada</option>
+					<option class="taskStatus-canceled"<%= (data.task.taskStatus == '4') ? 'selected="selected"' : '' %> value="4">Cancelada</option>
+				</select>
+				<span style="margin:0 0 0 5px;">Prioridade:</span> 
+				<select name="priority" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
+					<option <%= (data.task.priority == '1') ? 'selected="selected"' : '' %> value="1">Alta</option>
+					<option <%= (data.task.priority == '2') ? 'selected="selected"' : '' %> value="2">Normal</option>
+					<option <%= (data.task.priority == '3') ? 'selected="selected"' : '' %> value="3">Baixa</option>
+				</select>
+                <span class="span_done"><label>Completo</label></span>
+		</p>
+	</fieldset>
+	<ul style="width: 752px">
+		<li><a href="#calendar_addtask_details2">Detalhes da tarefa</a></li>
+		<li><a href="#calendar_addtask_details4">Lembretes</a></li>
+		<li><a href="#calendar_addtask_details5">Anexos</a></li>
+		<li><a href="#calendar_addtask_details6">Participantes</a></li>
+		<li><a href="#calendar_addtask_details7">Disponibilidade</a></li>
+		<li><a href="#calendar_addtask_details8">Histórico</a></li>
+	</ul>
+	<fieldset id="calendar_addtask_details2" class="tab-level2">
+		<legend class="hidden">Detalhes da tarefa</legend>
+
+		<p class="input-group">
+			<label for="calendar_addtask_details_txtarea_description" class="for-textarea" >Descrição</label>
+			<textarea name="description" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>><%=(data.task) ? data.task.description : '' %></textarea>
+		</p>
+
+		<p class="input-group">
+			<label for="calendar_addtask_details_slt_cal">Grupo</label>
+				<select  name="group" >
+					<% 
+					  if(data.task.groups){
+					    for (var i=0; i< data.task.groups.length; i++) {
+					%>
+					      <option value="<%= data.task.groups[i].id %>" <%= data.task.groups[i].id == data.task.group ? 'selected="selected"':'' %>>
+					      <%= data.task.groups[i].name %>
+					      </option>
+					<%  }
+					  } %>
+				</select>
+		</p>
+		
+		<fieldset class="hidden">
+			<legend class="hidden">Publicidade</legend>
+
+			<p class="input-group">
+				<label class="input-group">Privacidade</label>
+				<input type="radio" name="class" value="1" checked="checked"/>
+				<label for="calendar_addtask_details_rdo_class1">Padrão</label>
+				<input type="radio" name="class" value="2" />
+				<label for="calendar_addtask_details_rdo_class2">Público</label>
+				<input type="radio" name="class" value="3" />
+				<label for="calendar_addtask_details_rdo_class3">Privado</label>
+			</p>
+			
+		</fieldset>
+		
+	</fieldset>
+	
+	<div class="overflow_add_calender">
+	<fieldset id="calendar_addtask_details4" class="tab-level2">
+		<legend class="hidden">Lembretes</legend>
+		
+		<p class="default-alarm-task <%= (!data.task.id && data.task.alarms) ? '' : 'hidden'%>">
+			<input type="checkbox" name="defaultAlarm" value="true" checked="checked"/>
+			<label class="input-default-alarm" for="defautAlarm">Usar alarmes padrões</label>
+		</p>
+	
+		<ul class="task-alarms-list">
+			<% if (data.task && data.task.alarms) {
+				for (var i=0; i< data.task.alarms.length; i++) {
+			%>
+			<li class="input-group">
+				<label>Avisar-me por </label>
+				<select name="alarmType[]">
+                    <option value="alert" <%= data.task.alarms[i].type=='alert' ? 'selected="selected"':'' %>>Alerta</option>
+                    <option value="mail" <%= data.task.alarms[i].type=='mail' ? 'selected="selected"':'' %>>E-mail</option>
+                    <!--<option value="sms" <%= data.task.alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
+				</select>
+				<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.task.alarms[i].time %>"/>
+				<select name="alarmUnit[]">
+					<option value="m" <%= data.task.alarms[i].unit=='m' ? 'selected="selected"':'' %>>Minutos</option>
+					<option value="h" <%= data.task.alarms[i].unit=='h' ? 'selected="selected"':'' %>>Horas</option>
+					<option value="d" <%= data.task.alarms[i].unit=='d' ? 'selected="selected"':'' %>>Dias</option>
+				</select>
+				<input type="hidden" name="alarmId[]" value="<%=data.task.useAlarmDefault ? '' : data.task.alarms[i].id%>" />
+				<input type="hidden" name="isDefaultAlarm[]" value="<%=data.task.useAlarmDefault ? 1 : 0%>" />
+				<label> antes de cada tarefa.</label>
+				<a class="button remove tiny"></a>
+			</li>
+			<%	}
+			   }
+			%>
+		</ul>
+		<span class="button add button-add-alarms">Adicionar lembrete</span>
+	
+	</fieldset>
+	</div>
+	
+	<fieldset id="calendar_addtask_details6" class="tab-level2" title="Participantes">
+	</fieldset>	
+	
+	<fieldset id="calendar_addtask_details7" class="tab-level2" title="Disponibilidade">
+	</fieldset>
+	
+	<fieldset id="calendar_addtask_details8" class="tab-level2" title="Histórico">
+	    <div class="parent">
+		<div class="child-top">
+		    <div class="date-hour"><span>Data-Hora</span></div>
+		    <div class="user"><span>Participante</span></div>
+		    <div class="attribute"><span>Alterou</span></div>
+		    <div class="beforeValue"><span>De</span></div>
+		    <div class="afterValue"><span>Para</span></div>
+		</div>
+
+		<div class="child-bottom">
+		    <% if(data.task.historic){
+			for(var i=0; i< data.task.historic.length; i++){ %>
+			    <div class="child-bottom-each">
+				<div class="date-hour"><span><%= data.task.historic[i].time %></span></div>
+				<div class="user"><span><%= data.task.historic[i].user.name %></span></div>
+				<div class="attribute"><span><%= data.task.historic[i].attribute %></span></div>
+				<div class="beforeValue"><span><%= data.task.historic[i].beforeValue %></span></div>
+				<div class="afterValue"><span><%= data.task.historic[i].afterValue %></span></div>
+			    </div>
+		    <% 	}	
+		    }%>
+		</div>
+
+	    </div>
+	</fieldset>
+
+	<fieldset class="attachment-list hidden">
+             <%if(data.task && data.task.attachments){
+                for (var i=0; i< data.task.attachments.length; i++) {%>
+                    <input type="hidden" name="fileId[]" value="<%=data.task.attachments[i].id%>"/>
+                <%}
+            }%>
+	</fieldset>
+    </form>
+    
+<div class="overflow_add_calender">
+	<fieldset id="calendar_addtask_details5" class="tab-level2">
+        <form id="fileuploadtask" action="attachment:detail" method="POST">
+        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+        <div class="row fileupload-buttonbar-task">
+            <div class="button-files-upload">
+                <!-- The fileinput-button span is used to style the file input field as button --> 
+		      <span class="button btn-success fileinput-button <%= data.task.isOrganizer  ? '' : 'hidden'%>" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
+                    <span><i class="icon-plus icon-white"></i> Adicionar</span>
+                    <input type="file" name="files[]" multiple <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
+                </span>
+		<button type="button" class="button btn-danger delete <%= data.task && data.task.attachments && data.task.attachments.length ? '' : 'hidden' %>" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
+			<i class="icon-trash icon-white"></i> Remover Todos
+		</button>
+            </div>
+            <div id="fileupload-progress-task"></div>
+            <div class="files-list">
+               <ul class="attachments-list">
+				<%
+                    for (var i=0; i< data.task.attachments.length; i++) {
+				%>
+					<p class="input-group arquive-info">
+						<label class="lbl-archive-nome">Nome:</label>
+						<span class="archive-nome"><%=data.task.attachments[i].name%></span>
+						
+						<label class="lbl-archive-size">Tamanho:</label>
+						<span class="archive-size"><%=data.task.attachments[i].size%></span>
+						<a href="../prototype/getArchive.php?attachment=<%=data.task.attachments[i].id%>" class="button tiny upload downlaod-archive">Download</a>
+						
+						<span class="button close tiny upload edit delete-upload" title="Deletar">Deletar</span>
+						
+						<input type="hidden" name="fileId[]" value="<%=data.task.attachments[i].id%>"/>
+					</p>
+				<%}%>
+			   
+			   
+			   </ul>
+            </div>
+        </div>
+        <br>
+        
+    </form>
+	</fieldset>
+</div>
+	<form action="../prototype/modules/calendar/export.php" method="GET" class="form-export content">
+		<input type="hidden" class="id-task" name="event" value="<%= data.task.id %>"/>
+	</form>
+<!--	<div id="calendar_addtask_addattendee"></div>-->
+
+    <div title="" class="menu-container footer-container menu-addtask">
+	    <% if (data.task.id) { %>
+			<a title="Exportar" class="button export" href="#">Exportar</a>
+			<a title="Excluir" class="button delete" href="#">Excluir</a>
+	    <% } %>
+		<a title="Cancelar" class="button cancel" href="#">Cancelar</a>
+	    <a title="Salvar" class="button save" href="#">Salvar</a>
+    </div>
+</div>
+<!--<script src="application.js"></script>-->
+<!--<script src="application.js"></script>-->

@@ -1,0 +1,145 @@
+.proc_filter_div
+{
+	position: relative;
+	visibility: hidden;
+}
+
+/** Estilo do menu de atividades dos processos **/
+
+div.menuInternoOut
+{
+	font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	border-left: 5px solid #BADAEF;
+	padding: 2px;
+	color: #000;
+}
+
+div.menuInternoOver
+{
+	font: 11px Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-decoration: none !important;
+	border-left: 5px solid #8CB0DD;
+	padding: 2px;
+	color: #000000;
+}
+
+a.menuExternoOut
+{
+	text-decoration : none;
+	border: 1px solid #BADAEF;
+	background: #E4F0F9;
+}
+
+a.menuExternoOver
+{
+	text-decoration : none;
+	border: 1px solid #BADAEF;
+	background: #E4F0F9;
+}
+
+div.submenuInternoOut
+{
+	font: 11px Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	padding: 2px;
+	color: #000000;
+}
+
+div.submenuInternoOver
+{
+	font: 11px Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	padding: 2px;
+	color: #000000;
+}
+
+a.submenuExternoOut
+{
+	text-decoration : none;
+	border: 1px solid #53A69A;
+	background: #E4F9F0;
+}
+
+a.submenuExternoOver
+{
+	text-decoration : none;
+	border: 1px solid #53A69A;
+	background: #E4F9F0;
+}
+
+div.advancedActions
+{
+	position: absolute;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 4px;
+}
+
+ul.submenu
+{
+	position: absolute;
+	margin: 0pt 0pt;
+	display: block;
+	border: 1px solid #000000;
+	background-color: #CCCCCC !important;
+	list-style-type: none;
+	padding-left: 10px;
+	font-size: 11px;
+	list-style-image: none;
+}
+
+ul.submenu li
+{
+	background-color: #FFFFFF !important;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+ul.submenu li a
+{
+	color: #000000 !important;
+	display: block;
+}
+
+ul.submenu li a:visited
+{
+	color: #000000 !important;
+	display: block;
+}
+
+table.inboxElements
+{
+	width: 100%;
+	color: black;
+	border-style: solid;
+	border-width: 0px;
+	border-collapse: collapse;
+	border-color: #BBBBBB;
+	font-family: Arial;
+	font-size: 13px;
+}
+
+table.inboxElements th
+{
+	font-size: 11px !important;
+	font-weight: normal;
+	/*background-color: #ABC6E1;*/
+}
+
+table.inboxElements th a
+{
+	color: #000000 !important;
+}
+
+table.inboxElements th a:visited
+{
+	color: #000000 !important;
+}
+
+table.inboxElements tr
+{
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #CFCFCF;
+}

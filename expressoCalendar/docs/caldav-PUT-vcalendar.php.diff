@@ -1,0 +1,26 @@
+--- caldav-PUT-vcalendar.php.CP	2012-01-09 14:14:32.000000000 -0200
++++ caldav-PUT-vcalendar.php	2012-01-19 18:12:42.000000000 -0200
+@@ -91,6 +91,23 @@
+ $put_action_type = ($dav_resource->Exists() ? 'UPDATE' : 'INSERT');
+ $collection = $dav_resource->GetParentContainer();
+ 
++/////Expresso
++if(strpos($request->user_agent, 'ExpressoLivre') === false) //Ignorar eventos do expresso
++{
++   $expresso = 'PATH_DO_SEU_EXPRESSO';
++   include_once($expresso.'/prototype/api/controller.php');
++   include_once($expresso.'/prototype/modules/calendar/interceptors/DAViCalAdapter.php');
++
++   $params = array();
++   $dav_name = explode('/', $dav_resource->GetProperty('dav_name'));
++   $params['calendarName'] = $dav_name[ (count($dav_name)-3) ] .'/'. $dav_name[ (count($dav_name)-2) ];
++   $params['owner'] =  $session->username;
++   $params['action'] = $put_action_type;
++
++   DAViCalAdapter::import($request->raw_post , $params);
++}
++/////////////////////////////////////////////////////////////////////////////
++
+ write_resource( $dav_resource, $request->raw_post, $collection, $session->user_no, $etag,
+                                 $put_action_type, true, true );
+ 

@@ -1,0 +1,40 @@
+/**************************************************
+ * Define here colors and graphics associated     *
+ * with all your processes. This file is included *
+ * on each common workflow listing, this is not   *
+ * the place for process-sprecific definition, see*
+ * run_activity.css for such things               *
+ * Processes are referenced with their            *
+ * normalized names (with versions)               *
+ ***************************************************/
+
+/* workflow Processes examples *********************/ 
+/***************************************/
+/*     Test Join2                      */
+/***************************************/
+
+td.row_TestJoin2_17
+{
+	background: #f2ebd0 url(../images/testjoin2_20.gif) top left no-repeat;
+}
+span.TestJoin2_17
+{
+	font-style: italic;
+	margin-left: 20px;
+}
+/***************************************/
+/*     Test Mail                       */
+/***************************************/
+td.row_testMail_11
+{
+        background: #d0ebf2 url(../images/testmail_20.gif) top left no-repeat;
+}
+span.testMail_11
+{
+        font-style: italic;
+        margin-left: 20px;
+}
+
+
+
+/** write your own here:... ***********************/

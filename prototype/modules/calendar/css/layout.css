@@ -1,0 +1,1413 @@
+/* 
+	Document   : layout.css
+	Created on : 10/09/2011, 10:12:49
+	Author     : prognus
+	Description: contains all styles related to element positioning and elements dimension
+*/
+
+
+
+/* -- main page styles -- */
+
+/*	body {
+		margin:0;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-family: Arial,Helvetica,sans-serif;
+	}*/
+
+#wrap {
+/*	background-image: url(images/calendar-top-bg-mini.png);
+	background-repeat: no-repeat;*/
+	width: 100%;
+	max-width: 1100px;
+	min-width: 985px;
+	margin: 0 auto;
+}
+
+#wrap .search-field {
+	max-width: 180px;
+	width: 180px;
+/*	margin: 5px 0 5px 290px;*/
+	float: right;
+	white-space: nowrap;
+}
+
+#wrap .search-field input { 
+	width: 160px; 
+	padding: 0 0 0 3px;
+}
+
+.block-horizontal-toolbox {
+	width: 100%;
+	height: 30px;
+/*	margin: 5px 0;*/
+}
+
+.block-vertical-toolbox { 
+	width: 19%; 
+	max-width: 200px; 
+	min-width: 190px; 
+	float: left; 
+	padding: 0; 
+}
+
+.block-vertical-toolbox .mini-calendar { 
+	padding: 5px 0; 
+	margin:10px 0; 
+}
+
+.block-top {
+/*	background-image: url(images/calendar-body-bg.png);
+	background-repeat: repeat-x;*/
+	width: 100%;
+	height: 100px;
+}
+
+#tabs {
+	width: 80%;
+	max-width: 900px;
+	min-width: 785px;
+	float: right;
+	padding-top: 0;
+}
+
+#tabs,
+#tabs .ui-tabs-nav {
+	padding-top: 0;
+}
+
+#tabs > li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+
+
+.button.config-menu {
+	float: right;
+	padding: 11px 5px;
+	width: 40px;
+	height: 5px;
+}
+
+.fg-menu-container {
+	z-index: 999;
+	min-width: 134px !important;
+}
+
+.fg-menu-container.evt-option{
+	min-width: 85px !important;
+	padding: 0;
+}
+
+.fg-menu-container.evt-option a{
+	padding: 0.1em 3%;
+}
+
+.ui-icon.ui-icon-gear {
+	background-image: url(../img/cog.png);
+    background-position: 0 0;
+}
+
+.expresso-calendar-container dl 
+.expresso-calendar-container dt, 
+.expresso-calendar-container dl dd { 
+	margin: 0; padding: 0; 
+}
+
+.expresso-calendar-container #trash {
+	width: 150px;
+	height: 150px;
+	bottom: 0px;
+	position: fixed;
+}
+
+/* -- generic HTML elements styles -- */
+
+input { 
+	margin-top: 2px; 
+	margin-bottom: 2px; 
+}
+
+/* -- generic class styles -- */
+
+.clear { clear: both; }
+
+.editable{
+	background-color: white;
+	outline: 0px solid transparent;
+	border: 1px #CCC solid;
+}
+
+p.input-group span {display: inline-block; vertical-align: text-top;}
+p.input-group label {display: inline-block; vertical-align: text-top;}
+p.input-group ul li * {vertical-align: bottom; margin-bottom: 5px;}
+p.input-group label.for-textarea {display: inline-block; vertical-align: top;}
+p.input-group {
+  margin: 5px 0 !important;
+}
+
+.messages .message { text-align: left; }
+
+.button.tiny{
+	height: 15px;
+}
+.button.tiny.ui-button-icon-only {
+    width: 15px;
+}
+
+.button.small {
+	height: 24px;
+}
+.button.small.ui-button-icon-only {
+    width: 24px;
+}
+
+.fields-left {display: inline-block; width: 200px;}
+.fields-right {display: inline-block; width: 300px;}
+
+.ui-icon-float-right { float:right; }
+.ui-icon-float-left { float:left; }
+
+fieldset.input-field-rounded {
+	border:1px solid #CFCFCF;
+	padding: 5px;
+}
+
+fieldset.input-field-rounded input{
+	margin: 0px;
+	display: inline-block;
+	border: none;
+}
+
+fieldset.input-field-rounded span {
+	display: inline-block;
+	margin:0 0 -3px 5px;
+}
+
+/* search area definition */
+fieldset.search-field {
+	border:1px solid #CFCFCF;
+	padding: 3px;
+}
+
+fieldset.search-field input{
+	margin: 0px;
+	display: inline-block;
+	border: none;
+	width: 213px;
+}
+
+fieldset.search-field span {
+	display: inline-block;
+	margin:0 0 -3px 0px;
+	cursor: pointer;
+}
+/* #search area definition */
+
+
+/* -- fullcalendar styles -- */
+
+.fc-view{
+	overflow: visible;
+}
+
+.fc-grid.fc-view-year .fc-day-number {
+	text-align: center;
+	float: none;
+}
+
+/* -- event details styles -- */
+
+.new-event-win.active, .new-task-win.active {
+	 width:700px;height:510px;text-align:left;
+}
+
+.new-event-win > .content.ui-tabs.ui-widget-content, .new-task-win > .content.ui-tabs.ui-widget-content {
+	border: none;
+}
+
+.new-event-win ul.attendee-permissions-list, li.attendee-permissions-list, .new-task-win ul.attendee-permissions-list{text-align: left;}
+.new-activity-win.active {
+	 width:700px;height:510px;text-align:left;
+}
+
+.new-activity-win > .content.ui-tabs.ui-widget-content {
+	border: none;
+}
+.new-activity-win ul.attendee-permissions-list, li.attendee-permissions-list{text-align: left;}
+
+li.attendee-permissions-list input{width: 20px !important; margin: 3px 0 0 0 !important;}
+
+p.request-update{display: inline; position: relative; top: 2px;}
+
+
+p.request-update label{width: 150px !important;}
+
+.new-event-win .menu-addevent, .new-task-win .menu-addevent {
+	text-align: right;
+}
+
+.new-event-win fieldset.block-add-attendee .add-attendee-search { max-width: 250px; margin: 5px;}
+.new-task-win fieldset.block-add-attendee .add-attendee-search { max-width: 323px; margin: 5px;}
+
+.new-event-win fieldset.block-add-attendee .add-attendee-search input { max-width: 220px; width: 220px; padding: 0 0 0 7px;}
+.new-task-win fieldset.block-add-attendee .add-attendee-search input { max-width: 290px; width: 290px; padding: 0 0 0 7px;}
+
+.new-activity-win .menu-addevent { 	text-align: right; }
+fieldset.block-add-attendee .add-attendee-search, fieldset.block-add-activity .add-activity-search { max-width: 250px; margin: 5px;}
+fieldset.block-add-attendee .add-attendee-search input, fieldset.block-add-activity .add-activity-search input { max-width: 220px; width: 220px; padding: 0 0 0 7px;}
+fieldset.block-add-attendee .search-result-list, fieldset.block-add-activity .search-result-list { width: 255px; max-height: 215px; overflow: auto;}
+fieldset.block-add-attendee .search-result-list .ui-widget-content, fieldset.block-add-activity .search-result-list .ui-widget-content { border: none;}
+fieldset.block-add-attendee .search-result-list .empty, fieldset.block-add-activity .search-result-list .empty { margin-left: 5px; }
+fieldset.block-add-user .add-user-search {max-width: 235px;}
+fieldset.block-add-user .search-result-list {max-width: 245px;} 
+
+fieldset.block-add-user .search-result-list .ui-widget-content, fieldset.block-add-user .search-result-list .ui-widget-content {max-width: 245px;}
+
+#calendar_addactivity_details8 .block-attendee-list, #calendar_addactivity_details8 .block-activity-list { width:430px; margin-right: 5px; }
+
+div.assing-calendar dl.block-add-user.search{width: 255px;} 
+div.assing-calendar dt.add-user.search{width: 120px;} 
+
+
+.block-activity-list, .block-activity-group-select{width: 405px}
+.block-add-activity.search{width: 298px}
+
+.block-attendee-list, .block-activity-list, .block-add-activity, .block-activity-group-select { float:left;}
+.block-attendee-list { width:400px; margin-right: 5px; }
+.new-event-win .block-add-attendee { width:260px; margin-right: 5px; }
+.new-task-win .block-add-attendee { width:335px; margin-right: 5px; }
+.block-attendee-list dd, .block-add-attendee dd, .block-activity-list dd, .block-add-activity dd, .block-activity-group-select dd { border: 1px solid #BFBFBF; }
+.block-attendee-list dt, .block-add-attendee dt,.block-activity-list dt, .block-add-activity dt, .block-activity-group-select dt { background-color:#FFF; margin: 5px 0 -6px 5px; font-weight: bold; display: table;  position: relative; display: table;}
+.block-attendee-list dd.attendee-list { height: 196px; }
+.block-attendee-list dd.attendee-list ul, .block-activity-list dd.task-activity-list ul { max-height: 186px; overflow: auto; margin-top: 10px;}
+.block-attendee-list dd.attendee-list-add, .block-activity-list dd.activity-list-add {border-top:none !important; border:1px solid #BFBFBF;}
+.block-attendee-list dd.attendee-list-add fieldset.add-attendee-input, .block-activity-list dd.activity-list-add fieldset.add-activity-input { border:none !important; margin: 0; padding: 0 }
+.block-attendee-list dd.attendee-list-brief, .block-activity-list dd.activity-list-brief { border:none !important; margin: 5px 0; color:#777; }
+#calendar_addactivity_details8 .block-attendee-list, #calendar_addactivity_details8 .block-activity-list { width:430px; margin-right: 5px; }
+
+/* Pesquisa de tarefas */
+.block-activity-group-select dd.task-activity-list { height: 181px; }
+.block-activity-group-select dd.group-select { height: 40px; }
+
+fieldset.block-add-activity ul.search-result-list li{ width: 9999px; }
+fieldset.block-add-activity ul.search-result-list{width: 290px;}
+
+fieldset.block-add-activity fieldset.add-activity-search{max-width: 320px; width: 282px}
+fieldset.block-add-activity fieldset.add-activity-search input{max-width: 260px; width: 245px;}
+
+.block-activity-group-select dd.group-select select{margin: 12px 8px;}
+.block-activity-group-select dd.task-activity-list{padding: 10px 5px}
+
+/** Pesquisa de tarefas **/
+
+select.group-addactivity-details-txt-timezone{width: 175px;}
+
+
+dl.block-add-attendee, dl.block-add-activity {
+	float: right;
+	display: block;
+}
+
+dl.block-add-activity dd.add-activity{
+    width: 295px;
+    min-height: 254px;
+    display: block;
+}
+
+.new-event-win dl.block-add-attendee dd.add-attendee{
+	width: 260px;
+	min-height: 260px;
+	display: block;
+}
+
+.new-task-win dl.block-add-attendee dd.add-attendee {
+	width: 343px;
+	min-height: 260px;
+	display: block;
+}
+
+.new-activity-win dl.block-activity-group-select li.task{overflow: hidden; position: relative;}
+.new-activity-win dl.block-activity-group-select ul{overflow: hidden;}
+
+#calendar_addactivity_details8 dl.block-add-attendee dd.add-attendee ,#calendar_addactivity_details8 dl.block-add-activity dd.add-activity {
+	width: 260px;
+	min-height: 292px;
+	display: block;
+}
+
+
+ul.attendees-count {clear:left; float:left;}
+.attendees-count li {display: inline;}
+.attendees-count li:after {content:", "}
+.attendees-count li label {font-weight: bold;}
+
+.attendees-list .me select.status { margin:10px 5px 5px 5px; }
+.attendees-list .me .add-attendee-search { max-width: 155px; width:155px; display: inline; padding: 0; margin: 10px 0 5px 0;}
+
+.attendees-list .me .add-attendee-options { max-height: 16px; height:16px;  max-width: 50px; width:50px; display: inline; padding: 0; margin: 0 0 5px 0;}
+.attendees-list .me .add-attendee-options-read { max-height: 16px; height:16px;  max-width: 16px; width:16px; display: inline; padding: 0; margin: 0 0 5px 0;}
+
+.attendees-list .me .add-attendee-options-button {top: 4px;}
+.attendees-list .hover-attendee { background-color: #DFEFFC;}
+.task-activity-list .hover-activity { background: #DFEFFC;}
+/*
+.attendees-list .attendee-options-button-edit { position: absolute; top:0; right:25px;}
+.attendees-list .attendee-options-button-key { position: absolute; top:0; right:45px;}
+.attendees-list .attendee-options-button-delegate { position: absolute; top:0; right:65px;}
+*/
+
+.attendee-options, .activity-options{ position: absolute; top: 0; left: 287px; background-color: white; z-index: 100; width: 90px; background-color: #FFF;	padding: 0 20px 0 3px; text-align: right;}
+.attendees-list .not-attendee, .activitys-list .not-activity { height:16px; }
+
+.list-delegates{margin: 0 0 0 25px;}
+
+.status-delegate{position: absolute; left:3px;}
+
+.attendees-list .me .add-attendee-search input { max-width: 125px; }
+.attendees-list li.organizer, .attendees-list li.me-delegated, .activitys-list li.organizer {margin-bottom: 3px;}
+.attendees-list .organizer .button.swap {
+	float: right;
+	margin-top: -1.5em;
+}
+
+.name-status-delegated{text-decoration: line-through; padding: 0 0 0 18px;}
+.name-status-delegated-delegated{text-decoration: line-through; padding: 0 0 0 12px;}
+.name-status-delegated-none{ padding: 0 0 0 12;}
+
+.name-status{padding: 0 0 0 18px;}
+
+.name-special{padding: 0 0 0 33px;}
+.name-special-delegated{text-decoration: line-through; padding: 0 0 0 33px;}
+
+.open-delegate{position: absolute; left: 20px; display: block; cursor: hand;}
+.space-status{position: absolute; left: 20px; display: block;}
+.space-special{position: absolute; left: 35px; display: block;}
+.space-special-delegated{position: absolute; left: 20px; display: block;}
+
+.attendee-permissions-change{background-image: url(../../../plugins/jquery/images/ui-icons_f9bd01_256x240.png) !important;}
+.attendee-permissions-change-button{border: 1px solid #79B7E7 !important; background: #F5F8F9 !important; font-weight: bold !important; color: #E17009 !important;}
+
+.attendee-permissions-conflict{opacity: 0.5}
+
+dd.attendee-list ul.attendee-list li {
+/*	display: table;*/
+    overflow: hidden;
+	position: relative;
+}
+dd.attendee-list ul.attendee-list li input, 
+dd.attendee-list ul.attendee-list li span, 
+dd.attendee-list ul.attendee-list li label {
+	display: table-cell;
+}
+dd.attendee-list ul.attendee-list li label.name,
+dd.attendee-list ul.attendee-list li label.mail {
+	width: 99999px;
+	min-width: 99999px;
+	vertical-align: middle;
+}
+dd.attendee-list ul.attendee-list li label[title=''] { display:none }
+dd.task-activity-list ul.task-activity-list li {
+    overflow: hidden;
+	position: relative;
+}
+
+
+dd.task-activity-list ul.task-activity-list li label.name,
+dd.task-activity-list ul.task-activity-list li label.mail {
+	width: 99999px;
+	min-width: 99999px;
+}
+
+ ul.task-activity-list li label.name{display: table-cell;}
+
+dd.task-activity-list ul.task-activity-list li label[title=''] { display:none }
+/*
+dd.attendee-list ul.attendee-list li .button.close {
+	position: absolute;
+    right: 5px;
+    top: 0;
+}
+*/
+/*
+.attendees-list li .ui-icon-float-right {
+	opacity:0.1;
+	filter:alpha(opacity=10); 
+}
+.attendees-list li.hover .ui-icon-float-right {
+	opacity:1;
+	filter:alpha(opacity=100); 
+}*/
+
+/* -- configurations styles -- */
+
+.configurations-basic label {
+	width: 200px;
+}
+
+.configurations-notifications label {
+	width: 350px;
+}
+
+.accordion-user-calendars .ui-accordion-header {
+	margin-bottom: 2px;
+}
+
+.accordion-user-calendars .ui-accordion-header legend{
+	font-size: 60%;
+    margin-left: 30px;
+    padding: 0.4em;;
+}
+.user-calendar.ui-accordion-content {
+	margin-top: -11px;
+}
+
+/* -- preferences styles -- */
+p.default-alarm-event {margin-bottom: 10px; margin-top: -8px;}
+.preferences-win.active p.input-group label { display: inline-block; width: 300px;}
+.preferences-win.active p.input-group ul li label { width: auto; }
+/*.preferences-win.active input[type="text"] { vertical-align:top; }*/
+
+/* -- import/export dialog styles -- */
+
+.import-export-win p.input-group label { display: inline-block; width: 100px;}
+.import-export-win span.tip {
+    display: block;
+    margin: 3px 0 10px 100px;
+    clear: both;
+    font-size: 0.9em;
+}
+
+.import-export-win .button.remove-attachment {margin: -2px 0 0px 10px;}
+
+.import-export-win form { padding: 10px; }
+.import-export-win p.input-group * { float:left; }
+
+
+label.messagesHelpers{display: block; position: absolute; left: 60px; top: 21px;}
+
+/* -- calendar list styles -- */
+
+.my-calendars .button.new, .my-groups-task .button.new{
+  float:right;
+  width: 15px;
+  height: 15px;
+}
+
+.my-calendars .button.new, .my-groups-task .button.new{ *margin: 7px 0 0 2px;}
+
+.my-calendars .status-list, .my-groups-task  .status-list {
+	display: inline-block;
+	margin: 0px 0pc -4px -5px;
+	cursor: pointer;
+}
+
+.my-calendars .list-calendars-item, .signed-calendars .list-calendars-item, .my-groups-task .list-calendars-item{
+	position: relative; 
+	overflow: hidden;
+}
+.my-calendars .list-calendars-item div, .signed-calendars .list-calendars-item div, .my-groups-task .list-calendars-item div{
+	overflow:hidden; 
+	width:6000px; 
+	display:table;
+}
+
+.my-calendars .cal-list-options-btn, .signed-calendars .cal-list-options-btn, .my-groups-task .cal-list-options-btn {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+
+.evt-list-options.my-evt-list-options{
+	position: absolute;
+	width: 130px;
+	display: block;
+	
+}
+
+
+.colors-options { padding-left: 5px; }
+.colors-options .color-selected { text-indent: -10px; /*padding: 1px 0px 0px 8px;*/ }
+.colors-options .color-selected .ui-button-text { padding: 0px 0px 0px 8px; font-size: 30px; line-height: 0.4em; }
+.colors-options .cal-colors-options-btn {
+	float:left;
+	width: 17px;
+	height: 17px;
+	margin-bottom: 2px;
+	margin-top:2px;
+	background-position: -500px -10px;
+}
+.my-calendars {
+  font-size: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+
+.shared-calendar .user-list li.user-list{
+	height: 20px;
+	overflow: hidden;
+	position: relative;
+}
+
+.shared-calendar dd.user-list{ overflow: auto;}
+
+.user-list .hover-user { background-color: #DFEFFC;}
+
+.shared-calendar ul.search-result-list{
+    overflow-x: hidden !important;
+    overflow-y: auto !important; 
+    height: 210px;
+}
+
+/*Remover bordas indesejáveis no Ie*/
+input[type="checkbox"]{border: none 0px;}
+
+.user-acls-shared-calendar{
+    width: 130px;
+    float: right;
+    position: absolute;
+    left: 200px;
+    top:2px;
+    background: white;
+}
+
+.user-acls-shared-calendar.calendar{
+	text-align: right;
+}
+
+
+.calendars-list .search-field.calendar-shared-search {
+	max-width: 193px !important;
+	width: 193px !important;
+	float: right;
+}
+
+.calendars-list .search-field input.search{
+	width:165px !important;
+}
+
+.calendars-list .status-list-shared{
+	display: inline-block;
+	margin: 0 0 -4px -5px;
+	cursor: pointer;
+}
+
+.calendars-list .title-signed-calendars{
+	cursor: pointer;
+}
+
+.my-calendars a.new-calendar .ui-button-text {
+    padding: 0;
+}
+
+a.new-calendar-shared{
+
+    *margin: 7px 0 0 2px;
+}
+
+.new-calendar-shared{
+	float: right;
+}
+
+.signed-calendars {
+	font-size: 12px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+dl.block-add-user {
+	max-width: 290px;
+	min-height: 260px;
+	display: block;
+	float:right;
+	margin: 0 10px 10px 0;
+}
+
+dl.block-add-calendar {
+	max-width: 290px;
+	min-height: 185px;
+	display: block;
+	float:right;
+	margin: 0 10px 10px 0;
+}
+
+dl.block-public-calendar {
+	max-width: 290px;
+	min-height: 30px;
+	display: block;
+	float:right;
+	margin: 0 10px 1px 0;
+}
+
+fieldset.block-add-user, .block-add-user li{
+	border: none;
+}
+
+fieldset.add-user-search{
+	margin: 0 0 5px 0;
+}
+
+dl.block-user-list{
+	float:left;
+	margin: 0 0 10px 10px;
+}
+
+dt.user-list{
+	width: 117px;
+	margin-right: 5px;
+}
+
+dt.calendar-list{
+	width: 144px;
+	margin-right: 5px;
+}
+
+dt.calendar-shared, dt.user-list, dt.add-user, dt.calendar-list, dt.calendar-public{
+	background-color: white;
+	margin: 5px 0 -6px 5px;
+	font-weight: bold;
+	display: table;
+	position: relative;
+}
+
+dd.add-user{height: 240px;}
+dd.add-user-calendar{height: 192px;}
+
+dd.calendar-public{height: 23px;}
+
+dd.add-user-calendar, dd.calendar, dd.user-list, dd.add-user, dd.calendar-list, dd.calendar-public{
+	border: 1px solid #BFBFBF;
+	border-image: initial;
+	width: 330px;
+	padding: 7px 0px 4px 4px;
+}
+
+dd.add-user-calendar ul{
+	width: 250px;
+	max-height: 166px;
+}
+
+dd.add-user-calendar, dd.add-user,  dd.calendar-public{
+	width: 250px;
+}
+
+div.shared-calendar fieldset.shared-calendar-configure{
+	margin-top: 10px;
+}
+
+.add-user fieldset.block-add-user{
+	width: 245px;
+}
+
+div.assing-calendar .add-user fieldset.block-add-user{
+    width: 234px;
+    margin: 0;
+    padding: 0;
+}
+
+dd.user-list{
+	height: 193px;
+}
+
+dd.calendar-list{
+	height: 240px;
+}
+
+/*dd.calendar-list ul.user-list li.user-list div {
+	position:relative;
+}*/
+
+.list-calendars { vertical-align: middle; }
+.list-calendars .cal-list-img { float: right; }
+.list-calendars .cal-list-options-btn {
+	width: 10px;
+	height: 10px;
+	display: inline;
+	float: right;
+	padding: 3px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+ul.list-calendars li.list-calendars-item {
+	background-color: #F7FCFF;
+	border: 1px solid #ccc;
+	height: 15px;
+	line-height: 15px;
+	margin: 2px 0;
+	padding: 3px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+ul.list-calendars li li { background-color: #fff; }
+ul.list-calendars li label { vertical-align: middle; }
+ul.list-calendars li input { vertical-align: middle; }
+ul.list-calendars li a { vertical-align: middle; }
+ul.list-calendars li.list-calendars-item .cal-list-options ul.fg-menu li { background-color: #CC0000 !important; color: red !important; }
+
+
+/* -- event list styles -- */
+
+.events-list-win.empty {
+    width: 100%;
+}
+
+.events-list-win.empty table.header-paginator{
+    margin-bottom: 80px;
+}
+
+.events-list-win.empty label.empty-result{
+    margin: 0 0 0 290px;
+}
+
+.events-list-win a {
+	font-size:12px;
+}
+.details-event-list p.input-group { margin: 7px 0 0 0; text-align: justify; }
+.details-event-list p.input-group label { font-weight: bold; width: 14% }
+.details-event-list p.input-group .large { width: 85%; }
+.fields-details-event-list {
+	padding: 5px;	
+}
+
+.list-events-paginator .fc-header-title{margin-left: 150px; font-size: 1em;}
+.header-paginator{margin-top: -15px;}
+.header-paginator .fc-button-content{font-size: 11px;}
+.header-paginator-right{font-size: 11px;}
+.header-paginator .fc-header-left .fc-button-inner{height: 20px; width: 29px;}
+.header-paginator .fc-header-left .fc-button-inner.fc-state-hover{border-color: #999;}
+.header-paginator .fc-header-left .fc-button-inner.fc-state-down{border-color: #555; background: #777;}
+.header-paginator .fc-header-left .fc-button-inner .fc-button-content{line-height: 1.6em; padding: .2em .6em; font-size: 11px;}
+
+/* -- all tips general and specific styles -- */
+
+.qtip-content fieldset { text-align: right;}
+.qtip-content fieldset input { text-align: left; width: 190px;}
+.qtip-content .menu-container.footer-container { background-color: inherit; text-align: right; padding: 0; margin:5px 0 0 0;}
+.qtip-content .menu-container.footer-container .ui-button-text-only .ui-button-text {
+    font-size: 0.8em;
+    padding: 0.1em 0.6em;
+}
+.qtip-title .ui-button-icon-only {
+    height: 1.5em !important;
+    width: 1.5em !important;
+}
+.qtip-title .qtip-button { margin: -5px -10px 0 -15px }
+.attendee-list-add .add-attendee-input input { width: 370px; }
+
+
+.attendee-list-add .add-attendee-input span{cursor: hand;}
+
+.qtip-content .add-attendee-search { max-width: 155px; width:155px; display: inline; padding: 0; margin: 10px 0 5px 0;}
+.qtip-content .add-attendee-search input { max-width: 125px; }
+
+/* -- other general styles -- */
+
+.event-alarms-list .button.remove,
+.configurations-alarms .button.remove {
+    left: 6px;
+    top: 6px;
+}
+
+.button.add.button-add-attachment{margin: -9px 0 0 8px;}
+/*.button.btn-success.fileinput-button{width: 85px;}*/
+.button.btn-danger.delete{margin: 0 0 0 0; min-width: 143px;}
+
+.button.upload{top: 4px;}
+.button.upload.edit{top: -2px;}
+
+div.fileupload-buttonbar{padding: 0.2em 0.5em }
+.archive-error{color: #F00;}
+
+.progress.in-progress{width: 100px; height: 12px;}
+
+span.status-upload{margin: -4px 0px 0px 0px;}
+
+.lbl-archive-nome, .lbl-archive-size{font-weight: bold !important;}
+.lbl-archive-nome{width:40px !important;}
+.row.fileupload-buttonbar{margin-top: -14px; padding: 0.2em 0.7em;}
+.row.fileupload-buttonbar-task{margin-top: 0; padding: 0.2em 0.7em;}
+
+.archive-nome{width: 73px;}
+.archive-nome label{display: block; position: absolute; left: 136px; top: 194px;}
+.archive-size{min-width:70px; max-width:75px;}
+
+
+.input-group.date-info input {
+	width: 100px;
+}
+
+.input-group.event-info input {
+	width: 600px;
+}
+
+/* -- alarm dysplay -- */
+
+.new-event-alarm, .new-task-alarm{
+	margin: 5px;	
+	font: bold;
+}
+
+.title-event-alarm, .title-task-alarm{
+	margin: 5px;
+}
+
+.description-event-alarm, .description-task-alarm{
+	margin: 5px;
+}
+
+.inicialize-event-alarm, .inicialize-task-alarm{
+	margin: 5px;
+}
+
+.ZebraDialog{
+	z-index: 9999 !important;
+}
+
+.ZebraDialogOverlay{
+	z-index: 9990 !important;
+}
+
+/* CANDIDATOS A EXCLUSÃO */
+/*
+#external-events {
+	float: left;
+	width: 150px;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+	background: #eee;
+	text-align: left;
+}
+
+#external-events h4 {
+	font-size: 16px;
+	margin-top: 0;
+	padding-top: 1em;
+}
+
+.external-event {
+	margin: 10px 0;
+	padding: 2px 4px;
+	background: #3366CC;
+	color: #fff;
+	font-size: .85em;
+	cursor: pointer;
+}
+
+#external-events p {
+	margin: 1.5em 0;
+	font-size: 11px;
+	color: #666;
+}
+
+#external-events p input { 
+	margin: 0;
+	vertical-align: middle;
+}
+
+#dialog label, #dialog input { display:block; }
+#dialog label { margin-top: 0.5em; }
+#dialog input, #dialog textarea { width: 95%; }
+	*/
+
+/*Antigo style.css*/
+
+/* 
+	Document   : style.css
+	Created on : 10/09/2011, 10:13:12
+	Author     : prognus
+	Description: contains all styles related to elements look-and-feel
+*/
+
+
+#tabs {
+	background-color: transparent;
+}
+
+.tip { line-height: 1.3em; }
+
+.expresso-calendar-container a {
+	text-decoration: none; 
+}
+.expresso-calendar-container ul, 
+.expresso-calendar-container dl, 
+.expresso-calendar-container ol { 
+	margin: 5px 0; padding: 0; 
+	list-style: none;
+}
+.expresso-calendar-container #trash {
+	color: #ADADAD;
+}
+.expresso-calendar-container #trash.empty {
+	background-image: url(../img/trash-empty.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+.expresso-calendar-container #trash.full {
+	background-image: url(../img/trash-full.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+.expresso-calendar-container #trash label {
+	display: none;
+}
+
+.ui-dialog { padding: 0; }
+.ui-dialog .ui-dialog-content { background-color: #fff; }
+.ui-dialog .ui-dialog-title { margin:0; }
+.ui-dialog .ui-button-text-only .ui-button-text { padding: 0.4em 1em; }
+
+.new-event-win fieldset, .new-task-win fieldset { border: none;	margin: 0; padding: 0; }
+.new-event-win fieldset.tab-level2, .new-task-win fieldset.tab-level2 { padding: 0px 5px; }
+.new-event-win fieldset fieldset, .new-task-win fieldset.tab-level2 fieldset,
+.new-task-win fieldset fieldset, .new-task-win fieldset.tab-level2 fieldset{ padding: 5px 0; }
+
+.new-activity-win fieldset { border: none;	margin: 0; padding: 0; }
+.new-activity-win fieldset.tab-level2 { padding: 0px 5px; }
+.new-activity-win fieldset fieldset, .new-activity-win fieldset.tab-level2 fieldset { padding: 5px 0; }
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+.header-menu-container, .footer-menu-container,
+.menu-container.header-container, .menu-container.footer-container {
+	display:block;
+	width: 100%;
+	margin: 0;
+	padding: 10px 0;
+	background-color: #E0EEEE;
+	text-align: right;
+}
+
+.preferences-win .header-menu-container,
+.configure-calendars-win .header-menu-container {
+	margin: -10px 0 10px;
+}
+
+.preferences-win .header-menu-container,
+.configure-calendars-win .header-menu-container {
+	-moz-box-shadow: 0 3px 4px #AAAAAA;
+	-webkit-box-shadow: 0 3px 4px #AAAAAA;
+	box-shadow: 0 3px 4px #AAAAAA;
+}
+
+.preferences-win .footer-menu-container,
+.configure-calendars-win .footer-menu-container {
+	margin: 10px 0 10px;
+}
+
+.preferences-win .footer-menu-container,
+.configure-calendars-win .footer-menu-container {
+	-moz-box-shadow: 0 3px 4px #AAAAAA;
+	-webkit-box-shadow: 0 3px 4px #AAAAAA;
+	box-shadow: 0 3px 4px #AAAAAA;
+}
+
+.new-event-win form.form-addevent { padding: 9px; }
+
+.new-activity-win div.div-addtask { padding: 0; width: 774px; border: 0;}
+.new-activity-win div.div-addactivity { padding: 0; width: 734px; border: 0;}
+.new-activity-win form.form-addevent { padding: 9px; }
+.ui-dialog .ui-dialog-content { padding: 0; }
+.new-event-win div.div-addevent{ padding: 0; width: 700px; border: 0;}
+.new-task-win div.div-addtask { padding: 0; width: 774px; border: 0;}
+.new-event-win form.form-addevent, .new-task-win form.form-addtask { padding: 9px; }
+.new-activity-win div.div-addevent { padding: 0; width: 700px; border: 0;}
+.new-activity-win form.form-addevent { padding: 9px; }
+
+.expresso-calendar-container input[type="text"] { height: 18px; }
+.expresso-calendar-container input[type="text"], 
+.expresso-calendar-container textarea, 
+.expresso-calendar-container select {
+	border: 1px solid #CFCFCF;
+	font-size: 12px;
+	height: 20px;
+}
+
+.expresso-calendar-container textarea, 
+.expresso-calendar-container select { 
+/*	vertical-align: super; */
+	vertical-align: middle; 
+}
+
+.expresso-calendar-container input.date, 
+.expresso-calendar-container input.time { 
+	width:80px; 
+}
+
+.expresso-calendar-container input.h1,
+.new-event-win input.h1, .new-task-win input.h1, .new-activity-win input.h1 {
+	font-size: 150%;
+	font-weight: bold;
+	width: 64%;
+	height: 150%;
+}
+
+.new-event-win textarea, .new-task-win textarea, .new-activity-win textarea {
+	width:600px;
+	height: 210px;
+	border: 1px solid #CFCFCF;
+	padding: 0px;
+}
+
+span.input-group { display: block; }
+/*p.input-group label { vertical-align: top; }*/
+.new-event-win p.input-group label, .new-task-win p.input-group label { display: inline-block; width: 65px;}
+.new-event-win p.input-group label.input-group, .new-task-win p.input-group label.input-group { display: inline-block; width: 110px; font-weight: bold;}
+.new-activity-win p.input-group label { display: inline-block; width: 65px;}
+.new-activity-win p.input-group label.input-group { display: inline-block; width: 110px; font-weight: bold;}
+
+input.number {text-align: right}
+input.input-tiny, input.tiny {width: 40px;}
+input.input-small, input.small {width: 80px;}
+input.input-medium, input.medium {width: 160px;}
+input.input-large, input.large {width: 260px;}
+
+label.label-tiny, label.tiny {width: 40px;}
+label.label-small, label.small {width: 80px;}
+label.label-medium, label.medium {width: 160px;}
+label.label-large, label.large {width: 260px;}
+
+select.select-tiny, select.tiny {width: 40px;}
+select.select-small, select.small {width: 80px;}
+select.select-medium, select.medium {width: 160px;}
+select.select-large, select.large {width: 260px;}
+
+.new-event-win fieldset.event-repeat-container label, 
+.new-event-win p.input-group.event-repeat-weekly label, 
+.new-event-win p.input-group.event-repeat-monthly label,
+.new-task-win fieldset.task-repeat-container label, 
+.new-task-win p.input-group.task-repeat-weekly label, 
+.new-task-win p.input-group.task-repeat-monthly label
+{
+	width: auto; 
+}
+
+.new-event-win fieldset.input-field-rounded,
+.new-event-win fieldset.search-field,
+.new-event-win fieldset.block-add-attendee-permissions,
+.new-event-win fieldset.block-attendee-list,
+.new-task-win fieldset.input-field-rounded,
+.new-task-win fieldset.search-field,
+.new-task-win fieldset.block-add-attendee-permissions,
+.new-task-win fieldset.block-attendee-list
+{
+	border:1px solid #CFCFCF;
+}
+
+.new-event-win fieldset.block-attendee-list, .new-task-win fieldset.block-attendee-list { width: 300px; max-height:180px; padding: 5px; float: left;}
+.new-event-win fieldset.block-attendee-list ul, .new-task-win fieldset.block-attendee-list ul {  height:160px; overflow: auto;}
+/**/
+.new-activity-win fieldset.event-repeat-container label, 
+.new-activity-win p.input-group.event-repeat-weekly label, 
+.new-activity-win p.input-group.event-repeat-monthly label {
+	width: auto; 
+}
+
+.new-activity-win fieldset.input-field-rounded,
+.new-activity-win fieldset.search-field,
+.new-activity-win fieldset.block-add-attendee-permissions,
+.new-activity-win fieldset.block-attendee-list {
+	border:1px solid #CFCFCF;
+}
+
+.new-activity-win fieldset.block-attendee-list { width: 300px; max-height:180px; padding: 5px; float: left;}
+.new-activity-win fieldset.block-attendee-list ul {  height:160px; overflow: auto;}
+
+
+/* # add attendee */
+
+#tabs.ui-widget-content {
+	border:none;
+}
+#tabs .ui-widget-header {
+	background: none;
+	background-image: none;
+	border: none;
+	border-bottom: 1px solid #4297D7;
+	margin-bottom: 5px;
+}
+
+#calendar.ui-tabs-panel {
+	padding: 0;
+}
+
+.mini-calendar .ui-datepicker { width: auto; background: none repeat scroll 0 0 transparent; }
+.mini-calendar .ui-datepicker  table{width:190px;}
+.mini-calendar .ui-widget-content {	border: none; background-color: transparent; }
+.mini-calendar .ui-widget-header { background: transparent; color: #000; border: 0 none;}
+
+/* fc custumize */
+
+.blocked-event div, .blocked-event-permision div{
+background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0) 9%, rgba(0,0,0,0) 13%, rgba(0,0,0,0.1) 17%, rgba(0,0,0,0) 21%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.1) 29%, rgba(0,0,0,0) 33%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.1) 41%, rgba(0,0,0,0) 45%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.1) 53%, rgba(0,0,0,0) 57%, rgba(0,0,0,0) 61%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0) 69%, rgba(0,0,0,0) 73%, rgba(0,0,0,0.1) 77%, rgba(0,0,0,0.01) 81%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.1) 89%, rgba(0,0,0,0) 93%, rgba(0,0,0,0) 97%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(1%,rgba(0,0,0,0)), color-stop(5%,rgba(0,0,0,0.1)), color-stop(9%,rgba(0,0,0,0)), color-stop(13%,rgba(0,0,0,0)), color-stop(17%,rgba(0,0,0,0.1)), color-stop(21%,rgba(0,0,0,0)), color-stop(25%,rgba(0,0,0,0)), color-stop(29%,rgba(0,0,0,0.1)), color-stop(33%,rgba(0,0,0,0)), color-stop(37%,rgba(0,0,0,0)), color-stop(41%,rgba(0,0,0,0.1)), color-stop(45%,rgba(0,0,0,0)), color-stop(49%,rgba(0,0,0,0)), color-stop(53%,rgba(0,0,0,0.1)), color-stop(57%,rgba(0,0,0,0)), color-stop(61%,rgba(0,0,0,0)), color-stop(65%,rgba(0,0,0,0.1)), color-stop(69%,rgba(0,0,0,0)), color-stop(73%,rgba(0,0,0,0)), color-stop(77%,rgba(0,0,0,0.1)), color-stop(81%,rgba(0,0,0,0.01)), color-stop(85%,rgba(0,0,0,0)), color-stop(89%,rgba(0,0,0,0.1)), color-stop(93%,rgba(0,0,0,0)), color-stop(97%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.blocked-event-permision {cursor: hand}
+
+.fc-state-default .fc-button-effect span {
+    background: none;
+    border:none;
+}
+
+.fc-header-title h2 {
+    color:#555;
+}
+.fc-state-default, .fc-state-default .fc-button-inner {
+    color: #555555;
+    text-transform: capitalize;
+}
+
+.fc-state-active, .fc-state-active .fc-button-inner {
+    color: #FFFFFF;
+}
+
+.block-vertical-toolbox .button.add {
+    width:190px;
+}
+
+.fc-header .fc-state-active, .fc-header .ui-state-active {
+    z-index: auto;
+}
+
+.fc-year-monthly-header {
+    font-weight: bold;    
+}
+
+.fc-year-have-event {
+    background: none repeat scroll 0 0 transparent !important;
+    
+}
+.fc-year-have-event .fc-day-number {
+    background: #F3F3F3;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    border-color: #CCC #BBB #AAA;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+.fc-year-main-table div:hover .fc-day-number  {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+/* preferences */
+
+.expresso-calendar-container h3 {
+    border-bottom: 2px solid #E17009;
+    font-size: 170%;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+}
+
+.expresso-calendar-container fieldset legend {/*font-size:1.3em;*/ font-weight:bold;}
+
+.preferences-win a {
+  text-decoration: underline;
+  font-weight:bold;
+  font-size:1.05em;
+  cursor:pointer;
+}
+
+.preferences-win ul li {list-style: none;}
+
+
+.preferences-win fieldset {
+  border:1px solid #CFCFCF;
+}
+
+.preferences-win fieldset.no-legend {
+    margin: 0;
+    padding: 5px 0;
+    border: none;
+}
+
+.preferences-win hr {
+  margin: 10px 0;
+  padding: 0 10px;
+  /*background:#FFFF85;
+  border: 1px solid #FFE74D;*/
+}
+
+.preferences-win #preferences_especific_calendar_details fieldset {
+  border: 0 none;
+}
+
+
+/* Geral */
+fieldset.background-fields {
+  background:#FFFF85;
+  border: 2px solid #FFE74D;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+.button.small.ui-button-text-only .ui-button-text {
+    font-size: 0.9em;
+    padding: 0.1em 0.6em;
+}
+
+.attendees-list dd.attedee-organizer {
+	border-bottom: 1px solid #BFBFBF;
+	margin-bottom: 5px;
+}
+
+/* Events List */
+.events-list-win th, .events-list-win td {
+  padding: 15px 0px 15px 0;
+  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
+}
+
+.events-list-win .last-row th, .events-list-win .last-row td {
+  border-bottom: 1px solid #ccc;
+}
+
+.events-list-win table {
+  width: 100%;
+  float: left;
+}
+
+.events-list-win table a {
+  color: rgb(48, 72, 126) !important;
+  cursor: pointer;
+}
+
+
+.events-list-win table span { font-size:12px; }
+.events-list-win table .same-start-date * { border: 0; }
+.events-list-win table tr.last-event-same-start-date,
+.events-list-win table tr.last-event-same-start-date th,
+.events-list-win table tr.last-event-same-start-date td { border-bottom: 1px solid #ccc;}
+.events-list-win table th.start-date-multiple-events { border-bottom: 1px solid #ccc; }
+
+.events-list-win table .title {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.events-list-win .pagination-events {
+  margin: 10px 0;
+  text-align: center;
+} 
+
+.expresso-calendar-container .search-field { background-color: #FFF;}
+.expresso-calendar-container .search-field input { border:none;}
+
+.ui-tabs .ui-tabs-panel { padding: 0; margin-top: 10px;}
+
+.ui-tabs #calendar_addevent_details5.ui-tabs-panel{margin-top: -3px; min-height: 323px;}
+
+.ui-tabs .ui-tabs-nav li .ui-icon-close {
+    float: right;
+    margin: 5px 5px 0 -5px;
+}
+
+.cal_day {
+    display: inline;
+    background: url("assets/day.png") no-repeat scroll center top transparent;
+    float: left;
+    height: 95px;
+    margin: 0 4px 4px 0 !important;
+    position: relative;
+    width: 128px;
+}
+.cal_day .day_heading {
+    color: #FFFFFF;
+    float: left;
+    font: 14px Arial;
+    height: 16px;
+    padding: 6px;
+    position: relative;
+    text-transform: uppercase;
+    width: 40px;
+}
+.cal_day .day_number {
+    clear: left;
+    color: #2B2B2B;
+    font: bold 52px Arial;
+    height: 95px;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+}
+
+
+/* Events List */
+.details-event-list {
+  background-color: #FFF;
+}
+
+/* Import and Export*/
+
+.import-export-win .ui-widget-header {
+    background: none;
+}
+
+.import-export-win .ui-tabs-nav {
+    border: none;
+    border-bottom: 1px solid #4297D7 !important;
+}
+
+.configure-calendars-win fieldset.user-calendar fieldset {
+    border:1px solid #CCC;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+.ui-datepicker-buttonpane button.ui-datepicker-current {
+	display : none;
+}
+
+.ui_tpicker_time{
+	display : none;
+}
+.ui_tpicker_time_label{
+	display : none;
+}
+.block-vertical-toolbox .ui-datepicker-month, 
+.block-vertical-toolbox .ui-datepicker-year {
+	cursor: pointer;
+}
+/*Normaliza de todos os inputs disabled para fonte-color #333*/
+textarea:disabled, input:disabled{color: #333 !important;}
+
+
+.map-event{
+	border-style: dashed;
+	border-width: 2px;
+	border-color: #36C;
+	background-color: transparent;
+	color: black;
+}
+
+
+#new_event_map .map-event .fc-event-head.fc-event-skin,.fc-event-inner.fc-event-skin{
+	border-color: transparent;
+}
+
+#new_event_map .map-event .fc-event-head,#new_event_map .map-event .fc-event-content{
+	color: transparent;
+}
+
+.occurrence-zebra{
+    width: 440px !important;
+}

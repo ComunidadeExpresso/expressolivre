@@ -1,0 +1,26 @@
+<dl class="event-list" title="Últimas eventos">
+    <%if(data.resource && data.resource.length){
+	for(var i = 0; i < data.resource.length; i++){
+	var date = new Date(parseInt(data.resource[i].startTime));%>
+	    <dt><%=data.resource[i].summary %></dt>
+	    <dd>
+		<div class="date">
+		    <span class="month"><%= date.toString("MMM") %></span>
+		    <span class="day"><%= date.toString("d") %></span>
+		</div>
+		<div class="duration">
+		    <%if(parseInt(data.resource[i].allDay)){%>
+			<span class="allDay">Durante o dia todo</span>
+		    <%}else{%>
+			<span class="start"><%= date.toString("HH:mm") %></span>
+			<span class="end"><%= new Date(parseInt(data.resource[i].endTime)).toString("HH:mm") %></span>
+		    <%}%>
+		</div>
+		<div class="title"><%=data.resource[i].summary %></div>
+		<div class="description"><%=data.resource[i].description%></div>
+	    </dd>
+	<%}%>
+	<%}else{%>
+	    <dt>Sem resultados</dt>
+	<%}%>    
+</dl>

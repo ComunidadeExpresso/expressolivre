@@ -1,0 +1,229 @@
+%1 already exists as a file	filemanager	pt-br	%1 já existe como um arquivo
+application	filemanager	pt-br	Aplicação
+Add	filemanager	pt-br	Adição
+Add	filemanager	pt-br	Adicionar
+Add file	filemanager	pt-br	Adicionar arquivo
+Back	filemanager	pt-br	Voltar
+back to file manager	filemanager	pt-br	Voltar ao Gerenciador de Arquivos
+cancel editing %1 without saving	filemanager	pt-br	Cancelar edição %1 sem salvar
+cannot create directory because it begins or ends in a space	filemanager	pt-br	Não é possível criar a pasta porque seu nome inicia ou termina em espaço em branco
+cannot replace %1 because it is a directory	filemanager	pt-br	Não é possível subtituir %1 porque é uma pasta
+command sucessfully run	filemanager	pt-br	Comando executado com sucesso
+comment	filemanager	pt-br	Comentário
+comments cannot contain "%1"	filemanager	pt-br	Comentários não podem conter "%1"
+Comment(s)	filemanager	pt-br	Comentário(s)
+%1 files copied successfuly	filemanager	pt-br	%1 arquivos foram copiados com sucesso
+File copied successfuly	filemanager	pt-br	O arquivo foi copiado com sucesso
+copy to	filemanager	pt-br	Copiar Para
+copy to:	filemanager	pt-br	Copiar para:
+could not copy %1 files	filemanager	pt-br	Não foi possível copiar %1 arquivos
+could not copy file because no destination directory is given	filemanager	pt-br	Não foi possível copiar o arquivo porque não se definiu um diretório de destino
+could not create %1	filemanager	pt-br	Não foi possível criar %1
+could not create directory %1	filemanager	pt-br	Não foi possível criar a pasta %1
+could not delete %1	filemanager	pt-br	Não foi possível remover %1
+could not move %1 file(s)	filemanager	pt-br	Não foi possível mover %1 arquivo(s)
+Select a folder	filemanager	pt-br	Selecione uma pasta
+could not move file because no destination directory is given	filemanager	pt-br	Não foi possível mover o arquivo porque não se definiu um diretório de destino
+could not rename %1 to %2	filemanager	pt-br	Não foi possível renomear %1 para %2
+loading	filemanager	pt-br	Carregando
+could not save %1	filemanager	pt-br	Não foi possível salvar %1
+create file	filemanager	pt-br	Criar Arquivo
+create folder	filemanager	pt-br	Criar Pasta
+new	filemanager	pt-br	novo
+close	filemanager	pt-br	Fechar
+created	filemanager	pt-br	Criado
+created %1	filemanager	pt-br	Criado %1
+Edit	filemanager	pt-br	Edição
+enter the name you want to move %1 to	filemanager	pt-br	Digite o nome que você quer renomear para %1
+Enter the name of folder you want to create	filemanager	pt-br	Digite o nome da pasta que você quer criar
+Delete	filemanager	pt-br	Excluir
+Duplicate file	filemanager	pt-br	Arquivo duplicado
+You have no permission to access this file	filemanager	pt-br	Você não tem permissão para acessar este arquivo
+One of the files sent was considered infected	filemanager	pt-bt	Um dos arquivos enviados foi considerado infectado por vírus
+The maximum size for each file is %1MB	filemanager	pt-br	O tamanho máximo para cada arquivo é de %1MB
+This property will change the visibility of all users that have access to this file, continue?	filemanager	pt-br	Esta propriedade altera visibilidade dos usuários que estão compartilhados, deseja continuar?
+Click to change comments	filemanager	pt-br	Clique para alterar comentários
+Click here	filemanager	pt-br	Clique aqui
+All files created sucessfuly	filemanager	pt-br	Arquivos foram criados com sucesso
+created by	filemanager	pt-br	Criado por
+Error:	filemanager	pt-br	Erro:
+ERROR: Use the advanced file sending!	filemanager	pt-br	ERRO: Utilize o envio avançado de arquivos!
+Are you sure you want to delete	filemanager	pt-br	Você tem certeza que deseja apagar
+Please type the text "%1" to delete	filemanager	pt-br	Por favor, tenha certeza e digite "%1" para apagar
+created directory %1	filemanager	pt-br	Criada pasta %1
+date	filemanager	pt-br	Data
+export	filemanager	pt-br	exportar
+This file is being edited right now by:	filemanager	pt-br	Este arquivo está sendo editado por: 
+portrait	filemanager	pt-br	retrato
+Could not mark as restricted	filemanager	pt-br	Não foi possível marcar como restrito
+%1 marked as restricted	filemanager	pt-br	%1 foi marcado como restrito
+%1 unmarked as restricted	filemanager	pt-br	%1 foi desmarcado como restrito
+Mark as restricted	filemanager	pt-br	Marcar como restrito
+Unmark as restricted	filemanager	pt-br	Desmarcar como restrito
+landscape	filemanager	pt-br	paisagem
+letter	filemanager	pt-br	carta
+Disposition of pdf output	filemanager	pt-br	Disposição do texto no pdf
+Type of pdf paper	filemanager	pt-br	Tipo de papel ao exportar
+default number of upload fields to show	filemanager	pt-br	Padrão para o número de campos de envio de arquivos a exibir
+delete	filemanager	pt-br	Remover
+deleted %1	filemanager	pt-br	Removido %1
+Directories	filemanager	pt-br	Diretórios
+directory	filemanager	pt-br	Pasta
+directory %1 already exists	filemanager	pt-br	Pasta %1 já existe
+directory %1 does not exist	filemanager	pt-br	Pasta %1 não existe
+directory names cannot contain "%1"	filemanager	pt-br	Nomes de pastas não podem conter "%1"
+display attributes	filemanager	pt-br	Exibir atributos
+download	filemanager	pt-br	Download
+edit	filemanager	pt-br	Editar
+edit comments	filemanager	pt-br	Editar Comentários
+Email	filemanager	pt-br	Email
+Email notify uploads	common	pt-br	Notificar por email uploads
+Emails reported	filemanager	pt-br	Emails notificados
+execute	filemanager	pt-br	Executar
+failed to create directory	filemanager	pt-br	falhou ao criar pasta
+fake base dir did not exist, egroupware created a new one.	filemanager	pt-br	Diretório Base não existia, eGroupWare criou um novo.
+file	filemanager	pt-br	Arquivo
+file %1 already exists. please edit it or delete it first.	filemanager	pt-br	Arquivo %1 já existe. Por favor edite-o ou remova-o antes.
+file %1 could not be created.	filemanager	pt-br	Arquivo %1 não pôde ser criado.
+file name	filemanager	pt-br	Nome do Arquivo
+file names cannot contain "%1"	filemanager	pt-br	Nomes de arquivos não podem conter "%1"
+file names cannot contain \ or /	filemanager	pt-br	Nomes de arquivos não podem conter \ ou /
+filemanager	common	pt-br	Gerenciador de Arquivos
+filemanager preferences	filemanager	pt-br	Preferências para Gerenciador de Arquivos
+files	filemanager	pt-br	Arquivos
+File(s)	filemanager	pt-br	Arquivo(s)
+File history	filemanager	pt-br	Histórico do arquivo
+files in this directory	filemanager	pt-br	Arquivos nesse diretório
+folder	filemanager	pt-br	Pasta
+folder up	filemanager	pt-br	Diretório Acima
+Folder Management	filemanager	pt-br	Gerenciamento de Pastas
+go home	filemanager	pt-br	ir para página principal
+go to	filemanager	pt-br	Ir Para
+go to %1	filemanager	pt-br	Ir para %1
+go to your home directory	filemanager	pt-br	Ir para sua pasta Home
+go to:	filemanager	pt-br	Ir para:
+go up	filemanager	pt-br	Subir
+home	filemanager	pt-br	Início
+location	filemanager	pt-br	Local
+locked	filemanager	pt-br	Travado
+Management Quota	filemanager	pt-br	Gerenciamento de Quota
+mime type	filemanager	pt-br	Tipo MIME
+modified	filemanager	pt-br	Modificado
+modified by	filemanager	pt-br	Modificado por
+move to	filemanager	pt-br	Mover Para
+move to:	filemanager	pt-br	Mover para:
+More files	filemanager	pt-br	Mais arquivos
+No file(s) to send	filemanager	pt-br	Sem arquivo(s) para enviar
+No permission to delete the folder %1	filemanager	pt-br	Sem permissão para excluir a pasta %1
+Notify email	filemanager	pt-br	Notificar os e-mails
+%1 files moved successfuly	filemanager	pt-br	%1 arquivos movidos com sucesso
+File moved successfuly	filemanager	pt-br	Arquivo movido com sucesso
+Archive	filemanager	pt-br	Arquivar
+Unarchive	filemanager	pt-br	Desarquivar
+New Folder	filemanager	pt-br	Nova pasta
+Remove Folder	filemanager	pt-br	Apagar pasta
+Do you really want to remove folder: %1?	filemanager	pt-br	Você realmente deseja apagar a pasta: %1?
+Your operation was successfully executed	filemanager	pt-br	Sua operação foi executada com sucesso
+Wrong password	filemanager	pt-br	Senha errada
+It was not possible to execute it	filemanager	pt-br	Pelo menos um erro houve na operação
+Please, type archive password or leave it empty if it is not encrypted	filemanager	pt-br	Por favor digite a senha, ou deixe em branco caso o arquivo não seja protegido por senha
+no files in this directory.	filemanager	pt-br	Nenhum arquivo nesse diretório
+no version history for this file/directory	filemanager	pt-br	Sem histórico de versão para este arquivo/pasta
+operation	filemanager	pt-br	Operação
+other settings	filemanager	pt-br	Outras configurações
+owner	filemanager	pt-br	Dono
+please select a file to delete.	filemanager	pt-br	Por favor selecione um arquivo para excluir/
+Please select a file	filemanager	pt-br	Por favor selecione um arquivo
+preview %1	filemanager	pt-br	Visualizar %1
+preview of %1	filemanager	pt-br	Visualizar %1
+Previous	filemanager	pt-br	Anterior
+private	filemanager	pt-br	Privado
+quick jump to	filemanager	pt-br	Atalho para:
+reload	filemanager	pt-br	Recarregar
+rename	filemanager	pt-br	Renomear
+Reconstruct	filemanager	pt-br	Reconstruir
+renamed %1 to %2	filemanager	pt-br	Renomeado %1 para %2
+Read	filemanager	pt-br	Leitura
+created new %1	filemanager	pt-br	Criado novo arquivo %1
+save %1	filemanager	pt-br	Salvar %1
+save %1, and go back to file listing	filemanager	pt-br	Salvar %1, e voltar para listagem dos arquivos
+save all	filemanager	pt-br	Salvar tudo
+save changes	filemanager	pt-br	Salvar modificações
+saved %1	filemanager	pt-br	Salvo %1
+Send email	filemanager	pt-br	Enviar email
+Search Folders	filemanager	pt-br	Pesquisar Pastas
+Search Users	filemanager	pt-br	Pesquisar Usuários
+show	filemanager	pt-br	Exibir
+show ..	filemanager	pt-br	Exibir ..
+show .files	filemanager	pt-br	Exibir arquivos cujos nomes iniciam por um ponto
+show command line (experimental. dangerous.)	filemanager	pt-br	Exibir linha de comando (EXPERIMENTAL. PERIGOSO.)
+show help	filemanager	pt-br	Exibir ajuda
+size	filemanager	pt-br	Tamanho
+sort by:	filemanager	pt-br	Ordenar por:
+the future filemanager, now for testing purposes only, please send bugreports	filemanager	pt-br	Futuro gerenciador de arquivos, agora para PROPÓSITOS DE TESTES APENAS, por favor envie relatórios de erro.
+total files	filemanager	pt-br	Total de Arquivos
+unknown mime-type defaults to text/plain when viewing	filemanager	pt-br	Tipos MIME desconhecidos são visualizados como text/plain por padrão
+unused space	filemanager	pt-br	Espaço Não Usado
+up	filemanager	pt-br	Acima
+update	filemanager	pt-br	Atualizar
+updated comment for %1	filemanager	pt-br	Comentário atualizado para %1
+upload	filemanager	pt-br	Envio
+upload fields	filemanager	pt-br	campos de envio de arquivos
+upload files	filemanager	pt-br	Enviar Arquivos
+Advanced Upload	filemanager	pt-br	Envio Avançado
+Uploaded files sucessfully	filemanager	pt-br	Arquivos enviados com sucesso
+use new experimental filemanager?	filemanager	pt-br	Usar o novo Gerenciador de Arquivos experimental?
+used space	filemanager	pt-br	Espaço Usado
+users	filemanager	pt-br	Usuários
+version	filemanager	pt-br	Versão
+New...	filemanager	pt-br	Novo...
+Tools	filemanager	pt-br	Ferramentas
+Preferences	filemanager	pt-br	Preferências
+Search	filemanager	pt-br	Pesquisar
+View	filemanger	pt-br	Visualização
+View as list	filemanager	pt-br	Ver como lista
+View as icons	filemanager	pt-br	Ver como ícones
+Drag and drop to move	filemanager	pt-br	Arraste e solte para mover
+Type	filemanager	pt-br	Tipo
+Cancel	filemanager	pt-br	Cancelar
+Save	filemanager	pt-br	Salvar
+My folder	filemanager	pt-br	Minha pasta
+Edit folders	filemanager	pt-br	Editar pastas
+Share folders	filemanager	pt-br	Compartilhar pastas
+Empty file	filemanager	pt-br	Arquivo vazio
+File from model	filemanager	pt-br	Arquivo de modelo
+Article	filemanager	pt-br	Artigo
+Todo	filemanager	pt-br	Tarefas
+Slide	filemanager	pt-br	Apresentação
+Cards	filemanager	pt-br	Cartões
+Resume	filemanager	pt-br	Currículo
+Impossible to edit this file	filemanager	pt-br	Impossível editar o arquivo selecionado
+it was not possible to send your file	filemanager	pt-br	Não foi possível enviar seu arquivo
+It is necessary to inform the user that will receive email notification	filemanager	pt-br	É necessário informar o email do usuário que receberá a notificação
+It is necessary to inform the user that sends mail file	filemanager	pt-br	É necessário informar o email do usuário que envia o arquivo
+Please, type a strong password (suggestion: at least 8 characters, letters and numbers) or leave it empty to archive only	filemanager	pt-br	Por favor, digite uma senha segura (sugestão: pelo menos 8 caracteres com letras e números) ou deixe o campo vazio para somente arquivar
+Please, retype your password	filemanager	pt-br	Por favor, redigite sua senha
+passwords are differents	filemanager	pt-br	as senhas diferem
+Enter with the name of new file/directory	filemanager	pt-br	Insira o nome do novo arquivo/diretório
+File extension forbidden or invalid file	filemanager	pt-br	Formato de arquivo inválido
+view documents in new window	filemanager	pt-br	Visualizar documentos em uma nova janela
+view documents on server (if available)	filemanager	pt-br	Visualizar documentos no servidor (se disponível)
+who	filemanager	pt-br	Quem
+When the user with the email send a file	filemanager	pt-br	Quando o usuário com o e-mail enviar um arquivo
+you do not have access to %1	filemanager	pt-br	Você não tem acesso a %1
+You do not have Java installed, plugin not loaded	filemanager	pt-br	Você não tem o Java instalado, o plugin não foi iniciado
+Your Home Dir did not exist, eGroupWare created a new one.	filemanager	pt-br	Seu Diretório Home não existia, foi criado um novo.
+You must choose a folder !	filemanager	pt-br	Você deve escolher uma pasta !
+Filemanager notification	filemanager	pt-br	Gerenciador de arquivos notifica
+The user %1, sent the file "%2" (type %3) and asked to notify you.	filemanager	pt-br	O usu&aacute;rio %1, enviou o arquivo "%2" (tipo %3) e solicitou o notificar.
+The user %1 sent the following files	filemanager	pt-br	O usuário %1 enviou os seguintes arquivos
+To view the files %1	filemanager	pt-br	Para ver os arquivos %1
+Comments by user: %1	filemanager	pt-br	Coment&aacute;rios do usu&aacute;rio: %1
+The file can be accessed by: %1	filemanager	pt-br	O arquivo pode ser acessado pelo endere&ccedil;o: %1
+The following addresses will be notified	filemanager	pt-br	Os endereços abaixo serão notificados
+There is a file %1, that was not replaced	filemanager	pt-br	Há um arquivo %1, que não foi substituído
+Users and groups	filemanager	pt-br	Usuários e grupos
+Send Notification email to:	filemanager	pt-br	Enviar email de notificação para:
+set owner	filemanager	pt-br	Redefinir Dono
+set permission	filemanager	pt-br	Definir Permissões
+You have access to the application, but you have no quota. Please contact your administrator	filemanager	pt-br	Você tem acesso ao módulo, mas não possui cota. Por favor, contacte o administrador. 

@@ -1,0 +1,18 @@
+<div>
+	<div style="word-wrap: break-word;">
+		<b><%=get_lang("File name") %>: </b>
+		<%=data.attach.fullFileName%>
+	</div>
+	<div>
+		<b><%=get_lang("Size") %>: </b>
+		<%=data.attach.fileSize%>
+	</div>
+	<div>
+		<b>Status: </b>
+		<%if(typeof(data.attach.error) == "boolean"){%>
+	        <%=(data.attach.error ? get_lang("Loading") : get_lang("Success"))%>
+	    <%}else{%>
+	        <%=data.attach.error%>
+	    <%}%>
+	</div>
+</div>

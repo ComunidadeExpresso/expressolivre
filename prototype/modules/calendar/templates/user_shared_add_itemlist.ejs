@@ -1,0 +1,31 @@
+<li class="user-list <%=data[0].current ? 'current' : 'new' %>"> 
+	<div style="overflow:hidden; width:999px; display:table;">
+		<%if(data[0].isCalendar){%>
+			<div class="user-acls-shared-calendar calendar">
+					<a class="button close new">Remover</a>
+			</div>
+			
+			<input type="checkbox" class="hidden" name="idPermission" value="<%=data[0].idPermission%>">
+			<input type="hidden" name="calendar[]" value="<%=data[0].id%>">
+			<input type="hidden" name="type[]" value="<%=data[0].type%>">
+			<label title="<%= !!data[0].description ? data[0].description : data[0].name %>" class="name"><%= data[0].name ? data[0].name : '' %></label>
+		<%}else{%>
+			<div class="user-acls-shared-calendar">
+					<a class="button read user-options-button-view new">Ver</a>
+					<a class="button write user-options-button-edit-new new">Criar/Editar</a>
+					<a class="button remove user-options-button-remove new">Excluir</a>
+					<a class="button busy user-options-button-free-bussy new">Livre/Ocupado</a>
+					<a class="button shared user-options-button-shared new">Compartilhar</a>
+					<a class="button close new">Remover</a>
+			</div>
+
+		<input type="checkbox" value="<%=data[0].current ? data[0].idPermission : data[0].id%>">
+		<input type="hidden" name="user[]" value="<%=data[0].id%>">
+		<input type="hidden" name="attendeeAcl[]" value="<%=data[0].aclValue%>">
+		
+		<label title="<%=data[0].name%>" class="name"><%= data[0].name ? data[0].name : '' %></label>
+		<label title="<%=data[0].mail%>" class="mail <%= data[0].name ? 'hidden' : ''%>"><%= data[0].mail ? data[0].mail : '' %></label>
+		<%}%>
+	</div>
+	
+</li>

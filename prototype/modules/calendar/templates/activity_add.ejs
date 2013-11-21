@@ -1,0 +1,262 @@
+<div title="Criar Atividade" class="div-addactivity content">
+    <form method="POST" action="schedulable:activity" class="form-addactivity content">
+
+	<fieldset id="group_addactivity_details1">
+	    <legend class="hidden">Detalhes da atividade</legend>
+	    <p class="input-group">
+		<input type="text" class="h1" name="summary" value="<%= (data.activity.summary) ? data.activity.summary : '' %>"/>
+		<% if( data.activity.id ){ %>
+                <input type="hidden" class="id-activity" name="idActivity" value="<%= data.activity.id %>"/>
+		<% } %>
+		<% if( data.activity.id && data.activity.group ){ %>
+		<input type="hidden" class="last-group" name="lastCalendar" value="<%= data.activity.group %>"/>
+		<% } %>
+		<input type="hidden" class="id-attendee" name="idAttendee" value="<%= data.activity.attendee[0] ? data.activity.attendee[0].id : '0'%>"/>
+	    </p>
+	    <p class="input-group date-info">
+		<span>Inicio</span>
+		<input type="text" class="start-date" readonly="readonly" value="<%= (data.activity.startDate) ? data.activity.startDate : '' %>" name="startDate" />
+		<input type="text" class="time start-time<%= (data.activity.allDay) ? ' hidden' : '' %>" readonly="readonly" value="<%= (data.activity.startHour) ? data.activity.startHour : '' %>" name="startHour" /> 
+		<span>com previsão de término</span>
+		<input type="text" class="date-due" name="dueDate" readonly="readonly">
+		<input type="text" class="time time-due <%= (data.activity.allDay) ? ' hidden' : '' %>" name="dueHour" readonly="readonly">
+
+		<a href="#" class="group_addactivity_details_lnk_timezone">Fuso horário</a>
+
+		<select name="timezone" class="hidden group-addactivity-details-txt-timezone">
+		    <option value="">- None selected -</option>
+		    <% for( var tzId in data.activity.timezones ){ %>
+		    <option value="<%= tzId %>" <%= data.timezone === tzId ? 'selected="selected"' : '' %>><%= tzId + ' (' + data.activity.timezones[ tzId ] + ')' %></option>
+		    <% } %>
+		</select>
+
+	    </p>
+
+	    <div class="ui-widget messages-validation hidden">
+		<div style="padding: 0.2em 0.7em;" class="ui-state-error ui-corner-all"> 
+		    <p class="message">
+			<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span> 
+			<label></label>
+		    </p>
+		</div>
+	    </div>
+
+	    <p class="input-group activity-type hidden">
+		<input type="checkbox" name="allDay" disabled="disabled" value="true" <%= (data.activity.allDay) ? 'checked="checked"' : '' %>/>
+		       <label for="allDay">Dia inteiro</label>
+	    </p>
+	    <div class="subitem">
+                % Conclusão: <input type="text" name="percentage" class="done" readonly="readonly" value="<%= data.activity.percentage %>"> 
+                <span style="margin:0 0 0 5px;">Status:<span> 
+			<select name="activityStatus" >
+			    <option <%= (data.activity.activityStatus == '1') ? 'selected="selected"' : '' %> value="1">Sem ações</option>
+			    <option <%= (data.activity.activityStatus == '2') ? 'selected="selected"' : '' %> value="2">Em Processo</option>
+			    <option <%= (data.activity.activityStatus == '3') ? 'selected="selected"' : '' %> value="3">Finalizada</option>
+			    <option <%= (data.activity.activityStatus == '4') ? 'selected="selected"' : '' %> value="4">Cancelada</option>
+			</select>
+			<span style="margin:0 0 0 5px;">Prioridade:<span> 
+				<select name="priority">
+				    <option <%= (data.activity.priority == '1') ? 'selected="selected"' : '' %> value="1">Alta</option>
+				    <option <%= (data.activity.priority == '2') ? 'selected="selected"' : '' %> value="2">Normal</option>
+				    <option <%= (data.activity.priority == '3') ? 'selected="selected"' : '' %> value="3">Baixa</option>
+				</select>
+				<span class="span_done"><label>Completo</label></span>
+				</div>
+				</fieldset>
+				<ul style="width: 710px">
+				    <li><a href="#group_addactivity_details2">Detalhes da atividade</a></li>
+				    <li><a href="#group_addactivity_details8">Tarefas</a></li>
+				    <li><a href="#group_addactivity_details4">Lembretes</a></li>
+				    <li><a href="#group_addactivity_details5">Anexos</a></li>
+				    <li><a href="#group_addactivity_details6">Histórico</a></li>
+				</ul>
+				<fieldset id="group_addactivity_details2" class="tab-level2">
+				    <legend class="hidden">Detalhes da atividade</legend>
+
+				    <p class="input-group">
+					<label for="group_addactivity_details_txtarea_description" class="for-textarea" >Descrição</label>
+					<textarea name="description"><%=(data.activity) ? data.activity.description : '' %></textarea>
+				    </p>
+
+				    <p class="input-group">
+					<label for="group_addactivity_details_slt_cal">Grupo</label>
+					<select name="group">
+					    <% for (var i=0; i< data.activity.groups.length; i++) {	%>
+					    <option value="<%= data.activity.groups[i].id %>" <%= data.activity.groups[i].id == data.activity.group ? 'selected="selected"':'' %>>
+						    <%= data.activity.groups[i].name %>
+					</option>
+					<% } %>
+				    </select>
+				</p>
+
+				<fieldset class="hidden">
+				    <legend class="hidden">Publicidade</legend>
+				    <!--
+				    <p class="input-group">
+					    <label class="input-group">Mostrar-me como</label>
+					    <input type="radio" checked="checked"/>
+					    <label for="group_addactivity_details_rdo_status1">Dispon?vel</label>
+					    <input type="radio"/>
+					    <label for="group_addactivity_details_rdo_status2">Ocupado</label>
+				    </p>
+				    -->
+				    <p class="input-group">
+					<label class="input-group">Privacidade</label>
+					<input type="radio" name="class" value="1" checked="checked"/>
+					<label for="group_addactivity_details_rdo_class1">Padrão</label>
+					<input type="radio" name="class" value="2" />
+					<label for="group_addactivity_details_rdo_class2">Público</label>
+					<input type="radio" name="class" value="3" />
+					<label for="group_addactivity_details_rdo_class3">Privado</label>
+				    </p>
+
+				</fieldset>
+
+			    </fieldset>
+
+			    <div class="overflow_add_calender">
+				<fieldset id="group_addactivity_details4" class="tab-level2">
+				    <legend class="hidden">Lembretes</legend>
+
+				    <p class="default-alarm-activity <%= (!data.activity.id && data.activity.alarms) ? '' : 'hidden'%>">
+					<input type="checkbox" name="defaultAlarm" value="true" checked="checked"/>
+					<label class="input-default-alarm" for="defautAlarm">Usar alarmes padrões</label>
+				    </p>
+
+				    <ul class="activity-alarms-list">
+					<% if (data.activity && data.activity.attendee && !!data.activity.attendee.length && data.activity.attendee[0].alarms) {
+					var alarms = data.activity.attendee[0].alarms;
+					for (var i=0; i< alarms.length; i++) {
+					%>
+					<li class="input-group">
+					    <label>Avisar-me por </label>
+					    <select name="alarmType[]">
+						<option value="alert" <%= alarms[i].type=='alert' ? 'selected="selected"':'' %>>Alerta</option>
+						<option value="mail" <%= alarms[i].type=='mail' ? 'selected="selected"':'' %>>E-mail</option>
+						<!--<option value="sms" <%= alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
+					    </select>
+					    <input type="text" name="alarmTime[]" class="number input-small" value="<%= alarms[i].time %>"/>
+					    <select name="alarmUnit[]">
+						<option value="m" <%= alarms[i].unit=='m' ? 'selected="selected"':'' %>>Minutos</option>
+						<option value="h" <%= alarms[i].unit=='h' ? 'selected="selected"':'' %>>Horas</option>
+						<option value="d" <%= alarms[i].unit=='d' ? 'selected="selected"':'' %>>Dias</option>
+					    </select>
+					    <input type="hidden" name="alarmId[]" value="<%=data.activity.useAlarmDefault ? '' : alarms[i].id%>" />
+					    <input type="hidden" name="isDefaultAlarm[]" value="<%=data.activity.useAlarmDefault ? 1 : 0%>" />
+					    <label> antes de cada atividade.</label>
+					    <a class="button remove tiny"></a>
+					</li>
+					<%}
+					}
+					%>
+				    </ul>
+				    <span class="button add button-add-alarms">Adicionar lembrete</span>
+
+				</fieldset>
+			    </div>
+
+			    <fieldset id="group_addactivity_details6" class="tab-level2" title="Histórico">
+				<div class="parent">
+				    <div class="child-top">
+					<div class="date-hour"><span>Data-Hora</span></div>
+					<div class="user"><span>Participante</span></div>
+					<div class="attribute"><span>Alterou</span></div>
+					<div class="beforeValue"><span>De</span></div>
+					<div class="afterValue"><span>Para</span></div>
+				    </div>
+
+				    <div class="child-bottom">
+					<% if(data.activity.historic.length){
+					    for(var i=0; i< data.activity.historic.length; i++){ %>
+					    <div class="task <%= i != 0 ? 'left' : ''%>"><span><%= data.activity.historic[i].task %></span></div>
+					    <%for(var j=0; j< data.activity.historic[i].historic.length; j++){ 
+						var historic = data.activity.historic[i].historic[j];%>
+						<div class="child-bottom-each">
+						    <div class="date-hour"><span><%= historic.time %></span></div>
+						    <div class="user"><span><%= historic.user.name %></span></div>
+						    <div class="attribute"><span><%= historic.attribute %></span></div>
+						    <div class="beforeValue"><span><%= historic.beforeValue %></span></div>
+						    <div class="afterValue"><span><%= historic.afterValue %></span></div>
+						</div>
+						
+					    <%}
+					    }	
+					}%>
+				    </div>
+			      </div>
+			    </fieldset>	
+
+			    <fieldset id="group_addactivity_details8" class="tab-level2" title="Tarefas">
+
+			    </fieldset>
+
+			    <fieldset class="attachment-list hidden">
+				<%if(data.activity && data.activity.attachments){
+				for (var i=0; i< data.activity.attachments.length; i++) {%>
+				    <input type="hidden" name="fileId[]" value="<%=data.activity.attachments[i].id%>"/>
+				<%}
+				}%>
+			    </fieldset>
+			    </form>
+
+			    <div class="overflow_add_calender">
+				<fieldset id="group_addactivity_details5" class="tab-level2">
+				    <form id="fileuploadactivity" action="attachment:detail" method="POST">
+					<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+					<div class="row fileupload-buttonbar-activity">
+					    <div class="button-files-upload">
+						<!-- The fileinput-button span is used to style the file input field as button -->
+
+						<span class="button btn-success fileinput-button">
+						    <span><i class="icon-plus icon-white"></i> Adicionar</span>
+						    <input type="file" name="files[]" multiple>
+						</span>
+
+						<button type="button" class="button btn-danger delete <%= data.activity && data.activity.attachments && data.activity.attachments.length ? '' : 'hidden' %>">
+						    <i class="icon-trash icon-white"></i> Remover Todos
+						</button>
+
+					    </div>
+					    <div id="fileupload-progress-activity"></div>
+					    <div class="files-list">
+						<ul class="attachments-list">
+						    <%if(data.activity && data.activity.attachments){
+						    for (var i=0; i< data.activity.attachments.length; i++) {
+						    %>
+						    <p class="input-group arquive-info">
+							<label class="lbl-archive-nome">Nome:</label>
+							<span class="archive-nome"><%=data.activity.attachments[i].name%></span>
+
+							<label class="lbl-archive-size">Tamanho:</label>
+							<span class="archive-size"><%=data.activity.attachments[i].size%></span>
+							<a href="../prototype/getArchive.php?attachment=<%=data.activity.attachments[i].id%>" class="button tiny upload downlaod-archive">Download</a>
+
+							<span class="button close tiny upload edit delete-upload" title="Deletar">Deletar</span>
+
+							<input type="hidden" name="fileId[]" value="<%=data.activity.attachments[i].id%>"/>
+						    </p>
+						    <%}
+						    }%>
+
+
+						</ul>
+					    </div>
+					</div>
+					<br>
+
+				    </form>
+				</fieldset>
+			    </div>
+			    <form action="../prototype/modules/group/export.php" method="GET" class="form-export content">
+				<input type="hidden" class="id-activity" name="activity" value="<%= data.activity.id %>"/>
+			    </form>
+
+			    <div title="" class="menu-container footer-container menu-addactivity">
+				<% if (data.activity.id) { %>
+				<!--<a title="Exportar" class="button export" href="#">Exportar</a>-->
+				<a title="Excluir" class="button delete" href="#">Excluir</a>
+				<% } %>
+				<a title="Cancelar" class="button cancel" href="#">Cancelar</a>
+				<a title="Salvar" class="button save" href="#">Salvar</a>
+			    </div>
+			    </div>

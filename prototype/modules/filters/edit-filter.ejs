@@ -1,0 +1,206 @@
+<% 
+	var specialFolders = {
+		INBOX: {name:'Caixa de Entrada', classe:'inbox'}, 
+		Inbox: {name:'Caixa de Entrada', classe:'inbox'}, 
+		Trash: {name:'Lixeira', classe:'trash'}, 
+		Drafts:{name:'Rascunhos', classe:'drafts'}, 
+		Spam:  {name:'Spam', classe:'spam'}, 
+		Sent:  {name:'Enviados', classe:'sent'}
+	};
+%>
+<form action="filter:detail" method="POST">
+	<input type="hidden" class="imapDelimiter" value="<%= data.delimiter %>"></input>
+	<div class="rule-details-container">
+		<h3><a href="#"><%= get_lang("Criteria")%></a></h3>
+		<div>
+			<fieldset>
+				<label class="small"><%= get_lang("Name of the rule")%></label>
+				<input type="text" name="name" />
+			</fieldset>
+			<fieldset>
+				<label class="small"><%= get_lang("Sender")%></label>
+				<select name="criteriaOperator[]">
+					<option value="*"><%= get_lang("contains the phrase")%></option>
+					<option value="="><%= get_lang("is equal to")%></option>
+					<option value="!*"><%= get_lang("doesn't contain the phrase")%></option>
+					<option value="^"><%= get_lang("starting with")%></option>
+					<option value="$"><%= get_lang("ends with")%></option>
+
+				</select>
+				<input type="text" name="criteriaValue[]" value="<%= data.from %>" />
+				<input type="hidden" name="criteriaType[]" value="from"/>
+			</fieldset>
+			<fieldset>
+				<label class="small"><%= get_lang("Receiver")%></label>
+				<select name="criteriaOperator[]">
+					<option value="*"><%= get_lang("contains the phrase")%></option>
+					<option value="="><%= get_lang("is equal to")%></option>
+					<option value="!*"><%= get_lang("doesn't contain the phrase")%></option>
+					<option value="^"><%= get_lang("starting with")%></option>
+					<option value="$"><%= get_lang("ends with")%></option>
+				</select>
+				<input type="text" name="criteriaValue[]" />
+				<input type="hidden" name="criteriaType[]" value="to"/>
+			</fieldset>
+			<fieldset>
+				<label class="small"><%= get_lang("Subject")%></label>
+				<select name="criteriaOperator[]">
+					<option value="*"><%= get_lang("contains the phrase")%></option>
+					<option value="="><%= get_lang("is equal to")%></option>
+					<option value="!*"><%= get_lang("doesn't contain the phrase")%></option>
+					<option value="^"><%= get_lang("starting with")%></option>
+					<option value="$"><%= get_lang("ends with")%></option>
+
+				</select>
+				<input type="text" name="criteriaValue[]" value="<%= data.subject %>" />
+				<input type="hidden" name="criteriaType[]" value="subject"/>
+			</fieldset>
+			<fieldset>
+				<label class="small"><%= get_lang("Message")%></label>
+				<select name="criteriaOperator[]">
+					<option value="*"><%= get_lang("contains the phrase")%></option>
+					<option value="="><%= get_lang("is equal to")%></option>
+					<option value="!*"><%= get_lang("doesn't contain the phrase")%></option>
+					<option value="^"><%= get_lang("starting with")%></option>
+					<option value="$"><%= get_lang("ends with")%></option>
+				</select>
+				<input type="text" name="criteriaValue[]" />
+				<input type="hidden" name="criteriaType[]" value="body"/>
+			</fieldset>
+			<fieldset>
+				<label class="small"><%= get_lang("Size")%>(KB)</label>
+				<select name="criteriaOperator[]">
+					<option value=">"><%= get_lang("is over than")%></option>
+					<option value="<"><%= get_lang("is under than")%></option>
+				</select>
+				<input type="text" class="sizeRule" name="criteriaValue[]" />
+				<input type="hidden" name="criteriaType[]" value="size"/>
+			</fieldset>
+			<fieldset>
+				<input type="hidden" name="criteriaOperator[]" value="^"></input>
+				<input type="checkbox" name="criteriaValue[]" value="*.*" class="hasAttachment"/>
+				<input type="hidden" name="criteriaType[]" value="hasAttachment"/>
+				<label><%= get_lang("The message has attachment")%></label>
+			</fieldset>
+			<fieldset>
+				<input type="checkbox" name="verifyNextRule" value="verifyNextRule" class="verifyNextRule"/>
+				<label><%= get_lang("Continue checking other rules if the criteria is met.")%></label>
+			</fieldset>
+			<fieldset class="fields-isexact">
+				<fieldset>
+					<input type="radio" name="isExact" value="and" checked="checked"/>
+					<label><%= get_lang("Attend all the criteria")%></label>
+				</fieldset>
+				<fieldset>
+					<input type="radio" name="isExact" value="or"/>
+					<label><%= get_lang("Attend any of the criteria")%></label>
+				</fieldset>
+			</fieldset>
+			<div class="menu-container">
+				<a class="button cancel" href="#"><%= get_lang("Cancel")%></a>
+				<a class="button forth" href="#"><%= get_lang("Continue")%> &raquo;</a>
+			</div>
+		</div>
+		<h3><a href="#"><%= get_lang("Actions")%></a></h3>
+		<div>
+			<ul class="message-tip-container">
+				<li class="message-tip"><%= get_lang("Actions to be performed on messages that attend the criteria specified above.")%></li>
+				<li class="message-tip"><%= get_lang("These actions apply only to new messages arriving.")%></li>
+			</ul>
+			<fieldset class="select-folderlist">
+				<input type="radio" name="actionType[]" value="fileinto" checked="checked" onchange="$('.ui-widget-content .fileintoInbox').parent().removeClass(' hidden');"/>
+				<label><%= get_lang("Archive in folder")%></label>
+				<!-- 
+				Aguardando o problema do form do DataLayer ser resolvido.
+				-->
+				<select name="valueFileInto" style="width:150px">
+					<%for(var i=0; i < data.folders.length; i++){
+						var folder_name = specialFolders[data.folders[i].commonName] ? get_lang(data.folders[i].commonName) : data.folders[i].commonName;
+						if(/^INBOX/.test(data.folders[i].id)){ %>
+							<option value="<%= data.folders[i].id%>"><%= folder_name%></option>
+					<%
+						}else if(/^user/.test(data.folders[i].id)){ 
+							var user_name = (data.folders[i].parentFolder.split(data.delimiter)[1] ? (data.folders[i].parentFolder.split(data.delimiter)[1] + data.delimiter) : "");
+						%>
+							<option value="<%= data.folders[i].id%>"><%= user_name + folder_name%></option>
+						<% }
+					}
+					%>
+				</select>
+                <%
+                if(preferences['use_alert_filter_criteria'] == "1")
+                {%>
+                    <input type="checkbox" name="actionType[]" value="alertMessage" class="alertMessage"/>
+                    <label><%= get_lang("Alert message filter by sender")%></label>
+                <%}%>
+			</fieldset>
+			<fieldset>
+				<input type="radio" name="actionType[]" value="redirect" onchange="$('.ui-widget-content .fileintoInbox').parent().removeClass(' hidden');"/>
+				<label><%= get_lang("Forward to the address")%></label>
+				<input type="text" name="addressRedirect" />
+			</fieldset>
+			<fieldset>
+				<input type="radio" name="actionType[]" value="setflag" onchange="$('.ui-widget-content .fileintoInbox').parent().removeClass(' hidden');"/>
+				<label><%= get_lang("Mark as")%></label>
+				<!--
+				Aguardando o problema do form do DataLayer ser resolvido.
+				-->
+				<select name="valueSetFlag">
+					<option value="flagged"><%= get_lang("Flagged")%></option>
+					<option value="seen"><%= get_lang("Seen")%></option>
+				</select>
+			</fieldset>
+			<fieldset>
+				<input type="radio" name="actionType[]" value="fileintoTrash" onchange="$('.ui-widget-content .fileintoInbox').parent().removeClass(' hidden');"/>
+				<label><%= get_lang("Trash")%></label>
+				<input type="hidden" name="actionParameter[]" value="Trash"/>
+			</fieldset>
+			<fieldset class="fields-replyto">
+				<input type="radio" name="actionType[]" value="reject" onchange="$('.ui-widget-content .fileintoInbox').attr('checked', false).parent().addClass(' hidden');"/>
+				<label><%= get_lang("Reject and automatically respond with the message")%></label>
+				<textarea name="messageReject"></textarea>
+			</fieldset>
+			<fieldset>
+				<input type="checkbox" name="actionType[]" value="fileintoInbox" class="fileintoInbox"/>
+				<label><%= get_lang("Keep a copy of the message at your Inbox")%></label>
+				<input type="hidden" name="actionParameter[]" value="INBOX"/>
+			</fieldset>
+			<div class="menu-container">	
+				<a class="button back"   href="#" >&laquo; <%= get_lang("Previous")%></a>
+				<a class="button cancel" href="#"><%= get_lang("Cancel")%></a>
+				<a class="button forth2" href="#"><%= get_lang("Continue")%> &raquo;</a>
+				<a class="button submit" href="#"><%= get_lang("Save")%></a>
+			</div>
+		</div>
+		
+		<h3><a href="#"><%= get_lang("Apply filter")%></a></h3>
+		<div>
+			<fieldset>
+				<div id="filtergrid-container" class="empty-container">
+					<span class="message"><%= 'nenhuma mensagem pesquisada' %></span>
+				</div>
+				<fieldset class="fields-search-messages" style="border: none;">
+					<span class="button ui-button-text-only search menu-container"><%= get_lang("Search Inbox")%></span>
+				</fieldset>
+			</fieldset>
+			<div class="menu-container">	
+				<a class="button back2"   href="#" >&laquo; <%= get_lang("Previous")%></a>
+				<a class="button cancel" href="#"><%= get_lang("Cancel")%></a>
+				<a class="button submit" href="#"><%= get_lang("Save")%></a>
+			</div>
+		</div>
+	</div>
+	<div class="vacation-details-container hidden">
+		<fieldset>
+			<label><%= get_lang("Type a reply message")%></label>
+			<ul class="message-tip-container">
+				<li class="message-tip"><%= get_lang("All messages will be answered automatically with the message indicated.")%></li>
+			</ul>
+			<textarea class="filter-textarea" name="vacation"></textarea>
+		</fieldset>
+			<div class="menu-container">	
+			      <a class="button back"   href="#" title="<%= get_lang("Cancel and returns the previous screen")%>">&laquo; <%= get_lang("Previous")%></a>
+			      <a class="button submit" href="#" title="<%= get_lang("Save and returns the previous screen")%>"><%= get_lang("Save")%></a>
+			</div>
+	</div>
+</form>

@@ -1,0 +1,676 @@
+mbartz is Michael Bartz
+alpeb is Alejandro Pedraza
+regis_glc is Regis Leroy
+viani is Mauricio Luiz Viani
+rodrigolira is Rodrigo Campaner de Lira
+mariceli is Mariceli Duarte Foronda
+drovetto is Sidnei Augusto Drovetto Junior
+carloseduardo is Carlos Eduardo Nogueira Gonçalves
+rufino is Everton Flávio Rufino Seara
+asaikawa is Anderson Tadayuki Saikawa
+cassiomaes is Cassio Maes da Fonseca
+gbisotto is Guilherme Striquer Bisotto
+julianadelgado is Juliana Delgado Santos Hernandez
+rodsouza is Rodrigo Souza dos Santos
+arifragoso is Ari Fragoso de Medeiros Junior
+hermespinheiro is Hermes Pinheiro Neto
+pedroerp is Pedro Eugênio Rocha Pedreira
+fabianok is Fabiano Sardenberg Kuss
+pereira.jair is Jair Gonçalves Pereira Junior
+adeildosantos is Adeildo Fernandes dos Santos
+
+[2.2.000]
+
+	#1186 - Exibição dos atributos mobile e homePhone, do Ldap, no cartão de visita do organograma (pereira.jair)
+	#1177 - Correção da máscara de ano no componete wf_calendar (adeildosantos)
+	#1176 - Otimização da query de busca ldap na classe WorkflowLDAP, e prevenção contra loop infinito (fabianok)
+	#1172 - Ajustar a preparação do ambiente do Workflow para chamadas de webservices (asaikawa)
+	#1171 - Modificações para permitir a passagem de parâmetros para os Jobs (asaikawa)
+	#1164 - Substituição de require por require_once na classe run_activity (viani)
+	#1162 - Otimização da query do método getChildren da classe wf_instance (fabianok/gbisotto)
+	#1146 - Inclusão de parâmetro no método getOrganizationAreas da classe wf_orgchart para selecionar áreas ativas/inativas (adeildosantos)
+	#1143 - Refinição da função apache_request_headers, caso não exista no ambiente apache-php (viani)
+	#1139 - Modificação na função wf_upload_file para possibilitar a remoção de arquivos (fabianok)
+	#1131 - Modificação na exportação de processos para permitir templates com nomes aleatórios (viani)
+	#1120 - Moficado plugin wf_select_ldap_users para retornar atributos adicionais (adeildosantos)
+	#1119 - Implementado método getSupervisorAreas em class.wf_orgchart.php (pereira.jair)
+	#1089 - Melhoria em query sql na inserção de instancias. (fabianok)
+	#1082 - Removida coluna wf_parent_activity_id da tabela egw_wf_interinstance_relations (asaikawa)
+	#1080 - Modificada string (excluído) para (inativo) quando um registro de usuário no cache não existe mais no ldap. (viani)
+	#1069 - Inclusão de log de tempo de execução de atividades. (gbisotto/rufino)
+	#1004 - Melhorado o método getEmployeeCostCenterID para que retorne o id da área caso não exista o id do centro de custo do funcionário. (gbisotto)
+	#946 - Possibilitar que o plugin smarty wf_autocomplete_input atualize a lista de seleção a cada tecla pressionada. (asaikawa)
+	#944 - Alteração na função javascript get_form_fields para retornar em array os elementos identificados com '[]'. (asaikawa)
+	#943 - Criar na classe wf_location, uma consulta de cidades pelo início do nome. (asaikawa)
+	#942 - Ajustar a classe wf_location para considerar a nova coluna que identifica se o registro é distrito. (asaikawa)
+	#935 - Incluída opção para listar funcionários em ordem alfabética geral na impressão do organograma. (pedroerp)
+	#928 - Incluída busca por telefone no organograma. (pedroerp)
+	#916 - Criada nova variável wf_webserver_url no contexto de execução dos processos. (pedroerp)
+	#873 - Incluída verificação de existência do diretório de arquivos do processo, antes de renderizar a aba processos (asaikawa)
+	#871 - Incluída opção para listar usuários ocultos na janela de seleção de usuários (asaikawa)
+	#870 - Correção de bug no parâmetro print_mode da classe run_activity. (pedroerp)
+	#869 - Indentificação do titular e substituro de áreas do organograma. (pedroerp)
+	#868 - Correção da altura das janelas de edição do organograma. (pedroerp)
+	#865 - Incluído o uid do usuário na lista de mapeamentos de perfis (asaikawa)
+	#863 - Remoção do operador & nas instanciações de objeto new classe (asaikawa)
+	#609 - Reconstrução da classe factory (pedroerp/rufino)
+	#446 - Depreciação de métodos (asaikawa)
+	#441 - Inclusão do período de substituição de chefia no organograma. (pedroerp)
+
+[2.1.000]
+
+	#989 - Compatibilização do workflow com os novos temas do Expresso. (rodsouza)
+	#951 - Correção de bug na verificação de sessão das chamadas ajax do workflow. (viani)
+	#794 - Correção de bug de sintaxe na classe Workflow_WfSecurity. (hermespinheiro).
+	#792 - Modificado o atribuito de usuário padrão de uma atividade para aceitar também um perfil padrão. (rufino)
+	#766 - Correção de bug na função wf_get_activity_link_by_id que impedia a geração do link caso não haja instância. (viani)
+	#668 - Modificada a expressão regular que busca por nomes no organograma, para considerar primeiro e último nome. (rodsouza)
+	#659 - Carregamento de valor nas variáveis smarty para os links de tarefas pendentes e processos, no template padrão. (gbisotto)
+	#658 - Correção no alinhamento dos ícones de aplicações externas. Ao redimensionar a janela, o ícones são reorganizados. (gbisotto)
+	#657 - Correção no alinhamento do menu de atividades dos processos. Ao redimensionar a janela, os menus são reorganizados. (gbisotto).
+	#643 - Criação do método createNewInstance na classe JobBase, que possibilita iniciar uma instância do processo a partir de um job. (rufino)
+	#639 - Inclusão de cor em destaque ao passar o mouse sobre uma linha nas visualizações do organograma. (rodsouza)
+	#638 - Mudança na query de busca do organograma para pesquisar também por áreas. (rodsouza)
+	#637 - Inclusão de click-to-call no organograma e outras melhorias na interface. (rodsouza)
+	#603 - Remoção do design pattern observer da engine do workflow, por inutilidade. (gbisotto)
+	#442 - Criação do plugin wf_autocomplete_input, para listar com autocomplete o resultado de uma busca ajax. (rufino)
+
+[2.0.004]
+
+	#1045 - Corrigido bug de sessão nas chamadas ajax de processos. (viani)
+	#951 - Corrigido bug na verificação de sessão ativa nas chamadas ajax de processos. (viani)
+
+[2.0.003]
+
+	#899 - Inclusão de inserts faltantes no arquivo default_records, além de atualização de estrutura de tabelas do organograma. (pedroerp)
+
+[2.0.001]
+
+	#671 - Inclusão do arquivo header.session.inc.php para a verificação de segurança de sessão. (asaikawa)
+
+[2.0.000]
+
+	#641 - Correção de bug no método getByUser da classe wf_instance. (hermespinheiro)
+	#589 - Melhorias no organograma, com novas visualizações nas interfaces. (rodsouza)
+	#439 - Redução do tempo de carga dos funcionários de uma área no organograma (rodsouza)
+
+[1.8.05.000]
+
+	+ Implementada verificação de consistência na entrada do workflow. (viani)
+	* Eliminação do template Celepar no módulo. (viani)
+	+ Criação do método getEntryByUid na classe wf_ldap. (gbisotto)
+	* Correção de bug no método getUsersFromRole da classe wf_role, que não estava recuperando usários de grupos. (viani)
+	* Correção da tradução e adição de frases, identificadas pelo Serpro. (julianadelgado)
+	* Correção de bug na classe Logger que não estava lendo a configuração da tabela phpgw_config. (gbisotto)
+	+ Inclusão do número de telefone na listagem impressa do organograma. (viani)
+	* Alteração para que na visualização da "árvore" do organograma as áreas sejam ordenadas por nível de status. Status com "maior importância" aparecem primeiro. (rufino)
+	+ Criação do método getSubAreasByParentAreaID, que busca as áreas imediatamente inferiores à área solicitada. (gbisotto)
+
+[1.8.04.000]
+	* Acrescentada uma coluna de prioridade na caixa de entrada. (gbisotto)
+	+ Criada uma solução de log para uso do módulo e dos processos. (gbisotto)
+	* Modificação na classe wf_instance, método getChildren(), inserido ORDER BY por instance_id na consulta que retorna as instâncias filhas de uma instância. (rufino)
+	* Modificação nas classes de acesso ao mainframe (natural) para que seja possível acessar outros mainframes/sistemas. (rufino)
+	* Modificação na class.bo_utils.inc.php, método search_ldap_users_by_cn. Agora o bind é feito utilizando o usuário do contact center (expresso-cc) que tem permissão para seguir referrals. (gbisotto)
+	* Modificada a função getEmployeesAreaID para retornar somente usuários ativos quando se queira isto. (gbisotto)
+	* Criação de uma camada de segurança, classes WorkflowSecurity e WorkflowWatcher, para os objetos de acesso restrito. (drovetto)
+	* Criação de método para extração da organização de um usuário a partir de seu DN. Na interface de participantes, agora é feito tratamento para sabser se a OU do usuário existe e, caso não exista, é utilizada a primeira OU da lista de OUs possíveis. (drovetto)
+	* Conversão de algumas interfaces para a engine de templates Smarty (drovetto)
+	* Correção de bug reportado por Diorgenes Felipe Grzesiuk. O bug acontecia ao se tentar editar/apagar/exportar, pela interface de edição de código, um arquivo que contém o caractere espaço em seu nome. (drovetto)
+	* Modificação dos métodos getRequest, updateAttributes, updateInstance, da classe basemodel, para que, ao se trabalhar com atributos de classes/instâncias, seja possível especificar quais atributos se deseja utilizar (o default continua todos os atributos). (drovetto)
+	* Incluída a possibilidade de se passar o mime type de um arquivo para o método 'BaseModel::sendFile'. Código fornecido pelo desenvolvedor Ari Fragoso de Medeiros Junior. (arifragoso)
+	* Correções na 'wf_select_duplex' propostas pelo desenvolvedor Ari Fragoso de Medeiros Junior. (drovetto)
+	* Transferência do template "Celepar" para o template "default". Isto foi feito porque era obrigatório a utilização do template celepar para o correto funcionamento do módulo. (drovetto)
+	+ Criação da classe templateServer para inclusão imagens/js/css de templates. Esta classe tem como objetivo a remoção de referências hard-coded a um determinado template. (drovetto)
+
+[1.8.03.000]
+	+ Nova funcionalidade na interface de Monitoramento que permite encontrar instâncias que estão em um estado inconsistente (drovetto)
+	- Necessidade de compilação de processos. Agora, as alterações nos arquivos PHP das atividades não mais requerem compilação do processo para que tenham efeito (drovetto)
+	+ Possibilidade de busca global na interface de seleção de participantes (normalmente utilizada através de plugins Smarty) (drovetto)
+	+ Criação da categoria 'Administrador de Workflow' que dá acesso privilegiado ao módulo Workflow (drovetto)
+
+[1.8.02.000]
+	+ Possibilidade de forçar as atividades de um processo a serem executadas utilizando conexão segura (HTTPS) (drovetto)
+
+[1.8.01.000]
+	+ Possibilidade de imprimir o organograma inteiro (ou a partir de uma área) (drovetto)
+	+ Possibilidade de importar um processo (a partir de um XML) especificando um novo nome e uma nova versão (drovetto)
+	* Informações adicionais, inclusive a foto, dos funcionários são exibidas ao se passar o cursor do mouse sobre seus nomes na interface de organograma (de usuário e de administração) (drovetto)
+	* Ao se mover instâncias, é possível selecionar as instâncias que serão movidas de acordo com seu status (ativa ou finalizada) (drovetto)
+
+[1.8.00.000]
+	+ Métodos 'setUser' e 'setRole' na classe 'wf_instance'. Estes métodos servem para definir um usuário/perfil como usuário atual da instância (drovetto)
+
+[1.7.00.000]
+	* Alteração no Monitoramento para utilizar o cache de ldap ao listar nome de usuários (drovetto)
+	* Alteração no Organograma para utilizar o cache e ldap e corrigido bug na listagem por vínculo (drovetto)
+	* Alteração no método getUsersFromRole da classe wf_role para permitir que sejam recuperados os usuários dos grupos do perfil (asaikawa)
+	* Possibilidade de tratar sessão expirada em chamadas Ajax feitas pelos processos (drovetto)
+	+ Jobs. Possibilita a execução de código PHP (vinculado a processos) em horários, e com repetições, pré-determinados (drovetto)
+	+ Plugin Smarty (wf_select_ldap_users) que faz busca no Ldap através do nome (atributo cn), ou parte do nome, e apresenta os resultados obtidos em uma combobox (asaikawa)
+		/inc/smarty/wf_plugins/function.wf_select_ldap_users_init.php
+		/inc/smarty/wf_plugins/function.wf_select_ldap_users.php
+		/js/jscode/wf_select_ldap_users.js
+		/inc/class.bo_utils.inc.php (criado método search_ldap_users_by_cn)
+	+ Criado novo estilo chamado input_like_label, em que são removidas as bordas e definido o background para transparente, deixando o input parecido com um label (/templates/celepar/processes/default.css) (asaikawa)
+	* Alterado estilo chamado lightbox para ajustar automaticamente a altura do lightbox de acordo com seu conteúdo, porém, dentro dos limites min-height e max-height definidos no estilo (sugestão da Alessandra Heil) (/templates/celepar/css/lightbox.css) (asaikawa)
+
+[1.6.03.001]
+	* Correção de BUG que não criava a tabela 'funcionario_status' (e dependências relacionadas a ela) em uma nova instalação do Workflow (drovetto)
+
+[1.6.03.000]
+	* Incluído suporte a grupos na 'Lista de Controle de Acesso' para o monitoramento de instâncias de um processo. Quando um usuário possui direitos de acesso oriundos de diferentes "lugares" (e.g. estar em vários grupos com acesso de monitoramento ao mesmo processo; está com acesso relacionado diretamente ao usuário e o usuário também está em um grupo com diferentes acessos), as permissões são acumuladas (drovetto)
+	* Smarty atualizado para a versão 2.6.19 (drovetto)
+	+ Função 'wf_debug' que exibe informações relevantes para o desenvolvedor de processos Workflow (drovetto)
+	+ Classes 'CachedLDAP' e 'wf_cached_ldap' que implementam um sistema de cache de LDAP. Um dos usos destas classes, é a possibilidade de consultar informações de usuários que não mais estão no LDAP (drovetto)
+	+ Inserido uso do cache Ldap nas interfaces de Organograma e Perfis (drovetto)
+	+ Incluido visualizador de imagens na interface de edição de código, aba resources (drovetto)
+	+ Criado link para contrair / expandir a seção de dados cadastrais de processos, na interface de administração. O mesmo foi feito para a insterface de administração de atividades (drovetto)
+	+ Incluída pergunta de confirmação (sim ou não) quando o usuário solicitar a exclusão de um processo (drovetto)
+
+[1.6.02.000]
+	* A query que gera a caixa de entrada foi reescrita para minimizar seu tempo de execução e maximizar a utilização de bind (drovetto)
+	+ Funcionalidade de remoção de instâncias finalizadas que estão listadas na interface de monitoramento (drovetto)
+	+ Possibilidade de monitoramento de instâncias finalizadas (sejam completadas ou abortadas) (drovetto)
+	* Mudança no sistema de arquivos dos processos (e aplicações externas). Agora, cada processo possui seu próprio diretório de 'resources' e os arquivos nele contidos não são "visíveis" diretamente pelo navegador web (drovetto)
+	* A busca pelo nome do usuário na interface do Organograma (tanto a de usuário quanto a administrativa) agora é feita em todas as OUs (drovetto)
+	+ Possibilidade de destacar, por categoria, os funcionários listados na interface de usuário do Organograma (drovetto)
+	+ Listagem de funcionários de acordo com sua categoria na interface de usuário do Organograma (drovetto)
+	+ Funcionalidade de envio de e-mails para os usuários que estão com as instâncias listadas na interface de monitoramento (drovetto)
+	+ Funcionalidade de filtragem na na interface de monitoramento, com 8 filtros diferentes que podem ser combinados como desejado (drovetto)
+	+ Funcionalidade na interface de monitoramento para substituição de um usuário por outro para as instâncias de um determinado processo, incluindo restrição por atividade (drovetto)
+
+[1.6.01.000]
+	+ Inclusão de hook_home, para listar as aplicações externas na página home do Expresso (niltonneto)
+	+ Função 'wf_read_file' para fazer leitura de arquivos no resources dos processos (drovetto)
+	+ Atualizador automático da lista de instâncias da interface de Tarefas Pendentes (drovetto)
+	+ Funcionalidade que permite visualizar a atividade view de um processo (quando houver) na aba de Acompanhamento (drovetto)
+	+ Ação de listagem da lista de centros de custo na interface de Organograma, do usuário (drovetto)
+	+ Interface para administração de categorias de funcionário no Organograma. A interface de funcionário foi modificada para trabalhar com a nova coluna que referencia a categoria a qual o funcionário pertence. Adequação dos métodos da classe 'wf_orgchart' para tratar as novas informações (drovetto)
+	+ Possibilidade de visualizar uma instância na interface de 'Monitoramento' (drovetto)
+	+ Interface para administração de cargos no Organograma. A interface de funcionário foi modificada para trabalhar com duas novas colunas (drovetto)
+	* A interface de 'Monitoramento' foi refeita para que minimizasse a utilização de DOM. Removeu-se dados duplicados e dados não utilizados que eram enviados por Ajax. Disponibilizada a paginação das instâncias listadas nesta interface (drovetto)
+	+ Novo método setInstanceProperty na classe wf_engine (rufino)
+	+ Novo método getRoleIdByName na classe wf_role (rufino)
+	+ Tabela 'cargo' (e alterações na tabela 'funcionario' para incluir chave estrangeira da nova tabela e coluna com informação de níveis) para uso no Organograma. Adequação dos métodos da classe 'wf_orgchart' para tratar as novas informações (rufino)
+
+[1.6.00.000]
+	+ Nova versão da interface de 'Acompanhamento' que não utiliza imagens permitindo uma renderização mais rápida (drovetto)
+	* Interface de 'Acompanhamento' foi reescrita para não utilizar DOM e também para reduzir a quantidade de dados trafegados por Ajax (drovetto)
+	+ Nova versão da interface de 'Tarefas Pendentes' que não utiliza imagens permitindo uma renderização mais rápida (drovetto)
+	* Interface de 'Tarefas Pendentes' foi reescrita para não utilizar DOM e também para reduzir a quantidade de dados trafegados por Ajax (drovetto)
+	* Substituição do termo 'Caixa de Entrada' por 'Tarefas Pendentes' (viani)
+	+ Possibilidade de integração dos Workflows de diferentes instalações do ExpressoLivre. Inclui outras alterações menores (drovetto)
+	+ Classe "BrowserInfo" que obtém informações sobre o navegador e o sistema operacional do usuário. Desenvolvida por Gary White. Foram feitas algumas modificações (drovetto)
+	+ Método "sendFile" na classe "BaseModel" que permite ao desenvolvedor enviar aquivos para download (drovetto)
+	* Correção de bug que, em alguns casos, atribuía um usuário a uma instância que deveria estar disponível para todos, ou seja, '*'. Esta alteração também removeu o comportamento da engine que atribuía uma instância diretamente a um usuário caso ele fosse o único que pudesse executá-la (drovetto e rufino)
+	+ Métodos "getParent" e "unlockParent" na classe "WfRuntime". O primeiro método retorna o ID da instância e da atividade que está travado pela instância atual, se houver. O segundo destrava a instância pai, se houver (drovetto)
+	+ Método "getActivityInformationByID" da classe "wf_engine" que traz informações sobre uma atividade a partir de seu ID (drovetto)
+
+[1.4.06.000]
+	- Arquivos que não estavam sendo utilizados, em sua maioria relacionados à interface antiga (drovetto)
+		inc/class.bo_uiinstance.inc.php
+		inc/class.bo_user_forms.inc.php
+		inc/class.ui_admininstance.inc.php
+		inc/class.ui_adminprocesses.inc.php
+		inc/class.ui_useractivities.inc.php
+		inc/class.ui_useropeninstance.inc.php
+		inc/class.ui_userprocesses.inc.php
+		inc/class.ui_userviewinstance.inc.php
+		inc/fake_translation.inc.php
+		templates/default/user_activities.tpl
+		templates/default/user_instances_advanced.tpl
+		templates/default/user_instances.tpl
+		templates/default/user_openinstance.tpl
+		templates/default/user_processes.tpl
+		templates/default/user_viewinstance.tpl
+	+ Opção para ocultar as aplicações externas que só são acessíveis através da Intranet. Também foi criada uma nova configuração do Workflow onde são especificadas as subredes da Intranet (drovetto)
+	- Opção para dar acesso de administrador de processos Workflow na interface de administração antiga (drovetto)
+	+ Interface para inclusão de administradores de processo, acessível pelo menu "Lista de Controle de Acesso" (drovetto)
+	+ Possibilidade do desenvolvedor exibir mensagens ao final das atividades do processo de Workflow  (drovetto)
+	* Agora o tamanho dos gráficos dos processos é limitado a 2500 pixels para sua maior dimensão (drovetto)
+
+[1.4.05.000]
+	+ Possibilidade de definir a imagem que representa o organograma de uma organização (se estiver em branco, a imagem do organograma é gerada automaticamente) (drovetto)
+	+ Classes PHPlot (para criação de gráficos) e MEM_IMAGE (utilização de imagens em relatórios da FPDF sem necessidade de arquivos temporários), com suas respectivas classes que disponibilizam as funcionalidades para os desenvolvedores de processos Workflow. Contribuição feita por Allan Bomfim (drovetto)
+	- Tabela "egw_wf_instance_supplements" já que não estava sendo utilizada pela engine (drovetto)
+	+ Biblioteca JavaScript, NiftyCube, que arredonda os cantos de elementos XHTML (drovetto)
+	* Corrigida falha que podia permitir que uma instância fosse atribuída a um perfil que não possui acesso à atividade destino (drovetto)
+	+ Opção para que o usuário não veja a tela de "Atividade Concluída". Neste caso, ele é redirecionado para a aba de sua preferência na interface do usuário (drovetto)
+	+ Classe que permite a utilização da engine de templates Smarty no desenvolvimento de interfaces do módulo (drovetto)
+	+ Novo controle dos métodos de definir usuário/perfil para a próxima atividade da instância (inclusive suporte adequado para atividades Split) (drovetto)
+	+ Possibilidade de mover instâncias de um processo para outro. Normalmente, utilizada para o mesmo processo em diferentes versões (drovetto)
+	* O controller para chamadas Ajax do módulo, agora trata sessões expiradas. O método de verificação de erro no JavaScript da interface do usuário, foi modificado (drovetto)
+	+ Alteração da tela de configuração do processo. Incluído um campo para alteração da altura do frame onde é mostrada atividade VIEW na caixa de entrada. (gbisotto)
+	* Alteração da interface da caixa de entrada. Para todas as instancias, somente administradores do processo e administradores do expresso podem ver as properties da instancia. (gbisotto)
+	* Para processos com atividade VIEW, somente é possível vê-la ao clicar no nome do processo. Ao clicar na lupa são mostrados os dados da instancia. (gbisotto)
+	+ Alteração da interface de monitoramento para que sejam mostradas diversas atividades de uma mesma instância (atividades de split), e a possibilidade do usuário poder ordenar de forma ascendente e descendente por todas as colunas, exceto a de ações. (gbisotto)
+	+ Método get_entry_by_email na classe wf_ldap (drovetto)
+	* Utilização de HTTPS (quando suportado pelo servidor) no envio de autenticação para aplicações externas (drovetto)
+	+ Inclusão do método getActivityIdByName na classe wf_role (viani)
+	+ Métodos de gerenciamento de transações (startTrans, completeTrans e failTrans) na classe wf_db (drovetto)
+
+[1.4.04.000]
+	+ Inclusão do arquivo js/jscode/get_form_fields.js que possui uma função para recuperar os campos do formulário cujo id inicia com "_" (asaikawa)
+	* Mudança no layout da interface do usuário, abas Processos e Aplicações Externas (drovetto)
+	+ Coluna no Organograma que permite ocultar funcionários de determinados status (drovetto)
+	* Correção na interface de administração do Organograma que limitava algumas funcionalidades a apenas uma execução (drovetto)
+	* Mudança no comportamento da funcionalidade de continuar instância (forçar fluxo) para que não sejam executadas instâncias onde o dono não está mais no organograma (ou perdeu acesso a ela) (drovetto)
+	+ Busca de instâncias na Caixa de Entrada (drovetto)
+	* Na administração do organograma, lista de usuários e pesquisa, foi incluída a informação de área e uid (drovetto)
+	* Incluído suporte a grupos na lista de controle de acesso - administração de processos (drovetto)
+	* Na interface de usuário, quando fecha uma aba volta para a aba que estava anteriormente (drovetto)
+	* Modificada interface de administração para listar processos em ordem alfabética crescente (drovetto)
+	* Corrigido bug de associação de novo perfil a nova atividade (cassiomaes-viani)
+	- Método "getActivityRoles" da classe "wf_engine". Método equivalente na classe "wf_role" (drovetto)
+	+ Classe "wf_role" que permite ao desenvolvedor manipular os perfis pertencentes ao seu processo (drovetto)
+
+[1.4.03.000]
+	* Alteração na expressão regular para validação de endereço de e-mail (asaikawa)
+	+ Inclusão de expressão regular para validação de telefone com DDI (não obrigatório) e separador podendo ser hífen ou espaço (asaikawa)
+	+ Método get_entry_by_cpf na classe wf_ldap (rufino)
+	- Remoção da ação de monitoramento da lista de ações avançadas da caixa de entrada (cassiomaes)
+	+ Inclusão de ícone para organograma na página de finalização de atividade (cassiomaes)
+	+ Método wf_orgchart::getEmployeesAreaID que recupera todos os funcionários de uma área através do código de identificação dessa área (asaikawa)
+	- Tabela "aplicacao_externa_acl". Estes dados agora são controlados pela tabela "egw_wf_admin_access" (drovetto)
+	* Tabela "aplicacao_externa" migrada para a base de dados do Expresso (drovetto)
+	* Tabela "admin_access" migrada para a base de dados do Expresso (drovetto)
+	+ Interface (Ajax) para controle das Aplicações Externas (drovetto)
+	+ Interface (Ajax) para administração de acesso às Aplicações Externas (drovetto)
+	+ Método ("getActivityRoles") na classe "wf_engine" que retorna os perfis associados a uma atividade (drovetto)
+	* Smarty atualizado para a versão 2.6.18 (drovetto)
+	+ Plugin Smarty (wf_default_template) para inserir cabeçalho e rodapé nos templates dos processos. (rufino, drovetto)
+	+ Inclusão de layout padrão para os processos do workflow abrangendo folhas de estilo (CSS), imagens, cabeçalho e rodapé para os processos (rufino)
+		Inclusão dos arquivos:
+			templates/celepar/processes/default.css
+			templates/celepar/processes/screen.css
+			templates/celepar/processes/header.tpl
+			templates/celepar/processes/footer.tpl
+			templates/celepar/processes/*.{png,gif,jpg}
+	+ Inclusão do método wf_orgchart::getAreas, que recebe por parâmetro uma array de IDs e retorna informações de várias áreas (rufino)
+	- Remoção do pacote SimpleXML (viani)
+	+ Implantação e adaptação do Framework NanoAjax para que seja possível utilizá-lo a partir de processos de Workflow (drovetto)
+	+ Plugin Smarty (wf_ajax_init) que insere os arquivos necessários para a correta utilização do Ajax a partir dos templates (drovetto)
+	+ Função (wf_get_env) que permite ao desenvolvedor do Workflow obter a variável $env (que contém referências às APIs da Engine Workflow), inclusive quando estiver utilizando o Ajax (drovetto)
+	+ Inclusão do método BaseModel::setNameInstance (viani)
+	+ Estatísticas sobre processos na interface de monitoramento (drovetto)
+	+ Plugin Smarty (wf_select_option_multiple) para inserir um componente que trabalhe com multi-inserção de dados categorizados. Os dados podem ser agrupados através de categorias em um selectbox, selecionados e enviados para um listbox (rufino, asaikawa)
+	+ Plugin Smarty (wf_select_duplex) para inserir um componente que facilite a manipulação de varios dados de forma simultânea. O componente trabalha com dois listboxes. Para manipular os dados basta selecioná-los em um listbox e enviá-los para o outro. (asaikawa)
+	+ Médoto wf_db::quote() para realizar tratamento de aspas durante inclusão e alteração de registros quando não for possível a utilizadação do Link_ID do Adodb (rufino)
+	+ Plugin do Smarty para inserir um componente de edição de texto rico (FCKeditor). Foi utilizado, com revisão e alteração de código, o plugin desenvolvido por gazoot (drovetto).
+	+ Nova aba no módulo Workflow para consulta ao organograma (drovetto)
+		inc/class.bo_userinterface.inc.php
+		inc/class.so_userinterface.inc.php
+		inc/class.ui_userinterface.inc.php
+		inc/hook_settings.inc.php
+		js/userinterface/main.js
+		js/userinterface/orgchart.js
+		templates/celepar/userinterface.tpl
+	* Correção de bug que não importava corretamente um processo se o diretório "workflow/resources" não estava criado (drovetto).
+	+ Nova classe para conexão com mainframe (rufino)
+		inc/local/classes/class.wf_natural.php
+		inc/natural/class.natural_resultset.php
+		inc/natural/class.natural.php
+[1.4.02.000]
+	* A listagem de usuários feita pela classe Participants não traz mais os usuários que estão marcados como oculto (drovetto).
+	* Utilização do usuário/senha LDAP do Workflow em conexões com o LDAP para busca de usuários/grupos/listas na classe participants: (drovetto)
+		inc/class.so_participants.inc.php
+	+ Organograma: incluida coluna auxiliar_funcionario_id, na tabela area, para armazenar o código de um usuário encarregado de secretariar a chefia; (drovetto);
+	* Revisada a classe wf_orgchart. Foram modificados os nomes de alguns métodos para algo mais significativo (droveto).
+[1.4.01.000]
+	* A versão de javascript e css utilizada durante a inclusão não é mais definida por um número fixo e sim pelo tamanho de cada arquivo inserido (drovetto)
+	* Modificação da engine do Tigra Menu que possibilita a criação de menus sem tamanho fixo definido (drovetto)
+	* Os menus dos processos Workflow agora podem possuir vários níveis hierárquicos (submenus) (drovetto)
+	* Melhorias no mecanismo de tradução, para eliminar a lentidão na carga das frases. (drovetto)
+	* Modificada a geração do gráfico do processo, para que a seta de transição de uma atividade sem roteamento automático seja grafada em vermelho e no mesmo formato que a seta de atividades de roteamento automático (pretas) (drovetto)
+[1.4.00.001]
+	+ Inclusão de um valor de configuração padrão para o dn e password para conexão com o LDAP (para não utilizar anonymous) (drovetto)
+	* Correção de erro relacionado à falta de configuração (erro de configuração) do banco de dados do Workflow (drovetto)
+	* Atualização da biblioteca js/jscode/wz_dragdrop.js para compatibilidade com o novo módulo Instant Messenger (viani)
+	* Correção de bug na classe inc/class.ui_adminroles.inc.php que gera uma listagem incorreta de nomes e grupos (viani)
+	* Correção na instalação do módulo de Workflow (quando feita pela primeira vez) (drovetto)
+[1.4.00.000]
+	+ Possibilidade de gerar o diagrama do Organograma sob demanda (drovetto)
+	+ Interface de Organograma (Ajax) (drovetto)
+	+ Classe SecurityUtils para proteção contra entrada dos usuários (carloseduardo)
+    + Método BaseController::super() para permitir procedimento comum a camada de controle de um processo (carloseduardo)
+    + Métodos BaseModel::toObject(), BaseModel::fromObject() e BaseModel::inspect() para respectivamente: serializar arrays, desserializar arrays e obter informações sobre classes e objetos (carloseduardo)
+	+ Pacote SimpleXML para PHP 4 que mapeia XML para objetos PHP com flexibilidade (carloseduardo)
+		inc/simplexml
+	+ Classe XmlUtils capaz de mapear XML para e de vetores PHP (carloseduardo)
+		inc/class.utils.xml.php
+	* Atualização da classe Utils com a inclusão do método raiseError para lançamento de erros fatais (carloseduardo)
+		inc/class.utils.php
+	- Removidas opções de monitoramento e instâncias do hook_acl_manager.inc.php (viani)
+	+ Classe "wf_mail" que permite ao desenvolvedor Workflow enviar e-mails em tempo de execução (drovetto)
+		inc/local/classes/class.wf_mail.php
+	+ Plugin do Smarty que insere um campo de texto rico (RTF). Foram feitas modificações no JavaScript para que seja possível inserir mais de um campo deste tipo por página (drovetto)
+		inc/smarty/wf_plugins/function.wf_rtf_init.php
+		inc/smarty/wf_plugins/function.wf_rtf.php
+		js/htmlarea/htmlarea.js
+		js/jscode/rtf.js
+	* Criação de classe gerenciadora de instancias em nível de módulo (carloseduardo)
+		+ /inc/class.factory.inc.php: classe Factory, instancia classes de processo, suportando construtores parametrizados, implementando opcionalmente a unicidade de instâncias por classe (singleton design pattern).
+		* class.basemodel.inc.php: suporte à inclusão da classe Factory.
+		* class.run_activity.inc.php: suporte à inclusão da classe Factory.
+	+ Criação de classes em nível de módulo e processo (carloseduardo)
+		Em nível de módulo:
+			Utils (/inc/class.utils.php): Classe com metodos utilitarios que servem de base para classes mais especificas;
+			StringUtils (/inc/class.utils.string.php): contém funções utilitárias para manipulação de strings;
+			TypeUtils (/inc/class.utils.type.php): Classe que contém funções utilitárias para verificação de tipagem de dados e conversão (cast) entre tipos primitivos de dados no PHP;
+			UrlUtils (/inc/class.utils.url.php): Classe que contém métodos utilitários para a construção e a manipulação de URLs.
+		Em nível de processo:
+			wf_util (/inc/local/classes/class.wf_util.php): subclasse de Utils;
+			wf_string (/inc/local/classes/class.wf_string.php): subclasse de StringUtils;
+			wf_type (/inc/local/classes/class.wf_type.php): subclasse de TypeUtils;
+			wf_url (/inc/local/classes/class.wf_url.php): subclasse de UrlUtils.
+	* Atualização na classe BaseModel (/inc/class.basemodel.inc.php) visando simplificar manutenção ao eliminar a necessidade de declarar constantes para referir-se ao nome das classes de processo, o que levava à necessidade de atualizar a classe toda vez que uma nova classe de processo fosse adicionada (carloseduardo)
+	+ Classe Crontab (/inc/class.crontab.inc.php) agenda jobs para serem executados a partir de um script PHP com o intuito de assegurar, a nível de módulo, que rotinas workflow sejam executadas com precisão (carloseduardo)
+	+ Classe wf_crypt (/inc/local/classes/class.wf_crypt.php), capaz de criptografar e descriptografar strings (carloseduardo)
+	+ Arquivo de configurações do módulo de workflow /inc/config/module.ini começando com a sessão classes e armazenando a chave de criptografia da classe wf_crypt (carloseduardo)
+	+ Possibilidade de adicionar uma descrição detalhada para as instâncias da Caixa de Entrada. Para isto, basta criar uma atividade do tipo "View" (drovetto)
+	* Atualização no padrão de desenvolvimento MVC do módulo de workflow, que agora se encontra organizado em três níveis (carloseduardo)
+		+ módulo: representado pelas classes BaseModel (/inc/class.basemodel.inc.php) e BaseController (/inc/class.basecontroller.inc.php). Neste nível as implementações afetam todos os processos desenvolvidos sob o padrão MVC no módulo de workflow.
+		* processo: representado pelas classes Model e Controller de cada processo workflow MVC, que são subclasses das respectivas classes Base do nível de módulo. Agem somente sobre cada processo individualmente, influenciando portanto as atividades destes processos.
+		* atividade: representado pelas classes Model e Controller de cada atividade dos processos workflow MVC. Responsáveis por receber e atender as requisições do usuário final dos processos.
+	* Fusão das classes do tipo "cel_" com suas respectivas classes (drovetto)
+	* Problemas reportados no processo de compilação, agora são divididos em dois tipos: erros e avisos. Sendo que a ocorrência deste último não invalida um processo (drovetto)
+		inc/class.workflow.inc.php
+		inc/engine/src/common/Base.php
+		inc/engine/src/ProcessManager/ActivityManager.php
+	+ Função "wf_get_next_activity_link" que retorna o link para a próxima atividade da instância que será executada. Caso não seja possível determiná-la, será retornado um link para a Caixa de Entrada (drovetto)
+	* Mudança na engine para permitir que uma atividade (mesmo interativa) seja executada automaticamente e sem interação (drovetto)
+		inc/class.run_activity.inc.php
+	* Adição do método compile na classe cel_ui_adminactivities (/inc/class.cel_ui_adminactivities.inc.php) com a tarefa de validar o código fonte do processo e indicar se houve sucesso ou falhas para o método form (drovetto)
+	+ Classe FsUtils (/inc/class.fsutils.inc.php) com a tarefa de implementar operações com o sistema de arquivos em nível de módulo, inicialmente com os métodos readFolder, para a leitura de diretórios, e getConfig, para leitura de arquivos de configuração (carloseduardo)
+	+ Diretório /inc/config/ para armazenamento de arquivos de configuração *.ini em nível de módulo (carloseduardo)
+	* Envio do conteúdo de /js/local/ para /js/jscode/ e atualizações nos arquivos que os referenciavam (carloseduardo)
+	- Diretório /js/local/. (carloseduardo)
+	+ Classe "wf_engine" que fornece para o desenvolvedor Workflow informações inerentes à engine do Workflow (drovetto)
+		inc/local/classes/class.wf_engine.php
+	* Fusão da classe "cel_run_activity" com a sua superclasse "run_activity". Também foi incrementada a "versão" do JavaScript para 211 (drovetto)
+		inc/class.bo_agent_mail_smtp.inc.php
+		inc/class.cel_run_activity.inc.php
+		inc/class.run_activity.inc.php
+		inc/class.ui_ajaxinterface.inc.php
+		inc/class.ui_monitoractivities.inc.php
+		inc/class.ui_useractivities.inc.php
+		inc/class.ui_userinstances.inc.php
+		inc/class.ui_useropeninstance.inc.php
+		inc/engine/config.egw.inc.php
+		inc/smarty/wf_plugins/function.wf_redir_menu.php
+		inc/smarty/wf_plugins/function.wf_select_city_init.php
+		js/userinterface/inbox.js
+		js/userinterface/processes.js
+		templates/celepar/activity_completed.tpl
+		templates/celepar/leaving_activity.tpl
+	* As permissões de acesso aos procedimentos do monitoramento agora são atribuídas individualmente para cada usuário (drovetto)
+	+ A lista de controle de acesso agora possui um campo que identifica o nível de acesso de um usuário a um recurso (drovetto)
+	* Desenvolvimento de uma nova interface de monitoramento de processos. Também foi criada uma ACL que associa usuários a processos que eles podem monitorar (drovetto)
+	* Migração da tabela admin_access, do banco expresso para workflow. Criada uma nova classe (viani)
+		inc/class.workflow_acl.inc.php
+	+ Plugin do Smarty para abrir página em uma nova janela (viani)
+		inc/smarty/wf_plugins/function.wf_window_open_init.php
+		inc/smarty/wf_plugins/function.wf_window_open.php
+	* Caixa de Entrada agora apresenta uma nova coluna, chamada de "Identificador" (drovetto)
+	+ Plugin do Smarty que insere um campo de formulário para upload de arquivos. Este campo é feito dinamicamente, de forma pode ser utilizado para múltiplos arquivos (drovetto)
+		inc/smarty/wf_plugins/function.wf_file_upload_init.php
+		inc/smarty/wf_plugins/function.wf_file_upload.php
+		js/adminsource/js/wf_file_upload.js
+	* As funções para os processos de Workflow definidas dentro da classe "cel_run_activity" foram movidas para um outro arquivo que agora é incluído na referida classe (drovetto)
+		inc/activity_functions.php
+		inc/class.cel_run_activity.inc.php
+	+ Classe "wf_location" que é acessada nas atividades dos processos do Workflow e que permite ao desenvolvedor obter informações sobre cidades e Estados cadastrados no Banco de Dados (drovetto)
+		js/adminsource/classes/class.wf_location.php
+	+ Plugins do Smarty, "wf_select_state" e "wf_select_city", que permitem a seleção de Estados e cidades do Brasil. No caso das cidades, elas são listadas, através de uma chamada Ajax, de acordo com o Estado selecionado (drovetto)
+		inc/class.bo_utils.inc.php
+		inc/smarty/wf_plugins/function.wf_select_city_init.php
+		inc/smarty/wf_plugins/function.wf_select_city.php
+		inc/smarty/wf_plugins/function.wf_select_state.php
+		js/adminsource/js/wf_select_city.js
+	+ Componente que gera uma lista de seleção de itens que são especificados pelo desenvolvedor de processos Workflow. Composto de dois plugins Smarty ("wf_generic_select" e "wf_generic_select_init") e uma função ("wf_set_generic_select") (drovetto)
+		inc/class.cel_run_activity.inc.php
+		inc/class.ui_generic_select.inc.php
+		inc/smarty/wf_plugins/function.wf_generic_select_init.php
+		inc/smarty/wf_plugins/function.wf_generic_select.php
+		js/adminsource/js/generic_select.js
+		templates/celepar/generic_select.tpl
+	+ Método "exists", disponível nas variáveis "$instance", que verifica se uma dada propriedade existe na instância (drovetto)
+		inc/engine/src/API/Instance.php
+		inc/engine/src/common/WfRuntime.php
+	* Método "get", disponível nas variáveis "$instance", agora aceita um valor padrão para a propriedade requisitada (drovetto)
+		inc/engine/src/API/Instance.php
+		inc/engine/src/common/WfRuntime.php
+	+ Método "clear", disponível nas variáveis "$instance" que tem como função remover atributos da instância (propriedades) que foram definidos com o método "set" (drovetto)
+		inc/engine/src/API/Instance.php
+		inc/engine/src/common/WfRuntime.php
+	+ Classe de paginação "wf_paging" para ser utilizada nos processos de Workflow. Esta classe estende a classe "paging" (drovetto)
+		js/adminsource/classes/class.wf_paging.php
+	* Paginação Ajax da interface de "Caixa de Entrada" e "Acompanhamento" (drovetto)
+		inc/class.bo_userinterface.inc.php
+		js/userinterface/inbox.js
+		js/userinterface/instances_group.js
+		js/userinterface/instances.js
+	+ Classe de paginação "paging". Utilizada para fazer a paginação e gerar seus links (drovetto)
+		inc/class.paging.php
+	+ Plugin do Smarty para gerar um selectbox de atividades start / standalone (viani)
+		inc/smarty/wf_plugins/function.wf_redir_menu.php
+		listagem também incluída nos templates:
+		templates/celepar/activity_completed.tpl
+		templates/celepar/leaving_activity.tpl
+	+ Possibilidade de restringir a próxima atividade de uma instância a somente um perfil e não a todos associados a esta atividade. Esta funcionalidade está disponível através do método "setNextRole", que encontra-se nos objetos "Instance" (drovetto)
+		inc/engine/src/API/Instance.php
+		inc/engine/src/common/WfRuntime.php
+		inc/engine/src/common/WfSecurity.php
+		inc/engine/src/GUI/GUI.php
+	+ Plugin do Smarty para gerar um link genérico ou link de retorno para interface do usuário (viani)
+		inc/smarty/wf_plugins/function.wf_make_link.php
+	+ Plugin do Smarty que insere um componente de seleção vários usuários/grupos (estilo lista) (drovetto)
+		inc/smarty/wf_plugins/function.wf_select_users_init.php
+		inc/smarty/wf_plugins/function.wf_select_users.php
+		js/adminsource/js/userControl.js
+	+ Plugin do Smarty que insere um componente de seleção de usuários (id/e-mail) (drovetto)
+		inc/smarty/wf_plugins/function.wf_select_user_init.php
+		inc/smarty/wf_plugins/function.wf_select_user.php
+	+ Classe "fpdf" para geração de relatórios em PDF (drovetto)
+		inc/fpdf/
+		inc/fpdf/fpdf.php
+		js/adminsource/classes/class.wf_fpdf.php
+	+ Função "wf_handle_download" que gerencia o envio de arquivos para o usuário (drovetto)
+		inc/class.cel_run_activity.inc.php
+	+ Diretório de plugins do Workflow para o Smarty. Incluindo dois plugins: "wf_calendar", que inclui um calendário feito em JavaScript, e "wf_download_link" que gera links de download de arquivos (drovetto)
+		inc/smarty/wf_plugins/
+		inc/smarty/wf_plugins/function.wf_calendar_init.php
+		inc/smarty/wf_plugins/function.wf_calendar.php
+		inc/smarty/wf_plugins/function.wf_download_link.php
+		js/jscalendar/
+		js/jscalendar/calendar.js
+		js/jscalendar/calendar-blue.css
+		js/jscalendar/calendar-br.js
+		js/jscalendar/calendar-en.js
+		js/jscalendar/calendar-setup.js
+	+ Função "wf_write_file" que possibilita a gravação de arquivos dentro do "resources" do processo onde ela é utilizada (drovetto)
+		/inc/class.cel_run_activity.inc.php
+	+ Nova aba no módulo Workflow para acesso a aplicações externas (drovetto)
+		/inc/class.bo_ajaxinterface.inc.php
+		/inc/class.bo_userinterface.inc.php
+		/inc/class.external_bridge.inc.php
+		/inc/class.so_userinterface.inc.php
+		/inc/class.ui_userinterface.inc.php
+		/inc/hook_settings.inc.php
+		/js/userinterface/externals.js
+		/js/userinterface/main.js
+		/templates/celepar/external_bridge.tpl
+		/templates/celepar/userinterface.tpl
+	+ Link para o banco de dados do Workflow (viani)
+		/inc/class.bo_ajaxinterface.inc.php
+	* Reestruturação dos diretórios do Smarty. Cada processo de workflow possui seus diretórios de cache/arquivos compilados (drovetto)
+		/inc/class.cel_run_activity.inc.php
+		/inc/src/ProcessManager/ProcessManager.php
+	- Função "wf_get_uploaded_file" (drovetto)
+		/inc/class.cel_run_activity.inc.php
+	+ Função "wf_get_uploaded_files" que lida com uploads (inclusive múltiplos) nas atividades dos processos (drovetto)
+		/inc/class.cel_run_activity.inc.php
+[1.3.00.000]
+	* Permissão para que uma atividade não interativa defina o usuário para a próxima atividade (drovetto)
+		/inc/engine/src/API/Instance.php
+	+ Consistência de palavras negadas na compilação de atividades (viani)
+		/inc/cel_ui_adminactivities.inc.php
+		/inc/denied_patterns.inc.php
+	+ Parâmetro execute_activities_in_debug_mode no config.tpl (rodrigolira)
+	+ Plugin para caracteres especiais no HtmlArea (rodrigolira)
+		/js/adminsource/js/rtf.js
+		/js/htmlarea/plugins/CharacterMap/
+	* Atualização para a versão 1.3.00.000 (viani)
+	+ Nova funcionalidade para manutenção de organogramas. Inclusão dos arquivos (viani)
+		js/orgchart/
+		templates/celepar/orgchart.tpl
+		inc/class.ui_orgchar.inc.php
+		inc/class.bo_orgchar.inc.php
+		inc/class.so_orgchar.inc.php
+	+ Novo controle de acesso. Inclusão dos arquivos (rodrigolira)
+		js/adminaccess/
+		templates/celepar/adminaccess.tpl
+		inc/class.ui_adminaccess.inc.php
+		inc/class.bo_adminaccess.inc.php
+		inc/class.so_adminaccess.inc.php
+		inc/class.cel_ui_adminprocesses.inc.php
+		inc/class.cel_ui_activities.inc.php
+		Arquivos alterados:
+		inc/cel_workflow_processmanager.inc.php
+		inc/hook_settings.inc.php
+	* Alerta: quando criar uma nova classe cel_ deve-se sobrepor o atributo (rodrigolira)
+		classname, caso haja herança da bo_workflow_forms
+[1.2.01.004]
+	* Atualização para versão 1.2.01.004 (viani)
+	* Permanecem as alterações do release R3, exceto a modificação do config.egw.inc.php que foi
+	  corrigido no projeto original.
+	* Nova inteface de administração de recursos (link 'código' na interface de adm. de processos) (rodrigolira)
+		* inclusão do arquivos:
+			js/adminsource/
+			js/htmleditor/
+			js/phpeditor/
+			js/resourceeditor/
+			inc/class.ajax.inc.php
+			inc/class.bo_editor.inc.php
+			inc/class.cel_bo_adminsource.inc.php
+			inc/class.cel_ui_adminsource.inc.php
+			inc/class.cel_workflow_processmanager.inc.php
+			inc/class.ui_phpeditor.inc.php
+			inc/class.ui_templateeditor.inc.php
+			inc/class.ui_resourceeditor.inc.php
+			templates/celepar/images/ (diversas)
+			templates/celepar/css/editor.css
+			templates/celepar/css/highlight.css
+			templates/celepar/adminsource.tpl
+			templates/celepar/editor_messages.html
+			templates/celepar/editor.html
+			templates/celepar/editor.tpl
+			templates/celepar/templates_editor.tpl
+			templates/celepar/reseditor.html
+			templates/celepar/resource_editor.tpl
+		* alteração dos arquivos:
+			inc/cel_run_activity.inc.php
+			js/jscode/connector.js
+			controller.php
+			cel_workflow_processmanager.inc.php -> inclusão de array para parâmetros de
+				config não exportados (ex. usuário e senha do banco de dados)
+	* Alteração no agente smtp para trocar o nome da atividade pelo nome do processo, no alias do email (rodrigolira)
+		inc\class.cel_bo_agent_mail_smtp.inc.php
+	* Nova interface para associação de usuários/grupos a perfis. Foram incluídas novas frases de
+	  tradução. Incluídos os arquivos (rodrigolira)
+		inc\class.bo_participants.inc.php
+		inc\class.so_participants.inc.php
+		inc\class.ui_participants.inc.php
+		inc\class.cel_ui_adminroles.inc.php
+		js\jscode\participants.js
+	* Inclusão em cel_run_activity (viani)
+		* $GLOBALS['workflow']['wf_user_cnname']
+		* $GLOBALS['workflow']['wf_activity_url']
+		* $GLOBALS['workflow']['wf_workflow_path']
+		* $GLOBALS['workflow']['wf_resources_path']
+		* $GLOBALS['workflow']['wf_normalized_name']
+	* Nova interface do usuário (viani - rodrigolira - mariceli)
+		* Modificado o arquivo inc\engine\src\GUI\GUI.php:
+			* Removidos \n ao final do script (motivo compatibilidade com ajax)
+			* Inclusão do campo gia.wf_started no método gui_list_user_instances (data de inicio da atividade)
+			* Inclusão do método gui_list_intances_by_owner
+		* Novas opções de start_page nas preferências, arquivo inc\hook_settings.inc.php
+		* Novo link para interface do usuário, arquivo inc\hook_sidebox_menu.inc.php
+		* Alteração em index.php para direcionar para a nova interface
+		* Inclusão da chave "loading" na tradução, e outras
+		* movido arquivo js\script_rtf.js para js\jscode\script_rtf.js
+		* Inclusão dos arquivos:
+			controller.php
+			templates\celepar\css\common.css
+			templates\celepar\css\userinterface.css
+			templates\celepar\userinterface.tpl e outros
+			templates\celepar\images\arrow.gif e outras
+			templates\celepar\images\actions\
+			templates\celepar\images\activities\
+			js\jscode\abas.js
+			js\jscode\common_functions.js
+			js\jscode\connector.js
+			js\jscode\doiMenuDOM.js
+			js\jscode\globals.js
+			js\jscode\sniff_browser.js
+			js\userinterface\
+			inc\class.ui_ajaxinterface.inc.php
+			inc\class.ui_userinterface.inc.php
+			inc\class.bo_userinterface.inc.php
+			inc\class.bo_ajaxinterface.inc.php
+			inc\engine\config.ajax.inc.php
+			inc\engine\class.ajax_ldap.inc.php
+			inc\engine\class.ajax_config.inc.php
+	* modificado setup\tables_update.inc.php, na versão 1.2.00.002, para NÃO transformar em negativos os grupos da tabela egw_wf_user_roles	(viani)
+	* alterações na api 0.9.99.015 (viani)
+		inc/class.db.inc.php - inclusão de métodos select, update, delete, etc
+		inc/class.accounts_ldap.inc.php - método read_repository - inclusão do email no vetor de retorno
+		inc/class.schema_proc_pgsql.inc.php - substituido pelo arquivo da versão 1.0.7
+	* inclusão de parâmetros para banco próprio do workflow (viani)
+		/templates/default/config.tpl
+		/inc/class.ui_adminprocesses.inc.php
+		/inc/cel_run_activity.inc.php - incluídas as funções: wf_include wf_get_uploaded_file
+			wf_connect wf_disconnect wf_disconnect_all wf_create_object
+	* alteração em inc/class.bo_editor.inc.php para filtrar strings não permitidas no código do usuário (ex. $GLOBALS fopen fwrite, etc ...) (rodrigolira)
+	* alteração em inc/engine/src/ProcessManager/ProcessManager.php para corrigir bug ao criar arquivo shared.php (rodrigolira)
+[1.2.00.002]
+	* Inclusão do elemento de array $GLOBALS['workflow']['wf_base_url'] no arquivo cel_run_activity (rodrigolira)
+	* Inclusão da variável $wf =& GLOBALS['workflow'] no arquivo cel_run_activity (rodrigolira)
+	* Inclusão do diretório templates/celepar (rodrigolira)
+	* Inclusão do arquivo js/script_rtf.js (funções para iniciar e encerrar htmlarea) (viani)
+    * Adicionada uma linha na api (common_functions.inc.php) para permitir o uso de javascript nas atividades interativas do workflow (vetor egw_unset_var) (rodrigolira)
+	* substituição completa pela versão 1.2.00.002 (viani)
+	* execuçãoo do script unmodernize.php
+	* inclusão do arquivo inc/class.cel_run_activity.inc.php (rodrigolira)
+	* substituição das chamadas a run_activity para cel_run_activity (rodrigolira)
+	* inclusão do Smarty (rodrigolira)
+	* alteração no config.egw.inc.php para buscar grupos do usuário (rodrigolira)
+	* substituição dos hooks
+	* tradução para pt-br (viani)
+	* alteração para buscar grupos do usuário (inc/engine/config.egw.inc.php) (rodrigolira)
+	* alteração para usar smarty (rodrigolira)
+		inc/class.run_activity.php
+		inc/class.workflow_smarty.inc.php
+		inc/smarty/
+[1.2.00.001]
+	* atualização para a versão original do workflow 1.2.00.001 (viani)
+	* executado unmodernize.php nos arquivos abaixo, para compatibilizar com a API 1.0.0 (rodrigolira)
+		index.php
+		inc/*
+		inc/engine/config.egw.inc.php
+	* restaurado os arquivos abaixo, da versão do Workflow 1.1.05.000 (rodrigolira)
+		inc/hook_preferences.inc.php
+		inc/hook_settings.inc.php
+		inc/sidebox_menu.inc.php
+[1.2.00.000]
+	* versão original do workflow 1.2.00.000. Não usar esta versão.
+	* executado unmodernize.php nos arquivos abaixo, para compatibilizar com a API 1.0.0 (rodrigolira)
+		index.php
+		inc/*
+		inc/engine/config.egw.inc.php
+	* restaurado os arquivos abaixo, da versão do Workflow 1.1.05.000 (rodrigolira)
+		inc/hook_preferences.inc.php
+		inc/hook_settings.inc.php
+		inc/sidebox_menu.inc.php
+

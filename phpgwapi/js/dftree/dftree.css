@@ -1,0 +1,74 @@
+.root {
+	position: relative;
+	left: 2px;
+	width: 0px;
+	white-space: nowrap;
+}
+
+.son {
+	position: relative;
+	left: 10px;
+/*	width: 0px;*/
+}
+
+
+.plus {
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
+	color: #000000;
+	font-family: monospace;
+}
+
+.plus:hover {
+	color: #FF0000;
+}
+
+.opened {
+	display: inline;
+/*	width: 0px;*/
+}
+
+.closed {
+	display: none;
+/*	width: 0px;*/
+}
+
+/* link */
+.l {
+	background-repeat: no-repeat;
+	background-position: left;
+	padding: 0 2em;
+	font-weight: bold;
+	font-size: 10px;
+	color: #4a79b1;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	font-family: sans-serif;
+}
+
+.l:hover {
+	text-decoration: underline;
+}
+
+
+/* selected link */
+.sl {
+	background-repeat: no-repeat;
+	background-position: left;
+        padding: 0 2em;	
+	font-weight: bold;
+	font-size: 10px;
+	color: #fc6103;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	font-family: sans-serif;
+}
+
+.sl:hover {
+	text-decoration: underline;
+}
+
+

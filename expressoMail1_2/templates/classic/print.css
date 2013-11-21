@@ -1,0 +1,7 @@
+.print-all-messages h1 { font-size: 1.35em; }
+.print-all-messages h2 { font-size: 1.05em; }
+.print-all-messages tbody { font-size: 0.95em; }
+.print-all-messages thead td { font-weight: bold; padding: 3px; border-bottom: solid 2px #999; }
+.print-all-messages tbody td { border-bottom: solid 1px #ccc; }
+.print-all-messages img { display: none; }
+.print-all-messages input { display: none; }

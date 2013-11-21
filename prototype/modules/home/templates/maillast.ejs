@@ -1,0 +1,16 @@
+<dl class="mail-list" title="Últimas e-mails">
+    <%if(data.resource && data.resource.length){
+	for(var i = 0; i < data.resource.length; i++){%>
+	    <dt><%=data.resource[i].subject %></dt>
+	    <dd>
+		<div class="date">
+		    <span class="timestamp timable"><%=data.resource[i].date%></span>
+		</div>
+		<div class="from" title="<%=data.resource[i].mail%>"><%=data.resource[i].from.name%></div>
+		<div class="description"><%=data.resource[i].subject%></div>
+	    </dd>
+	<%}%>
+	<%}else{%>
+	    <dt>Sem resultados</dt>
+	<%}%>    
+</dl> 

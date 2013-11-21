@@ -1,0 +1,13 @@
+<div class="box <%= (!data.valid ? "invalid-email-box" : "") %> ui-corner-all" tabindex="0">
+	<span class="email-box-value" style="padding: 5px;">
+		<% 
+			var presentation = (data.name != "" ? data.name : data.email);
+			var input_value = "&quot;"+data.name+"&quot; <"+data.email+">";
+		%> 
+		<%= 
+			(presentation.length > 18 ? presentation.substring(0, 15)+"..." : presentation)
+		%> 
+	</span>
+	<input class="box-input" value="<%= input_value %>"></input>
+	<span class="box-loading">&nbsp;&nbsp;&nbsp;</span>
+</div>

@@ -1,0 +1,29 @@
+       .even { background-color: #f4f8fb}
+       .odd { background-color: #fff}
+       .fields {
+               list-style-type: none;
+               list-style-image: none;
+               margin: 0;
+               padding: 0;
+       }
+       
+       .fields li{
+               text-align:center;
+               display: block;
+               width:100%;
+               margin: 0;
+               padding: 0;
+       }
+
+       .fields li div{
+               text-align:left;
+               display: inline-block;
+               float:center;
+               width:220px;
+       }       
+       
+       label {
+               margin: 0 3px 0 3px;
+               width: 100px;
+               display: inline-block;
+       }

@@ -1,0 +1,42 @@
+<% //CASE
+	var valid = {
+		title : "Sem titulo",
+		class : "sem-classe"
+	};
+	switch (data.type){
+		case 'event-detail':
+			valid.title = "Detalhes do Evento";
+			valid.class = "detail";
+			break;
+		case 'task-detail':
+			valid.title = "Detalhes da Tarefa";
+			valid.class = "detail";
+			break;
+		case 'event-list':
+			valid.title = "Lista de Eventos";
+			valid.class = "list";
+			break;
+		case 'task-list':
+			valid.title = "Lista de Tarefas";
+			valid.class = "list";
+			break;
+		case 'search':
+			valid.title = "Resultados da Lista";
+			valid.class = "list";
+			break;
+	}
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title><%= valid.title %></title>
+		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/style.css">
+		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/layout.css">
+		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/print.css">
+	</head>
+	<body class="<%= valid.class %>">
+		<div class="title_print"> <img src="../prototype/modules/calendar/img/navbar.png"> <%= data.InfoPage %> </div>			
+		<%= data.html %>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+Possible Permissions for Entries:
+
+0  - No Permissions;
+1  - Read;
+2  - Edit;
+4  - Delete;
+16 - Manage ACLs; (not sure)
+
+
+Possible Permissions for Entries Categories:
+
+0  - No Permissions;
+1  - Read;
+2  - Edit;
+4  - Delete;
+8  - Add;
+16 - Manage ACLs; (not sure)
+
+
+Possible Permissions for Catalogues:
+
+0  - No Permissions;
+1  - Read;
+2  - Edit;
+4  - Delete;
+8  - Add;
+16 - Manage ACLs; (not sure)

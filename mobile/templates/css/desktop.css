@@ -1,0 +1,41 @@
+@import url("mobile.css");
+
+/* MACRO ESTRUTURA BROWSER */
+.global{ }
+#navegacao{float:left; width:29%; }
+#conteudo{border-left: solid #F6F6F6; border-left-width: 1%; float:left; width:70%; min-height:305px;background: #eef7fa;} 
+
+#lista_miolo {clear:none; color:#666; width:auto; font-size:small; }
+#titulo-miolo, .menu-contexto{background-color: #3399CC ;color: #FFFFFF;  font-size: small; height: 26px; line-height:22px; padding: 4px 2px; font-weight:bold; width:auto; }
+
+/* CLASSES e IDS MODIFICADAS */
+#campos-correspondencia {background-color: #CEE5EF;  color: #666666; display: table; font-weight: bold;   padding: 10px 0; text-align: left; /*min-height:210px*/ } 
+.rodape{clear:both}
+#pre-calendario{display:table; width:100%}
+.menu-diverso, #palavra-procurada{height:25px}
+.email-data{width:70px;}
+#titulo-miolo button {height:21px}
+
+#corpo_mensagem #foto {padding:5px 0; text-align:left; margin-left:20px}
+
+.login input[type="text"]{ width:40%}
+
+.posiciona-esquerda{margin-left:5px}
+
+div.dt-azul p+p {margin-left:5px}
+div.dt-branco p+p  {margin-left:5px}
+
+div.rodape { margin-top: 4px; background-color:#FFF; }
+div.margin-rodape {  clear: both;   margin: 0 0 21px 5px; }
+
+div#pre-calendario{padding:10px 0} 
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+.menu-diverso { height: 0px;margin-top:0;  }
+dt.menu-diverso {min-height:21px; padding:4px 0;}
+
+div#titulo-miolo select{margin:0}
+
+}

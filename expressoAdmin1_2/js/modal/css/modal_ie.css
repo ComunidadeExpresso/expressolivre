@@ -1,0 +1,160 @@
+#lightbox{
+	background-color:#eee;
+	padding: 10px;
+	border-bottom: 2px solid #666;
+	border-right: 2px solid #666;
+}
+
+#lightboxCaption {
+	font-size: 1.8em;
+	text-align: center;
+	border-bottom: 2px solid #666;
+	
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 0;
+	right: 0;
+	bottom: auto;
+	left: 0;
+}
+
+#lightboxContent {
+	position:relative;
+	top:0pt;
+	left:0pt;
+	right:0pt;
+	width:auto;
+	overflow: auto;
+}
+
+#lightboxFoot {
+	border-top:2px solid #666666;
+	position:relative;
+	text-align:left;
+	top:0pt;
+	width:100%;
+}
+
+#keyboardMsg{ float: right; }
+
+#closeButton{ top: 5px; right: 5px; }
+
+#lightbox img{ border: none; clear: both;} 
+
+#overlay img{ border: none; }
+
+#overlay{
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/expresso/expressoAdmin1_2/js/modal/images/overlay.png', sizingMethod='scale');
+}
+
+#divStatusBar{
+	height:22px;
+}
+
+.info_msg {
+	font-family: Arial, sans-serif, Helvetica, Verdana;
+	font-size: 13px;
+	border-width: 0px 0px 0px 0px;
+	padding: 1px 10px 0px 10px;	
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	background-color: rgb(250, 209, 99);
+	-moz-border-radius: 6px 6px 6px 6px;
+}
+
+.error_msg {
+	font-family: Arial, sans-serif, Helvetica, Verdana;
+	font-size: 13px;
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+	background-color: rgb(240, 0, 0);
+	border-width: 0px 0px 0px 0px;
+	padding: 1px 10px 0px 10px;	
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	-moz-border-radius: 6px 6px 6px 6px;
+}
+
+/* NORMAL - yellow */
+/* superior esquerdo */
+.zIVQRb_normal {
+	background:transparent url(../images/rc_normal.png) no-repeat scroll 0pt 0pt;
+}
+
+/* superior direito */ 
+.Qrjz3e_normal {
+	background:transparent url(../images/rc_normal.png) no-repeat scroll -4px 0pt;
+}
+ 
+/* inferior esquerdo */ 
+.Gbtri_normal {
+	background:transparent url(../images/rc_normal.png) no-repeat scroll 0pt -4px;
+}
+
+/* inferior direito */
+.gmNpMd_normal {
+	background:transparent url(../images/rc_normal.png) no-repeat scroll -4px -4px;
+}
+
+/* linha do meio, entre os cantos */
+.Ptde9b_normal {
+	background:#FFF1A8 none repeat scroll 0%;
+	color:#FFFFFF;
+}
+
+/* Conteudo */
+.m14Grb_normal {
+	color: black;
+	background: #FFF1A8;
+	font-size:80%;
+	font-weight:bold;
+	font-family: arial,sans-serif;
+	padding:0pt 5px;
+	text-align:center;
+}
+
+/* ERROR - red */
+/* superior esquerdo */
+.zIVQRb_error {
+	background:transparent url(../images/rc_error.png) no-repeat scroll 0pt 0pt;
+}
+
+/* superior direito */ 
+.Qrjz3e_error {
+	background:transparent url(../images/rc_error.png) no-repeat scroll -4px 0pt;
+}
+ 
+/* inferior esquerdo */ 
+.Gbtri_error {
+	background:transparent url(../images/rc_error.png) no-repeat scroll 0pt -4px;
+}
+
+/* inferior direito */
+.gmNpMd_error {
+	background:transparent url(../images/rc_error.png) no-repeat scroll -4px -4px;
+}
+
+/* linha do meio, entre os cantos */
+.Ptde9b_error {
+	background:#CC0000 none repeat scroll 0%;
+	color:#FFFFFF;
+}
+
+/* Conteudo */
+.m14Grb_error {
+	color: white;
+	background: #cc0000;
+	font-size:80%;
+	font-weight:bold;
+	font-family: arial,sans-serif;
+	padding:0pt 5px;
+	text-align:center;
+}
+
+/* todas os cantos */
+.zIVQRb_error, .Qrjz3e_error, .Gbtri_error, .gmNpMd_error, .zIVQRb_normal, .Qrjz3e_normal, .Gbtri_normal, .gmNpMd_normal {
+	font-size:0pt;
+	height:4px;
+	width:4px;
+}

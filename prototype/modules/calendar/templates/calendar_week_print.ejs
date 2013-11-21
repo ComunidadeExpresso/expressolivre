@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/print.css">
+		<title>Visualização Semanal</title>
+	</head>
+	<body>	
+
+	<div class="week">
+		<div class="title_print"> <img src="../prototype/modules/calendar/img/navbar.png"> <%= data.InfoPage %></div>	
+		<% if(data.days){
+		delete data.days.events[7]; %>
+		<div class="first-week">
+			<div class="days">
+					<ul>
+						<li class="all-day-line">
+								<div>&nbsp;</div>
+								<div class="write">
+									<!-- Aqui dia todo -->
+									Dia todo
+								</div>
+						</li>
+						<%
+							for(var i=0; i<data.days.events.length-1; i++){
+								for(var eachInd in data.days.events[i]){
+									
+						%>
+						<li class="li-day">
+							<div class="day-name">
+								<span><strong><%= eachInd.split(" ")[0] %></strong></span>
+							</div>
+							
+							<div class="all-day">
+							<%
+								var aux = false;
+								if(data.days.events[i][eachInd].events){
+									for(var ii=0; ii<data.days.events[i][eachInd].events.length; ii++){
+										var img_type = "";
+										var title_type = "";
+										if(data.days.events[i][eachInd].events[ii].type == '1'){
+											img_type = "../prototype/modules/calendar/img/mini-event.png";
+											title_type = "Evento";
+										}if(data.days.events[i][eachInd].events[ii].type == '2'){
+											img_type = "../prototype/modules/calendar/img/mini-task.png"; 
+											title_type = "Tarefa";
+										}if(data.days.events[i][eachInd].events[ii].type == '3'){
+											img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
+											title_type = "Atividade";
+										}
+										if(data.days.events[i][eachInd].events[ii].allDay == true){
+										aux = true;
+							%>	
+									<!-- Aqui dia todo -->
+									<div class="event-all-day"><img title="<%= title_type %>" src="<%= img_type %>"><%= data.days.events[i][eachInd].events[ii].summary %></div>
+							<%		
+										}
+									}
+								}
+									
+							%>
+							
+							<% if(!aux){ %>
+								<div class="event-all-day"> &nbsp; </div>
+							<% } %>
+							</div>
+							
+							
+							<div>
+							<%	
+									
+							if(data.days.events[i][eachInd].events){
+								for(var ii=0; ii<data.days.events[i][eachInd].events.length; ii++){
+														
+									var img_type = "";
+									var title_type = "";
+									if(data.days.events[i][eachInd].events[ii].type == '1'){
+										img_type = "../prototype/modules/calendar/img/mini-event.png";
+										title_type = "Evento";
+									}if(data.days.events[i][eachInd].events[ii].type == '2'){
+										img_type = "../prototype/modules/calendar/img/mini-task.png"; 
+										title_type = "Tarefa";
+									}if(data.days.events[i][eachInd].events[ii].type == '3'){
+										img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
+										title_type = "Atividade";
+									}
+					
+									if(data.days.events[i][eachInd].events[ii].allDay == false){
+										var startHour =  data.days.events[i][eachInd].events[ii].startHour;
+										var endHour =  data.days.events[i][eachInd].events[ii].endHour;
+							%>
+										<!-- Aqui o restante -->
+
+										<div class="event-on-day"><img title="<%= title_type %>" src="<%= img_type %>"><%= startHour %> - <%= endHour %> | <%= data.days.events[i][eachInd].events[ii].summary %></div>						
+							<%	
+									}
+								}
+							}
+							%>
+							</div>
+						</li>
+						<%		
+								}
+							}
+						%>
+	
+						
+					</ul>
+
+			</div><!--days-->
+		</div><!--first-week-->
+		<%}%>
+	</div><!--week-->
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<div class="preferences-win active" title="Configurações da Agenda">
+	<h3>Preferências Gerais</h3>
+	<div class="header-menu-container">
+		<a class="button cancel" href="#">Cancelar</a>
+		<a class="button save" href="#">Salvar</a>
+	</div> 
+
+	<form method="POST" action="modulePreference:detail">
+
+		<fieldset class="no-legend">
+			<legend class="hidden">Preferências Gerais</legend>
+
+			<p class="input-group">
+				<label for="dateFormat" class="small">Formato de data:</label>
+				<select name="dateFormat" >
+					<option value="dd/MM/yyyy" <%= data.preferences.dateFormat =='dd/MM/yyyy' ? 'selected="selected"':'' %>>31/12/2011</option>
+					<option value="dd-MM-yyyy" <%= data.preferences.dateFormat =='dd-MM-yyyy' ? 'selected="selected"':'' %>>31-12-2011</option>
+					<option value="MM/dd/yyyy" <%= data.preferences.dateFormat =='MM/dd/yyyy' ? 'selected="selected"':'' %>>12/31/2011</option>
+				</select>
+			</p>
+
+			<p class="input-group">
+				<label for="hourFormat">Formato de hora:</label>
+				<select name="hourFormat" >
+					<option value="HH:mm" <%= data.preferences.hourFormat =='HH:mm' ? 'selected="selected"':'' %>>24 horas</option>
+					<option value="hh:mm tt" <%= data.preferences.hourFormat =='hh:mm tt' ? 'selected="selected"':'' %>>12 horas (am/pm)</option>
+				</select>
+			</p>
+			
+			<p class="input-group">
+				<label for="timezone">Fuso horário atual:</label>
+				<select name="timezone"> </select>
+			</p>
+			
+			<p class="input-group">
+				<label for="defaultCalView">Visualização padrão do calendário:</label>
+				<select name="defaultCalView" >
+					<option value="agendaDay" <%= data.preferences.defaultCalView =='agendaDay' ? 'selected="selected"':'' %>>Diária com horário</option>
+					<option value="basicDay" <%= data.preferences.defaultCalView =='basicDay' ? 'selected="selected"':'' %>>Diária sem horário</option>
+					<option value="agendaWeek" <%= data.preferences.defaultCalView =='agendaWeek' ? 'selected="selected"':'' %>>Semanal</option>
+					<option value="month" <%= data.preferences.defaultCalView =='month' ? 'selected="selected"':'' %>>Mensal</option>
+					<option value="year" <%= data.preferences.defaultCalView =='year' ? 'selected="selected"':'' %>>Anual</option>
+				</select>
+			</p>
+			<p class="input-group">
+				<label for="weekStart">Primeiro dia da Semana:</label>
+				<select name="weekStart" >
+				<option value="SUN" <%= data.preferences.weekStart =='SUN' ? 'selected="selected"':'' %>>Domingo</option>
+					<option value="MON" <%= data.preferences.weekStart =='MON' ? 'selected="selected"':'' %>>Segunda</option>
+					<option value="TUE" <%= data.preferences.weekStart =='TUE' ? 'selected="selected"':'' %>>Terça</option>
+					<option value="WED" <%= data.preferences.weekStart =='WED' ? 'selected="selected"':'' %>>Quarta</option>
+					<option value="THU" <%= data.preferences.weekStart =='THU' ? 'selected="selected"':'' %>>Quinta</option>
+					<option value="FRI" <%= data.preferences.weekStart =='FRI' ? 'selected="selected"':'' %>>Sexta</option>
+					<option value="SAT" <%= data.preferences.weekStart =='SAT' ? 'selected="selected"':'' %>>Sábado</option>
+				</select>
+			</p>			
+                        
+			<p class="input-group">
+                <label for="defaultStartHour">Hora de início padrão:</label>
+				<input type="text" class="time" value="<%= (data.preferences.defaultStartHour) ? data.preferences.defaultStartHour : '' %>" name="defaultStartHour" /> 
+			</p>
+			
+			<p class="input-group">
+                <label for="defaultEndHour">Hora de término padrão:</label>
+				<input type="text" class="time" value="<%= (data.preferences.defaultEndHour) ? data.preferences.defaultEndHour : '' %>" name="defaultEndHour" /> 
+			</p>
+			
+			<p class="input-group">
+				<label for="defaultDuration">Duração de um compromisso (em minutos):</label>
+				<input name="defaultDuration" value="<%= data.preferences.defaultDuration%>" type="text" class="number inputNumber"/>
+			</p>
+
+			<p class="input-group"> 
+                <label for="defaultCalendar">Agenda padrão para Criação de Eventos:</label>
+                <select name="defaultCalendar" > 
+                    <%for(var i = 0; i < data.calendars.length; i++){%> 
+                        <option value="<%=data.calendars[i].id%>"> <%= data.calendars[i].name %></option> 
+                    <%}%> 
+                </select>
+			</p>
+
+            <p class="input-group">
+                <label for="dafaultImportCalendar">Agenda padrão para Importação de Eventos :</label>
+                <select name="dafaultImportCalendar" >
+                    <option value=""> </option>
+                    <%for(var i = 0; i < data.calendars.length; i++){
+                     if(data.signatureOf[data.calendars[i].id].isOwner == '1'){
+                    %>
+                    <option value="<%=data.calendars[i].id%>"> <%= data.calendars[i].name %></option>
+                    <%}}%>
+                </select>
+            </p>
+
+			<p class="input-group">
+				<label for="useDesktopNotification">Usar alarme desktop:</label>
+				<select name="useDesktopNotification" >
+					<option value="1" <%= data.preferences.useDesktopNotification == '1' ? 'selected="selected"' : '' %>>Sim</option>
+					<option value="0" <%= data.preferences.useDesktopNotification != '1' ? 'selected="selected"' : '' %>>Não</option>
+				</select>
+			</p>
+			
+		</fieldset>
+
+	</form>
+  
+    
+  <div class="header-menu-container">
+	<a class="button cancel">Cancelar</a>
+    <a class="button save">Salvar</a>
+  </div>
+  
+  
+</div>

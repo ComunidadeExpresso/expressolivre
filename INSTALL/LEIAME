@@ -1,0 +1,57 @@
+==========================================================================
+   INFORMACOES IMPORTANTES ANTES DE INSTALAR O PACOTE EXPRESSOLIVRE
+==========================================================================
+
+ Esse instalador deve ser usado em uma instalacao "zerada" do Sistema 
+Operacional. Sendo assim, nao recomendamos seu uso em ambientes com 
+instalacoes que ja estejam em producao ou que usem algum tipo de servico 
+comum ao Expresso.
+ Sob estas condicoes, o uso indevido deste instalador podera acarretar em 
+perdas e danos ao seu sistema atual e suas informacoes.
+
+ LEMBRE-SE: A COMUNIDADE EXPRESSO LIVRE, COMPREENDENDO AS PESSOAS E EMPRESAS
+QUE FAZEM PARTE DO PROJETO NAO RESPONSABILIZAM POR PERDAS DE DADOS 
+OCASIONADAS PELO USO DESTE SOFTWARE, SEJA DO INSTALADOR OU DE TODO O CODIGO
+DO EXPRESSO LIVRE.
+
+ Recomendamos acompanhar passo-a-passo todas as rotinas do script instalador
+para entender melhor o funcionamento dos servicos e suas integracoes. No 
+link ambiente colaborativo, http://trac.expressolivre.org/wiki/versions, 
+existe um roteiro completo da instalacao manual do Expresso Livre.
+
+ Recomendamos a leitura do script de instalacao referente a sua distribuicao
+Linux. Ajuste as rotinas de acordo com as suas necessidades, se necessario.
+
+ O script 'expressoInstall.sh' centraliza a execucao para as diferentes
+distribuicoes. Inicie a instalacao por ele.
+
+Outras recomendacoes:
+I -  Antes de executar o instalador, verifique se o gerenciador de pacotes
+(apt, yum, ...) da sua distribuicao esta funcionando corretamente.
+
+II - O que o script de instalacao ira fazer para voce:
+     - Instalar os pacotes e os servicos necessarios para o ExpressoLivre
+     - Copiar e configurar todos estes pacotes.
+     - Copiar arquivos de configuracao do ExpressoLivre para estes pacotes.
+    
+III - O que voce precisa conhecer para poder instalar o ExpressoLivre:
+     - Administrar, configurar o sistema operacional que sera usado.
+     - Conhecer, no minimo, o funcionamento dos seguintes servicos:
+     - Apache + PHP;
+     - Postgresql;
+     - Postfix;
+     - Cyrus-Imapd;
+     - OpenLDAP;
+
+Dica: Visite o site destes softwares para conhecer mais sobre cada um.
+
+IV - Como iniciar a instalacao:
+    - Execute (como root) o script expressoInstall.sh;
+    ==>   ./expressoInstall.sh
+
+ * Qualquer experiencia nova e construtiva sera bem vinda ao projeto. *
+
+==========================================================================
+Para mais informacoes sobre o projeto Expresso Livre, visite o site:
+     > > > > >   http://www.expressolivre.org    < < < < <
+==========================================================================

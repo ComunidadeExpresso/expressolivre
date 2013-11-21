@@ -1,0 +1,263 @@
+/*
+ * Este arquivo limpa o estilo para a nova agenda, .new-event-win.active sobrescrevendo o código CSS
+ * do Expresso.
+ * Deve ser removido quando o módulo Calendar não integrar mais a versão 2.x
+ */
+
+/* Eric Meyer's Reset Reloaded based
+ * http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+ */
+/*
+.new-event-win.active applet, .new-event-win.active object, .new-event-win.active iframe, .new-event-win.active fieldset, .new-event-win.active div
+.new-event-win.active h1, .new-event-win.active h2, .new-event-win.active h3, .new-event-win.active h4, .new-event-win.active h5, .new-event-win.active h6, .new-event-win.active p, .new-event-win.active blockquote, .new-event-win.active pre,
+.new-event-win.active abbr, .new-event-win.active acronym, .new-event-win.active address, .new-event-win.active big, .new-event-win.active cite, .new-event-win.active code,
+.new-event-win.active del, .new-event-win.active dfn, .new-event-win.active em, .new-event-win.active font, .new-event-win.active img, .new-event-win.active ins, .new-event-win.active kbd, .new-event-win.active q, .new-event-win.active s, .new-event-win.active samp,
+.new-event-win.active small, .new-event-win.active strike, .new-event-win.active strong, .new-event-win.active sub, .new-event-win.active sup, .new-event-win.active tt, .new-event-win.active var,
+.new-event-win.active ol, .new-event-win.active ul,
+.new-event-win.active form, .new-event-win.active label, .new-event-win.active select,
+.new-event-win.active table, .new-event-win.active caption, .new-event-win.active tbody, .new-event-win.active tfoot, .new-event-win.active thead, .new-event-win.active tr, .new-event-win.active th, .new-event-win.active td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	/*font-size: 100%;*/
+	/*font-family: inherit;*/
+	/*vertical-align: baseline;*/
+/*	font-family: Arial,Helvetica,sans-serif;*/
+/*}*/
+.new-event-win.active:focus {
+	outline: 0;
+}
+.new-event-win.active body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+.new-event-win.active ol, .new-event-win.active ul {
+	list-style: none;
+	list-style-image : none;
+	padding-left : 5px;
+}
+
+.new-event-win.active table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+.new-event-win.active caption, .new-event-win.active th, .new-event-win.active td {
+	/*text-align: left;*/
+	font-weight: normal;
+}
+.new-event-win.active blockquote:before, .new-event-win.active blockquote:after,
+.new-event-win.active q:before, .new-event-win.active q:after {
+	content: "";
+}
+.new-event-win.active blockquote, .new-event-win.active q {
+	quotes: "" "";
+}
+.new-event-win.active .mail.name-special, .new-event-win.active .name.name-special{
+  padding: 0 0 0 35px;
+}
+
+.new-event-win.active .add-attendee-search.search-field {
+  width: 249px;
+ }
+ 
+ .new-event-win.active #calendar_addevent_details4 {
+  margin: 10px 0 0 0;
+ } 
+ 
+ .new-event-win.active input{
+  color: #000;
+ } 
+ 
+ .new-event-win.active #calendar_addevent_details5 {
+  margin: 10px 0 11px 0;
+ }
+
+.new-event-win.active select {
+    border: 1px solid #CFCFCF;
+    border-color: #CFCFCF;
+    color: #555;
+    background-color: #FFF;
+}
+.new-event-win.active a:link, .new-event-win.active a:visited {
+    color: #2E6E9E;
+}
+
+.new-event-win.active  dd, .new-event-win.active  dl, .new-event-win.active  dt{
+	margin: 0;
+}
+/* azul.css */
+/*body { background-color: #e9e9e9; }*/
+
+/*a:link,
+a:visited
+{ color: #000066; }*/
+
+/*a:hover,
+a:active
+{ color: #ff9933; }*/
+
+.new-event-win.active #divAppbox{
+	overflow-x: auto;
+	overflow-y: scroll;
+}
+
+.new-event-win.active select
+{ border-color: #CFCFCF; color: #555; padding-left:0px;}
+
+.qtip-wrapper fieldset{
+	padding: 0;
+	border: 0;
+}
+
+.new-event-win.active .fc-event-skin {
+	border-color: #36C !important;
+	background-color: #36C !important; 
+	color: white !important;
+}
+
+.fc-event-vert .fc-event-bg {
+	display: block !important;
+}
+
+.map-event{
+
+}
+
+#new_event_map .map-event .fc-event-inner.fc-event-skin{
+	border-style: dashed !important;
+	border-width: 2px !important;
+	border-color: #36C !important;
+	background-color: transparent !important;
+}
+
+#new_event_map .map-event .fc-event-inner.fc-event-skin .fc-event-head, #new_event_map .map-event .fc-event-inner.fc-event-skin .fc-event-content{
+	background-color: transparent !important;
+	color: transparent !important;
+}
+
+#new_event_map .map-event .ui-resizable-handle{
+	display : block !important;
+	color: black !important;
+}
+
+fieldset.alarm{  
+    border: none !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+/*#divAppbox
+{ background: #fff url( ../images/bgBlockContent.jpg ) repeat-x; border-color: #9c9c9c; }
+
+#divAppboxHeader
+{ background: url( ../images/bgAppTitle.png ); border-color: #9c9c9c; color: #006; text-shadow: 0.2em 0.2em 3px #999; }
+
+#divAppIconBar
+{ background: #fff url( ../images/background-icon-bar.png ) repeat-x; border-top-color: #9c9c9c; }
+
+#divAppTextBar
+{ background-color: #fff; }
+
+#divGenTime
+{ color: #f00; }
+
+#divMain
+{ background: #fff; border-color: #7e7e7e; }
+
+#divPoweredBy
+{ background: #fff; color: #999; }
+
+#divSideboxContainer
+{ background: #fff; }
+
+#extraIcons
+{ background: #eee; border-color: #7e7e7e; }
+
+#links_bar,
+#user_info
+{ color: #fff; }
+
+#tdAppbox
+{ background-color: #fff; }
+
+#tdSidebox
+{ background: #fff; }*/
+
+/*.conteudo
+{ border-color: #4A79B1; color: #003; }
+
+.divSideboxHeader
+{ background: #416faa; color: #fff; }
+
+.extraIconsRow
+{ border-top-color: #ddd; }
+
+.greyLine
+{ border-top-color: #7e7e7e; }
+
+.grid_email_class
+{ border-bottom-color: #cfcfcf; }
+
+.image-menu
+{ background: url( ../../../../phpgwapi/templates/default/images/folder_bg.png ); }
+
+.last_menu
+{ border-bottom-color: #4a79b1; }
+
+.logo_expresso
+{ background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.jpg ) no-repeat 0 3px; }
+
+.menu
+{ background: #c8d7ea; border-color: #f4f7fc; border-bottom-color: #4a79b1; }
+
+.menu-sel
+{ background-color: #f7f7f7; border-color: #4a79b1; color: #00f; }
+
+.menu-degrade
+{ background-image: url( ../../../../phpgwapi/templates/default/images/degrade.png ); }
+
+.navbar_but
+{ background-image: url(../../../../phpgwapi/templates/default/images/back_app.png); }
+
+.navbar_butOver
+{ background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over.png ); }
+
+.navbar_butOut
+{ background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out.png ); }
+
+.tblHeadApp
+{ border-color: #9c9c9c; }
+
+.textSidebox
+{ border-top-color: #aaa; }
+
+.toolbar
+{ background-image: url( ../../../../phpgwapi/templates/default/images/fundo_topo.png ); }
+
+.linha0,
+.tr_msg_read
+{ color: #3f3f3f; background: #fff; }
+
+.linha1,
+.tr_msg_read2
+{ color: #3f3f3f; background: #f4f8fb; }
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+	background: #abc6e1;
+}
+
+.prefTable
+{
+	background-color: #f4f8fb;
+	margin: 0px 0px 10px 0px ;
+	border: 1px solid #D3DCE3;
+	border-top: 0px;
+}*/

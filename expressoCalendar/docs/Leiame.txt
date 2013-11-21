@@ -1,0 +1,62 @@
+--------------------------------------------------------------------------------
+		Instalação básica da Agenda (expressoCalendar)
+--------------------------------------------------------------------------------
+
+1 - Instalar módulo a partir do setup do Expresso, conforme o padrão de todos os módulos;
+
+2 - Configurar obrigatoriamente os arquivos "PostgreSQL.srv", "OpenLDAP.srv" e "SMTP.srv",
+localizados em "/prototype/config/" na árvore de diretórios a partir da raíz;
+
+3 - Ativar o módulo para os gerentes pelo módulo Admin;
+
+4 - Ativar o módulo para os usuários ou para um grupo de usuários pelo módulo ExpressoAdmin;
+
+5 - Configurar o cron do servidor para executar perioricamente o arquivo de alarmes do
+Expresso, permitindo o envio de notificações de alarmes dos eventos (via e-mail):
+	* Executar o comando "crontab -u apache -e" para centos ou "crontab -u www-data -e" para debian/ubuntu;
+	* Copiar e colar esta linha na linha de comando
+	"*/5 * * * * php -q /CAMINHO ABSOLUTO DO EXPRESSO/prototype/modules/calendar/alarms.php".
+
+--------------------------------------------------------------------------------
+				Suporte a DaviCal
+--------------------------------------------------------------------------------
+
+1 - Instalação do Servidor DaviCal:
+
+ * Seguir o tutorial oficial, disponibilizado em: http://www.davical.org/installation.php
+
+ * Observação: O davical DEVE ser instalado na mesma máquina do Expresso
+   Livre, mas a base de dados pode estar em outro servidor (já que o davical
+   necessita que a base de dados esteja em UTF-8).
+
+2 - Aplicar os três patches em anexo (localizados na raíz desta pasta corrente) nos arquivos do
+servidor DaviCal:
+
+ * caldav-DELETE.php.diff
+ * caldav-MOVE.php.diff
+ * caldav-PUT-vcalendar.php.diff
+
+Para aplicar os patches, copie os arquivos acima, acesse o diretório do código do DaviCal
+(geralmente em /usr/share/davical/inc), cole os arquivos neste diretório e utilize os comandos:
+
+ * patch -p0 < caldav-DELETE.php.diff
+ * patch -p0 < caldav-MOVE.php.diff
+ * patch -p0 < caldav-PUT-vcalendar.php.diff
+
+3 - Após aplicados os patches, acessar cada um dos arquivos:
+
+ * caldav-DELETE.php
+ * caldav-MOVE.php
+ * caldav-PUT-vcalendar.php
+
+e especificar o caminho da sua instalação Expresso em cada um deles, definido na variável:
+
+$expresso = 'PATH_DO_SEU_EXPRESSO';
+
+4 - Para configurar a agenda como um cliente DaviCal
+
+ * Configurar a url utilizada para acessar o servidor DaviCal no arquivo
+localizado em "/prototype/config/CalDAV.srv"
+
+ * Ativar o suporte ao caldav, definindo para "true" o parâmetro "useCaldav"
+no arquivo localizado em "/prototype/config/expressoCalendar.ini"

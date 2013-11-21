@@ -1,0 +1,381 @@
+%1 %2 in %3	calendar	es-es	%1 %2 en %3
+%1 matches found	calendar	es-es	%1 coincidencias encontradas
+1 match found	calendar	es-es	1 coincidencia encontrada
+%1 records imported	calendar	es-es	%1 registros importados
+%1 records read (not yet imported, you may go back and uncheck test import)	calendar	es-es	%1 registros leídos (todavía sin importar, puede volver atrás desmarcar Probar Importar)
+a	calendar	es-es	un
+accept	calendar	es-es	Aceptar
+accepted	calendar	es-es	Aceptado
+Account DN to be used when browsing LDAP	admin	es-es	Cuenta DN que se utilizará al hojear LDAP
+action that caused the notify: added, canceled, accepted, rejected, ...	calendar	es-es	Acción que causó la notificación: añadido, cancelado, aceptado, rechazado, ...
+add alarm	calendar	es-es	Añadir alarma
+add a single entry by passing the fields.	calendar	es-es	Añadir una entrada simple pasando los campos.
+add contact	calendar	es-es	Añadir contacto
+added	calendar	es-es	Añadido
+Adding event	calendar	es-es	Agregando evento
+add or update a single entry by passing the fields.	calendar	es-es	Añadir o actualizar una simple entrada pasando los campos.
+Add Participants	calendar	es-es	Añadir Participantes
+address book	calendar	es-es	Catálogo de direcciones
+Add to my expresso	calendar	es-es	Añadir a mí Expresso
+Add User	calendar	es-es	Añadir usuario
+Alarm already added!!!	calendar	es-es	¡¡¡Esta alarma ya existe!!!
+alarm	calendar	es-es	Alarma
+alarm for %1 at %2 in %3	calendar	es-es	Alarma para %1 en %2 in %3
+Alarm is older than now!!!	calendar	es-es	¡¡¡Horario inválido!!!
+alarm management	calendar	es-es	Administrar alarmas
+alarms	calendar	es-es	Alarmas
+all day	calendar	es-es	Todo el día
+all fields	admin	es-es	todos los campos
+All levels with not recursive search	admin	es-es	Todos los niveles, buscar en el mismo nivel
+Are you sure want to delete these alarms?	calendar	es-es	¿Estás seguro de que quieres eliminar estas alarmas?
+Are you sure want to delete this Country?	calendar	es-es	¿Estás seguro que desea eliminar este país?
+Are you sure want to delete this entry?	calendar	es-es	¿Estás seguro que desea eliminar esta entrada?
+Are you sure want to delete this entry?\nThis will delete this entry for all users.	calendar	es-es	¿Estás seguro de que deseas eliminar esta entrada?\nEsto eliminará esta entrada para todos los usuarios.
+Are you sure want to delete this holiday?	calendar	es-es	¿Estás seguro que desea eliminar este feriado?
+Attributes	calendar	es-es	Cualidades
+Available users and groups	calendar	es-es	Usuarios y grupos disponibles
+Bassed on Webcalendar by Craig Knudsen.	calendar	es-es	Basado en el Webcalendar de Craig Knudsen
+before the event	calendar	es-es	antes del evento
+brief description	calendar	es-es	Descripción breve
+business	calendar	es-es	Negocios
+calendar	common	es-es	Calendario
+calendar event	calendar	es-es	Evento de calendario
+calendar-fieldname	calendar	es-es	Nombre del campo
+calendar holiday management	admin	es-es	Gestión de días festivos
+calendar - [iv]cal importer	calendar	es-es	Calendario - Importador [iv]Cal
+calendar preferences	calendar	es-es	Configuración del calendario
+calendar settings	admin	es-es	Configuración del calendario
+canceled	calendar	es-es	Cancelado
+Catalog Name	admin	es-es	Nombre del catálogo
+change all events for $params['old_owner'] to $params['new_owner'].	calendar	es-es	Cambiar todos los eventos de $params['old_owner'] a $params['new_owner'].
+change status	calendar	es-es	Cambiar estado
+charset of file	calendar	es-es	Juego de caracteres del fichero
+click %1here%2 to return to the calendar.	calendar	es-es	Haga clic %1aquí%2 para volver al calendario.
+concatenate default domain to the mail	admin	es-es	Concatenar el dominio del defecto al correo
+configuration	calendar	es-es	Configuración
+countries	calendar	es-es	Países
+country	calendar	es-es	País
+created by	calendar	es-es	Creado por
+csv-fieldname	calendar	es-es	CSV - Nombre del campo
+csv-filename	calendar	es-es	CSV- Nombre del archivo
+custom fields and sorting	common	es-es	Campos personalizados y ordenación
+custom fields	calendar	es-es	Campos personalizados
+daily	calendar	es-es	Diario
+daily matrix view	calendar	es-es	Vista matricial del día
+days	calendar	es-es	días
+days repeated	calendar	es-es	días repetidos
+dayview	calendar	es-es	Vista diaria
+default appointment length (in minutes)	calendar	es-es	duración predeterminada de los eventos (en minutos)
+default calendar filter	calendar	es-es	Filtro predeterminado del calendario
+default calendar view	calendar	es-es	Vista predeterminada del calendario
+Default Domain	admin	es-es	Dominio predeterminado
+default length of newly created events. the length is in minutes, eg. 60 for 1 hour.	calendar	es-es	Longitud predeterminada de los eventos nuevos. La longitud es en minutos, ej. 60 = 1 hora.
+Default Logon Script	admin	es-es	Login Script predeterminado
+Default User Password	admin	es-es	Seña predeterminada del usuario
+Default User Quota	admin	es-es	Espacio predeterminado para creación de los usuarios
+defines the size in minutes of the lines in the day view.	calendar	es-es	Define el tamaño en minutos de las línes de la vista de diario.
+delete an entire users calendar.	calendar	es-es	Borrar todo el calendario de un usuario.
+delete a single entry by passing the id.	calendar	es-es	Borrar una entrada simple pasando el id.
+deleted	calendar	es-es	Eliminado
+delete selected contacts	calendar	es-es	Eliminar contactos seleccionados
+delete series	calendar	es-es	Borrar serie
+delete single	calendar	es-es	Borrar solo
+description	calendar	es-es	Descripción
+disable	calendar	es-es	Desactivar
+disabled	calendar	es-es	desactivado
+display interval in day view	calendar	es-es	Mostrar intervalo en vista diária
+display mini calendars when printing	calendar	es-es	Mostrar minicalendarios al imprimir
+display status of events	calendar	es-es	Mostrar estado de los eventos
+displays your default calendar view on the startpage (page you get when you enter egroupware or click on the homepage icon)?	calendar	es-es	Muestra la vista predeterminada del calendario en la página de inicio de eGroupWare
+dont use any plugin	admin	es-es	No usar ningún plugin
+download	calendar	es-es	Descargar
+do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br>you can limit the notifications to certain changes only. each item includes all the notification listed above it. all modifications include changes of title, description, participants, but no participant responses. if the owner of an event requested any notifcations, he will always get the participant responses like acceptions and rejections too.	calendar	es-es	¿Desea que se le notifiquen citas nuevas o modificadas? Se le notificará de los cambios que haga usted mismo.<br>Puede limitar las notificaciones para sólo ciertos cambios. Cada elemento incluye toda la notificación listada encima. Todas las modificaciones incluyen cambios de título, participantes, pero no las respuestas de los participantes. Si el dueño de un evento solicitó alguna notificación, siempre obtendrá las respuestas de aceptación o rechazo del participante.
+do you want to receive a regulary summary of your appointsments via email?<br>the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br>it is only sent when you have any appointments on that day or week.	calendar	es-es	¿Desea recibir regularmente por correo un resumen de sus citas?<br>El resumen se le enviará a su correo electrónico habitual el mismo día por la mañana o el lunes para resúmenes semanales.<br>Sólo se envía si hay citas en ese día o esa semana.
+do you wish to autoload calendar holidays files dynamically?	admin	es-es	¿Desea cargar automáticamente en el calendario los ficheros de fiestas?
+duration	calendar	es-es	Duración
+Editing event	calendar	es-es	Edición de evento
+edit series	calendar	es-es	Editar series
+edit single	calendar	es-es	Editar sencillo
+email notification	calendar	es-es	Notificación por correo
+email notification for %1	calendar	es-es	Notificación por correo para %1
+empty for all	calendar	es-es	vacío para todos
+enable	calendar	es-es	Activar
+enabled	calendar	es-es	activado
+End date	calendar	es-es	La fecha de finalización
+end date/time	calendar	es-es	La fecha/hora de finalización
+ends	calendar	es-es	acaba
+enter output filename: ( .vcs appended )	calendar	es-es	Introduzca el nombre del archivo de salida (añadir .vcs)
+event details follow	calendar	es-es	A continuación, los detalles del evento
+Event's Participants	calendar	es-es	Participantes del evento
+exceptions	calendar	es-es	Excepciones
+export a list of entries in ical format.	calendar	es-es	Exportar una lista de entradas en format iCal.
+export all	calendar	es-es	Exportar todos
+export	calendar	es-es	Exportar
+Expresso external user	calendar	es-es	Usuario externo del Expresso
+ExpressoMail Plugin Calendar	admin	es-es	Plugin del ExpressoMail en el Calendario
+extended	calendar	es-es	Extendido
+extended updates always include the complete event-details. ical's can be imported by certain other calendar-applications.	calendar	es-es	Las actualizaciones extendidas incluyen todos los detalles de los eventos. Los de tipo iCal pueden importarse mediante otras aplicaciones de tipo calendario.
+External event from Expresso	calendar	es-es	Evento externo del Expresso
+external participants	calendar	es-es	Participantes externos
+failed sending message to '%1' #%2 subject='%3', sender='%4'!!!	calendar	es-es	Falla al enviar mensaje a '%1' nº%2 asunto='%3', remitente='%4'!!!
+fieldseparator	calendar	es-es	Separador de campos
+First level with recursive search	admin	es-es	Primer nivel solamente, búsqueda recursiva
+firstname of person to notify	calendar	es-es	Nombre de pila de la persona a notificar
+format of event updates	calendar	es-es	Formato de las actualizaciones de eventos
+(for weekly)	calendar	es-es	(por semanal)
+free/busy	calendar	es-es	Libre/Ocupado
+freebusy: unknow user '%1', wrong password or not availible to not loged in users !!!	calendar	es-es	Disponibilidad: Usuario '%1' desconocido, contraseña incorrecta o no está disponible!!!
+frequency	calendar	es-es	Frecuencia
+fri	calendar	es-es	Vie
+full description	calendar	es-es	Descripción completa
+fullname of person to notify	calendar	es-es	Nombre completo de la persona a la que notificar
+generate printer-friendly version	calendar	es-es	Generar versión para impresion
+global categories	calendar	es-es	Categorías globales
+global public and group public	calendar	es-es	Público global y grupo público
+global public only	calendar	es-es	Público global solamente
+go!	calendar	es-es	¡Adelante!
+grant calendar access	common	es-es	Conceder acceso al calendario
+group planner	calendar	es-es	Planificación de grupo
+group public only	calendar	es-es	Grupo público solamente
+here is your requested alarm.	calendar	es-es	Aquí está la alarma solicitada.
+high priority	calendar	es-es	prioridad alta
+holiday	calendar	es-es	Feriado
+holiday management	calendar	es-es	Gestión de feriados
+holidays	calendar	es-es	Feriados
+hours	calendar	es-es	horas
+ical / rfc2445	calendar	es-es	iCal / rfc2445
+if checked holidays falling on a weekend, are taken on the monday after.	calendar	es-es	Si los feriados marcados caen en fin de semana, se toman el lunes siguiente.
+if you dont set a password here, the information is availible to everyone, who knows the url!!!	calendar	es-es	Si no indica una contraseña aquí, ¡la información está disponible para todos los que conozcan la URL!
+ignore conflict	calendar	es-es	Ignorar conflicto
+import	calendar	es-es	Importar
+import csv-file	common	es-es	Importar fichero CSV
+Inform	calendar	es-es	Avisar
+interval	calendar	es-es	Intervalo
+intervals in day view	calendar	es-es	Intervalos en la vista de día
+intervals per day in planner view	calendar	es-es	Intervalos por día en la vista del planificador
+invalid entry id.	calendar	es-es	Id de entrada no válido
+i participate	calendar	es-es	Participo
+It types below the email addresses, if you want to invite other people out of this system	calendar	es-es	Para invitar alguien no perteneciente a este servidor Expreso, teclee suyo(s) e-mail(s) para encaminar uno aviso
+It types login of the user to have access Public Agenda	calendar	es-es	Teclee el login del usuario para acessar Agenda Pública
+It types login of the user to have access Public Agenda	calendar	es-es	Teclee el login del usuario para acessar su agenda pública.
+(i/v)cal	calendar	es-es	(i/v) Cal
+last	calendar	es-es	último
+lastname of person to notify	calendar	es-es	Apellido de la persona a notificar
+Leave my calendar public	calendar	es-es	Hacer mi agenda pública
+length<br>(<= 255)	calendar	es-es	Longitud<br>(<=255)
+length shown<br>(emtpy for full length)	calendar	es-es	Longitud mostrada<br>(vació para dia completo)
+link	calendar	es-es	Enlace
+link to view the event	calendar	es-es	Enlace para ver el evento
+list all categories.	calendar	es-es	Listar todas las categorías.
+Loading	calendar	es-es	Cargando
+load [iv]cal	calendar	es-es	Cargar [iv]Cal
+location	calendar	es-es	Lugar
+location to autoload from	admin	es-es	Lugar desde donde cargar automáticamente
+make freebusy information availible to not loged in persons?	calendar	es-es	¿Hacer la información libre-ocupado disponible para personas que no inicien sesión?
+matrixview	calendar	es-es	Vista matricial
+minutes	calendar	es-es	minutos
+mo	calendar	es-es	L
+modified	calendar	es-es	Modificado
+modify list of external participants	calendar	es-es	Modificar lista de participantes externos
+mon	calendar	es-es	Lun
+month	calendar	es-es	Mes
+monthly (by date)	calendar	es-es	Mensual (por fecha)
+monthly (by day)	calendar	es-es	Mensual (por día)
+monthly	calendar	es-es	Mensualmente
+monthview	calendar	es-es	Vista mensual
+new entry	calendar	es-es	Nueva entrada
+new name must not exist and not be empty!!!	calendar	es-es	El nuevo nombre no debe existir previamente ni estar en blanco
+no matches found	calendar	es-es	No se encontraron eventos
+no response	calendar	es-es	Sin respuesta
+notification messages for added events	calendar	es-es	Mensajes de notificación para eventos añadidos
+notification messages for canceled events	calendar	es-es	Mensajes de notificación para eventos cancelados
+notification messages for modified events	calendar	es-es	Mensajes de notificación para eventos modificados
+notification messages for your alarms	calendar	es-es	Mensajes de notificación para sus alarmas
+notification messages for your responses	calendar	es-es	Mensajes de notificación para sus respuestas
+number of intervals per day in planner view	calendar	es-es	Número de intervalos por día en la vista del planificador
+number of months	calendar	es-es	Número de meses
+number of records to read (%1)	calendar	es-es	Número de registros a leer (%1)
+number of records to read (<=200)	calendar	es-es	Número de registros a leer (<=200)
+observance rule	calendar	es-es	Regla de observación
+occurence	calendar	es-es	Ocurrencia
+olddate	calendar	es-es	Fecha antigua
+old startdate	calendar	es-es	Fecha de inicio antigua
+on %1 %2 %3 your meeting request for %4	calendar	es-es	El %1 %2 %3 su solicitud de reunión para %4
+on all changes	calendar	es-es	en todos los cambios
+on all modification, but responses	calendar	es-es	en todas las modificaciones, excepto las respuestas
+on any time change too	calendar	es-es	también en cualquier cambio de hora
+on invitation / cancelation only	calendar	es-es	sólo en invitación o cancelación
+on participant responses too	calendar	es-es	también en las respuestas de los participantes
+on time change of more than 4 hours too	calendar	es-es	también en un cambio de hora superior a 4 horas
+open todo's:	calendar	es-es	Abrir tareas pendientes
+order	calendar	es-es	Orden
+Organization	calendar	es-es	Organización
+overlap holiday	calendar	es-es	solapar feriado
+participant	calendar	es-es	Participante
+participants	calendar	es-es	Participantes
+participates	calendar	es-es	Participa
+password for not loged in users to your freebusy information?	calendar	es-es	¿Contraseña para los usuarios sin sesión para la información sobre disponibilidad?
+people holiday	calendar	es-es	Feriado personal
+permission denied	calendar	es-es	Permiso denegado
+planner by category	calendar	es-es	Organizar por categorías
+planner by user	calendar	es-es	Organizar por usuario
+planner	calendar	es-es	Planificar
+please confirm,accept,reject or examine changes in the corresponding entry in your calendar	calendar	es-es	Por favor, confirme, acepte, rechace o examine los cambios en la entrada correspondiente en su calendario
+Powerful calendar with meeting request system and ACL security.	calendar	es-es	Poderoso calendario con sistema de requisición de compromisos y seguridad ACL
+preselected group for entering the planner	calendar	es-es	Grupo pre-seleccionado para entrar en el organizador
+print calendars in black & white	calendar	es-es	Imprimir calendario en blanco y negro
+printer friendly	calendar	es-es	Versión para impresión
+print the mini calendars	calendar	es-es	Imprimir minicalendarios
+private and global public	calendar	es-es	Privado y público global
+private and group public	calendar	es-es	Privado y público global
+private	calendar	es-es	Privado
+private only	calendar	es-es	Privado solamente
+Public Calendars	calendar	es-es	Agendas pública
+read a list of entries.	calendar	es-es	Leer una lista de entradas
+read a single entry by passing the id and fieldlist.	calendar	es-es	Leer una entrada simple pasando el id y lista de campos.
+read this list of methods.	calendar	es-es	Leer esta lista de métodos
+receive email updates	calendar	es-es	Recibir actualizaciones de correo
+receive extra information in event mails	calendar	es-es	Recibir información extra en los eventos de correo
+receive summary of appointments	calendar	es-es	Recibir resumen de las citas
+recurring event	calendar	es-es	evento recurrente
+re-edit event	calendar	es-es	Volver a editar evento
+refresh	calendar	es-es	Actualizar
+reinstate	calendar	es-es	Restablecer
+rejected	calendar	es-es	Rechazado
+Remove User	calendar	es-es	Remover usuario
+repeat day	calendar	es-es	Repetixión diaria
+repeat end date	calendar	es-es	Fecha final de la repetición
+repeating event information	calendar	es-es	Información repetitiva de eventos
+repeat type	calendar	es-es	Tipo repetición
+repetition	calendar	es-es	Repetición
+repetitiondetails (or empty)	calendar	es-es	Detalles de la repetición (o vacío)
+reset	calendar	es-es	Limpiar
+rule	calendar	es-es	Regla
+sa	calendar	es-es	Sa
+sat	calendar	es-es	Sáb
+scheduling conflict	calendar	es-es	Conflicto de agenda
+Search for	calendar	es-es	Buscar por
+Searching	calendar	es-es	Buscando
+search results	calendar	es-es	Resultados de la búsqueda
+Sector	calendar	es-es	Sector
+selected contacts (%1)	calendar	es-es	Contactos seleccionados (%1)
+Select module version expressoMail (if available)	admin	es-es	Seleccione la versión del ExpressoMail (cuando posible)
+Select type tree view	admin	es-es	Seleccione el tipo de vista de árbol (Si el plugin está siendo usado)
+send/receive updates via email	calendar	es-es	Enviar y recibir actualizaciones por correo electrónico
+send updates via email	common	es-es	Enviar actualizaciones por correo electrónico
+set a year only for one-time / non-regular holidays.	calendar	es-es	Informar el año para los feriados únicos y no regulares.
+set new events to private	calendar	es-es	Poner los eventos nuevos como privados
+should invitations you rejected still be shown in your calendar ?<br>you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	calendar	es-es	¿Mostrar las invitaciones rechazadas por usted en el calendario?<br>Puede aceptarlas después (por ejemplo, cuando elimine el conflicto de horarios), si todavía se ven en su calendario.
+should new events created as private by default ?	calendar	es-es	¿Los nuevos eventos creados deben ser colocados como privados siempre?
+should not loged in persons be able to see your freebusy information? you can set an extra password, different from your normal password, to protect this informations. the freebusy information is in ical format and only include the times when you are busy. it does not include the event-name, description or locations. the url to your freebusy information is %1.	calendar	es-es	¿Deben ver las personas que no inicien sesión la información de ocupación? Se puede poner una contraseña extra, distinta a la normal, para proteger esta información. La información de ocupación está en formato iCal y sólo incluye las horas en las que está ocupado. No incluye el nombre del evento, descripción o sitios. La URL para su información de ocupación es %1.
+should the mini calendars by printed / displayed in the printer friendly views ?	calendar	es-es	¿Mostrar o imprimir los minicalendarios en la versión de impresión?
+should the printer friendly view be in black & white or in color (as in normal view)?	calendar	es-es	¿Mostrar la versión de impresión en blanco y negro o en color, como en la vista normal?
+should the status of the event-participants (accept, reject, ...) be shown in brakets after each participants name ?	calendar	es-es	¿Mostrar el estado de cada evento (aceptar, rechazar, etc) entre corchetes detrás del nombre de cada participante?
+show day view on main screen	calendar	es-es	Mostrar la vista del día en la pantalla principal
+show default view on main screen	calendar	es-es	Mostrar la vista predeterminada en la pantalla principal
+show high priority events on main screen	calendar	es-es	Mostrar eventos de alta prioridad en la pantalla principal
+show invitations you rejected	calendar	es-es	Mostar invitaciones rechazadas por usted
+show list of upcoming events	calendar	es-es	Mostrar la lista de eventos próximos
+single event	calendar	es-es	evento único
+sorry, the owner has just deleted this event	calendar	es-es	Lo sentimos, el propietario acaba de eliminar este evento
+sorry, this event does not exist	calendar	es-es	Lo sentimos, este evento no existe
+sorry, this event does not have exceptions defined	calendar	es-es	Lo sentimos, este evento no tiene excepciones definidas
+sort by	calendar	es-es	Ordenar por
+specifies the the number of intervals shown in the planner view.	calendar	es-es	Especifica el número de intervalos mostrados en la vista del planificador.
+Start date	calendar	es-es	Fecha de inicio
+start date/time	calendar	es-es	Fecha/Hora inicio
+startrecord	calendar	es-es	Registro inicial
+submit to repository	calendar	es-es	Enviar al repositorio
+su	calendar	es-es	Do
+Summary	calendar	es-es	Descripción
+sun	calendar	es-es	Dom
+tentative	calendar	es-es	Tentativo
+test import (show importable records <u>only</u> in browser)	calendar	es-es	Probar Importar (mostrar <u>solamente</u> registros importables en el navegador)
+text	calendar	es-es	Texto
+th	calendar	es-es	J
+The commitment was accepted successfully!	calendar	es-es	El compromiso fue aceptado con suceso!
+The commitment was rejected successfully!	calendar	es-es	El compromiso fue rechazado con suceso!
+The email addresses must be separated by ','	calendar	es-es	Las direcciones de e-mail deben estar separadas por una coma. Ex.: fulano@aaa.com.br, beltrano@bbb.com, ciclano@ccc.br
+the following conflicts with the suggested time:<ul>%1</ul>	calendar	es-es	Los siguientes está en conflicto con la hora sugerida:<ul>%1</ul>
+there was an error trying to connect to your news server.<br>please contact your admin to check the news servername, username or password.	calendar	es-es	Ocurrió un error intentando conectar al servidor de noticias.<br>Por favor, póngase en contacto con su administrador para comprobar el nombre del servidor de noticias, usuario y contraseña.
+the user %1 is not participating in this event!	calendar	es-es	El usuario %1 no participa en este evento
+This commitment has already been accepted!	calendar	es-es	Esse compromisso já foi aceito!
+This commitment has already been rejected!	calendar	es-es	Esse compromisso já foi rejeitado!
+this day is shown as first day in the week or month view.	calendar	es-es	Este día se mostrará como el primer día en las vistas de semana o de mes.
+this defines the end of your dayview. events after this time, are shown below the dayview.	calendar	es-es	Esto define el final de la vista del día  Los eventos posteriores a esta hora se muestran debajo de la vista del día.
+this defines the start of your dayview. events before this time, are shown above the dayview.<br>this time is also used as a default starttime for new events.	calendar	es-es	Esto define el inicio de la vista del día. Los eventos anteriores a esta hora se muestran encima de la vista del día.<br>Esta hora se usa también como hora predeterminada para nuevos eventos.
+this group that is preselected when you enter the planner. you can change it in the planner anytime you want.	calendar	es-es	Este grupo es el predeterminado al entrar en el organizador. Puede cambiarlo en el organizador cuando quiera.
+This is an external event. Even if it added to your expresso its can be changed any time at all	calendar	es-es	Este es un evento externo. Aunque sea agregado a su Expresso corre el riesgo de mudar a cualquier momento
+this is mostly caused by a not or wrongly configured smtp server. notify your administrator.	calendar	es-es	Esto se debe mayormente a una configuración errónea del servidor SMTP. Notifíquelo a su administrador.
+this message is sent for canceled or deleted events.	calendar	es-es	Este mensaje se envía cuando un evento se borra o se cancela.
+this message is sent for modified or moved events.	calendar	es-es	Este mensaje se envía al modificar o mover eventos.
+this message is sent to every participant of events you own, who has requested notifcations about new events.<br>you can use certain variables which get substituted with the data of the event. the first line is the subject of the email.	calendar	es-es	Este mensaje se envía a cada participante de los eventos de los que usted es el dueño, quien ha solicitado notificaciones sobre nuevos eventos.<br>Puede usar ciertas variables a las que sustituyen los datos del evento. La primera línea es el asunto del correo electrónico.
+this message is sent when you accept, tentative accept or reject an event.	calendar	es-es	Este mensaje se envía cuando acepta, acepta la tentativa o rechaza un evento.
+this message is sent when you set an alarm for a certain event. include all information you might need.	calendar	es-es	Este mensaje se envía cuando pone una alarma para un evento concreto. Incluya toda la información necesaria.
+This message was sent by server. You must send a message to sender to confirm this event	calendar	es-es	Este es um mensaje automático generado por el Expresso. Por favor confirmar el compromiso respondiendo al remitente
+this month	calendar	es-es	Este mes
+This option allow everybody to view your calendar in readmode.	calendar	es-es	Esta opci[on permite que todos los usuarios del Expreso vean su agenda.
+this user does not exist	calendar	es-es	Ese usuario no existe
+this user does not possess public agenda	calendar	es-es	Este usuario no posee agenda pública
+this week	calendar	es-es	Esta semana
+this year	calendar	es-es	Este año
+thu	calendar	es-es	Jue
+Tip: To search in the <b>Global Catalog</b>, type the <b>F9</b> key, like the ExpressoMail.	calendar	es-es	<b>Dica:</b> Para investigar en el <b>Cat<E1>logo General</b> utilice la tecla </b>F9</b>, como en el ExpressoMail.
+title	calendar	es-es	Título
+title of the event	calendar	es-es	Título del evento
+title-row	calendar	es-es	Fila del título
+To accept	calendar	es-es	Aceptar
+today	calendar	es-es	Hoy
+to-firstname	calendar	es-es	Para-Nombre
+to-fullname	calendar	es-es	Para-Nombre completo
+to-lastname	calendar	es-es	Para-Apellido
+to many might exceed your execution-time-limit	calendar	es-es	límite de ejecución
+To reject	calendar	es-es	Rechazar
+to Search	calendar	es-es	Buscar
+To See Commitment	calendar	es-es	Para ver compromiso
+translation	calendar	es-es	Traducción
+tu	calendar	es-es	M
+tue	calendar	es-es	Mar
+update a single entry by passing the fields.	calendar	es-es	Actualizar una entrada simple pasando los campos.
+updated	calendar	es-es	Actualizado
+use end date	calendar	es-es	Usar fecha final
+view this entry	calendar	es-es	Ver esta entrada
+we	calendar	es-es	Mi
+wed	calendar	es-es	Mie
+week	calendar	es-es	Semana
+weekday starts on	calendar	es-es	La semana empieza en
+weekly agenda of events	calendar	es-es	Agenda Semanal de Eventos
+weekly	calendar	es-es	Semanal
+weekview	calendar	es-es	Vista semanal
+when creating new events default set to private	calendar	es-es	Crear nuevos eventos como privados
+which events do you want to see when you enter the calendar.	calendar	es-es	¿Qué eventos quiere ver al entrar al calendario?
+which of calendar view do you want to see, when you start calendar ?	calendar	es-es	¿Qué vista del calendario quiere ver cuando entra al calendario?
+workdayends	calendar	es-es	Final del día laborable
+work day ends on	calendar	es-es	Los días laborables acaban en
+work day starts on	calendar	es-es	Los días laborables empiezan en
+x are you sure\nyou want to\ndelete this single occurence ?\n\nthis will delete\nthis entry for all users.	calendar	es-es	¿Está seguro de querer remover este único evento?nnEsto removerá/en  esta para todos los usuarios.
+x ContactCenter Global Catalogue Setup	admin	es-es	Instalación global del catálogo de ContactCenter
+year	calendar	es-es	Año
+yearly	calendar	es-es	Anual
+yearview	calendar	es-es	Vista anual
+you can either set a year or a occurence, not both !!!	calendar	es-es	Puede poner un año o un evento, pero no ambos.
+you can only set a year or a occurence !!!	calendar	es-es	Sólo puede poner un año o um evento
+you do not have permission to add alarms to this event !!!	calendar	es-es	¡No tiene permiso para añadir alarmas a este evento!
+you do not have permission to delete this alarm !!!	calendar	es-es	¡No tiene permiso para eliminar esta alarma!
+you do not have permission to enable/disable this alarm !!!	calendar	es-es	¡No tiene permiso para activar/desactivar esta alarma!
+you do not have permission to read this record!	calendar	es-es	¡No tiene permiso para leer este registro!
+you have 1 high priority event on your calendar today.	common	es-es	Ud. tiene 1 evento de alta prioridad es su calendario para hoy.
+you have %1 high priority events on your calendar today.	common	es-es	Ud. tiene %1 eventos de alta prioridad es su calendario para hoy.
+you have a meeting scheduled for %1	calendar	es-es	Ud. tiene una reunión programada para %1
+you have not entered a\nbrief description	calendar	es-es	Ud. no ha ingresado una descripción
+you have not entered a\nvalid time of day.	calendar	es-es	Ud. no ha ingresado una hora valida.
+you have not entered a title	calendar	es-es	No ha introducido un título
+you have not entered a valid date	calendar	es-es	Ha introducido una fecha incorrecta
+you have not entered a valid time of day	calendar	es-es	Ha introducido una hora incorrecta
+you have not entered participants	calendar	es-es	No ha introducido participantes
+you must enter one or more search keywords	calendar	es-es	Ud. debe entrar una o mas claves de busqueda
+you must select a [iv]cal. (*.[iv]cs)	calendar	es-es	Debe seleccionar un [iv]Val. (*.[iv]cs)
+you need to set either a day or a occurence !!!	calendar	es-es	Debe determinar un día o um evento
+your meeting scheduled for %1 has been canceled	calendar	es-es	Su reunión programada para %1 ha sido cancelada
+your meeting that had been scheduled for %1 has been rescheduled to %2	calendar	es-es	Su reunión programada para %1 ha sido reprogramada para %2
+your suggested time of <b> %1 - %2 </b> conflicts with the following existing calendar entries:	calendar	es-es	Sus horas sugeridas de <B> %1 - %2 </B> están en conflicto con las siguientes entradas es el calendario:

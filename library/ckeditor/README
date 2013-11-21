@@ -1,0 +1,39 @@
+
+Versão atual do editor 3.62;
+
+________________________________________________________________________________
+
+Alterações feitas apartir da versão original:
+--------------------------------------------------------------------------------
+Arquivo: ckeditor.js
+Codigo Inserido:
+################################################################################
+# //Expresso Seta Fonte Padrão                                                 #
+# if( t === true && typeof(preferences) != 'undefined')                        #
+# {                                                                            #
+#    if(typeof(preferences.font_size_editor) != 'undefined')                   #
+#        w.setStyle( 'font-size' , preferences.font_size_editor);              #
+#    if(typeof(preferences.font_family_editor) != 'undefined')                 #
+#        w.setStyle( 'font-family' , preferences.font_family_editor);          #
+# }                                                                            #
+################################################################################
+
+Descrição: Altera a fonte padrão do editor para a fonte configurada nas preferencias do usuario.
+           Maiores Informações acessar > https://dev.prognus.com.br/expresso/ticket/1554
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Arquivo: config.js
+Descrição: Configurações do editor com expresso.
+--------------------------------------------------------------------------------
+________________________________________________________________________________
+
+Plugins Adicionais:
+--------------------------------------------------------------------------------
+Nome: Expresso
+Descrição: Funcinalidades especificas do Expresso como inserir imagem e inserir assinatura.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Nome: Aspell
+Descrição: Corretor ortografico.
+--------------------------------------------------------------------------------

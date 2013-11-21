@@ -1,0 +1,223 @@
+body{
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0; 
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+a:link,a:visited
+{
+	cursor:pointer;
+	color: #006699; 
+	text-decoration: none;
+}
+
+a:hover,a:active
+{
+	cursor:pointer;
+	color: #ff9933;
+	text-decoration: underline;
+}
+#conteudo {
+        background:url(../../../phpgwapi/templates/news/images/back_pagina.jpg) repeat-x #fff;
+}
+
+#conteudo_corpo{
+        margin:auto 0; width:770px;
+}
+
+#superior {
+        background: url(../../../phpgwapi/templates/news/images/fundo3.jpg) no-repeat top left;
+        height:340px;
+}
+
+#login {
+        text-align:left;
+        position: relative;
+        top: 49px;
+        left: -186px;
+}
+
+#login td {
+        text-align:left;
+}
+
+.login_label {
+        font-family:  Arial, Verdana,Helvetica, sans-serif;
+        font-size: 12px;
+        color: #003366;
+        font-weight: bold;
+}
+
+
+.button {
+        background:url(../../../phpgwapi/templates/news/images/back_botao.jpg) #1F4F7E no-repeat scroll left top;
+        color:#fff;
+        font-family: Arial,Verdana, Helvetica, sans-serif;
+        font-size:12px;
+        padding-top:2px 4px 2px 4px;
+        margin:2px 1px 0pt;
+        border: medium none;
+        font-weight: bold;
+        height:31px;
+        width:83px;
+}
+
+#caixa_login {
+	width: 262px; 
+	left: 30px;
+	position: relative;
+	float: left;
+	background: url("../../../phpgwapi/templates/news/images/corpo.jpg") repeat-y; 
+}
+
+#reflexo {
+	background:url(../../../phpgwapi/templates/news/images/topo_reflexo.jpg) no-repeat center top;	
+}
+
+.button:hover {
+        background:url(../../../phpgwapi/templates/news/images/back_botao_over.jpg) #FD9C0E no-repeat top left;
+        color:#1F4F7E;
+}
+
+#inferior {
+        background: url(../../../phpgwapi/templates/news/images/fundo4.jpg) no-repeat top left;
+        height:146px;
+}
+
+#rodape {
+        text-align:left;
+        width:100%;
+        position: relative;
+        margin:0;
+}
+
+#rodape_login {
+	background: #FFF url("../../../phpgwapi/templates/news/images/rodape.jpg") no-repeat; 
+	height: 41px;
+	clear: both; 
+}
+
+#rodape table {
+        width:250px;
+        font-family:  Arial, Verdana,Helvetica, sans-serif;
+        font-size:11px;
+        color: #666666;
+        text-align:right;
+        margin-left:108px;
+}
+
+#alterna_login {
+	clear: both;
+	text-align: left;
+	padding-left: 11px;
+	padding-top: 5px;
+}
+
+#alterna_login img {
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+#alterna_login a {
+	color: #fff;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#alterna_login a:hover {
+	color: #fff !important;
+	text-decoration: underline !important;
+}
+
+.ajuda {
+	text-align: left;
+	padding-left: 11px;
+	padding-top: 9px;
+}
+
+.ajuda img {
+	vertical-align: middle;
+}
+
+.ajuda a {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFF !important;
+	margin-top: 10px;
+	margin-left: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.ajuda a:hover {
+	text-decoration:underline;
+}
+
+.login_Label {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000066;
+	padding-top: 0px;
+	padding-bottom: 3px;
+}
+
+.msgInicial {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	height: 15px;
+	font-size: 12px;
+	color: #000066;
+	font-weight: bold;
+	padding-bottom: 13px;
+	padding-left: 0px;
+}
+
+.titulo_login {
+	font-family:  Arial, Verdana,Helvetica, sans-serif;
+	font-size: 14px;
+	color: #85A9CF;
+	font-weight: bold;
+	width:250px;
+	text-transform:uppercase;
+	line-height:22px;
+	padding:2px;
+}
+#news {
+	position:relative;
+	float:left;	
+	left:400px;	
+	top:95px;		
+	width:250px;	
+}
+#news_block {
+	overflow: hidden;
+	width:250px;
+	height:115px;	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px; 
+	text-align:justify;	
+	background: #fff;
+	border:2px solid #71a8eb;		
+}
+#news_subject{
+	margin:7px 0px 0px 7px;	
+}
+#news_content{
+	margin:7px 7px 0px 7px;
+}
+.news_button_over{
+	cursor:pointer;
+	border:1px solid white;
+		
+}
+.news_button{		
+	border:1px solid transparent;
+}

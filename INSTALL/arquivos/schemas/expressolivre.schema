@@ -1,0 +1,94 @@
+# General guideline:
+# 1. The language in this file is english
+# 2. Every OID in this file must look like this: ns.a.b.c.d, where
+#    ns - the official namespace of billiton internetservices:
+#         1.3.6.1.4.1.11048
+#    a  - Partition, identifies the type of the OID 
+#         0  : experimental,
+#         1  : ISPEnv Schema,
+#         x  : reserved
+#    b  - Reserved, must always be 1.     
+#    c  - Entry type (1:attribute, 2:object)
+#    d  - Serial number (increased with every new entry)
+# 3. Every entry in this file MUST have a "DESC" field, containing a 
+#    suitable description!
+# 4. New entries are to be kept as generic as possible.
+# 5. Attributes are listed in front of objects. All entries must be
+#    ordered by their serial number.
+# 
+#
+# Required schema files:
+#  core.schema
+#  cosine.schema
+#
+#
+# Conflicting schema files:
+#  misc.schema
+#  billiton.schema
+#  ISPEnv.schema
+#
+# 
+# Contact information:
+# billiton internetservices
+# Welterstr. 55
+# 57074 Siegen 
+# Germany
+# Patrick Ahlbrecht <p.ahlbrecht@billiton.de>
+#
+#
+# Last change:
+# 11.JUN 2003
+#
+
+#
+# Attributes start here
+#
+
+attributetype ( 1.3.6.1.4.1.11048.1.1.1.1
+	NAME 'vacationActive'
+	SINGLE-VALUE
+	EQUALITY booleanMatch
+	DESC 'A flag, for marking the user as being away'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 )
+	
+attributetype ( 1.3.6.1.4.1.11048.1.1.1.3
+	NAME 'vacationInfo'
+	SINGLE-VALUE
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+	DESC 'Absentee note to leave behind, while on vacation'
+	EQUALITY octetStringMatch )
+
+attributetype ( 1.3.6.1.4.1.11048.1.1.1.4
+	NAME 'vacationStart'
+	SINGLE-VALUE
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+	DESC 'Beginning of vacation'
+	EQUALITY octetStringMatch )
+
+attributetype ( 1.3.6.1.4.1.11048.1.1.1.5
+	NAME 'vacationEnd'
+	SINGLE-VALUE
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.40
+	DESC 'End of vacation'
+	EQUALITY octetStringMatch )
+
+attributetype (1.3.6.1.4.1.11048.1.1.1.10
+	NAME 'vacationForward'
+	EQUALITY caseIgnoreIA5Match
+	SUBSTR caseIgnoreIA5SubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256}
+	DESC 'Where to forward mails to, while on vacation' )
+
+#
+# Objects start here
+#
+
+objectclass ( 1.3.6.1.4.1.11048.1.1.2.1
+	NAME 'Vacation'
+	SUP top
+	AUXILIARY
+	DESC 'Users vacation status information'
+	MUST ( vacationActive )
+	MAY ( vacationInfo $ vacationStart $ vacationEnd $ vacationForward ) )
+
+# EOF

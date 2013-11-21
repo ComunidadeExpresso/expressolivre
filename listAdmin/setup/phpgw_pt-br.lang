@@ -1,0 +1,214 @@
+listAdmin	common	pt-br	Mailman Admin
+listAdmin	listAdmin	pt-br	Mailman Admin
+Global Configuration	common	pt-br	Configurações Globais
+User Accounts	listAdmin	pt-br	Contas de usuários
+User Groups	listAdmin	pt-br	Grupos de usuários
+Email Lists	listAdmin	pt-br	Listas de Emails
+Computers	listAdmin	pt-br	Computadores
+Sectors	listAdmin	pt-br	Setores
+Show Sessions	listAdmin	pt-br	Exibir Sessões
+Logs	listAdmin	pt-br	Logs
+Create User	listAdmin	pt-br	Criar Usuário
+Context	listAdmin	pt-br	Contexto
+Organizations	listAdmin	pt-br	Organizações
+Login ID	listAdmin	pt-br	Login
+Re-Password	listAdmin	pt-br	Re-Senha
+Change password	listAdmin	pt-br	Usuário pode alterar a própria senha?
+Account Active	listAdmin	pt-br	A Conta ExpressoLivre está ativa?
+General Information	listAdmin	pt-br	Informações Gerais
+Email Config	listAdmin	pt-br	Configurações de E-mail
+Groups Permission	listAdmin	pt-br	Grupos
+Aplication Permission	listAdmin	pt-br	Aplicações
+Samba Config	listAdmin	pt-br	Configurações do SAMBA
+Active email account	listAdmin	pt-br	Conta de E-mail ativa
+Alias email	listAdmin	pt-br	E-mail alternativo
+Forwarding email	listAdmin	pt-br	E-mail de encaminhamento
+Only forwarding	listAdmin	pt-br	Somente encaminhar
+Email quota in MB	listAdmin	pt-br	Cota (em MB)
+Quota used in MB	listAdmin	pt-br	Cota utilizada (em MB)
+ListGroups	listAdmin	pt-br	O usuário participa destes Grupos:
+Primary Group	listAdmin	pt-br	Grupo primário
+partici lists	listAdmin	pt-br	O usuário participa destas Listas de E-mail:
+Edit User	listAdmin	pt-br	Edição de Usuário
+Delete user	listAdmin	pt-br	Excluir Usuário
+AcctFlags	listAdmin	pt-br	Tipo de Conta
+Logon Script	listAdmin	pt-br	Script de Logon
+Computer	listAdmin	pt-br	Computador
+Home Directory	listAdmin	pt-br	Diretório Home
+Samba User Desactive	listAdmin	pt-br	Usuário Samba Desabilitado
+Samba User Active	listAdmin	pt-br	Usuário Samba Ativo
+Groups Names	listAdmin	pt-br	Nome do Grupo
+No matches found	listAdmin	pt-br	Nenhum resultado encontrado
+Add Groups	listAdmin	pt-br	Criar Grupos
+Groups Names	listAdmin	pt-br	Nome dos Grupos
+Group users	listAdmin	pt-br	Usuários do Grupo
+Applications	listAdmin	pt-br	Aplicações
+Add User	listAdmin	pt-br	Adicionar Usuário
+Remove User	listAdmin	pt-br	Remover Usuário
+Add Email Lists	listAdmin	pt-br	Criar Listas de E-mail
+Email Lists Logins	listAdmin	pt-br	Login da Lista
+Email Lists Names	listAdmin	pt-br	Nome da Lista
+Email List active	listAdmin	pt-br	A lista de e-mail está ativa?
+Users in Email List	listAdmin	pt-br	Usuários na Lista de Email
+Create Computers	listAdmin	pt-br	Criar computadores
+Edit computers	listAdmin	pt-br	Editar computadores
+Delete computers	listAdmin	pt-br	Deletar computadores
+Computer UID	listAdmin	pt-br	UID do Computador
+Computer Type	listAdmin	pt-br	Tipo do Computador
+WorkStation Active	listAdmin	pt-br	Estação de Trabalho (ATIVO)
+WorkStation Desactive	listAdmin	pt-br	Estação de Trabalho (INATIVO)
+Trust Account	listAdmin	pt-br	Conta de TRUST
+Server	listAdmin	pt-br	Servidor
+Add Sectors	listAdmin	pt-br	Criar Setor
+Sector name	listAdmin	pt-br	Nome do Setor/Organização
+Add Sub-Sectors	listAdmin	pt-br	Criar Sub-Setores
+Do you realy want delete this sector?	listAdmin	pt-br	Você realmente quer DELETAR este setor?
+All users, groups and sub-sectors of this sector will be DELETED!	listAdmin	pt-br	Todos os usuários, grupos, listas e sub-setores SERÃo DELETADOS!
+Content the folling users	listAdmin	pt-br	Contêm os seguintes usuários
+Content the folling groups	listAdmin	pt-br	Contêm os seguintes grupos
+Content the folling sectors	listAdmin	pt-br	Contêm os seguintes setores
+Do you realy want delete this group?	listAdmin	pt-br	Você realmente quer DELETAR este grupo?
+Delete Group	listAdmin	pt-br	Deletar Grupo
+Do you realy want delete this Email List?	listAdmin	pt-br	Você realmente quer DELETAR esta Lista de E-mail?
+Manager Login	listAdmin	pt-br	Login do Gerente
+Hour	listAdmin	pt-br	Hora
+Context	listAdmin	pt-br	Contexto
+Contexto	listAdmin	pt-br	Contexto
+Manager LID	listAdmin	pt-br	Login do Gerente
+Add Manager	listAdmin	pt-br	Adicionar Gerente
+List Managers	listAdmin	pt-br	Lista de Gerentes
+Add Managers	listAdmin	pt-br	Adicionar Gerentes
+Add users	listAdmin	pt-br	Adicionar usuários
+Edit users	listAdmin	pt-br	Editar usuários
+Delete users	listAdmin	pt-br	Deletar usuários
+View user	listAdmin	pt-br	Exibir usuário
+View users	listAdmin	pt-br	Exibir usuários
+Add groups	listAdmin	pt-br	Adicionar grupos
+Edit groups	listAdmin	pt-br	Editar grupos
+Delete groups	listAdmin	pt-br	Deletar grupos
+Change users password	listAdmin	pt-br	Alterar senhas dos usuários
+Add email lists	listAdmin	pt-br	Adicionar listas de emails
+Edit email lists	listAdmin	pt-br	Editar listas de emails
+Delete email lists	listAdmin	pt-br	Deletar listas de emails
+View email lists	listAdmin	pt-br	Exibir listas de emails
+Create Sectors	listAdmin	pt-br	Criar setores
+Edit Sectors	listAdmin	pt-br	Editar setores
+Delete Sectors	listAdmin	pt-br	Deletar setores
+View sessions (local)	listAdmin	pt-br	Exibir sessões (local)
+View sessions (global)	listAdmin	pt-br	Exibir sessões (global)
+View logs	listAdmin	pt-br	Exibir Logs
+Edit Managers	listAdmin	pt-br	Editar Gerentes
+Email Lists	listAdmin	pt-br	Listas de Email Mailman
+Sectors	listAdmin	pt-br	Setores
+Show Sessions - Local	listAdmin	pt-br	Exibir Sessões - Local
+Show Session - Global	listAdmin	pt-br	Exibir Sessões - Global
+No matches found	listAdmin	pt-br	Nenhum registro encontrado
+Logs	listAdmin	pt-br	Logs
+Add User	listAdmin	pt-br	Adicionar Usuários
+Organizations	listAdmin	pt-br	Organizações
+Login ID	listAdmin	pt-br	Login
+Re-Password	listAdmin	pt-br	Re-Senha
+Change password	listAdmin	pt-br	Alterar senha
+Anonymous	listAdmin	pt-br	Anônimo
+Account Active	listAdmin	pt-br	Conta Ativa
+Expire	listAdmin	pt-br	Expira
+General Information	listAdmin	pt-br	Informações Gerais
+Email Config	listAdmin	pt-br	Configuração de Email
+Active email account	listAdmin	pt-br	Conta de email ativa
+Alias email	listAdmin	pt-br	E-mail alternativo
+Forwarding email	listAdmin	pt-br	E-mail de encaminhamento
+Email quota in MB	listAdmin	pt-br	Cota de e-mail em MB
+Quota used in MB	listAdmin	pt-br	Cota de e-mail usada em MB
+Groups Permission	listAdmin	pt-br	Grupos
+ListGroups	listAdmin	pt-br	Lista de Grupos
+Primary Group	listAdmin	pt-br	Grupo Primário
+Remove	listAdmin	pt-br	Remover
+Aplication Permission	listAdmin	pt-br	Aplicações
+Create User	listAdmin	pt-br	Criar Usuário
+Groups Names	listAdmin	pt-br	Nome dos Grupos
+Users for inclusion	listAdmin	pt-br	Usuários para inclusão
+Remove Users	listAdmin	pt-br	Remover Usuários
+Applications for this group	listAdmin	pt-br	Aplicações para este grupo
+Email Lists Names	listAdmin	pt-br	Nome das Listas de E-mails
+Email List name	listAdmin	pt-br	Nome da Lista de E-mail
+Email List active	listAdmin	pt-br	Lista de Email ativa
+Users in Email List	listAdmin	pt-br	Usuários da Lista de Email
+Add Sectores	listAdmin	pt-br	Adicionar Setores
+Add Sub-Sectors	listAdmin	pt-br	Adicionar Sub-Setores
+Sector Name	listAdmin	pt-br	Nome do Setor
+Create Sector	listAdmin	pt-br	Criar Setor
+List of current users	listAdmin	pt-br	Lista de Usuários Conectados
+totalsessions	listAdmin	pt-br	Total de Sessões
+Manager Login	listAdmin	pt-br	Login do Gerente
+Hour	listAdmin	pt-br	Hora
+Only forwarding	listAdmin	pt-br	Somente encaminhar mensagens
+View Log	listAdmin	pt-br	Exibir Log
+User Info	listAdmin	pt-br	Info sobre usuário
+Group Info	listAdmin	pt-br	Info sobre grupos
+App Info	listAdmin	pt-br	Info sobre aplicações
+Edit Group	listAdmin	pt-br	Editar Grupos
+Remove User	listAdmin	pt-br	Remover Usuários
+Add Sectors	listAdmin	pt-br	Adicionar Setores
+Edit Sector	listAdmin	pt-br	Editar Setores
+Do you realy want delete this sector?	listAdmin	pt-br	Você realmente deseja excluir este setor?
+All users, groups and sub-sectors of this sector will be DELETED!	listAdmin	pt-br	Todos os usuários, grupos e sub-setores deste setor irão ser DELETADOS!
+Content the folling users	listAdmin	pt-br	Contêm os seguintes usuários
+Content the folling groups	listAdmin	pt-br	Contêm os seguintes grupos
+Content the folling sectors	listAdmin	pt-br	Contêm os seguintes setores
+You dont have access to this module.	listAdmin	pt-br	Você não tem acesso a este módulo.
+User email alredy exist.	listAdmin	pt-br	E-mail do usuário já cadastrado.
+User login alredy exist.	listAdmin	pt-br	Login do usuário já cadastrado.
+Password and Re-Password doesnt are equal.	listAdmin	pt-br	Senha e Re-Senha não são iguais.
+Edit User	listAdmin	pt-br	Editar Usuário
+Email Lists Logins	listAdmin	pt-br	Login das Listas
+partici lists	listAdmin	pt-br	Participante das Listas
+Rel Lists	listAdmin	pt-br	Relação de Listas
+Error in OpenLDAP.	listAdmin	pt-br	Erro no OpenLDAP.
+Account Invisible	listAdmin	pt-br	Ocultar esta conta das pesquisas e do Catálogo Geral?
+Total Sessions	listAdmin	pt-br	Total de Sessões
+totalsessions	listAdmin	pt-br	Total de Sessões
+View User	listAdmin	pt-br	Exibir Usuários
+Total Sessions	listAdmin	pt-br	Total de Sessões
+totalsessions	listAdmin	pt-br	Total de Sessões
+Sector	listAdmin	pt-br	Setor
+Phone	listAdmin	pt-br	Telefone
+Photo	listAdmin	pt-br	Foto
+Maillist login	listAdmin	pt-br	Login da Lista de Email
+Maillist Mail	listAdmin	pt-br	E-Mail da Lista de Email
+Maillist name	listAdmin	pt-br	Nome da Lista de Email
+Maillist users	listAdmin	pt-br	Usuários da Lista de Email
+Create Email List	listAdmin	pt-br	Criar Lista de Email
+Create Group	listAdmin	pt-br	Criar Grupo de Usuários
+Edit Group	listAdmin	pt-br	Editar Grupo de Usuários
+Edit Email Lists	listAdmin	pt-br	Editar Lista de Email
+Manager name	listAdmin	pt-br	Nome do Gerente
+Rename users	listAdmin	pt-br	Renomear usuários
+Change users quote	listAdmin	pt-br	Alterar  cota dos usuários
+Set default users password	listAdmin	pt-br	Setar senha padrão
+Create Organizations	listAdmin	pt-br	Criar organizações
+Edit Organizations	listAdmin	pt-br	Editar organizações
+Delete Organizations	listAdmin	pt-br	Deletar organizações
+Select users from all sub-organizations	listAdmin	pt-br	Selecionar usuários de todas as sub-organizações
+scl	listAdmin	pt-br	scl
+Show users from all sub-organizations	listAdmin	pt-br	Exibir usuários de todas as sub-organizações
+Edit Sending Control List	listAdmin	pt-br	Editar Lista de Controle de Envio
+Samba Domains	listAdmin	pt-br	Dominios Samba
+Samba domains name	listAdmin	pt-br	Nome dos domínios Samba
+Samba domain name	listAdmin	pt-br	Nome do domínio Samba
+Samba domain SID	listAdmin	pt-br	SID do domínio Samba
+sambaSID	listAdmin	pt-br	sambaSID
+Add Samba Domains	listAdmin	pt-br	Criar domínios Samba
+Add Samba Domain	listAdmin	pt-br	Criar domínio Samba
+Samba domains name is empty	listAdmin	pt-br	O nome do domínio samba está vazio
+Samba SID is empty	listAdmin	pt-br	O SID do domínio samba está vazio
+Samba domain name or SID already exist	listAdmin	pt-br	O nome do domínio samba ou sambaSID já existe
+Use samba attributes	listAdmin	pt-br	Usar atributos samba
+Occult Sector	listAdmin	pt-br	Ocultar setor
+Edit email attribute from the groups	listAdmin	pt-br	Editar campo e-mail do grupo
+Adm	listAdmin	pt_br	Adm
+scl	listAdmin	pt_br	Scl
+maillist adm	listAdmin	pt_br	Gerentes da Lista
+admin lists	listAdmin	pt_br	Editar Gerentes de Listas
+adm email lists	listAdmin	pt_br	Administrar Listas de Email
+Maillist description	listAdmin	pt-br	Descrição da Lista de Email
+Search argument too short	listAdmin	pt-br	Argumento de busca muito pequeno. Mínimo 4 caracteres.

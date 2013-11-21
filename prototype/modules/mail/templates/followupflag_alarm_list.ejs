@@ -1,0 +1,29 @@
+<div class="content-alarm">
+	<span class="subtitle-alarm">
+		<strong><%=data.caption %></strong>
+	</span>
+	<ul class="message-list" style="float: left;">
+	<%
+	for(var i=0; i<data.alarms.length; i++){
+		if(data.type == 'filtersDeadline')
+			var openMessageScript = "$(this).parent().remove(); var msgs_count = $('.filtersDeadline').find('li.message-item').length; if(msgs_count == 0){ $('.filtersDeadline').remove(); } $('.subtitle-alarm').find('strong').html((msgs_count == 1)?get_lang('"+data.captions.singular+"'):get_lang('"+data.captions.plural+"', msgs_count)); cExecute('$this.imap_functions.open_flagged_msg&msg_number="+data.alarms[i].msg_number+"&msg_folder="+data.alarms[i].msg_folder+"&alarm=true', show_msg);";
+		else	
+			var openMessageScript = "cExecute('$this.imap_functions.get_info_msg&msg_number="+data.alarms[i].msg_number+"&msg_folder="+data.alarms[i].msg_folder+"&alarm=true', show_msg);";
+	%>
+		<li class="message-item <%= data.alarms[i].id %>">
+			<a onclick="<%=openMessageScript%>">
+				<%= data.alarms[i].a %>
+			</a>
+			<%if( data.type == 'alarmDeadline'){%>
+				<a onclick='cancelAlarm(this, "<%= data.alarms[i].id %>", "<%= data.alarms[i].msg_number %>", "<%= data.alarms[i].msg_folder %>");' class="tiny button delete">close</a>
+			<%}%>
+		</li>
+	<%
+	}
+	%>
+	</ul> 
+	<fieldset class="alert-options">
+		<input type="checkbox" class="stop-alert-alarm" name="stopAlert"> <label><%= get_lang("Don't show this window anymore today.")%></label>
+		<button class="confirm-alarm">Ok</button>
+	</fieldset>
+</div>

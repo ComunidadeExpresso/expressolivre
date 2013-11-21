@@ -1,0 +1,33 @@
+Esse arquivo descreve todas as correções, alterações e novas implementações do 
+módulo Catálogo de Endereços 1.0, e a partir da versão 29/11/2006 [1.0.0]
+Nilton Emilio Buhrer Neto.
+
+--------------------------- NOTA IMPORTANTE --------------------------
+
+A partir de Agosto de 2007, todos os registros de bugs aqui relatados foram
+transferidos para o site do ExpressoLivre, no Wiki-Trac do módulo.
+Vide: http://www.expressolivre.org/dev/wiki/contactcenter/changelog
+
+----------------------------------------------------------------------
+27/02/2007 - [1.0.005]
+- Excluído o diretorio contactcenter/templates/celepar e seus arquivos foram movidos para
+contactcenter/templates/default. Essa alteraçao foi feita para corrigir bug que ocorre qdo
+se cria um template com nome diferente de celepar.
+
+10/04/2007 - [1.0.006]
+- Código que carrega foto do usuário, vindo do LDAP, foi alterado para usar o cache do navegador,
+diminuindo o acesso ao LDAP;
+- Código que filtra para buscar os grupos de usuários foi comentado, pois dá problema na visualização.
+Atualmente o Catálogo de Endereços só lista usuários e listas.
+- Corrigido problema ao copiar um contato do catálogo geral para o pessoal, quando esse tinha mais que um
+resultado, procurado pelo UID. Agora a busca é feita através do seu DN, devido aos referrals.
+
+24/04/2007 - [1.13]
+- Foi adicionado importação e exportação aos contatos do outlook 2000 (em inglês e português)
+- Foi adicionado a importação e exportação com suporte ao campo de telefone. Em todos os tipos de arquivos.
+- Corrigido problema de lentidão ao buscar o nome/email dos participantes de uma lista pública grande.
+
+25/06/2007 - [1.14]
+- Corrigido problema na janela de adicionar grupos, que trazia também os telefones de todos os contatos.
+- Menu de opções "Novo" preparado para internacionalização.
+- Corrigido erro javascript do divScrollMain.

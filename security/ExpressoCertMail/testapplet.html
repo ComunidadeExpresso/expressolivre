@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Applet de Teste para Criptografia</title>
+	</head>
+	<body>
+
+		<form id="form1">
+		<script language="Javascript">
+			if (navigator.userAgent.match('MSIE')){
+				document.write('<object style="display:yes" id="cert_applet"' +
+					'classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="300" height="125">' +
+					'<param name="type" value="application/x-java-applet;version=1.5">' +
+					'<param name="code" value="Main.class">' +
+					'<param name="mayscript" value="true">' +
+					'<param name="archive" value="ExpressoCertMail.jar,bcmail-jdk15-140.jar">');
+			}
+			else {
+				document.write('<embed id="cert_applet" code="Main.class" archive="ExpressoCertMail.jar,bcmail-jdk15-140.jar"' +
+					'type="application/x-java-applet;version=1.5" width="300" height="125" mayscript >' +
+					'<noembed>' +
+					'No Java Support.' +
+					'</noembed>' +
+					'</embed>');
+			}
+		</script>
+		<input type="button" id="botao" value="Mostra" onclick="buttonClick();"/>
+		</form>
+		<script language="javascript">
+			function buttonClick(){
+				var applet = document.getElementById('cert_applet');
+				applet.doButtonClickAction();
+			}
+
+			function mostraResultado(resultado){
+				alert(resultado);
+			}
+		</script>
+	</body>
+</html>

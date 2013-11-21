@@ -1,0 +1,59 @@
+body{
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0; 
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.login {
+	text-align:center;
+	background-color: #F7F7F7;
+	border: 1px solid #CCCCCC;
+	margin: 5px 5px 50px;
+	padding: 5px;
+	height: 116px;
+	width: 300px;
+}
+.msgInicial {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000066;
+	font-weight: bold;
+	padding-top: 70px;
+}
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #006699;
+	border: 1px solid #000066;
+}
+select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #006699;
+	background-color: #FFFFFF;
+	border: 1px solid #000066;
+}
+.button {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: 006699;
+	background-color: #D4D0C8;
+	border: 1px solid #666666;
+}
+.loginLabel {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000066;
+	padding-left: 15px;
+	text-align:right;
+}
+.tableLogin {
+	padding: 1px;
+	width: 274px;
+}
+

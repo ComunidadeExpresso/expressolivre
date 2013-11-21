@@ -1,0 +1,113 @@
+<ul class="rule-list">
+<%
+	
+	data.rules = (data.rules || []);
+	for (var i=0; i<data.rules.length; i++) {
+		if(data.rules[i].id != "vacation") continue;
+	%>
+		<li class="rule vacation" title="<%= (data.rules[i].name ? (data.rules[i].name == 'vacation' ? get_lang('vacation') : data.rules[i].name) : data.rules[i].id)%>">
+			<strong class="title <%= (data.rules[i].enabled == "true")? 'enable':'disable' %>"><%= (data.rules[i].name ? (data.rules[i].name == "vacation" ? get_lang("vacation") : data.rules[i].name) : data.rules[i].id)%></strong>
+			<input type="hidden" class="id" value="<%= data.rules[i].id %>">
+			<dl class="rule-briefing">
+				<dt><%= get_lang("Criteria")%>:</dt>
+				<dd class="rule-briefing-criteria">
+					<ul class="rule-briefing-criteria-list">
+						<li><br></li>
+					</ul>
+				</dd>
+				<dt><%= get_lang("Actions")%>:</dt>
+				<dd class="rule-briefing-action">
+					<ul class="rule-briefing-action-list">
+					<% 
+						for (var k=0; k<data.rules[i].actions.length; k++) {
+							if(data.rules[i].actions[k].type == "addflag") { 
+					%>		
+								<li><strong> (<%= get_lang("The filter is active for alerts") %>) </strong></li>
+					<%		
+								continue;
+							}
+					%>
+						<li><strong><%= get_lang(data.rules[i].actions[k].type) %>:</strong> <%= (data.rules[i].actions[k].type == 'setflag') ? get_lang(data.rules[i].actions[k].parameter) : data.rules[i].actions[k].parameter %></li>
+					<%
+						}
+					%>
+					</ul>
+				</dd>
+			</dl>
+			<ul class="menu-control">
+				<li><a href="#<%= data.rules[i].name %>" class="button update" title="<%= get_lang("Change rule")%> '<%= (data.rules[i].name ? (data.rules[i].name == 'vacation' ? get_lang('vacation') : data.rules[i].name) : data.rules[i].id)%>'"></a></li>
+				<li><a href="#<%= data.rules[i].name %>" class="button enable<%= (data.rules[i].enabled == "true")? '': ' hidden' %>" title="<%= get_lang("Disable rule")%> '<%= (data.rules[i].name ? (data.rules[i].name == 'vacation' ? get_lang('vacation') : data.rules[i].name) : data.rules[i].id)%>'"></a></li>
+				<li><a href="#<%= data.rules[i].name %>" class="button disable<%= (data.rules[i].enabled  == "true")? ' hidden': '' %>" title="<%= get_lang("Enable rule")%>"></a></li>
+				<li><a href="#<%= data.rules[i].name %>" class="button close" title="<%= get_lang("Delete rule")%> '<%= (data.rules[i].name ? (data.rules[i].name == 'vacation' ? get_lang('vacation') : data.rules[i].name) : data.rules[i].id)%>'"></a></li>
+				<li class="select" ><input type="checkbox"/></li>
+			</ul>
+		</li>
+<%
+	}
+%>
+<%
+	for (var i=0; i<data.rules.length; i++) {
+		if(typeof data.rules[i].criteria == "undefined" && data.rules[i].id != "vacation") continue;
+		if(data.rules[i].id == "vacation") continue;
+	
+%>
+		<% if(data.rules[i].id == "") continue; %>
+		<li class="rule" title="<%= data.rules[i].id %>">
+			<strong class="title <%= (data.rules[i].enabled == "true")? 'enable':'disable' %>"><%= (data.rules[i].name ? data.rules[i].name : data.rules[i].id)%></strong>
+			<input type="hidden" class="id" value="<%= data.rules[i].id %>">
+			<dl class="rule-briefing">
+				<dt><%= get_lang("Criteria")%>:</dt>
+				<dd class="rule-briefing-criteria">
+					<ul class="rule-briefing-criteria-list">
+					<% 
+						for (var j=0; j<data.rules[i].criteria.length; j++) {
+							if(data.rules[i].criteria[j].field == 'hasAttachment') {
+					%>        
+					        <li><strong><%= get_lang("Message has attachment") %></strong></li>
+					<%   	}
+							else {
+					%>
+								<li><strong><%= get_lang(data.rules[i].criteria[j].field) %>:</strong> <%= data.rules[i].criteria[j].value %></li>
+					<%		 }
+					
+						}%>
+					
+					</ul>
+				</dd>
+				<dt><%= get_lang("Actions")%>:</dt>
+				<dd class="rule-briefing-action">
+					<ul class="rule-briefing-action-list">
+					<% 
+						for (var k=0; k<data.rules[i].actions.length; k++) {
+							if(data.rules[i].actions[k].type == "addflag") { 
+					%>		
+								<li><strong> (<%= get_lang("The filter is active for alerts") %>) </strong></li>
+					<%		
+								continue;
+							}
+					%>
+						<li><strong><%= get_lang(data.rules[i].actions[k].type) %>:</strong> <%= (data.rules[i].actions[k].type == 'setflag') ? get_lang(data.rules[i].actions[k].parameter) : data.rules[i].actions[k].parameter %></li>
+					<%
+						}
+					%>
+					</ul>
+				</dd>
+			</dl>
+			<ul class="menu-control">
+				<li><a href="#<%= data.rules[i].name %>" class="button update" title="<%= get_lang("Change rule")%> '<%= data.rules[i].name %>'"></a></li>
+				<li><a href="#<%= data.rules[i].name %>" class="button enable<%= (data.rules[i].enabled == "true")? '': ' hidden' %>" title="<%= get_lang("Disable rule")%>"></a></li>
+				<li><a href="#<%= data.rules[i].name %>" class="button disable<%= (data.rules[i].enabled  == "true")? ' hidden': '' %>" title="<%= get_lang("Enable rule")%>"></a></li>
+				<li><a href="#<%= data.rules[i].name %>" class="button close" title="<%= get_lang("Delete rule")%> '<%= data.rules[i].name %>'"></a></li>
+				<li class="select" ><input type="checkbox"/></li>
+			</ul>
+		</li>
+<% 
+	}
+%>
+</ul>
+<fieldset class="fields-selected-itens ui-corner-all">
+	<legend>Selecionadas</legend>
+	<a href="#" class="button allenable"  title="Habilitar regras selecionadas"><%= get_lang("Enable")%></a>
+	<a href="#" class="button alldisable" title="Desabilitar regras selecionadas"><%= get_lang("Disable")%></a>
+	<a href="#" class="button alldelete"  title="Excluir regras selecionadas"><%= get_lang("Delete")%></a>
+</fieldset>

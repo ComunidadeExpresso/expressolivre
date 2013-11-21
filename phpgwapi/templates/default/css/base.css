@@ -1,0 +1,367 @@
+body
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin: 0px;
+	padding: 0px;
+}
+
+a:link,
+a:visited
+{
+	cursor: pointer;
+	text-decoration: none !important;
+}
+
+a:hover,
+a:active
+{
+	cursor: pointer;
+	text-decoration: underline !important;
+}
+
+a.divSideboxEntry,
+.divSideboxEntry
+{
+	height: 16px;
+	text-align: left;
+}
+
+a.appTitles,
+.appTitles
+{
+	font-size: 10px;
+	height: 18px;
+	padding: 2px 0px;
+}
+
+a.textSidebox
+{
+	font-size: 10px;
+	border-top: 0px none;
+}
+
+img
+{
+	border-width: 0px;
+	border-style: none;
+}
+
+input,
+button
+{
+	border: 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+button,
+input[type=button],
+input[type=image],
+input[type=submit]
+{
+	cursor: pointer;
+	cursor: hand;
+}
+
+input[type=image]
+{
+	border: 0px none;
+}
+
+select
+{
+	border: 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	z-index: -1;
+}
+
+td
+{
+	font-size: 11px;
+}
+
+.tr_message_header ul
+{
+	list-style-image: url( "../images/orange-ball.png" );
+}
+
+#admin_info
+{
+	margin-right: 10px;
+	position: relative;
+	text-align: center;
+}
+
+#divAppbox
+{
+	border: 1px solid;
+	border-top: 0px;
+	margin: 0px 2px;
+	padding: 1px;
+	padding-left: 15px;
+}
+
+#divAppboxHeader
+{
+	border: 1px solid;
+	border-bottom: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-style: italic;
+	font-variant: small-caps;
+	font-weight: normal;
+	height: 24px;
+	/* line-height: 24px; */
+	margin: 2px;
+	margin-bottom: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+#divAppIconBar
+{
+	border-top: 1px solid;
+}
+
+#divAppTextBar
+{
+}
+
+#divGenTime
+{
+	bottom: 14px;
+	font-size: 9px;
+	text-align: center;
+	width: 99%;
+}
+
+#divLogo
+{
+	left: 20px;
+	position: absolute;
+	top: 5px;
+	z-index: 51;
+}
+
+#divMain
+{
+	border: 1px solid;
+	margin-top: 0px;
+	padding: 9px;
+}
+
+#divPoweredBy
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding: 7px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#divSideboxContainer
+{
+	border: 1px solid;
+	left: 0px;
+	position: relative;
+	top: 0px;
+	width: 150px;
+	z-index: 40;
+}
+
+#divStatusBar
+{
+	height: 24px !important;
+	padding-left: 10px;
+	padding-top: 0px;
+	-webkit-padding-start: 28px;  
+}
+
+#extraIcons
+{
+	border: 1px solid;
+}
+
+#links_bar,
+#user_info
+{
+}
+
+#tdAppbox
+{
+	width: 100%;
+}
+
+#tdSidebox
+{
+	overflow: visible;
+	width: 170px;
+}
+
+#user_info
+{
+	padding-left: 17px;
+}
+
+.conteudo
+{
+	border: 1px solid;
+	border-top: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	overflow: none;
+	padding: 2px;
+	margin-bottom:2px;
+	width: 99.5%;
+	-moz-border-radius: 0px 0px 6px 6px;
+}
+
+.divSideboxHeader
+{
+	height: 15px;
+	padding-top: 2px;
+	text-align: center;
+}
+
+.extraIconsRow
+{
+	border-top: 1px solid;
+	padding: 2px;
+}
+
+.extraIconsRow img{
+	width: 16px;
+}
+
+.greyLine
+{
+	border-top: 1px solid;
+	height: 1px;
+	margin: 1px;
+}
+
+.grid_email_class
+{
+	border-bottom: 1px solid;
+}
+
+.image-menu
+{
+	padding: 0px;
+}
+
+.last_menu
+{
+	border-bottom: 1px solid;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+.logo_expresso
+{
+	/*width: 191px;*/
+	width: 273px;
+}
+
+.menu,
+.menu-sel
+{
+	border: 1px solid;
+	cursor: pointer;
+	font: bold 11px Lucidatypewriter,monospace;
+	height: 20px;
+	margin-bottom: 0px;
+	padding: 0px 5px 0px 0px;
+	text-align: center;
+	text-decoration: none;
+	-moz-border-radius: 9px 9px 0px 0px;
+	-moz-user-select: none;
+}
+
+.menu
+{
+	border-bottom: 1px solid;
+}
+
+.menu-sel
+{
+	border-bottom: 0px;
+}
+
+.menu-degrade
+{
+	background-repeat: repeat-x;
+}
+
+.navbar_but,
+.navbar_butOut,
+.navbar_butOver
+{
+	background-repeat: no-repeat;
+	cursor: pointer;
+	cursor: hand;
+	height: 40px;
+	padding-right: 6px;
+	text-align: center;
+	vertical-align: center;
+	width: 40px;
+}
+
+.prefSection
+{
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 40px;
+}
+
+.sideboxSpace
+{
+	height: 9px;
+}
+
+.tblHeadApp
+{
+	border: 1px solid;
+}
+
+.textSidebox
+{
+	border-top: 1px solid;
+	font-size: 10px;
+	height: 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.toolbar
+{
+	position: absolute;
+}
+
+.whiteSpace
+{
+	width: 2px;
+}
+
+.linha0,
+.linha1,
+.tr_msg_read,
+.tr_msg_read2
+{
+	-moz-user-select: none;
+}
+
+.linha1,
+.tr_msg_read2
+{
+}
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+}
+.context-menu-item.icon-preferences-mail { background-image: url(../images/preferences.png); }

@@ -1,0 +1,20 @@
+<fieldset>
+	<fieldset>
+		<input type="text"  value="<%= (data.attendee && data.attendee.name) ? data.attendee.name : '' %>" name="name"/>
+	</fieldset>
+	<fieldset>
+		<input type="text"  value="<%= (data.attendee && data.attendee.mail) ? data.attendee.mail : '' %>" name="mail"/>
+	</fieldset>
+	<div class="ui-widget messages hidden">
+		<div style="padding: 0.2em 0.7em;" class="ui-state-error ui-corner-all"> 
+			<p class="message">
+				<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span> 
+				<label></label>
+			</p>
+		</div>
+	</div>
+    <fieldset class="menu-container footer-container menu-addevent">
+		<a class="button cancel" href="#">Descartar</a>
+	    <a class="button save" href="#">Salvar</a>
+    </fieldset>
+</fieldset>

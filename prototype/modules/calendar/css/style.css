@@ -1,0 +1,664 @@
+/* 
+	Document   : style.css
+	Created on : 10/09/2011, 10:13:12
+	Author     : prognus
+	Description: contains all styles related to elements look-and-feel
+*/
+
+#tabs {
+	background-color: transparent;
+}
+
+.tip { line-height: 1.3em; }
+
+.expresso-calendar-container a {
+	text-decoration: none; 
+}
+.expresso-calendar-container ul, 
+.expresso-calendar-container dl, 
+.expresso-calendar-container ol { 
+	margin: 5px 0; padding: 0; 
+	list-style: none;
+}
+.expresso-calendar-container #trash {
+	color: #ADADAD;
+}
+.expresso-calendar-container #trash.empty {
+	background-image: url(../img/trash-empty.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+.expresso-calendar-container #trash.full {
+	background-image: url(../img/trash-full.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+.expresso-calendar-container #trash label {
+	display: none;
+}
+
+.ui-dialog { padding: 0; }
+.ui-dialog .ui-dialog-content { background-color: #fff; }
+.ui-dialog .ui-dialog-title { margin:0; }
+.ui-dialog .ui-button-text-only .ui-button-text { padding: 0.4em 1em; }
+
+.new-event-win fieldset, .new-task-win fieldset  { border: none;	margin: 0; padding: 0; }
+.new-event-win fieldset.tab-level2, .new-task-win fieldset.tab-level2 { padding: 0px 5px; min-height: 110px; max-height: 310px; overflow: hidden;}
+.new-event-win .overflow_add_calender, .new-task-win .overflow_add_calender { overflow: auto; max-height: 320px; }
+.new-event-win fieldset#calendar_addevent_details7, .new-task-win fieldset#calendar_addevent_details7 { overflow: hidden}
+.new-event-win fieldset#calendar_addevent_details5 .button-files-upload, .new-task-win fieldset#calendar_addevent_details5 .button-files-upload{margin: 15px 0 0 0}
+.new-event-win fieldset fieldset, .new-event-win fieldset.tab-level2 fieldset, .new-task-win fieldset fieldset, .new-event-win fieldset.tab-level2 fieldset { padding: 5px 0; }
+.new-event-win .creation-date-label{ white-space: nowrap; float: right;}
+
+.new-activity-win fieldset { border: none; margin: 0; padding: 0; }
+.new-activity-win fieldset.tab-level2 { padding: 0px 5px; min-height: 250px; max-height: 310px; overflow: auto;}
+
+.new-activity-win .overflow_add_calender { overflow: auto; max-height: 320px; }
+.new-activity-win fieldset#calendar_addevent_details7 { overflow: hidden}
+.new-activity-win fieldset#calendar_addevent_details5 .button-files-upload{margin: 15px 0 0 0}
+.new-activity-win fieldset fieldset, .new-activity-win fieldset.tab-level2 fieldset { padding: 5px 0; }
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+.header-menu-container, .footer-menu-container,
+.menu-container.header-container, .menu-container.footer-container {
+	display:block;
+	width: 100%;
+	margin: 0;
+	padding: 10px 0;
+	background-color: #E0EEEE;
+	text-align: right;
+}
+
+.preferences-win .header-menu-container,
+.configure-calendars-win .header-menu-container {
+	margin: -10px 0 10px;
+}
+
+.preferences-win .header-menu-container,
+.configure-calendars-win .header-menu-container {
+	-moz-box-shadow: 0 3px 4px #AAAAAA;
+	-webkit-box-shadow: 0 3px 4px #AAAAAA;
+	box-shadow: 0 3px 4px #AAAAAA;
+}
+
+.preferences-win .footer-menu-container,
+.configure-calendars-win .footer-menu-container {
+	margin: 10px 0 10px;
+}
+
+.preferences-win .footer-menu-container,
+.configure-calendars-win .footer-menu-container {
+	-moz-box-shadow: 0 3px 4px #AAAAAA;
+	-webkit-box-shadow: 0 3px 4px #AAAAAA;
+	box-shadow: 0 3px 4px #AAAAAA;
+}
+
+.ui-dialog .ui-dialog-content { padding: 0; }
+.new-event-win div.div-addevent{ padding: 0; width: 700px; border: 0;}
+.new-task-win div.div-addtask { padding: 0; width: 774px; border: 0;}
+
+.new-event-win form.form-addevent, 
+.new-task-win form.form-addtask,
+.new-activity-win form.form-addactivity { padding: 9px; }
+
+.new-activity-win input.time{width: 45px;}
+.new-activity-win input.date{width: 80px;}
+
+.new-activity-win div.div-addactivity { padding: 0; width: 734px; border: 0;}
+.new-activity-win form.form-addactivity { padding: 9px; }
+
+.expresso-calendar-container input[type="text"] { height: 18px; }
+.expresso-calendar-container input[type="text"], 
+.expresso-calendar-container textarea, 
+.expresso-calendar-container select {
+	border: 1px solid #CFCFCF;
+	font-size: 12px;
+	height: 20px;
+}
+
+.expresso-calendar-container textarea, 
+.expresso-calendar-container select { 
+/*	vertical-align: super; */
+	vertical-align: middle; 
+}
+
+.expresso-calendar-container input.date, 
+.expresso-calendar-container input.time { 
+	width:80px; 
+}
+
+.expresso-calendar-container input.h1,
+.new-event-win input.h1,
+.new-task-win input.h1{
+	font-size: 150%;
+	font-weight: bold;
+	width: 64%;
+	height: 150%;
+}
+.new-activity-win input.h1 {
+  font-size: 150%;
+  font-weight: bold;
+  width: 100%;
+  height: 150%;
+}
+
+.expresso-calendar-container input.h1,
+.new-task-win input.h1 {
+	font-size: 150%;
+	font-weight: bold;
+	width: 64%;
+	height: 150%;
+}
+
+.new-event-win textarea, .new-task-win textarea {
+	width:600px;
+	height: 210px;
+	border: 1px solid #CFCFCF;
+	padding: 0px;
+}
+
+.new-activity-win textarea {
+  width:600px;
+  height: 210px;
+  border: 1px solid #CFCFCF;
+  padding: 0px;
+}
+span.input-group { display: block; }
+/*p.input-group label { vertical-align: top; }*/
+.new-event-win p.input-group label, .new-task-win p.input-group label { display: inline-block; width: 65px;}
+.new-event-win p.input-group label.input-group, .new-task-win p.input-group label.input-group { display: inline-block; width: 110px; font-weight: bold;}
+.new-activity-win p.input-group label { display: inline-block; width: 65px;}
+.new-activity-win p.input-group label.input-group { display: inline-block; width: 110px; font-weight: bold;}
+
+input.number {text-align: right}
+input.input-tiny, input.tiny {width: 40px;}
+input.input-small, input.small {width: 80px;}
+input.input-medium, input.medium {width: 160px;}
+input.input-large, input.large {width: 260px;}
+
+label.label-tiny, label.tiny {width: 40px;}
+label.label-small, label.small {width: 80px;}
+label.label-medium, label.medium {width: 160px;}
+label.label-large, label.large {width: 260px;}
+
+select.select-tiny, select.tiny {width: 40px;}
+select.select-small, select.small {width: 80px;}
+select.select-medium, select.medium {width: 160px;}
+select.select-large, select.large {width: 260px;}
+
+.new-event-win fieldset.event-repeat-container label, 
+.new-event-win p.input-group.event-repeat-weekly label, 
+.new-event-win p.input-group.event-repeat-monthly label,
+.new-task-win fieldset.task-repeat-container label, 
+.new-task-win p.input-group.task-repeat-weekly label, 
+.new-task-win p.input-group.task-repeat-monthly label
+{
+	width: auto; 
+}
+
+.new-activity-win fieldset.event-repeat-container label, 
+.new-activity-win p.input-group.event-repeat-weekly label, 
+.new-activity-win p.input-group.event-repeat-monthly label {
+  width: auto; 
+}
+
+.new-event-win fieldset.input-field-rounded,
+.new-event-win fieldset.search-field,
+.new-event-win fieldset.block-add-attendee-permissions,
+.new-event-win fieldset.block-attendee-list,
+.new-task-win fieldset.input-field-rounded,
+.new-task-win fieldset.search-field,
+.new-task-win fieldset.block-add-attendee-permissions,
+.new-task-win fieldset.block-attendee-list{
+	border:1px solid #CFCFCF;
+}
+
+.new-event-win fieldset.block-attendee-list, .new-task-win fieldset.block-attendee-list { width: 300px; max-height:180px; padding: 5px; float: left;}
+.new-event-win fieldset.block-attendee-list ul, .new-task-win fieldset.block-attendee-list ul {  height:160px; overflow: auto;}
+
+.new-activity-win fieldset.input-field-rounded,
+.new-activity-win fieldset.search-field,
+.new-activity-win fieldset.block-add-attendee-permissions,
+.new-activity-win fieldset.block-attendee-list {
+  border:1px solid #CFCFCF;
+}
+/*Duvida*/
+.new-event-win fieldset.block-attendee-list { width: 300px; max-height:180px; padding: 5px; float: left;}
+.new-event-win fieldset.block-attendee-list ul {  height:160px; overflow: auto;}
+
+.new-activity-win fieldset.block-attendee-list { width: 300px; max-height:180px; padding: 5px; float: left;}
+.new-activity-win fieldset.block-attendee-list ul {  height:160px; overflow: auto;}
+
+
+/* # add attendee */
+
+#tabs.ui-widget-content {
+	border:none;
+}
+#tabs .ui-widget-header {
+	background: none;
+	background-image: none;
+	border: none;
+	border-bottom: 1px solid #4297D7;
+	margin-bottom: 5px;
+}
+
+#calendar.ui-tabs-panel {
+	padding: 0;
+}
+
+.mini-calendar .ui-datepicker { width: auto; background: none repeat scroll 0 0 transparent; }
+.mini-calendar .ui-datepicker  table{width:190px;}
+.mini-calendar .ui-widget-content {	border: none; background-color: transparent; }
+.mini-calendar .ui-widget-header { background: transparent; color: #000; border: 0 none;}
+
+/* fc custumize */
+
+.blocked-event div, .blocked-event-permision div{
+background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0) 9%, rgba(0,0,0,0) 13%, rgba(0,0,0,0.1) 17%, rgba(0,0,0,0) 21%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.1) 29%, rgba(0,0,0,0) 33%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.1) 41%, rgba(0,0,0,0) 45%, rgba(0,0,0,0) 49%, rgba(0,0,0,0.1) 53%, rgba(0,0,0,0) 57%, rgba(0,0,0,0) 61%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0) 69%, rgba(0,0,0,0) 73%, rgba(0,0,0,0.1) 77%, rgba(0,0,0,0.01) 81%, rgba(0,0,0,0) 85%, rgba(0,0,0,0.1) 89%, rgba(0,0,0,0) 93%, rgba(0,0,0,0) 97%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(1%,rgba(0,0,0,0)), color-stop(5%,rgba(0,0,0,0.1)), color-stop(9%,rgba(0,0,0,0)), color-stop(13%,rgba(0,0,0,0)), color-stop(17%,rgba(0,0,0,0.1)), color-stop(21%,rgba(0,0,0,0)), color-stop(25%,rgba(0,0,0,0)), color-stop(29%,rgba(0,0,0,0.1)), color-stop(33%,rgba(0,0,0,0)), color-stop(37%,rgba(0,0,0,0)), color-stop(41%,rgba(0,0,0,0.1)), color-stop(45%,rgba(0,0,0,0)), color-stop(49%,rgba(0,0,0,0)), color-stop(53%,rgba(0,0,0,0.1)), color-stop(57%,rgba(0,0,0,0)), color-stop(61%,rgba(0,0,0,0)), color-stop(65%,rgba(0,0,0,0.1)), color-stop(69%,rgba(0,0,0,0)), color-stop(73%,rgba(0,0,0,0)), color-stop(77%,rgba(0,0,0,0.1)), color-stop(81%,rgba(0,0,0,0.01)), color-stop(85%,rgba(0,0,0,0)), color-stop(89%,rgba(0,0,0,0.1)), color-stop(93%,rgba(0,0,0,0)), color-stop(97%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(-45deg,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.1) 5%,rgba(0,0,0,0) 9%,rgba(0,0,0,0) 13%,rgba(0,0,0,0.1) 17%,rgba(0,0,0,0) 21%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.1) 29%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.1) 41%,rgba(0,0,0,0) 45%,rgba(0,0,0,0) 49%,rgba(0,0,0,0.1) 53%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 61%,rgba(0,0,0,0.1) 65%,rgba(0,0,0,0) 69%,rgba(0,0,0,0) 73%,rgba(0,0,0,0.1) 77%,rgba(0,0,0,0.01) 81%,rgba(0,0,0,0) 85%,rgba(0,0,0,0.1) 89%,rgba(0,0,0,0) 93%,rgba(0,0,0,0) 97%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.blocked-event-permision {cursor: hand}
+
+.fc-state-default .fc-button-effect span {
+    background: none;
+    border:none;
+}
+
+.fc-header-title h2 {
+    color:#555;
+}
+.fc-state-default, .fc-state-default .fc-button-inner {
+    color: #555555;
+    text-transform: capitalize;
+}
+
+.fc-state-active, .fc-state-active .fc-button-inner {
+    color: #FFFFFF;
+}
+
+.block-vertical-toolbox .button.add {
+    width:190px;
+    margin-bottom: 5px;
+}
+
+div.qtip div.add-simple-task input{width: 188px}
+div.qtip div.add-simple-task textarea{width: 184px}
+
+
+.fc-header .fc-state-active, .fc-header .ui-state-active {
+    z-index: auto;
+}
+
+.fc-year-monthly-header {
+    font-weight: bold;    
+}
+
+.fc-year-have-event {
+    background: none repeat scroll 0 0 transparent !important;
+    
+}
+.fc-year-have-event .fc-day-number {
+    background: #F3F3F3;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    border-color: #CCC #BBB #AAA;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+.fc-year-main-table div:hover .fc-day-number  {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+/* preferences */
+
+.expresso-calendar-container h3 {
+    border-bottom: 2px solid #E17009;
+    font-size: 170%;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+}
+
+.expresso-calendar-container fieldset legend {/*font-size:1.3em;*/ font-weight:bold;}
+
+.preferences-win a {
+  text-decoration: underline;
+  font-weight:bold;
+  font-size:1.05em;
+  cursor:pointer;
+}
+
+.preferences-win ul li {list-style: none;}
+
+
+.preferences-win fieldset {
+  border:1px solid #CFCFCF;
+}
+
+.preferences-win fieldset.no-legend {
+    margin: 0;
+    padding: 5px 0;
+    border: none;
+}
+
+.preferences-win hr {
+  margin: 10px 0;
+  padding: 0 10px;
+  /*background:#FFFF85;
+  border: 1px solid #FFE74D;*/
+}
+
+.preferences-win #preferences_especific_calendar_details fieldset {
+  border: 0 none;
+}
+
+
+/* Geral */
+fieldset.background-fields {
+  background:#FFFF85;
+  border: 2px solid #FFE74D;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+.button.small.ui-button-text-only .ui-button-text {
+    font-size: 0.9em;
+    padding: 0.1em 0.6em;
+}
+
+.attendees-list dd.attedee-organizer {
+	border-bottom: 1px solid #BFBFBF;
+	margin-bottom: 5px;
+}
+
+/* Events List */
+.events-list-win th, .events-list-win td {
+  padding: 15px 0px 15px 0;
+  vertical-align: middle;
+  border-bottom: 1px solid #ccc;
+}
+
+.events-list-win .last-row th, .events-list-win .last-row td {
+  border-bottom: 1px solid #ccc;
+}
+
+.events-list-win table {
+  width: 100%;
+  float: left;
+}
+
+.events-list-win table a {
+  color: rgb(48, 72, 126) !important;
+  cursor: pointer;
+}
+
+.events-list-win table span { font-size:12px; }
+.events-list-win table .same-start-date * { border: 0; }
+.events-list-win table tr.last-event-same-start-date,
+.events-list-win table tr.last-event-same-start-date th,
+.events-list-win table tr.last-event-same-start-date td { border-bottom: 1px solid #ccc;}
+.events-list-win table th.start-date-multiple-events { border-bottom: 1px solid #ccc; }
+
+.events-list-win .fc-header-right.list-right{width: 26%; white-space: nowrap;}
+
+.events-list-win table .title {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.events-list-win .pagination-events {
+  margin: 10px 0;
+  text-align: center;
+} 
+
+.expresso-calendar-container .search-field { background-color: #FFF;}
+.expresso-calendar-container .search-field input { border:none;}
+
+.ui-tabs .ui-tabs-panel { padding: 0; margin-top: 11px;}
+
+.ui-tabs .ui-tabs-nav li .ui-icon-close {
+    float: right;
+    margin: 5px 5px 0 -5px;
+}
+
+.cal_day {
+    display: inline;
+    background: url("assets/day.png") no-repeat scroll center top transparent;
+    float: left;
+    height: 95px;
+    margin: 0 4px 4px 0 !important;
+    position: relative;
+    width: 128px;
+}
+.cal_day .day_heading {
+    color: #FFFFFF;
+    float: left;
+    font: 14px Arial;
+    height: 16px;
+    padding: 6px;
+    position: relative;
+    text-transform: uppercase;
+    width: 40px;
+}
+.cal_day .day_number {
+    clear: left;
+    color: #2B2B2B;
+    font: bold 52px Arial;
+    height: 95px;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+}
+
+
+/* Events List */
+.details-event-list {
+  background-color: #FFF;
+}
+
+/* Import and Export*/
+
+.import-export-win .ui-widget-header {
+    background: none;
+}
+
+.import-export-win .ui-tabs-nav {
+    border: none;
+    border-bottom: 1px solid #4297D7 !important;
+}
+
+.configure-calendars-win fieldset.user-calendar fieldset {
+    border:1px solid #CCC;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+.ui-datepicker-buttonpane button.ui-datepicker-current {
+	display : none;
+}
+
+.ui_tpicker_time{
+	display : none;
+}
+.ui_tpicker_time_label{
+	display : none;
+}
+.block-vertical-toolbox .ui-datepicker-month, 
+.block-vertical-toolbox .ui-datepicker-year {
+	cursor: pointer;
+}
+/*Normaliza de todos os inputs disabled para fonte-color #333*/
+textarea:disabled, input:disabled{color: #333 !important;}
+
+
+.map-event{
+	border-style: dashed;
+	border-width: 2px;
+	border-color: #36C;
+	background-color: transparent;
+	color: black;
+}
+
+
+#new_event_map .map-event .fc-event-head.fc-event-skin,.fc-event-inner.fc-event-skin{
+	border-color: transparent;
+}
+
+#new_event_map .map-event .fc-event-head,#new_event_map .map-event .fc-event-content{
+	color: transparent;
+}
+
+input.inputNumber {width:80px; text-align: left;}
+
+.div-addtask #calendar_addtask_details1 .h1{
+  width: 100%;
+}
+
+.div-addtask #calendar_addtask_details2 textarea {
+  width: 670px;
+}
+
+.div-addtask{
+  width: 760px;
+}
+
+.calendar-addevent-details-txt-timezone, .calendar-addtask-details-txt-timezone{width: 217px;} 
+
+.div-addtask #calendar_addtask_details1 .time-prevision { width: 40px; }
+
+.div-addtask #calendar_addtask_details1 .date-prevision{ width: 80px; }
+
+.div-addtask #calendar_addtask_details1 .start-time{ width: 40px; }
+.div-addtask #calendar_addtask_details1 .start-date{ width: 80px; }
+.div-addtask #calendar_addtask_details1 .end-time{ width: 40px; }
+.div-addtask #calendar_addtask_details1 .end-date{ width: 80px; }
+.div-addtask #calendar_addtask_details1 .prevision-termino { margin: 0 0 0 30px; }
+.div-addtask #calendar_addtask_details1 .subitem { margin: 5px; display: block;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done{ margin: 0 30px;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done img{position: relative; top:4px; width:16px; height:16px;}
+.div-addtask #calendar_addtask_details1 .calendar_addevent_details_lnk_timezone { margin: 0 0 0 20px;}
+.div-addtask #calendar_addtask_details1 .subitem .done { width: 45px;}
+
+.div-addtask #calendar_addtask_details1 .ui-spinner-buttons{ top: -2px !important;;}
+/*@-moz-document url-prefix() {.div-addtask #calendar_addtask_details1 .ui-spinner-buttons{ top: -2px !important;}}*/
+/*@media screen and (-webkit-min-device-pixel-ratio:0){.div-addtask #calendar_addtask_details1 .ui-spinner-buttons{ top: -2px !important;}}*/
+
+.div-addtask #calendar_addtask_details1 .ui-spinner-buttons .ui-spinner-up{height: 7px !important;}
+.div-addtask #calendar_addtask_details1 .ui-spinner-buttons .ui-spinner-down{height: 8px !important;}
+
+.div-addtask #calendar_addtask_details1 .subitem .span_done.noAction{background-image: url("../img/gray.png"); background-repeat: no-repeat; }
+.div-addtask #calendar_addtask_details1 .subitem .span_done.inProcess{background-image: url("../img/yellow.png"); background-repeat: no-repeat;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done.finished{background-image: url("../img/green.png"); background-repeat: no-repeat;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done.canceled{background-image: url("../img/red.png"); background-repeat: no-repeat;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done label{position: relative; left: 28px;}
+
+.div-addtask fieldset#calendar_addtask_details5.tab-level2{margin: 0}
+
+.div-addtask  #calendar_addtask_details8 .parent {width: 746px; min-height: 208px; float: left;}
+/*.div-addtask  #calendar_addtask_details8 .parent .child-top {width: 745px; height: 20px; background: #E8F4FD; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;}*/
+.div-addtask  #calendar_addtask_details8 .parent .child-top {width: 745px; height: 25px; background: #E8F4FD; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC;}
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom {width: 745px; height: 208px; overflow: auto;  float: left; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;}
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each { height: 20px; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each:hover { background: #FFF2F2; cursor: pointer;}
+
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .date-hour {overflow: hidden; width: 140px; float: left; height: 20px}
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .date-hour span { margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .user{overflow: hidden; width: 150px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .user span{ margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .attribute{overflow: hidden; width: 130px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .attribute span{ margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .beforeValue{overflow: hidden; width: 150px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .beforeValue span{ margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .afterValue{overflow: hidden; width: 150px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .afterValue span{ margin: 8px; float: left; }
+
+.div-addtask  #calendar_addtask_details8 .parent .child-top .date-hour { width: 140px; float: left; background: #E8F4FD; height: 20px; text-align: center; }
+.div-addtask  #calendar_addtask_details8 .parent .child-top .date-hour span{ display: block; padding: 6px; font-weight: bold; color: #2E6E9E; }
+.div-addtask  #calendar_addtask_details8 .parent .child-top .user { width: 150px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E; text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .user span{display: block; padding: 6px;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .attribute { width: 130px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .attribute span{display: block; padding: 6px;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .beforeValue { width: 150px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .beforeValue span{display: block; padding: 6px; }
+.div-addtask  #calendar_addtask_details8 .parent .child-top .afterValue { width: 150px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .afterValue span{display: block; padding: 6px; }
+
+/*Atividades*/
+
+.div-addactivity{ width: 734px;}
+.div-addactivity #group_addactivity_details1 .h1{ width: 100%;}
+.div-addactivity #group_addactivity_details2 textarea { width: 635px; }
+.div-addactivity #group_addactivity_details1 .time-due { width: 40px; }
+.div-addactivity #group_addactivity_details1 .date-due{ width: 80px; }
+
+.div-addactivity #group_addactivity_details1 .start-time{ width: 40px; }
+.div-addactivity #group_addactivity_details1 .start-date{ width: 80px; }
+.div-addactivity #group_addactivity_details1 .end-time{ width: 40px; }
+.div-addactivity #group_addactivity_details1 .end-date{ width: 80px; }
+.div-addactivity #group_addactivity_details1 .prevision-termino { margin: 0 0 0 30px; }
+.div-addactivity #group_addactivity_details1 .subitem { margin: 5px; display: block;}
+.div-addactivity #group_addactivity_details1 .subitem .span_done{ margin: 0 30px;}
+.div-addactivity #group_addactivity_details1 .calendar_addevent_details_lnk_timezone { margin: 0 0 0 20px;}
+.div-addactivity #group_addactivity_details1 .subitem .done { width: 45px;} 
+
+.div-addactivity #group_addactivity_details1 .subitem .span_done.noAction{background-image: url("../img/gray.png"); background-repeat: no-repeat; }
+.div-addactivity #group_addactivity_details1 .subitem .span_done.inProcess{background-image: url("../img/yellow.png"); background-repeat: no-repeat;}
+.div-addactivity #group_addactivity_details1 .subitem .span_done.finished{background-image: url("../img/green.png"); background-repeat: no-repeat;}
+.div-addactivity #group_addactivity_details1 .subitem .span_done.canceled{background-image: url("../img/red.png"); background-repeat: no-repeat;}
+.div-addactivity #group_addactivity_details1 .subitem .span_done label{position: relative; left: 28px;}
+
+.div-addactivity #group_addactivity_details5.tab-level2{margin-top: 2px;}
+.div-addactivity #group_addactivity_details5 .button-files-upload { margin: 0 0 0 5px; }
+
+/**********************************************************************************************************/
+.div-addactivity  #group_addactivity_details6  .parent {width: 695px; min-height: 208px; float: left;}
+/*.div-addactivity  #group_addactivity_details6  .parent .child-top {width: 745px; height: 20px; background: #E8F4FD; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;}*/
+.div-addactivity  #group_addactivity_details6  .parent .child-top {width: 695px; height: 25px; background: #E8F4FD; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC;}
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom {width: 695px; height: 208px; overflow: auto;  float: left; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;}
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each { height: 20px; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each:hover { background: #FFF2F2; cursor: pointer;}
+
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .task { height: 25px; text-align: center; background: #FEFEAD; border-bottom: 1px solid #CCC;}
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .task.left {border-top: 1px solid #CCC;}
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .task span{padding: 5px; display: block;}
+
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .date-hour {overflow: hidden; width: 140px; float: left; height: 20px}
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .date-hour span { margin: 8px; float: left; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .user{overflow: hidden; width: 145px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .user span{ margin: 8px; float: left; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .attribute{overflow: hidden; width: 130px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .attribute span{ margin: 8px; float: left; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .beforeValue{overflow: hidden; width: 130px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .beforeValue span{ margin: 8px; float: left; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .afterValue{overflow: hidden; width: 129px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addactivity  #group_addactivity_details6  .parent .child-bottom .child-bottom-each .afterValue span{ margin: 8px; float: left; }
+
+.div-addactivity  #group_addactivity_details6  .parent .child-top .date-hour { width: 140px; float: left; background: #E8F4FD; height: 20px; text-align: center; }
+.div-addactivity  #group_addactivity_details6  .parent .child-top .date-hour span{ display: block; padding: 6px; font-weight: bold; color: #2E6E9E; }
+.div-addactivity  #group_addactivity_details6  .parent .child-top .user { width: 145px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E; text-align: center;}
+.div-addactivity  #group_addactivity_details6  .parent .child-top .user span{display: block; padding: 6px; }
+.div-addactivity  #group_addactivity_details6  .parent .child-top .attribute { width: 130px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addactivity  #group_addactivity_details6  .parent .child-top .attribute span{display: block; padding: 6px; }
+.div-addactivity  #group_addactivity_details6  .parent .child-top .beforeValue { width: 130px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addactivity  #group_addactivity_details6  .parent .child-top .beforeValue span{display: block; padding: 6px; }
+.div-addactivity  #group_addactivity_details6  .parent .child-top .afterValue { width: 129px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addactivity  #group_addactivity_details6  .parent .child-top .afterValue span{display: block; padding: 6px; }

@@ -1,0 +1,21 @@
+	<ul class="label-list">
+		<%for (var i=0; i<data.labels.length; i++){ %>
+			
+			<li class="label-item label-item-<%= (data.labels[i].id) ? data.labels[i].id : ''%>" style="
+				background: <%= (data.labels[i].backgroundColor) ? data.labels[i].backgroundColor : '#ebebeb' %>;
+				color: <%= (data.labels[i].fontColor) ? data.labels[i].fontColor : '#000000' %>;
+				border-color: <%= (data.labels[i].borderColor) ? data.labels[i].borderColor : '#000000' %>;">
+			   
+				<span class="text-list"><%= (data.labels[i].name) ? data.labels[i].name : '' %></span>
+				<!--<input type="hidden" value="<%= (data.labels[i].id) ? data.labels[i].id : ''%>" name="labelItemId" class="id-item-list" />-->
+				<input type="hidden" value="<%= data.labels[i].id%>" name="labelItemId" class="id-item-list" />
+				
+				<div class="square-color" style="display: none; width:17px;height:12px;margin-top:1px;-moz-border-radius:3px;-webkit-border-radius:3px;
+						background: <%= (data.labels[i].backgroundColor) ? data.labels[i].backgroundColor : '#ffffff' %>; float:right;"></div>
+
+				<div class="button close tiny" style="float: right" title="<%= get_lang("Delete")%>"></div>
+				<div class="button edit tiny" style="float: right" title="<%= get_lang("Edit")%>"></div>
+			</li>
+		<%}%>
+	</ul>
+

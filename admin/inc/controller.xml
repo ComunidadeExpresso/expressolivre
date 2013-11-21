@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller>
+	<controller-security>
+		<string-access>act</string-access>
+		<string-delimiter>.</string-delimiter>
+	</controller-security>
+	<controller-contentes>
+		<item param="c" section="css" />
+		<item param="j" section="js" />
+		<item param="p" section="php" />
+		<item param="php" section="php" />
+		<item param="xm" section="xml" />
+		<item param="xs" section="xsl" />
+		<item param="t" section="php" />
+		<item param="$this" section="php" />
+	</controller-contentes>
+	<controller-sections>
+		<css></css>
+		<js path="./js/voip" suffix=".js" debug="true">
+			<item ref="connector" js="connector" />
+			<item ref="xtools" js="xtools" />
+			<item ref="functions" js="functions" />
+		</js>
+		<php path="./inc" suffix=".class.php">
+			<item ref="db_im" alias="get_preferences" class="db_im" method="get_preferences" prefix="class." suffix=".inc.php"/>
+			<item ref="bovoip" alias="getGroupsLdap" class="bovoip" method="getGroupsLdap" prefix="class." suffix=".inc.php"/>
+		</php>
+		<xml></xml>
+		<xsl></xsl>
+	</controller-sections>
+</controller>

@@ -1,0 +1,16 @@
+Sobre o Update da versão 0.9.16.002 para 0.9.17:
+
+- Corrigido problema no envio dos emails (mudança do content-type: html para text/html);
+- Implementação da integração do ExpressoMail com a Agenda, usando o framework AJAX para
+carregar os participantes da Agenda. Isso é uma opção na configuração do servidor, caso o
+administrador queira os recursos existentes do ExpressoMail na Agenda;
+- Inclusão do item Participantes Externos no Compromisso: O usuário pode convidar algum
+participante que não seja do seu servidor Expresso, enviando por email o aviso do compromisso.
+Utilizando a integração do ExpressoMail com a Agenda, o usuário terá acesso aos seus contatos
+pessoais cadastrados pelo autocompletar. Também poderá consultar no Catálogo Geral através da 
+tecla F9. Essa alteração impactou também nas classes de negócio, e adição de campo na base de
+dados;
+
+IMPORTANTE: Para atualizar essa versão, utilize o setup do E-groupware.
+
+Responsável pelas alterações: Nilton E. Buhrer Neto (niltonneto@celepar.pr.gov.br)

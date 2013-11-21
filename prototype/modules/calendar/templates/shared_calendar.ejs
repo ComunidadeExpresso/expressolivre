@@ -1,0 +1,66 @@
+<fieldset class="shared-calendar-configure">
+	<form method="POST" action="calendarToPermission:detail" class="form-addevent content">
+	<fieldset>
+		<dl class="block-user-list users-list">
+			<%if(data.calendar){%>
+				<dt class="calendar-shared">Calendario selecionado</dt>
+				<dd class="calendar">
+					<select class="calendar" name="calendar">
+                        <%
+                        for(var i = 0; i < data.calendar.length; i++)
+                        {
+                            for(var ii = 0; ii < data.signature.length; ii++)
+                            {
+                                if(data.signature[ii].calendar.id === data.calendar[i].id && data.signature[ii].permission)
+                                {
+                                    if(data.signature[ii].permission.acl.shared == false)
+                                        continue;
+                                }
+                            }
+                        %>
+						<option value="<%=data.calendar[i].id%>"><%=data.calendar[i].name%></option>
+									
+							<% 
+							} %>
+					</select>
+					</dd>
+			<%}%>
+			<dt class="<%=data.calendar ? "user-list" : "calendar-list"%>" style="z-index: 5"><%=data.calendar ? 'Compartilhar com' : 'Agendas Selecionadas'%></dt>
+			<dd class="<%=data.calendar ? "user-list" : "calendar-list"%>">
+				<ul class="user-list">
+					<li class="not-user"><%=data.calendar ? "Não compartilhado." : "Nenhuma agenda selecionada"%></li>
+				</ul>
+			</dd>	
+		</dl>
+
+		<%if(data.calendar){%>
+			<dl class="block-public-calendar">
+				<dt class="calendar-public">Agenda pública</dt>
+				<dd class="calendar-public">
+						<ul>
+							<input type="checkbox" name="isPublic"/><label>Pública</label>
+							<input type="checkbox" name="busy" class="free-busy hidden"/><label class="free-busy hidden">Livre/Ocupado</label>
+						</ul>
+				</dd>
+			</dl>
+		<%}%>
+		<dl class="<%=data.calendar ? "block-add-calendar" : "block-add-user"%> search ">
+			<dt class="add-user search"><%=data.calendar ? 'Adicionar outros usuários' : 'Adicionar outras agendas'%></dt>
+			<dd class="<%=data.calendar ? "add-user-calendar" : "add-user"%>">
+				<fieldset class="block-add-user" title="Usuários">
+					<fieldset class="add-user-search search-field ui-corner-all">
+						<input class="search" type="text" />
+						<span class="ui-icon ui-icon-search"></span>
+						
+					</fieldset>
+					<ul class="search-result-list"></ul>
+				</fieldset>
+			</dd>
+		</dl>
+	</fieldset>
+	<div class="menu-container footer-container menu-addevent">
+		<a class="button cancel" href="#">Cancelar</a>
+	    <a class="button save" href="#">Salvar</a>
+    </div>
+	</form>
+</fieldset>

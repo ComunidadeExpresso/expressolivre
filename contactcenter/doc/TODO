@@ -1,0 +1,24 @@
+
+Minor TODOs:
+
+- Remove the Email/Telephone Card Fields selection from Preferences and put it
+  on Admin Config Page (v0.4.3)
+
+- populateFullAddConst is in JS but I think it is unnecessary, as changes to this
+  fields should be rare. Replace it with a pre-load from PHP (v0.4.4)
+
+- Insert a Full Add Constant Fields Configuration/Insertion/Removal Interface
+  for Admin (v0.5.1)
+
+- Interface to manage Quick Add fields, as the back-end and plugin already 
+  accepts dynamic selected fields (v0.6.1)
+  
+
+
+Important TODOs:
+
+- City/State Management (see README.city) (v0.5.0)
+- Insert Companies Catalog (v0.5.0)
+- Insert Table View (v0.6.0)
+- Card must be object (v0.6.5)
+- Replace serialize/unserialize engine with XML-RPC (v0.7.0)

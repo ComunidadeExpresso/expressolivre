@@ -1,0 +1,20 @@
+<div id="fileupload_msg<%=data.ID%>" class="fileupload" style="margin : 15px 0px -5px -10px; padding-bottom : 5px;">
+	<div class="row fileupload-buttonbar">
+		<div class="button-files-upload">
+			<<%= is_webkit ? 'button' : 'span style="height: 22px; cursor:pointer;"' %>  class="fileinput-button button small">
+				<span style="margin-top: 4px; cursor:pointer;"><i class="icon-plus icon-white"></i>Anexar arquivos</span>
+				<INPUT type="file" id="fileInput<%=data.ID%>" name="files[]" multiple></INPUT>
+			</<%= is_webkit ? 'button' : 'span' %>>
+			<button class="message-attach-link button small">
+				<span>Anexar mensagens</span>
+			</button>
+		</div>
+	</div>
+	<br />
+	<div class="files-list">
+		<div class="attachments-list ui-corner-all" style="display:none;"></div>
+	</div>
+</div>
+<div id="fileupload_msg<%=data.ID%>_droopzone" style="display:none;" class="fileupload_msg_tooltip">
+	Solte aqui seus anexos
+</div>

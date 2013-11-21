@@ -1,0 +1,80 @@
+body
+{
+	margin:0;
+	padding:0;
+	border:0;
+	font-family:Arial, Helvetica, sans-serif;
+	-webkit-text-size-adjust: none;
+}
+
+a {font-size:small;}
+
+#divSuperior
+{
+   width: 300px;
+   height: 250px;
+   position: absolute;
+   left: 50%; 
+   margin-left: -150px;
+}
+
+#divSuperior{ background:url('../default/images/fundo1.png')no-repeat left bottom; }
+
+#divInferior
+{
+   width: 300px;
+   height: 60px;
+   position: absolute;
+   left: 50%;
+   top: 250px; 
+   margin-left: -150px;
+}
+
+#divInferior{ background:url('../default/images/fundo2.jpg')no-repeat left bottom; }
+
+#formButton
+{
+	border: 1px solid #CCCCCC;
+	color: #333333;  
+	background-color: #ffffff;
+	padding-left:3px;
+	height:22px;
+	font-size:small;
+	line-height:22px;
+}
+
+/****** Begin Input ******/
+
+#login, #passwd {height:20px; width:94%; margin:0 5px}
+
+input
+{ 
+	border: 1px solid #CCCCCC;
+	font-family: verdana, arial, helvetica, sans-serif; 
+	color: #333333;  
+	background-color: #ffffff;
+	/*background-color: #f7f7f7;*/
+}
+
+input:focus
+{
+	background-color: #ffffff;
+	border: 1px solid #9f9f9f;
+}
+
+/****** End Input ******/
+
+select
+{
+	border: 1px solid #CCCCCC; 
+	font-size: 11px;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.rodape 
+{
+	font-size:50%;
+	height:16px;
+	padding-top:4px;
+	text-align:center;
+}

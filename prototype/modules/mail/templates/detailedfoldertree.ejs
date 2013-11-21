@@ -1,0 +1,74 @@
+<%
+
+	var specialFolders = {
+			INBOX: {name:'Caixa de Entrada', classe:'inbox'}, 
+			Inbox: {name:'Caixa de Entrada', classe:'inbox'}, 
+		};
+    specialFolders[outboxfolder] = {name: 'Caixa de Sa�da', classe:'outbox'};
+	specialFolders[trashfolder] = {name:'Lixeira', classe:'trash'};
+	specialFolders[draftsfolder] = {name:'Rascunhos', classe:'drafts'};
+	specialFolders[spamfolder] = {name:'Spam', classe:'spam'};
+	specialFolders[sentfolder] = {name:'Enviados', classe:'sent'};
+	function recursive_forest(array_trees)
+	{
+	  %><ul><%
+	
+	      for(var i=0; i<array_trees.length; i++)
+	      {
+		  folder_class = '';
+		  folder_name = array_trees[i].commonName;
+
+		  if( specialFolders[folder_name] ){
+		      folder_class = specialFolders[folder_name].classe;
+		      folder_name = specialFolders[folder_name].name;
+		  }
+
+		  %><li id="<%= array_trees[i].id %>" class="closed"><span class="folder <%= folder_class %>" title="<%= folder_name %>" style="text-align : left; position : static;"><%= folder_name %>
+		  <% if(array_trees[i].messageCount.unseen > 0){	%>
+			<span class="message_unseen_count" style="text-align : left;">[<label id="dftree_<%= array_trees[i].id%>_unseen" class="folder_unseen" style="color : red; text-align : left;"><%= array_trees[i].messageCount.unseen %></label>]</span>
+          <% }	%>
+		  <% if(array_trees[i].children_unseen > 0){	%>
+			<span style="text-align : left;">[<label id="dftree_<%= array_trees[i].id%>_children_unseen" class="folder_children_unseen" style="color : blue; text-align : left;"><%= array_trees[i].children_unseen %></label>]</span>
+		  <% }	%>
+		  </span>
+		  <input type="hidden" value="<%= array_trees[i].type %>">
+		  <%
+		  if (array_trees[i].children.length>0)
+			  recursive_forest(array_trees[i].children);
+
+		  %></li><%
+	      }
+ 
+	  %></ul><%
+	}
+%>
+<div class="upper"></div>
+	<ul class="filetree foldertree-skin-prognus mainfoldertree">
+	  <li><span class="folder head_folder">Minhas Pastas</span>
+	      <% recursive_forest(data.folders[0]); %>
+	  </li>
+	  <% if(data.folders[1].length > 0) { %>
+	  <li><span class="folder shared-folders">Pastas compartilhadas</span>
+	      <% recursive_forest(data.folders[1]); %>
+	  </li> 
+	  <%}%>
+	  <% if(preferences.use_local_messages == 1) { %>
+	     <% if(expresso_mail_archive.enabled && data.folders[2].length > 0) { /*MailArchive ativado*/ %>
+	     	<li>
+	    		<span class="folder local-folder head_folder" >Pastas locais</span>
+	    	 	<% recursive_forest(data.folders[2]); %>
+	    	</li>
+	    <%} else { /*MailArchive desativado*/ %>
+	    	<li>
+	    		<span class="folder local-folder head_folder" style="display: inline;" title="MailArchive Desconectado">Pastas locais</span>
+	    		<span class="local-connect" onclick="services_retry();" title="Conectar ao MailArchive"></span>
+	    	</li>
+		<%}%>
+
+	  <%}%>
+        <% if(preferences['use_followupflags_and_labels'] == "1"){%>
+	  <li><span class="folder head_folder all_accomp followup-messages">Para acompanhamento</span>
+          <%}%>
+	  </li>
+	</ul>
+<div class="lower"></div>

@@ -1,0 +1,102 @@
+.status { 
+	color: #FF0000;
+	padding-left: 150px;
+	white-space: nowrap;
+}
+
+.spell_container {
+
+}
+
+.suggestion_box {
+	background-color: #E8F1FF;
+	border: 1px solid #000000;
+	position: absolute;
+	padding: 2px 2px 2px 2px;
+	text-align: left;
+
+        outline: none; outline-style: none; -moz-outline-style:none; outline-style: 0px;
+        _moz_resizing: false;
+
+        width:100px;
+        height:100px;
+        overflow: auto;
+       
+        
+}
+.suggestion {
+	cursor: pointer;
+	text-decoration: underline;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+        border: 0px;
+       
+}
+
+.corrected_word
+{
+	color: #005500;
+}
+
+
+.ignore {
+	cursor: pointer;
+	text-decoration: underline;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #005500;
+}
+
+.addtoDictionary {
+	background-color:  #E8F1FF;
+	cursor: pointer;
+	text-decoration: underline;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+}
+
+.edit_box {
+	background-color: #FFFFFF;
+	overflow: auto;
+       
+}
+.edit_box1 {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding-top: 2px;
+	padding-left: 2px;
+	overflow: auto;
+}
+
+.text_box {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.highlight {
+	color: #FF0000;
+        cursor: pointer;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: underline;       
+       
+
+}
+.no_misspellings {
+	color: #009933;
+}
+.check_spelling {
+	color: #0066CC;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.resume_editing {
+	color: #009933;
+	text-decoration: underline;
+	cursor: pointer;
+}

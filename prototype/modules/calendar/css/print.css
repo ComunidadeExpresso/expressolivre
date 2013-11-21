@@ -1,0 +1,141 @@
+body {
+font: 12px arial;
+}
+
+.title_print {
+	font: 20px arial;
+	color: #8EB2FF;
+	margin: 0 0 15px 0;
+	text-align: center;
+}
+.title_print img {
+	margin: 3px 0 0 0;
+	width: 20px;
+	height: 20px;
+}
+.month_day_print {
+	font: bold 14px arial;
+	margin-left: 10px;
+	display: block;
+
+}
+.calendar_list_print {
+	border-left: 1px solid #CCC;
+	list-style: none;
+	margin-left: 110px;
+}
+.calendar_item_print{
+	position: relative;
+	left: 6px;
+	top: 3px;	
+}
+.calendar_item_print span{
+	font: 12px arial;
+	margin-left: 4px;
+}
+.allDay_list{
+	margin-left: 10px;
+	list-style: none;
+}
+.content_month_print{
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+.calendar_day_item_print{
+	margin-left: 110px;
+	border-left: 1px solid #CCC;
+}
+.calendar_day_item_print img {
+	margin-left : 5px;
+}
+.calendar_day_item_print span {
+	margin-left : 5px;
+}
+.allDay_list_label {
+	position: absolute;
+	margin-left: 14px;
+	font-weight: bold;
+}
+.allDay_list li.allDay_item{
+	margin-left: 10px;
+}
+body.detail{	
+	margin-top: 30px;
+	margin-left:10px;
+}
+.details-event-list {
+	margin-top: 10px;
+}
+body.detail a.title {
+	font-weight: bold;
+	color: #30487E !important;
+}
+.events-list-win td{
+	padding: 0px;
+}
+.week  .event-on-day{
+	font: 10px arial;
+	word-wrap: break-word;
+}
+.week {
+	min-width: 600px;
+	min-height: 400px;
+	float: left;
+}
+.week span {
+	display: block;
+}
+.week .days ul {
+	list-style: none;
+	display: block;
+}
+.week ul li{
+	float: left;
+	display: inline;
+	border: 1px solid;
+	width: 100px;
+}
+.week .all-day-line{
+	border: 0;
+	text-align:center;
+}
+.day-name{
+	text-align:center;
+}
+.week .event-all-day{
+	font: 10px arial;
+	margin-left: 3px;
+}
+.week .event-on-day{
+	font: 10px arial;
+	margin-left: 3px;
+}
+.week .event-all-day img{
+	margin-right: 3px;
+}
+.week .event-on-day img{
+	margin-right: 3px;
+}
+.week .all-day-line .write{
+	margin: 1px 0 0 0;
+	font-weight: bold;
+	border-left: 1px solid;
+	border-top: 1px solid;
+	border-bottom: 1px solid;	
+}
+.week .all-day{
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+.fc-year-have-event{
+		border:2px solid #9cf !important;
+}
+.year_print_header {
+	width: 100%;
+}
+.year_print_header h2{
+	text-align: center
+}
+.header-paginator{
+	margin-top: 0px;
+}

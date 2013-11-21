@@ -1,0 +1,86 @@
+dn: LDAP_DN
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: LDAP_DC
+o: ORG
+structuralObjectClass: organization
+
+dn: ou=ORG,LDAP_DN
+ou: ORG
+objectClass: top
+objectClass: organizationalUnit
+structuralObjectClass: organizationalUnit
+entryUUID: 8ffc0fd4-9fe3-102a-978d-d7e23b05e1ef
+creatorsName: cn=admin,LDAP_DN
+createTimestamp: 20060704200101Z
+entryCSN: 20060704200101Z#000001#00#000000
+modifiersName: cn=admin,LDAP_DN
+modifyTimestamp: 20060704200101Z
+
+dn: cn=Default,ou=ORG,LDAP_DN
+phpgwAccountType: g
+phpgwAccountExpires: -1
+objectClass: top
+objectClass: posixGroup
+objectClass: phpgwAccount
+cn: Default
+gidNumber: 1001
+description: phpgw-created group
+structuralObjectClass: posixGroup
+entryUUID: 946c4c44-9fb8-102a-9e6b-db1914f54f4d
+creatorsName: cn=admin,LDAP_DN
+createTimestamp: 20060704145320Z
+entryCSN: 20060704145320Z#000001#00#000000
+modifiersName: cn=admin,LDAP_DN
+modifyTimestamp: 20060704145320Z
+
+dn: cn=Admins,ou=ORG,LDAP_DN
+phpgwAccountExpires: -1
+objectClass: top
+objectClass: posixGroup
+objectClass: phpgwAccount
+description: phpgw-created group
+structuralObjectClass: posixGroup
+entryUUID: 946dc466-9fb8-102a-9e6c-db1914f54f4d
+creatorsName: cn=admin,LDAP_DN
+createTimestamp: 20060704145320Z
+cn: Admins
+gidNumber: 1002
+phpgwAccountType: g
+memberUid: expresso-admin
+entryCSN: 20060704150416Z#000001#00#000000
+modifiersName: cn=admin,LDAP_DN
+modifyTimestamp: 20060704150416Z
+
+dn: uid=expresso-admin,ou=ORG,LDAP_DN
+userPassword: LDAP_PWD_MD5
+phpgwAccountType: u
+phpgwAccountExpires: -1
+homeDirectory: /home/expresso-admin
+loginShell: /bin/false
+cn: Admin Expresso
+sn: Expresso
+givenName: Admin
+uid: expresso-admin
+uidNumber: 1003
+gidNumber: 1002
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: phpgwAccount
+objectClass: qmailUser
+phpgwAccountStatus: A
+mail: expresso-admin@DOMAIN
+accountStatus: active
+structuralObjectClass: inetOrgPerson
+entryUUID: 9472632c-9fb8-102a-9e6d-db1914f54f4d
+creatorsName: cn=admin,LDAP_DN
+createTimestamp: 20060704145321Z
+entryCSN: 20060704145321Z#000001#00#000000
+modifiersName: cn=admin,LDAP_DN
+modifyTimestamp: 20060704145321Z
+

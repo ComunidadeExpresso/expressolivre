@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="../prototype/modules/mail/css/label.css" type="text/css" />	
+<link rel="stylesheet" href='../prototype/plugins/farbtastic/farbtastic.css' type="text/css" >
+
+<div class="acc-list list-label-content">
+	<h3><%= get_lang("My Labels")%></h3>
+		<div class="attendee-list-add">
+			<fieldset class="add-attendee-search search-field ui-corner-all">
+					<span class="ui-icon ui-icon-plus add-label-button"></span>
+					<input class="insert-label" type="text" value="<%=get_lang("Add Label")%>" maxlength="18" >
+			</fieldset>
+		</div>
+		<div class="label-list-container"></div>
+</div>
+<div class="configure-label-content">
+	<fieldset>
+	<legend><%= get_lang("Basic")%></legend>
+		<%= get_lang("Label name")%>: <input type="text" class="input-nome" value="" name="marcador" maxlength="18">
+		<input type="hidden" class="edit-label" value="" name="marcador">
+	</fieldset>
+	  <fieldset class="lebals-colorpicker">
+	  <legend><%= get_lang("Label Color")%></legend>
+		<div class="label-conf">
+			<select class="color-suggestions">		
+				  <option value="0"><%= get_lang("Default")%></option>		
+				  <option value="1"><%= get_lang("Coala")%></option>		
+				  <option value="2"><%= get_lang("Tomato")%></option>		
+				  <option value="3"><%= get_lang("Lemon")%></option>		
+				  <option value="4"><%= get_lang("high Contrast")%></option>		
+				  <option value="custom" selected="selected"><%= get_lang("Custom")%></option>
+			</select>
+			<div class="form-item">
+			  <label for="backgroundColor" class="label-cor"><%= get_lang("Label Color")%>:</label>
+			  <input type="text" name="backgroundColor" id="background" class="colorwell" value="#ebebeb" readonly="readonly" />
+			</div>
+			<div class="form-item">
+			  <label for="fontColor" class="label-cor"><%= get_lang("Text color")%>:</label>
+			  <input type="text" name="fontColor" class="colorwell" value="#000000" readonly="readonly" />
+			</div>
+			<div class="form-item">
+			  <label for="borderColor" class="label-cor"><%= get_lang("Border color")%>:</label>
+			  <input type="text" name="borderColor" class="colorwell" value="#000000" readonly="readonly" />
+			</div>			  
+			<div class="preview-label-outer">
+			  <span class="preview-label-inner"></span>
+			</div>
+		</div>				
+		<div class="colorpicker"></div>				  
+	  </fieldset>
+	<div class="buttons">
+		<span class="button delete-label"><%= get_lang("Delete")%></span><span class="button undo-label"><%= get_lang("Undo")%></span><span class="button save-label"><%= get_lang("Save")%></span>
+	</div>
+</div>
+<div class="button-close-window">
+	<span class="button close-window"><%= get_lang("Close")%></span>
+</div>

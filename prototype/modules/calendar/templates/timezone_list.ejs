@@ -1,0 +1,11 @@
+<option value="">- None selected -</option>
+
+<%
+    var timezones = DataLayer.dispatch('timezones');
+
+    for (var zone in timezones.timezones){
+%>
+
+<option value="<%= zone %>">  <%= zone %>(<%= timezones.timezones[zone] %>) </option>
+
+<%}%>

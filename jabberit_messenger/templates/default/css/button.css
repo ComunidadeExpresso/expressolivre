@@ -1,0 +1,176 @@
+.x-btn
+{
+	-x-system-font:none;
+	font-family:tahoma,verdana,helvetica;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	white-space:nowrap;
+}
+
+.x-btn td 
+{
+	padding:0 !important;
+}
+
+.x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc 
+{
+	background-image: url(../images/btn.gif) !important;
+}
+
+.x-btn-tl 
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none no-repeat scroll 0 0;
+	height:3px;
+	width:3px;
+}
+
+.x-btn-tr i, .x-btn-tl i, .x-btn-br i, .x-btn-bl i
+{
+	height:3px;
+}
+
+.x-btn-tc
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none repeat-x scroll 0 -6px;
+	height:3px;
+}
+
+.x-btn-tr 
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none no-repeat scroll -3px 0;
+	height:3px;
+	width:3px;
+}
+
+.x-btn-tr i, .x-btn-tl i, .x-btn-mr i, .x-btn-ml i, .x-btn-br i, .x-btn-bl i
+{
+	display:block;
+	font-size:1px;
+	line-height:1px;
+	overflow:hidden;
+	width:3px;
+}
+
+.x-btn-ml
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none no-repeat scroll 0 -24px;
+	width:3px;
+}
+
+.x-btn-mc
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none repeat-x scroll 0 -1096px;
+	cursor:pointer;
+	padding:0 5px;
+	text-align:center;
+	vertical-align:middle;
+	white-space:nowrap;
+}
+
+.x-btn em
+{
+	font-style:normal;
+	font-weight:normal;
+}
+
+.x-btn-noicon .x-btn-small .x-btn-text
+{
+	height:16px;
+}
+
+.x-btn button
+{
+	-x-system-font:none;
+	font-family:arial,tahoma,verdana,helvetica;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+}
+
+.x-btn button 
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none repeat scroll 0 0;
+	border:0 none !important;
+	cursor:pointer;
+	margin:0;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:0;
+	overflow:visible;
+	padding-left:3px;
+	padding-right:3px;
+	width:auto;
+}
+
+.x-btn-text
+{
+	color: #000 !important;
+	cursor:pointer;
+	padding:0;
+	white-space:nowrap;
+}
+
+.x-btn-mr
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none no-repeat scroll -3px -24px;
+	width:3px;
+}
+
+.x-btn-bl
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none no-repeat scroll 0 -3px;
+	height:3px;
+	width:3px;
+}
+
+.x-btn-bc
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none repeat-x scroll 0 -15px;
+	height:3px;
+}
+
+.x-btn-br
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent none no-repeat scroll -3px -3px;
+	height:3px;
+	width:3px;
+}

@@ -1,0 +1,23 @@
+<div title="Alame de Evento" class="alarm-event active">
+    <fieldset class="alarm">
+		<legend class="hidden">Alarme de Evento</legend>
+				<div class="new-event-alarm">
+                                    <b>Você possui um compromisso agendado:</b>
+				</div>
+				<div class="title-event-alarm">
+					<label>Titulo:</label>
+					<span class="tip"><%= data.event.schedulable.summary%></span>
+				</div>
+				<div class="description-event-alarm">
+					<label>Data:</label>
+					<span class="tip"><%= data.event.event_start%></span>
+					<label>Hora:</label>
+					<span class="tip"><%= data.event.schedulable.startTime%></span>
+				</div>
+				
+				<div class="inicialize-event-alarm">
+					<label>Seu compromisso inicia-se em:</label>
+					<span class="tip"><%=data.event.schedulable.time %> <%=data.event.schedulable.unit%></span>
+				</div>
+    </fieldset>
+ </div>

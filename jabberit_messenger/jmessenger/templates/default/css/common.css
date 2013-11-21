@@ -1,0 +1,124 @@
+/* IM:WINDOW - ADD USER */
+
+div.add_organization_members
+{
+	margin-bottom: 30px;
+}
+
+div.add_organization_members span
+{
+	border-bottom: 1px solid #809aa9;
+	float:left;
+	font-size: 8pt !important;
+	font-family: Arial, Verdana, helvetica, sans-serif !important;
+	font-weight: bold;
+	position:aboslute;
+	width: 200px;
+}
+
+div.add_organization_members div
+{
+	font-weight: normal;
+	margin: 2px;
+	padding: 3px;
+	height: 230px;
+	overflow: auto;
+}
+
+div.add_organization_members div span
+{
+	background: url(../images/photo.png) no-repeat;
+	border-bottom: 1px dashed #809aa9;
+	clear:both;
+	float:left;
+	font-weight: normal;
+	height: 65px;
+	letter-spacing: 0.2em;
+	padding: 4px 0 4px 80px;
+	margin-bottom: 20px;
+	width: 300px;
+}
+
+div.add_organization_members div#im_ldap_ou
+{
+	float: left;
+	width: 200px;
+}
+
+div.add_member_info
+{
+	margin: 10px 0px 0px 0px;
+}
+
+div.add_member_info span
+{
+	float: left;
+	font: 9pt Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	margin-right: 3px;
+	text-align: right;
+	width: 80px;
+}
+
+div.search_user 
+{
+	font-size: 8pt !important;
+	font-family: Arial, Verdana, helvetica, sans-serif !important;
+	font-weight: bold;
+	margin: 0 0 0 5px;
+}
+
+.search_user_button
+{
+	border: 1px solid #000 !important;
+}
+
+span.im_button
+{
+	background: #dedede;
+	border: 1px solid;
+	font: 8pt Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 0 15px;
+	text-align: center;
+	line-height: 1.5em;
+}
+
+div.loading
+{
+	background: #fdd url(../images/loading.gif) no-repeat 1px 1px;
+	border: 1px dashed #f00;
+	margin:	2px;
+	padding: 3px 3px 3px 20px;
+	text-align: center;
+}
+
+span.message_time
+{
+	color: #aaa;
+	font: 8pt Verdana, Arial, Helvetica, sans-serif;
+}
+
+.font_menu
+{
+	font: 8pt Verdana, Arial, Helvetica, sans-serif;
+}
+
+.layer
+{
+	background: url(../images/photo.png) no-repeat 2px 2px;
+	border:	1px solid #dedede;
+	height: 65px;
+	margin:	2px;
+	padding: 2px 0px 2px 54px;
+}
+
+/* Disconnected */
+
+.disconnected
+{
+	font: 9pt Verdana, Arial, Helvetica, sans-serif;
+	border: 1px solid #dedede;
+	margin: 2px;
+}

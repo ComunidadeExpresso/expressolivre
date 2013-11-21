@@ -1,0 +1,72 @@
+.foldertree-skin-prognus span.selected {font-weight:bold;}
+.foldertree-skin-prognus span.inbox {}
+.foldertree-skin-prognus span.trash {background-image: url(images/bin.png);}
+.foldertree-skin-prognus span.drafts {background-image: url(images/folder_page_white.png);}
+.foldertree-skin-prognus span.spam {background-image: url(images/folder_delete.png);}
+.foldertree-skin-prognus span.sent {background-image: url(images/folder_go.png);}
+.foldertree-skin-prognus span.folder {display: block;padding-bottom: 1px;padding-left: 18px;padding-right: 0;padding-top: 1px; font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;}
+.treeview .closed {display:block;}
+
+/* grid caption */
+.ui-jqgrid-title span.folder {display: block;padding-bottom: 1px;padding-left: 18px;padding-right: 0;padding-top: 2px;}
+.ui-jqgrid-title span.folder {background-attachment: scroll;background-color: transparent;background-position: 0 0;background-repeat: no-repeat;}
+.ui-jqgrid-title span.folder {background-image: url(images/folder.png);}
+.ui-jqgrid-title span.inbox { }
+.ui-jqgrid-title span.trash {background-image: url(images/bin.png);}
+.ui-jqgrid-title span.drafts {background-image: url(images/folder_page_white.png);}
+.ui-jqgrid-title span.spam {background-image: url(images/folder_delete.png);}
+.ui-jqgrid-title span.sent {background-image: url(images/folder_go.png);}
+
+/* Estilo do cursor nas colunas */
+.ui-jqgrid .ui-jqgrid-sortable {cursor:default;}
+
+#gview_message_attacher_grid .ui-widget .ui-widget {font-size: 0.9em;}
+#gview_message_attacher_grid, .ui-jqgrid .ui-jqgrid-htable th div { font-size: 11px;}
+
+/* geral */
+/*#dfd72 {font-size:11px; width:875px;height:510px;padding:5px;border:1px solid #777;-moz-border-radius:3px;border-radius:3px;}*/
+.empty-container { background-color:#f7f7e7; border:2px dashed #DDD;}
+.empty-container .message{width:100%;display:block;margin-top:70px;text-align:center;text-transform:uppercase;font-weight:bolder; font-size:20px;color:#CCC;}
+/*#mailpreview_tabs_default_empty.empty-container.ui-tabs-panel { background-color:#f7f7e7; border:none;} */
+/*#mailpreview_tabs_default_empty.empty-container.ui-tabs-panel.message {margin-top:70px;text-align:center;text-transform:uppercase;font-weight:bolder; font-size:20px;color:#CCC;}*/
+
+/* especifico */
+#foldertree-container { width:220px;height:240px; display:inline-block;margin:5px 5px 5px 5px;overflow:auto;float:left;}
+#mailgrid-container {width:685px;/*height:240px;*/ margin:5px 0px 5px 0px; float:left; overflow:auto;}
+#mailpreview_container {margin:5px;padding:0px;height:220px; width:907px; float:left; margin:5px 5px 5px 5px;}
+#mailpreview_container .ui-tabs-panel {height:183px;overflow:auto;padding:0px; width:905px;}
+#mailpreview_tabs { max-height: 25px; }
+#buttons-container {text-align: right;margin:5px 5px 5px 5px;float:right;}
+#selected_messages_counter {text-align:right;padding:0;}
+#selected_messages_number { }
+
+.flags{display:inline-block; width:16px;height:16px;}
+/* 
+	TO-DO : COLOCAR NOVAS IMAGENS após o images/ ..
+*/
+.recent {background-image:url(images/.png);}
+.unseen {background-image:url(images/unseen.gif); background-repeat: no-repeat;}
+.seen {background-image:url(images/seen.gif); background-repeat: no-repeat;}
+.answered {background-image:url(images/answered.gif); background-repeat: no-repeat; position:relative; top:3px; left:3px;}
+.forwarded {background-image:url(images/forwarded.gif); background-repeat: no-repeat; position:relative; top:3px; left:3px;}
+.draft {background-image:url(images/draft.gif); background-repeat: no-repeat; position:relative; top:3px; left:3px;}
+.labeled{background-image:url(images/tag.png); background-repeat: no-repeat; position:relative; top:3px;}
+.followupflagged{width:8px;height:6px;}
+.deleted { }
+.flagged {background-image:url(images/important.png); background-repeat: no-repeat;}
+
+#loading-content .image {width: 32px; height: 32px; background-image: url(images/loading.gif);}
+
+#mailpreview_container .ui-tabs-nav { margin: 0; padding:0;  border-left:none; border-right: none; border-top: none; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0;}
+#mailpreview_container .ui-tabs-nav li { padding:0; }
+#mailpreview_container .ui-tabs-nav li a { padding: 0.6em 0.4em 0.3em 0.6em; font-size: 11px;}
+#mailpreview_container .ui-tabs-nav li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 -0.2em; cursor: pointer; }
+#mailpreview_container .ui-tabs-nav .preview-message-unselected { color:#993333; }
+
+/*#mailpreview_tabs {max-height: 15px; height: 15px; display: none; visibility: hidden;}*/
+.mailpreview-message-info {display: block; margin:0; padding: 0; height: 15px; font-weight: bolder; overflow:hidden;}
+.mailpreview-message-info {padding:3px 3px 2px 3px;background-color:#CCC;font-size: 80%;-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-webkit-border-radius-bottomleft:3px;-webkit-border-radius-bottomright:3px;radius-bottomleft:3px;radius-bottomright:3px;}
+.mailpreview-message-body {padding:5px;}
+
+.expresso-window-container{height:520px;}
+#message-attach-dialog {overflow:visible !important;}

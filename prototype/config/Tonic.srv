@@ -1,0 +1,86 @@
+[/AvailableServers]
+AvailableServersResource = /availableServers/AvailableServersResource.php
+
+[/Catalog/Contacts]
+ContactsResource = /catalog/ContactsResource.php
+
+[/Catalog/ContactPicture]
+ContactPictureResource = /catalog/ContactPictureResource.php
+
+[/Calendar/Events]
+EventsResource = /calendar/EventsResource.php
+
+[/dynamiccontacts]
+DynamicContactsResource = /catalog/DynamicContactsResource.php
+
+[/dynamiccontact/:id]
+DynamicContactResource = /catalog/DynamicContactResource.php
+
+[/ExpressoVersion]
+ExpressoVersionResource = /core/ExpressoVersionResource.php
+
+[/groups]
+GroupsResource = /catalog/GroupsResource.php
+
+[/group/:id]
+GroupResource = /catalog/GroupResource.php
+
+[/Login]
+LoginResource = /core/LoginResource.php
+
+[/Logout]
+LogoutResource = /core/LogoutResource.php
+
+[/Mail/AddFolder]
+AddFolderResource = /mail/AddFolderResource.php
+
+[/Mail/Attachment]
+AttachmentResource = /mail/AttachmentResource.php
+
+[/Mail/CleanTrash]
+CleanTrashResource = /mail/CleanTrashResource.php
+
+[/Mail/DelFolder]
+DelFolderResource = /mail/DelFolderResource.php
+
+[/Mail/DelMessage]
+DelMessageResource = /mail/DelMessageResource.php
+
+[/Mail/Folders]
+FoldersResource = /mail/FoldersResource.php
+
+[/Mail/RenameFolder]
+RenameFolderResource = /mail/RenameFolderResource.php
+
+[/Mail/Messages]
+MessagesResource = /mail/MessagesResource.php
+
+[/Mail/Send]
+SendResource = /mail/SendResource.php
+
+[/Mail/SendSupportFeedback]
+SendSupportFeedbackResource = /mail/SendSupportFeedbackResource.php
+
+[/personalContact]
+PersonalContactResource = /catalog/PersonalContactResource.php
+
+[/personalContact/:id]
+PersonalContactResource = /catalog/PersonalContactResource.php
+
+[/token]
+TokenResource = /oauth/TokenResource.php
+
+[/usercontacts]
+UserContactsResource = /catalog/UserContactsResource.php
+
+[/usersldap]
+UsersResource = /user/UsersResource.php
+
+[/userldap/:id]
+UserResource = /user/UserResource.php
+
+[/sharedcontact/:id]
+SharedContactResource = /catalog/SharedContactResource.php
+
+[/sharedgroup/:id]
+SharedGroupResource = /catalog/SharedGroupResource.php

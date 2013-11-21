@@ -1,0 +1,180 @@
+		<%var isOwner = parseInt(data.signature.isOwner) ? '' : 'readonly="readonly"';
+		var isGroup = !!parseInt(data.signature.calendar.type);%>
+		<form method="POST" action="calendarSignature:configure">
+			<input type="hidden" name="signature" value="<%=data.signature.id%>" />
+			<input type="hidden" name="type" value="<%=data.signature.calendar.type%>" />
+			
+			<fieldset class="configurations-basic">
+				<legend class="">Básico</legend>
+
+				<p class="input-group">
+				<%if(!isGroup){%>	
+					<label for="name">Nome da agenda:</label>
+				<%}else{%>
+					<label for="name">Nome do grupo:</label>
+				<%}%>
+					<input name="name" value="<%=data.calendar.name%>" <%= isOwner %> type="text" class=""/>
+				</p>
+
+				<p class="input-group">
+					<label for="description">Descrição:</label>
+					<input name="description" value="<%=data.calendar.description%>" <%= isOwner %> type="text" class=""/>
+				</p>
+			<%if(!isGroup){%>	
+				<p class="input-group">
+					<label for="duration">Duração padrão de evento:</label>
+					<input name="duration" value="<%=data.calendar.defaultDuration%>" <%= isOwner %> type="text" class="number"/>
+				</p>
+			<%}%>	
+				<p class="input-group">
+				<%if(!isGroup){%>
+					<label for="timezone">Fuso horário da agenda:</label>
+				<%}else{%>
+					<label for="timezone">Fuso horário do grupo:</label>
+				<%} if(data.signature.isOwner == 0){%>
+					<input name="timezone" value="<%=data.calendar.timezone%>" size="50" readonly="readonly" type="text" class=""/>
+					<%}else{%>
+					<select name="timezone"> </select>
+					<%}%>
+				</p>
+			<%if(!isGroup){%>		
+				<p class="input-group">
+					<label for="location">URL:</label>
+					<input name="location" value="<%=data.calendar.location%>" <%= isOwner %> type="text" class=""/>
+				</p>
+			<%}%>
+			</fieldset>     
+
+			<fieldset class="configurations-colors">
+			<%if(!isGroup){%>
+				<legend class="">Cores dos eventos desta agenda</legend>
+			<%} else{%>	
+				<legend class="">Cores das tarefas deste grupo</legend>
+			<%}%>
+				<div class="calendar-colorpicker"></div>
+			</fieldset>
+			
+
+			<fieldset class="configurations-alarms">
+				<legend class="">Lembretes</legend>
+
+				<p class="input-group">
+					<label for="acceptInvitation">Lembretes</label>
+
+					<label>Por padrão, lembrar-me por:</label>
+					<ul class="preferences-alarms-list">
+					
+					<%if(data.signature.numberDefaultAlarm <= 0){  %>
+					
+<!--						<li class="input-group">
+							<select name="alarmType[]">
+								<option value="alert">Alerta</option>
+								<option value="mail" selected="selected">E-mail</option>
+								<option value="sms">SMS</option>
+							</select>
+							<input type="text" name="alarmTime[]" class="number input-small" value=""/>
+							<select name="alarmUnit[]">
+								<option value="d" selected="selected">Dias</option>
+								<option value="H">Horas</option>
+								<option value="m">Minutos</option>
+							</select>
+							<input type="hidden" name="alarmId[]" value="" />
+							<label>antes de cada evento.</label>
+							<a class="button remove small">Excluir</a>
+						</li>-->
+					<%}else{
+						for(var i = 0; i < data.signature.numberDefaultAlarm; i++){%>
+							<li class="input-group">
+							<select name="alarmType[]">
+								<option value="alert" <%= data.signature.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>>Alerta</option>
+								<option value="mail" <%= data.signature.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>>E-mail</option>
+<!--								<option value="sms" <%= data.signature.defaultAlarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
+							</select>
+							<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.signature.defaultAlarms[i].time %>"/>
+							<select name="alarmUnit[]">
+								<option value="d" <%= data.signature.defaultAlarms[i].unit=='d' ? 'selected="selected"':'' %>>Dias</option>
+								<option value="H" <%= data.signature.defaultAlarms[i].unit=='H' ? 'selected="selected"':'' %>>Horas</option>
+								<option value="m" <%= data.signature.defaultAlarms[i].unit=='m' ? 'selected="selected"':'' %>>Minutos</option>
+							</select>
+							<input type="hidden" name="alarmId[]" value="<%=data.signature.defaultAlarms[i].id%>" />
+						<%if(!isGroup){%>
+							<label>antes de cada evento.</label>
+						<%}else{%>
+							<label>antes de cada tarefa ou atividade.</label>
+						<%}%>
+							<a class="button remove tiny">Excluir</a>
+						</li>
+						<%}%>
+					<%}%>
+					</ul>
+				</p>
+
+				<a class="button add button-add-alarms">Adicionar lembrete</a>
+			</fieldset>
+	<!--
+			<fieldset>
+				<legend class="">Configurações de celular</legend>
+
+				<label class="fields-left">Status:</label>
+				<label class="fields-right">Número de telefone validado com sucesso.</label>
+
+
+
+				<p class="input-group">
+					<label>País:</label>
+					<select class="medium">
+						<option value="br">Brasil</option>
+					</select>
+				</p>
+
+				<p class="input-group">
+					<label>Telefone:</label>
+					<input type="text" name="celphone" class="phone input-medium" value=""/>
+				</p>
+
+				<p class="input-group">
+					<label>Operadora:</label>
+					<select class="medium" name="operator">
+						<option value="br">Tim</option>
+						<option value="br">Vivo</option>
+						<option value="br">Claro</option>
+						<option value="br">Oi</option>
+					</select>
+				</p>
+
+				<p class="input-group">
+					<label>Código de confirmação:</label>
+					<input type="text" name="celCodeConfirmation" class="number input-medium" value=""/>
+				</p>
+			</fieldset>
+	-->
+
+			<fieldset class="configurations-notifications hidden">
+				<legend class="">Notificações</legend>
+				<p class="input-group">
+				  <label for="addMessage">Mensagem para notificação de eventos adicionados:</label>
+				  <textarea rows="5" cols="40" name="msgAdd"><%=data.signature.msgAdd%></textarea>
+				</p>
+
+				<p class="input-group">
+				  <label for="cancelMessage">Mensagem para notificação de eventos cancelados:</label>
+				  <textarea rows="5" cols="40" name="msgCancel"><%=data.signature.msgCancel%></textarea>
+				</p>
+
+				<p class="input-group">
+				  <label for="updateMessage">Mensagem para notificação de eventos modificados:</label>
+				  <textarea rows="5" cols="40" name="msgUpdate"><%=data.signature.msgUpdate%></textarea>
+				</p>
+
+				<p class="input-group">
+				  <label for="answerMessage">Mensagem para notificação de suas respostas:</label>
+				  <textarea rows="5" cols="40" name="msgReply"><%=data.signature.msgReply%></textarea>
+				</p>
+
+				<p class="input-group">
+				  <label for="alarmMessage">Mensagem para notificação de seus alarmes:</label>
+				  <textarea rows="5" cols="40" name="msgAlarm"><%=data.signature.msgAlarm%></textarea>
+				</p>
+			</fieldset>
+
+		</form>

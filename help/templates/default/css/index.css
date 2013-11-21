@@ -1,0 +1,51 @@
+.titulo
+    {font-size: 18.0pt;
+     font-family: "Verdana";
+     position:	absolute;
+     top:10px;
+     color: white;
+     right:	5px;
+     z-index:0;
+     };
+p.item
+    {font-size: 16.0pt;
+     font-family: "Arial";
+     text-align: justify;}
+div.texto
+    {font-size: 9.0pt;
+     font-family: "Arial";
+     text-align: justify;
+     text-indent: 50;
+     margin: 10px;}
+table.texto
+    {font-size: 9.0pt;
+     font-family: "Arial";
+     text-align: justify;
+     text-indent: 0;
+     margin: 0px;
+     padding: 0px;
+     position: relative;
+     bottom: 15px;}
+table.links
+    {font-size: 8.0pt;
+     font-family: "Verdana";
+     text-align: center;
+     text-indent: 0;
+     margin: 10px;
+     border-spacing:5px;}
+p.back
+    {font-size: 10.0pt;
+     font-family: "Arial";
+     text-align: right;}
+a:link
+    {color:blue;
+    text-decoration:underline;
+    text-underline:single;}
+a:visited
+    {color:purple;
+    text-decoration:underline;
+    text-underline:single;}
+a.tabela
+    {color:white;
+    text-decoration:none }
+

@@ -1,0 +1,100 @@
+Esse arquivo descreve todas as correções, alterações e novas implementações do 
+módulo ExpressoAdmin 1.2, e a partir da versão 12/02/2007 [1.2]
+Joao Alfredo Knopik Junior.
+
+02/07/2007 - [1.222]
+- Adicionado suporte ao espanhol.
+
+27/02/2007 - [1.21]
+- Implementada funcionalidade que permite renomeação de usuários (cyrus, ldap, etc);
+IMPORTANTE: Essa funcionalidade só irá funcionar para a versão 2.2 do Cyrus, que está no
+Repositorio STABLE (pacote imapd-2.2 ).
+
+
+05/03/2007 - [1.22]
+- O gerenciamento (adição, edição, exclusão) de Listas não estava logando suas operações. Agora
+está OK.
+
+06/03/2007
+- O gerenciamento (adição, edição, exclusão) de Grupos não estava logando suas operações. Agora
+está OK.
+
+13/03/2007
+- Criado as opções "Concatenar domínio default na sugestão do email" e "Usar restrições na criação dos grupos"
+nas configurações globais do módulo.
+- Renomeação permitida apenas para cyrus 2.2 ou superior.
+
+19/03/2007 - [1.221]
+- Corrigido bug que, ao salvar um usuário, apagava os seguintes atributos: telefone, mailalternataddress e 
+mailforwardingaddress.
+- Bugs relacionados a problemas de segurança. Um gerente poderia alterar um atributo, mesmo ele não tendo acesso,
+utilizando o DOM Inspector para modificar as propriedade disabled dos campos.
+
+20/03/2007
+- Melhorado Logs das ações realizados nos grupos.
+
+21/03/2007
+- Permitido criação de grupos inciados por "smb-" para grupos samba.
+
+29/03/2007
+- Corrigido bug que retirava aplicações de usuário e grupos se o gerente não tivesse
+acessa a esta aplicação.
+
+10/04/2007
+- Corrigido bug ao deletar um participante da lista de email, onde não se acha o email
+deste participante.
+
+26/04/2007
+- Criado nova função get_organizations() em class.functions.inc.php, com melhor performance.
+- Melhorado exibição de usuários e listas na adição/edição de listas de emails.
+	- Criado nova função get_available_users_and_maillist em class.ldap_functions.inc.php para isto.
+- Cria uma SCL para as listas no expresso. Com isto é possível "liberar" envio para listas para alguns usuários.
+
+02/05/2007
+- Implementado opção para restrição de nomes (logins) para listas.
+- Implementado restrição de criação de contas/listas/grupos com nomes
+de contas/grupos de sistemas. Ex: root, amanda, etc ...
+
+08/05/2007
+- Melhorado performance ao editar listas e grupos.
+
+22/05/2007 - [1.240]
+- Criado possibilidade de administrar diversos domínios samba
+
+29/05/2007
+- Ao renomear um usuário, seu sieve script também é renomeado.
+
+01/06/2007
+- Corrigido bug ao editar usuários sem nenhum grupo.
+- Retirado códigos de chamada a funão get_sectors (depreciada).
+- Criado acl view_user (pode apenas ver informações, sem editar).
+- Retirado códigos de chamada ao manage_wf_sectors (depreciado).
+
+04/06/2007
+- Permitido ocultar setores.
+
+14/06/2007
+- Melhorado exibição de grupos e listas na inclusão/edição de usuários
+(muito mais rápido agora).
+- Melhorado exibição dos domínios samba:
+	- deixa a opção desmarcado caso não existe nenhum sambaDomain na OU.
+	- Seleciona automaticamente o sambaDomain da OU.
+
+03/07/2007 - [1.240]
+- Corrigido problema na atualização do módulo usando o SETUP.
+
+09/08/2007
+- Corrigido bug ao adicionar email em grupos
+- Corrigido bug ao adicionar atributos samba a um usuários já existente.
+
+14/08/2007
+- Criado aba Informações Corporativas, com os campo employeeNumber, cpf, rg, rgUf
+- Melhorado classe user.inc.php.
+
+20/08/2007
+- Criado maneira de esconder abas de gerentes que não podem acessa-las.
+- Criado maneira de obter o nextID number de outro Banco de Dados.
+- Criado possibilidade de copiar um gerente.
+
+21/08/2007
+- Adicionado suporte para o gerente administrar 1 ou mais OU's.

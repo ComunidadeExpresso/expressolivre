@@ -1,0 +1,215 @@
+Add Participants	contactcenter	es-es	Agregar Participantes
+Add Relation	contactcenter	es-es	Agregue la Relación
+Add to catalog 	contactcenter	es-es	Agregar al catálogo
+Address 1	contactcenter	es-es	Dirección 1
+Address 2	contactcenter	es-es	Dirección 2
+Addresses	contactcenter	es-es	Direcciones
+Address Other	contactcenter	es-es	Otra Dirección
+Alias	common	es-es	Apodo
+Alternative	contactcenter	es-es	Alternativa
+An error has occurred while the exportation.	contactcenter	es-es	Un error ocurrió durante la exportación
+Attributes	contactcenter	es-es	Cualidades
+Available	contactcenter	es-es	Disponible
+Birthdate	contactcenter	es-es	Nacimiento
+Automatic	contactcenter	es-es	Automático
+Browse	common	es-es	Buscar
+Cards View	contactcenter	es-es	Ver Tarjetas
+Cards Visualization Preferences	contactcenter	es-es	Preferencias de Visualización de Tarjetas
+Catalog %1 not showed due to error: Time limit exceeded	contactcenter	es-es	Catálogo %1 no fue  mostrado debido al error: Tiempo limite excedido
+Catalog %1 temporarily unavailable. Please try again later!	contactcenter	es-es	Catálogo %1 temporalmente indisponible. Favor intentar nuevamente más tarde!
+Catalogues	contactcenter	es-es	Catálogos
+Cellphone	contactcenter	es-es	Teléfono móvil
+Choose City	contactcenter	es-es	Elegir Ciudad
+Choose Country	contactcenter	es-es	Elegir País
+Choose 'E-mail' or 'Telephone'	contactcenter	es-es	Elija el ' E-mail ' o el ' teléfono '
+Choose Email Type...	contactcenter	es-es	Elija el tipo de e-mail
+Choose Prefix...	contactcenter	es-es	Elegir Prefijo
+Choose Sex ...	contactcenter	es-es	Elegir Sexo
+Choose State	contactcenter	es-es	Elegir Estado
+Choose Suffix...	contactcenter	es-es	Elegir Característica
+Choose Telephone Type...	contactcenter	es-es	Elija el tipo del Teléfono...
+Choose in wich catalog you would like to add...	contactcenter	es-es	Selecciones en cual catálogo desea agregar...
+Choose Type of Address	contactcenter	es-es	Elegir Tipo de Dirección
+Choose Type of Connection	contactcenter	es-es	Elegir tipo de Conexión
+City	contactcenter	es-es	Ciudad
+Close	contactcenter	es-es	Cerrar
+Comercial	contactcenter	es-es	Comercial
+Complement	contactcenter	es-es	Complemento
+Advanced Search	contactcenter	es-es	Búsqueda Avanzada
+Contatc: 	contactcenter	es-es	Contacto: 
+ new	contactcenter	es-es	 nuevo
+ failed	contactcenter	es-es	 fallo
+ were existent	contactcenter	es-es	 ya existían
+show more info	contactcenter	es-es	Más información
+Clean	contactcenter	es-es	Limpiar
+Confirm Removal of this Contact?	contactcenter	es-es	¿Confirma la eliminación de este Contacto?
+Confirm Removal of this Group?	contactcenter	es-es	¿Confirma la eliminación de este Contacto?
+Connection Name	contactcenter	es-es	Nombre de la Conexión
+Connections	contactcenter	es-es	Conexiones
+Connection Value	contactcenter	es-es	Valor de la Conexión
+Connector Setup	contactcenter	es-es	Configuración de la Conexión
+contactcenter	common	es-es	Catálogo de Direcciones
+Contact Center	common	es-es	Catálogo de Direcciones
+Contact [Full]	contactcenter	es-es	Contacto [Completo]
+Contact [Shared]	contactcenter	es-es	Contacto [Compartido]
+Contact Group List	common	es-es	Lista de Grupos de Contactos
+Contacting Server...	contactcenter	es-es	Conectando al Servidor
+Contact [Quick Add]	contactcenter	es-es	Contacto [Añadir rápidamente]
+Contacts	common	es-es	Contactos
+Copy to personal catalog.	contactcenter	es-es	Copiar para o Catálogo Personal
+Couldn't contact server or server response is invalid. Contact Admin.	contactcenter	es-es	No fue posible establecer conexión con el servidor. Entre en el Administrador del sistema
+Country	contactcenter	es-es	País
+Corporate	contactcenter	es-es	Empresa
+Corporative	contactcenter	es-es	Corporativo
+Corporative Cellphone	contactcenter	es-es	Celular Corporativo
+Corporative Fax	contactcenter	es-es	Fax Corporativo
+Corporative Pager	contactcenter	es-es	Buscapersonas Corporativo
+Data to be serialized is of unknown type!	contactcenter	es-es	Información a ser serializada es de tipo desconocida
+Day	contactcenter	es-es	Día
+Default	contactcenter	es-es	Estándar
+Default Person Email Type	contactcenter	es-es	Tipo standar de teléfono de la persona
+Default Person Telephone Type	contactcenter	es-es	Tipo standar de teléfono de la persona
+Department	contactcenter	es-es	Departamento
+Display Connector Client-Server Status Information?	contactcenter	es-es	Exhibir Informaciones del Status de la Conexión Cliente-Servidor
+Edit Contact	contactcenter	es-es	Editar Contacto
+Edit Group	contactcenter	es-es	Editar Grupo
+E-mails and Telephones	contactcenter	es-es	E-mails y Teléfonos
+Empty	contactcenter	es-es	Vacío
+Entry added with success!	contactcenter	es-es	¡Contacto añadido con suceso!
+Entry added with success. But some contacts will not receive or send messages.	contactcenter	es-es	Entrada añadido con éxito. Pero algunos contactos no recibir ni enviar mensajes.
+Export as Expresso (default) CSV.	contactcenter	es-es	Exportar como Expresso (standar) CSV
+Export as Mozilla Thunderbird CSV.	contactcenter	es-es	Exportar como Mozilla Thunderbird CSV.
+Export as Outlook 2000 (English) CSV.	contactcenter	es-es	Exportar como Outlook 2000 (Inglés) CSV.
+Export as Outlook 2000 (Portuguese) CSV.	contactcenter	es-es	Exportar con  Outlook 2000 (Portugués) CSV
+Export as Outlook Expresso (English) CSV.	contactcenter	es-es	Exportar como Outlook Express (Inglés) CSV.
+Export as Outlook Express (Portuguese) CSV.	contactcenter	es-es	Exportar como Outook Express (Portugués) CSV.
+Export Contacts	contactcenter	es-es	Exportar Contactos
+Expresso (default)	contactcenter	es-es	Expresso (standar)
+Family Names	common	es-es	Apellido
+Fax	contactcenter	es-es	Fax
+Female	contactcenter	es-es	Femenino
+field is empty	contactcenter	es-es	Campo esta vacío
+Fill the field Full Name	contactcenter	es-es	Escriba el nombre Completo
+Found %1 Entries	common	es-es	Encontrado %1 Resultado(s)
+Full Add	contactcenter	es-es	Agregue Completo
+Full Add Shared	contactcenter	es-es	Agregar Completo
+Full Name	contactcenter	es-es	Nombre Completo
+Given Names	common	es-es	Nombre
+Go	common	es-es	Ir
+GPG Finger Print	contactcenter	es-es	Firma GPG
+Group Add	common	es-es	Añadir Grupo
+Groups available	contactcenter	es-es	Grupos disponibles
+Selected groups	contactcenter	es-es	Grupos seleccionados
+Home	contactcenter	es-es	Casa
+Import	contactcenter	es-es	Importar
+Import Contacts	contactcenter	es-es	Importar Contactos
+Import/Export	contactcenter	es-es	Importar/Exportar
+Import/Export	contactcenter	es-es	Importar/Exportar
+Import / Export Personal Contacts	contactcenter	es-es	Importar/Exportar Contactos Personales
+Importing contacts...	contactcenter	es-es	Importando Contactos...
+Insert a New Group	common	es-es	Incluir un Nuevo Grupo
+insert	common	es-es	Incluir
+Invalid Date	common	es-es	Fecha inválida
+Is Default?	contactcenter	es-es	¿Es Estándar?
+Is My	contactcenter	es-es	Es mío
+Job Title	contactcenter	es-es	Cargo
+Main	contactcenter	es-es	Principal
+Male	contactcenter	es-es	Masculino
+Month	contactcenter	es-es	Mes
+Mozilla Thunderbird	contactcenter	es-es	Mozilla Thunderbird
+Name is mandatory	contactcenter	es-es	Nombre es obligatorio
+New City	contactcenter	es-es	Nueva Ciudad
+New...	contactcenter	es-es	Nuevo...
+New...	contactcenter	es-es	Nuevo...
+New	contactcenter	es-es	Nuevo
+New Email	contactcenter	es-es	Nuevo Email
+New from same Company	contactcenter	es-es	Nuevo de la misma empresa
+New from the same Type	contactcenter	es-es	Nuevo del mismo tipo
+New State	contactcenter	es-es	Nuevo Estado
+New Telephone	contactcenter	es-es	Nuevo Teléfono
+No Cards	contactcenter	es-es	Ninguno
+No Cities found for this State.	contactcenter	es-es	Ninguna Ciudad encontrada para este Estado
+No City	contactcenter	es-es	Ninguna Ciudad
+No Entries Found!	contactcenter	es-es	¡Ningún resultado encontrado!
+No Room for Cards! Increase your browser area	contactcenter	es-es	¡Área muy pequeña para ser vista a modo de tarjetas! Aumente el área (ventana) de su navegador
+No Room for Cards! Increase your browser area.	contactcenter	es-es	Sin Espacio para las Tarjetas! Aumente el área de su navegador
+No shared catalog that has permission to add.	contactcenter	es-es	Ningún catálogo compartido con  permiso de edición.
+No State	contactcenter	es-es	Ningún Estado
+No States found for this Country.	contactcenter	es-es	Ningún Estado encontrado para este País
+Operation Timed Out.	contactcenter	es-es	Tiempo de la operación agotada
+Option	contactcenter	es-es	Opción
+Outlook 2000	contactcenter	es-es	Outlook 2000
+Outlook Express	contactcenter	es-es	Outlook Express
+Pager	contactcenter	es-es	Buscapersonas
+Participants	common	es-es	Participantes
+People	contactcenter	es-es	Privado
+Personal Contacts	common	es-es	Contactos Personales
+Personal Data	contactcenter	es-es	Datos Personales
+Phone	contactcenter	es-es	Teléfono
+PO Box	contactcenter	es-es	Caja Postal
+Postal Code	contactcenter	es-es	Casilla de Correo
+Prefix	contactcenter	es-es	Prefijo
+Problems on adding your Contact. The email "%1" already exists in: %2	common	es-es	No fue posible añadir. El e-mail "%1" ya existe en los siguientes contactos: %2
+Processing Information...	contactcenter	es-es	Procesando Informaciones..
+Quick Add	common	es-es	Añadir Rápidamente
+Relations	contactcenter	es-es	Relaciones
+Remove	common	es-es	Remover
+Remove Contact	contactcenter	es-es	Remover Contacto
+Removed Entry!	common	es-es	¡Contacto removido con éxito (ID = %1)!
+Removed Entry ID %1!	common	es-es	¡Contacto removido con  éxito (ID = %1)!
+Remove Group	contactcenter	es-es	Remover grupo
+Remove Selected Relations	contactcenter	es-es	Quite Las Relaciones Seleccionadas
+Reset	common	es-es	Limpiar
+Results	contactcenter	es-es	Resultados
+Search for Catalog Entries	contactcenter	es-es	Buscar Resultados en el Catálogo
+Search for...	common	es-es	Buscar por...
+Sector	contactcenter	es-es	Sector
+Select a valid CSV file to import your contacts	contactcenter	es-es	Seleccione un archivo CSV valido para importar sus contactos
+Select E-Mail	contactcenter	es-es	Seleccione el E-mail
+Select Photo	contactcenter	es-es	Seleccionar Foto
+Select the file that contains the contacts to be imported:	contactcenter	es-es	Seleccione el archivo que contiene los contactos a ser importados
+Select the file type	contactcenter	es-es	Seleccione el tipo del archivo
+Select the format type that you want to export your contacts	contactcenter	es-es	Seleccione el tipo de formato que le gustaría utilizar para exportar sus contactos
+Select the telephone	contactcenter	es-es	Seleccione el teléfono
+Send Mail	common	es-es	Enviar e-mail
+Server Contacted. Waiting for response...	contactcenter	es-es	Servidor contactado. Esperando respuesta...
+Sex	contactcenter	es-es	Sexo
+Showing found entries	common	es-es	Mostrando items encontrados
+State	contactcenter	es-es	Estado
+Suffix	contactcenter	es-es	Característica
+Table View	contactcenter	es-es	Mostrar Matriz
+Telephone	contactcenter	es-es	Teléfono
+Tel or email is required	contactcenter	es-es	Usted debe informar el e-mail o el teléfono
+The Expresso supports the contacts importation in the CSV file format.	contactcenter	es-es	El Expresso soporta la importación de contactos en archivos de formato CVS 
+The importation has failed. Verify the file format.	contactcenter	es-es	La importación ha fallado. Verifique el formato del archivo
+The importation has finished.	contactcenter	es-es	La importación ha acabado.
+The query should not have the characters {%,?}	contactcenter	es-es	La consulta no debe poseer los caracteres {%,?}
+Type new city here	contactcenter	es-es	Teclee el nombre aquí
+Type new state here	contactcenter	es-es	Teclee el nombre aquí
+Type of Address	contactcenter	es-es	Tipo de Dirección
+Type of Connection	contactcenter	es-es	Tipo de Conexión
+Unavailable or empty Catalog	contactcenter	es-es	Catálogo vacío o no disponible
+Updated Successfully!	contactcenter	es-es	¡Actualizado con éxito!
+Users List	contactcenter	es-es	Lista de Usuarios
+Value	contactcenter	es-es	Valor
+Views	contactcenter	es-es	Vistas
+Web Page	contactcenter	es-es	Página da Web
+Work	contactcenter	es-es	Trabajo
+Year	contactcenter	es-es	Año
+You did not add any contact for this group.	contactcenter	es-es	Usted no agrego ningún contacto para ese grupo.
+ou	contactcenter	es-es	Organización:
+search for	contactcenter	es-es	Buscar por:
+availables	contactcenter	es-es	Usuarios disponibles
+shareds	contactcenter	es-es	Compartidos
+Shared	contactcenter	es-es	Compartido 
+Not Allowed	contactcenter	es-es	Acceso negado
+Unavailable function	contactcenter	es-es	Función no disponible
+Details on the Global Catalog Address	common	es-es	Detalles en el Catálogo Global de Direcciones
+Enable display of contact details for the Global Catalog	common	es-es	Permitir visualización de detalles para contactos del Catálogo Global
+Nome	common	es-es	Nombre
+Type	common	es-es	Tipo
+Delete	common	es-es	Borrar
+Add	common	es-es	Añadir
+The reported field was not found in LDAP	common	es-es	El campo reportado como correspondencia en LDAP no se encontró
+Text	common	es-es	Texto
+Multivalued	common	es-es	multivalor

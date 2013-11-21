@@ -1,0 +1,8 @@
+path = "services/SMTP.php"
+class = "SMTP"
+[config]
+host = 127.0.0.1
+port = 25
+auth = false
+;username =
+;password = 

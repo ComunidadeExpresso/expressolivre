@@ -1,0 +1,58 @@
+<%
+	var specialFolders = {
+			Inbox: {name:'Caixa de Entrada', classe:'inbox'}, 
+			Trash: {name:'Lixeira', classe:'trash'}, 
+			Drafts:{name:'Rascunhos', classe:'drafts'}, 
+			Spam:  {name:'Spam', classe:'spam'}, 
+			Sent:  {name:'Enviados', classe:'sent'}
+		};
+
+	var deep = 0;
+	function recursive_forest(array_trees)
+	{
+		deep++;
+		var ident = '';
+		while (ident.length < deep) ident = '-' + ident;
+		ident = ident + ' ';
+			
+
+		for(var i=0; i<array_trees.length; i++)	{
+			folder_class = '';
+			folder_name = array_trees[i].commonName;
+
+			if( specialFolders[folder_name] ){
+				folder_class = specialFolders[folder_name].classe;
+				folder_name = specialFolders[folder_name].name;
+			}
+
+			%><option value="<%= array_trees[i].id %>" class="folder <%= folder_class %>" title="<%= folder_name %>"><%= ident + folder_name %></option>
+			<%
+
+			if (array_trees[i].children.length>0)
+			  recursive_forest(array_trees[i].children);
+
+		}
+ 
+		deep--;
+	}
+%>
+<select class="folderselect-component">
+  <optgroup label="Minhas Pastas">
+      <% deep = 0;
+         recursive_forest(folders[0]); %>
+  </optgroup>
+  <% if(folders[1].length > 0) { %>
+  <optgroup label="Pastas compartilhadas">
+	  <% deep = 0;
+         recursive_forest(folders[1]); %>
+  </optgroup>
+  <%}%>
+  <!--
+  <% if(preferences.use_local_messages == 1) { %>
+  <optgroup label="Pastas locais">
+	  <% deep = 0; 
+         recursive_forest(folders[2]); %>
+  </optgroup>
+  <%}%>
+  -->
+</select>

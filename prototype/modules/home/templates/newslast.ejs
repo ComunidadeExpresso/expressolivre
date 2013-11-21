@@ -1,0 +1,20 @@
+<dl class="news-list" title="Últimas notícias"> 
+    <%if(data.resource && data.resource.length){
+	for(var i = 0; i < data.resource.length; i++){
+	var date = new Date(parseInt(data.resource[i].startTime+'000'));%>
+	    <dt><%=data.resource[i].subject %></dt>
+	    <dd>
+		<div class="date">
+		    <span class="full"><%= date.toString("ddd, d &#100;e MMMM") %></span>
+		</div>
+		<div class="duration">
+			<span class="start"><%= date.toString("ddd, d &#100;e MMMM &#100;e yyyy") %></span>
+		</div>
+		<div class="title"><%=data.resource[i].subject %></div>
+		<div class="description"><%=data.resource[i].content%></div>
+	    </dd>
+	<%}%>
+	<%}else{%>
+	    <dt>Sem resultados</dt>
+	<%}%>   
+</dl>

@@ -1,0 +1,171 @@
+# Configuracoes para o Expresso
+mydomain = DOMAIN
+myorigin = $mydomain
+myhostname = $mydomain
+biff = no
+
+append_at_myorigin = no
+append_dot_mydomain = no
+
+# A lista de dominios que esta maquina considera seu destino final.
+mydestination = $mydomain, $myhostname, expresso.$mydomain
+
+recipient_delimiter = + 
+smtpd_banner = $myhostname ESMTP Expresso Livre - (GNU/Linux)
+mynetworks = 127.0.0.1/32
+
+inet_interfaces = all
+disable_dns_lookups = no 
+# Faz a entrega dos e-mails para o cyrus
+transport_maps = hash:/etc/postfix/transport
+#mailbox_transport = lmtp:unix:/var/run/cyrus/socket/lmtp
+
+#smtpd_use_tls = no 
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+
+virtual_alias_maps = ldap:aliases, ldap:mailboxes, ldap:grupos, ldap:listas, ldap:cxinstitucionais, ldap:cxcompartilhadas
+
+# Para facilitar a configuracao
+ldaphost = 127.0.0.1
+ldapbase = LDAP_DN
+
+#Caixas Postais
+mailboxes_server_host = $ldaphost
+        # host do servidor LDAP.
+mailboxes_version = 3
+	# versao do ldap
+mailboxes_timeout = 10
+	# tempo em segundo para gerar um timeout na consulta
+mailboxes_chase_referral = 0
+	# seguir referral? (false = 0 = nao)
+mailboxes_search_base = $ldapbase
+        #Base do servidor LDAP.
+mailboxes_query_filter = (&(|(mail=%s)(mailAlternateAddress=%s))(objectClass=posixAccount)(phpgwAccountType=u)(accountStatus=active))
+        # A pesquisa que sera feita. Será retornado o UID e o MailForwardingAddress (result_attribute) da Entrada
+        # correspondente ao query_filter. %s eh oq vem do postfix.
+mailboxes_bind = no
+mailboxes_domain = hash:/etc/postfix/expresso-dominios
+        # utilizar anonymous.
+mailboxes_result_attribute = uid, mailForwardingAddress
+	# o LDAP retornará estes atributos.
+									
+#Aliases
+aliases_server_host = $ldaphost
+aliases_version = 3
+aliases_timeout = 10
+aliases_chase_referral = 0
+aliases_search_base = $ldapbase
+aliases_query_filter = (&(|(mail=%s)(mailAlternateAddress=%s))(objectClass=posixAccount)(phpgwAccountType=u)(deliveryMode=forwardOnly)(accountStatus=active))
+aliases_domain = hash:/etc/postfix/expresso-dominios
+aliases_result_attribute = mailForwardingAddress
+
+#Listas
+listas_server_host = $ldaphost
+listas_version = 3
+listas_timeout = 10
+listas_chase_referral = 0
+listas_search_base = $ldapbase
+listas_query_filter = (&(mail=%s)(phpgwAccountType=l)(objectClass=posixAccount)(deliveryMode=forwardOnly)(accountStatus=active))
+listas_domain = hash:/etc/postfix/expresso-dominios
+listas_result_attribute = mailForwardingAddress
+
+#Grupos
+grupos_server_host = $ldaphost
+grupos_version = 3
+grupos_timeout = 10
+grupos_chase_referral = 0
+grupos_search_base = $ldapbase
+grupos_query_filter = (&(mail=%u)(objectClass=posixGroup)(phpgwAccountType=g))
+grupos_bind = no
+grupos_domain = hash:/etc/postfix/expresso-dominios
+grupos_result_attribute = memberUid
+
+#Contas institucionais
+cxinstitucionais_server_host = $ldaphost
+cxinstitucionais_version = 3
+cxinstitucionais_timeout = 10
+cxinstitucionais_chase_referral = 0
+cxinstitucionais_search_base = $ldapbase
+cxinstitucionais_query_filter = (&(|(mail=%s)(mailAlternateAddress=%s))(objectClass=phpgwAccount)(phpgwAccountType=i)(accountStatus=active))
+cxinstitucionais_domain = hash:/etc/postfix/expresso-dominios
+cxinstitucionais_result_attribute = mailForwardingAddress
+
+#Contas compartilhadas
+cxcompartilhadas_server_host = $ldaphost
+cxcompartilhadas_version = 3
+cxcompartilhadas_timeout = 10
+cxcompartilhadas_chase_referral = 0
+cxcompartilhadas_search_base = $ldapbase
+cxcompartilhadas_query_filter = (&(|(mail=%s)(mailAlternateAddress=%s))(objectClass=phpgwAccount)(phpgwAccountType=s)(accountStatus=active))
+cxcompartilhadas_domain = hash:/etc/postfix/expresso-dominios
+cxcompartilhadas_result_attribute = uid, mailForwardingAddress
+
+# SCL ## cra_maillists (check_recipient_access_maillists)
+cra_maillists_server_host = $ldaphost
+cra_maillists_version = 3
+cra_maillists_timeout = 10
+cra_maillists_chase_referral = 0
+cra_maillists_search_base = $ldapbase
+cra_maillists_query_filter = (&(mail=%s)(phpgwAccountType=l)(accountRestrictive=mailListRestriction))
+cra_maillists_result_attribute = accountRestrictive
+cra_maillists_domain = hash:/etc/postfix/expresso-dominios
+cra_maillists_bind = no
+
+# SCL ## csa_maillists (check_sender_access_maillists)
+csa_maillists_server_host = $ldaphost
+csa_maillists_version = 3
+csa_maillists_timeout = 10
+csa_maillists_chase_referral = 0
+csa_maillists_search_base = $ldapbase
+csa_maillists_query_filter = (|(&(mailSenderAddress=%s)(phpgwAccountType=l))(&(participantCanSendMail=TRUE)(mailForwardingAddress=%s)))
+csa_maillists_result_attribute = accountDeliveryMessage
+csa_maillists_domain = hash:/etc/postfix/expresso-dominios
+
+#####################################################################
+# CONTROLE DE FALHA DE ENTREGA.
+
+unknown_local_recipient_reject_code = 450 
+# O tempo entre as tentativas de entrega da fila.
+# The time between deferred queue scans by the queue manager.
+queue_run_delay = 480s
+
+# The maximal time a bounce message is queued before it is considered undeliverable.
+bounce_queue_lifetime = 5400s
+#2400
+
+# O tempo maximo que uma mensagem fica na fila de adiadas, antes de voltar ao sender.
+# How long a message stays in the queue before it is sent back as undeliverable.
+maximal_queue_lifetime = 5400s
+#2400
+
+# O tempo maxima entre tentativas de entregar uma mensagem adiada (deferida)
+# The maximal time between attempts to deliver a deferred message.
+maximal_backoff_time = 480s
+
+# O tempo minimo entre tentativas de entregar uma mensagem adiada (deferida)
+# The minimal time between attempts to deliver a deferred message.
+minimal_backoff_time = 240s
+
+# Tamanho maximo para envio (20Mb)
+message_size_limit = 20971520
+
+# Controle de restricoes
+smtpd_recipient_restrictions = 
+	# Restringe acesso, a remententes nao autorizados, as listas do Expresso
+	check_recipient_access ldap:cra_maillists,
+	# o IP do remetente esta na lista de permitidos
+	permit_mynetworks,
+	permit_sasl_authenticated,
+	# Fecha o relay do servidor
+	reject_unauth_destination,
+	# o endereco do destinatario existe ou e alcancavel
+	reject_unverified_recipient,
+	permit
+
+#SCL - Sender Control List - Restricoes para envio nas listas
+smtpd_restriction_classes = mailListRestriction
+mailListRestriction = check_sender_access ldap:csa_maillists,
+			reject
+
+

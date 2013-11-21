@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<esquema>
+	<nomes tipo="nome">
+		<nome>maria</nome>
+		<nome>joao</nome>
+		<nome>ana</nome>
+		<nome>anna</nome>
+		<nome>jose</nome>
+		<nome>antonio</nome>
+		<nome>luis</nome>
+		<nome>luiz</nome>
+		<nome>luisa</nome>
+		<nome>luciano</nome>
+		<nome>luciana</nome>
+		<nome>tania</nome>
+		<nome>carlos</nome>
+		<nome>marco</nome>
+		<nome>vera</nome>
+	</nomes>
+	<nomes tipo="preposicao">
+		<nome>do</nome>
+		<nome>da</nome>
+		<nome>de</nome>
+		<nome>dos</nome>
+		<nome>das</nome>
+		<nome>e</nome>	
+	</nomes>
+	<nomes tipo="sobrenome">
+		<nome>junior</nome>
+		<nome>filho</nome>
+		<nome>filha</nome>
+		<nome>neto</nome>
+		<nome>netto</nome>
+		<nome>sobrinho</nome>
+		<nome>sobrinha</nome>	
+	</nomes>
+</esquema>

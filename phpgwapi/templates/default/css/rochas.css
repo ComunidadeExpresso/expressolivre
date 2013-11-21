@@ -1,0 +1,292 @@
+body
+{
+	background-color: #e9e9e9;
+}
+
+a:link,
+a:visited
+{
+	color: #000066;
+}
+
+a:hover,
+a:active
+{
+	color: #ff9933;
+}
+
+a.divSideboxEntry,
+.divSideboxEntry
+{
+	background-color: #eee;
+}
+
+a.textSidebox
+{
+	border-top-color: #aaa;
+}
+
+input,
+button
+{
+	border-color: #bbb;
+	color: #069;
+}
+
+input[type=image]
+{
+	border-color: #bbb;
+}
+
+select
+{
+	border-color: #bbb;
+	color: #006;
+}
+
+#divAppbox
+{
+	background: #eeeee0;
+	border-color: #9c9c9c;
+}
+
+#divAppboxHeader
+{
+	background: #eeeee0;
+	border-color: #9c9c9c;
+	color: #006;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#divAppIconBar
+{
+	background: #fff url( ../images/background-icon-bar.png ) repeat-x;
+	border-top-color: #9c9c9c;
+}
+
+#divAppTextBar
+{
+	background-color: #fff;
+}
+
+#divGenTime
+{
+	color: #f00;
+}
+
+#divMain
+{
+	background: #fff;
+	border-color: #7e7e7e;
+}
+
+#divPoweredBy
+{
+	background: #fff;
+	color: #999;
+}
+
+#divSideboxContainer
+{
+	background: #fff;
+}
+
+#extraIcons
+{
+	background: #eee;
+	border-color: #7e7e7e;
+}
+
+#links_bar,
+#user_info
+{
+	color: #000;
+}
+
+#tdAppbox
+{
+	background-color: #fff;
+}
+
+#tdSidebox
+{
+	background: #fff;
+}
+
+.conteudo
+{
+	border-color: #4A79B1;
+	color: #003;
+}
+
+.divSideboxHeader
+{
+	background: #006;
+	color: #fff;
+}
+
+.extraIconsRow
+{
+	border-top-color: #ddd;
+}
+
+.greyLine
+{
+	border-top-color: #7e7e7e;
+}
+
+.grid_email_class
+{
+	border-bottom-color: #cfcfcf;
+}
+
+.image-menu
+{
+	background: #ddf4fe url( ../../../../phpgwapi/templates/default/images/folder_bg_canyon.jpg ) no-repeat scroll center bottom;
+}
+
+.last_menu
+{
+	border-bottom-color: #4a79b1;
+}
+
+.logo_expresso
+{
+	background: url( ../../../../phpgwapi/templates/default/images/logo_expresso_canyon.png ) no-repeat;
+	width: 264px;
+	height: 35px;
+}
+
+.menu
+{
+	background: #a19183;
+	border-color: #f4f7fc;
+	border-bottom-color: #4a79b1;
+}
+
+.menu-sel
+{
+	background-color: #f7f7f7;
+	border-color: #A19183;
+	color: #00f;
+}
+
+.menu-degrade
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/degrade.png );
+}
+
+.navbar_but
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_canyon.png );
+}
+
+.navbar_butOver
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over_canyon.png );
+}
+
+.navbar_butOut
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out_canyon.png );
+}
+
+.tblHeadApp
+{
+	border-color: #9c9c9c;
+}
+
+.textSidebox
+{
+	border-top-color: #aaa;
+}
+
+.toolbar
+{
+	background-image: url(../../../../phpgwapi/templates/default/images/fundo_topo_canyon.png);
+}
+
+.whiteSpace
+{
+	width: 2px;
+}
+
+.linha0,
+.linha1,
+.tr_msg_read,
+.tr_msg_read2
+{
+	color: #615143;
+	background: #fff;
+}
+
+.linha1,
+.tr_msg_read2
+{
+	background: #eeeee0;
+}
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+	background: #cfb69e;
+}
+
+.content-menu
+{
+	padding: 0px;
+	background: #fff;
+}
+
+.divLoginbox
+{
+	border: 1px solid #9c9c9c;
+	position: relative;
+	width: 300px;
+}
+
+.divLoginboxHeader
+{
+	background-color: #ddd;
+	color: #666;
+	font-size: 10px;
+	padding-top: 2px;
+	text-align: center;
+}
+
+.divSidebox
+{
+	position: relative;
+	border: 1px solid #9c9c9c;
+	width: 147px;
+}
+
+.table_message
+{
+	background: url( ../../../../phpgwapi/templates/default/images/fundo_topo_canyon.png );
+}
+
+.message_options
+{
+	color: #863;
+}
+
+.tr_msg_unread
+{
+	color: #000;
+	font-style: oblique;
+}
+
+.selected_shortcut_msg
+{
+	color: #000;
+	background-color: BurlyWood;
+}
+
+input.em_button_like_span
+{
+	color: #886633;
+}

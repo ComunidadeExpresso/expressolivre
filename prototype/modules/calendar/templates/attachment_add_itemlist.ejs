@@ -1,0 +1,19 @@
+
+	<p class="input-group arquive-info">
+		<label class="lbl-archive-nome">Nome:</label>
+		<span class="archive-nome"><%=data.file.fileName%></span>
+		
+		<label class="lbl-archive-size">Tamanho:</label>
+		<span class="archive-size"><%=data.file.fileSize%></span>
+		<button type="button" class="button close tiny upload delete-upload" title="Deletar">Deletar</button>
+		<span class="status-upload"></span>
+		<%if(data.file.error){%>
+			<span class="archive-error"><%=data.file.error%></span>
+		<%}if(!data.file.error){%>
+			<span style="width: 14px; height: 14px;">
+			    <img src="<%=DataLayer.dispatchPath%>/modules/calendar/img/ajax-loader.gif"  class="progress after-upload"></img>
+			</span>
+		<%}%>
+		<label class="fileinput-button new"></label>
+		
+	</p>

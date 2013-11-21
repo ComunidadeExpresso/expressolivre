@@ -1,0 +1,8 @@
+.normal {
+	background-color: #DDDDDD;	
+}
+
+.selected {
+	cursor: pointer;
+	background-color: #CCCBBB;
+}

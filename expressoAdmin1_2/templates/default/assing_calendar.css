@@ -1,0 +1,43 @@
+div.assing-calendar fieldset.remove-border{border: 0px !important; padding: 0px;}
+
+div.assing-calendar dd{margin: 0 0 0 0 !important;}
+
+/*div.user-acls-shared-calendar{margin: -15px 0 0 0;}*/
+
+div.assing-calendar dd.calendar-list{ overflow-y: auto; overflow-x: hidden;}
+
+div.assing-calendar dl{margin: 5px !important;}
+
+div.assing-calendar fieldset.add-user-search{width: 240px;}
+div.assing-calendar input.search{width: 210px;}
+
+div.assing-calendar dt.calendar-list.calendar-name{width: 70px;}
+
+div.assing-calendar{overflow: hidden !important;}
+
+div.assing-calendar div.menu-container.footer-container{margin: 2px 0 -12px 0 !important;}
+div.assing-calendar ul.search-result-list,div.assing-calendar ul.user-list{margin: 0; padding: 0;  }
+div.assing-calendar ul li{overflow: hidden !important;}
+div.assing-calendar li.not-user{margin: 0 0 0 20px !important;}
+div.assing-calendar fieldset.add-user-search{margin: 0 0 5px 0px !important;}
+
+div.assing-calendar dd.add-user {height: 290px !important;}
+
+div.assing-calendar dd.calendar-list li{height: 20px !important; margin: 0 0 0 0x !important;}
+
+div.assing-calendar dd.calendar-list li div{display: block !important;}
+
+div.assing-calendar dd.calendar{height: 24px; text-align: left;}
+
+div.assing-calendar ul.search-result-list{height: 245px;}
+
+
+div.assing-calendar ul.search-result-list label.name{overflow: hidden; height: 15px;}
+
+div.assing-calendar li.calendar-selected{
+	margin: 0px 0 0 -40px;
+	-webkit-margin-before: -13px;
+}
+div.assing-calendar li.calendar-selected a {margin: 0 0 -2px 15px;}
+
+div.assing-calendar dd.calendar-list li.user-list{width: 333px; list-style-type: none;}

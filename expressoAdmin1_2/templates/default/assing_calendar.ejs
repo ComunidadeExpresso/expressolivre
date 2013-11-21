@@ -1,0 +1,69 @@
+<fieldset class="assing-calendar-configure remove-border">
+	<form method="POST" action="" class="form-addevent content">
+            <fieldset class="remove-border">
+		<dl class="block-user-list users-list">
+			
+                    <dt class="calendar-list calendar-name">Calendario</dt>
+                    <dd class="calendar">
+                        <input type="hidden" name="calendarId" value=""/>
+                        <ul class="calendarName"></ul>        
+                    </dd>
+			
+			<dt class="<%=data.calendar ? "user-list" : "calendar-list"%>"><%=data.calendar ? 'Compartilhar com' : 'Agendas Selecionadas'%></dt>
+			<dd class="<%=data.calendar ? "user-list" : "calendar-list"%>">
+				<ul class="user-list">
+				<% if (false) {
+					for (var i=0; i< data.event.user.length; i++) {%>
+						<li class="user"> 
+							<div style="overflow:hidden; width:100%; display:table;">
+								<input type="checkbox" value="">
+								<input type="hidden" name="user[]" value="">
+								<label class="name"></label>
+								<label class="mail"></label>
+							</div> 
+							<div class="assing-acl">
+									<a class="button edit user-options-button-edit new">Editar permissões</a>
+									<a class="button close new">Remover</a>
+							</div>
+						</li>	
+					<%} 
+				} else { %>
+					<li class="not-user"><%=data.calendar ? "Não compartilhado." : "Nenhuma agenda selecionada"%></li>
+				<% } %>
+				</ul>
+			</dd>	
+		</dl>
+
+		<%if(data.calendar){%>
+			<dl class="block-public-calendar">
+				<dt class="calendar-public">Agenda pública</dt>
+				<dd class="calendar-public">
+						<ul>
+							<input type="checkbox" name="isPublic"/><label>Pública</label>
+							<input type="checkbox" name="busy" class="free-busy hidden"/><label class="free-busy hidden">Livre/Ocupado</label>
+						</ul>
+				</dd>
+			</dl>
+		<%}%>
+		<dl class="block-add-user search ">
+			<dt class="add-user search">Pesquisar agendas</dt>
+			<dd class="add-user">
+				<fieldset class="block-add-user" title="Usuários">
+					<fieldset class="add-user-search search-field ui-corner-all">
+						<input class="search" type="text" />
+						<span class="ui-icon ui-icon-search"></span>
+						
+					</fieldset>
+					<ul class="search-result-list ui-corner-all">
+
+					</ul>
+				</fieldset>
+			</dd>
+		</dl>
+	</fieldset>
+	<div class="menu-container footer-container menu-addevent">
+		<a class="button cancel" href="#">Cancelar</a>
+	    <a class="button save" href="#">Salvar</a>
+    </div>
+	</form>
+</fieldset>

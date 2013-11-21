@@ -1,0 +1,13 @@
+
+<%if (data.type == 'linha'){%>
+<li>
+	<div class="line-separator">
+		&nbsp;
+	</div>
+<%}else{%>
+<li>
+	<img style="position:relative; top:2px; "src="templates/default/images/<%=data.type == 'pessoal' ? 'contato_pessoal' : 'contato_recente'%>.png" title="Contato <%=data.type == 'pessoal' ? data.type : 'recente'%>"/>
+	<a style="width:80%; display: inline-block;"><%= data.name.length <= 21 ? data.name : data.name.substr(0,18) + "..."%> - <%= data.email %></a>
+	<span style="width:16px; height:16px; top:5px; <%=data.type == 'pessoal' ? 'display:none' : ''%>">Excluir contato recente</span>	
+<%}%>
+</li>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller>
+	<controller-security>
+		<string-access>act</string-access>
+		<string-delimiter>.</string-delimiter>
+	</controller-security>
+	<controller-contentes>
+		<item param="c" section="css" />
+		<item param="j" section="js" />
+		<item param="p" section="php" />
+		<item param="xm" section="xml" />
+		<item param="xs" section="xsl" />
+	</controller-contentes>
+	<controller-sections>
+		<css></css>
+		<js path="/js" suffix=".js">
+			<item ref="connector" js="connector" />
+		</js>
+		<php path="/inc" suffix=".class.php">
+			<item ref="cc" alias="getListContacts" class="ContactsIm" method="getListContacts" prefix="class." suffix=".inc.php"/>
+			<item ref="ff" alias="data_0" class="CommonFunctions" method="getUserCurrentUserJabber" prefix="class." suffix=".inc.php"/>
+			<item ref="ff" alias="data_1" class="CommonFunctions" method="getUserCurrentPassword" prefix="class." suffix=".inc.php"/>
+			<item ref="pf" alias="setPreferences" class="preferencesJMessenger" method="setPreferences" prefix="" suffix=".php"/>
+		</php>
+		<xml></xml>
+		<xsl></xsl>
+	</controller-sections>
+</controller>

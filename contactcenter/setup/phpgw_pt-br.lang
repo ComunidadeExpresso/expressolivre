@@ -1,0 +1,234 @@
+Add Participants	contactcenter	pt-br	Adicionar Participantes
+Add Relation	contactcenter	pt-br	Adicionar Relação
+Add to catalog 	contactcenter	pt-br	Adicionar ao catálogo
+Address 1	contactcenter	pt-br	Endereço 1
+Address 2	contactcenter	pt-br	Endereço 2
+Addresses	contactcenter	pt-br	Endereços
+Address Other	contactcenter	pt-br	Outro Endereço
+Alias	common	pt-br	Apelido
+Alternative	contactcenter	pt-br	Alternativo
+An error has occurred while the exportation.	contactcenter	pt-br	um erro ocorreu durante a exportação
+Attributes	contactcenter	pt-br	Atributos
+Available	contactcenter	pt-br	Disponível
+Birthdate	contactcenter	pt-br	Nascimento
+Automatic	contactcenter	pt-br	Automático
+Browse	common	pt-br	Procurar
+Cards View	contactcenter	pt-br	Ver Cartões
+Cards Visualization Preferences	contactcenter	pt-br	Preferências de Visualização de Cartões
+Catalog %1 not showed due to error: Time limit exceeded	contactcenter	pt-br	Catálogo %1 não foi mostrado devido ao erro: Tempo limite excedido
+Catalog %1 temporarily unavailable. Please try again later!	contactcenter	pt-br	Catálogo %1 temporariamente indisponível. Favor tentar novamente mais tarde!
+Catalogues	contactcenter	pt-br	Catálogos
+Cellphone	contactcenter	pt-br	Celular
+Choose City	contactcenter	pt-br	Escolher Cidade...
+Choose Country	contactcenter	pt-br	Escolher País...
+Choose 'E-mail' or 'Telephone'	contactcenter	pt-br	Escolha E-Mail ou Telefone
+Choose Email Type...	contactcenter	pt-br	Escolha o tipo do email
+Choose Prefix...	contactcenter	pt-br	Escolher Prefixo...
+Choose Sex ...	contactcenter	pt-br	Escolher Sexo ...
+Choose State	contactcenter	pt-br	Escolher Estado...
+Choose Suffix...	contactcenter	pt-br	Escolher Sufixo...
+Choose Telephone Type...	contactcenter	pt-br	Escolha o tipo do telefone
+Choose in wich catalog you would like to add...	contactcenter	pt-br	Escolha em qual catálogo deseja adicionar...
+Choose Type of Address	contactcenter	pt-br	Escolher Tipo de Endereço
+Choose Type of Connection	contactcenter	pt-br	Escolher Tipo de Conexão
+City	contactcenter	pt-br	Cidade
+Close	contactcenter	pt-br	Fechar
+Comercial	contactcenter	pt-br	Comercial
+Complement	contactcenter	pt-br	Complemento
+Advanced Search	contactcenter	pt-br	Busca Avançada
+Contatc: 	contactcenter	pt-br	Contato: 
+ new	contactcenter	pt-br	 novas
+ failed	contactcenter	pt-br	 falharam
+ were existent	contactcenter	pt-br	 já existiam
+show more info	contactcenter	pt-br	Mais informações
+Clean	contactcenter	pt-br	Limpar
+Confirm Removal of this Contact?	contactcenter	pt-br	Confirmar a exclusão deste Contato?
+Confirm Removal of this Group?	contactcenter	pt-br	Confirmar a exclusão deste Grupo?
+Connection Name	contactcenter	pt-br	Nome da Conexão
+Connections	contactcenter	pt-br	Conexões
+Connection Value	contactcenter	pt-br	Valor da Conexão
+Connector Setup	contactcenter	pt-br	Configuração de Conexão
+contactcenter	common	pt-br	Catálogo de Endereços
+Contact Center	common	pt-br	Catálogo de Endereços
+Contact [Full]	contactcenter	pt-br	Contato [Completo]
+Contact [Shared]	contactcenter	pt-br	Contato [Compartilhado]
+Contact Group List	common	pt-br	Lista de Grupos de Contatos
+Contacting Server...	contactcenter	pt-br	Contactando Servidor...
+Contact [Quick Add]	contactcenter	pt-br	Contato [Adição Rápida]
+Contacts	common	pt-br	Contatos
+Copy to personal catalog.	contactcenter	pt-br	Copiar para o Catálogo Pessoal
+Couldn't contact server or server response is invalid. Contact Admin.	contactcenter	pt-br	Não foi possível estabelecer conexão com o servidor. Contacte o Administrador do sistema.
+Could\'nt remove group with id: %1	contactcenter	pt-br	Não foi possível remover grupo com id: %1
+Country	contactcenter	pt-br	País
+Corporate	contactcenter	pt-br	Empresa
+Corporative	contactcenter	pt-br	Corporativo
+Corporative Cellphone	contactcenter	pt-br	Celular Corporativo
+Corporative Fax	contactcenter	pt-br	Fax Corporativo
+Corporative Pager	contactcenter	pt-br	Pager Corporativo
+Data to be serialized is of unknown type!	contactcenter	pt-br	Dado a ser serializado é de tipo desconhecido
+Day	contactcenter	pt-br	Dia
+Default	contactcenter	pt-br	Padrão
+Default Person Email Type	contactcenter	pt-br	Tipo padrão de email da pessoa
+Default Person Telephone Type	contactcenter	pt-br	Tipo padrão de telefone da pessoa
+Department	contactcenter	pt-br	Departamento
+Display Connector Client-Server Status Information?	contactcenter	pt-br	Exibir Informações do Status da Conexão Cliente-Servidor
+Edit Contact	contactcenter	pt-br	Editar Contato
+Edit Group	contactcenter	pt-br	Editar Grupo
+E-mails and Telephones	contactcenter	pt-br	E-mails e Telefones
+Empty	contactcenter	pt-br	Vazio
+Entry added with success!	contactcenter	pt-br	Contato adicionado com sucesso!
+Entry added with success. But some contacts will not receive or send messages.	contactcenter	pt-br	Contato adicionado com sucesso. Porém alguns contatos não receberão ou enviarão mensagens.
+Export as Expresso (default) CSV.	contactcenter	pt-br	Exportar como Expresso (padrão) CSV.
+Export as Mozilla Thunderbird CSV.	contactcenter	pt-br	Exportar como Mozilla Thunderbird CSV.
+Export as Outlook 2000 (English) CSV.	contactcenter	pt-br	Exportar como Outlook 2000 (Inglês) CSV.
+Export as Outlook 2000 (Portuguese) CSV.	contactcenter	pt-br	Exportar como Outlook 2000 (Português) CSV.
+Export as Outlook Express (English) CSV.	contactcenter	pt-br	Exportar como Outlook Express (Inglês) CSV.
+Export as Outlook Express (Portuguese) CSV.	contactcenter	pt-br	Exportar como Outlook Express (Português) CSV.
+Export Contacts	contactcenter	pt-br	Exportar Contatos
+Expresso (default)	contactcenter	pt-br	Expresso (padrão)
+Family Names	common	pt-br	Sobrenome
+Fax	contactcenter	pt-br	Fax
+Female	contactcenter	pt-br	Feminino
+field is empty	contactcenter	pt-br	Campo está vazio
+Fill the field Full Name	contactcenter	pt-br	Preencha o Nome Completo
+Found %1 Entries	common	pt-br	Encontrado %1 Resultado(s)
+Full Add	contactcenter	pt-br	Adicionar Completo
+Full Add Shared	contactcenter	pt-br	Adicionar Completo Compartilhado
+Full Name	contactcenter	pt-br	Nome Completo
+Given Names	common	pt-br	Nome
+Go	common	pt-br	Ir
+GPG Finger Print	contactcenter	pt-br	Assinatura GPG
+Group Add	common	pt-br	Adicionar Grupo
+Groups available	contactcenter	pt-br	Grupos disponíveis
+Selected groups	contactcenter	pt-br	Grupos selecionados
+Home Phone	contactcenter	pt-br	Casa
+Import	contactcenter	pt-br	Importar
+Import Contacts	contactcenter	pt-br	Importar Contatos
+Import/Export	contactcenter	pt-br	Importar/Exportar
+Import / Export Personal Contacts	contactcenter	pt-br	Importar/Exportar Contatos Pessoais
+Importing contacts...	contactcenter	pt-br	Importando Contatos...
+Insert a New Group	common	pt-br	Inserir um Novo Grupo
+insert	common	pt-br	Inserir
+Invalid Date	common	pt-br	Data inválida
+Is Default?	contactcenter	pt-br	É Padrão?
+Is My	contactcenter	pt-br	É meu
+Job Title	contactcenter	pt-br	Cargo
+Main	contactcenter	pt-br	Principal
+Male	contactcenter	pt-br	Masculino
+Month	contactcenter	pt-br	Mês
+Mozilla Thunderbird	contactcenter	pt-br	Mozilla Thunderbird
+Name is mandatory	contactcenter	pt-br	Nome é obrigatório
+New City	contactcenter	pt-br	Nova Cidade
+New...	contactcenter	pt-br	Novo...
+New	contactcenter	pt-br	Novo
+New Email	contactcenter	pt-br	Novo Email
+New from same Company	contactcenter	pt-br	Novo da mesma empresa
+New from the same Type	contactcenter	pt-br	Novo do mesmo tipo
+New State	contactcenter	pt-br	Novo Estado
+New Telephone	contactcenter	pt-br	Novo Telefone
+No Cards	contactcenter	pt-br	Nenhum
+No Cities found for this State.	contactcenter	pt-br	Nenhuma Cidade encontrada para este Estado.
+No City	contactcenter	pt-br	Nenhuma Cidade
+No Entries Found!	contactcenter	pt-br	Nenhum resultado encontrado!
+No Room for Cards! Increase your browser area.	contactcenter	pt-br	Área muito pequena para visualizar em modo de cartões! Aumente a área (janela) do seu navegador.
+No shared catalog that has permission to add.	contactcenter	pt-br	Nenhum catálogo compartilhado com permissão de adição.
+No State	contactcenter	pt-br	Nenhum Estado
+No States found for this Country.	contactcenter	pt-br	Nenhum Estado encontrado para este País.
+Operation Timed Out.	contactcenter	pt-br	Tempo de operação esgotado.
+Option	contactcenter	pt-br	Opção
+Outlook 2000	contactcenter	pt-br	Outlook 2000
+Outlook Express	contactcenter	pt-br	Outlook Express
+Pager	contactcenter	pt-br	Pager
+Participants	common	pt-br	Participantes
+People	contactcenter	pt-br	Pessoal
+Personal Contacts	common	pt-br	Contatos Pessoais
+Personal Data	contactcenter	pt-br	Dados Pessoais
+Phone	contactcenter	pt-br	Telefone
+Call Extension	contactcenter	pt-br	Efetuar chamada
+PO Box	contactcenter	pt-br	Caixa Postal
+Postal Code	contactcenter	pt-br	CEP
+Prefix	contactcenter	pt-br	Prefixo
+Problems on adding your Contact. The email "%1" already exists in: %2	common	pt-br	Não foi possível adicionar. O email "%1" já existe nos seguintes contatos: %2
+Problems on adding your Group. Be sure that a group with this name do not exists	contactcenter	pt-br	Problemas ao adicionar seu grupo. Certifique-se que não existe um grupo com esse nome.
+Processing Information...	contactcenter	pt-br	Processando Informações...
+Quick Add	common	pt-br	Adição Rápida
+Relations	contactcenter	pt-br	Relações
+Remove	common	pt-br	Remover
+Remove Contact	contactcenter	pt-br	Remover Contato
+Removed Entry!	common	pt-br	Contato removido com sucesso !
+Removed Entry ID %1!	common	pt-br	Contato removido com sucesso (ID = %1)!
+Remove Group	contactcenter	pt-br	Remover Grupo
+Remove Selected Relations	contactcenter	pt-br	Remover Relações Selecionadas
+Reset	common	pt-br	Limpar
+Results	contactcenter	pt-br	Resultados
+Search for Catalog Entries	contactcenter	pt-br	Pesquisar por Resultados no Catálogo
+Search for...	common	pt-br	Pesquisar por ...
+Sector	contactcenter	pt-br	Setor
+Select a valid CSV file to import your contacts	contactcenter	pt-br	Selecione um arquivo CSV válido para importar os seus contatos
+Select E-Mail	contactcenter	pt-br	Selecione o E-mail
+Select Photo	contactcenter	pt-br	Selecionar Foto
+Select the file that contains the contacts to be imported:	contactcenter	pt-br	Selecione o arquivo que contém os contatos para serem importados
+Select the file type	contactcenter	pt-br	Selecione o tipo de arquivo
+Select the format type that you want to export your contacts	contactcenter	pt-br	Selecione o tipo de formatação que você gostaria de usar para exportar os seus contatos
+Select the telephone	contactcenter	pt-br	Selecione o Telefone
+Send Mail	common	pt-br	Enviar email
+Server Contacted. Waiting for response...	contactcenter	pt-br	Servidor contactado. Aguardando resposta...
+Sex	contactcenter	pt-br	Sexo
+Showing found entries	common	pt-br	Mostrando itens encontrados
+State	contactcenter	pt-br	Estado
+Suffix	contactcenter	pt-br	Sufixo
+Table View	contactcenter	pt-br	Ver Tabela
+Telephone	contactcenter	pt-br	Telefone
+Tel or email is required	contactcenter	pt-br	Você precisa informar ou o e-mail ou o telefone
+The Expresso supports the contacts importation in the CSV file format.	contactcenter	pt-br	O Expresso suporta a importação de contatos em arquivos de formatação CSV
+The importation has failed. Verify the file format.	contactcenter	pt-br	A importação falhou. Verifique o formato do arquivo.
+The importation has finished.	contactcenter	pt-br	A importação terminou.
+The query should not have the characters {%,?}	contactcenter	pt-br	A consulta não deve possuir os caracteres {%,?}
+Type new city here	contactcenter	pt-br	Digite o nome aqui
+Type new state here	contactcenter	pt-br	Digite o nome aqui
+Type of Address	contactcenter	pt-br	Tipo de Endereço
+Type of Connection	contactcenter	pt-br	Tipo de Conexão
+Unavailable or empty Catalog	contactcenter	pt-br	Catálogo vazio ou indisponível
+Updated Successfully!	contactcenter	pt-br	Atualizado com Sucesso!
+Users List	contactcenter	pt-br	Lista de Usuários
+Value	contactcenter	pt-br	Valor
+Views	contactcenter	pt-br	Visões
+Web Page	contactcenter	pt-br	Página da Web
+Work	contactcenter	pt-br	Trabalho
+Year	contactcenter	pt-br	Ano
+You did not add any contact for this group.	contactcenter	pt-br	Você não adicionou nenhum contato para esse grupo.
+ou	contactcenter	pt-br	Organização:
+search for	contactcenter	pt-br	Buscar por:
+availables	contactcenter	pt-br	Usuários disponíveis
+shareds	contactcenter	pt-br	Compartilhados
+Shared	contactcenter	pt-br	Compartilhado
+Not Allowed	contactcenter	pt-br	Acesso negado
+Unavailable function	contactcenter	pt-br	Função indisponível
+Name	common	pt-br	Nome
+Type	common	pt-br	Tipo
+Delete	common	pt-br	Excluir
+Add new detail field	common	pt-br	Adicionar novo campo de detalhe
+Details on the Global Catalog Address	common	pt-br	Detalhes no catálogo global de endereços
+Enable display of contact details for the Global Catalog	common	pt-br	Habilitar exibição de detalhes para contatos do catálogo global
+Corresponding LDAP	common	pt-br	Correspondente LDAP
+The reported field was not found in LDAP	common	pt-br	O campo informado como correspondência no LDAP não foi encontrado
+Contact's details	common	pt-br	Detalhes do contato
+The extra details are not configured.	common	pt-br	Os detalhes extras não estão configurados.
+Attribute name	common	pt-br	Nome do atributo
+Show extra contact's details.	common	pt-br	Exibir detalhes extras do contato.
+Text	common	pt-br	Texto
+Text	contactcenter	pt-br	Texto
+Yes	contactcenter	pt-br	Sim
+No	contactcenter	pt-br	Não
+Multivalued	common	pt-br	Multivalorado
+Could not find the LDAP attribute pointed by	common	pt-br	Não foi encontrado o correspondente LDAP para o atributo
+Multivalued	contactcenter	pt-br	Multivalorado
+lang_LDAP_max_results	contactcenter	pt-br	Configurar a quantidade máxima de resultados em uma pesquisa no Catálogo Global
+work_main	contactcenter	pt-br	Principal trabalho
+work_cell	contactcenter	pt-br	Celular trabalho
+home_cell	contactcenter	pt-br	Celular casa
+home_fax	contactcenter	pt-br	Fax casa
+home	contactcenter	pt-br	Casa
+This group name already exists, please enter another name.	contactcenter	pt-br	Esse nome grupo já existe, por favor informe outro nome.
+Export as Outlook 2003 CSV.	contactcenter	pt-br	Exportar como Outlook 2003 CSV.
+Not informed	contactcenter	pt-br	Não informado.

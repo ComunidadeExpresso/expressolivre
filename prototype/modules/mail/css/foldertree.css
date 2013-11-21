@@ -1,0 +1,93 @@
+#content_folders .foldertree-skin-prognus span.selected {font-weight:bold !important; } 
+#content_folders .foldertree-skin-prognus span.inbox {}
+#content_folders .foldertree-skin-prognus span.trash {background-image: url(../img/mail-sprites.png); background-position: 0 -67px;}
+#content_folders .foldertree-skin-prognus span.drafts {background-image: url(../img/mail-sprites.png); background-position: 0 -1121px;}
+#content_folders .foldertree-skin-prognus span.spam {background-image: url(../img/mail-sprites.png); background-position: 0 -989px;}
+#content_folders .foldertree-skin-prognus span.sent {background-image: url(../img/mail-sprites.png); background-position: 0 -1055px;}
+#content_folders .foldertree-skin-prognus span.folder {display: block;padding-bottom: 1px;padding-left: 18px;padding-right: 0;padding-top: 1px; font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;}
+#content_folders .treeview .closed {display:block;}
+
+.folders-loading {
+	background: url(../img/loader.gif) !important;
+	background-position: 0 0 !important;
+	background-repeat : no-repeat !important;
+}
+
+.draggin-box{
+	cursor : pointer;
+	background-color: #CDC5BF;
+	float: left;
+	width : auto; 
+	height: 16px; 
+	border:1px solid #333;
+	text-align: right;
+	z-index: 2000;
+}
+
+.ui-draggin-default-image{
+    float: left; 
+    text-align: right;
+}
+
+.draggin-mail{
+	float: left;
+	background-image: url(../img/mail-sprites.png);
+	background-position: 0 -1383px;
+	background-repeat:no-repeat;
+	color : red;
+	text-align: right;
+	font-weight : bold;
+	padding-right : 5px;
+	padding-left : 25px;	
+	font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-size : 11px;
+}
+
+.draggin-folder{
+	float: left;
+	background-image: url(../img/mail-sprites.png);
+	background-position: 0 -923px;
+	background-repeat:no-repeat;
+	padding-left : 20px;
+	color : red;
+	text-align: right;
+	font-weight : bold;
+	padding-right : 5px;
+}
+
+.collapse_folders_td{
+	cursor : pointer;
+	width: 12px;
+	height:100%;
+	border-radius : 5px;
+	border-left : 1px solid #CCCCCC;
+}
+.collapse_folders_td.collapse_folders_td_over{
+	border-left: 1px solid #1B75BB;
+} 
+
+.folder-over{
+	border: 1px solid black;
+}
+
+.floating-default{
+    float: left; 
+    text-align: left;
+}
+
+.collapse_folders_td .ui-icon.ui-icon-triangle-1-e{
+	background-position: -37px -20px;
+	width: 8px; 
+	height: 8px;
+}
+
+.collapse_folders_td .ui-icon.ui-icon-triangle-1-w{
+	width: 8px; 
+	height: 8px;
+	background-position: -100px -20px;
+}
+
+.float-menu{
+	position:absolute;
+	text-align: left;
+}

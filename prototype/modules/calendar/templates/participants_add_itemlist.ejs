@@ -1,0 +1,24 @@
+<li class="attendee"> 
+	<div style="overflow:hidden; width:100%; display:table;">
+		<div class="attendee-options">
+			<%if( !data[0].isDelegate && ((!data[0].isDirty && data[0].notEvent) || (!data[0].isDirty && data[0].acl && (data[0].acl.organization || data[0].acl.write || data[0].acl.inviteGuests)))){%>
+				<a href="#" class="button delegate attendee-options-button-delegate new">Delegar participação a este participante</a>
+			<%}%>
+			<%if(!data[0].noEvent && data[0].acl && (data[0].acl.organization || data[0].acl.write)){%>
+				<a class="button edit attendee-options-button-edit new">Editar permissões</a>
+			<%}%>
+			<a class="button close new">Remover</a>
+		</div>
+		
+		<input class="new" type="checkbox" value="<%= data[0].id %>">
+		<input type="hidden" name="attendee[]" value="<%= data[0].id %>">
+		<input type="hidden" name="attendeeType[]" value="<%=data[0].isExternal%>">
+		<%if(!data[0].noEvent){%>
+            <input type="hidden" name="attendeeAcl[]" value="r">
+        <%}%>
+		<input type="hidden" name="delegatedFrom[]" value="0">
+		<label title="<%= data[0].name ? data[0].name : '' %>" class="name"><%= data[0].name ? data[0].name : '' %></label>
+		<label title="<%= data[0].mail ? data[0].mail : '' %>" class="mail <%= data[0].name ? 'hidden' : ''%>"><%= data[0].mail ? data[0].mail : '' %></label>
+
+	</div>
+</li>

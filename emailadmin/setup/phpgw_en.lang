@@ -1,0 +1,69 @@
+add profile	emailadmin	en	Add Profile
+admin dn	emailadmin	en	admin dn
+admin password	emailadmin	en	admin password
+admin passwort	emailadmin	en	admin passwort
+admin username	emailadmin	en	admin username
+advanced options	emailadmin	en	advanced options
+alternate email address	emailadmin	en	alternate email address
+cyrus imap server	emailadmin	en	Cyrus IMAP Server
+cyrus imap server administration	emailadmin	en	Cyrus IMAP server administration
+default	emailadmin	en	default
+deliver extern	emailadmin	en	deliver extern
+do you really want to delete this profile	emailadmin	en	Do you really want to delete this Profile
+domainname	emailadmin	en	domainname
+edit email settings	emailadmin	en	edit email settings
+email account active	emailadmin	en	email account active
+email address	emailadmin	en	email address
+enable cyrus imap server administration	emailadmin	en	enable Cyrus IMAP server administration
+enable sieve	emailadmin	en	enable Sieve
+enter your default mail domain (from: user@domain)	emailadmin	en	Enter your default mail domain (from: user@domain)
+forward also to	emailadmin	en	forward also to
+forward email's to	emailadmin	en	forward email's to
+forward only	emailadmin	en	forward only
+imap admin password	admin	en	IMAP admin password
+imap admin user	admin	en	IMAP admin user
+imap server hostname or ip address	emailadmin	en	IMAP server hostname or ip address
+imap server logintyp	emailadmin	en	IMAP server login type
+imap server port	emailadmin	en	IMAP server port
+imap/pop3 server name	emailadmin	en	IMAP/POP3 server name
+in mbyte	emailadmin	en	in MByte
+ldap basedn	emailadmin	en	LDAP basedn
+ldap server	emailadmin	en	LDAP server
+ldap server accounts dn	emailadmin	en	LDAP server accounts DN
+ldap server admin dn	emailadmin	en	LDAP server admin DN
+ldap server admin password	emailadmin	en	LDAP server admin password
+ldap server hostname or ip address	emailadmin	en	LDAP server hostname or ip address
+ldap settings	emailadmin	en	LDAP settings
+leave empty for no quota	emailadmin	en	leave empty for no quota
+mail settings	admin	en	Mail settings
+name of organisation	emailadmin	en	Name of organization
+no alternate email address	emailadmin	en	no alternate email address
+no forwarding email address	emailadmin	en	no forwarding email address
+pop3 server hostname or ip address	emailadmin	en	POP3 server hostname or ip address
+pop3 server port	emailadmin	en	POP3 server port
+postfix with ldap	emailadmin	en	Postfix with LDAP
+profile list	emailadmin	en	Profile List
+profile name	emailadmin	en	Profile Name
+qmaildotmode	emailadmin	en	qmaildotmode
+qouta size in mbyte	emailadmin	en	qouta size in MByte
+quota settings	emailadmin	en	quota settings
+remove	emailadmin	en	remove
+select type of imap/pop3 server	emailadmin	en	Select type of IMAP/POP3 server
+select type of smtp server	emailadmin	en	Select type of SMTP Server
+sieve server hostname or ip address	emailadmin	en	Sieve server hostname or ip address
+sieve server port	emailadmin	en	Sieve server port
+sieve settings	emailadmin	en	Sieve settings
+smtp server name	emailadmin	en	SMTP server name
+smtp-server hostname or ip address	emailadmin	en	SMTP server hostname or IP address
+smtp-server port	emailadmin	en	SMTP server port
+standard	emailadmin	en	Standard
+standard imap server	emailadmin	en	Standard IMAP server
+standard pop3 server	emailadmin	en	Standard POP3 server
+standard smtp-server	emailadmin	en	Standard SMTP server
+use ldap defaults	emailadmin	en	use LDAP defaults
+use smtp auth	emailadmin	en	Use SMTP auth
+use tls authentication	emailadmin	en	Use TLS authentication
+use tls encryption	emailadmin	en	Use TLS encryption
+users can define their own emailaccounts	emailadmin	en	Users can define their own email accounts
+virtual mail manager	emailadmin	en	Virtual MAIL ManaGeR
+IMAP C-Client Version < 2001	emailadmin	en	IMAP C-Client Version < 2001

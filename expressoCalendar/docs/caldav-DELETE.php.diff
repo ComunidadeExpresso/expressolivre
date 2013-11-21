@@ -1,0 +1,23 @@
+--- caldav-DELETE.php.CP	2012-01-09 14:11:21.000000000 -0200
++++ caldav-DELETE.php	2012-01-19 18:12:18.000000000 -0200
+@@ -81,6 +81,20 @@
+   $myLock = $cache->acquireLock('collection-'.$dav_resource->parent_path());
+ 
+   $params = array( ':dav_id' => $dav_resource->resource_id() );
++
++/////Expresso
++  if(strpos($request->user_agent, 'ExpressoLivre') === false) //Ignorar eventos do expresso
++  {
++     $expresso = 'PATH_DO_SEU_EXPRESSO';
++     include_once($expresso.'/prototype/api/controller.php');
++     include_once($expresso.'/prototype/modules/calendar/interceptors/DAViCalAdapter.php');
++
++     $dav_name = explode('/', $dav_resource->GetProperty('dav_name'));
++
++     DAViCalAdapter::delete($dav_resource->GetProperty('caldav_data') ,array('owner' => $dav_resource->GetProperty('username') , 'calendarName' => $dav_name[ (count($dav_name)-3) ] .'/'. $dav_name[ (count($dav_name)-2) ]));
++  }
++///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++
+   if ( $qry->QDo("SELECT write_sync_change(collection_id, 404, caldav_data.dav_name) FROM caldav_data WHERE dav_id = :dav_id", $params )
+     && $qry->QDo("DELETE FROM property WHERE dav_name = (SELECT dav_name FROM caldav_data WHERE dav_id = :dav_id)", $params )
+     && $qry->QDo("DELETE FROM locks WHERE dav_name = (SELECT dav_name FROM caldav_data WHERE dav_id = :dav_id)", $params )

@@ -1,0 +1,4 @@
+;Url utilizada para acessar o serviço caldav
+url = ""
+;Conta do caldav onde fica armazenada as agendas de contas compartilhadas
+sharedAccountsLocation = "shareds"

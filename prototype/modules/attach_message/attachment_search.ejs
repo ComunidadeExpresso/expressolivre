@@ -1,0 +1,21 @@
+<div class="attach-message-search-div" style="position: absolute;right: 0px;top: 50%;margin: -10px 0 0 0;padding: 1px;height: 18px;">
+	<fieldset class="attach-message-search-field ui-corner-all" style="border: 0;margin: -10px 0 0 0;padding: 1px;height: 18px;position: relative;top: 50%;">
+        
+		<!--<span class="ui-icon ui-icon-search" style="position: absolute;right: 6px;top: 10%;"></span>
+		<input class="attach-message-search-checkbox" title="Selecione para buscar pelo conteudo da mensagem" type="checkbox" style="position: absolute;right: 20px;top: 10%;"> -->
+		<input class="attach-message-search-input" type="text" style="border-radius: 5px;border-right-color: white;border-right: 60px solid white;border-bottom: 1px solid white;border-top: 1px solid white;position: absolute;right: 9px;width: 170px;">
+		<span style="position: absolute; right: 5px; 
+		<% if(is_ie){ %>
+			top: 1px;">
+		<% }else if(is_webkit){ %>	
+			top: 4px;">
+		<% } else { %>	
+			top: 2px;">
+		<% } %>	
+			<button id="attach-message-search" title="Buscar mensagens" class="ui-icon ui-icon-search" style="position: absolute; right: 28px;"></button>
+    		<input type="checkbox" id="attach-message-search-options" class="attach-message-search-checkbox">
+            <label class="button-body-msg-title" style="width: 26px; height: 14px;" for="attach-message-search-options"><%= get_lang("take on this option to regard the message body in the search.") %></label>
+
+    	</span>
+	</fieldset>
+</div>

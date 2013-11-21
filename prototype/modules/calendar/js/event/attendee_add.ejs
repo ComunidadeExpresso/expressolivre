@@ -1,0 +1,112 @@
+<!--<fieldset  class="block-r-list ui-corner-all" title="Participantes">
+	
+</fieldset>
+<fieldset  class="block-attendee-list ui-corner-all" title="Participantes">
+	<legend>Participantes</legend>-->
+	
+
+	<dl class="block-attendee-list attendees-list">
+		<dt class="me"><%= data.event.me.name %></dt>
+		<dd class="me">
+			<select class="status">
+				<option value="go">Eu vou</option>
+				<option value="dontgo">Eu não vou</option>
+				<option value="maybe">Talvez</option>
+				<option value="another">Outra pessoa vai</option>
+			</select>
+			<fieldset class="add-attendee-search search-field ui-corner-all hidden">
+				<span class="ui-icon ui-icon-search"></span>
+				<input class="search" type="text" />
+			</fieldset>
+		</dd>
+
+		<dt class="attendee-list">Convidados</dt>
+		<dd class="attendee-list">
+			<ul id="attendees-users">
+				<li class="organizer"><input type="checkbox" name="attendee_organizer" id="attendee_organizer" value="<%= data.event.organizer.uid%>" disabled="disabled">
+					<label for="attendee_organizer"><%= data.event.organizer.name %></label>
+					<% if (data.event.me.uid == data.event.organizer.uid) { %>
+					<span class="button small swap">Mudar organizador</span>
+					<% } %>
+				</li>
+			<% if (data.event && data.event.attendee) {
+				for (var i=0; i< data.event.attendee.length; i++) {
+			%>
+				<li class="attendee">
+				    <input type="checkbox" name="attendee[]" id="attendee_<%=i%>" value="<%=data.event.attendee[i].uid%>">
+					<label for="attendee_<%i%>"><%= data.event.attendee[i].name %>
+						<span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span>
+					</label>
+				</li>
+				
+				<!-- remover -->				
+				<li class="attendee">
+				    <input type="checkbox" name="attendee[]" id="attendee_<%=i%>" value="<%=data.event.attendee[i].uid%>">
+					<label for="attendee_<%i%>"><%= data.event.attendee[i].name %>
+						<span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span>
+					</label>
+				</li>
+
+			<%	
+				} 
+			} else { %>
+				<li>Não há outros participantes.</li>
+			<% } %>
+			</ul>
+		</dd>
+		<dd>
+		<% if (data.event && data.event.attendee.length > 0) { %>
+		  <ul class="attendees-count">
+	        <li><label>Sim:</label> 1</li>
+		    <li><label>Não:</label> 0</li>
+		    <li><label>Talvez:</label> 0</li>
+		    <li><label>Aguardando:</label> 2</li>
+		  </ul>     
+	    <% } %>
+		</dd>
+		
+	</dl>
+<% if (data.event.me.uid == data.event.organizer.uid) { %>
+	<dl class="block-add-attendee">
+		<dt class="add-attendee">Adicionar convidados</dt>
+		<dd class="add-attendee">
+			<fieldset class="block-add-attendee" id="calendar_addevent_add_attendee" title="Participantes">
+				<fieldset class="add-attendee-search search-field ui-corner-all">
+					<span class="ui-icon ui-icon-search"></span>
+					<input class="search" type="text" />
+				</fieldset>
+				<ul class="search-result-list ui-corner-all hidden">
+					<li><input type="checkbox" name="opcao" value="op1" id="opcao511"/> 
+						<label for="opcao511">Talita Equina da Silva <span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span></label>
+					</li>
+					<li><input type="checkbox" name="opcao" value="op1" id="opcao512"/> 
+						<label for="opcao512">Random Molusco da Silva <span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span></label>
+					</li>
+					<li><input type="checkbox" name="opcao" value="op1" id="opcao513"/> 
+						<label for="opcao513">Mano Daltonico dos Santos <span class="ui-icon ui-icon-close  ui-corner-all ui-icon-float-right"></span></label>
+					</li>
+					<li><input type="checkbox" name="opcao" value="op1" id="opcao523"/> 
+						<label for="opcao523">Fulano da Silva <span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span></label>
+					</li>
+				</ul>
+			</fieldset>
+
+			<fieldset class="block-add-attendee-permissions ui-corner-all hidden">
+				<legend>Convidados podem:</legend>
+				<ul class="add-attendee-permissions-list">
+					<li><input type="checkbox" name="attendee-mod-event" id="attendee-mod-event"><label for="attendee-mod-event">Modificar evento </label></li>
+					<li><input type="checkbox" name="attendee-invite-others" id="attendee-invite-others"><label for="attendee-invite-others">Convidar outros</label></li>
+					<li><input type="checkbox" name="attendee-view-list-invited" id="attendee-view-list-invited"><label for="attendee-view-list-invited">Ver lista de convidados</label></li>
+					<li><input type="checkbox" name="attendee-optional" id="attendee-optional"><label for="attendee-optional">Participação opcional</label></li>
+				</ul>
+			</fieldset>
+		</dd>
+	</dl>
+<% } %>
+<!--</fieldset>-->
+
+
+
+
+
+

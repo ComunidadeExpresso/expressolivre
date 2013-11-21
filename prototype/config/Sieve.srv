@@ -1,0 +1,11 @@
+path = "services/Sieve.php"
+class = "Sieve"
+[config]
+host = 127.0.0.1
+port = 2000
+loginType = null
+auth = true
+debug = false
+euser = ''
+useTLS = false
+options = null

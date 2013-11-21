@@ -1,0 +1,450 @@
+1 Day	expressoMail1_2	en	1 Day
+2 Days	expressoMail1_2	en	2 Days
+3 Days	expressoMail1_2	en	3 Days
+4 Days	expressoMail1_2	en	4 Days
+5 Day	expressoMail1_2	en	5 Day
+5 Days	expressoMail1_2	en	5 Days
+Access right	expressoMail1_2	en	Access rights
+Action	expressoMail1_2	en	Action
+Add BCC	expressoMail1_2	en	Add BCC
+Add CC	expressoMail1_2	en	Add CC
+Add Contact	expressoMail1_2	en	Add Contact
+Add user into my IM	expressoMail1_2	en	Add user into my IM
+Note: This sharing will take action on all of your folders and messages.	expressoMail1_2	en	Note: This sharing will take action on all your folders and messages.
+all	expressoMail1_2	en	all
+Allowed domains for sieve forwarding	admin	en	Allowed domains for sieve forwarding
+Also check message against next rule	expressoMail1_2	en	Also check message against next rule
+Always sign message digitally?	expressoMail1_2	en	Always sign message digitally?
+Always cipher message digitally?	expressoMail1_2	en	Always cipher message digitally?
+and	expressoMail1_2	en	and
+and save in	expressoMail1_2	en	and save in
+Answered	expressoMail1_2	en	Answered
+Answered/Forwarded	expressoMail1_2	en	Answered/Forwarded
+l_answered	expressoMail1_2	en	Answered
+title_answered	expressoMail1_2	en	Answered/Forwarded
+<b>Answer messages from:</b> %1 - <b>Status:</b><font color='red'> %2</font> - <b>message:</b> %3</a>	expressoMail1_2	en	<b>Answer messages from:</b> %1 - <b>Status:</b><font color='red'> %2</font> - <b>message:</b> %3</a>
+A read confirmation was sent.	expressoMail1_2	en	A read notification was sent.
+At %1, %2 hours, %3 wrote:	expressoMail1_2	en	At %1, %2 hours, %3 wrote:
+Auto save draft	expressoMail1_2	en	Auto save draft
+authentic	expressoMail1_2	en	authentic
+Back	expressoMail1_2	en	Back
+BCC	expressoMail1_2	en	BCC
+Before Date	expressoMail1_2	en	Before Date
+Big	expressoMail1_2	en	Big
+Bold	expressoMail1_2	en	Bold
+Border	expressoMail1_2	en	Border
+Block Sender	expressoMail1_2	en	Block Sender
+<b>Tip:</b> For faster save, click over the image with <u>right button</u>.	expressoMail1_2	en	<b>Tip:</b> For faster save, click over the image with <u>right button</u>.
+Call to Comercial Number	expressoMail1_2	en	Call to Comercial Number
+Call to Mobile Number	expressoMail1_2	en	Call to Mobile Number
+cancel	expressoMail1_2	en	cancel
+CC	expressoMail1_2	en	CC
+CCo	expressoMail1_2	en	CCo
+REVOKED Certificate.	expressoMail1_2	en	REVOKED Certificate.
+Certificate Authority: 	expressoMail1_2	en	Certificate Authority:
+Certificate email: 	expressoMail1_2	en	Certificate email:
+certificate has expired	expressoMail1_2	en	certificate has expired
+Change folder	expressoMail1_2	en	Change folder
+Choose a name	expressoMail1_2	en	Choose a name
+Chose the text you want transform in link before.	expressoMail1_2	en	Select the text which will be transformed in link
+Clean	expressoMail1_2	en	Clear
+Click here do view (+)	expressoMail1_2	en	Click here do view (+)
+Click here to add into the fields	expressoMail1_2	en	Click here to add into the fields
+Close	expressoMail1_2	en	Close
+Coincident	expressoMail1_2	en	Coincident
+Comma separated	admin	en	Comma separated
+Command for spam	admin	en	Command for spam
+Command for unmark spam	admin	en	Command for unmark spam
+Config for ExpressoMail	expressoMail1_2	en	Config for ExpressoMail
+Couldn't verify if certificate was revoked.(CD-01)	expressoMail1_2	en	Couldn't verify if certificate was revoked.(CD-01)
+Couldn't verify if certificate was revoked.(CD-02)	expressoMail1_2	en	Couldn't verify if certificate was revoked.(CD-02)
+Couldn't verify if certificate was revoked.(CD-03)	expressoMail1_2	en	Couldn't verify if certificate was revoked.(CD-03)
+Crypted message	expressoMail1_2	en	Crypted message
+Cyrus IMAP Server	expressoMail1_2	en	Cyrus IMAP Server
+attachment	expressoMail1_2	en	attachment
+Attachments: add+	expressoMail1_2	en	Attachments: add+
+Attachments: 	expressoMail1_2	en	Attachments: 
+Attachments	expressoMail1_2	en	Attachments
+Date: 	expressoMail1_2	en	Date: 
+Date	expressoMail1_2	en	Date
+day(s)	expressoMail1_2	en	day(s)
+Define some criterion to the fields From, To and Subject with more than 3 characters!	expressoMail1_2	en	Define some criterion to the fields From, To and Subject with more than 3 characters!
+Define some search parameters!	expressoMail1_2	en	Define some search parameters!
+Delete	expressoMail1_2	en	Delete
+Delete trash messages after how many days?	expressoMail1_2	en	Delete trash messages after how many days?
+Delete your sub-folders first	expressoMail1_2	en	Delete your sub-folders first
+DISABLED	expressoMail1_2	en	DISABLED
+Disable	expressoMail1_2	en	Disable
+Details	expressoMail1_2	pt-br	Details
+Digitally sign message?	expressoMail1_2	en	Digitally sign message?
+Digitally crypt message?	expressoMail1_2	en	Digitally crypt message?
+Download all atachments	expressoMail1_2	en	Download all atachments
+Download manual	expressoMail1_2	en	Download manual
+Do you really want to empty your trash folder?	expressoMail1_2	en	Do you really want to empty your trash folder?
+Do you wanna receive an alert for new messages?	expressoMail1_2	en	Do you wanna receive an alert for new messages?
+Do you want to block this e-mail?	expressoMail1_2	en	Do you want to block this e-mail?
+Do you want to log the sent messages?	admin	en	Do you want to log the sent messages?
+Do you want to show common name instead of UID?	expressoMail1_2	en	Do you want to show common name instead of UID?
+Do you want to use the spam filter?	admin	en	Do you want to use the spam filter?
+Do you wish to exclude the folder 	expressoMail1_2	en	Do you wish to exclude the folder 
+Draft	expressoMail1_2	en	Draft
+Drafts	expressoMail1_2	en	Drafts
+During	expressoMail1_2	en	During
+Drafts Folder name	admin	en	Drafts Folder name
+Edit	expressoMail1_2	en	Edit
+Edit filters	expressoMail1_2	en	Edit filters
+Edit folders	expressoMail1_2	en	Edit folders
+E-mail rule	expressoMail1_2	en	E-mail rule
+Emails of the account	expressoMail1_2	en	Emails of the account
+Empty Trash	expressoMail1_2	en	Empty Trash
+ENABLED	expressoMail1_2	en	ENABLED
+Enable	expressoMail1_2	en	Enable
+Enable digitally sign/cipher the message?	expressoMail1_2	en	Enable digitally sign/cipher the message?
+Enable Quick Reply	expressoMail1_2	en	Enable Quick Reply
+Enter a name for the box	expressoMail1_2	en	Enter a name for the box
+Enter the name of the new folder:	expressoMail1_2	en	Enter the name of the new folder:
+Enter with link URL:	expressoMail1_2	en	Enter with link URL:
+Delete folder	expressoMail1_2	en	Delete folder
+Erase the message	expressoMail1_2	en	Erase the message
+Error compressing messages (ZIP). Contact the administrator.	expressoMail1_2	en	Error compressing messages (ZIP). Contact the administrator.
+Error in SMTP sending read confirmation.	expressoMail1_2	en	Error in SMTP sending read confirmation.
+Error moving message.	expressoMail1_2	en	Error moving message.
+Enable digitally sign/cipher the message?	expressoMail1_2	en	Enable digitally sign/cipher the message?
+#error:21075075:PKCS7 routines:PKCS7_verify:certificate verify error	expressoMail1_2	en	#error:21075075:PKCS7 routines:PKCS7_verify:certificate verify error
+error:21075069:PKCS7 routines:PKCS7_verify:signature failure	expressoMail1_2	en	error:21075069:PKCS7 routines:PKCS7_verify:signature failure
+error:21071065:PKCS7 routines:PKCS7_signatureVerify:digest failure	expressoMail1_2	en	error:21071065:PKCS7 routines:PKCS7_signatureVerify:digest failure
+error:21071065:PKCS7 routines:func(113):reason(101)	expressoMail1_2	en	error:21071065:PKCS7 routines:func(113):reason(101)
+error:21075069:PKCS7 routines:func(117):reason(105)	expressoMail1_2	en	error:21075069:PKCS7 routines:func(117):reason(105)
+Exclusion	expressoMail1_2	en	Exclusion
+Export	expressoMail1_2	en	Export
+Export messages	expressoMail1_2	en	Export messages
+ExpressoMail Configuration	expressoMail1_2	en	ExpressoMail Configuration
+expressoMail1_2	common	en	Expresso Mail
+ExpressoMail settings	admin	en	ExpressoMail settings
+File extension forbidden	expressoMail1_2	en	File extension forbidden
+files	expressoMail1_2	en	files
+Filters	expressoMail1_2	en	Filters
+Filters maintenance	expressoMail1_2	en	Filters maintenance
+Filters management	expressoMail1_2	en	Filters management
+First	expressoMail1_2	en	First
+First Name	expressoMail1_2	en	First Name
+Flag as important	expressoMail1_2	en	Flag as important
+Flagged	expressoMail1_2	en	Flagged
+Flags	expressoMail1_2	en	Flags
+Folder	expressoMail1_2	en	Folder
+Folder Management	expressoMail1_2	en	Folder Management
+Folders	expressoMail1_2	en	Folders
+Font	expressoMail1_2	en	Font
+forecolor	expressoMail1_2	en	forecolor
+Forwarded	expressoMail1_2	en	Forwarded
+Forwarded message	expressoMail1_2	en	Forwarded message
+Forward	expressoMail1_2	en	Forward
+Forward to the address	expressoMail1_2	en	Forward to the address
+From: 	expressoMail1_2	en	From: 
+From	expressoMail1_2	en	From
+Global Catalog	expressoMail1_2	en	Global Catalog
+Go back	expressoMail1_2	en	Go back
+greater than	expressoMail1_2	en	greater than
+Groups	expressoMail1_2	en	Groups
+Hide menu folders?	expressoMail1_2	en	Hide menu folders?
+Hide options	expressoMail1_2	en	Hide options
+Hide Search	expressoMail1_2	en	Hide Search
+hlp_msg_addcreate_acl	expressoMail1_2	en	hlp_msg_addcreate_acl
+hlp_msg_delmov_acl	expressoMail1_2	en	hlp_msg_delmov_acl
+hlp_msg_read_acl	expressoMail1_2	en	hlp_msg_read_acl
+hlp_msg_sendlike_acl	expressoMail1_2	en	hlp_msg_sendlike_acl
+Image	expressoMail1_2	en	Image
+Imap Folders Properties	admin	en	Imap Folders Properties
+Important	expressoMail1_2	en	Important
+l_important	expressoMail1_2	en	Important
+In all the folders	expressoMail1_2	en	In all folders
+Inbox	expressoMail1_2	en	Inbox
+Include	expressoMail1_2	en	Include
+indent	expressoMail1_2	en	indent
+Inform a forwarding e-mail!	expressoMail1_2	en	Inform a forwarding e-mail!
+Inform a message	expressoMail1_2	en	Inform a message
+Inform a text for rejection!	expressoMail1_2	en	Inform a text for rejection!
+Inform a valid e-mail!	expressoMail1_2	en	Inform a valid e-mail!
+Inform between 1 and 31!	expressoMail1_2	en	Inform between 1 and 31!
+Inform the days!	expressoMail1_2	en	Inform the days!
+Inform the forwarding e-mail(s)	expressoMail1_2	en	Inform the forwarding e-mail(s)
+Inform your search in the text fields	expressoMail1_2	en	Inform your search in the text fields
+insertorderedlist	expressoMail1_2	en	Insert ordered list
+Insert Table	expressoMail1_2	en	Insert table
+Insert signature	expressoMail1_2	en	Insert signature
+Insert signature automatically in new messages?	expressoMail1_2	en	Insert signature automatically in new messages?
+insertunorderedlist	expressoMail1_2	en	Insert unordered list
+Invalid signature	expressoMail1_2	en	Invalid signature
+in this message	expressoMail1_2	en	in this message
+italic	expressoMail1_2	en	italic
+Its %1 folder is not created. It is necessary to create so that it functions correctly.	expressoMail1_2	en	Its %1 folder is not created. It is necessary to create so that it functions correctly.
+It's not possible create inside: 	expressoMail1_2	en	It's not possible to create inside: 
+It's not possible delete the folder: 	expressoMail1_2	en	It's not possible to delete the folder: 
+It's not possible rename the folder: 	expressoMail1_2	en	It's not possible to rename the folder: 
+It's not possible rename this folder!	expressoMail1_2	en	It's not possible to rename this folder!
+It's not possible rename this folder, because it is being used in the moment!	expressoMail1_2	en	It's not possible to rename this folder, because it's being used in the moment!
+justifycenter	expressoMail1_2	en	justify center
+justifyfull	expressoMail1_2	en	justify full
+justifyleft	expressoMail1_2	en	justify left
+justifyright	expressoMail1_2	en	justify right
+Keep a copy of the message at your Inbox	expressoMail1_2	en	Keep a copy of the message at your Inbox
+Last	expressoMail1_2	en	Last
+Last Name	expressoMail1_2	en	Last Name
+Less	expressoMail1_2	en	Less
+Less than	expressoMail1_2	en	Less than
+Link	expressoMail1_2	en	Link
+List All	expressoMail1_2	en	List All
+List Catalog	expressoMail1_2	en	List Catalog
+List	expressoMail1_2	en	List
+list of the filters	expressoMail1_2	en	list of the filters
+Loading	expressoMail1_2	en	Loading
+Mailbox Sharing	expressoMail1_2	en	Mailbox Sharing
+Mail from: 	expressoMail1_2	pt-br	Mail from:
+Manager your folders and export messages	expressoMail1_2	en	Manager your folders and export messages
+Mark as	expressoMail1_2	en	Mark as
+Mark as Spam	expressoMail1_2	en	Mark as Spam
+Max size	expressoMail1_2	en	Max size
+Medium	expressoMail1_2	en	Medium
+Message body	expressoMail1_2	en	Message body
+Message date: 	expressoMail1_2	pt-br	Message date:
+message	expressoMail1_2	en	message
+minute ago	expressoMail1_2	en	minute ago
+minutes ago	expressoMail1_2	en	minutes ago
+hours ago	expressoMail1_2	en	hours ago
+Message Font	expressoMail1_2	en	Message Font
+Message Header	expressoMail1_2	en	Message Header
+Message marked as 	expressoMail1_2	en	Message marked as 
+Message signed by: 	expressoMail1_2	en	Message signed by:
+Message untouched	expressoMail1_2	en	Message untouched
+Message untouched and authentic	expressoMail1_2	en	Message untouched and authentic
+Message untouched with signer different from sender	expressoMail1_2	en	Message untouched with signer different from sender
+message(s) deleted from your trash folder.	expressoMail1_2	en	message(s) deleted from your trash folder.
+messages	expressoMail1_2	en	messages
+messages found in folder:	expressoMail1_2	en	messages found in folder:
+Messages saved in %1 folder.	expressoMail1_2	en	Messages saved in %1 folder.
+#MSG010- Erro verificando Expiracao/CAs do certificado.	expressoMail1_2	en	#MSG010- Erro verificando Expiracao/CAs do certificado.
+#MSG011- Ocorreu erro validando o certificado.	expressoMail1_2	en	#MSG011- Ocorreu erro validando o certificado.
+More actions	expressoMail1_2	en	More actions
+More	expressoMail1_2	en	More
+More options	expressoMail1_2	en	More options
+More than %1 results. Please, try to refine your search.	expressoMail1_2	en	More than %1 results. Please, try to refine your search.
+More than %1 results were found	expressoMail1_2	en	More than %1 results were found
+Move	expressoMail1_2	en	Move
+Move to	expressoMail1_2	en	Move to
+My Folders	expressoMail1_2	en	My Folders
+New	expressoMail1_2	en	New
+New folder	expressoMail1_2	en	New folder
+New Message	expressoMail1_2	en	New Message
+New rule	expressoMail1_2	en	New rule
+Next	expressoMail1_2	en	Next
+Nickname	expressoMail1_2	en	Nickname
+No data to search	expressoMail1_2	en	No data to search
+None	expressoMail1_2	en	None
+None result was found.	expressoMail1_2	en	None result was found.
+No option marked!	expressoMail1_2	en	No option marked!
+normal	expressoMail1_2	en	normal
+now	expressoMail1_2	en	now
+No selected message.	expressoMail1_2	en	No selected message.
+No Subject	expressoMail1_2	en	No Subject
+Not Spam	expressoMail1_2	en	Not Spam
+Old	expressoMail1_2	en	Old
+On Date	expressoMail1_2	en	On Date
+Open chat window	expressoMail1_2	en	Open chat window
+Open in New Window	expressoMail1_2	en	Open in New Window
+Open search window...	expressoMail1_2	en	Open search window...
+Options	expressoMail1_2	en	Options
+Organization	expressoMail1_2	en	Organization
+Original Attachments: add	expressoMail1_2	en	Original Attachments: add
+Original Attachments: remove	expressoMail1_2	en	Original Attachments: remove
+outdent	expressoMail1_2	en	outdent
+out office	expressoMail1_2	en	out office
+Over quota	expressoMail1_2	en	Over quota
+Personal Catalog	expressoMail1_2	en	Personal Catalog
+Postfix with LDAP	expressoMail1_2	en	Postfix with LDAP
+People	expressoMail1_2	en	People
+Preferences	expressoMail1_2	en	Preferences
+Previous	expressoMail1_2	en	Previous
+Print	expressoMail1_2	en	Print
+Public Lists	expressoMail1_2	en	Public Lists
+Read	expressoMail1_2	en	Read
+Recent	expressoMail1_2	en	Recent
+Redo	expressoMail1_2	en	Redo
+Refresh	expressoMail1_2	en	Refresh
+Remove	expressoMail1_2	en	Remove
+Rename folder	expressoMail1_2	en	Rename folder
+Reply	expressoMail1_2	en	Reply
+Reply sent messages to	expressoMail1_2	en	Reply sent messages to
+Reply to all	expressoMail1_2	en	Reply to all
+Reply to all with history	expressoMail1_2	en	Reply to all with history
+Reply to all without history	expressoMail1_2	en	Reply to all without history
+Reply to	expressoMail1_2	en	Reply to
+Reply to sender	expressoMail1_2	en	Reply to sender
+Reply with history	expressoMail1_2	en	Reply with history
+Reply without history	expressoMail1_2	en	Reply without history
+Result of the search	expressoMail1_2	en	Result of the search
+Return receipt	expressoMail1_2	en	Return receipt
+Rich Text	expressoMail1_2	en	Rich Text
+Rule	expressoMail1_2	en	Rule
+Save as Draft	expressoMail1_2	en	Save as Draft
+Save deleted messages in trash folder?	expressoMail1_2	en	Save deleted messages in trash folder?
+Save sent messages in folder	expressoMail1_2	en	Save sent messages in folder
+Save Draft	expressoMail1_2	en	Save Draft
+Save	expressoMail1_2	en	Save
+Save in folder	expressoMail1_2	en	Save in folder
+Save sent messages in folder?	expressoMail1_2	en	Save sent messages in folder?
+Search	expressoMail1_2	en	Search
+Search for Organization	expressoMail1_2	en	Search for Organization
+Search in Catalog	expressoMail1_2	en	Search in Catalog
+Search in the Global Catalog	expressoMail1_2	en	Search in the Global Catalog
+Search Results	expressoMail1_2	en	Search Results
+ search results	expressoMail1_2	en	 search results
+Search the messages in these folders	expressoMail1_2	en	Search the messages in these folders
+Search user...	expressoMail1_2	en	Search user...
+Search user	expressoMail1_2	en	Search user
+Sector	expressoMail1_2	en	Sector
+Seen	expressoMail1_2	en	Seen
+l_seen	expressoMail1_2	en	Seen
+Select a folder:	expressoMail1_2	en	Select a folder:
+Select a folder!	expressoMail1_2	en	Select a folder!
+Select all messages from this page.	expressoMail1_2	en	Select all messages from this page.
+Select a name	expressoMail1_2	en	Select a name
+Select an organization and click on button <b>Search</b>	expressoMail1_2	en	Select an organization and click on button <b>Search</b>
+Select on send	expressoMail1_2	en	Select on send
+Select the desired image file	expressoMail1_2	en	Select the desired image file
+Select the table size	expressoMail1_2	en	Select the table size
+Select the type of contact that you want to view	expressoMail1_2	en	Select the type of contact that you want to view
+Select the user	expressoMail1_2	en	Select the user
+Send and file	expressoMail1_2	en	Send and file
+Send a rejection message	expressoMail1_2	en	Send a rejection message
+Sender's Information	expressoMail1_2	en	Sender's Information
+Send	expressoMail1_2	en	Send
+Send this message without a subject?	expressoMail1_2	en	Send this message without a subject?
+Send (without save)	expressoMail1_2	en	Send (without save)
+Sent by	expressoMail1_2	en	Sent by
+Sent	expressoMail1_2	en	Sent
+Sent Folder name	admin	en	Sent Folder name
+Service unavailable	expressoMail1_2	en	Service unavailable
+Shared folders	expressoMail1_2	en	Shared folders
+Shared options saved with success	expressoMail1_2	en	Shared options saved with success
+Share mailbox	expressoMail1_2	en	Share mailbox
+Show default view on main screen?	expressoMail1_2	en	Show default view on main screen?
+Showing only the results found in your organization	expressoMail1_2	en	Showing only the results found in your organization
+Show previous message, after delete actual message?	expressoMail1_2	en	Show previous message, after delete actual message?
+Signature	expressoMail1_2	en	Signature
+Signature Configuration	expressoMail1_2	en	Signature Configuration
+Signature Type	expressoMail1_2	en	Signature Type
+Signed message	expressoMail1_2	en	Signed message
+Simple Text	expressoMail1_2	en	Simple Text
+Since Date	expressoMail1_2	en	Since Date
+Size	expressoMail1_2	en	Size
+Small	expressoMail1_2	en	Small
+Spam	expressoMail1_2	en	Spam
+Spam Folder name	admin	en	Spam Folder name
+standard IMAP server	expressoMail1_2	en	standard IMAP server
+standard POP3 server	expressoMail1_2	en	standard POP3 server
+standard SMTP-Server	expressoMail1_2	en	standard SMTP-Server
+Status	expressoMail1_2	en	Status
+Store at	expressoMail1_2	en	Store at
+Forward to	expressoMail1_2	en	Forward to:
+Subject	expressoMail1_2	en	Subject
+Table	expressoMail1_2	en	Table
+The Anti Pop-Up is enabled. Allow this site (%1) for print.	expressoMail1_2	en	The Anti Pop-Up is enabled. Allow this site (%1) for print.
+The field \"%1\" of the message it contains	expressoMail1_2	en	The field \"%1\" of the message it contains
+The folder %1 was successfully removed	expressoMail1_2	en	The folder %1 was successfully removed
+The folder was not deleted!	expressoMail1_2	en	The folder was not deleted!
+The list has no participant.	expressoMail1_2	en	The list has no participant.
+The messages were deleted.	expressoMail1_2	en	The messages were deleted.
+The messages were moved to folder 	expressoMail1_2	en	The messages were moved to folder 
+The message was deleted.	expressoMail1_2	en	The message was deleted.
+The message was moved to folder 	expressoMail1_2	en	The message was moved to folder 
+The origin folder and the destination folder are the same.	expressoMail1_2	en	The origin folder and the destination folder are the same.
+The preference "%1" isn't enabled.	expressoMail1_2	en	The preference "%1" isn't enabled.
+There's an action processing. Do you want abort it?	expressoMail1_2	en	There's an action processing. Do you want abort it?
+The results were found in the Global Catalog	expressoMail1_2	en	The results were found in the Global Catalog
+The size of the message is	expressoMail1_2	en	The size of the message is
+The size of this message has exceeded  the limit (%1B).	expressoMail1_2	en	The size of this message has exceeded  the limit (%1B).
+The Timezone you're in.	expressoMail1_2	en	The Timezone you're in.
+This mail box is empty	expressoMail1_2	en	This mail box is empty.
+This message is already opened!	expressoMail1_2	en	This message is already opened!
+This message is already selected!	expressoMail1_2	en	This message is already selected!
+This message is signed, and you can trust.	expressoMail1_2	en	This message is signed, and you can trust.
+This message is signed, but it is invalid. You should not trust on it.	expressoMail1_2	en	This message is signed, but it is invalid. You should not trust on it.
+To: 	expressoMail1_2	en	To: 
+TO	expressoMail1_2	en	TO
+Tools	expressoMail1_2	en	Tools
+Trash	expressoMail1_2	en	Trash
+Trash Folder name	admin	en	Trash Folder name
+Type without spaces, dots or special characters!	expressoMail1_2	en	Type without spaces, dots or special characters!
+Unanswered/Unforwarded	expressoMail1_2	en	Unanswered/Unforwarded
+underlined	expressoMail1_2	en	underlined
+underline	expressoMail1_2	en	underline
+Undo	expressoMail1_2	en	Undo
+Unflagged	expressoMail1_2	en	Unflagged
+Unseen	expressoMail1_2	en	Unseen
+l_unseen	expressoMail1_2	en	Unseen
+Upload file	expressoMail1_2	en	Upload file
+Use F9 Key as shortcut.	expressoMail1_2	en	Use F9 Key as shortcut.
+Use shortcuts?	expressoMail1_2	en	Use shortcuts?
+User connected	instant_messenger	en	User connected
+User didn't accepted you yet	instant_messenger	en	User didn't accepted you yet
+Use dynamic contacts?	expressoMail1_2	en	Use dynamic contacts?
+User not connected	instant_messenger	en	User not connected
+User not registered	instant_messenger	en	User not registered
+Users	expressoMail1_2	en	Users
+Validity of certificate: 	expressoMail1_2	en	Validity of certificate:
+View HTML source	expressoMail1_2	en	View HTML source
+View tips	expressoMail1_2	en	View tips
+Voided message	expressoMail1_2	en	Voided message
+Warning: Your Mailbox is almost full!	expressoMail1_2	en	Warning: Your Mailbox is almost full!
+ was succefully removed	expressoMail1_2	en	 was succefully removed
+What is the height of the lines in the list of messages?	expressoMail1_2	en	What is the height of the lines in the list of messages?
+What is the maximum number of messages per page?	expressoMail1_2	en	What is the maximum number of messages per page?
+What is the maximum number of results in an e-mail search?	expressoMail1_2	en	What is the maximum number of results in an e-mail search?
+What is the minimum number of characters in searching contacts?	expressoMail1_2	en	What is the minimum number of characters in searching contacts?
+What is your timezone?	expressoMail1_2	en	What is your timezone?
+Where should the quick search be performed by default?	expressoMail1_2	pt-br	Where should the quick search be performed by default?
+It is where the keyword should be searched when the user executes a quick search.	expressoMail1_2	pt-br	It is where the keyword should be searched when the user executes a quick search.
+Who	expressoMail1_2	en	Who
+With all	expressoMail1_2	en	With all
+with signer different from sender	expressoMail1_2	en	with signer different from sender
+Without Quota	expressoMail1_2	en	Without Quota
+without save	expressoMail1_2	en	without save
+with some	expressoMail1_2	en	with some
+With the following message	expressoMail1_2	en	With the following message
+Write	expressoMail1_2	en	Write
+Write message	expressoMail1_2	en	Write message
+wrote	expressoMail1_2	en	wrote
+You can't forward e-mails to this domain: %1	admin	en	You can't forward e-mails to this domain: %1
+You didn't accepted yet	instant_messenger	en	You didn't accepted yet
+You have %1 new	expressoMail1_2	en	You have %1 new
+You must wait while the messages will be exported...	expressoMail1_2	en	You must wait while the messages will be exported...
+Your Mailbox is 100% full! You must free more space or will not receive messages.	expressoMail1_2	en	Your Mailbox is 100% full! You must free more space or will not receive messages.
+Your mailbox is shared with	expressoMail1_2	en	Your mailbox is shared with
+Your message has not been sent and will be discarted.	expressoMail1_2	en	Your message has not been sent and will be discarted.
+Your message has not been sent. Discard your message?	expressoMail1_2	en	Your message has not been sent. Discard your message?
+Your message was save as draft in folder %1.	expressoMail1_2	en	Your message was save as draft in folder %1.
+Your message was sent and save.	expressoMail1_2	en	Your message was sent and save.
+Your message was sent.	expressoMail1_2	en	Your message was sent.
+Your search argument must be longer than %1 characters.	expressoMail1_2	en	Your search argument must be longer than %1 characters.
+your session could not be verified.	expressoMail1_2	en	your session could not be verified.
+Your Trash folder was empty.	expressoMail1_2	en	Your Trash folder was empty.
+Reached maximum tab limit	expressoMail1_2	en	Reached maximum tab limit
+Page Not Found!	expressoMail1_2	en	Page Not Found!
+This list has no participants	expressoMail1_2	en	This list has no participants
+Rows	expressoMail1_2	en	Rows
+Cols	expressoMail1_2	en	Cols
+Certificate Owner	expressoMail1_2	en	Certificate Owner
+Common Name (CN)	expressoMail1_2	en	Common Name (CN)
+Organization (O)	expressoMail1_2	en	Organization (O)
+Organizational Unit (OU)	expressoMail1_2	en	Organizational Unit (OU)
+Personal Data	expressoMail1_2	en	Personal Data
+Birthday	expressoMail1_2	en	Birthday
+Fiscal Id	expressoMail1_2	en	Fiscal Id
+Identification	expressoMail1_2	en	Identification
+Certificate Issuer	expressoMail1_2	en	Certificate Issuer
+Validity	expressoMail1_2	en	Validity
+Valid From	expressoMail1_2	en	Valid From
+Valid Until	expressoMail1_2	en	Valid Until
+Serial Number	expressoMail1_2	en	Serial Number
+Send this mail as text plain	expressoMail1_2	en	Send this mail as text plain
+The text format will be lost	expressoMail1_2	en	The text format will be lost

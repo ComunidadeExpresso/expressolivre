@@ -1,0 +1,157 @@
+#wf_run_activity_zone
+{
+	width : 100%;
+}
+
+#wf_run_activity_message
+{
+	color: #FF0000;
+}
+
+.row_on
+{
+	 background-color: #EEEEEE;
+}
+.row_off
+{
+	background-color: #FFF;
+}
+/*********************  ACTIVITY ZONE *************/
+#wf_activity_playground
+{
+	border: 1px solid black;
+	margin-bottom:10px;
+}
+#wf_activity_title
+{
+	font-size: 120%;
+	font-weight:bold;
+}
+#wf_activity_template
+{
+	border: 0;
+	width: 100%;
+	margin : 0;
+	padding: 0;
+	color :#000000;
+}
+
+/*********************  PRIORITY ZONE *************/
+#wf_priority_zone
+{
+	background-color: #F1F1F1;
+	display:inline;
+}
+#wf_priority_label
+{
+	text-align: right;
+	margin: 3px;
+	background-color: #d3dce3;
+}
+#wf_priority_select
+{
+	text-align: left;
+}
+/********************* NEXT USER ZONE *************/
+#wf_set_next_user_zone
+{
+	background-color: #F1F1F1;
+	display: inline;
+}
+#wf_set_next_user_label
+{
+	text-align: right;
+	margin: 3px;
+	background-color: #d3dce3;
+}
+#wf_set_next_user_select
+{
+	text-align: left;
+}
+
+/********************* SET OWNER ZONE *************/
+#wf_set_owner_zone
+{
+	background-color: #F1F1F1;
+	display: inline;
+}
+#wf_set_owner_label
+{
+	text-align: right;
+	margin: 3px;
+	background-color: #d3dce3;
+}
+#wf_set_owner_select
+{
+	text-align: left;
+}
+
+/*********************  PRINT MODE ZONE *************/
+#wf_print_mode_zone
+{
+	background-color: #F1F1F1;
+	display: inline;
+	position : relative;
+	width:100%;
+	margin-left: 50px;
+	text-align: right;
+}
+.wf_print_mode_button
+{
+	width=20%;
+        font-weight:bold;
+        text-align:right;
+        background-color: #D3DCE3;
+}
+
+/*********************  SUBMIT ZONE *************/
+#wf_submit_zone
+{
+	text-align: right;
+	background-color: #F1F1F1;
+	width: 100%;
+	border-top: 1px solid black;
+}
+table.table_submit_buttons
+{
+	width: 100%;
+	border: 0; /*1px solid black;*/
+}
+.wf_submit_buttons_button
+{
+	font-weight:bold;
+	text-align:right;
+	background-color: #D3DCE3;
+}
+
+
+/*********************  WORKFLOW INFO ZONE *************/
+#workflow_info_zone
+{
+	position : relative;
+	align : center;
+	font-size:0.5em;
+	margin-bottom:10px;
+}
+table.table_info
+{
+	width: 90%;
+	border: 1px solid #000000;
+	margin: auto; /*IE5 doesn't understand it*/
+}
+tr.row_info
+{
+	height: 10px;
+}
+td.cell_info_label
+{
+	border:0px;
+	text-align: right;
+	background-color: #f1f1f1;
+}
+td.cell_info_value
+{
+	border:0px;
+	text-align: left;
+	background-color: #fafafa;
+}

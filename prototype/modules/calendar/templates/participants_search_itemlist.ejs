@@ -1,0 +1,10 @@
+<% for (var i=0; i < data.length; i++) { %>
+<li class="ui-widget-content" style="width:6000px;" title="<%=data[i]['name']%>">
+	<input type="checkbox" name="opcao" <%= (data[i].enabled) ?  '' : 'disabled="disabled"' %> />
+	<input type="hidden" value="<%=data[i]['id']%>" />
+	<label class="name"><%=data[i]['name']%></label>
+	<label class="mail hidden"><%=data[i]['mail']%></label>
+	<label class="id hidden"><%=data[i]['id']%></label>
+        <label class="isExternal hidden"><%=data[i]['isExternal']%></label>
+</li>
+<% } %>

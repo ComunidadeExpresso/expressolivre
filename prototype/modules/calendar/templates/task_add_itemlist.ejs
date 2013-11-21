@@ -1,0 +1,21 @@
+<li class="task"> 
+    <div style="overflow:hidden; width:100%; display:table;">	
+	<div class="activity-options" style="float: right; margin: 0 10px 0 0;">
+	    <%if(data[0].isWrite){%>
+		<a class="button edit activity-options-button-edit new ui-icon-pencil">Editar</a>
+	    <%}%>
+	    <a class="button info activity-options-button-notice new ui-icon-notice">Informações</a>
+	    <a class="button close new">Remover</a>
+	</div>	
+	<input class="new" type="checkbox" value="<%= data[0].idTask %>">
+    <input type="hidden" name="idtask[]" value="<%= data[0].idTask %>">
+	<input type="hidden" name="idTaskToActivity[]" value="<%= data[0].idTaskToActivity %>">
+	<label title="<%= data[0].description %>" class="name"><%= data[0].description %></label>
+	<input type="hidden" class="summary" value="<%= data[0].summary %>">
+	<input type="hidden" class="dueDate" value="<%= data[0].dueDate %>">
+	<input type="hidden" class="dueTime" value="<%= data[0].dueTime %>">
+	<input type="hidden" class="startDate" value="<%= data[0].startDate %>">
+	<input type="hidden" class="startHour" value="<%= data[0].startHour %>">
+	<input type="hidden" class="percentage" value="<%= data[0].percentage %>">
+	<input type="hidden" class="priority" value="<%= data[0].priority %>">
+</li>

@@ -1,0 +1,322 @@
+/** Estilo de elementos comuns **/
+
+* {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited
+{
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover, a:active
+{
+    cursor: pointer;
+    color: darkblue;
+    text-decoration: none;
+}
+
+input, button
+{
+    font-size: 11px;
+    color: rgb(0, 102, 153);
+    font-family: Arial, Helvetica, sans-serif;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(187, 187, 187);
+    border-right-color: rgb(187, 187, 187);
+    border-bottom-color: rgb(187, 187, 187);
+    border-left-color: rgb(187, 187, 187);
+}
+
+textarea
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+/** Estilo das abas em qualquer das interfaces **/
+
+.abas_menu_sel
+{
+    text-decoration: none;
+    font: bold 12px Arial;
+    color: #505050;
+    height: 20px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    padding: 2px 2px 2px 2px;
+
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-top: 1px solid #000000;
+
+    color: black;
+
+    -moz-border-radius: 6px 6px 3px 3px;
+    cursor: pointer;
+    border-bottom-style: none;
+    background-color: #F7F7F7;
+}
+
+.abas_menu
+{
+    text-decoration: none;
+    font: bold 12px Arial; 		/*tab font */
+    color: #505050; 			/*font color */
+    height: 20px; 				/*height of tab  */
+    margin-left: 5px; 			/*spacing between tabs */
+    background-color:#E5E5E5;
+    margin-bottom: 0px;
+    padding: 2px 2px 2px 2px; 	/* offset of tab text to border (top left bottom right) */
+    background-color: #e5e5e5;
+    border-left: solid 1px #c0c0c0;
+    border-top: solid 1px #c0c0c0;
+    border-right: solid 1px #c0c0c0;       
+    border-bottom: 1px solid #000000;
+    -moz-border-radius: 4px 4px 0px 0px;
+    cursor: pointer;   
+}
+
+.abas_last_menu
+{
+	border-bottom: 1px solid #000000;
+	-moz-border-radius: 4px 4px 0px 0px;
+}
+
+/** Estilo para a divisão principal das interfaces **/
+
+.conteudo_div {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    color: #000033;
+    padding: 2px;
+    border-color: gray gray gray gray;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    width:99.5%;
+    -moz-border-radius: 0px 0px 6px 6px;
+}
+
+.conteudo_div_ie {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    color: #000033;
+    padding: 2px;
+    border-color: gray gray gray gray;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    width:100%;
+    -moz-border-radius: 0px 0px 6px 6px;
+}
+
+/** Estilo para exibição de texto **/
+
+.text_dsp
+{
+	color: black;
+	margin-left: 10px;
+	padding: 6px 6px 6px 6px;	
+}
+
+.version_dsp
+{
+	font: normal 10px Arial;
+	color: black;
+}
+
+.text_bold
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+/** Estilo para a exibição de erros na região compreendida entre o cabeçalho do Expresso e as abas das interfaces **/
+
+.msg_erro_table {
+	border-spacing: 0px 0px;
+}
+
+.msg_erro_th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	border-width: 0px 0px 0px 0px;
+	padding: 3px 10px 3px 10px;
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	background-color: rgb(250, 209, 99);
+	-moz-border-radius: 6px 6px 6px 6px;
+}
+
+.msg_erro_text
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000066;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/** Estilo da tabela de visualização de dados sobre processos ou instâncias **/
+
+.info_table {
+	color: black;
+	font-family: Arial;
+	font-size: 13px;	
+	background-color: #CCCCCC;
+	padding: 1px;
+	cursor: default;
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 0px 1px;
+	border-style: outset outset outset outset;
+	border-color: black;
+	border-collapse: separate;
+	-moz-border-radius: 3px 3px 3px 3px;
+}
+
+.info_tr_header{
+	/*background-color: #cccccc;*/
+	font-weight: bold;
+	font-size: 13px;	
+}
+
+.info_tr_simple {
+	background-color: #ffffff;
+	font-weight: normal;
+	font-size: 13px;		
+}
+
+.info_tr_sub_header {
+	background-color: #ffffff;
+	font-size: 11px;	
+	color: #505050;
+}
+
+.info_td_activ {
+	font-weight: normal;
+	color: black;
+	vertical-align: top;
+}
+
+/** Inativo: antigo estilo do menu de atividades dos processos **/
+
+.drop_menu_div
+{
+	position: absolute;
+	visibility: hidden;
+}
+
+.drop_menu_table {
+	background-color: #ffffff;
+	color: black;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bbbbbb;
+	font-family: Arial;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.drop_menu_td {
+	background-color: white;
+	color: black;
+	text_decoration: none;
+}
+
+.drop_menu_td_sel {
+	background-color: whitesmoke;
+	color: darkblue;
+	text_decoration: none;
+}
+
+/** Estilo das imagens exibidas nas listas de ações **/
+
+.img_link {
+	cursor: pointer;
+}
+
+.img_no_link {
+	cursor: default;
+}
+
+/** Estilo da tabela principal das interfaces. P.ex: lista de instâncias da aba de Tarefas Pendentes **/
+
+.table_elements
+{
+	width: 100%;
+	color: black;
+	border-style: solid;
+	border-width: 0px;
+	border-collapse: collapse;
+	border-color: #bbbbbb;
+	font-family: Arial;
+	font-size: 13px;	
+}
+
+.table_elements_tr_header {
+	/*background-color: #ABC6E1;*/
+}
+
+.table_elements_tr_line {
+	background-color: #ffffff;
+	border-bottom:1px solid #cfcfcf;
+}
+
+ul.horizontalMenu
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.horizontalMenu li
+{
+	float: left;
+	margin: 0pt;
+	text-align: left;
+}
+
+ul.horizontalMenu li a
+{
+	border: 1px solid buttonface;
+	padding: 0px 05px 0px 05px;
+	height: 2.5em;
+	line-height: 2.5em;
+	float: left;
+	display: block;
+	color: #000000 !important;
+	text-decoration: none;
+	text-align: center;
+	font-size: 11px !important;
+}
+
+ul.horizontalMenu li a:hover
+{
+	background-color: #FFFFFF !important;
+	border: 1px solid #000000;
+	color: darkblue !important;
+	text-decoration: none !important;
+}
+
+ul.horizontalMenu li a:visited
+{
+	color: #000000 !important;
+}
+
+ul.horizontalMenu li a img
+{
+	vertical-align: middle;
+}

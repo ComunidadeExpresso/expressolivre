@@ -1,0 +1,240 @@
+body
+{
+	background-color: #e9e9e9;
+}
+
+a:link,
+a:visited
+{
+	color: #000066;
+}
+
+a:hover,
+a:active
+{
+	color: #ff9933 !important;
+}
+
+a.divSideboxEntry,
+.divSideboxEntry
+{
+	background-color: #eee;
+}
+
+a.textSidebox
+{
+	border-top-color: #aaa;
+}
+
+input,
+button
+{
+	border-color: #bbb;
+	color: #069;
+}
+
+input[type=image]
+{
+	border-color: #bbb;
+}
+
+select
+{
+	border-color: #bbb;
+	color: #006;
+}
+
+#divAppbox
+{
+	background: #fff url( ../images/bgBlockContent.jpg ) repeat-x;
+	border-color: #9c9c9c;
+}
+
+#divAppboxHeader
+{
+	background: url( ../images/bgAppTitle.png );
+	border-color: #9c9c9c;
+	color: #006;
+	text-shadow: 0.2em 0.2em 3px #999;
+}
+
+#divAppIconBar
+{
+	background: #fff url( ../images/background-icon-bar.png ) repeat-x;
+	border-top-color: #9c9c9c;
+}
+
+#divAppTextBar
+{
+	background-color: #fff;
+}
+
+#divGenTime
+{
+	color: #f00;
+}
+
+#divMain
+{
+	background: #fff;
+	border-color: #7e7e7e;
+}
+
+#divPoweredBy
+{
+	background: #fff;
+	color: #999;
+}
+
+#divSideboxContainer
+{
+	background: #fff;
+}
+
+#extraIcons
+{
+	background: #eee;
+	border-color: #7e7e7e;
+}
+
+#links_bar,
+#user_info
+{
+	color: #fff;
+}
+
+#tdAppbox
+{
+	background-color: #fff;
+}
+
+#tdSidebox
+{
+	background: #fff;
+}
+
+.conteudo
+{
+	border-color: #4A79B1;
+	color: #003;
+}
+
+.divSideboxHeader
+{
+	background: #416faa;
+	color: #fff;
+}
+
+.extraIconsRow
+{
+	border-top-color: #ddd;
+}
+
+.greyLine
+{
+	border-top-color: #7e7e7e;
+}
+
+.grid_email_class
+{
+	border-bottom-color: #cfcfcf;
+}
+
+.image-menu
+{
+/*	background: url( ../../../../phpgwapi/templates/default/images/folder_bg.png );*/
+}
+
+.last_menu
+{
+	border-bottom-color: #4a79b1;
+}
+
+.logo_expresso
+{
+	background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.jpg ) no-repeat 0 3px;
+	/*background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.png ) no-repeat 0 3px;*/
+}
+
+.menu
+{
+	background: #c8d7ea;
+	border-color: #f4f7fc;
+	border-bottom-color: #4a79b1;
+}
+
+.menu-sel
+{
+	background-color: #f7f7f7;
+	border-color: #4a79b1;
+	color: #00f;
+}
+
+.menu-degrade
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/degrade.png );
+}
+
+.navbar_but
+{
+	background-image: url(../../../../phpgwapi/templates/default/images/back_app.png);
+	/*background-image: url(../../../../phpgwapi/templates/default/images/back_app_1.png);*/
+}
+
+.navbar_butOver
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over.png );
+	/*background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over_1.png );*/	
+}
+
+.navbar_butOut
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out.png );
+	/*background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out_1.png );*/
+}
+
+.tblHeadApp
+{
+	border-color: #9c9c9c;
+}
+
+.textSidebox
+{
+	border-top-color: #aaa;
+}
+
+.toolbar
+{
+	background-image: url( ../../../../phpgwapi/templates/default/images/fundo_topo.png );
+	/*background-image: url( ../../../../phpgwapi/templates/default/images/fundo_topo_2.png );*/	
+}
+
+.linha0,
+.tr_msg_read
+{
+	color: #3f3f3f;
+	background: #fff;
+}
+
+.linha1,
+.tr_msg_read2
+{
+	color: #3f3f3f;	
+	background: #f4f8fb;
+}
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+	background: #abc6e1;
+}
+
+.prefTable
+{
+	background-color: #f4f8fb;
+	margin: 0px 0px 10px 0px ;
+	border: 1px solid #D3DCE3;
+	border-top: 0px;
+}

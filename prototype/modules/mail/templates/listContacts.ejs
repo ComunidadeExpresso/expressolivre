@@ -1,0 +1,46 @@
+<% 
+	var decodeType = {
+		'/dynamiccontacts': {
+			css: 'recent', 
+			img: 'recent', 
+			text: 'Contato Recente'
+		},
+		'/personalContact':{
+			css: 'personal',
+			img: 'personal',
+			text: 'Contato pessoal'
+		},
+		'/sharedcontact':{
+			css: 'personal',
+			img: 'sharedcontact',
+			text: 'Contato compartilhado'
+		},
+		'/groups':{
+			css: 'group',
+			img: 'group',
+			text: 'Grupo pessoal'
+		},
+		'/sharedgroup':{
+			css: 'group',
+			img: 'sharedgroup',
+			text: 'Grupo compartilhado'
+		}
+	} 
+%>
+<%if (data.type == 'linha'){%>
+<li class="dynamic-separator">
+	<div class="line-separator">
+		&nbsp;
+	</div>
+<%}else{%>
+<li class="dynamic-<%=decodeType[data.type].css%>">
+	<a style="width:<%= (data.type == '/dynamiccontacts' ? '91%' : '97.5%')%>; display: inline-block;">
+		<img style="position:relative; top:2px; "src="../prototype/modules/mail/img/<%=decodeType[data.type].img%>.png" title="<%=decodeType[data.type].text%>"/>
+		<%= ($.trim(data.name) != "" ? (data.name.length > 20? data.name.substring(0,17)+"..." : data.name)+ " - " : "") %><%= data.mail %>
+		<% if(data.type == '/dynamiccontacts'){ %>
+			<div class="dynamic-stars" style="display: inline-block;float: right;"/>
+		<% } %>
+	</a>
+	<span style="width:16px; height:16px; top:5px; <%=data.type == '/dynamiccontacts' ?  '': 'display:none'%>">Excluir contato recente</span>	
+<%}%>
+</li>

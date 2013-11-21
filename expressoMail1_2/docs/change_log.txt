@@ -1,0 +1,101 @@
+Esse arquivo descreve todas as correções, alterações e novas implementações do 
+módulo ExpressoMail 1.2, e a partir da versão 07/12/2006 [1.2]
+Nilton Emilio Buhrer Neto.
+
+--------------------------- NOTA IMPORTANTE --------------------------
+
+A partir de Agosto de 2007, todos os registros de bugs aqui relatados foram
+transferidos para o site do ExpressoLivre, no Wiki-Trac do módulo.
+Vide: http://www.expressolivre.org/dev/wiki/mail/changelog
+
+----------------------------------------------------------------------
+06/02/2007 - [1.2022]
+- Fixado o layer que compreende o menu da nova mensagem (Enviar, Salvar,Pesquisar);
+- Implementado a pesquisa rápida de mensagens, em todas as pastas, na janela principal do módulo;
+- Corrigido problema ao imprimir mensagens com figuras (não estava aparecendo as figuras);
+- Corrigido problema do autocompletar, no Internet Explorer, quando tinha um scroll na aba, o layer em branco não estava posicionado corretamente;
+- Corrigido problema com envio de mensagens para grupos pessoais, quando o link vinha do módulo Contact Center;
+- Corrigido problema com mensagens que continham anexos TXT, que se expandia no corpo da mensagem. Agora não expande mais.
+
+16/02/2007 - [1.2023]
+- Inserido um atraso na abertura do menu Ferramentas, para não atrapalhar a navegação;
+- Implementado uma RegExp para que links dentro das mensagens sejam abertos em nova janela;
+- Corrigido problema da abertura da janela do "Enviar e Arquivar", que estava conflitando com o módulo IM;
+
+27/02/2007 - [1.2024]
+- Corrigido problemas eventuais ocasionados pelas novas versões do Firefox 1.5 (1.5.0.10) e 2.0 (2.0.0.2), que gerou problema
+no carregamento dos Javascripts sob demanda.
+
+03/03/2007 - [1.2025]
+- Corrigido problema na lista de mensagens, quando há assuntos com caracteres especiais.
+- Implementada mais uma funcionalidade: em Compartilhar Pastas, o usuário poderá liberar o seu nome/email para ser utilizado
+no envio de mensagens por outros usuários.
+- Corrigido problemas no manuseio da funcionalidade de compartilhar pastas.
+- Corrigido bug no DropDownContact (2 palavras) e scroll escondemos o DropDownContact caso o scroll seja utilizado.
+- Corrigido Scroll com Paleta de Cores no Texto Rico
+- Ordenado as teclas de TAB em nova mensagem.
+
+06/03/2007 - [1.2026]
+- Alterada a maneira de como está implementada, a funcionalidade de liberar usuários, para envio pela sua caixa postal. Agora
+o usuário que envia, seta o "Sender", e o usuário compartilhado permanece no "From", seguindo o padrão correto.
+- Corrigido problema no checkbox Ocultar Menu Pastas, na tela de Preferencias, que não estava salvando quando ia pelo link
+das "Minhas Preferências".
+- Corrigido problema ao Salvar Rascunho, onde os destinatários (Para,CC) estavam sendo salvos com charset incorreto.
+
+13/03/2007 - [1.2027]
+- Corrigido problema ao abrir mensagem formato HTML, contendo a tag HEADER: Influenciava no layout inteiro da página.
+- Corrigido problema ao inserir assinatura com apóstrofo, aspas, e outros caracteres especiais (addslashes);
+- Corrigido problema nas pastas com espaço: Ao enviar e salvar automático nessas pastas, dava problema.
+- Corrigido problema de visualização de algumas mensagens encaminhadas pelo Evolution, ThunderBird, etc.
+- Adicionada função getLang na classe Functions, para ser utilizada dentro das classes PHP do ExpressoMail.
+- Adicionada função replace_links na classe imap_functions, que será utilizada futuramente para habilitar links dentro das mensagens.
+
+29/03/2007 - [1.2028]
+- Corrigido problema ao encaminhar mensagens com anexos, pois não preservava o encoding original (base64,qprint,text).
+- Corrigido problema ao fazer download de anexos com extensão em caixa alta e com "." (pontos) no seu nome.
+- Corrigido problema ao fazer download de anexos no formato qprint. Função imap_qprint() contém um bug, e foi substituída pela
+função quoted_printable_decode().
+- Incluído validação do email a ser bloqueado pelo botão "Bloquear Remetente".
+- Incluído validação do email ao criar um regra na opção Filtros.
+- Corrigido problema que dava nas preferências do usuário, com a pasta de mensagens Enviadas. Quando mudava o cyrus delimiter
+no Expresso ("." ou "/"), a pasta de Enviados salva no banco ficava com delimitador diferente do atual, dando problema ao salvar
+mensagens enviadas e ao abrir janela de Preferências.
+
+01/04/2007 - [1.2029]
+- Corrigido problema na leitura de algumas mensagens do tipo text/plain, multipart e charset=utf-8. Dependendo da estrutura da
+mensagem, o atributo charset vinha em branco e ficava em outro lugar não padrão (parameters).
+em outro parametro não padrão.
+- Adicionada funcionalidade que compatibiliza mensagens encapsuladas, e com formato 7bit, serem visualizadas no ExpressoMail.
+
+10/05/2007 - [1.2030]
+- Implementado mesma funcionalidade do expandir Campo "Para" para o campo "CC", abrir uma mensagem. O objetivo é evitar travamento
+do navegador quando existem muito destinatários a serem expandidos com o plugin do Contact Center.
+- Corrigido problema de mensagens que têm nome de arquivos nos atributos "parameters" e "dparameters" de sua estrutura.
+- Implementado ocultação de usuários e grupos no expressoMail e na Calendar.
+- Corrigido imagem down.button.png que aparecia com fundo branco no IE;
+- Alterado nome do link "Mais opções" para "Opções", no menu de mensagem aberta;
+- Colocado link "Imprimir" entre os links "Opções" e "Encaminhar", no menu de mensagem aberta;
+
+10/05/2007 - [1.2031]
+- Mensagens plain com subtype = "mixed", com anexo, estavam sendo abertas no corpo da mensagem.
+- Correção de todas as chamadas da função imap_open, para não gerar erro com conexões não assinadas "/notls/novalidate-cert"
+- Implementado Busca Rápida de Detalhes do Remetente da Mensagem, se no Contato Pessoal e Geral.
+
+30/05/2007 - [1.2032]
+- Corrigido problema ao montar lista de mensagens, quando alguma delas tinha no campo "Para", caracteres especiais.
+- Modificada a implementação da Busca rápida de Detalhes do Remetente da Mensagem, para preparar a integração com os demais serviços.
+
+09/07/2007 - [1.2033]
+- Corrigido problema na funcionalidade filtros, que não permitia adicionar filtro quando se definia tamanho máximo de mensagem.
+- Corrigido problema no campo "Responder Para", quando esse possuía formato HTML.
+- Modificado link do botão Cancelar, do template das preferências.
+- Corrigido problema na busca rápida.
+
+02/08/2007 - [1.21]
+- Feito um "refactor" da classe imap_functions, para reduzir as conexoes criadas com o IMAP.
+- Implementado filtros por flag (todas, não lidas, lidas, respondidas, importantes) na lista de mensagens.
+- O link da Ajuda do módulo foi movido para a Ajuda Geral do Expresso, ao lado de Sugestões.
+- O link Dicas e a página foram removidos.
+- Alterado alguns valores de ajuste de layout.
+- Corrigido problema dos Filtros de mensagens, quando esses possuíam caracteres especiais.
+- Implementado suporte a caracteres especiais nas Pastas.

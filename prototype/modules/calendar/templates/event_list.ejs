@@ -1,0 +1,128 @@
+<%
+
+    var decoder = {status: {1: 'Sem ações', 2: 'Em processo', 3: 'Completo', 4: 'Cancelado'}, priority: {1: 'Alta', 2: 'Normal', 3: 'Baixa'}}
+
+%>
+
+<div title="<%=data.tab_title%>" class="events-list events-list-win active">
+
+
+		<div class="events-list pagination">
+			<input name="results" type="hidden" value="<%=data.count%>"></input>
+			<input name="page_index" type="hidden" value="<%=data.page_index%>"></input>
+			<input name="keyword" type="hidden" value="<%=data.keyword%>"></input>
+		</div>
+	
+	<table cellspacing='0' cellpadding='0'>
+		<tbody>
+			<% //for (var i=0; i<data.events_list.length; i++)
+				for (var i in data.events_list)	{ %>		
+				<% for (j=0; j<data.events_list[i].events.length; j++) { %>
+					<!-- a variável _event é um alias para data.events_list[i].events[j] -->
+					<% var _event =  data.events_list[i].events[j]; 
+					 	// se houver mais de um evento no mesmo dia...
+						if (data.events_list[i].events.length > 1) { %>
+							<!-- se não for a última linha do evento multiplo no mesmo dia... -->
+							<% if (data.events_list[i].events.length != j+1) { %>
+								<tr class='start-date same-start-date'>
+							<% } else { %> <!-- se for a ultima linha do evento multiplo no mesmo dia... -->
+								<tr class='start-date same-start-date last-event-same-start-date'>
+							<% } %>
+							
+							<% if (j==0) { %>
+								<!-- coluna 1 - multiplos eventos na mesma data -->
+								<th width='100' rowspan='<%= data.events_list[i].events.length %>' class='start-date start-date-multiple-events'>
+								<span><%= data.events_list[i].startDate %></span>
+                                                                </th>
+							<% } %>
+						<% } else {  %>
+								<tr>
+								<% if (j>0) %>
+									<!-- coluna 1 - evento unico na mesma data -->
+									<th width='100' class="start-date">
+										<span><%= data.events_list[i].startDate %></span> <%
+								} %>
+									</th>
+					<td width='100'>
+						<span><%= _event.time %></span>
+					</td>
+					<td>
+						<span>
+							<%
+							var img_type = "";
+							var title_type = "";
+							if(_event.type == '1'){
+								img_type = "../prototype/modules/calendar/img/big-event.png";
+								title_type = "Evento";
+							}if(_event.type == '2'){
+								img_type = "../prototype/modules/calendar/img/big-task.png"; 
+								title_type = "Tarefa";
+							}if(_event.type == '3'){
+								img_type = "../prototype/modules/calendar/img/big-activity.png"; 
+								title_type = "Atividade";
+							}
+							%>
+							<img title="<%= title_type %>" src="<%= img_type %>"> 
+							<a class="title event-details-item" title='<%= _event.summary %>' aria-expanded='false' role='button' tabindex='0'><%= _event.summary %></a>
+							<!-- TODO: FAZER FUNCIONAR DESTA FORMA -->
+							<%
+						    /*
+							var title     = "";
+							var url_image = "";
+							if (_event.repeat) {
+								title	  = "Este evento tem repetição";
+								url_image = "img/repeat.png";
+							}
+							if ((_event.alarms) && (_event.alarms.length > 0)) {
+								title	  = "Este evento tem lembretes";
+								url_image = "img/alarm.png";
+							}
+							if ((_event.attachments) && (_event.attachments.length > 0)) {
+								title	  = "Este evento tem anexos";
+								url_image = "img/attachment.png";
+							}
+							if ((_event.participants) && (_event.participants.length > 0)) {
+								title	  = "Este evento tem participantes";
+								url_image = "img/user.png";
+							}
+						    */						
+							%>
+							<!-- <img title='<%= title %>' src='<%= url_image %>'> -->
+							<!-- ESSA FORMA DE EXIBIR AS OPÇÕES É ARCAICA, SUBSTITUIR PELO CÓDIGO ACIMA DEPOIS DE AJUSTADO -->
+							<% if (_event.options) {
+								for (var o=0; o < _event.options.length; o++) {
+								var url_image = "";
+								var type_option = _event.options[o].type;
+								if (type_option == "repeat")
+									url_image = "img/repeat.png";
+								if (type_option == "alarm")
+									url_image = "img/alarm.png"; 
+								if (type_option == "attachment")
+									url_image = "img/attachment.png";
+								if (type_option == "participant")
+									url_image = "img/user.png"; %>
+								<img title='<%= _event.options[o].title %>' src='<%= url_image %>'> <% 
+								}
+							} 							
+							%>
+						</span>	
+						<div class="details-event-list hidden <%= (title_type == "Evento" ? "details-event" : "details-task")  %>">
+                            <div class="menu-container footer-container">
+                                <input name="eventid" type="hidden" value="<%=_event.id%>"/>
+                                <input name="eventtype" type="hidden" value="<%=_event.type%>"/>
+                                <input name="calendarid" type="hidden" value="<%=_event.calendar ? _event.calendar : _event.group%>"/>
+                                <a title="Imprimir" class="button print" href="#">Imprimir</a>
+                                <a title="Excluir" class="button delete" href="#">Excluir</a>
+                                <a title="Editar" class="button edit" href="#">Editar</a>
+                            </div>
+						</div>
+	
+					</td>				
+				</tr>
+				<% } %>		
+			<% } //final do for %>
+		</tbody>
+	</table>
+	<div class="pagination-events"></div>
+</div> 
+

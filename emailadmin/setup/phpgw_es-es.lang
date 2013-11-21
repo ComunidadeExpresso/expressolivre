@@ -1,0 +1,77 @@
+add profile	emailadmin	es-es	Añadir perfil
+admin dn	emailadmin	es-es	dn del administrador
+admin password	emailadmin	es-es	contraseña del administrador
+admin username	emailadmin	es-es	usuario del administrador
+advanced options	emailadmin	es-es	opciones avanzadas
+alternate email address	emailadmin	es-es	dirección de correo alternativa
+create spam folder	emailadmin	es-es	Crear la carpeta Spam al crear usuario
+cyrus imap server administration	emailadmin	es-es	Administración del servidor IMAP Cyrus
+cyrus imap server	emailadmin	es-es	Servidor IMAP Cyrus
+cyrus user post spam	emailadmin	es-es	usuario de cyrus que colocara mensaje en la carpeta Spam (Por defecto:anonymous)
+default	emailadmin	es-es	predeterminada
+Default Folders	emailadmin	es-es	Carpetas estandar
+deliver extern	emailadmin	es-es	entrega externa
+domainname	emailadmin	es-es	nombre del dominio
+do you really want to delete this profile	emailadmin	es-es	¿Realmente desea borrar este perfil?
+Drafts Folder	emailadmin	es-es	Carpeta de borradores
+edit email settings	emailadmin	es-es	editar configuración de la cuenta
+email account active	emailadmin	es-es	cuenta de correo electrónico activa
+email address	emailadmin	es-es	dirección de correo electrónico
+emailadmin	common	es-es	Admin do E-mail
+enable cyrus imap server administration	emailadmin	es-es	activar administración del servidor Cyrus IMAP
+enable sieve	emailadmin	es-es	activar Sieve
+enter your default mail domain (from: user@domain)	emailadmin	es-es	introduzca el dominio predeterminado (de usuario@dominio)
+forward also to	emailadmin	es-es	reenviar también a
+forward email's to	emailadmin	es-es	reenviar correos a
+forward only	emailadmin	es-es	sólo reenviar
+imap admin password	admin	es-es	contraseña del administrador IMAP
+imap admin user	admin	es-es	usuario administrador IMAP
+imap c-client version < 2001	emailadmin	es-es	Versión C-Cliente IMAP < 2001
+imap/pop3 server name	emailadmin	es-es	Nombre del servidor POP/IMAP
+imap server hostname or ip address	emailadmin	es-es	Servidor IMAP o dirección IP
+imap server logintyp	emailadmin	es-es	Tipo de sesión del servidor IMAP
+imap server port	emailadmin	es-es	Puerto del servidor IMAP
+in mbyte	emailadmin	es-es	en MBytes
+ldap basedn	emailadmin	es-es	basedn para LDAP
+ldap server accounts dn	emailadmin	es-es	DN para cuentas del servidor LDAP
+ldap server admin dn	emailadmin	es-es	DN del administrador del servidor LDAP
+ldap server admin password	emailadmin	es-es	contraseña del administrador del servidor LDAP
+ldap server	emailadmin	es-es	servidor LDAP
+ldap server hostname or ip address	emailadmin	es-es	Nombre del servidor LDAP o dirección IP
+ldap settings	emailadmin	es-es	Configuración LDAP
+leave empty for no quota	emailadmin	es-es	Dejar en blanco para no poner cuota
+mail settings	admin	es-es	Configuración del correo.
+name of organisation	emailadmin	es-es	Nombre de la organización
+no alternate email address	emailadmin	es-es	Sin dirección de correo alternativa
+no forwarding email address	emailadmin	es-es	Sin dirección de correo para reenviar
+pop3 server hostname or ip address	emailadmin	es-es	Nombre del servidor POP3 o dirección IP
+pop3 server port	emailadmin	es-es	Puerto del servidor POP3
+postfix with ldap	emailadmin	es-es	Postfix con LDAP
+profile list	emailadmin	es-es	Lista de perfiles
+profile name	emailadmin	es-es	Nombre del perfil
+qmaildotmode	emailadmin	es-es	Modo de punto de qmail
+qouta size in mbyte	emailadmin	es-es	Tamaño de la cuota en MBytes
+quota settings	emailadmin	es-es	Configuración de las cuotas
+remove	emailadmin	es-es	borrar
+spam settings	emailadmin	es-es	Configuraciones de Spam
+select type of imap/pop3 server	emailadmin	es-es	Seleccione el tipo de servidor IMAP/POP3
+select type of smtp server	emailadmin	es-es	Seleccione el tipo de servidor SMTP
+Sent Folder	emailadmin	es-es	Carpeta de enviados
+sieve server hostname or ip address	emailadmin	es-es	Nombre del servidor Sieve o dirección IP
+sieve server port	emailadmin	es-es	Puerto del servidor Sieve
+sieve settings	emailadmin	es-es	Configuración de Sieve
+smtp-server hostname or ip address	emailadmin	es-es	Nombre del servidor SMTP o dirección IP
+smtp server name	emailadmin	es-es	Nombre del servidor SMTP
+smtp-server port	emailadmin	es-es	Puerto del servidor SMTP
+Spam Folder	emailadmin	es-es	Carpeta de spam
+standard	emailadmin	es-es	Estándar
+standard imap server	emailadmin	es-es	Servidor IMAP estándar
+standard pop3 server	emailadmin	es-es	Servidor POP3 estándar
+standard smtp-server	emailadmin	es-es	Servidor SMTP estándar
+Trash Folder	emailadmin	es-es	Carpeta de la papelera
+use ldap defaults	emailadmin	es-es	usar las opciones predeterminadas para LDAP
+users can define their own emailaccounts	emailadmin	es-es	Los usuarios pueden definir sus propias cuentas de correo
+use smtp auth	emailadmin	es-es	Usar identificación SMTP
+use tls authentication	emailadmin	es-es	Usar identificación TLS
+use tls encryption	emailadmin	es-es	Usar cifrado TLS
+virtual mail manager	emailadmin	es-es	Gestor de correo virtual

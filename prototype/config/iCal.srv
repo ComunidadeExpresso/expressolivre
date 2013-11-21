@@ -1,0 +1,3 @@
+path = "services/iCal.php"
+class = "iCal"
+type = "formatter"

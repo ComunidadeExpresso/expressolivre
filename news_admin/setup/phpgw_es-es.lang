@@ -1,0 +1,61 @@
+active	news_admin	es-es	Activo
+add new article	news_admin	es-es	Añadir artículo nuevo
+add new news	news_admin	es-es	Añadir noticias nuevas
+add news item	news_admin	es-es	Añadir elemento de noticias
+all news	news_admin	es-es	Todas las noticias
+always	news_admin	es-es	Siempre
+configuration	news_admin	es-es	Configuración
+configure access permissions	common	es-es	Configurar permisos de acceso
+configure rss exports	common	es-es	Configurar exportación RSS
+contains html	news_admin	es-es	Contiene HTML
+content	news_admin	es-es	Contenido
+edit news item	news_admin	es-es	Editar elemento de noticias
+failed to add message	news_admin	es-es	Fallo al añadir mensaje de noticias
+format for links to items	news_admin	es-es	Formato para los enlaces a los elementos
+format of export	news_admin	es-es	Formato de exportación
+from	news_admin	es-es	De
+global categories	news_admin	es-es	Categorías Globales
+global news	news_admin	es-es	Noticias globales
+global_news	news_admin	es-es	Noticias globales
+image link	news_admin	es-es	Enlace a la imagen
+image title	news_admin	es-es	Título de la imagen
+image url	news_admin	es-es	URL de la imagen
+implies read permission	news_admin	es-es	implica permiso de lectura
+item has been deleted	news_admin	es-es	El elemento ha sido borrado
+item not found	news_admin	es-es	No se encontró el elemento
+link	news_admin	es-es	Enlace
+main	news_admin	es-es	Principal
+maintain	news_admin	es-es	Mantener
+maintain news	admin	es-es	Mantener noticias
+message has been added	news_admin	es-es	El mensaje ha sido añadido
+more news	news_admin	es-es	Más noticias
+new item has been added	news_admin	es-es	Se ha añadido un elemento nuevo
+news_admin	common	es-es	Administrador de noticias
+news administration	news_admin	es-es	Administración de noticias
+news admin	news_admin	es-es	Administrador de noticias
+news item has been added	news_admin	es-es	Se ha añadido un elemento de noticias
+news item has been updated	news_admin	es-es	Se ha actualizado un elemento de noticias
+news_admin	common	es-es	Boletins Internos
+no entries found	news_admin	es-es	No se encontraron entradas
+no news	news_admin	es-es	Sin noticias está actualmente en la categoría
+no rss export	news_admin	es-es	No se exporta RSS
+number of articles to display on the main screen	news_admin	es-es	Número de artículos a mostrar en la pantalla principal
+on	news_admin	es-es	en
+publish date	news_admin	es-es	Fecha de publicación
+read news	news_admin	es-es	Leer noticias
+read permissions	news_admin	es-es	Leer permisos
+should news_admin display the latest article headlines on the main screen.	news_admin	es-es	¿Mostrar el encabezado del último artículo en la pantalla principal?
+show latest news articles?	news_admin	es-es	¿Mostrar los últimos artículos de noticias?
+show news articles on main page?	news_admin	es-es	¿Mostrar artículos de noticias en la página principal?
+small view	news_admin	es-es	Vista reducida
+submitted by	common	es-es	Enviado por
+teaser	news_admin	es-es	Bromista
+the news content is missing	news_admin	es-es	Falta el contenido de las noticias
+the number of articles to display on the main screen.	news_admin	es-es	El número de artículos a mostrar en la pantalla principal
+the subject is missing	news_admin	es-es	Falta el asunto
+until	news_admin	es-es	hasta
+view this category	news_admin	es-es	Ver esta categoría
+visible	news_admin	es-es	Visible
+webpage news admin	news_admin	es-es	Administrador de noticias por página web
+write	news_admin	es-es	Escribir
+write permissions	news_admin	es-es	Escribir permisos

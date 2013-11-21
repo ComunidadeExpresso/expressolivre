@@ -1,0 +1,59 @@
+<% 
+	var specialFolders = {
+			INBOX: {name:'Caixa de Entrada'}, 
+			Inbox: {name:'Caixa de Entrada'}, 
+			Root : {name:'root'}
+		};
+    specialFolders["local_messages_trash"] = {name:'Lixeira', classe:'trash'};
+    specialFolders["local_messages_drafts"] = {name:'Rascunhos', classe:'drafts'};
+    specialFolders["local_messages_spam"] = {name:'Spam', classe:'spam'};
+    specialFolders["local_messages_sent"] = {name:'Enviados', classe:'sent'};
+    specialFolders["local_messages_outbox"] = {name:'Enviados', classe:'sent'};
+
+	specialFolders[trashfolder] = {name:'Lixeira', classe:'trash'};
+	specialFolders[draftsfolder] = {name:'Rascunhos', classe:'drafts'};
+	specialFolders[spamfolder] = {name:'Spam', classe:'spam'};
+	specialFolders[sentfolder] = {name:'Enviados', classe:'sent'};
+%>
+
+<span class="float-menu">
+    <% if(data.name_folder != "local_messages_inbox"){ %>
+	<%if(!data.flag.valid){ %>
+
+		<%if(data.name_folder != 'INBOX'){%>
+			<span class="ui-icon ui-icon-document float-menu-new floating-default" title="<%=get_lang("New Folder")%>"></span>  
+		<%}%>
+		<%if(!specialFolders[data.name_folder] ){ %>
+			<span class="ui-icon ui-icon-pencil float-menu-edit floating-default" title="<%=get_lang("Edit folder")%>"></span>  
+			<span class="ui-icon ui-icon-close float-menu-remove floating-default" title="<%=get_lang("Delete folder")%>"></span>  
+		<%} 
+		else if(data.name_folder == trashfolder || data.name_folder == "local_messages_trash"){%>
+         <% var type = false; if(data.name_folder == "local_messages_trash"){ type = data.name_folder; } else { type = false; } %>
+			<span class="ui-icon ui-icon-trash float-menu-clean floating-default" onclick="empty_trash_imap(false, false, <%= type %>);" title="<%=get_lang("Empty Trash")%>"></span>  
+		<%}
+		else if(data.name_folder == spamfolder || data.name_folder == "local_messages_spam"){%>
+            <% var type = false; if(data.name_folder == "local_messages_spam"){ type = data.name_folder; } else { type = false; } %>
+			<span class="ui-icon ui-icon-trash float-menu-clean floating-default" onclick="empty_spam_imap(false, false, <%= type %>);" title="<%=get_lang("Empty Spam")%>"></span>  
+			
+		<%}%>
+
+	<%}else{ %>
+	<%	if(parseInt(data.acl.create)){%>
+			<span class="ui-icon ui-icon-document float-menu-new floating-default" title="<%=get_lang("New Folder")%>"></span> 
+	<%		if(parseInt(data.acl.delete) && parseInt(data.acl.rename) && !specialFolders[data.name_folder] && !data.flag.head){ %>
+				<span class="ui-icon ui-icon-pencil float-menu-edit floating-default" title="<%=get_lang("Edit folder")%>"></span>  
+	<%		} %>
+
+	<%	} %>
+	<%	if(parseInt(data.acl.delete) && !specialFolders[data.name_folder] && !data.flag.head){ %>
+			<span class="ui-icon ui-icon-close float-menu-remove floating-default" title="<%=get_lang("Delete folder")%>"></span>
+		<%}%>
+		<%if(data.name_folder == trashfolder && parseInt(data.acl.delete)){%>
+			<span class="ui-icon ui-icon-trash float-menu-clean floating-default" onclick="empty_trash_imap(true, $(this),false);" title="<%=get_lang("Empty Trash")%>"></span>  
+		<%}else if(data.name_folder == spamfolder && parseInt(data.acl.delete)){%>
+			<span class="ui-icon ui-icon-trash float-menu-clean floating-default" onclick="empty_spam_imap(true, $(this), false);" title="<%=get_lang("Empty Spam")%>"></span>  
+		<%}%>
+	<%}%>
+    <% } %>
+	<span class="ui-icon ui-icon-arrowthickstop-1-n float-menu-export floating-default" title="<%=get_lang("Export folder messages")%>"></span>  
+ </span>

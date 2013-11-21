@@ -1,0 +1,40 @@
+    <dl class="block-activity-group-select activitys-list">
+        <dt class="activity-group-select">Grupo de tarefas</dt>
+        <dd class="group-select">
+            <ul class="activity-group-select">
+                <select name="groupFilter">
+                    <%for(var i = 0; i < Calendar.groups.length; i++){%>
+                        <option value="<%= Calendar.groups[i].id  %>"><%= Calendar.groups[i].name %></option>
+                    <%}%>
+                </select>
+            </ul>
+        </dd>
+    
+	<dt class="activity-list">Tarefas</dt>
+		<dd class="task-activity-list">
+			<ul class="task-activity-list">
+
+	<% if(data.activity.tasks.length <= 0) { %>
+		<li class="not-activity">Não há outras tarefas.</li>
+	<% } %>
+		
+			</ul>
+		</dd>
+	</dl>
+
+<dl class="block-add-activity search" style="">
+	<dt class="add-activity search">Pesquisar tarefa</dt>
+	<dd class="add-activity">
+		<fieldset class="block-add-activity" title="Participantes">
+			<fieldset class="add-activity-search search-field ui-corner-all">
+				<input class="search" type="text" />
+				<span class="ui-icon ui-icon-search"></span>
+			</fieldset>
+			<ul class="search-result-list ui-corner-all">
+
+			</ul>
+
+		</fieldset>
+	</dd>
+</dl>
+

@@ -1,0 +1,23 @@
+--- caldav-MOVE.php.CP	2012-01-09 14:13:05.000000000 -0200
++++ caldav-MOVE.php	2012-01-19 18:13:10.000000000 -0200
+@@ -108,6 +108,20 @@
+ $src_user_no = $src->GetProperty('user_no');
+ $dst_user_no = $dest->GetProperty('user_no');
+ 
++/////Expresso
++if(strpos($request->user_agent, 'ExpressoLivre') === false) //Ignorar eventos do expresso
++{
++   $expresso = 'PATH_DO_SEU_EXPRESSO';
++   include_once($expresso.'/prototype/api/controller.php');
++   include_once($expresso.'/prototype/modules/calendar/interceptors/DAViCalAdapter.php');
++
++   $src_nameA = explode('/', $src_name);
++   $dst_nameA = explode('/', $dst_name);
++
++   DAViCalAdapter::move($src_nameA[ (count($src_nameA)-2) ],$dst_nameA[ (count($dst_nameA)-2) ],$dest->GetProperty('username'));
++}
++///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++
+ $cache = getCacheInstance();
+ $cachekeys = array();
+ 

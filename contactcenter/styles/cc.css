@@ -1,0 +1,234 @@
+  /***************************************************************************\
+  * eGroupWare - Contacts Center                                              *
+  * http://www.egroupware.org                                                 *
+  * Written by:                                                               *
+  *  - Jonas Goes <jqhcb@users.sourceforge.net>                               *
+  *  sponsored by Thyamad - http://www.thyamad.com                            *
+  * ------------------------------------------------------------------------- *
+  *  This program is free software; you can redistribute it and/or modify it  *
+  *  under the terms of the GNU General Public License as published by the    *
+  *  Free Software Foundation; either version 2 of the License, or (at your   *
+  *  option) any later version.                                               *
+  \***************************************************************************/
+.link
+{
+	cursor:pointer;
+	color: #000066;
+	text-decoration: none;
+}
+
+.div_main
+{
+	position: absolute;
+	left: 10px;
+	top: 15px;
+	right: 10px;
+	bottom: 15px;
+	background-color: #fff;
+	border: 1px solid #666666;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.div_head
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	height: 70px;
+	background-color: #eee;
+	border: 1px solid #999999;
+}
+
+.div_menu
+{
+	position: absolute;
+	left: 10px;
+	top: 120px;
+	bottom: 10px;
+	width: 150px;
+	background-color: #eeeeee;
+	border: 1px solid #999999;
+}
+
+.div_contact_center
+{
+	position: absolute;
+	left: 170px;
+	top: 120px;
+	right: 10px;
+	bottom: 10px;
+	background-color: #eeeeee;
+	border: 1px solid #999999;
+   	border-style: dotted;
+   	border-width: thin;
+}
+
+.div_cc_add
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 235px;
+	height: 125px;
+	background-color: #eeeeee;
+}
+
+.div_cc_tree
+{
+	position: absolute;
+	left: 10px;
+	top: 145px;
+	bottom: 10px;
+	width: 235px;
+	background-color: #eeeeee;
+	border: 1px solid #999999;
+   	border-style: dotted;
+   	border-width: thin;
+}
+
+.div_cc_main
+{
+	position: absolute;
+	left: 255px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	background-color: #eeeeee;
+	border: 1px solid #999999;
+   	border-style: dotted;
+   	border-width: thin;
+}
+
+.div_cc_card_space
+{
+	position: absolute;
+	left: 0px;
+	top: 80px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #eeeeee;
+	border: 1px solid #999999;
+   	border-style: dotted;
+   	border-width: thin;
+}
+
+.div_cc_card
+{
+	position: relative;
+	left: 10px;
+	top: 10px;
+	width: 235px;
+	height: 125px;
+}
+
+.layer_cc_card_photo
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 70px;
+	text-align: center;
+	visibility: visible;
+}
+
+.layer_cc_card_data
+{
+	position: absolute;
+	left: 75px;
+	top: 0px;
+	right: 25px;
+	bottom: 0px;
+	text-align: center;
+	visibility: visible;
+}
+
+.button {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #eee;
+	background-color: #bbbbbb;
+	border: 1px solid #eeeeee;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	width: auto;
+	height: auto;
+}
+
+.field {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #246;
+	background-color: #FFFFFF;
+	margin: 4px;
+	border: 1px solid #aaaaaa;
+}
+
+.tab_box,.tab_box_active 
+{
+	background-color: #D3DCE3;
+	border: 0px solid #D3DCE3;
+	text-align: center;
+	cursor: pointer;
+}
+
+.tab_box_active
+{
+	font-weight: bold;
+	background-color: #E8F0F0;
+}
+
+.tab_box_active,.tab_box:hover 
+{
+	border: 0px solid black;
+	background-color: #E8F0F0;
+}
+
+.letter_box,.letter_box_active 
+{
+	background-color: #D3DCE3;
+	width: 250px;
+	border: 1px solid #D3DCE3;
+	text-align: center;
+	cursor: pointer;
+}
+
+.letter_box_active 
+{
+	font-weight: bold;
+	/*background-color: #E8F0F0;*/
+	background-color: #EEEEEE;
+	color: #0000FF;
+}
+
+.letter_box_active,.letter_box:hover 
+{
+	border: 1px solid black;
+	/*background-color: #E8F0F0;*/
+}
+
+.div_cc_contact_tab
+{
+	position: absolute;
+	visibility: hidden;
+	top: 0px;
+	left: 0px;
+	width: 498px;
+	height: 347px;
+	border: 0px solid #999999;
+}
+
+.div_cc_rectParticipants
+{
+	padding: 1px;
+	border: 2px outset #999999;
+	background-color: WHITE;
+	text-align: left;
+	font-size: 8pt;
+}

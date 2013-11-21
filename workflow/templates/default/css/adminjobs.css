@@ -1,0 +1,122 @@
+table.jobList
+{
+	border-collapse: collapse;
+	border-bottom: 1px solid #CCCCCC;
+	width: 60%;
+}
+
+table.jobList tr
+{
+	border-top: 1px solid #CCCCCC;
+}
+
+table.jobList tr td.jobListIcon
+{
+	width: 32px;
+}
+
+table.jobList tr td.jobListActions
+{
+	text-align: right;
+}
+
+table.jobList tr td h1
+{
+	font-size: 16px;
+	margin: 0px;
+}
+
+table.jobList tr td h3
+{
+	font-size: 10px;
+	margin: 0;
+	color: gray;
+}
+
+table.logList
+{
+	border-collapse: collapse;
+}
+
+table.logList tr
+{
+	height: 32px;
+	background-repeat: no-repeat;
+}
+
+table.logList tr td.logListIcon
+{
+	padding-left: 35px;
+	background-repeat: no-repeat;
+}
+
+table.logList tr.fail
+{
+	background-color: #FFD;
+}
+
+table.logList tr.fail td.logListIcon
+{
+	background-image: url('../../../templateFile.php?file=images/exclamation.png');
+}
+
+table.logList tr.success
+{
+	background-color: #DFD;
+}
+
+table.logList tr.success td.logListIcon
+{
+	background-image: url('../../../templateFile.php?file=images/apply.png');
+}
+
+table.logList tr.unknown
+{
+	background-color: #DDD;
+}
+
+table.logList tr.unknown td.logListIcon
+{
+	background-image: url('../../../templateFile.php?file=images/question.png');
+}
+
+table.logList tr.error
+{
+	background-color: #FDD;
+}
+
+table.logList tr.error td.logListIcon
+{
+	background-image: url('../../../templateFile.php?file=images/button_cancel.png');
+}
+
+table.logList
+{
+	width: 70%;
+}
+
+table.logList tr td.logDate
+{
+	font-size: 15px !important;
+	font-weight: bold;
+	width: 120px;
+}
+
+table.jobResult
+{
+	border-collapse: collapse;
+	border: 1px dashed #CCCCCC;
+	width: 100%;
+}
+
+table.jobResult tr th
+{
+	background-color: #AAAAAA;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+table.jobResult tr td
+{
+	font-size: 11px;
+}

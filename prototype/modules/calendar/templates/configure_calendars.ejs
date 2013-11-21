@@ -1,0 +1,30 @@
+<%if(!!parseInt(data.type)){%>
+<div class="configure-calendars-win active" title="Configurações do Grupo de Tarefas">
+	<h3>Preferências do Grupo de Tarefas</h3>
+<%}else{%>
+<div class="configure-calendars-win active" title="Configurações da Agenda">
+	<h3>Preferências da Agenda</h3>
+<%}%>
+	<div  class="header-menu-container">
+		<a class="button cancel" href="#">Cancelar</a>
+		<a class="button save" href="#">Salvar</a>
+	</div>
+	<% for (var i=0; i<data.signatures.length; i++) { %>
+		<fieldset class="user-calendar" title="<%= data.calendars[i].name%>" >
+			<legend><%= data.calendars[i].name%></legend>
+		</fieldset>
+	<%} //for each signatures %>
+<!--	
+	<fieldset class="user-calendar" title="Calendar hipotético 2"> 
+		<legend>Calendar hipotético 2</legend>
+	</fieldset>
+	<fieldset class="user-calendar" title="Calendar hipotético 3">
+		<legend>Calendar hipotético 3</legend>
+	</fieldset>
+	-->
+	<div class="footer-menu-container">
+		<a class="button cancel">Cancelar</a>
+		<a class="button save">Salvar</a>
+	</div>
+
+</div>

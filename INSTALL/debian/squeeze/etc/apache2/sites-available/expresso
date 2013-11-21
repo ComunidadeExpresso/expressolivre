@@ -1,0 +1,75 @@
+NameVirtualHost *:80
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/www/expresso/
+        
+	<Directory /var/www/expresso/>
+		Options FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	#<Directory /var/www/expresso/setup>
+	#	Options None
+	#	AllowOverride All
+	#	Order deny,allow
+	#	allow from ##ip rede interna##
+	#</Directory>
+
+	ErrorLog /var/log/apache2/error.log
+	
+	# Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+	LogLevel warn
+	
+	CustomLog /var/log/apache2/access.log combined
+	#ServerSignature Off
+
+</VirtualHost>
+
+Listen 443
+NameVirtualHost *:443
+<VirtualHost *:443>
+	ServerAdmin webmaster@localhost
+
+	LoadModule ssl_module /usr/lib/apache2/modules/mod_ssl.so
+	# Alteracoes efetuadas para utilizar certificado digital
+
+        SSLEngine On
+	SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+
+	SSLCertificateFile /etc/apache2/ssl/server.crt
+	SSLCertificateKeyFile /etc/apache2/ssl/server.key.pem
+	SSLCACertificatePath /etc/apache2/ssl
+	SSLCACertificateFile /etc/apache2/ssl/cacert.pem
+
+        SSLVerifyClient none
+        SSLVerifyDepth  10
+
+        SSLOptions +StdEnvVars +ExportCertData
+
+	DocumentRoot /var/www/expresso/
+
+	<Directory /var/www/expresso/>
+		Options FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	#<Directory /var/www/expresso/setup>
+	#	Options None
+	#	AllowOverride All
+	#	Order deny,allow
+	#	allow from ##ip rede interna##
+	#</Directory>
+
+	ErrorLog /var/log/apache2/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+	LogLevel warn
+
+	CustomLog /var/log/apache2/access.log combined
+	# ServerSignature On
+</VirtualHost>

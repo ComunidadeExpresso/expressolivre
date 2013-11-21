@@ -1,0 +1,14 @@
+<li>
+	<%
+	if( link_image )
+	{ %>
+		<a href="<%=link_image%>" target="_blank">
+			<img src="<%=name_image%>" alt="<%=title_image%>" title="<%=title_image%>"/>
+		</a>
+	<% }else{ %>
+		<a href="#" style="cursor: default">
+			<img src="<%=name_image%>" alt="<%=title_image%>" title="<%=title_image%>"/>
+		</a>			
+	<% } %>
+	<span><%=text_image%></span>
+</li>

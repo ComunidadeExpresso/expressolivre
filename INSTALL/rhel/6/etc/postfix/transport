@@ -1,0 +1,2 @@
+DOMAIN		lmtp:unix:/var/lib/imap/socket/lmtp
+.DOMAIN		lmtp:unix:/var/lib/imap/socket/lmtp

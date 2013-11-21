@@ -1,0 +1,41 @@
+# Errors from -32000 to -32099 => Server error: Reserved for implementation-defined server-errors.
+
+-32700		E_PARSE_ERROR					Parse error
+-32600		E_INVALID_REQUEST				Invalid Request
+-32601		E_METHOD_NOT_FOUND				Method not found
+-32602		E_INVALID_PARAMS				Invalid params
+-32603		E_INTERNAL_ERROR				Internal error
+404			E_HTTP_NOT_FOUND				A resource matching URI '%1' was not found
+500			E_UNKNOWN_ERROR					HTTP Unknown error
+
+# Errors inherited from Expresso Application.
+1			LOGIN_SUCCESS_LOGOUT			You have been successfully logged out
+2			LOGIN_SESSION_EXPIRED			Sorry, your login has expired
+3			LOGIN_NOT_LOGGED_IN				You are not logged in
+4			LOGIN_COOKIES_REQUIRED			Cookies are required to login to this site.
+5			LOGIN_BADLOGIN					bad login or password
+6			LOGIN_PASSWORD_EXPIRED			Your password has expired, and you do not have access to change it
+7			LOGIN_AUTH_INVALID				Your auth is invalid
+10			LOGIN_SESSION_NOT_VERIFIED		Your session could not be verified.
+98			LOGIN_ACCOUNT_EXPIRED			Account is expired
+99			LOGIN_LOGIN_BLOCKED				Blocked, too many attempts!
+200			LOGIN_INVALID_LOGIN				Bad login or password
+
+1001		CATALOG_MIN_ARGUMENT_SEARCH		Your search argument must be longer than %1 characters.
+1002		MAIL_NOT_SENT					Your mail could not be sent.
+1003		MAIL_TRASH_NOT_CLEANED			Your trash folder could not be cleaned.
+1004		MAIL_MESSAGE_NOT_FOUND			Message not found in folder %1.
+1005		MAIL_INVALID_NEW_FOLDER_NAME	Invalid folder name.
+1006 		MAIL_INVALID_OLD_FOLDER			Invalid old folder.
+1007 		MAIL_INVALID_FOLDER				Invalid folder.
+1008		MAIL_CANNOT_DEL_DEFAULT_FOLDER	Cannot delete a default folder.
+1009		MAIL_FOLDER_NOT_EMPTY			The folder is not empty.
+1010		MAIL_FOLDER_NOT_RENAMED			The folder could not be renamed.
+1011		MAIL_FOLDER_NOT_ADDED			The folder could not be added.
+1012		MAIL_FOLDER_NOT_DELETED			The folder could not be deleted.
+1013		MAIL_FOLDER_LIMIT_REACHED		Folder limit has been reached.
+1014		CALENDAR_INVALID_START_DATE		Invalid start date.
+1015		CALENDAR_INVALID_END_DATE		Invalid end date.
+1016		MAIL_INVALID_MESSAGE			Message does not exists.
+1017		MAIL_TRASH_FOLDER_NOT_EXISTS	Trash folder does not exists.
+1018		MAIL_NOT_SENT_LIMIT_EXCEEDED	The size of this message has exceeded  the limit (%1B).
