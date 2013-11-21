@@ -559,144 +559,149 @@
 			}
 			if (j == 4)
 			{
-				if(border_id.split("local").length == 1){
-					td.setAttribute("width", colSizes[1][4]);
-					td.id = "td_message_followup_search_"+uid_msg;
-					td.setAttribute("class","search-result-item");
-					td1 = '<div class="flag-edited" style="width:8px;height:6px;"><img src="../prototype/modules/mail/img/flagEditor.png"></div>';
+				if (preferences['use_followupflags_and_labels'] == '1'){
+					if(border_id.split("local").length == 1){
+						td.setAttribute("width", colSizes[1][4]);
+						td.id = "td_message_followup_search_"+uid_msg;
+						td.setAttribute("class","search-result-item");
+						td1 = '<div class="flag-edited" style="width:8px;height:6px;"><img src="../prototype/modules/mail/img/flagEditor.png"></div>';
+								
+						$(td).click(function(event, ui){	
+							var messageClickedId = $(this).attr('id').match(/td_message_followup_search_([\d]+)/)[1];
+
+							var loading = $('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
+	                    		.find('img[alt=Carregando]');
+
+	                    	//Verificar se está carregando a bandeira.
+	                    	//Caso esteja ele sai da função até que seja carregado. 
+	            			if( loading.length ) {
+	                			return false;
+	            			}
+
+	 						var followupColor = $('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css('backgroundColor');
+
 							
-					$(td).click(function(event, ui){	
-						var messageClickedId = $(this).attr('id').match(/td_message_followup_search_([\d]+)/)[1];
-
-						var loading = $('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
-                    		.find('img[alt=Carregando]');
-
-                    	//Verificar se está carregando a bandeira.
-                    	//Caso esteja ele sai da função até que seja carregado. 
-            			if( loading.length ) {
-                			return false;
-            			}
-
- 						var followupColor = $('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css('backgroundColor');
-
+							var followupColor = $('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css('backgroundColor');
+							
+							$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
+							.html('<img alt="Carregando" title="Carregando" style="margin-left:-3px; margin-top:-4px; width:13px; height:13px;" src="../prototype/modules/mail/img/ajax-loader.gif" />');	
+								
+							$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css("background", "transparent");
+				
+							/**TODO Alterar após melhorias no filtro da camada javascript*/
+							DataLayer.remove('followupflagged', false);
+							var flagged = DataLayer.get('followupflagged', {filter: [
+								'AND', 
+								['=', 'messageNumber', messageClickedId], 
+								['=', 'folderName', mailbox]
+							]});
+							if(flagged == '' || flagged == [] || flagged == 'undefined'){
+								/**
+								* Aplica followupflag de Acompanhamento
+								*/
+								aux.followupflagged = {
+									uid : User.me.id,
+									folderName : mailbox, 
+									messageNumber : messageClickedId, 
+									alarmTime : false, 
+									backgroundColor : '#FF2016',
+									followupflagId: '1'
+								};
 						
-						var followupColor = $('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css('backgroundColor');
-						
-						$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
-						.html('<img alt="Carregando" title="Carregando" style="margin-left:-3px; margin-top:-4px; width:13px; height:13px;" src="../prototype/modules/mail/img/ajax-loader.gif" />');	
-							
-						$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css("background", "transparent");
-			
-						/**TODO Alterar após melhorias no filtro da camada javascript*/
-						DataLayer.remove('followupflagged', false);
-						var flagged = DataLayer.get('followupflagged', {filter: [
-							'AND', 
-							['=', 'messageNumber', messageClickedId], 
-							['=', 'folderName', mailbox]
-						]});
-						if(flagged == '' || flagged == [] || flagged == 'undefined'){
-							/**
-							* Aplica followupflag de Acompanhamento
-							*/
-							aux.followupflagged = {
-								uid : User.me.id,
-								folderName : mailbox, 
-								messageNumber : messageClickedId, 
-								alarmTime : false, 
-								backgroundColor : '#FF2016',
-								followupflagId: '1'
-							};
-					
-							aux.followupflagged.id = DataLayer.put('followupflagged', aux.followupflagged);
-							DataLayer.commit(false, false, function(data){
-								var fail = false;
-								$.each(data, function(index, value) {
-									fail = false;
-									if(typeof value === 'string'){
-										fail = value;
-									}
-								});
-								
-								$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
-								.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"})
-								.find('img').remove();;
-								
-								if (fail) {
-								    
-								    var isCurrentFolder = current_folder == mailbox ? '#td_message_followup_' + messageClickedId + ', ' : ''; 	
-								    $(isCurrentFolder + 'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css("background", "#CCCCCC");
-								    
-								    $('#td_message_followup_search_' + messageClickedId).find(".flag-edited")
-								    .append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");
-
-								    MsgsCallbackFollowupflag[fail]();
-								    return false;
-								}
-								
-								if(current_folder == mailbox){
-									$('#td_message_followup_' + messageClickedId + ', ' + 
-									'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', get_lang('Follow up')).find(".flag-edited").css("background", aux.followupflagged.backgroundColor);
-
-									$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', get_lang('Follow up')).find(".flag-edited").css("background", aux.followupflagged.backgroundColor)
-									.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");	
-								}else{								
-									$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', get_lang('Follow up')).find(".flag-edited").css("background", aux.followupflagged.backgroundColor)
-									.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");			
-								}								
-								updateCacheFollowupflag(messageClickedId, mailbox, true);
-							});
-
-							
-						}else if(onceOpenedHeadersMessages[mailbox][messageClickedId]['followupflagged'].followupflag.name == 'Follow up'){
-							/**
-							* Remover followupflag de Acompanhamento (DFD0078:RI25)
-							*/
-							$(this).find(".flag-edited").css("background", "#cccccc");
-							DataLayer.remove('followupflagged', flagged[0].id );
-							DataLayer.commit(false, false, function(){
-								$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").html('<img src="../prototype/modules/mail/img/flagEditor.png">')
-								.css({"width":"8px","height":"6px"/*,"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"*/});
-								if(current_folder == mailbox){
-									updateCacheFollowupflag(messageClickedId, mailbox, false);
-								
-									$('#td_message_followup_' + messageClickedId + ', ' + 
-									  'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', '').find(".flag-edited").css("background", '#CCC');
-									
-									$('#td_message_followup_' + messageClickedId + ', ' + 
-										'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
-										.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"});
-								}else{
-									updateCacheFollowupflag(messageClickedId, mailbox, false);
-									
-									$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', '').find(".flag-edited").css("background", '#CCC');
+								aux.followupflagged.id = DataLayer.put('followupflagged', aux.followupflagged);
+								DataLayer.commit(false, false, function(data){
+									var fail = false;
+									$.each(data, function(index, value) {
+										fail = false;
+										if(typeof value === 'string'){
+											fail = value;
+										}
+									});
 									
 									$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
-										.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"})
-										.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");
-								}
-							});
+									.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"})
+									.find('img').remove();;
+									
+									if (fail) {
+									    
+									    var isCurrentFolder = current_folder == mailbox ? '#td_message_followup_' + messageClickedId + ', ' : ''; 	
+									    $(isCurrentFolder + 'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css("background", "#CCCCCC");
+									    
+									    $('#td_message_followup_search_' + messageClickedId).find(".flag-edited")
+									    .append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");
 
-						} else {
-							$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
-							.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"}).find('img').remove();
-							
-							$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css("background", followupColor)
-							.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");
+									    MsgsCallbackFollowupflag[fail]();
+									    return false;
+									}
+									
+									if(current_folder == mailbox){
+										$('#td_message_followup_' + messageClickedId + ', ' + 
+										'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', get_lang('Follow up')).find(".flag-edited").css("background", aux.followupflagged.backgroundColor);
 
-							//Pega id do checkbox
-							var id = $(this).parents('[role="'+messageClickedId+'_'+mailbox+'"]').attr('class', 'selected_msg').find(':checkbox').attr('id');
-							
-							//verifica se o checkbox já está selecionada
-							if($('#' + id).attr('checked') != 'checked')
-								$(this).parents('[role="'+messageClickedId+'_'+mailbox+'"]').attr('class', 'selected_msg').find(':checkbox').trigger('click');
-							
-							updateSelectedMsgs(true,messageClickedId);
-							configureFollowupflag();
-						}
-						//if(!){}
+										$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', get_lang('Follow up')).find(".flag-edited").css("background", aux.followupflagged.backgroundColor)
+										.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");	
+									}else{								
+										$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', get_lang('Follow up')).find(".flag-edited").css("background", aux.followupflagged.backgroundColor)
+										.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");			
+									}								
+									updateCacheFollowupflag(messageClickedId, mailbox, true);
+								});
 
-					});		
-				}		
+								
+							}else if(onceOpenedHeadersMessages[mailbox][messageClickedId]['followupflagged'].followupflag.name == 'Follow up'){
+								/**
+								* Remover followupflag de Acompanhamento (DFD0078:RI25)
+								*/
+								$(this).find(".flag-edited").css("background", "#cccccc");
+								DataLayer.remove('followupflagged', flagged[0].id );
+								DataLayer.commit(false, false, function(){
+									$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").html('<img src="../prototype/modules/mail/img/flagEditor.png">')
+									.css({"width":"8px","height":"6px"/*,"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"*/});
+									if(current_folder == mailbox){
+										updateCacheFollowupflag(messageClickedId, mailbox, false);
+									
+										$('#td_message_followup_' + messageClickedId + ', ' + 
+										  'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', '').find(".flag-edited").css("background", '#CCC');
+										
+										$('#td_message_followup_' + messageClickedId + ', ' + 
+											'tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
+											.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"});
+									}else{
+										updateCacheFollowupflag(messageClickedId, mailbox, false);
+										
+										$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).attr('title', '').find(".flag-edited").css("background", '#CCC');
+										
+										$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
+											.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"})
+											.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");
+									}
+								});
+
+							} else {
+								$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited")
+								.css({"background-image":"url(../prototype/modules/mail/img/flagEditor.png)"}).find('img').remove();
+								
+								$('tr[role="'+messageClickedId+'_'+mailbox+'"] #td_message_followup_search_' + messageClickedId).find(".flag-edited").css("background", followupColor)
+								.append("<img src='../prototype/modules/mail/img/flagEditor.png'/>");
+
+								//Pega id do checkbox
+								var id = $(this).parents('[role="'+messageClickedId+'_'+mailbox+'"]').attr('class', 'selected_msg').find(':checkbox').attr('id');
+								
+								//verifica se o checkbox já está selecionada
+								if($('#' + id).attr('checked') != 'checked')
+									$(this).parents('[role="'+messageClickedId+'_'+mailbox+'"]').attr('class', 'selected_msg').find(':checkbox').trigger('click');
+								
+								updateSelectedMsgs(true,messageClickedId);
+								configureFollowupflag();
+							}
+							//if(!){}
+
+						});		
+					}
+				}else{
+					td.setAttribute("width", colSizes[1][4]);
+					td.innerHTML = '<div></div>';
+				}			
 			}
 			if (j == 5)
 			{

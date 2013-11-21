@@ -2097,29 +2097,29 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 		  td_element26 = createTDElement(0,6,"td_msg","center","td_message_followup_"+headers_msgs.msg_number);
 		  $(td_element26).addClass("td-followup-flag");
 
-        if(get_current_folder().split("_")[0] != "local"){
+        if((get_current_folder().split("_")[0] != "local") && (preferences['use_followupflags_and_labels'] == '1')){
 		  td_element26.innerHTML = '<div class="flag-edited" style="width:8px;height:6px;"><img src="../prototype/modules/mail/img/flagEditor.png"></div>';
 	    } else {
             td_element26.innerHTML = "";
         }
-        
-		if (headers_msgs.followupflagged) {
-			if(headers_msgs.followupflagged.followupflag.id < 7){
-				var nameFollowupflag = get_lang(headers_msgs.followupflagged.followupflag.name);
-			}else{
-				var nameFollowupflag = headers_msgs.followupflagged.followupflag.name;
-			}
-			$(td_element26).attr('title', nameFollowupflag)
-			.find(".flag-edited").css("background",headers_msgs.followupflagged.backgroundColor);
-			if(headers_msgs.followupflagged.isDone == "1"){
-				$(td_element26).find(".flag-edited").find("img")
-				.attr("src", "../prototype/modules/mail/img/flagChecked.png")
-				.css("margin-left","-3px");
-			}
-		} else {
-			$(td_element26).find(".flag-edited").css("background","#cccccc");
+        if (preferences['use_followupflags_and_labels'] == '1'){
+    		if (headers_msgs.followupflagged) {
+    			if(headers_msgs.followupflagged.followupflag.id < 7){
+    				var nameFollowupflag = get_lang(headers_msgs.followupflagged.followupflag.name);
+    			}else{
+    				var nameFollowupflag = headers_msgs.followupflagged.followupflag.name;
+    			}
+    			$(td_element26).attr('title', nameFollowupflag)
+    			.find(".flag-edited").css("background",headers_msgs.followupflagged.backgroundColor);
+    			if(headers_msgs.followupflagged.isDone == "1"){
+    				$(td_element26).find(".flag-edited").find("img")
+    				.attr("src", "../prototype/modules/mail/img/flagChecked.png")
+    				.css("margin-left","-3px");
+    			}
+    		} else {
+    			$(td_element26).find(".flag-edited").css("background","#cccccc");
+    		}
 		}
-		
 		/**
 		 * Clique para aplicar sinalizador
 		 */
@@ -2251,8 +2251,6 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 				
 				configureFollowupflag();
 			}
-			
-			
 		});	
 		
 		var norm = function (arg) {return (arg < 10 ? '0'+arg : arg);};
