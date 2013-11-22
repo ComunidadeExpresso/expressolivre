@@ -33,11 +33,39 @@ CKEDITOR.plugins.add('expresso',
                     },
                    
                     onClick : function( value )
-                    {         
-                       editor.focus();
-                       editor.fire( 'saveSnapshot' );
-                       editor.insertHtml(unescape(value));
-                       editor.fire( 'saveSnapshot' );
+                    {
+                        editor.focus();
+                        editor.fire( 'saveSnapshot' );
+                        var fontSize = '';
+                        var fontFamily = '';
+                        if(typeof(preferences.font_size_editor) !== 'undefined')
+                            fontSize = 'font-size:' + preferences.font_size_editor;
+                        if(fontSize != '') 
+                            fontFamily = ';'
+                        if(typeof(preferences.font_family_editor) !== 'undefined')
+                            fontFamily += 'font-family:' + preferences.font_family_editor + ';';                         
+                        var divBr = '<div style="'+fontSize+fontFamily+'"><br type="_moz"></div>';
+                        editor.insertHtml(divBr + unescape(value));
+                        editor.fire( 'saveSnapshot' );
+                        var selection = editor.getSelection();
+                        if(selection !== undefined && selection !== null){
+                            var selectionRanges = selection.getRanges(); 
+                        }
+                        if(selection !== null){ 
+                            if(selectionRanges[selectionRanges.length-1] !== undefined){
+                                selectionRanges[selectionRanges.length-1].setStart(selectionRanges[selectionRanges.length-1].getTouchedStartNode().getParents()[1].getChild(0), 0);
+                                selectionRanges[selectionRanges.length-1].setEnd(selectionRanges[selectionRanges.length-1].getTouchedStartNode().getParents()[1].getChild(0), 0);
+                            }
+                            selection.selectRanges(selectionRanges);
+                        }
+                        if (CKEDITOR.env.ie){
+                            var body = editor.document.getBody();
+                            var range = new CKEDITOR.dom.range(body);
+                            range.selectNodeContents(body);
+                            range.collapse(true);
+                            var selection = editor.getSelection();
+                            selection.selectRanges([range]);
+                        }                       
                     }
 
         });

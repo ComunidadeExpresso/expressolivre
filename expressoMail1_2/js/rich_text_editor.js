@@ -337,7 +337,8 @@ cRichTextEditor.prototype.setInitData = function (id,data,reply,recursion, callb
 	else{
 		if( RichTextEditor.editorReady === true && CKEDITOR.instances['body_'+id] !== undefined ){
 			var editor =   CKEDITOR.instances['body_'+id]; 
-			var selection = editor.getSelection();
+			
+   			var selection = editor.getSelection();
 			var fontSize = '';
 			var fontFamily = '';
 			if(typeof(preferences.font_size_editor) !== 'undefined')
@@ -365,6 +366,14 @@ cRichTextEditor.prototype.setInitData = function (id,data,reply,recursion, callb
 					selectionRanges[selectionRanges.length-1].setEnd(selectionRanges[selectionRanges.length-1].getTouchedStartNode().getParents()[1].getChild(0), 0);
 				}
 				selection.selectRanges(selectionRanges);
+			}
+			if (CKEDITOR.env.ie){
+				var body = editor.document.getBody();
+				var range = new CKEDITOR.dom.range(body);
+				range.selectNodeContents(body);
+				range.collapse(true);
+				var selection = editor.getSelection();
+				selection.selectRanges([range]);
 			}
 			
 			if (is_webkit){
