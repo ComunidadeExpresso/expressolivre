@@ -4,7 +4,7 @@
  */
 
 $data = $_POST;
-	
+
 if( count($_FILES) )
 {
     $files = array();

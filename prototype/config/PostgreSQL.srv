@@ -1,7 +1,7 @@
 path = "services/PostgreSQL.php"
 class = "PostgreSQL"
 [config]
-; Conexao via socket unix
+; Conexão via socket unix
 host = /tmp
 ; Conexão via TCP/IP
 ;host = 127.0.0.1
