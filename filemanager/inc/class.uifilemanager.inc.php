@@ -974,7 +974,7 @@ class uifilemanager {
 					<textarea cols="80" id="edit_file_content" name="edit_file_content" rows="10">' . $content . '</textarea>
 						<script type="text/javascript"> CKEDITOR.replace( \'edit_file_content\',{
 removePlugins : \'elementspath\',
-skin : \'office2003\',
+skin : \'moono_blue\',
 toolbar : [["Source","Preview","-","Cut","Copy","Paste","-","Print",
 "Undo","Redo","-","Find","Replace","-","SelectAll" ],
 ["Table","HorizontalRule","Smiley","SpecialChar","PageBreak","-","Bold",

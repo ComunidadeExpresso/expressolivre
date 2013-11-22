@@ -336,7 +336,7 @@ use prototype\api\Config as Config;
 							<textarea cols="80" id="newsettings[agree_term]" name="newsettings[agree_term]" rows="10">' . $content . '</textarea>
 							<script type="text/javascript"> CKEDITOR.replace( \'newsettings[agree_term]\',{
 								removePlugins : \'elementspath\',
-								skin : \'office2003\',
+								skin : \'moono_blue\',
 								toolbar : [["Source","Preview","-","Cut","Copy","Paste","-","Print",
 								"Undo","Redo","-","Find","Replace","-","SelectAll" ],
 								["Table","HorizontalRule","SpecialChar","PageBreak","-","Bold",

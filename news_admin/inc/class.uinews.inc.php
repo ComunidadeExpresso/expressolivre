@@ -442,7 +442,7 @@
 			<textarea cols="80" id="news[content]" name="news[content]" rows="10">' . $this->news_data['content'] . '</textarea>
 			<script type="text/javascript"> CKEDITOR.replace( \'news[content]\',{
 			removePlugins : \'elementspath\',
-			skin : \'office2003\',
+			skin : \'moono_blue\',
 			toolbar : [["Source","Preview","-","Cut","Copy","Paste","-","Print",
 			"Undo","Redo","-","Find","Replace","-","SelectAll" ],
 			["Table","HorizontalRule","SpecialChar","PageBreak","-","Bold",

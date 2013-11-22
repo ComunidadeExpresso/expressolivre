@@ -83,7 +83,7 @@ function smarty_function_wf_fckeditor($params, &$smarty)
 	$out .= '<script type="text/javascript">'.
 				'CKEDITOR.replace( \''.$base_arguments['InstanceName'].'\',{'.
 					'removePlugins : \'elementspath\','.
-					'skin : \'office2003\','.
+					'skin : \'moono_blue\','.
 					'toolbar : \'Full\''.
 					'}'.
 				');';

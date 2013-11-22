@@ -150,7 +150,7 @@
 				$text_or_htmlarea.= '<script type="text/javascript">'.
 						'CKEDITOR.replace( \'message\',{'.
 						'removePlugins : \'elementspath\','.
-						'skin : \'office2003\','.
+						'skin : \'moono_blue\','.
 						'toolbar : \'Full\''.
 						'}'.
 						');</script>';
