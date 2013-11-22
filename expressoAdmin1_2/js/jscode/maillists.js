@@ -277,11 +277,11 @@ function add_user2scl_maillist()
 			}
 		}
 	}
-
 	if (new_options != '')
 	{
-		select_usersInMaillist.innerHTML = '#' + new_options + select_usersInMaillist.innerHTML;
-		select_usersInMaillist.outerHTML = select_usersInMaillist.outerHTML;
+		usersOptionsHtml = select_usersInMaillist.innerHTML;
+		usersOptionsHtml = (($.browser.msie && $.browser.version < 9) ? '#' : '&nbsp;') + new_options + usersOptionsHtml;
+		$(select_usersInMaillist).html(usersOptionsHtml);
 	}
 }
 
