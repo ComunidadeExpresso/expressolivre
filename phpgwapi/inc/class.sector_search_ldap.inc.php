@@ -121,14 +121,14 @@ class sector_search_ldap {
 	else
 	    ldap_set_option($ldap_conn, LDAP_OPT_REFERRALS, 0);
 
-	ldap_bind($ldap_conn, $dn, $passwd);
+	@ldap_bind($ldap_conn, $dn, $passwd);
 
 	$justthese = array("dn");
 	$filter = $show_invisible_ou ? "(objectClass=organizationalUnit)" : "(& (objectClass=organizationalUnit) (!(phpgwAccountVisible=-1)) )";
-	$search = ldap_search($ldap_conn, $context, $filter, $justthese);
+	$search = @ldap_search($ldap_conn, $context, $filter, $justthese);
 
-	ldap_sort($ldap_conn, $search, "ou");
-	$info = ldap_get_entries($ldap_conn, $search);
+	@ldap_sort($ldap_conn, $search, "ou");
+	$info = @ldap_get_entries($ldap_conn, $search);
 	ldap_close($ldap_conn);
 
 	// Retiro o count do array info e inverto o array para ordenação.

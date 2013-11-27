@@ -267,7 +267,11 @@
 				/* log does not exist in setup(, yet) */
 				if(is_object($GLOBALS['phpgw']->log))
 				{
-					$GLOBALS['phpgw']->log->message('F-Abort, LDAP support unavailable');
+					$GLOBALS['phpgw']->log->message(array(
+						'text' => 'F-Abort', 'LDAP support unavailable',
+						'line' => __LINE__,
+						'file' => __FILE__
+					));
 					$GLOBALS['phpgw']->log->commit();
 				}
 
@@ -281,7 +285,11 @@
 				/* log does not exist in setup(, yet) */
 				if(is_object($GLOBALS['phpgw']->log))
 				{
-					$GLOBALS['phpgw']->log->message('F-Abort, Failed connecting to LDAP server');
+					$GLOBALS['phpgw']->log->message(array(
+						'text' => 'F-Abort, Failed connecting to LDAP server',
+						'line' => __LINE__,
+						'file' => __FILE__
+					));
 					$GLOBALS['phpgw']->log->commit();
 				}
 
@@ -310,7 +318,11 @@
 				if(!@ldap_bind($ds,$dn,$passwd)) {
 					if(is_object($GLOBALS['phpgw']->log))
 					{
-						$GLOBALS['phpgw']->log->message('F-Abort, Failed binding to LDAP server');
+						$GLOBALS['phpgw']->log->message(array(
+							'text' => 'F-Abort, Failed binding to LDAP server',
+							'line' => __LINE__,
+							'file' => __FILE__						
+						));
 						$GLOBALS['phpgw']->log->commit();
 					}
 
@@ -328,7 +340,11 @@
 			{
 				if(is_object($GLOBALS['phpgw']->log))
 				{
-					$GLOBALS['phpgw']->log->message('F-Abort, Failed  (anonymous bind) to LDAP server');
+					$GLOBALS['phpgw']->log->message(array(
+						'text' => 'F-Abort, Failed  (anonymous bind) to LDAP server',
+						'line' => __LINE__,
+						'file' => __FILE__
+					));
 					$GLOBALS['phpgw']->log->commit();
 				}
 				if(function_exists("lang"))

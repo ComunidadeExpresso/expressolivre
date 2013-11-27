@@ -121,8 +121,7 @@ use prototype\api\Config as Config;
 				}
 
 				foreach($_POST['newsettings'] as $key => $config)
-				{
-					
+				{					
 					if ($config)  
 					{																						  // Código adicionado	
 						if($GLOBALS['phpgw_info']['server']['found_validation_hook'] && (function_exists($key) || function_exists(substr($key,0,strrpos($key,'_')))) )
@@ -133,7 +132,7 @@ use prototype\api\Config as Config;
                         	} 
                         	else 
                         	{
-                                call_user_func($key,&$config);
+                                call_user_func($key,$config);
                         	}
 
                         	if($GLOBALS['config_error'])
@@ -242,33 +241,32 @@ use prototype\api\Config as Config;
 								<td align=\"center\" style=\"width:80px; margin: 0px 16px;\">" . lang('Searchable')         . "</td>
 								<td align=\"center\" style=\"width: 15px;\">
 							</tr>";
-                
-        		foreach ($fields as $i => $line) 
-        		{
-					if ($line["cc_attribute_name_$i"] != '' && $line["cc_attribute_ldapname_$i"] != '') {
-						$campos_vazio  = false;
-                        $selectedText  = $line["cc_attribute_type_$i"] == 'text' ? 'selected="selected"' : '';
-                        $selectedTMult = $line["cc_attribute_type_$i"] == 'multivalues' ? 'selected="selected"' : '';
-						$selectedYes   = $line["cc_attribute_searchable_$i"] == 'true'  ? 'selected="selected"' : '';
-						$selectedNo    = $line["cc_attribute_searchable_$i"] == 'false' ? 'selected="selected"' : '';
-
+				if ($fields !== NULL)			
+	        		foreach ($fields as $i => $line) 
+	        		{
+						if ($line["cc_attribute_name_$i"] != '' && $line["cc_attribute_ldapname_$i"] != '') {
+							$campos_vazio  = false;
+	                        $selectedText  = $line["cc_attribute_type_$i"] == 'text' ? 'selected="selected"' : '';
+	                        $selectedTMult = $line["cc_attribute_type_$i"] == 'multivalues' ? 'selected="selected"' : '';
+							$selectedYes   = $line["cc_attribute_searchable_$i"] == 'true'  ? 'selected="selected"' : '';
+							$selectedNo    = $line["cc_attribute_searchable_$i"] == 'false' ? 'selected="selected"' : '';
 						
-                		$campos = $campos . "
-								<tr>
-									<td><input type=\"text\" name=\"newsettings[cc_attribute_name_" . $i . "]\" value=\"".$line["cc_attribute_name_$i"]."\" style=\"width:170px;\"></input></td>
-									<td><input type=\"text\" name=\"newsettings[cc_attribute_ldapname_" . $i . "]\" value=\"".$line["cc_attribute_ldapname_$i"]."\" style=\"width:170px;\"></input></td>
-									<td><select name=\"newsettings[cc_attribute_type_" . $i . "]\" style=\"width:86px; margin: 0px 0px 0px 8px;\">
-											<option value=\"text\" $selectedText>" . lang('Text') . "</option>
-											<option value=\"multivalues\" $selectedTMult>" . lang('Multivalued') ."</option>
-									</select></td>
-									<td><select name=\"newsettings[cc_attribute_searchable_$i]\" style=\"margin: 0px 16px;\">
-											<option value=\"true\" $selectedYes>" . lang('Yes') . "</option>
-											<option value=\"false\" $selectedNo>" . lang('No') . "</option>
-									</select></td>
-									<td><img src=\"contactcenter/templates/default/images/cc_x.png\" alt=\"". lang('Delete') . "\" title=\"". lang('Delete') ."\" style=\"width: 15px; height: 14px; cursor: pointer; position: relative; top: 3px;\" onclick=\"javascript:cc_attribute_delete(this)\"></img></td>  
-								</tr>";
-                	}
-        		} 
+	                		$campos = $campos . "
+									<tr>
+										<td><input type=\"text\" name=\"newsettings[cc_attribute_name_" . $i . "]\" value=\"".$line["cc_attribute_name_$i"]."\" style=\"width:170px;\"></input></td>
+										<td><input type=\"text\" name=\"newsettings[cc_attribute_ldapname_" . $i . "]\" value=\"".$line["cc_attribute_ldapname_$i"]."\" style=\"width:170px;\"></input></td>
+										<td><select name=\"newsettings[cc_attribute_type_" . $i . "]\" style=\"width:86px; margin: 0px 0px 0px 8px;\">
+												<option value=\"text\" $selectedText>" . lang('Text') . "</option>
+												<option value=\"multivalues\" $selectedTMult>" . lang('Multivalued') ."</option>
+										</select></td>
+										<td><select name=\"newsettings[cc_attribute_searchable_$i]\" style=\"margin: 0px 16px;\">
+												<option value=\"true\" $selectedYes>" . lang('Yes') . "</option>
+												<option value=\"false\" $selectedNo>" . lang('No') . "</option>
+										</select></td>
+										<td><img src=\"contactcenter/templates/default/images/cc_x.png\" alt=\"". lang('Delete') . "\" title=\"". lang('Delete') ."\" style=\"width: 15px; height: 14px; cursor: pointer; position: relative; top: 3px;\" onclick=\"javascript:cc_attribute_delete(this)\"></img></td>  
+									</tr>";
+	                	}
+	        		} 
         	
 			    if ($campos_vazio)
         		{

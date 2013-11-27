@@ -135,7 +135,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 							'messageNumber' => array()
 						);
 						
-						self::parseFilter($criteria["filter"], &$map);
+						self::parseFilter($criteria["filter"], $map);
 						
 						if (count($map['folderName']) == 0) {
 							$folders = $this->get_folders_list();
@@ -281,7 +281,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 						'labelId' => array()
 					);
 					
-					self::parseFilter($criteria["filter"], &$map);
+					self::parseFilter($criteria["filter"], $map);
 					
 					if (count($map['folderName']) == 0) {
 						$folders = $this->get_folders_list();
@@ -327,7 +327,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					'messageId' => array()
 				);
 				
-				self::parseFilter($criteria["filter"], &$map);
+				self::parseFilter($criteria["filter"], $map);
 	
 				if (empty($map['folderName'])) {
 					$folders = $this->get_folders_list();
@@ -728,7 +728,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					'messageId' => array()
 				);
 				
-				self::parseFilter($criteria["filter"], &$map);
+				self::parseFilter($criteria["filter"], $map);
 				
 				if (!$map['folderName']) {
 					$folders = array ();
@@ -878,7 +878,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 		{
 			case 'and': {
 				foreach ($filter as $term)
-					self::parseFilter($term ,&$map);
+					self::parseFilter($term ,$map);
 				return;
 			}
 			case 'in': {

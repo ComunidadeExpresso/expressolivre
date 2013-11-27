@@ -107,7 +107,7 @@
 			}
 			
 			// ADD ATTRIBUTES
-			if ($params['phpgwaccountvisible'] == 'on')
+			if (isset($params['phpgwaccountvisible']) && $params['phpgwaccountvisible'] == 'on')
 			{
 				$group_info['phpgwaccountvisible'] = '-1';
 			}
