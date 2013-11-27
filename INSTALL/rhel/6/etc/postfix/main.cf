@@ -165,8 +165,7 @@ smtpd_recipient_restrictions =
 
 #SCL - Sender Control List - Restricoes para envio nas listas
 smtpd_restriction_classes = mailListRestriction
-mailListRestriction = check_sender_access ldap:csa_maillists,
-			reject
+mailListRestriction = check_policy_service unix:private/scl
 
 # LOCAL PATHNAME INFORMATION
 #

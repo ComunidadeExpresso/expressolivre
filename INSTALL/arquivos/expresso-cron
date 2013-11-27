@@ -4,24 +4,27 @@ MAILTO=root
 HOME=/tmp
 
 # Utilizado para verificar se ha algum alarme, por e-mail, do modulo ExpressoCalendar
-#CENTOS*/1 * 	* * *	apache	 php	EXPRESSO_DIR/prototype/modules/calendar/alarms.php 1>& /dev/null
-#DEBIAN*/1 * 	* * *	www-data php5	EXPRESSO_DIR/prototype/modules/calendar/alarms.php 1>& /dev/null
+#CENTOS*/1 * 	* * *	apache      php	 EXPRESSO_DIR/prototype/modules/calendar/alarms.php 1>& /dev/null
+#DEBIAN*/1 * 	* * *	www-data    php5 EXPRESSO_DIR/prototype/modules/calendar/alarms.php 1>& /dev/null
 
 # Utilizado para limpar a tabela, temporaria, que contem os e-mails (rascunhos) antes de
 #  serem salvos no IMAP.
-#CENTOS00 02 	* * *	apache		php	EXPRESSO_DIR/prototype/modules/mail/cleanMailAttachments.php 
-#DEBIAN00 02 	* * *	www-data	php5	EXPRESSO_DIR/prototype/modules/mail/cleanMailAttachments.php 
+#CENTOS00 02 	* * *	apache		php	 EXPRESSO_DIR/prototype/modules/mail/cleanMailAttachments.php 
+#DEBIAN00 02 	* * *	www-data	php5 EXPRESSO_DIR/prototype/modules/mail/cleanMailAttachments.php 
 
 # Utilizado para limpar a tabela de registros de acesso, sessoes, do Expresso (phpgw_access_log)
-#CENTOS00 22 	* * *	apache		php	EXPRESSO_DIR/phpgwapi/cron/clean_phpgw_tables.php
-#DEBIAN00 22 	* * *	www-data	php5	EXPRESSO_DIR/phpgwapi/cron/clean_phpgw_tables.php
+#CENTOS00 22 	* * *	apache		php	 EXPRESSO_DIR/phpgwapi/cron/clean_phpgw_tables.php
+#DEBIAN00 22 	* * *	www-data	php5 EXPRESSO_DIR/phpgwapi/cron/clean_phpgw_tables.php
 
 # Utilizado para limpar os arquivos de sessao do PHP
-#*/31 *  * * *   root                    find /dev/shm -type f -name "sess_*" -cmin 240 -print0 | xargs -n 200 -r -0 rm
-*/31 *  * * *   root                    find /dev/shm -type f -name "sess_*" -cmin +240 -delete
+#*/31 *         * * *   root        find /dev/shm -type f -name "sess_*" -cmin 240 -print0 | xargs -n 200 -r -0 rm
+*/31 *          * * *   root        find /dev/shm -type f -name "sess_*" -cmin +240 -delete
 
 # Utilizado para limpar os arquivos, eml, criados ao exportar mensagens
-#13 */4 * * * root			find /tmp/ -iname "*.eml" -amin +60 -exec rm -f '{}' \;
-13 */4 	* * * root			find /tmp/ -iname "*.eml" -cmin +60 -delete
+#13 */4         * * *   root		find /tmp/ -iname "*.eml" -amin +60 -exec rm -f '{}' \;
+13 */4 	        * * *   root		find /tmp/ -iname "*.eml" -cmin +60 -delete
+
+# Para o DSPAM
+#*/15 *         * * *   root        pidof dspam 1&> /dev/null ; [ $? -ne 0 ] && service dspam restart
 
 #

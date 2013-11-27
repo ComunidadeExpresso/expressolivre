@@ -494,9 +494,12 @@ class iCal implements Formatter {
 	foreach ($attendees as $pi => $pv) {
 	    $isResponseDelegated = false;
 	    if ((isset($pv['delegatedFrom']) && $pv['delegatedFrom'] == 0) || !isset($pv['delegatedFrom']))  {
-		if ($pv['isOrganizer'] == 1)
-		    $vevent->setProperty('organizer', $pv['user']['mail'], array('CN' => $pv['user']['name']));
-		else {
+		if ($pv['isOrganizer'] == 1){
+			if($pv['user']['id'] == Config::me('uidNumber'))
+				$pv['user']['mail'] = $pv['user']['mailSenderAddress'];
+			
+			$vevent->setProperty('organizer', $pv['user']['mail'], array('CN' => $pv['user']['name']));
+		}else {
 		    $pParams = array();
 		    $pParams['CN'] = $pv['user']['name'];
 		    $pParams['PARTSTAT'] = self::_getStatus($pv['status']);
@@ -617,6 +620,7 @@ class iCal implements Formatter {
 
                         if (self::_getTime($component, 'dtstamp') > $schedulable['dtstamp'] || $component->getProperty('sequence', false, false) > $schedulable['sequence']){ //Organizador esta requisitando que você atualize o evento
 
+
                             $params['calendar'] = $params['calendar'] == 'true' ? $calendar : $params['calendar'];
                             $interation = self::_makeVEVENT($schedulable, $component, $params);
                         }else if ($component->getProperty('sequence', false, false) === $schedulable['sequence']) {
@@ -641,7 +645,7 @@ class iCal implements Formatter {
                 } else { // Importar evento
                     $interation = self::_makeVEVENT(array(), $component, $params);
 
-                    if (strpos($params['prodid'], 'kigkonsult.se') !== false) { //envia notificação para fora
+                       if (strpos($params['prodid'], 'kigkonsult.se') !== false) { //envia notificação para fora
 
                         /* Data de Inicio */
                         $startTime = $component->getProperty('dtstart', false, true);
@@ -692,6 +696,7 @@ class iCal implements Formatter {
                         }
 
 
+
                         if ($uid = $component->getProperty('uid', false, false))
                         ;
                         $sc['uid'] = $uid;
@@ -706,6 +711,8 @@ class iCal implements Formatter {
                         /* Definindo location */
                         if ($location = $component->getProperty('location', false, false))
                         $sc['location'] = mb_convert_encoding($location, 'UTF-8', 'UTF-8,ISO-8859-1');
+
+
 
 
 
@@ -734,6 +741,7 @@ class iCal implements Formatter {
                         }
 
 
+
                         $participant['status'] = isset($params['status']) ? $params['status'] : STATUS_ACCEPTED;
                         $participant['isOrganizer'] = '0';
                         $participant['isExternal'] = 0;
@@ -748,6 +756,7 @@ class iCal implements Formatter {
 
                         $sc['participants'][] = $participant;
                         $sc['type'] = EVENT_ID;
+
 
 
                         $ical['source'] = Controller::format(array('service' => 'iCal'), array($sc), array('method' => 'REPLY'));
@@ -800,6 +809,7 @@ class iCal implements Formatter {
                             $subject['notificationType'] = 'Convite rejeitado';
                             break;
                         }
+
                         require_once ROOTPATH . '/api/parseTPL.php';
 
                         $mail = array();
@@ -1227,6 +1237,7 @@ class iCal implements Formatter {
 
                     foreach ($schedulable['participants'] as $value){
 
+
                         if ($value['user']['id'] == $params['owner']) {
                             $isParticipant = true;
                             if ($value['isOrganizer'])
@@ -1428,6 +1439,7 @@ class iCal implements Formatter {
 	$offset = $origin_dtz->getOffset($origin_dt) - $remote_dtz->getOffset($remote_dt);
 
 
+
 	return $offset;
     }
 
@@ -1456,6 +1468,7 @@ class iCal implements Formatter {
     
     }
 
+
     private function _getStatusTodo($id) {
         $a = array(
             STATUS_TODO_NEED_ACTION => 'NEED_ACTION',
@@ -1466,6 +1479,7 @@ class iCal implements Formatter {
 
     return isset($a[$id]) ? $a[$id] : 'NEED_ACTION';
     }
+
 
     private static function _checkParticipantByPermissions($schedulable) {
 
@@ -1582,6 +1596,8 @@ class iCal implements Formatter {
     }
 
     static private function _makeVEVENT($schedulable, $component, $params) {
+
+
     	$interation = array();
     	$eventID = isset($schedulable['id']) ? $schedulable['id'] : mt_rand() . '(Formatter)';
 
@@ -1640,6 +1656,7 @@ class iCal implements Formatter {
     	}
 
 
+
     	$schedulable['summary'] = mb_convert_encoding($component->getProperty('summary', false, false), 'ISO-8859-1', 'UTF-8,ISO-8859-1');
 
     	/* Definindo Description */
@@ -1649,6 +1666,7 @@ class iCal implements Formatter {
     	/* Definindo location */
     	if ($location = $component->getProperty('location', false, false))
     	    $schedulable['location'] = mb_convert_encoding($location, 'ISO-8859-1', 'UTF-8,ISO-8859-1');
+
 
 
     	/* Definindo Class */
@@ -1693,11 +1711,10 @@ class iCal implements Formatter {
     	    $participantID = ($tpID = self::_getParticipantByMail($mailUser, $schedulable['participants'])) ? $tpID : mt_rand() . '2(Formatter)';
     	    $participant['schedulable'] = $eventID;
 
-    	    if (isset($params['status']) && $mailUser == Config::me('mail'))
+    	    if (isset($params['status']) &&  ltrim( substr( $mailUser, 0 , strpos( $mailUser, '@' ) ), '@' )  ==  ltrim( substr( Config::me('mail'), 0, strpos( Config::me('mail'), '@' ) ), '@' ))
     		$participant['status'] = $params['status'];
     	    else
     		$participant['status'] = (isset($property['params']['PARTSTAT']) && constant('STATUS_' . $property['params']['PARTSTAT']) !== null ) ? constant('STATUS_' . $property['params']['PARTSTAT']) : STATUS_UNANSWERED;
-
 
     	    $participant['isOrganizer'] = '0';
 
@@ -1730,6 +1747,7 @@ class iCal implements Formatter {
     	    $mailUser = trim(str_replace('MAILTO:', '', $property['value']));
 
 
+
             if($participant = self::_getParticipantByMail($mailUser, $schedulable['participants'], true)){
 
                 $participantID = $participant['id'];
@@ -1747,8 +1765,9 @@ class iCal implements Formatter {
 
     	    /* Verifica se este usuario é um usuario interno do ldap */
     	    $intUser = Controller::find(array('concept' => 'user'), array('id', 'isExternal'), array('filter' => array('OR', array('=', 'mail', $mailUser), array('=', 'mailAlternateAddress', $mailUser))));
-    	    $user = null;
-    	    if ($intUser && count($intUser) > 0) {
+
+            $user = null;
+    	    if ($intUser && count($intUser) > 0 && $intUser[0]['id']) {
                 $participant['isExternal'] = isset($intUser[0]['isExternal']) ? $intUser[0]['isExternal'] : 0;
                 $participant['user'] = $intUser[0]['id'];
     	    } else {
@@ -1940,6 +1959,7 @@ class iCal implements Formatter {
 
 	$schedulable['type'] = '2'; //type schedulable
 	$schedulable['summary'] = mb_convert_encoding($component->getProperty('summary', false, false), 'ISO-8859-1', 'UTF-8,ISO-8859-1');
+
 
 	/* Definindo Description */
 	if ($desc = $component->getProperty('description', false, false))
@@ -2143,6 +2163,8 @@ class iCal implements Formatter {
 
 	$interation['schedulable://' . $todoID] = $schedulable;
 
+
+
     return $interation;
     }
 
@@ -2162,6 +2184,7 @@ class iCal implements Formatter {
 	if(is_array($sig2))
 		foreach ($sig2 as $val)
 		    $calendars[] = $val['calendar'];
+
 
 
 	$return = Controller::find(array('concept' => 'calendarToSchedulable'), null, array('filter' => array('AND', array('IN', 'calendar', $calendars), array('=', 'schedulable', $id))));

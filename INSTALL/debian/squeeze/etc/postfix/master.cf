@@ -74,3 +74,7 @@ mailman   unix  -       n       n       -       -       pipe
   flags=FR user=list argv=/usr/lib/mailman/bin/postfix-to-mailman.py
   ${nexthop} ${user}
 
+# Script para controle de envio nas listas de discussão
+scl  unix    -       n       n       -       0       spawn
+        user=nobody argv=/usr/bin/perl /etc/postfix/scl.pl
+

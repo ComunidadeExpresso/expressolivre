@@ -10,6 +10,8 @@ smtp () {
 	sed -e "s/DOMAIN/$DOMAIN/g" $DIR_POSTFIX/expresso-dominios > /etc/postfix/expresso-dominios
 	sed -e "s/DOMAIN/$DOMAIN/g" $DIR_POSTFIX/transport > /etc/postfix/transport
 	cp $DIR_POSTFIX/master.cf /etc/postfix/
+	sed -e "s/LDAP_DN/$LDAP_DN/g" $ARQS/scl.pl > /etc/postfix/scl.pl
+    chmod a+x /etc/postfix/scl.pl
 
 	postmap /etc/postfix/expresso-dominios
 	postmap /etc/postfix/transport
@@ -19,7 +21,7 @@ smtp () {
 
 smtp_rhel ()
 {
-	yum -y install postfix
+	yum -y install postfix perl-LDAP
 
 	smtp $1 
 
@@ -35,7 +37,7 @@ smtp_rhel_6 ()
 
 smtp_debian ()
 {
-	apt-get -y install postfix postfix-ldap
+	apt-get -y install postfix postfix-ldap libnet-ldap-perl
 
 	smtp $1
 

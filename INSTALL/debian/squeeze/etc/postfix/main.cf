@@ -107,7 +107,7 @@ cra_maillists_version = 3
 cra_maillists_timeout = 10
 cra_maillists_chase_referral = 0
 cra_maillists_search_base = $ldapbase
-cra_maillists_query_filter = (&(mail=%s)(phpgwAccountType=l)(accountRestrictive=mailListRestriction))
+cra_maillists_query_filter = (&(|(mail=%s)(mailAlternateAddress=%s))(phpgwAccountType=l)(accountRestrictive=mailListRestriction))
 cra_maillists_result_attribute = accountRestrictive
 cra_maillists_domain = hash:/etc/postfix/expresso-dominios
 cra_maillists_bind = no
@@ -165,7 +165,5 @@ smtpd_recipient_restrictions =
 
 #SCL - Sender Control List - Restricoes para envio nas listas
 smtpd_restriction_classes = mailListRestriction
-mailListRestriction = check_sender_access ldap:csa_maillists,
-			reject
-
+mailListRestriction = check_policy_service unix:private/scl
 

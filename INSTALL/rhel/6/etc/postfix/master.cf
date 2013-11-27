@@ -77,3 +77,8 @@ ifmail    unix  -       n       n       -       -       pipe
   flags=F user=ftn argv=/usr/lib/ifmail/ifmail -r $nexthop ($recipient)
 bsmtp     unix  -       n       n       -       -       pipe
   flags=Fq. user=foo argv=/usr/local/sbin/bsmtp -f $sender $nexthop $recipient
+
+# Script para controle de envio nas listas de discussão
+scl  unix    -       n       n       -       0       spawn
+        user=nobody argv=/usr/bin/perl /etc/postfix/scl.pl
+
