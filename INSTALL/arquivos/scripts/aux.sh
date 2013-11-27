@@ -18,7 +18,7 @@ get_pass ()
 			get_pass
 		fi
 		# Gera a senha para o arquivo de configuração do LDAP
-		LDAP_PWD_MD5=`$ARQS/scripts/md5pass.pl $LDAP_PWD`
+		LDAP_PWD_MD5=$(perl $ARQS/scripts/md5pass.pl $LDAP_PWD)
 	fi
 }
 
@@ -115,8 +115,8 @@ validaSO ()
 {
 	R=1
 	#if [ "$DIST" == "$1" ] && [ `echo $REV | grep -q "$2"` ]
-        echo $REV | grep -q "$2"
-        if [ $? -eq 0 ] && [ "$DIST" == "$1" ]
+	echo $REV | grep -q "$2"
+	if [ $? -eq 0 ] && [ "$DIST" == "$1" ]
 	then
 		R=0
 	fi

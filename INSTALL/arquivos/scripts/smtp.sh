@@ -50,6 +50,12 @@ smtp_debian_6 ()
 	smtp_debian $SQUEEZE
 }
 
+smtp_debian_7 ()
+{
+	WHEEZY="debian/wheezy/etc/postfix"
+	smtp_debian $WHEEZY
+}
+
 smtp_ubuntu_1204 ()
 {
 	smtp_debian_6

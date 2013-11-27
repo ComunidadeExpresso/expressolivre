@@ -75,7 +75,7 @@ http_debian_6 ()
 {
 	http_debian
 	# O nome do pacote do memcache no Debian é diferente do Ubuntu
-	apt-get -y install libmemcached5 || log_erro "Pacote nao encontrado"
+	apt-get install -y libmemcached5 || log_erro "Pacote nao encontrado"
 	# Copia a configuração do servidor apache2
 	cp -a debian/squeeze/etc/apache2/apache2.conf /etc/apache2/
 	cp -a debian/squeeze/etc/apache2/ports.conf /etc/apache2/
@@ -95,11 +95,35 @@ http_debian_6 ()
 	sed -e "s|/dev/shm|/var/lib/php5|g" ../.htaccess > $DIR_EXPRESSO/.htaccess
 }
 
+http_debian_7 ()
+{
+	http_debian
+	# O nome do pacote do memcache no Debian é diferente do Ubuntu
+	apt-get install -y libmemcached10 || log_erro "Pacote nao encontrado"
+	# Copia a configuração do servidor apache2
+	cp -a debian/wheezy/etc/apache2/apache2.conf /etc/apache2/
+	cp -a debian/wheezy/etc/apache2/ports.conf /etc/apache2/
+	cp -a debian/wheezy/etc/apache2/sites-available/expresso /etc/apache2/sites-available/
+	cp -a debian/wheezy/etc/apache2/ssl/ /etc/apache2/
+
+	a2ensite expresso
+	a2dissite default
+
+	# Copia a configuração do PHP
+	#cp -a debian/squeeze/etc/php5/apache2/php.ini /etc/php5/apache2/
+	/etc/init.d/cron restart
+	/etc/init.d/apache2 restart
+
+	## Alteracao para compatibilizar o diretorio de sessao do PHP
+	# o diretorio padrao da sessao do PHP eh do Centos.
+	sed -e "s|/dev/shm|/var/lib/php5|g" ../.htaccess > $DIR_EXPRESSO/.htaccess
+}
+
 http_ubuntu_1204 ()
 {
 	http_debian_6
 	# O nome do pacote do memcache no Ubuntu é diferente do Debian
-	apt-get -y install libmemcached6
+	apt-get install -y libmemcached6
 
         cp -a ubuntu/12.04/etc/apache2/apache2.conf /etc/apache2/
 	/etc/init.d/cron restart

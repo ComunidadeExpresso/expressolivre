@@ -45,7 +45,7 @@
 
 	/* eGroupWare domain-specific db settings */
 	$GLOBALS['phpgw_domain']['default'] = array(
-		'db_host' => '/tmp',
+		'db_host' => 'localhost',
 		'db_port' => '5432',
 		'db_name' => 'expresso',
 		'db_user' => 'postgres',
