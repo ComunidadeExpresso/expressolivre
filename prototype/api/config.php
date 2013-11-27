@@ -59,8 +59,9 @@ class Config
         
 		if ( isset( $_COOKIE[ 'sessionid' ] ) ) 
 		{
-				session_id( $_COOKIE[ 'sessionid' ] ); 
-				$GLOBALS['phpgw']->session->sessionid = $_COOKIE[ 'sessionid' ];
+				session_id( $_COOKIE[ 'sessionid' ] );
+				if ( isset($GLOBALS['phpgw']) && !is_null($GLOBALS['phpgw']->session) )
+					$GLOBALS['phpgw']->session->sessionid = $_COOKIE[ 'sessionid' ];
 		}
 		
 	    if( !isset($_SESSION) )
@@ -90,7 +91,7 @@ class Config
 				if($has_sections)
 				{
 					$content .= "[$key]\n";
-					self::_writeIniFile(&$content, $val, false);
+					self::_writeIniFile($content, $val, false);
 				}
 				else				
 					foreach($val as $iKey => $iVal)

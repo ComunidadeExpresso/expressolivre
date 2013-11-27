@@ -9,6 +9,7 @@
 #	"Gustavo Nakahara" <gustavonk@prognus.com.br>, para Debian, Ubuntu, Red Hat e CentOS
 #	"Rafael Cristaldo" <rafael@prognus.com.br>, para Debian, Ubuntu, Red Hat e CentOS
 #	"Alexandre Felipe Muller de Souza" <amuller@celepar.pr.gov.br>, para Debian
+#	"Alexandre Luiz Correia" <alexandrecorreia@celepar.pr.gov.br> para Debian > 6 
 #   "Cassio Luiz" <cassiolp@cnpq.br>, para Red Hat e CentOS 
 # 	"M. Rodrigo Monteiro" <mrodrigom@gmail.com>, para Red Hat e CentOS
 #
@@ -18,11 +19,13 @@
 # 	Termino do instalador basico, para Debian Squeeze, CentOS 6 e Ubuntu Server 11.10
 # 12/11/2012 - v1.1
 #	Adicionado suporte ao Ubuntu LTS 12.04
+# 11/11/2013 - v1.2
+#	Adcionardo suporte ao Debian Wheezy 7.2
 
 #################################################################################################
-#												#
-#						MAIN						#
-#												#
+#																								#
+#						MAIN																	#
+#																								#
 #################################################################################################
 
 # TODO: Internacionalizar o script de instalacao:
@@ -51,19 +54,64 @@ VERSAO="2.5.1"
 # Identifica o SO
 qualSO
 # Verifica se o SO eh compativel com o instalador
-if ( validaSO "Debian" "6.0" )
+
+# Versões Homologadas
+versionSOS=( "Debian" "Ubuntu" "CentOS" "RedHat" )
+
+# Versões suportadas para 
+Debian=("6." "7.")
+Ubuntu=("12.04")
+CentOS=("6.")
+RedHat=("6.")
+
+for SO in ${versionSOS[*]}  
+do  
+    SYS_SUPPORT=$SO
+    TEMP="\${$SO[*]}"  
+    SO=`eval echo $TEMP`
+    for VERSIONS in $SO  
+    do  
+        if ( validaSO $SYS_SUPPORT $VERSIONS )
+        then
+        	case "$SYS_SUPPORT" in
+        		"Debian")
+        			INSTALL=$(echo "debian_"$VERSIONS | sed 's/\.//g')
+        			;;
+        		"Ubuntu")
+        			INSTALL=$(echo "ubuntu_"$VERSIONS | sed 's/\.//g')
+        			;;
+        		"CentOS")
+					INSTALL=$(echo "rhel_"$VERSIONS | sed 's/\.//g')
+					;;
+				"RedHat")
+					INSTALL=$(echo "rhel_"$VERSIONS | sed 's/\.//g')
+					;;
+        	esac		
+        fi
+    done  
+done 
+
+if [ -z "$INSTALL" ]
 then
-	INSTALL="debian_6"
-elif ( validaSO "Ubuntu" "12.04" )
-then
-	INSTALL="ubuntu_1204"
-elif ( validaSO "CentOS" "6." || validaSO "RedHat" "6." )
-then
-	INSTALL="rhel_6"
-else
+	echo "*************************************************************************************"
+	echo " "
 	echo "Sistema operacional desconhecido ou incompativel com o instalador do Expresso Livre!"
 	echo "$OSSTR"
-	echo "Por favor, utilize uma distribuicao GNU/Linux compativel: Debian 6.x, Ubuntu LTS 12.04 ou CentOS/RedHat 6.x" 
+	echo "Por favor, utilize uma distribuicao GNU/Linux compativel com as listadas abaixo :"
+	
+	for SO in ${versionSOS[*]}  
+	do
+		echo -n "- $SO "
+	    TEMP="\${$SO[*]}"  
+	    SO=`eval echo $TEMP`
+		for VERSION in $SO
+		do
+			echo -n "$VERSION "
+		done
+		echo " "
+	done	
+	echo " "
+	echo "*************************************************************************************"
 	exit 1
 fi
 
@@ -92,10 +140,11 @@ dialog --backtitle "$BACKTITLE" --cr-wrap --yesno "$INTRO" 20 80 || exit 0
 SERVICOS=$( dialog --backtitle "$BACKTITLE" --stdout --separate-output \
 	--checklist 'Por favor, selecione quais servicos serao instalados neste sistema operacional:' 14 75 14 \
 	http 'Servidor http (apache) juntamente com os modulos do PHP5' on \
-        ldap 'Servidor ldap (openldap)' on \
+	ldap 'Servidor ldap (openldap)' on \
 	bd 'Servidor de banco de dados (postgresql)' on \
 	smtp 'Sevirdor smtp (postfix)' on \
 	imap 'Servidor imap (cyrus-imap)' on )
+	
 
 # Executa funcao de instalacao/configuracao do servico no respectivo SO.
 for I in $SERVICOS

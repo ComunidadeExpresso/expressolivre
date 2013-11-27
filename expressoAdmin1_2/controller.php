@@ -21,12 +21,12 @@ require_once '../services/class.servicelocator.php';
 
 	//	Explode action from cExecuteForm function
 	$cExecuteFormReturn = false;
- 	if($_POST['_action']) { 		
+ 	if(isset($_POST['_action'])) { 		
  		if($_FILES) {
  			$count_files = $_POST['countFiles'];
 			$array_files = array(); 		
  			for($idx = 1; $idx <= $count_files; ++$idx) {
- 				if($_FILES['file_'.$idx] && !$_FILES['file_'.$idx]['error'])
+ 				if(isset($_FILES['file_'.$idx]) && $_FILES['file_'.$idx] && !$_FILES['file_'.$idx]['error'])
  					$array_files[] = $_FILES['file_'.$idx]; 					 
  			}
  			$_POST['FILES'] = $array_files;
@@ -35,12 +35,17 @@ require_once '../services/class.servicelocator.php';
  		$cExecuteFormReturn = true;
  	}
  	//	Explode action from cExecute function
- 	else if($_GET['action'])
-		list($app,$class,$method) = explode('.',@$_GET['action']);
+ 	else if($_GET['action']){
+		$exp = explode('.',@$_GET['action']);
+		//avoiding undefined offsets
+		if (count($exp) > 1)
+			list($app,$class,$method) = explode('.',@$_GET['action']);
+ 		else
+ 			$app = $exp[0];
+ 	}
 	// NO ACTION
 	else
 		return $_SESSION['response'] = 'false';
-	
 	// Load dinamically class file.
 	if($app == '$this')
 		$filename = 'inc/class.'.$class.'.inc.php';

@@ -97,7 +97,7 @@
 			if ($params['accountStatus'] == 'on')
 				$maillist_info['accountStatus'] = 'active';
 			
-			if ($params['phpgwAccountVisible'] == 'on')
+			if (isset($params['phpgwAccountVisible']) && $params['phpgwAccountVisible'] == 'on')
 				$maillist_info['phpgwAccountVisible'] = '-1';
 						
 			$maillist_info['mailForwardingAddress'] = $params['mailForwardingAddress'];

@@ -47,67 +47,63 @@
 		// Account and type of access. Return: Have access ? (true/false)
 		function check_acl($account_lid, $access)
 		{
-			
-
-			$array_acl =  $this->db_functions->read_acl($account_lid);
-			
+			$array_acl =  $this->db_functions->read_acl($account_lid);		
 			switch($access)
 			{
-				case list_users:
+				case 'list_users':
 					if ($array_acl['acl_add_users'] || $array_acl['acl_edit_users'] || $array_acl['acl_delete_users'] || $array_acl['acl_change_users_password'] || $array_acl['acl_change_users_quote'] || $array_acl['acl_edit_sambausers_attributes'] || $array_acl['acl_view_users'] || $array_acl['acl_manipulate_corporative_information'] || $array_acl['acl_edit_users_phonenumber'] )
 						return true;
 					break;
-				case list_groups:
+				case 'list_groups':
 					if ($array_acl['acl_add_groups'] || $array_acl['acl_edit_groups'] || $array_acl['acl_delete_groups'])
 						return true;
 					break;
-				case list_maillists:
+				case 'list_maillists':
 					if ($array_acl['acl_add_maillists'] || $array_acl['acl_edit_maillists'] || $array_acl['acl_delete_maillists'])
 						return true;
 					break;
-				case list_sectors:
+				case 'list_sectors':
 					if ($array_acl['acl_create_sectors'] || $array_acl['acl_edit_sectors'] || $array_acl['acl_delete_sectors'])
 						return true;
 					break;
-				case list_computers:
+				case 'list_computers':
 					if ($array_acl['acl_create_computers'] || $array_acl['acl_edit_computers'] || $array_acl['acl_delete_computers'])
 						return true;
 					break;
 
-				case display_groups:
+				case 'display_groups':
 					if ( $array_acl['acl_edit_users'] || $array_acl['acl_view_users'] || ($array_acl['acl_edit_sambausers_attributes'] && ($this->current_config['expressoAdmin_samba_support'] == 'true')) )
 						return true;
 					break;
-				case display_emailconfig:
+				case 'display_emailconfig':
 					if ($array_acl['acl_edit_users'] || $array_acl['acl_view_users'])
 						return true;
 					break;
-				case display_applications:
+				case 'display_applications':
 					if ($array_acl['acl_edit_users'] || $array_acl['acl_view_users'])
 						return true;
 					break;
-				case display_emaillists:
+				case 'display_emaillists':
 					if ($array_acl['acl_edit_users'] || $array_acl['acl_view_users'])
 						return true;
 					break;
 
-				case list_institutional_accounts:
+				case 'list_institutional_accounts':
 					if ($array_acl['acl_add_institutional_accounts'] || $array_acl['acl_edit_institutional_accounts'] || $array_acl['acl_delete_institutional_accounts'])
 						return true;
-                                        break;
-                                case list_shared_accounts:
+                    break;
+                case 'list_shared_accounts':
 					if ($array_acl['acl_add_shared_accounts'] || $array_acl['acl_edit_shared_accounts'] || $array_acl['acl_delete_shared_accounts'])
 						return true;
 					break;
-                case configurations:
+                case 'configurations':
 					if ($array_acl['acl_active_blocking_sending_email_to_shared_accounts'] || $array_acl['acl_add_blocking_sending_email_to_shared_accounts_exception'] || $array_acl['acl_edit_and_remove_blocking_sending_email_to_shared_accounts_exception'] || $array_acl['acl_edit_maximum_number_of_recipients_generally'] || $array_acl['acl_add_maximum_number_of_recipients_by_user'] || $array_acl['acl_edit_and_remove_maximum_number_of_recipients_by_user'] || $array_acl['acl_add_maximum_number_of_recipients_by_group'] || $array_acl['acl_edit_and_remove_maximum_number_of_recipients_by_group'])
 						return true;
 					break;
-				case messages_size:
+				case 'messages_size':
 					if($array_acl['acl_add_messages_size_rule'] || $array_acl['acl_edit_messages_size_rule'] || $array_acl['acl_remove_messages_size_rule'])
 						return true;
 					break;
-
 				default:
 					return $array_acl["acl_$access"];
 			}
@@ -832,7 +828,7 @@
 				// 1 coluna 
 				if (($i +1) % 3 == 1)
 				{
-					$checked = $user_applications[$app] ? 'CHECKED' : '';
+					$checked = is_array($user_applications) && $user_applications[$app] ? 'CHECKED' : '';
 					$app_col1 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
 					$data['title'],$app,$checked, $disabled);
 					if ($i == ($total_apps-1))
@@ -842,7 +838,7 @@
 				// 2 coluna
 				if (($i +1) % 3 == 2)
 				{
-					$checked = $user_applications[$app] ? 'CHECKED' : '';
+					$checked = is_array($user_applications) && $user_applications[$app] ? 'CHECKED' : '';
 					$app_col2 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
 					$data['title'],$app,$checked, $disabled);
 					
@@ -852,7 +848,7 @@
 				// 3 coluna 
 				if (($i +1) % 3 == 0)
 				{
-					$checked = $user_applications[$app] ? 'CHECKED' : '';
+					$checked = is_array($user_applications) && $user_applications[$app] ? 'CHECKED' : '';
 					$app_col3 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
 					$data['title'],$app,$checked, $disabled);
 					

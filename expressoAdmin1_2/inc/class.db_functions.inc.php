@@ -9,8 +9,8 @@
 		*  option) any later version.                                              * 
 		\**************************************************************************/ 
 		
-define('PHPGW_INCLUDE_ROOT','../');	
-define('PHPGW_API_INC','../phpgwapi/inc');
+if (!defined('PHPGW_INCLUDE_ROOT')) define('PHPGW_INCLUDE_ROOT','../');	
+if (!defined('PHPGW_API_INC')) define('PHPGW_API_INC','../phpgwapi/inc');
 include_once(PHPGW_API_INC.'/class.db.inc.php');
 
 class db_functions
@@ -237,7 +237,7 @@ class db_functions
 		while($this->db->next_record())
 			$user_in_group[] = $this->db->row();
 		
-		if (count($user_in_group) == 0)
+		if (!isset($user_in_group) || count($user_in_group) == 0)
 		{
 			$sql = "INSERT INTO phpgw_acl (acl_appname, acl_location, acl_account, acl_rights) "
 			. "VALUES('phpgw_group','" . $gidnumber . "','" . $uidnumber . "','1')";
@@ -349,7 +349,7 @@ class db_functions
 				while($this->db->next_record())
 					$user_app[] = $this->db->row();
 					
-				if (count($user_app) == 0)
+				if (isset($user_app) && count($user_app) == 0)
 				{
 					$sql = "INSERT INTO phpgw_acl (acl_appname, acl_location, acl_account, acl_rights) "
 					. "VALUES('".$app."','run','" . $id . "','1')";
@@ -410,6 +410,7 @@ class db_functions
 
 	function get_user_info($uidnumber)
 	{
+		$user_app = array();
 		// Groups
 		$query = "SELECT acl_location FROM phpgw_acl WHERE acl_appname = 'phpgw_group' AND acl_account = '".$uidnumber."'";
 		$this->db->query($query);
@@ -423,9 +424,10 @@ class db_functions
 		// ChangePassword
 		$query = "SELECT acl_rights FROM phpgw_acl WHERE acl_appname = 'preferences' AND acl_location = 'changepassword' AND acl_account = '".$uidnumber."'";
 		$this->db->query($query);
+		$changepassword = array();
 		while($this->db->next_record())
 			$changepassword[] = $this->db->row();
-		$return['changepassword'] = $changepassword[0]['acl_rights'];
+		$return['changepassword'] = isset($changepassword[0]) ? $changepassword[0]['acl_rights'] : '';
 		
 		// Apps
 		$query = "SELECT acl_appname FROM phpgw_acl WHERE acl_account = '".$uidnumber."' AND acl_location = 'run'";
@@ -433,7 +435,7 @@ class db_functions
 		while($this->db->next_record())
 			$user_apps[] = $this->db->row();
 			
-		if ($user_apps)
+		if (isset($user_apps) && $user_apps)
 		{			
 			foreach ($user_apps as $app)
 			{
@@ -537,6 +539,7 @@ class db_functions
 	
 	function delete_user($user_info)
 	{
+		$ids = array();
 		// AGENDA
 		$this->db->query('SELECT calendar_id FROM calendar_signature WHERE user_uidnumber ='.$user_info['uidnumber'] . ' AND is_owner = 1' );
 		while($this->db->next_record())
@@ -722,7 +725,7 @@ class db_functions
 		$this->db->query($query);
 		while($this->db->next_record())
 			$result[] = $this->db->row();
-		if (count($result) > 0)
+		if (isset($result) && count($result) > 0)
 			return true;
 		else
 			return false;
@@ -838,7 +841,7 @@ class db_functions
                 $where = array('acl_appname' => 'calendar','acl_account' => $owner);
                 $this->db->select('phpgw_acl', $colunas, $where, null, null);
 
-                $return;
+                $return = array();
 
                 include_once 'class.ldap_functions.inc.php';
                 $ldap = new ldap_functions();

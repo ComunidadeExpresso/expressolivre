@@ -48,10 +48,19 @@ ldap_debian ()
 ldap_debian_6 ()
 {
 	# BDB do Squeeze
-	apt-get -y install db4.7-util
+	apt-get -y install db4.8-util
 
 	SQUEEZE=debian/squeeze/etc/ldap
 	ldap_debian $SQUEEZE/slapd.conf /etc/ldap/slapd.conf $SCHEMAS /etc/ldap/schema
+}
+
+ldap_debian_7 ()
+{
+	# BDB do Wheezy
+	apt-get -y install db5.1-util
+
+	WHEEZY=debian/wheezy/etc/ldap
+	ldap_debian $WHEEZY/slapd.conf /etc/ldap/slapd.conf $SCHEMAS /etc/ldap/schema
 }
 
 ldap_ubuntu_1204 ()

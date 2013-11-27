@@ -122,7 +122,7 @@ include_once('class.db_functions.inc.php');
                 {
                         $return = $this->ldap_functions->get_shared_account_data($params);
                         $owners_acl = $this->imap_functions->getaclfrombox($params);
-			$uid = $params['uid'];
+			            $uid = $params['uid'];
                         $quota = $this->imap_functions->get_user_info($params['uid']);
                         $owner = $this->ldap_functions->uid2uidnumber($params['uid']);
                         $calendarAcls = $this->db_functions->get_calendar_acls($owner);
@@ -141,11 +141,14 @@ include_once('class.db_functions.inc.php');
 					
 					if( $uid )
 					    $cn .= '(' . $key . ')';
-
-			                $return['owners_options'] .= '<option value='. $key .'>' . $cn . '</option>';
+                            if (!isset($return['owners_options'])) $return['owners_options'] = '';
+                            if (!isset($return['owners'][$i])) $return['owners'][$i] = '';
+                            if (!isset($return['owners_acl'][$i])) $return['owners_acl'][$i] = '';
+                            if (!isset($return['owners_calendar_acl'][$i])) $return['owners_calendar_acl'][$i] = '';
+                            $return['owners_options'] .= '<option value='. $key .'>' . $cn . '</option>';
 	                                $return['owners'][$i] .= $key;
 	                                $return['owners_acl'][$i] .= $value;
-                                        $return['owners_calendar_acl'][$i] .= $calendarAcls[$key];
+                                        $return['owners_calendar_acl'][$i] .= isset($calendarAcls[$key]) ? $calendarAcls[$key] : '';
 	                                ++$i;
 	                        }
                         } else {

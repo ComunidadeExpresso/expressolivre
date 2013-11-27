@@ -83,7 +83,7 @@ class ExpressoAdapter extends Resource {
 			$request->data = $_POST;
 		$this->setRequest($request);		
 		if(!is_array($request->data))
-			parse_str(urldecode($request->data), &$request->data);
+			parse_str(urldecode($request->data), $request->data);
 		$data = (object)$request->data;		
 		if($data){
 			if($data->params){								

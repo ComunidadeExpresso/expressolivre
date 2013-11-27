@@ -65,7 +65,7 @@
 
 	/* Following to ensure windows file paths are saved correctly */
    	//set_magic_quotes_runtime(0); 
-	magic_quotes_runtime(0);
+	//magic_quotes_runtime(0);
 
 	$GLOBALS['phpgw_setup']->loaddb();
 

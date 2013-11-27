@@ -699,7 +699,7 @@ function filterbox2(){
 */ 
  function filter_from_msg (msg) { 
 	var html = DataLayer.render( BASE_PATH + 'modules/filters/init.ejs', {}); 
-	initialize_container(html); 
+	initialize_container(html);
 	outOfficeVerify();
 	list_container = create_filter_dialog(); 
 	render_new_rule(msg.from.email, html_entities(msg.subject)); 

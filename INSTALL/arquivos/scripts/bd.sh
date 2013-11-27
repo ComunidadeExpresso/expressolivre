@@ -70,6 +70,47 @@ bd_debian_6 ()
 	bd_debian $DIR_PG $SQUEEZE/postgresql.conf $SQUEEZE/pg_hba.conf $DIR_CONF
 }
 
+bd_debian_7 ()
+{
+	DIR_PG="/var/lib/postgresql/9.1/main"
+	DIR_CONF="/etc/postgresql/9.1/main"
+	WHEEZY=debian/wheezy/$DIR_CONF
+	PG_CONF="$WHEEZY/postgresql.conf"
+	PG_HBA="$WHEEZY/pg_hba.conf"
+
+	# Instala os pacotes do servico
+	apt-get install -y postgresql postgresql-common postgresql-client postgresql-client-common
+	/etc/init.d/postgresql stop
+	
+	# Faz backup da base do Postgres
+	mv $DIR_PG $DIR_PG.`date +"%s"`
+	mkdir -p $DIR_PG
+
+	# Muda as permissoes
+	chown -R postgres:postgres $DIR_PG
+	chmod -R 700 $DIR_PG
+
+	# Recria a base do Postgres
+	rm -rf $DIR_PG*
+	su - postgres -c "env LC_ALL=C /usr/lib/postgresql/9.1/bin/initdb --encoding=LATIN1 -D $DIR_PG"
+	sed -e "s/LDAP_DN/$LDAP_DN/g" -e "s/LDAP_PWD/$LDAP_PWD/g" -e "s/ou=ORG/ou=$ORG/g" -e "s/DOMAIN/$DOMAIN/g" $ARQS/expresso.dump > /tmp/expresso.dump
+	
+	cp -f $PG_CONF $DIR_CONF/
+	cp -f $PG_HBA $DIR_CONF/
+	
+	# Cria o link simbolico para os certificados
+	ln -sf /etc/ssl/certs/ssl-cert-snakeoil.pem $DIR_PG/server.crt
+	ln -sf /etc/ssl/private/ssl-cert-snakeoil.key $DIR_PG/server.key
+
+	rm -f $DIR_PG/postgresql.conf
+	rm -f $DIR_PG/pg_hba.conf
+
+	/etc/init.d/postgresql start
+
+	# Inicializa a base de dados do Expresso
+	create_db
+}
+
 bd_ubuntu ()
 {
         DIR_PG="$1"

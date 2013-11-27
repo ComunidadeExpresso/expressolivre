@@ -37,7 +37,11 @@
 
 			if(!$ldap = @ldap_connect($GLOBALS['phpgw_info']['server']['ldap_host']))
 			{
-				$GLOBALS['phpgw']->log->message('F-Abort, Failed connecting to LDAP server for authenication, execution stopped');
+				$GLOBALS['phpgw']->log->message(array(
+					'text' => 'F-Abort, Failed connecting to LDAP server for authenication, execution stopped',
+					'line' => __LINE__,
+					'file' => __FILE__
+					));
 				$GLOBALS['phpgw']->log->commit();
 				return False;
 			}

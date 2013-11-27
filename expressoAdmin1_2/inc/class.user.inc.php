@@ -101,7 +101,7 @@
 				$user_info['uidnumber']					= $id;
 				$user_info['userPassword']				= '{md5}' . base64_encode(pack("H*",md5($params['password1'])));
 				
-				if ($params['passwd_expired'] == '1')
+				if (isset($params['passwd_expired']) && $params['passwd_expired'] == '1')
 					$user_info['phpgwLastPasswdChange'] = '0';
 				
 				// Gerenciar senhas RFC2617
@@ -135,11 +135,11 @@
 						$user_info['mailForwardingAddress'][] = $mailforwardingaddress;
 				}
 				
-				if ($params['deliverymode'])
+				if (isset($params['deliverymode']) && $params['deliverymode'])
 					$user_info['deliveryMode'] = 'forwardOnly';
 			
 				//Ocultar da pesquisa e do catálogo
-				if ($params['phpgwaccountvisible'])
+				if (isset($params['phpgwaccountvisible']) && $params['phpgwaccountvisible'])
 					$user_info['phpgwAccountVisible'] = '-1';
 
 				// Suporte ao SAMBA
@@ -244,7 +244,7 @@
 				}
 			
 				// Inclusao do Mail do usuário nas listas de email selecionadas.
-				if ($params['maillists'])
+				if (isset($params['maillists']) && $params['maillists'])
 				{
 					foreach($params['maillists'] as $uid)
 	            	{
@@ -940,7 +940,7 @@
 			if (!$user_info_ldap = $this->ldap_functions->get_user_info($uidnumber))
 				return false;
 			$user_info_db1 = $this->db_functions->get_user_info($uidnumber);
-			$user_info_db2 = $this->ldap_functions->gidnumbers2cn($user_info_db1['groups']);
+			$user_info_db2 = $this->ldap_functions->gidnumbers2cn(isset($user_info_db1['groups'])?$user_info_db1['groups']:'');
 			$user_info_imap = $this->imap_functions->get_user_info($user_info_ldap['uid']);
 			$user_info = array_merge($user_info_ldap, $user_info_db1, $user_info_db2, $user_info_imap);
 			return $user_info;
@@ -990,6 +990,7 @@
 		
 		function delete($params)
 		{
+			$return['msg'] = '';
 			$return['status'] = true;
 			$this->db_functions->write_log('delete user: start', $params['uid']);
 			

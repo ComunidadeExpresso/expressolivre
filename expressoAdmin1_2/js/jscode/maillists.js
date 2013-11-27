@@ -277,6 +277,7 @@ function add_user2scl_maillist()
 			}
 		}
 	}
+
 	if (new_options != '')
 	{
 		usersOptionsHtml = select_usersInMaillist.innerHTML;

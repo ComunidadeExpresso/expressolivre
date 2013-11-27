@@ -254,6 +254,7 @@ class Mail_mime
                 $this->_txtbody .= $cont;
             }
         }
+
         return true;
     }
 
