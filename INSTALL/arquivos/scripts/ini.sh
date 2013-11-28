@@ -24,6 +24,11 @@ ini_debian_6 ()
 	ini_debian
 }
 
+ini_debian_7 ()
+{
+	ini_debian
+}
+
 ini_ubuntu_1204 ()
 {
 	ini_debian_6	

@@ -1,0 +1,60 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+        Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=BR, ST=RGS, L=PORTO ALEGRE, O=EXPRESSO, OU=EXPRESSO, CN=EXPRESSO
+        Validity
+            Not Before: Apr 16 19:41:53 2009 GMT
+            Not After : Apr 16 19:41:53 2010 GMT
+        Subject: C=BR, ST=RGS, O=EXPRESSO, OU=SERVIDOR-EXPRESSO, CN=SERVIDOR-EXPRESSO
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (1024 bit)
+                Modulus (1024 bit):
+                    00:d2:99:0d:00:ac:cd:36:9c:3b:ad:33:6e:2c:95:
+                    f6:1e:00:ad:f6:7b:f9:44:0e:68:10:40:68:3f:76:
+                    4e:3c:48:b0:37:51:ad:cc:8f:0c:dd:b1:a7:de:93:
+                    6a:1b:d0:b5:b0:ec:4e:69:84:aa:38:15:6b:5d:df:
+                    96:af:79:4a:c6:eb:4a:0b:65:c6:9c:6e:86:d2:52:
+                    60:77:73:17:23:6c:a7:cd:96:16:26:5f:a8:12:e4:
+                    66:b1:30:a6:c3:74:75:b8:a4:10:0b:1a:05:86:5e:
+                    87:b2:86:7d:49:37:b9:27:d4:f8:3c:ea:cc:0d:06:
+                    49:e9:ca:26:77:89:04:bd:eb
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                72:BB:25:9C:5C:00:19:68:10:14:7A:E0:B9:07:75:B0:63:51:05:D2
+            X509v3 Authority Key Identifier: 
+                keyid:02:6A:7D:91:73:6D:BB:C9:2D:DF:02:19:DA:1C:B2:F0:AD:FD:4D:1C
+
+    Signature Algorithm: sha1WithRSAEncryption
+        98:b0:61:1b:10:4d:e6:37:f9:a6:ce:d5:3b:d5:9b:bb:7e:28:
+        73:52:dd:b1:88:6a:f1:a1:9d:96:6b:db:b7:89:3a:f9:e6:f5:
+        fb:b2:a6:2e:6f:4e:77:ed:62:f9:e2:18:03:55:9f:06:43:26:
+        c1:50:5c:10:f8:41:ee:f1:93:38:f5:5f:0a:de:2d:a6:52:5f:
+        48:07:0c:9c:fc:4b:3a:95:15:ed:9a:4f:b3:0b:fa:87:51:f9:
+        7b:87:c4:1b:9f:77:f0:fd:99:64:4e:91:9e:29:42:49:78:31:
+        0f:b5:f9:91:7d:2f:0e:9d:0b:66:84:59:3d:bc:c7:45:82:16:
+        39:cf
+-----BEGIN CERTIFICATE-----
+MIICwjCCAiugAwIBAgIBATANBgkqhkiG9w0BAQUFADBrMQswCQYDVQQGEwJCUjEM
+MAoGA1UECBMDUkdTMRUwEwYDVQQHEwxQT1JUTyBBTEVHUkUxETAPBgNVBAoTCEVY
+UFJFU1NPMREwDwYDVQQLEwhFWFBSRVNTTzERMA8GA1UEAxMIRVhQUkVTU08wHhcN
+MDkwNDE2MTk0MTUzWhcNMTAwNDE2MTk0MTUzWjBmMQswCQYDVQQGEwJCUjEMMAoG
+A1UECBMDUkdTMREwDwYDVQQKEwhFWFBSRVNTTzEaMBgGA1UECxMRU0VSVklET1It
+RVhQUkVTU08xGjAYBgNVBAMTEVNFUlZJRE9SLUVYUFJFU1NPMIGfMA0GCSqGSIb3
+DQEBAQUAA4GNADCBiQKBgQDSmQ0ArM02nDutM24slfYeAK32e/lEDmgQQGg/dk48
+SLA3Ua3Mjwzdsafek2ob0LWw7E5phKo4FWtd35aveUrG60oLZcacbobSUmB3cxcj
+bKfNlhYmX6gS5GaxMKbDdHW4pBALGgWGXoeyhn1JN7kn1Pg86swNBknpyiZ3iQS9
+6wIDAQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdl
+bmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUcrslnFwAGWgQFHrguQd1sGNR
+BdIwHwYDVR0jBBgwFoAUAmp9kXNtu8kt3wIZ2hyy8K39TRwwDQYJKoZIhvcNAQEF
+BQADgYEAmLBhGxBN5jf5ps7VO9Wbu34oc1LdsYhq8aGdlmvbt4k6+eb1+7KmLm9O
+d+1i+eIYA1WfBkMmwVBcEPhB7vGTOPVfCt4tplJfSAcMnPxLOpUV7ZpPswv6h1H5
+e4fEG5938P2ZZE6RnilCSXgxD7X5kX0vDp0LZoRZPbzHRYIWOc8=
+-----END CERTIFICATE-----
