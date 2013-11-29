@@ -1,0 +1,216 @@
+#
+# Configuracoes principais
+#
+Options -ExecCGI -MultiViews -Indexes
+DirectoryIndex index.php index.html index.htm
+DefaultLanguage pt-BR
+AddDefaultCharset ISO-8859-1
+ServerSignature Off
+
+#
+# Configuracoes de "headers", cache e outras otimizacoes
+#
+# Disable caches and browsers from being able to validate files,
+# so they are forced to rely on your Cache-Control and Expires header.
+<ifModule mod_headers.c>
+	Header unset ETag
+</ifModule>
+FileETag None
+
+#-> http://www.htaccesselite.com/htaccess/cache-control-http-headers-vt65.html
+#      300   5 M
+#     2700  45 M
+#     3600   1 H
+#    54000  15 H
+#    86400   1 D
+#   518400   6 D
+#   604800   1 W
+#  1814400   3 W
+#  2419200   1 M
+# 26611200  11 M
+# 29030400   1 Y (never expire)
+
+## HEADER CACHING ##
+#-> http://www.htaccesselite.com/htaccess/caching-using-header-vt2.html
+#<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico)$">
+#	Header set Cache-Control "max-age=2592000"
+#</FilesMatch>
+#<FilesMatch "\.(js|css|pdf|swf)$">
+#   Header set Cache-Control "max-age=604800"
+#</FilesMatch>
+#<FilesMatch "\.(html|htm|txt)$">
+#   Header set Cache-Control "max-age=600"
+#</FilesMatch>
+#<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+#   Header unset Cache-Control
+#</FilesMatch>
+
+## ALTERNATE EXPIRES CACHING ##
+#-> htaccesselite.com/d/use-htaccess-to-speed-up-your-site-discussion-vt67.html
+#<ifModule mod_expires.c>
+#	ExpiresActive On
+#	ExpiresDefault A0
+#	ExpiresDefault "access plus 1 day"
+	# Permite que os arquivos sejam "cacheados" tanto para http quanto para https
+#	Header set Cache-Control "public"
+
+#	ExpiresByType text/html "access plus 1 hour"
+#	ExpiresByType text/plain "access plus 1 hour"
+#	ExpiresByType text/css "access plus 1 hour"
+#	ExpiresByType text/javascript "access plus 1 hour"
+#	ExpiresByType application/x-javascript "access plus 1 hour"
+
+#	ExpiresByType image/gif "access plus 1 week"
+#	ExpiresByType image/jpg "access plus 1 week"
+#	ExpiresByType image/png "access plus 1 week"
+
+	#<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+		#ExpiresActive Off
+		# Sem cache!
+		#ExpiresDefault A0
+		#Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+		#Header set Pragma "no-cache"
+	#</FilesMatch>
+#</ifModule>
+
+#
+# Compactacao
+#
+<IfModule mod_deflate.c>
+	SetOutputFilter DEFLATE
+
+	AddOutputFilterByType DEFLATE application/x-httpd-php
+	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+	AddOutputFilterByType DEFLATE application/xhtml+xml
+	AddOutputFilterByType DEFLATE application/xml
+	AddOutputFilterByType DEFLATE application/rss+xml
+	AddOutputFilterByType DEFLATE application/atom_xml
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/plain
+	AddOutputFilterByType DEFLATE text/xml
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE image/svg+xml
+
+	# Use low settings for compression to make sure impact on server is low
+	#DeflateMemLevel 2
+	#Highest 9 - Lowest 1
+	#DeflateCompressionLevel 9
+
+	#Skip browsers with known problems
+	BrowserMatch ^Mozilla/4 gzip-only-text/html
+	BrowserMatch ^Mozilla/4\.0[678] no-gzip
+	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+	# properly handle requests coming from behind proxies
+	<IfModule mod_headers.c>
+		# Make sure proxies don't deliver the wrong content
+		Header append Vary User-Agent env=!dont-vary
+	</IfModule>
+
+	SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+	SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+	SetEnvIfNoCase Request_URI \.(?:avi|mov|mp3|ogg|wmv|wma)$ no-gzip dont-vary
+	SetEnvIfNoCase Request_URI \.pdf$ no-gzip dont-vary
+
+	# Log file compression
+#	DeflateFilterNote Input instream
+#	DeflateFilterNote Output outstream
+#	DeflateFilterNote Ratio ratio
+#	LogFormat '"%r" %{outstream}n/%{instream}n (%{ratio}n%%)' deflate
+#	CustomLog /var/log/apache2/deflate.log deflate
+
+</ifModule>
+
+
+#
+# Reescritas e redirecionamentos
+#
+RewriteEngine On
+## DENY REQUEST BASED ON REQUEST METHOD ##
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|HEAD)$ [NC]
+RewriteRule ^.*$ - [F]
+RewriteRule ^rest(.*)$ prototype/rest/$1 [QSA,L]
+RewriteRule ^Microsoft-Server-ActiveSync(.*) zpush/index.php$1 [E=ACTIVESYNC:true,E=REMOTE_USER:%{HTTP:Authorization}]
+
+#
+# Seguranca e restricoes de acesso
+#
+# Ao próprio htaccess e outros arquivos sensiveis (como senhas)
+<Files ~ "\.(htaccess|htpasswd|ini|srv|log|sh|svn)$">
+	Order Allow,Deny
+	Deny from all
+	Satisfy any
+</Files>
+
+#<Location /setup>
+#	Options None
+#        Order deny,allow
+#	# Sua rede local
+#        allow from 192.168.0.0/24
+#</Location>
+
+#
+# Configuracoes do PHP para o Expresso
+# IMPORTANTE: estas configurações não serão carregadas
+#  em ambientes que executam o PHP via FastCGI, FPM,
+#  ou similares. Nestes casos, estas configurações
+#  devem ser adicionadas diretamente ao php.ini.
+#
+<IfModule mod_php5.c>
+	# Configuracoes de sessao
+	php_flag session.auto_start Off
+	php_flag session.use_cookies Off
+	# Uses dir as a session handler
+	php_value session.save_handler "files"
+	php_value session.save_path "/dev/shm"
+	# Use memcache as a session handler
+	#php_value session.save_handler "memcache"
+	#php_value session.save_path "tcp://localhost:11211?persistent=1&weight=1&timeout=1&retry_interval=15"
+	php_value session.serialize_handler "php"
+	php_value session.gc_probability 1
+	php_value session.gc_divisor 100
+	php_value session.gc_maxlifetime 14400
+	php_value session.cache_limiter nocache
+	php_value session.cache_expire 180
+	php_flag session.use_trans_sid Off
+
+	php_flag short_open_tag On
+	php_flag zlib.output_compression Off
+	php_flag output_buffering Off
+	php_flag register_argc_argv On
+	php_flag allow_url_include Off
+	php_value variables_order "EGPCS"
+	php_value default_charset "iso-8859-1"
+	php_value default_mimetype "text/html"
+	php_value date.timezone "America/Sao_Paulo"
+	php_value url_rewriter.tags "a=href,area=href,frame=src,form=,fieldset="
+	#php_value url_rewriter.tags "a=href,area=href,frame=src,input=src,form=,fieldset="
+
+	php_value mbstring.func_overload "0"
+	#php_value mbstring.func_overload "7"
+	#php_flag mbstring.strict_detection On
+
+	php_value max_execution_time 90
+	php_value max_input_time 120
+	php_value memory_limit 196M
+	php_value post_max_size 50M
+	php_value upload_max_filesize 40M
+
+	# Para ambiente de desenvolvimento
+	#php_flag log_errors On
+	#php_value error_reporting "E_ALL & ~E_NOTICE"
+	#php_flag ignore_repeated_errors On
+	#php_flag report_memleaks On
+	#php_flag html_errors On
+	#php_value error_log /tmp/php.log
+
+	# deprecate 5.3.0, removed 5.4.0
+	php_flag magic_quotes_gpc Off
+	php_flag magic_quotes_runtime Off
+	php_flag register_globals Off
+	php_flag register_long_arrays Off
+	php_flag allow_call_time_pass_reference On
+	php_flag session.bug_compat_42 0
+	php_flag session.bug_compat_warn 0
+</IfModule>
