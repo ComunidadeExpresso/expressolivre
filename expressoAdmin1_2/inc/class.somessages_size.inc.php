@@ -9,8 +9,8 @@
 	*  option) any later version.														*
 	\***********************************************************************************/
 
-define('PHPGW_INCLUDE_ROOT','../');	
-define('PHPGW_API_INC','../phpgwapi/inc');
+if (!defined('PHPGW_INCLUDE_ROOT')) define('PHPGW_INCLUDE_ROOT','../'); 
+if (!defined('PHPGW_API_INC')) define('PHPGW_API_INC','../phpgwapi/inc');
 include_once(PHPGW_API_INC.'/class.db.inc.php');
 
 

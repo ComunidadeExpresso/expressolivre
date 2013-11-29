@@ -372,13 +372,13 @@
 			$app_col3 = '';
 			$total_apps = count($availableApps);
 			$i = 0;
-
+			
 			foreach($availableApps as $app => $data)
 			{
 				// 1 coluna 
 				if (($i +1) % 3 == 1)
 				{
-					if ($manager_app_list[$app] == 1)
+					if (is_array($manager_app_list) && $manager_app_list[$app] == 1)
 						$checked = 'checked';
 					else
 						$checked = '';
@@ -391,7 +391,7 @@
 				// 2 coluna
 				if (($i +1) % 3 == 2)
 				{
-					if ($manager_app_list[$app] == 1)
+					if (is_array($manager_app_list) && $manager_app_list[$app] == 1)
 						$checked = 'checked';
 					else
 						$checked = '';
@@ -404,7 +404,7 @@
 				// 3 coluna 
 				if (($i +1) % 3 == 0)
 				{
-					if ($manager_app_list[$app] == 1)
+					if (is_array($manager_app_list) && $manager_app_list[$app] == 1)
 						$checked = 'checked';
 					else
 						$checked = '';

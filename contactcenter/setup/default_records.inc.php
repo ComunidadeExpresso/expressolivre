@@ -19,6 +19,7 @@
 	$oProc->query("insert into phpgw_cc_typeof_ct_addrs (id_typeof_contact_address,contact_address_type_name) values(1,'Comercial')");	
 	$oProc->query("insert into phpgw_cc_typeof_ct_addrs (id_typeof_contact_address,contact_address_type_name) values(2,'Residencial')");
   $oProc->query("ALTER TABLE phpgw_cc_groups SET WITH OIDS;");
+
 	// Populate brazilian database.
 	include("states_pt-br.inc.php"); 
 	include("cities_pt-br.inc.php");

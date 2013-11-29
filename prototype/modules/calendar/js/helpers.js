@@ -489,7 +489,7 @@ if (!UI.dialogs.addEvent) {
 		if ($('.qtip.qtip-blue.qtip-active').length)
 			$('.qtip.qtip-blue.qtip-active').qtip('destroy');						
 		attendees  = {};
-        DataLayer.rollback();//Limpa cache do datalayer
+		DataLayer.rollback();//Limpa cache do datalayer
 	},
 	beforeClose: function(event, ui) {
 

@@ -497,7 +497,7 @@ class iCal implements Formatter {
 		if ($pv['isOrganizer'] == 1){
 			if($pv['user']['id'] == Config::me('uidNumber'))
 				$pv['user']['mail'] = $pv['user']['mailSenderAddress'];
-			
+							
 			$vevent->setProperty('organizer', $pv['user']['mail'], array('CN' => $pv['user']['name']));
 		}else {
 		    $pParams = array();

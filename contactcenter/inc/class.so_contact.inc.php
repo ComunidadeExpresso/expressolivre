@@ -983,7 +983,7 @@
 				return;
 			}
 			
-			array_push($this->relations['id_contact']['values'], & $this->id);
+			array_push($this->relations['id_contact']['values'], $this->id);
 			array_push($this->relations['id_related']['values'], $id_related);
 			array_push($this->relations['id_typeof_contact_relation']['values'], $id_type);
 			
@@ -1040,7 +1040,7 @@
 				return;
 			}
 			
-			array_push($this->addresses['id_contact']['values'], & $this->id);
+			array_push($this->addresses['id_contact']['values'], $this->id);
 			array_push($this->addresses['id_address']['values'], $id_address);
 			array_push($this->addresses['id_typeof_contact_address']['values'], $id_type);
 			
@@ -1069,7 +1069,7 @@
 				return;
 			}
 			
-			array_push($this->connections['id_contact']['values'], & $this->id);
+			array_push($this->connections['id_contact']['values'], $this->id);
 			array_push($this->connections['id_connection']['values'], $id_connection);
 			array_push($this->connections['id_typeof_contact_connection']['values'], $id_type);
 			
@@ -1105,7 +1105,7 @@
 					return true;
 				}
 				
-				array_push($this->companies['id_contact']['values'], & $this->id);
+				array_push($this->companies['id_contact']['values'], $this->id);
 				array_push($this->companies['id_company']['values'], $company_info['id_company']);
 				array_push($this->companies['title']['values'], $company_info['title']);
 				array_push($this->companies['department']['values'], $company_info['department']);

@@ -4141,7 +4141,7 @@ function input_keydowns(input, ID){
 			}
             if ( (e.keyCode == 8) && (input.val().length == 1) ){
                 $( this ).data( "autocomplete" ).close();
-            }
+            }			
 			//SELECIONA O CONTATO E EVITA OUTROS COMANDOS
 			if(e.keyCode == $.ui.keyCode.ENTER && $( this ).data( "autocomplete" ).menu.active){
 				e.preventDefault();
@@ -4242,7 +4242,7 @@ function input_keydowns(input, ID){
 	})
 	//AO SAIR DO FOCO MONTAGEM DA CAIXA DE EMAIL
 	.focusout(function(e){
-        var these = $(this);
+		var these = $(this);
 		// Função para montar a caixinha de e-mail.
 		function makeBoxMail(){
 			if(canMakeBox && !fastSearch){

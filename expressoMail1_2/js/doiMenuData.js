@@ -252,7 +252,7 @@
     	};
         if ( preferences['use_followupflags_and_labels'] == "1" )
             menuToolsItems["i06"] = {"name": get_lang("Labels"), "icon": "tag", callback: configureLabels };
-        menuToolsItems["i08"] = {"name": get_lang("Empty trash"), "icon": "empty-trash", callback: function(key, opt){ empty_trash_imap(); }};
+        menuToolsItems["i08"] = {"name": get_lang("Empty trash"), "icon": "empty-trash", callback: function(key, opt){ empty_trash_imap(); }};   		
     	if(use_local_messages==1) {
     		//if(expresso_mail_archive.enabled == true) {
     			//menuToolsItems["i09"] = {"name": get_lang("Send from queue"), "icon": "queue", callback: force_check_queue };

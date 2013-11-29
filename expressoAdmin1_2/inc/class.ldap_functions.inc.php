@@ -9,8 +9,8 @@
 		*  option) any later version.                                              * 
 		\**************************************************************************/ 
 		
-define('PHPGW_INCLUDE_ROOT','../');
-define('PHPGW_API_INC','../phpgwapi/inc');	
+if (!defined('PHPGW_INCLUDE_ROOT')) define('PHPGW_INCLUDE_ROOT','../');
+if (!defined('PHPGW_API_INC')) define('PHPGW_API_INC','../phpgwapi/inc');	
 include_once(PHPGW_API_INC.'/class.common.inc.php');
 include_once('class.functions.inc.php');
 include_once('class.db_functions.inc.php');
@@ -177,7 +177,7 @@ class ldap_functions
 		{
 			$info['accountStatus'] = 'active';
 		}
-		if ($params['phpgwAccountVisible'] == 'on')
+		if (isset($params['phpgwAccountVisible']) && $params['phpgwAccountVisible'] == 'on')
 		{
 			$info['phpgwAccountVisible'] = '-1';
 		}
@@ -314,17 +314,17 @@ class ldap_functions
 		$info['uid']				= $uid;
 		$info['mail']				= $params['mail'];
 		
-		if ($params['accountStatus'] == 'on')
+		if (isset($params['accountStatus']) && $params['accountStatus'] == 'on')
 			$info['accountStatus'] = 'active';
 		else
 			$info['accountStatus'] = array();
 		
-		if ($params['phpgwAccountVisible'] == 'on')
+		if (isset($params['phpgwAccountVisible']) && $params['phpgwAccountVisible'] == 'on')
 			$info['phpgwAccountVisible'] = '-1';
 		else
 			$info['phpgwAccountVisible'] = array();
 		
-		if ($params['desc'] != '')
+		if (isset($params['desc']) && $params['desc'] != '')
 			$info['description'] = utf8_encode($params['desc']);
 		else
 			$info['description'] = array();
@@ -438,7 +438,7 @@ class ldap_functions
 
 		$del = array();
 
-		if( $params['mailalternateaddress'] )
+		if( isset($params['mailalternateaddress']) && $params['mailalternateaddress'] )
 			$info['mailalternateaddress'] = $params['mailalternateaddress'];
 		else
 		    $del['mailalternateaddress'] = array();
@@ -448,7 +448,7 @@ class ldap_functions
 		else
 			$info['accountStatus'] = array();
 		
-		if ($params['phpgwAccountVisible'] == 'on')
+		if (isset($params['phpgwAccountVisible']) && $params['phpgwAccountVisible'] == 'on')
 			$info['phpgwAccountVisible'] = '-1';
 		else
 			$info['phpgwAccountVisible'] = array();
@@ -555,7 +555,7 @@ class ldap_functions
 			{
 				$info['accountStatus'] = 'active';
 			}
-			if ($params['phpgwAccountVisible'] == 'on')
+			if ( isset($params['phpgwAccountVisible']) && ($params['phpgwAccountVisible'] == 'on') )
 			{
 				$info['phpgwAccountVisible'] = '-1';
 			}
@@ -680,10 +680,10 @@ class ldap_functions
 		$type = $params['type'];
 		$uid = $params['uid'];
 		$mail = $params['mail'];
-		$mailalternateaddress = $params['mailalternateaddress'];
+		$mailalternateaddress = isset($params['mailalternateaddress']) ? $params['mailalternateaddress'] : '';
 		$cpf = $params['cpf'];
 				
-		if ($_SESSION['phpgw_info']['expresso']['global_denied_users'][$uid])
+		if (isset($_SESSION['phpgw_info']['expresso']['global_denied_users'][$uid]))
 		{
 			$result['status'] = false;
 			$result['msg'] = $this->functions->lang('this login can not be used because is a system account') . ".";
@@ -895,7 +895,7 @@ class ldap_functions
 					ldap_close($local_ldap_connection);
 				}
 			}
-			else if ($this->current_config['expressoAdmin_cpf_obligation']) 
+			else if (isset($this->current_config['expressoAdmin_cpf_obligation']) && $this->current_config['expressoAdmin_cpf_obligation']) 
 			{
 				$result['status'] = false;
 				$result['msg'] = $this->functions->lang('Field CPF must be completed') . '.';
@@ -989,7 +989,7 @@ class ldap_functions
 		$cn = $params['cn'];
 		$result['status'] = true;
 		
-		if ($_SESSION['phpgw_info']['expresso']['global_denied_groups'][$cn])
+		if (isset($_SESSION['phpgw_info']['expresso']['global_denied_groups'][$cn]) && $_SESSION['phpgw_info']['expresso']['global_denied_groups'][$cn])
 		{
 			$result['status'] = false;
 			$result['msg'] = $this->functions->lang('This group name can not be used because is a System Account') . ".";
@@ -1057,7 +1057,7 @@ class ldap_functions
 		$mail = $params['mail'];
 		$result['status'] = true;
 		
-		if ($_SESSION['phpgw_info']['expresso']['global_denied_users'][$uid])
+		if (isset($_SESSION['phpgw_info']['expresso']['global_denied_users'][$uid]) && $_SESSION['phpgw_info']['expresso']['global_denied_users'][$uid])
 		{
 			$result['status'] = false;
 			$result['msg'] = $this->functions->lang('This LOGIN can not be used because is a System Account') . ".";
@@ -1611,6 +1611,7 @@ class ldap_functions
 				$entry[0]['dn'] = strtolower($entry[0]['dn']);
 				$sector_dn_array = explode(",", $entry[0]['dn']);
                 $sector_dn_array_count = count($sector_dn_array);
+				$sector_dn = '';
 				for($i=1; $i<$sector_dn_array_count; ++$i)
 					$sector_dn .= $sector_dn_array[$i] . ',';
 				//Retira ultimo pipe.
@@ -1620,22 +1621,22 @@ class ldap_functions
 				$result['uid']					= $entry[0]['uid'][0];
 				$result['uidnumber']			= $entry[0]['uidnumber'][0];
 				$result['gidnumber']			= $entry[0]['gidnumber'][0];
-				$result['departmentnumber']		= $entry[0]['departmentnumber'][0];
+				$result['departmentnumber']		= isset($entry[0]['departmentnumber']) ? $entry[0]['departmentnumber'][0] : '';
 				$result['givenname']			= $entry[0]['givenname'][0];
 				$result['sn']					= utf8_decode($entry[0]['sn'][0]);
-				$result['telephonenumber']		= $entry[0]['telephonenumber'][0];
-				$result['passwd_expired']		= $entry[0]['phpgwlastpasswdchange'][0];
+				$result['telephonenumber']		= isset($entry[0]['telephonenumber']) ? $entry[0]['telephonenumber'][0] : '';
+				$result['passwd_expired']		= isset($entry[0]['phpgwlastpasswdchange']) ? $entry[0]['phpgwlastpasswdchange'][0] : '';
 				$result['phpgwaccountstatus']	= $entry[0]['phpgwaccountstatus'][0];
-				$result['phpgwaccountvisible']	= $entry[0]['phpgwaccountvisible'][0];
+				$result['phpgwaccountvisible']	= isset($entry[0]['phpgwaccountvisible']) ? $entry[0]['phpgwaccountvisible'][0] : '';
 				$result['accountstatus']		= $entry[0]['accountstatus'][0];
 				$result['mail']					= $entry[0]['mail'][0];
-				$result['mailalternateaddress']	= $entry[0]['mailalternateaddress'];
-				$result['mailforwardingaddress']= $entry[0]['mailforwardingaddress'];
-				$result['deliverymode']			= $entry[0]['deliverymode'][0];
-				$result['userPasswordRFC2617']	= $entry[0]['userpasswordrfc2617'][0];
+				$result['mailalternateaddress']	= isset($entry[0]['mailalternateaddress']) ? $entry[0]['mailalternateaddress'] : '';
+				$result['mailforwardingaddress']= isset($entry[0]['mailforwardingaddress']) ? $entry[0]['mailforwardingaddress'] : '';
+				$result['deliverymode']			= isset($entry[0]['deliverymode']) ? $entry[0]['deliverymode'][0] : '';
+				$result['userPasswordRFC2617']	= isset($entry[0]['userpasswordrfc2617']) ? $entry[0]['userpasswordrfc2617'][0] : '';
 
 				//Photo
-				if ($entry[0]['jpegphoto']['count'] == 1)
+				if (isset($entry[0]['jpegphoto']) && $entry[0]['jpegphoto']['count'] == 1)
 					$result['photo_exist'] = 'true';
 		
 				// Samba
@@ -1657,11 +1658,11 @@ class ldap_functions
 				// Verifica o acesso do gerente aos atributos corporativos
 				if ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'manipulate_corporative_information'))
 				{
-					$result['corporative_information_employeenumber']= $entry[0]['employeenumber'][0];
-					$result['corporative_information_cpf']			= $entry[0]['cpf'][0];
-					$result['corporative_information_rg']			= $entry[0]['rg'][0];
-					$result['corporative_information_rguf']			= $entry[0]['rguf'][0];
-					$result['corporative_information_description']	= utf8_decode($entry[0]['description'][0]);
+					$result['corporative_information_employeenumber']= isset($entry[0]['employeenumber']) ? $entry[0]['employeenumber'][0] : '';
+					$result['corporative_information_cpf']			= isset($entry[0]['cpf']) ? $entry[0]['cpf'][0] : '';
+					$result['corporative_information_rg']			= isset($entry[0]['rg']) ? $entry[0]['rg'][0] : '';
+					$result['corporative_information_rguf']			= isset($entry[0]['rguf']) ? $entry[0]['rguf'][0] : '';
+					$result['corporative_information_description']	= isset($entry[0]['description']) ? utf8_decode($entry[0]['description'][0]) : '';
 				}
 				
 				// MailLists
@@ -1846,7 +1847,7 @@ class ldap_functions
     		}
 		}
     	
-    	if($a_tmp) {
+    	if(isset($a_tmp) && $a_tmp) {
     		natcasesort($a_tmp);
     	
     		foreach ($a_tmp as $uid)
@@ -1856,7 +1857,7 @@ class ldap_functions
     		}
     	}
     	ldap_close($ldapMasterConnect);
-		return $return;
+		return (isset($return) ? $return : array());
 	}
 	
 	function get_group_info($gidnumber)
@@ -1873,6 +1874,7 @@ class ldap_functions
 				$entry[0]['dn'] = strtolower($entry[0]['dn']);
 				$sector_dn_array = explode(",", $entry[0]['dn']);
                 $sector_dn_array_count = count($sector_dn_array);
+				$sector_dn = '';
 				for($i=1; $i<$sector_dn_array_count; ++$i)
 					$sector_dn .= $sector_dn_array[$i] . ',';
 				//Retira ultimo pipe.
@@ -1882,7 +1884,7 @@ class ldap_functions
 				$result['cn']					= $entry[0]['cn'][0];
 				$result['description']			= $entry[0]['description'][0];
 				$result['gidnumber']			= $entry[0]['gidnumber'][0];
-				$result['phpgwaccountvisible']	= $entry[0]['phpgwaccountvisible'][0];
+				$result['phpgwaccountvisible']	= isset($entry[0]['phpgwaccountvisible']) ? $entry[0]['phpgwaccountvisible'][0] : '';
 				$result['email']				= $entry[0]['mail'][0];
 		
 				//MemberUid
@@ -1937,10 +1939,11 @@ class ldap_functions
 				{
 					if ($entry[0]['objectclass'][$i] == 'sambaGroupMapping')
 						$result['sambaGroup'] = true;
-
-					$a_tmp = explode("-", $entry[0]['sambasid'][0]);
-					array_pop($a_tmp);
-					$result['sambasid'] = implode("-", $a_tmp);
+					if (isset($entry[0]['sambasid'])){
+						$a_tmp = explode("-",$entry[0]['sambasid'][0]);
+						array_pop($a_tmp);
+						$result['sambasid'] = implode("-", $a_tmp);
+					}
 				}
 				return $result;
 			}
@@ -2104,13 +2107,13 @@ class ldap_functions
 				$search = ldap_search($this->ldap, $GLOBALS['phpgw_info']['server']['ldap_context'], $filter, $justthese);
 				
 				$entry = ldap_get_entries($this->ldap, $search);
-				if ($entry['count'] == 0)
+				if (isset($entry) && $entry['count'] == 0)
 					$result['groups_info'][$i]['cn'] = '_' . $this->functions->lang('group only exist on DB, but does not exist on ldap');
 					
 				else
 				{
-					$result['groups_info'][$i]['uid'] = $entry[0]['uid'][0];
-					$result['groups_info'][$i]['cn'] = $entry[0]['cn'][0];
+					$result['groups_info'][$i]['uid'] = isset($entry[0]['uid']) ? $entry[0]['uid'][0] : '';
+					$result['groups_info'][$i]['cn'] = isset($entry[0]['cn']) ? $entry[0]['cn'][0] : '';
 				}
 				$result['groups_info'][$i]['gidnumber'] = $gidnumber;
 			
@@ -2174,7 +2177,7 @@ class ldap_functions
 			$context = $params['context'];
 			$search = ldap_search($this->ldap,$context, $filter, $justthese);
 			$entry = ldap_get_entries($this->ldap, $search);
-			return $entry[0]['associateddomain'][0];
+			return ( ($entry['count'] > 0) ? $entry[0]['associateddomain'][0] : $entry);
         }
 	
 	function change_user_context($dn, $newrdn, $newparent)
@@ -2270,7 +2273,7 @@ class ldap_functions
 		$attrs = array();
 		$attrs['memberuid'] = $user_info['uid'];
 		
-		if (count($user_info['groups_info']))
+		if (isset($user_info['groups_info']) && count($user_info['groups_info']))
 		{
 			foreach ($user_info['groups_info'] as $group_info)
 			{
@@ -2371,8 +2374,10 @@ class ldap_functions
 		$attrs['mailForwardingAddress'] = $mail;
 		for ($i=0; $i<=$entry['count']; ++$i)
 	    {
-			$dn = $entry[$i]['dn'];
-	    	@ldap_mod_del ( $this->ldap, $dn,  $attrs);
+			if (isset($entry[$i])){
+				$dn = $entry[$i]['dn'];
+		    	@ldap_mod_del ( $this->ldap, $dn,  $attrs);
+		    }	
 	    }
 		
 		$filter="(&(phpgwAccountType=l)(uidnumber=".$uidnumber."))";
@@ -2631,6 +2636,7 @@ class ldap_functions
 	
 	function search_user($params)
 		{
+			 $params['context'] = isset($params['context']) ? $params['context'] : null;
              $ldapService = ServiceLocator::getService('ldap');
              $entries = $ldapService->accountSearch($params['search'], array('cn','uid', "mail"), $params['context'], 'u', 'cn');
 
@@ -2717,7 +2723,7 @@ class ldap_functions
 			
 			$return['status'] = 'true';
 			$return['accountStatus']		= $entrie[0]['accountstatus'][0];
-			$return['phpgwAccountVisible']	= $entrie[0]['phpgwaccountvisible'][0];
+			$return['phpgwAccountVisible']	= isset($entrie[0]['phpgwaccountvisible']) ? $entrie[0]['phpgwaccountvisible'][0] : '';
 			$return['cn']					= utf8_decode($entrie[0]['cn'][0]);
 			$return['mail']					= $entrie[0]['mail'][0];
 			$return['description']			= utf8_decode($entrie[0]['description'][0]);
@@ -2733,6 +2739,7 @@ class ldap_functions
 						$a_cn[$tmp['uidnumber']] = $tmp['cn'].'('.$tmp['uid'].')';
 				}
 				natcasesort($a_cn);
+				$return['owners'] = '';
 				foreach($a_cn as $uidnumber => $cn)
 				{
 					$return['owners'] .= '<option value='. $uidnumber .'>' . $cn . '</option>';
@@ -2812,12 +2819,12 @@ class ldap_functions
 			$return['status'] = 'true';
 			$return['accountStatus']		= $entrie[0]['accountstatus'][0];
 
-			$return['phpgwAccountVisible']	= $entrie[0]['phpgwaccountvisible'][0];
+			$return['phpgwAccountVisible']	= isset($entrie[0]['phpgwaccountvisible']) ? $entrie[0]['phpgwaccountvisible'][0] : '';
 			$return['cn']			= utf8_decode($entrie[0]['cn'][0]);
 			$return['mail']					= $entrie[0]['mail'][0];
 			$return['description']			= utf8_decode($entrie[0]['description'][0]);
 			$return['dn']			= utf8_decode($entrie[0]['dn']);
-			$return['mailalternateaddress']	= $entrie[0]['mailalternateaddress'];
+			$return['mailalternateaddress']	= isset($entrie[0]['mailalternateaddress']) ? $entrie[0]['mailalternateaddress'] : '';
 		}
 		
 

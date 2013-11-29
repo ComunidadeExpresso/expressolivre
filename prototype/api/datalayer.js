@@ -656,10 +656,8 @@ DataLayer = {
 			delete DataLayer.storage.cache[':diff'][ids[link]];
 
 	}
-
      if( typeof DataLayer.storage.cache[':diff'] != 'object')
          DataLayer.storage.cache[':diff'] = {};
-
     },
     
     prepareQ: function( queueName, concept, ids ){
