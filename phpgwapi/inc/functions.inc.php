@@ -436,8 +436,7 @@
 			$GLOBALS['phpgw']->template = CreateObject('phpgwapi.Template',PHPGW_APP_TPL);
 			preg_match('/(.*)\/(.*)/', PHPGW_APP_TPL, $matches);
 
-			if ( $GLOBALS['phpgw_info']['flags']['currentapp'] != "jabberit_messenger" )
-				$_SESSION['phpgw_info'][$GLOBALS['phpgw_info']['flags']['currentapp']]['user']['preferences']['common']['template_set'] = $matches[2];
+			$_SESSION['phpgw_info'][$GLOBALS['phpgw_info']['flags']['currentapp']]['user']['preferences']['common']['template_set'] = $matches[2];
 		}
 
 

@@ -35,8 +35,6 @@ use prototype\api\Config as Config;
 				case 'addressbook':
 				case 'calendar':
 				case 'email':
-				case 'instant_messenger':
-				case 'jabberit_messenger':
 				case 'nntp':
 					/*
 					Other special apps can go here for now, e.g.:

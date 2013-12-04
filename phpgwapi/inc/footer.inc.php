@@ -72,9 +72,3 @@
 		$GLOBALS['debug_timer_stop'] = perfgetmicrotime();
 		echo 'Page loaded in ' . ($GLOBALS['debug_timer_stop'] - $GLOBALS['debug_timer_start']) . ' seconds.';
 	}
-
-   /*
-    * Verificação de permissão para o mensageiro instantâneo e a sua inicialização caso haja permissão
-    */
-    if ( $GLOBALS['phpgw_info']['apps']['jabberit_messenger'] )
-    	require_once PHPGW_SERVER_ROOT . '/jabberit_messenger/inc/jabberit_acl.inc.php';

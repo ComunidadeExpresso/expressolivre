@@ -3385,7 +3385,6 @@ expressoAdmin1_2	run	1003	1
 expressoMail1_2	run	1003	1
 preferences	run	1003	1
 workflow	run	1003	1
-jabberit_messenger	run	1003	1
 mobile	run	1003	1
 news_admin	L2	1001	1
 news_admin	L2	1002	3
@@ -3394,7 +3393,6 @@ news_admin	L1	1002	3
 help	run	1001	1
 news_admin	run	1001	1
 contactcenter	run	1001	1
-jabberit_messenger	run	1001	1
 expressoMail1_2	run	1001	1
 mobile	run	1001	1
 expressoCalendar	run	1001	1
@@ -3404,7 +3402,6 @@ expressoCalendar	run	1003	1
 help	run	1002	1
 mobile	run	1002	1
 expressoMail1_2	run	1002	1
-jabberit_messenger	run	1002	1
 expressoCalendar	run	1002	1
 workflow	run	1002	1
 reports	run	1002	1
@@ -3451,7 +3448,6 @@ COPY phpgw_applications (app_id, app_name, app_enabled, app_order, app_tables, a
 4	calendar	1	3	phpgw_cal,phpgw_cal_holidays,phpgw_cal_repeats,phpgw_cal_user,phpgw_cal_extra	2.5.0
 7	expressoAdmin1_2	1	1	phpgw_expressoadmin,phpgw_expressoadmin_apps,phpgw_expressoadmin_passwords,phpgw_expressoadmin_log,phpgw_expressoadmin_samba,phpgw_expressoadmin_configuration,phpgw_expressoadmin_acls	2.5.0
 11	help	2	5		2.5.0
-17	jabberit_messenger	1	9		2.5.0
 18	mobile	2	4		2.5.0
 9	news_admin	1	16	phpgw_news,phpgw_news_export	2.5.0
 20	reports	1	17		2.5.0
@@ -13582,14 +13578,6 @@ workflow	database_name	workflow
 workflow	database_host	localhost
 workflow	database_port	5432
 workflow	database_admin_user	admin_workflow
-jabberit_messenger	name_jabberit	localhost
-jabberit_messenger	port_jabberit	5222
-jabberit_messenger	resource_jabberit	JABBER
-jabberit_messenger	use_ssl_jabberit	false
-jabberit_messenger	server_ldap_jabberit	localhost
-jabberit_messenger	context_ldap_jabberit	LDAP_DN
-jabberit_messenger	password_ldap_jabberit	LDAP_PWD
-jabberit_messenger	user_ldap_jabberit	uid=expresso-admin,ou=ORG,LDAP_DN
 phpgwapi	name_jabberit	localhost
 phpgwapi	port_jabberit	5222
 phpgwapi	resource_jabberit	JABBER
@@ -13764,7 +13752,6 @@ expresso-admin	LDAP_DN	contactcenter
 expresso-admin	LDAP_DN	mobile
 expresso-admin	LDAP_DN	expressoAdmin1_2
 expresso-admin	LDAP_DN	expressoMail1_2
-expresso-admin	LDAP_DN	jabberit_messenger
 expresso-admin	LDAP_DN	reports
 expresso-admin	LDAP_DN	expressoCalendar
 expresso-admin	LDAP_DN	filemanager
@@ -13876,7 +13863,6 @@ COPY phpgw_hooks (hook_id, hook_appname, hook_location, hook_filename) FROM stdi
 848	contactcenter	settings	hook_settings.inc.php
 851	emailadmin	admin	hook_admin.inc.php
 854	expressoAdmin1_2	admin	hook_admin.inc.php
-855	jabberit_messenger	admin	hook_admin.inc.php
 866	news_admin	admin	hook_admin.inc.php
 867	news_admin	home	hook_home.inc.php
 868	news_admin	sidebox_menu	hook_sidebox_menu.inc.php
@@ -14666,7 +14652,6 @@ pt-br	common	free organization for group	Liberar organização por grupo
 pt-br	common	from	De
 pt-br	common	groups added	Grupos Adicionados
 pt-br	common	groups ldap	Grupos Ldap
-pt-br	common	jabberit_messenger	Expresso Messenger
 pt-br	common	last message	Última Mensagem
 pt-br	common	liberar organizações para grupos restritos	Liberar Organizações para grupos restritos
 pt-br	common	log messaging (bandersnatch)	Log de Mensagens (Bandersnatch)
@@ -17613,101 +17598,14 @@ pt-br	preferences	show activity complete page	Exibir página de atividade concluí
 pt-br	preferences	determines if the activity complete page should be displayed after the completion of the activity	Determina se a página de atividade concluída deve ser exibida após a conclusão da atividade.
 pt-br	preferences	use light interface	Usar interface leve
 pt-br	preferences	determines if a lighter version of the interface should be used	Determina se uma interface mais leve deve ser usada.
-pt-br	jabberit_messenger	normal	Normal
-pt-br	jabberit_messenger	none result was found.	Nenhum resultado foi encontrado.
-pt-br	jabberit_messenger	others expressos	Outros Expressos
 pt-br	filemanger	view	Visualização
 pt-br	help	%1 manual page(s) added or updated	%1 páginas do manual adicionada(s) ou atualizada(s)
 pt-br	help	download	download
-pt-br	jabberit_messenger	yes	Sim
-pt-br	jabberit_messenger	your preferences	Suas Preferências
 pt-br	help	html_description	Sua mensagem foi enviada ao Administrador do Expresso Livre, e em breve será respondida pelo seu próprio email do Expresso.<br><br> Obrigado por ajudar-nos a melhorar esta ferramenta.<br><br><div align=right><b>Equipe de Desenvolvimento e <BR> Manutenção do Expresso Livre.</b></div>
 pt-br	help	page(s) %1 not found !!!	Página %1 não encontrada !!!
 pt-br	help	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Iniciando a importação de %1, pode levar alguns minutos (especialmente se você o executa pela primeira vez agora) ...
 pt-br	help	your suggestion was sent successfully.	Sua sugestão foi enviada com sucesso.
-pt-br	jabberit_messenger	add	Adicionar
-pt-br	jabberit_messenger	add contact	Adicionar Contato
-pt-br	jabberit_messenger	add organizations and servers jabber	Adicionar organizações e servidores jabber
-pt-br	jabberit_messenger	applications list	Lista de Módulos
-pt-br	jabberit_messenger	attention	ATENÇÃO
-pt-br	jabberit_messenger	attribute	Atributo
-pt-br	jabberit_messenger	away	Ausente
-pt-br	jabberit_messenger	cancel	Cancelar
-pt-br	jabberit_messenger	change status	Status
-pt-br	jabberit_messenger	choice contact	Escolha Contato
-pt-br	jabberit_messenger	close	Fechar
-pt-br	jabberit_messenger	close this menu	Fechar Menu
-pt-br	jabberit_messenger	connection	Conexão
-pt-br	jabberit_messenger	delete	Excluir
-pt-br	jabberit_messenger	dnd	Não Perturbe
-pt-br	jabberit_messenger	enable auto login im	Conectar Automaticamente IM 
-pt-br	jabberit_messenger	enable the expresso messenger module	Habilitar o módulo Expresso Messenger 
-pt-br	jabberit_messenger	enter a group	Informe um GRUPO
-pt-br	jabberit_messenger	enter a name	Informe um NOME
-pt-br	jabberit_messenger	enter a value greater than or equal to 1!	Informe um valor igual ou maior que 1!
-pt-br	jabberit_messenger	error saving your preferences!	Erro salvando suas preferências! 
-pt-br	jabberit_messenger	external participants	Participantes Externos
-pt-br	jabberit_messenger	free for chat	Livre Bate-Papo
-pt-br	jabberit_messenger	group	Grupo
-pt-br	jabberit_messenger	help	Ajuda
-pt-br	jabberit_messenger	information	Informações Adicionais
-pt-br	jabberit_messenger	invisible	Invisível
-pt-br	jabberit_messenger	list of contacts	Lista de Contatos
-pt-br	jabberit_messenger	loading...	Carregando...
-pt-br	jabberit_messenger	minutes	Minutos
-pt-br	jabberit_messenger	my settings	Minhas Configurações
-pt-br	jabberit_messenger	modules enabled	Módulos Habilitados
-pt-br	jabberit_messenger	modules list	Lista de Módulos
-pt-br	jabberit_messenger	more than 50 results. please, try to refine your search.	Mais que 50 resultados foram encontrados. Tente refinar sua pesquisa.
-pt-br	jabberit_messenger	name	Nome
-pt-br	jabberit_messenger	name of contacts	Nome do Contato
-pt-br	jabberit_messenger	new	Novo
-pt-br	jabberit_messenger	nickname	Apelido
-pt-br	jabberit_messenger	no	Não
-pt-br	jabberit_messenger	not auth	Não Autorizado
 pt-br	mobile	schedule	Agendar
-pt-br	jabberit_messenger	organization unit	Selecione uma Organização
-pt-br	jabberit_messenger	organization	Organização
-pt-br	jabberit_messenger	online	Online
-pt-br	jabberit_messenger	offline	Offline
-pt-br	jabberit_messenger	open im	Abrir IM
-pt-br	jabberit_messenger	open as pop-up window	Abrir janela como Pop-up
-pt-br	jabberit_messenger	options	Opções
-pt-br	jabberit_messenger	photo	Foto
-pt-br	jabberit_messenger	problems in its register \\n	Problemas em seu registro
-pt-br	jabberit_messenger	preferences	Preferências
-pt-br	jabberit_messenger	preferences saved with success!	Preferências salvas com sucesso!
-pt-br	jabberit_messenger	quick contacts	Contatos Rápidos
-pt-br	jabberit_messenger	re-connect expresso messenger ?	Reconectar Expresso Messenger ?
-pt-br	jabberit_messenger	registration of organizations and servers jabber	Cadastro de Organizações e Servidores Jabber
-pt-br	jabberit_messenger	remove	Remover
-pt-br	jabberit_messenger	save	Salvar
-pt-br	jabberit_messenger	says	diz
-pt-br	jabberit_messenger	select the modules where the expresso messenger will be loaded.	Selecione os módulos onde o Expresso Messenger será carregado.
-pt-br	jabberit_messenger	select the ldap attribute for jabber authentication	Informe o atributo LDAP para autenticação do Servidor Jabber
-pt-br	jabberit_messenger	search result	Resultado da busca
-pt-br	jabberit_messenger	search users	Procurar usuários
-pt-br	jabberit_messenger	servers jabber	Servidores Jabber
-pt-br	jabberit_messenger	set status to away after	Definir status de ausente depois de
-pt-br	jabberit_messenger	show friends offline	Exibir amigos Offline
-pt-br	jabberit_messenger	successfully effected register!	Registro efetuado com sucesso!
-pt-br	jabberit_messenger	status	Status
-pt-br	jabberit_messenger	status of the transference	Status da Transferência
-pt-br	jabberit_messenger	the module is not loaded	O módulo não está carregado
-pt-br	jabberit_messenger	this user is part of a small group!	Este usuário faz parte de um grupo restrito!
-pt-br	jabberit_messenger	to see preferences	Ver Preferências
-pt-br	jabberit_messenger	to define user information	Definir informações do usuário
-pt-br	jabberit_messenger	update	Atualizar
-pt-br	jabberit_messenger	users offline	Usuários OffLine
-pt-br	jabberit_messenger	username	Username
-pt-br	jabberit_messenger	unavailable	Desconectado
-pt-br	jabberit_messenger	vcard	Vcard
-pt-br	jabberit_messenger	xa	Ausente
-pt-br	jabberit_messenger	your status	Seu status
-pt-br	jabberit_messenger	waiting	Aguardando
-pt-br	jabberit_messenger	window	Janelaa
-pt-br	jabbertit_messenger	your search argument must be longer than 4 characters.	Seus argumentos para a pesquisa precisam ter mais que 4 dígitos.
-pt-br	pt-br	wait a moment !!	Aguarde um momento !!
 pt-br	listAdmin	listadmin	Mailman Admin
 pt-br	listAdmin	user accounts	Contas de usuários
 pt-br	listAdmin	user groups	Grupos de usuários
