@@ -1058,12 +1058,7 @@
 			/*If the user really wants to 'view' the file in the browser, it
 			is much smarter simply to redirect them to the files web-accessable
 			url */
-/*			$app = $GLOBALS['phpgw_info']['flags']['currentapp'];
-			if ( ! $data['noview'] && ($app == 'phpwebhosting' || $app = 'filemanager' ))
-			{
-				$this->view($data);
-			}	
-*/			
+			
 			if (!is_array ($data))
 			{
 				$data = array ();

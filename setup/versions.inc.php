@@ -15,7 +15,6 @@ developer_tools	0.8.1
 dj	0.0.3
 eldaptir	0.0.6
 email	0.9.13.002
-filemanager	0.9.13.002
 forum	0.9.13.005
 ftp	0.8.1
 headlines	0.8.1.001

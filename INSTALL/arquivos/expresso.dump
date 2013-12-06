@@ -2359,43 +2359,6 @@ CREATE TABLE phpgw_expressomail_contacts (
 
 ALTER TABLE public.phpgw_expressomail_contacts OWNER TO postgres;
 
---
--- Name: seq_phpgw_filemanager_notification; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_filemanager_notification
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_filemanager_notification OWNER TO postgres;
-
---
--- Name: seq_phpgw_filemanager_notification; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_filemanager_notification', 1, false);
-
-
---
--- Name: phpgw_filemanager_notification; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE phpgw_filemanager_notification (
-    filemanager_id integer DEFAULT nextval('seq_phpgw_filemanager_notification'::regclass) NOT NULL,
-    email_from character varying(100) NOT NULL,
-    email_to text NOT NULL
-);
-
-
-ALTER TABLE public.phpgw_filemanager_notification OWNER TO postgres;
-
---
--- Name: phpgw_history_log; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
 
 CREATE TABLE phpgw_history_log (
     history_id integer DEFAULT nextval(('seq_phpgw_history_log'::text)::regclass) NOT NULL,
@@ -3404,7 +3367,6 @@ mobile	run	1002	1
 expressoMail1_2	run	1002	1
 expressoCalendar	run	1002	1
 workflow	run	1002	1
-filemanager	run	1002	1
 \.
 
 
@@ -3449,7 +3411,6 @@ COPY phpgw_applications (app_id, app_name, app_enabled, app_order, app_tables, a
 18	mobile	2	4		2.5.0
 9	news_admin	1	16	phpgw_news,phpgw_news_export	2.5.0
 15	workflow	1	10	egw_wf_activities,egw_wf_activity_roles,egw_wf_instance_activities,egw_wf_instances,egw_wf_processes,egw_wf_roles,egw_wf_transitions,egw_wf_user_roles,egw_wf_workitems,egw_wf_process_config,egw_wf_activity_agents,egw_wf_agent_mail_smtp,egw_wf_interinstance_relations,egw_wf_external_application,egw_wf_admin_access,egw_wf_user_cache,egw_wf_jobs,egw_wf_job_logs	2.5.0
-21	filemanager	1	6	phpgw_vfs,phpgw_vfs_quota,phpgw_filemanager_notification	2.5.0
 23	zpush	1	10		2.5.0
 22	expressoCalendar	1	10	calendar_signature_alarm,calendar_signature,calendar_repeat_occurrence,calendar_repeat,calendar_alarm,calendar_participant,calendar_participant_status,calendar_attach,attachment,calendar_to_calendar_object,calendar,calendar_object,calendar_object_type,calendar_class,calendar_ex_participant,calendar_permission,module_preference,calendar_repeat_ranges,calendar_task_to_activity_object,calendar_historic	1.011
 \.
@@ -13588,8 +13549,6 @@ workflow	log_type_file	True
 workflow	log_type_firebug	True
 phpgwapi	cal_type_tree_participants	2
 phpgwapi	auto_search	False
-filemanager	filemanager_quota_size	500
-filemanager	filemanager_Max_file_size	20
 workflow	draw_roles	False
 workflow	auto-release_on_leaving_activity	False
 workflow	execute_activities_using_secure_connection	False
@@ -13750,7 +13709,6 @@ expresso-admin	LDAP_DN	mobile
 expresso-admin	LDAP_DN	expressoAdmin1_2
 expresso-admin	LDAP_DN	expressoMail1_2
 expresso-admin	LDAP_DN	expressoCalendar
-expresso-admin	LDAP_DN	filemanager
 expresso-admin	LDAP_DN	phpgwapi
 expresso-admin	LDAP_DN	preferences
 expresso-admin	LDAP_DN	workflow
@@ -13794,14 +13752,6 @@ COPY phpgw_expressoadmin_samba (samba_domain_name, samba_domain_sid) FROM stdin;
 --
 
 COPY phpgw_expressomail_contacts (id_owner, data) FROM stdin;
-\.
-
-
---
--- Data for Name: phpgw_filemanager_notification; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY phpgw_filemanager_notification (filemanager_id, email_from, email_to) FROM stdin;
 \.
 
 
@@ -13873,13 +13823,6 @@ COPY phpgw_hooks (hook_id, hook_appname, hook_location, hook_filename) FROM stdi
 902	workflow	acl_manager	hook_acl_manager.inc.php
 903	workflow	deleteaccount	hook_deleteaccount.inc.php
 904	workflow	home	hook_home.inc.php
-905	filemanager	add_def_pref	hook_add_def_pref.inc.php
-906	filemanager	admin	hook_admin.inc.php
-907	filemanager	deleteaccount	hook_deleteaccount.inc.php
-908	filemanager	settings	hook_settings.inc.php
-909	filemanager	sidebox_menu	hook_sidebox_menu.inc.php
-910	filemanager	personalizer	hook_personalizer.inc.php
-911	filemanager	preferences	hook_preferences.inc.php
 913	expressoCalendar	admin	hook_admin.inc.php
 \.
 
@@ -14629,7 +14572,6 @@ pt-br	common	global configuration	Configurações Globais
 pt-br	common	expressomail1_2	Expresso Mail
 pt-br	common	reliable domains	Domínios confiáveis (pode usar a hierarquia DNS, ex:. pr.gov.br)
 pt-br	common	email notify uploads	Notificar por email uploads
-pt-br	common	filemanager	Gerenciador de Arquivos
 pt-br	common	manual	Manual / Ajuda
 pt-br	common	access permissions	Permissões de Acesso
 pt-br	common	auditing	Auditoria
@@ -18987,7 +18929,6 @@ en	common	search for...	Search for ...
 en	common	send mail	Send Mail
 en	common	showing found entries	Showing found entries 
 en	common	expressomail1_2	Expresso Mail
-en	common	filemanager	Filemanager
 en	common	manual	Manual / Help
 en	common	configure access permissions	Configure Access Permissions
 en	common	configure rss exports	Configure RSS exports
@@ -22098,7 +22039,6 @@ es-es	common	global configuration	Configuración global
 es-es	common	managers	Encargados
 es-es	common	expressomail1_2	Expresso Mail
 es-es	common	reliable domains	Domínios confiables (pude usar la jerarquía DNS, ej:. pr.gov.br)
-es-es	common	filemanager	Administrador de archivos
 es-es	common	manual	Manual / Ayuda
 es-es	common	configure access permissions	Configurar permisos de acceso
 es-es	common	configure rss exports	Configurar exportación RSS
@@ -24484,7 +24424,6 @@ es-es	workflow	<strong>%property_xx%</strong> is the content of the instance's p
 es-es	workflow	<strong>%role_xx%</strong> are all the emails of all users mapped to the role xx	<strong>%role_XX%</strong> son todos los correos de todos los usuarios mapeados al rol XX
 es-es	workflow	<strong>%roles%</strong> are the emails of all users mapped to any role on this activity	<strong>%roles%</strong> son los correos de todos los usuarios mapeados a cualquier rol en esta actividad
 es-es	workflow	<strong>%signature%</strong> is the agent signature defined in the process configuration	<strong>%signature%</strong> es la firma del agente definida en la configuración del proceso
-es-es	filemanager	my folder	Mi carpeta
 es-es	workflow	<strong>%user%</strong> is the instance user email	<strong>%user%</strong> es el correo del usuario de la instancia
 es-es	workflow	<strong>%user_xx%</strong> is the email of the acount xx	<strong>%user_XX%</strong> es el correo de la cuenta XX
 es-es	workflow	abort instance	abortar instancia
@@ -24620,7 +24559,6 @@ es-es	workflow	deletion successful	Borrado correcto
 es-es	workflow	delition successful	Borrado correcto
 es-es	workflow	description	Descripción
 es-es	workflow	process does not have a start activity	El proceso no tiene una actividad de inicio
-pt-br	filemanager	you must choose a folder !	Você deve escolher uma pasta !
 es-es	workflow	do you want the activity status on instances lists. most of the time it is "running" but if you use non-autorouted transitions you will have some completed activities.	¿Desea el estado de la actividad en las listas de instancias? La mayoría del tiempo está "en ejecución", pero si usa transiciones no autoenrutadas tendrá algunas actividades completadas.
 es-es	workflow	do you want the category column on instances lists, if yout instances use categories you should use it	¿Desea la columna de categoría en las listas de instancias? Si sus instancias usan categorías, debería usarla.
 es-es	workflow	do you want the category name column on instances lists, if your instances use categories you should use it	¿Desea la columna de nombre de la categoría en las listas de instancias? Si sus instancias usan categorías, debería usarla.
@@ -24664,7 +24602,6 @@ es-es	workflow	failed to record instance properties	fallo al grabar las propieda
 es-es	workflow	failed to synchronize instance data with the database	fallo al sincronizar los datos de la instancia con la base de datos
 es-es	workflow	failure	fallo
 es-es	workflow	fatal error: nextactivity does not match any candidate in autorouting switch activity	Error fatal: la siguiente actividad no coincide con ningún candidato en la actividad de cambio de enrutado automático
-es-es	filemanager	letter	carta
 es-es	workflow	fatal error: non-deterministic decision for autorouting activity	Error falta: decisión no determinante para la actividad de enrutado automático
 es-es	workflow	fatal error: setting next activity to an unexisting activity	Error fatal: estableciendo la actividad sigiuente a una actividad inexistente
 es-es	workflow	fatal error: trying to send an instance to an activity but no transition found	Error fatal: intentando enviar una instancia a una actividad, pero no se encontró transición
@@ -24888,7 +24825,6 @@ es-es	workflow	send this instance to the next activity	Enviar esta instancia a l
 es-es	workflow	send transition	enviar transición
 es-es	workflow	send when the activity is ending	enviar cuando la actividad esté finalizando
 es-es	workflow	send when the activity is starting	enviar cuando la actividad esté comenzando
-pt-br	filemanager	file moved successfuly	Arquivo movido com sucesso
 es-es	workflow	send when wf_agent_mail_smtp['submit_send'] is posted	enviar cuando se envie wf_agent_mail_smtp['submit_send']
 es-es	workflow	set next act	Establecer actividad siguiente
 es-es	workflow	set next user	Establecer usuario siguiente
@@ -25016,7 +24952,6 @@ es-es	workflow	you are not allowed to abort instance %1	No tiene permiso para ab
 es-es	workflow	you are not allowed to exception instance %1	No tiene permiso para una excepción en la instancia %1
 es-es	workflow	you are not allowed to grab instance %1	No tiene permiso para tomar la instancia %1
 es-es	workflow	you are not allowed to release instance %1	No tiene permiso para liberar la instancia %1
-pt-br	filemanager	archive	Arquivar
 es-es	workflow	you are not allowed to restart instance %1	No tiene permiso para reiniciar la instancia %1
 es-es	workflow	you are not allowed to resume instance %1	No tiene permiso para continuar la instancia %1
 es-es	workflow	you are not allowed to send instance %1	No tiene permiso para enviar la instancia %1
@@ -25054,479 +24989,6 @@ es-es	workflow	select only one user	Seleccione apenas un Usuário
 es-es	workflow	select one process role	Seleccione um Perfil do Proceso
 es-es	workflow	default role will be set only if it is mapped on the activity	O Perfil por defecto  será estabelecido solamente si esta  mapeado à atividade
 es-es	workflow	without default user	Sin usuario por defecto
-en	filemanager	%1 already exists as a file	%1 already exists as a file
-en	filemanager	application	Application
-en	filemanager	back to file manager	Back to file manager
-en	filemanager	cancel editing %1 without saving	Cancel editing %1 without saving
-en	filemanager	cannot create directory because it begins or ends in a space	Cannot create directory because it begins or ends in a space
-en	filemanager	cannot replace %1 because it is a directory	Cannot replace %1 because it is a directory
-en	filemanager	command sucessfully run	Command sucessfully run
-en	filemanager	comment	Comment
-en	filemanager	comments cannot contain "%1"	Comments cannot contain "%1"
-en	filemanager	copied %1 to %2	Copied %1 to %2
-en	filemanager	copy to	Copy To
-en	filemanager	copy to:	Copy to:
-en	filemanager	could not copy %1 to %2	Could not copy %1 to %2
-en	filemanager	could not copy file because no destination directory is given	Could not copy file because no destination directory is given
-en	filemanager	could not create %1	Could not create %1
-en	filemanager	could not create directory %1	Could not create directory %1
-en	filemanager	could not delete %1	Could not delete %1
-en	filemanager	could not move %1 to %2	Could not move %1 to %2
-en	filemanager	could not move file because no destination directory is given	Could not move file because no destination directory is given
-en	filemanager	could not rename %1 to %2	Could not rename %1 to %2
-en	filemanager	could not save %1	Could not save %1
-en	filemanager	create file	Create File
-en	filemanager	create folder	Create Folder
-en	filemanager	created	Created
-en	filemanager	created %1	Created %1
-en	filemanager	created %1,%2	Created %1,%2
-en	filemanager	created by	Created by
-en	filemanager	created directory %1	Created directory %1
-en	filemanager	default number of upload fields to show	Default number of upload fields to show
-en	filemanager	deleted %1	Deleted %1
-en	filemanager	directory	Directory
-en	filemanager	directory %1 already exists	Directory %1 already exists
-en	filemanager	directory %1 does not exist	Directory %1 does not exist
-en	filemanager	directory names cannot contain "%1"	Directory names cannot contain "%1"
-en	filemanager	display attributes	Display attributes
-en	filemanager	download	Download
-en	filemanager	edit comments	Edit comments
-en	filemanager	error running command	Error running command
-en	filemanager	execute	Execute
-en	filemanager	failed to create directory	failed to create directory
-pt-br	filemanager	unarchive	Desarquivar
-en	filemanager	fake base dir did not exist, egroupware created a new one.	Fake Base Dir did not exist, eGroupWare created a new one.
-en	filemanager	file %1 already exists. please edit it or delete it first.	File %1 already exists. Please edit it or delete it first.
-en	filemanager	file %1 could not be created.	File %1 could not be created.
-en	filemanager	file name	File Name
-en	filemanager	file names cannot contain "%1"	File names cannot contain "%1"
-en	filemanager	file names cannot contain \\ or /	File names cannot contain \\ or /
-en	filemanager	filemanager preferences	FileManager preferences
-en	filemanager	files in this directory	Files in this directory
-en	filemanager	folder	Folder
-en	filemanager	folder up	Folder Up
-en	filemanager	go home	go home
-en	filemanager	go to	Go To
-en	filemanager	go to %1	Go to %1
-en	filemanager	go to your home directory	Go to your home directory
-en	filemanager	go to:	Go to:
-en	filemanager	go up	go up
-en	filemanager	location	Location
-en	filemanager	locked	Locked
-en	filemanager	mime type	MIME Type
-en	filemanager	modified	Modified
-en	filemanager	modified by	Modified by
-en	filemanager	move to	Move To
-en	filemanager	move to:	Move to:
-en	filemanager	moved %1 to %2	Moved %1 to %2
-en	filemanager	no files in this directory.	No files in this directory.
-en	filemanager	no version history for this file/directory	No version history for this file/directory
-en	filemanager	operation	Operation
-en	filemanager	other settings	Other settings
-en	filemanager	please select a file to delete.	Please select a file to delete.
-en	filemanager	preview %1	Preview %1
-en	filemanager	preview of %1	Preview of %1
-en	filemanager	quick jump to	Quick jump to
-en	filemanager	reload	reload
-en	filemanager	renamed %1 to %2	Renamed %1 to %2
-en	filemanager	replaced %1	Replaced %1
-en	filemanager	save %1	Save %1
-en	filemanager	save %1, and go back to file listing	Save %1, and go back to file listing
-en	filemanager	save all	Save all
-en	filemanager	save changes	Save changes
-en	filemanager	saved %1	Saved %1
-en	filemanager	show	Show
-en	filemanager	show ..	Show ..
-en	filemanager	show .files	Show .files
-en	filemanager	show command line (experimental. dangerous.)	Show command line (EXPERIMENTAL. DANGEROUS.)
-en	filemanager	show help	Show help
-en	filemanager	size	Size
-en	filemanager	sort by:	Sort by:
-en	filemanager	the future filemanager, now for testing purposes only, please send bugreports	The future filemanager, now for TESTING PURPOSES ONLY, please send bugreports
-en	filemanager	total files	Total Files
-en	filemanager	unknown mime-type defaults to text/plain when viewing	Unknown MIME-type defaults to text/plain when viewing
-en	filemanager	unused space	Unused space
-en	filemanager	up	Up
-en	filemanager	updated comment for %1	Updated comment for %1
-en	filemanager	upload	Upload
-en	filemanager	upload fields	upload fields
-en	filemanager	upload files	Upload files
-en	filemanager	use new experimental filemanager?	Use new experimental Filemanager?
-en	filemanager	used space	Used Space
-en	filemanager	users	Users
-en	filemanager	view documents in new window	View documents in new window
-en	filemanager	view documents on server (if available)	View documents on server (if available)
-en	filemanager	who	Who
-en	filemanager	you do not have access to %1	You do not have access to %1
-en	filemanager	your home dir did not exist, egroupware created a new one.	Your Home Dir did not exist, eGroupWare created a new one.
-pt-br	filemanager	%1 already exists as a file	%1 já existe como um arquivo
-pt-br	filemanager	application	Aplicação
-pt-br	filemanager	add file	Adicionar arquivo
-pt-br	filemanager	back to file manager	Voltar ao Gerenciador de Arquivos
-pt-br	filemanager	cancel editing %1 without saving	Cancelar edição %1 sem salvar
-pt-br	filemanager	cannot create directory because it begins or ends in a space	Não é possível criar a pasta porque seu nome inicia ou termina em espaço em branco
-pt-br	filemanager	cannot replace %1 because it is a directory	Não é possível subtituir %1 porque é uma pasta
-pt-br	filemanager	command sucessfully run	Comando executado com sucesso
-pt-br	filemanager	comment	Comentário
-pt-br	filemanager	comments cannot contain "%1"	Comentários não podem conter "%1"
-pt-br	filemanager	comment(s)	Comentário(s)
-pt-br	filemanager	%1 files copied successfuly	%1 arquivos foram copiados com sucesso
-pt-br	filemanager	file copied successfuly	O arquivo foi copiado com sucesso
-pt-br	filemanager	copy to	Copiar Para
-pt-br	filemanager	copy to:	Copiar para:
-pt-br	filemanager	could not copy %1 files	Não foi possível copiar %1 arquivos
-pt-br	filemanager	could not copy file because no destination directory is given	Não foi possível copiar o arquivo porque não se definiu um diretório de destino
-pt-br	filemanager	could not create %1	Não foi possível criar %1
-pt-br	filemanager	could not create directory %1	Não foi possível criar a pasta %1
-pt-br	filemanager	could not delete %1	Não foi possível remover %1
-pt-br	filemanager	could not move %1 file(s)	Não foi possível mover %1 arquivo(s)
-pt-br	filemanager	select a folder	Selecione uma pasta
-pt-br	filemanager	new folder	Nova pasta
-pt-br	filemanager	remove folder	Apagar pasta
-pt-br	filemanager	could not move file because no destination directory is given	Não foi possível mover o arquivo porque não se definiu um diretório de destino
-pt-br	filemanager	could not rename %1 to %2	Não foi possível renomear %1 para %2
-pt-br	filemanager	loading	Carregando
-pt-br	filemanager	could not save %1	Não foi possível salvar %1
-pt-br	filemanager	create file	Criar Arquivo
-pt-br	filemanager	create folder	Criar Pasta
-pt-br	filemanager	new	novo
-pt-br	filemanager	created	Criado
-pt-br	filemanager	created %1	Criado %1
-pt-br	filemanager	enter the name you want to move %1 to	Digite o nome que você quer renomear para %1
-pt-br	filemanager	enter the name of folder you want to create	Digite o nome da pasta que você quer criar
-pt-br	filemanager	duplicate file	Arquivo duplicado
-pt-br	filemanager	you have no permission to access this file	Você não tem permissão para acessar este arquivo
-pt-br	filemanager	one of the files sent was considered infected	Um dos arquivos enviados foi considerado infectado por vírus
-pt-br	filemanager	the maximum size for each file is %1mb	O tamanho máximo para cada arquivo é de %1MB
-pt-br	filemanager	this property will change the visibility of all users that have access to this file, continue?	Esta propriedade altera visibilidade dos usuários que estão compartilhados, deseja continuar?
-pt-br	filemanager	click to change comments	Clique para alterar comentários
-pt-br	filemanager	click here	Clique aqui
-pt-br	filemanager	all files created sucessfuly	Arquivos foram criados com sucesso
-pt-br	filemanager	error:	Erro:
-pt-br	filemanager	error: use the advanced file sending!	ERRO: Utilize o envio avançado de arquivos!
-pt-br	filemanager	are you sure you want to delete	Você tem certeza que deseja apagar
-pt-br	filemanager	please type the text "%1" to delete	Por favor, tenha certeza e digite "%1" para apagar
-pt-br	filemanager	created directory %1	Criada pasta %1
-pt-br	filemanager	export	exportar
-pt-br	filemanager	this file is being edited right now by:	Este arquivo está sendo editado por: 
-pt-br	filemanager	portrait	retrato
-pt-br	filemanager	could not mark as restricted	Não foi possível marcar como restrito
-pt-br	filemanager	%1 marked as restricted	%1 foi marcado como restrito
-pt-br	filemanager	%1 unmarked as restricted	%1 foi desmarcado como restrito
-pt-br	filemanager	mark as restricted	Marcar como restrito
-pt-br	filemanager	unmark as restricted	Desmarcar como restrito
-pt-br	filemanager	landscape	paisagem
-pt-br	filemanager	letter	carta
-pt-br	filemanager	disposition of pdf output	Disposição do texto no pdf
-pt-br	filemanager	type of pdf paper	Tipo de papel ao exportar
-pt-br	filemanager	default number of upload fields to show	Padrão para o número de campos de envio de arquivos a exibir
-pt-br	filemanager	deleted %1	Removido %1
-pt-br	filemanager	directories	Diretórios
-pt-br	filemanager	directory	Pasta
-pt-br	filemanager	directory %1 already exists	Pasta %1 já existe
-pt-br	filemanager	directory %1 does not exist	Pasta %1 não existe
-pt-br	filemanager	directory names cannot contain "%1"	Nomes de pastas não podem conter "%1"
-pt-br	filemanager	display attributes	Exibir atributos
-pt-br	filemanager	download	Download
-pt-br	filemanager	edit comments	Editar Comentários
-pt-br	filemanager	email	Email
-pt-br	filemanager	emails reported	Emails notificados
-pt-br	filemanager	execute	Executar
-pt-br	filemanager	failed to create directory	falhou ao criar pasta
-pt-br	filemanager	fake base dir did not exist, egroupware created a new one.	Diretório Base não existia, eGroupWare criou um novo.
-pt-br	filemanager	file %1 already exists. please edit it or delete it first.	Arquivo %1 já existe. Por favor edite-o ou remova-o antes.
-pt-br	filemanager	file %1 could not be created.	Arquivo %1 não pôde ser criado.
-pt-br	filemanager	file name	Nome do Arquivo
-pt-br	filemanager	file names cannot contain "%1"	Nomes de arquivos não podem conter "%1"
-pt-br	filemanager	file names cannot contain \\ or /	Nomes de arquivos não podem conter \\ ou /
-pt-br	filemanager	filemanager preferences	Preferências para Gerenciador de Arquivos
-pt-br	filemanager	file(s)	Arquivo(s)
-pt-br	filemanager	file history	Histórico do arquivo
-pt-br	filemanager	files in this directory	Arquivos nesse diretório
-pt-br	filemanager	folder	Pasta
-pt-br	filemanager	folder up	Diretório Acima
-pt-br	filemanager	folder management	Gerenciamento de Pastas
-pt-br	filemanager	go home	ir para página principal
-pt-br	filemanager	go to	Ir Para
-pt-br	filemanager	go to %1	Ir para %1
-pt-br	filemanager	go to your home directory	Ir para sua pasta Home
-pt-br	filemanager	go to:	Ir para:
-pt-br	filemanager	go up	Subir
-pt-br	filemanager	home	Início
-pt-br	filemanager	location	Local
-pt-br	filemanager	locked	Travado
-pt-br	filemanager	management quota	Gerenciamento de Quota
-pt-br	filemanager	mime type	Tipo MIME
-pt-br	filemanager	modified	Modificado
-pt-br	filemanager	modified by	Modificado por
-pt-br	filemanager	move to	Mover Para
-pt-br	filemanager	move to:	Mover para:
-pt-br	filemanager	more files	Mais arquivos
-pt-br	filemanager	no file(s) to send	Sem arquivo(s) para enviar
-pt-br	filemanager	no permission to delete the folder %1	Sem permissão para excluir a pasta %1
-pt-br	filemanager	notify email	Notificar os e-mails
-pt-br	filemanager	%1 files moved successfuly	%1 arquivos movidos com sucesso
-pt-br	filemanager	do you really want to remove folder: %1?	Você realmente deseja apagar a pasta: %1?
-pt-br	filemanager	your operation was successfully executed	Sua operação foi executada com sucesso
-pt-br	filemanager	wrong password	Senha errada
-pt-br	filemanager	it was not possible to execute it	Pelo menos um erro houve na operação
-pt-br	filemanager	please, type archive password or leave it empty if it is not encrypted	Por favor digite a senha, ou deixe em branco caso o arquivo não seja protegido por senha
-pt-br	filemanager	no files in this directory.	Nenhum arquivo nesse diretório
-pt-br	filemanager	no version history for this file/directory	Sem histórico de versão para este arquivo/pasta
-pt-br	filemanager	operation	Operação
-pt-br	filemanager	other settings	Outras configurações
-pt-br	filemanager	please select a file to delete.	Por favor selecione um arquivo para excluir/
-pt-br	filemanager	please select a file	Por favor selecione um arquivo
-pt-br	filemanager	preview %1	Visualizar %1
-pt-br	filemanager	preview of %1	Visualizar %1
-pt-br	filemanager	private	Privado
-pt-br	filemanager	quick jump to	Atalho para:
-pt-br	filemanager	reload	Recarregar
-pt-br	filemanager	reconstruct	Reconstruir
-pt-br	filemanager	renamed %1 to %2	Renomeado %1 para %2
-pt-br	filemanager	created new %1	Criado novo arquivo %1
-pt-br	filemanager	save %1	Salvar %1
-pt-br	filemanager	save %1, and go back to file listing	Salvar %1, e voltar para listagem dos arquivos
-pt-br	filemanager	save all	Salvar tudo
-pt-br	filemanager	save changes	Salvar modificações
-pt-br	filemanager	saved %1	Salvo %1
-pt-br	filemanager	send email	Enviar email
-pt-br	filemanager	search folders	Pesquisar Pastas
-pt-br	filemanager	search users	Pesquisar Usuários
-pt-br	filemanager	show	Exibir
-pt-br	filemanager	show ..	Exibir ..
-pt-br	filemanager	show .files	Exibir arquivos cujos nomes iniciam por um ponto
-pt-br	filemanager	show command line (experimental. dangerous.)	Exibir linha de comando (EXPERIMENTAL. PERIGOSO.)
-pt-br	filemanager	show help	Exibir ajuda
-pt-br	filemanager	size	Tamanho
-pt-br	filemanager	sort by:	Ordenar por:
-pt-br	filemanager	the future filemanager, now for testing purposes only, please send bugreports	Futuro gerenciador de arquivos, agora para PROPÓSITOS DE TESTES APENAS, por favor envie relatórios de erro.
-pt-br	filemanager	total files	Total de Arquivos
-pt-br	filemanager	unknown mime-type defaults to text/plain when viewing	Tipos MIME desconhecidos são visualizados como text/plain por padrão
-pt-br	filemanager	unused space	Espaço Não Usado
-pt-br	filemanager	up	Acima
-pt-br	filemanager	updated comment for %1	Comentário atualizado para %1
-pt-br	filemanager	upload	Envio
-pt-br	filemanager	upload fields	campos de envio de arquivos
-pt-br	filemanager	upload files	Enviar Arquivos
-pt-br	filemanager	advanced upload	Envio Avançado
-pt-br	filemanager	uploaded files sucessfully	Arquivos enviados com sucesso
-pt-br	filemanager	use new experimental filemanager?	Usar o novo Gerenciador de Arquivos experimental?
-pt-br	filemanager	used space	Espaço Usado
-pt-br	filemanager	new...	Novo...
-pt-br	filemanager	tools	Ferramentas
-pt-br	filemanager	search	Pesquisar
-pt-br	filemanager	view as list	Ver como lista
-pt-br	filemanager	view as icons	Ver como ícones
-pt-br	filemanager	drag and drop to move	Arraste e solte para mover
-pt-br	filemanager	my folder	Minha pasta
-pt-br	filemanager	edit folders	Editar pastas
-pt-br	filemanager	share folders	Compartilhar pastas
-pt-br	filemanager	empty file	Arquivo vazio
-pt-br	filemanager	file from model	Arquivo de modelo
-pt-br	filemanager	article	Artigo
-pt-br	filemanager	todo	Tarefas
-pt-br	filemanager	slide	Apresentação
-pt-br	filemanager	cards	Cartões
-pt-br	filemanager	resume	Currículo
-pt-br	filemanager	impossible to edit this file	Impossível editar o arquivo selecionado
-pt-br	filemanager	it was not possible to send your file	Não foi possível enviar seu arquivo
-pt-br	filemanager	it is necessary to inform the user that will receive email notification	É necessário informar o email do usuário que receberá a notificação
-pt-br	filemanager	it is necessary to inform the user that sends mail file	É necessário informar o email do usuário que envia o arquivo
-pt-br	filemanager	please, type a strong password (suggestion: at least 8 characters, letters and numbers) or leave it empty to archive only	Por favor, digite uma senha segura (sugestão: pelo menos 8 caracteres com letras e números) ou deixe o campo vazio para somente arquivar
-pt-br	filemanager	please, retype your password	Por favor, redigite sua senha
-pt-br	filemanager	passwords are differents	as senhas diferem
-pt-br	filemanager	enter with the name of new file/directory	Insira o nome do novo arquivo/diretório
-pt-br	filemanager	file extension forbidden or invalid file	Formato de arquivo inválido
-pt-br	filemanager	view documents in new window	Visualizar documentos em uma nova janela
-pt-br	filemanager	view documents on server (if available)	Visualizar documentos no servidor (se disponível)
-pt-br	filemanager	who	Quem
-pt-br	filemanager	when the user with the email send a file	Quando o usuário com o e-mail enviar um arquivo
-pt-br	filemanager	you do not have access to %1	Você não tem acesso a %1
-pt-br	filemanager	you do not have java installed, plugin not loaded	Você não tem o Java instalado, o plugin não foi iniciado
-pt-br	filemanager	your home dir did not exist, egroupware created a new one.	Seu Diretório Home não existia, foi criado um novo.
-es-es	filemanager	edit comments	Editar comentarios
-pt-br	filemanager	filemanager notification	Gerenciador de arquivos notifica
-pt-br	filemanager	the user %1, sent the file "%2" (type %3) and asked to notify you.	O usu&aacute;rio %1, enviou o arquivo "%2" (tipo %3) e solicitou o notificar.
-pt-br	filemanager	the user %1 sent the following files	O usuário %1 enviou os seguintes arquivos
-pt-br	filemanager	to view the files %1	Para ver os arquivos %1
-pt-br	filemanager	comments by user: %1	Coment&aacute;rios do usu&aacute;rio: %1
-pt-br	filemanager	the file can be accessed by: %1	O arquivo pode ser acessado pelo endere&ccedil;o: %1
-pt-br	filemanager	the following addresses will be notified	Os endereços abaixo serão notificados
-pt-br	filemanager	there is a file %1, that was not replaced	Há um arquivo %1, que não foi substituído
-pt-br	filemanager	users and groups	Usuários e grupos
-pt-br	filemanager	send notification email to:	Enviar email de notificação para:
-pt-br	filemanager	set owner	Redefinir Dono
-pt-br	filemanager	set permission	Definir Permissões
-pt-br	filemanager	you have access to the application, but you have no quota. please contact your administrator	Você tem acesso ao módulo, mas não possui cota. Por favor, contacte o administrador. 
-es-es	filemanager	%1 already exists as a file	%1 ya existe como un fichero
-es-es	filemanager	application	Aplicación
-es-es	filemanager	back to file manager	Volver al Administrador de ficheros
-es-es	filemanager	cancel editing %1 without saving	Cancelar la edición de %1 sin guardar
-es-es	filemanager	cannot create directory because it begins or ends in a space	No se puede crear el directorio porque empieza o acaba con un espacio
-es-es	filemanager	cannot replace %1 because it is a directory	No puedo reemplazar %1 porque está en un directorio
-es-es	filemanager	command sucessfully run	Comando ejecutado correctamente
-es-es	filemanager	comment	Comentario
-es-es	filemanager	comments cannot contain "%1"	Los comentarios no pueden tener "%1"
-es-es	filemanager	copied %1 to %2	Copiado %1 a %2
-es-es	filemanager	%1 files copied successfuly	%1 archivos fueron copiados con éxito
-es-es	filemanager	file copied successfuly	El archivo fue copiado con éxito
-es-es	filemanager	copy to	Copiar A
-es-es	filemanager	copy to:	Copiar a:
-es-es	filemanager	could not copy %1 to %2	No se pudo copiar %1 a %2
-es-es	filemanager	could not copy file because no destination directory is given	No se pudo copiar el fichero porque no se indicó el directorio de destino
-es-es	filemanager	could not create %1	No se pudo crear %1
-es-es	filemanager	could not create directory %1	No se pudo crear el directorio %1
-es-es	filemanager	could not delete %1	No se pudo borrar %1
-es-es	filemanager	could not move %1 to %2	No se pudo mover %1 a %2
-es-es	filemanager	select a folder	Selecione una carpeta
-es-es	filemanager	could not move file because no destination directory is given	No se puedo mover el fichero porque no se indicó el directorio de destino
-es-es	filemanager	could not rename %1 to %2	No se pudo renombre %1 a %2
-es-es	filemanager	loading	Cargando
-es-es	filemanager	could not save %1	No se pudo guardar %1
-es-es	filemanager	create file	Crear fichero
-es-es	filemanager	create folder	Crear carpeta
-es-es	filemanager	new	nuevo
-es-es	filemanager	created	Creado
-es-es	filemanager	created %1	Se ha creado %1
-es-es	filemanager	created %1,%2	Se ha creado %1,%2
-es-es	filemanager	you have no permission to access this file	Usted no tiene permiso para accesar este archivo
-es-es	filemanager	one of the files sent was considered infected	Uno de los archivos enviados fue considerado infectado por vírus
-es-es	filemanager	note: uploaded is limited to %1mb	Nota: El tamaño máximo de envío es limitado a %1MB
-es-es	filemanager	this property will change the visibility of all users that have access to this file, continue?	Esta propriedad cambia la visibilidad de los usuarios que están compartidos, desea continuar?
-es-es	filemanager	click to change comments	Click para modificar comentarios
-es-es	filemanager	all files created sucessfuly	archivos fueron creados con éxito
-es-es	filemanager	created directory %1	Creada carpeta %1
-es-es	filemanager	date	Data
-es-es	filemanager	error:	Error:
-es-es	filemanager	are you sure you want to delete	Usted esta seguro que desea borrar
-es-es	filemanager	please type the text "%1" to delete	Por favor, escriba "%1" para borrar
-es-es	filemanager	export	exportar
-es-es	filemanager	this file is being edited right now by:	Este archivo está siendo editado por: 
-es-es	filemanager	portrait	retrato
-es-es	filemanager	could not mark as restricted	no fue posible marcar como restringido
-es-es	filemanager	%1 marked as restricted	%1 fue marcado como restringido
-es-es	filemanager	%1 unmarked as restricted	%1 fue desmarcado como restringido
-es-es	filemanager	mark as restricted	Marcar como restringido
-es-es	filemanager	unmark as restricted	Desmarcar como restringido
-es-es	filemanager	landscape	paisaje
-es-es	filemanager	disposition of pdf output	Salida en  pdf
-es-es	filemanager	type of pdf paper	Tipo de papel para exportar
-es-es	filemanager	default number of upload fields to show	Número predeterminado de campos a mostrar
-es-es	filemanager	delete	Borrar
-es-es	filemanager	deleted %1	%1 ha sido borrado
-es-es	filemanager	directory	Directorio
-es-es	filemanager	directory %1 already exists	El directorio %1 ya existe
-es-es	filemanager	directory %1 does not exist	El directorio %1 no existe
-es-es	filemanager	directory names cannot contain "%1"	Los nombres de directorio no pueden tener "%1"
-es-es	filemanager	display attributes	Mostrar atributos
-es-es	filemanager	download	Descargar
-es-es	filemanager	save	Salvar
-es-es	filemanager	error running command	Error al ejecutar el comando
-es-es	filemanager	execute	Ejecutar
-es-es	filemanager	failed to create directory	fallo al crear el directorio
-es-es	filemanager	fake base dir did not exist, egroupware created a new one.	El directorio base ficticio no existía, y expresso ha creado una nueva
-es-es	filemanager	file	Fichero
-es-es	filemanager	file %1 already exists. please edit it or delete it first.	El fichero %1 ya existe. Por favor, edítelo o bórrelo antes.
-es-es	filemanager	file %1 could not be created.	No se pudo crear el fichero %1.
-es-es	filemanager	file name	Nombre del fichero
-es-es	filemanager	file names cannot contain "%1"	Los nombres de fichero no pueden contener "%1"
-es-es	filemanager	file names cannot contain \\ or /	Los nombres de fichero no pueden contener  o /
-es-es	filemanager	filemanager preferences	Preferencias del Administrador de archivos
-es-es	filemanager	files	Ficheros
-es-es	filemanager	files in this directory	Ficheros en este directorio
-es-es	filemanager	folder	Carpeta
-es-es	filemanager	folder up	Subir una carpeta
-es-es	filemanager	go home	ir al inicio
-es-es	filemanager	go to	Ir A
-es-es	filemanager	go to %1	Ir a %1
-es-es	filemanager	go to your home directory	Ir al directorio personal
-es-es	filemanager	go to:	Ir a:
-es-es	filemanager	go up	subir
-es-es	filemanager	location	Ubicación
-es-es	filemanager	locked	Bloqueado
-es-es	filemanager	mime type	Tipo MIME
-es-es	filemanager	modified	Modificado
-es-es	filemanager	modified by	Modificado por
-es-es	filemanager	move to	Mover A
-es-es	filemanager	move to:	Mover a:
-es-es	filemanager	moved %1 to %2	Se ha movido %1 a %2
-es-es	filemanager	%1 files moved successfuly	%1 archivos movidos con exitos
-es-es	filemanager	file moved successfuly	archivo movido con exitos
-es-es	filemanager	archive	Archivar
-es-es	filemanager	unarchive	Desarchivar
-es-es	filemanager	new folder	Nueva carpeta
-es-es	filemanager	remove folder	Borrar carpeta
-es-es	filemanager	do you really want to remove folder: %1?	Usted realmente desea borrar la carpeta: %1?
-es-es	filemanager	your operation was successfully executed	Su operación fue ejecutada con éxito
-es-es	filemanager	wrong password	contraseña errada
-es-es	filemanager	it was not possible to execute it	Por lo menos un error ocurrió en la operacion
-es-es	filemanager	please, type archive password or leave it empty if it is not encrypted	Por favor escriba una contraeña, o deje en blanco en el caso en que el archivo no esta protegido con contraseña
-es-es	filemanager	no files in this directory.	No hay ficheros en este directorio
-es-es	filemanager	no version history for this file/directory	No hay historial de versión para este fichero o directorio
-es-es	filemanager	operation	Operación
-es-es	filemanager	other settings	Otras opciones
-es-es	filemanager	owner	Propietario
-es-es	filemanager	please select a file to delete.	Por favor, seleccione un fichero para borrar
-es-es	filemanager	please select a file	Por favor seleccione un archivo
-es-es	filemanager	preview %1	Vista previa de %1
-es-es	filemanager	preview of %1	Vista previa de %1
-es-es	filemanager	quick jump to	Salto rápido a
-es-es	filemanager	reload	recargar
-es-es	filemanager	reconstruct	Reconstruir
-es-es	filemanager	renamed %1 to %2	Se ha renombrado %1 a %2
-es-es	filemanager	replaced %1	Reemplazado %1
-es-es	filemanager	created new %1	Creado nuevo archivo %1
-es-es	filemanager	save %1	Guardar %1
-es-es	filemanager	save %1, and go back to file listing	Guardar %1, y volver al listado de ficheros
-es-es	filemanager	save all	Guardar todo
-es-es	filemanager	save changes	Guardar cambios
-es-es	filemanager	saved %1	Guardado %1
-es-es	filemanager	show	Mostrar
-es-es	filemanager	show ..	Mostrar ..
-es-es	filemanager	show .files	Mostrar ficheros ocultos
-es-es	filemanager	show command line (experimental. dangerous.)	Mostrar línea de comandos (EXPERIMENTAL. PELIGROSO)
-es-es	filemanager	show help	Mostrar la ayuda
-es-es	filemanager	size	Tamaño
-es-es	filemanager	sort by:	Ordenar por:
-es-es	filemanager	the future filemanager, now for testing purposes only, please send bugreports	El Administrador de archivos futuro, SOLO PARA PRUEBAS. Por favor, informe de los fallos.
-es-es	filemanager	total files	Total ficheros
-es-es	filemanager	unknown mime-type defaults to text/plain when viewing	El tipo MIME desconocido se muestra como text/plain
-es-es	filemanager	unused space	Espacio libre
-es-es	filemanager	up	Arriba
-es-es	filemanager	updated comment for %1	Comentario actualizado para %1
-es-es	filemanager	upload	Copiar a servidor
-es-es	filemanager	upload fields	Subir campos
-es-es	filemanager	upload files	Subir ficheros
-es-es	filemanager	use new experimental filemanager?	¿Usar el nuevo Administrador de archivos (experimental)?
-es-es	filemanager	used space	Espacio utilizado
-es-es	filemanager	users	Usuarios
-es-es	filemanager	view documents in new window	Visualizar documentos en una nueva ventana
-es-es	filemanager	view documents on server (if available)	Visualizar documentos en el servidor (si estan disponible)
-es-es	filemanager	new...	Nuevo...
-es-es	filemanager	tools	Herramientas
-es-es	filemanager	view as list	Ver como lista
-es-es	filemanager	view as icons	Ver como ícones
-es-es	filemanager	drag and drop to move	Arrastre y suelte para mover
-es-es	filemanager	edit folders	Editar carpetas
-es-es	filemanager	share folders	Compartir carpetas
-es-es	filemanager	empty file	archivo vacío
-es-es	filemanager	file from model	archivo de modelo
-es-es	filemanager	article	Articulo
-es-es	filemanager	todo	Tarifas
-es-es	filemanager	slide	presentación
-es-es	filemanager	cards	Cartas
-es-es	filemanager	resume	Currículo
-es-es	filemanager	impossible to edit this file	Imposible editar el archivo seleccionado
-es-es	filemanager	it was not possible to send your file	no fue posible enviar su archivo
-es-es	filemanager	please, type a strong password (suggestion: at least 8 characters, letters and numbers) or leave it empty to archive only	Por favor, escriba una contraseña segura (sugerencia: minimo 8 caracteres con letras y números) o deje el campo vacio para solamente archivar
-es-es	filemanager	please, retype your password	Por favor, reescriba su contraseña
-es-es	filemanager	passwords are differents	las contraseñas son diferentes
-es-es	filemanager	enter with the name of new file/directory	Ingrese el nombre del nuevo archivo/directorio
-es-es	filemanager	file extension forbidden or invalid file	Formato de archivo inválido
-es-es	filemanager	who	Quién
-es-es	filemanager	you do not have access to %1	No tiene acceso a %1
-es-es	filemanager	your home dir did not exist, egroupware created a new one.	Su directorio inicial no existía, y expresso ha creado uno nuevo.
 \.
 
 
@@ -25730,7 +25192,6 @@ COPY phpgw_preferences (preference_owner, preference_app, preference_value) FROM
 1003	expressoMail	a:1:{s:13:"use_signature";s:1:"1";}
 -2	calendar	a:24:{s:15:"defaultcalendar";s:4:"week";s:21:"mainscreen_showevents";s:1:"0";s:7:"summary";s:2:"no";s:15:"receive_updates";s:2:"no";s:13:"update_format";s:8:"extended";s:11:"notifyAdded";s:113:"Evento do calendário - $$action$$: $$startdate$$ $$title$$\nVocê possui um compromisso agendado para $$startdate$$";s:14:"notifyCanceled";s:116:"Evento do calendário - $$action$$: $$startdate$$ $$title$$\nSeu compromisso agendado para $$startdate$$ foi cancelado";s:14:"notifyModified";s:133:"Evento do calendário - $$action$$: $$startdate$$ $$title$$\nSeu compromisso agendado para $$olddate$$ foi remarcado para $$startdate$$";s:14:"notifyResponse";s:140:"Evento do calendário - $$action$$: $$startdate$$ $$title$$\nEm $$date$$ $$fullname$$ $$action$$ sua requisição de encontro para $$startdate$$";s:11:"notifyAlarm";s:85:"Alarme para $$title$$ em $$startdate$$ na $$location$$\nAqui está o alarme solicitado.";s:13:"show_rejected";s:1:"0";s:14:"display_status";s:1:"1";s:13:"weekdaystarts";s:6:"Monday";s:13:"workdaystarts";s:1:"9";s:11:"workdayends";s:2:"17";s:8:"interval";s:2:"30";s:13:"defaultlength";s:2:"60";s:24:"planner_start_with_group";s:4:"1001";s:25:"planner_intervals_per_day";s:1:"4";s:13:"defaultfilter";s:3:"all";s:15:"default_private";s:1:"0";s:16:"display_minicals";s:1:"1";s:17:"print_black_white";s:1:"0";s:19:"hide_event_conflict";s:1:"0";}
 -2	expressoMail	a:21:{s:18:"max_email_per_page";s:2:"50";s:16:"save_deleted_msg";s:1:"1";s:18:"use_local_messages";s:1:"0";s:22:"keep_archived_messages";s:1:"0";s:32:"delete_and_show_previous_message";s:1:"1";s:13:"alert_new_msg";s:1:"1";s:19:"mainscreen_showmail";s:1:"1";s:27:"remove_attachments_function";s:1:"0";s:21:"enable_important_flag";s:1:"0";s:14:"save_in_folder";s:10:"INBOX/Sent";s:12:"hide_folders";s:1:"0";s:11:"line_height";s:2:"20";s:9:"font_size";s:2:"11";s:20:"use_dynamic_contacts";s:1:"1";s:13:"use_shortcuts";s:1:"0";s:15:"auto_save_draft";s:1:"0";s:10:"image_size";s:5:"65536";s:28:"use_signature_digital_cripto";s:1:"0";s:14:"type_signature";s:4:"text";s:24:"show_name_print_messages";s:1:"0";s:8:"timezone";s:17:"America/Sao_Paulo";}
--2	filemanager	a:19:{s:4:"name";s:1:"1";s:9:"mime_type";s:1:"1";s:4:"size";s:1:"1";s:7:"created";s:1:"1";s:8:"modified";s:1:"1";s:5:"owner";s:1:"1";s:12:"createdby_id";s:1:"1";s:13:"modifiedby_id";s:1:"1";s:3:"app";s:1:"0";s:7:"comment";s:1:"1";s:7:"version";s:1:"1";s:12:"viewinnewwin";s:1:"1";s:12:"viewonserver";s:1:"1";s:13:"viewtextplain";s:1:"1";s:6:"dotdot";s:1:"1";s:8:"dotfiles";s:1:"1";s:8:"pdf_type";s:8:"portrait";s:14:"pdf_paper_type";s:2:"a4";s:14:"files_per_page";s:3:"200";}
 \.
 
 
@@ -26464,15 +25925,6 @@ ALTER TABLE ONLY phpgw_expressoadmin_samba
 
 ALTER TABLE ONLY phpgw_expressomail_contacts
     ADD CONSTRAINT phpgw_expressomail_contacts_pkey PRIMARY KEY (id_owner);
-
-
---
--- Name: phpgw_filemanager_notification_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY phpgw_filemanager_notification
-    ADD CONSTRAINT phpgw_filemanager_notification_pkey PRIMARY KEY (filemanager_id);
-
 
 --
 -- Name: phpgw_history_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
