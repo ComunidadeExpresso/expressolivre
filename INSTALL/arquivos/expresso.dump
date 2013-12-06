@@ -3442,7 +3442,6 @@ COPY phpgw_applications (app_id, app_name, app_enabled, app_order, app_tables, a
 1	phpgwapi	3	1	phpgw_config,phpgw_applications,phpgw_acl,phpgw_accounts,phpgw_preferences,phpgw_sessions,phpgw_app_sessions,phpgw_access_log,phpgw_hooks,phpgw_languages,phpgw_lang,phpgw_nextid,phpgw_categories,phpgw_addressbook,phpgw_addressbook_extra,phpgw_log,phpgw_log_msg,phpgw_interserv,phpgw_vfs,phpgw_history_log,phpgw_async	2.5.0
 2	admin	1	1		2.5.0
 3	preferences	2	1		2.5.0
-19	listAdmin	1	10		2.5.0
 10	emailadmin	2	10	phpgw_emailadmin	2.5.0
 4	calendar	1	3	phpgw_cal,phpgw_cal_holidays,phpgw_cal_repeats,phpgw_cal_user,phpgw_cal_extra	2.5.0
 7	expressoAdmin1_2	1	1	phpgw_expressoadmin,phpgw_expressoadmin_apps,phpgw_expressoadmin_passwords,phpgw_expressoadmin_log,phpgw_expressoadmin_samba,phpgw_expressoadmin_configuration,phpgw_expressoadmin_acls	2.5.0
@@ -13752,7 +13751,6 @@ expresso-admin	LDAP_DN	expressoAdmin1_2
 expresso-admin	LDAP_DN	expressoMail1_2
 expresso-admin	LDAP_DN	expressoCalendar
 expresso-admin	LDAP_DN	filemanager
-expresso-admin	LDAP_DN	listAdmin
 expresso-admin	LDAP_DN	phpgwapi
 expresso-admin	LDAP_DN	preferences
 expresso-admin	LDAP_DN	workflow
@@ -13839,7 +13837,6 @@ COPY phpgw_hooks (hook_id, hook_appname, hook_location, hook_filename) FROM stdi
 787	preferences	manual	hook_manual.inc.php
 788	preferences	preferences	hook_preferences.inc.php
 789	preferences	settings	hook_settings.inc.php
-794	listAdmin	admin	hook_admin.inc.php
 821	calendar	add_def_prefs	hook_add_def_prefs.inc.php
 822	calendar	admin	hook_admin.inc.php
 823	calendar	deleteaccount	hook_deleteaccount.inc.php
@@ -14659,7 +14656,6 @@ pt-br	common	select organization	Selecione Organização
 pt-br	common	server ldap	Servidor Ldap
 pt-br	common	settings	Configurações
 pt-br	common	site configuration jabber	Configurações do servidor jabber
-pt-br	common	listadmin	Mailman Admin
 pt-br	common	configure access permissions	Configurar Permissões de Acesso
 pt-br	common	configure rss exports	Configurar arquivos RSS para exportação
 pt-br	common	news_admin	Boletins Internos
@@ -17601,166 +17597,6 @@ pt-br	help	page(s) %1 not found !!!	Página %1 não encontrada !!!
 pt-br	help	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Iniciando a importação de %1, pode levar alguns minutos (especialmente se você o executa pela primeira vez agora) ...
 pt-br	help	your suggestion was sent successfully.	Sua sugestão foi enviada com sucesso.
 pt-br	mobile	schedule	Agendar
-pt-br	listAdmin	listadmin	Mailman Admin
-pt-br	listAdmin	user accounts	Contas de usuários
-pt-br	listAdmin	user groups	Grupos de usuários
-pt-br	listAdmin	email lists	Listas de Email Mailman
-pt-br	listAdmin	computers	Computadores
-pt-br	listAdmin	sectors	Setores
-pt-br	listAdmin	show sessions	Exibir Sessões
-pt-br	listAdmin	logs	Logs
-pt-br	listAdmin	create user	Criar Usuário
-pt-br	listAdmin	context	Contexto
-pt-br	listAdmin	organizations	Organizações
-pt-br	listAdmin	login id	Login
-pt-br	listAdmin	re-password	Re-Senha
-pt-br	listAdmin	change password	Alterar senha
-pt-br	listAdmin	account active	Conta Ativa
-pt-br	listAdmin	general information	Informações Gerais
-pt-br	listAdmin	email config	Configuração de Email
-pt-br	listAdmin	groups permission	Grupos
-pt-br	listAdmin	aplication permission	Aplicações
-pt-br	listAdmin	samba config	Configurações do SAMBA
-pt-br	listAdmin	active email account	Conta de email ativa
-pt-br	listAdmin	alias email	E-mail alternativo
-pt-br	listAdmin	forwarding email	E-mail de encaminhamento
-pt-br	listAdmin	only forwarding	Somente encaminhar mensagens
-pt-br	listAdmin	email quota in mb	Cota de e-mail em MB
-pt-br	listAdmin	quota used in mb	Cota de e-mail usada em MB
-pt-br	listAdmin	listgroups	Lista de Grupos
-pt-br	listAdmin	primary group	Grupo Primário
-pt-br	listAdmin	partici lists	Participante das Listas
-pt-br	listAdmin	edit user	Editar Usuário
-pt-br	listAdmin	delete user	Excluir Usuário
-pt-br	listAdmin	acctflags	Tipo de Conta
-pt-br	listAdmin	logon script	Script de Logon
-pt-br	listAdmin	computer	Computador
-pt-br	listAdmin	home directory	Diretório Home
-pt-br	listAdmin	samba user desactive	Usuário Samba Desabilitado
-pt-br	listAdmin	samba user active	Usuário Samba Ativo
-pt-br	listAdmin	groups names	Nome dos Grupos
-pt-br	listAdmin	no matches found	Nenhum registro encontrado
-pt-br	listAdmin	add groups	Adicionar grupos
-pt-br	listAdmin	group users	Usuários do Grupo
-pt-br	listAdmin	applications	Aplicações
-pt-br	listAdmin	add user	Adicionar Usuários
-pt-br	listAdmin	remove user	Remover Usuários
-pt-br	listAdmin	add email lists	Adicionar listas de emails
-pt-br	listAdmin	email lists logins	Login das Listas
-pt-br	listAdmin	email lists names	Nome das Listas de E-mails
-pt-br	listAdmin	email list active	Lista de Email ativa
-pt-br	listAdmin	users in email list	Usuários da Lista de Email
-pt-br	listAdmin	create computers	Criar computadores
-pt-br	listAdmin	edit computers	Editar computadores
-pt-br	listAdmin	delete computers	Deletar computadores
-pt-br	listAdmin	computer uid	UID do Computador
-pt-br	listAdmin	computer type	Tipo do Computador
-pt-br	listAdmin	workstation active	Estação de Trabalho (ATIVO)
-pt-br	listAdmin	workstation desactive	Estação de Trabalho (INATIVO)
-pt-br	listAdmin	trust account	Conta de TRUST
-pt-br	listAdmin	server	Servidor
-pt-br	listAdmin	add sectors	Adicionar Setores
-pt-br	listAdmin	sector name	Nome do Setor
-pt-br	listAdmin	add sub-sectors	Adicionar Sub-Setores
-pt-br	listAdmin	do you realy want delete this sector?	Você realmente deseja excluir este setor?
-pt-br	listAdmin	edit email attribute from the groups	Editar campo e-mail do grupo
-pt-br	listAdmin	all users, groups and sub-sectors of this sector will be deleted!	Todos os usuários, grupos e sub-setores deste setor irão ser DELETADOS!
-pt-br	listAdmin	content the folling users	Contêm os seguintes usuários
-pt-br	listAdmin	content the folling groups	Contêm os seguintes grupos
-pt-br	listAdmin	content the folling sectors	Contêm os seguintes setores
-pt-br	listAdmin	do you realy want delete this group?	Você realmente quer DELETAR este grupo?
-pt-br	listAdmin	delete group	Deletar Grupo
-pt-br	listAdmin	do you realy want delete this email list?	Você realmente quer DELETAR esta Lista de E-mail?
-pt-br	listAdmin	manager login	Login do Gerente
-pt-br	listAdmin	hour	Hora
-pt-br	listAdmin	contexto	Contexto
-pt-br	listAdmin	manager lid	Login do Gerente
-pt-br	listAdmin	add manager	Adicionar Gerente
-pt-br	listAdmin	list managers	Lista de Gerentes
-pt-br	listAdmin	add managers	Adicionar Gerentes
-pt-br	listAdmin	add users	Adicionar usuários
-pt-br	listAdmin	edit users	Editar usuários
-pt-br	listAdmin	delete users	Deletar usuários
-pt-br	listAdmin	view user	Exibir Usuários
-pt-br	listAdmin	view users	Exibir usuários
-pt-br	listAdmin	edit groups	Editar grupos
-pt-br	listAdmin	delete groups	Deletar grupos
-pt-br	listAdmin	change users password	Alterar senhas dos usuários
-pt-br	listAdmin	edit email lists	Editar Lista de Email
-pt-br	listAdmin	delete email lists	Deletar listas de emails
-pt-br	listAdmin	view email lists	Exibir listas de emails
-pt-br	listAdmin	create sectors	Criar setores
-pt-br	listAdmin	edit sectors	Editar setores
-pt-br	listAdmin	delete sectors	Deletar setores
-pt-br	listAdmin	view sessions (local)	Exibir sessões (local)
-pt-br	listAdmin	view sessions (global)	Exibir sessões (global)
-pt-br	listAdmin	view logs	Exibir Logs
-pt-br	listAdmin	edit managers	Editar Gerentes
-pt-br	listAdmin	show sessions - local	Exibir Sessões - Local
-pt-br	listAdmin	show session - global	Exibir Sessões - Global
-pt-br	listAdmin	anonymous	Anônimo
-pt-br	listAdmin	expire	Expira
-pt-br	listAdmin	remove	Remover
-pt-br	listAdmin	users for inclusion	Usuários para inclusão
-pt-br	listAdmin	remove users	Remover Usuários
-pt-br	listAdmin	applications for this group	Aplicações para este grupo
-pt-br	listAdmin	email list name	Nome da Lista de E-mail
-pt-br	listAdmin	add sectores	Adicionar Setores
-pt-br	listAdmin	create sector	Criar Setor
-pt-br	listAdmin	list of current users	Lista de Usuários Conectados
-pt-br	listAdmin	totalsessions	Total de Sessões
-pt-br	listAdmin	view log	Exibir Log
-pt-br	listAdmin	user info	Info sobre usuário
-pt-br	listAdmin	group info	Info sobre grupos
-pt-br	listAdmin	app info	Info sobre aplicações
-pt-br	listAdmin	edit group	Editar Grupo de Usuários
-pt-br	listAdmin	edit sector	Editar Setores
-pt-br	listAdmin	you dont have access to this module.	Você não tem acesso a este módulo.
-pt-br	listAdmin	user email alredy exist.	E-mail do usuário já cadastrado.
-pt-br	listAdmin	user login alredy exist.	Login do usuário já cadastrado.
-pt-br	listAdmin	password and re-password doesnt are equal.	Senha e Re-Senha não são iguais.
-pt-br	listAdmin	rel lists	Relação de Listas
-pt-br	listAdmin	error in openldap.	Erro no OpenLDAP.
-pt-br	listAdmin	account invisible	Ocultar esta conta das pesquisas e do Catálogo Geral?
-pt-br	listAdmin	total sessions	Total de Sessões
-pt-br	listAdmin	sector	Setor
-pt-br	listAdmin	phone	Telefone
-pt-br	listAdmin	photo	Foto
-pt-br	listAdmin	maillist login	Login da Lista de Email
-pt-br	listAdmin	maillist mail	E-Mail da Lista de Email
-pt-br	listAdmin	maillist name	Nome da Lista de Email
-pt-br	listAdmin	maillist users	Usuários da Lista de Email
-pt-br	listAdmin	create email list	Criar Lista de Email
-pt-br	listAdmin	create group	Criar Grupo de Usuários
-pt-br	listAdmin	manager name	Nome do Gerente
-pt-br	listAdmin	rename users	Renomear usuários
-pt-br	listAdmin	change users quote	Alterar  cota dos usuários
-pt-br	listAdmin	set default users password	Setar senha padrão
-pt-br	listAdmin	create organizations	Criar organizações
-pt-br	listAdmin	edit organizations	Editar organizações
-pt-br	listAdmin	delete organizations	Deletar organizações
-pt-br	listAdmin	select users from all sub-organizations	Selecionar usuários de todas as sub-organizações
-pt-br	listAdmin	scl	Scl
-pt-br	listAdmin	show users from all sub-organizations	Exibir usuários de todas as sub-organizações
-pt-br	listAdmin	edit sending control list	Editar Lista de Controle de Envio
-pt-br	listAdmin	samba domains	Dominios Samba
-pt-br	listAdmin	samba domains name	Nome dos domínios Samba
-pt-br	listAdmin	samba domain name	Nome do domínio Samba
-pt-br	listAdmin	samba domain sid	SID do domínio Samba
-pt-br	listAdmin	sambasid	sambaSID
-pt-br	listAdmin	add samba domains	Criar domínios Samba
-pt-br	listAdmin	add samba domain	Criar domínio Samba
-pt-br	listAdmin	samba domains name is empty	O nome do domínio samba está vazio
-pt-br	listAdmin	samba sid is empty	O SID do domínio samba está vazio
-pt-br	listAdmin	samba domain name or sid already exist	O nome do domínio samba ou sambaSID já existe
-pt-br	listAdmin	use samba attributes	Usar atributos samba
-pt-br	listAdmin	occult sector	Ocultar setor
-pt-br	listAdmin	adm	Adm
-pt-br	listAdmin	maillist adm	Gerentes da Lista
-pt-br	listAdmin	admin lists	Editar Gerentes de Listas
-pt-br	listAdmin	adm email lists	Administrar Listas de Email
-pt-br	listAdmin	maillist description	Descrição da Lista de Email
-pt-br	listAdmin	search argument too short	Argumento de busca muito pequeno. Mínimo 4 caracteres.
 pt-br	mobile	attachment	Anexo
 pt-br	mobile	add recipient	Adicionar Destinatário
 pt-br	mobile	at %1, %2 hours, %3 wrote:	Em %1 às %2 horas, %3 escreveu:
