@@ -56,7 +56,7 @@ function check_logoutcode($code)
 				return '';
 		}
 	}
-        function troca_espaco_por_mais($pem_data)
+	function troca_espaco_por_mais($pem_data)
 	{
             $begin = "CERTIFICATE-----";
             $end   = "-----END";
@@ -66,26 +66,7 @@ function check_logoutcode($code)
             $aux = '-----BEGIN CERTIFICATE-----'.$aux.'-----END CERTIFICATE-----';
             return $aux;
 	}
-	$ifMobile = false;
-	$browser = CreateObject('phpgwapi.browser');
-	switch ( $browser->get_platform() )
-	{
-		case browser::PLATFORM_IPHONE:
-		case browser::PLATFORM_IPOD:
-		case browser::PLATFORM_IPAD:
-		case browser::PLATFORM_BLACKBERRY:
-		case browser::PLATFORM_NOKIA:
-		case browser::PLATFORM_ANDROID:
-			$ifMobile = true;
-			break;
-	}
 	
-	if( $ifMobile && $_GET['dont_redirect_if_moble'] != 1 ) 
-	{
-		$GLOBALS['phpgw']->redirect_link('/mobile/login.php');
-	}
-	else
-	{
 	/* Program starts here */
         
 	if($GLOBALS['phpgw_info']['server']['auth_type'] == 'http' && isset($_SERVER['PHP_AUTH_USER']))
@@ -642,14 +623,13 @@ function check_logoutcode($code)
 	include_once(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php');
 	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br>' . $ultima_revisao);
 
-	// Adiciona c�digo personalizado de outro template
+	// Adiciona codigo personalizado de outro template
 	// que esteja utilizando o login_default.php
 	if(is_file('.'.$template_dir.'/login.inc.php')) {
 		include_once('.'.$template_dir.'/login.inc.php');
 	}
 
 	$tmpl->pfp('loginout','login_form');
-	}
 
 ?>
 

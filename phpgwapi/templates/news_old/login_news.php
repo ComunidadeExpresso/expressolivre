@@ -57,26 +57,6 @@
 		}
 	}
 	
-	$ifMobile = false;
-	$browser = CreateObject('phpgwapi.browser');
-	switch ( $browser->get_platform() )
-	{
-		case browser::PLATFORM_IPHONE:
-		case browser::PLATFORM_IPOD:
-		case browser::PLATFORM_IPAD:
-		case browser::PLATFORM_BLACKBERRY:
-		case browser::PLATFORM_NOKIA:
-		case browser::PLATFORM_ANDROID:
-			$ifMobile = true;						
-			break;
-	}
-	
-	if( $ifMobile && $_GET['dont_redirect_if_moble'] != 1 ) 
-	{
-		$GLOBALS['phpgw']->redirect_link('/mobile/login.php');
-	}
-	else
-	{
 	/* Program starts here */
 	if($GLOBALS['phpgw_info']['server']['auth_type'] == 'http' && isset($_SERVER['PHP_AUTH_USER']))
 	{
@@ -600,7 +580,6 @@
 	}
 
 	$tmpl->pfp('loginout','login_form');
-	}
 
 ?>
 

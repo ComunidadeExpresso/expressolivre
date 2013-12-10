@@ -36,51 +36,7 @@
 	);
 	include('header.inc.php');
 	
-	//detect browser
-	require_once('phpgwapi/inc/class.browser.inc.php');
-	
-	$ifMobile	= false;
-	$browser	= new browser();
-	
-	
-	switch( $browser->get_platform() )
-	{
-		case browser::PLATFORM_IPHONE:
-		case browser::PLATFORM_IPOD:
-		case browser::PLATFORM_IPAD:
-		case browser::PLATFORM_BLACKBERRY:
-		case browser::PLATFORM_ANDROID:						
-			$ifMobile = false;
-			break;			
-	}
-	
-	if( $ifMobile )
-	{
-		if( $_GET['dont_redirect_if_moble'] != 1 )
-		{
-			$GLOBALS['phpgw']->redirect('/mobile/index.php');
-			exit;			
-		}
-	} 
-	
-	
 	$GLOBALS['phpgw_info']['flags']['app_header']=lang('home');
-
-	// Commented by alpeb: The following prevented anonymous users to get a home page. Perhaps it was done with anonymous users such as the ones
-	// used by  wiki and sitemgr in mind. However, if you mark a normal user as anonymous just to avoid being shown in sessions and access log (like you would for an admin that doesn't want to be noticed), the user won't be able to login anymore. That's why I commented the code.
-	/*if ($GLOBALS['phpgw']->session->session_flags == 'A')
-	{
-		if ($_SERVER['HTTP_REFERER'] && strstr($_SERVER['HTTP_REFERER'],'home.php') === False)
-		{
-			$GLOBALS['phpgw']->redirect($_SERVER['HTTP_REFERER']);
-		}
-		else
-		{
-			// redirect to the login-page, better then giving an empty page
-			$GLOBALS['phpgw']->redirect('login.php');
-		}
-		exit;
-	}*/
 
 	if ($GLOBALS['phpgw_info']['server']['force_default_app'] && $GLOBALS['phpgw_info']['server']['force_default_app'] != 'user_choice')
 	{
@@ -138,26 +94,21 @@
                 foreach($varnames as $varcheck)
                 {
 
-                        /*if($appname == 'expressoMail1_2') {
-                                $tmp = $appname;
-                                $appname = 'expressoMail';
-                        }*/
-
-                        if(array_search($appname, $default_apps) !== False){
-                                $thisd = 1;
-                                break;
-                        }
-                        if($GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck]=='True') {
-                                $thisd = 1;
-                                break;
-                        }
-                        else  {
-                                $_thisd = (int)$GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck];
-                                if($_thisd > 0) {
-                                        $thisd = $_thisd;
-                                        break;
-                                }
-                        }
+                    if(array_search($appname, $default_apps) !== False){
+                            $thisd = 1;
+                            break;
+                    }
+                    if($GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck]=='True') {
+                            $thisd = 1;
+                            break;
+                    }
+                    else  {
+                            $_thisd = (int)$GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck];
+                            if($_thisd > 0) {
+                                    $thisd = $_thisd;
+                                    break;
+                            }
+                    }
                 }
 
                if($thisd > 0)

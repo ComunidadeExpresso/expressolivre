@@ -344,32 +344,10 @@
 				}
 			}
 
-			$ifMobile = false;
-			$browser = CreateObject('phpgwapi.browser');
-			switch ( $browser->get_platform() )
-			{
-				case browser::PLATFORM_IPHONE:
-				case browser::PLATFORM_IPOD:
-				case browser::PLATFORM_IPAD:
-				case browser::PLATFORM_BLACKBERRY:
-				case browser::PLATFORM_NOKIA:
-				case browser::PLATFORM_ANDROID:
-					$ifMobile = true;
-					break;
-			}
-			
-			if( $ifMobile )
-			{
-				Header('Location: '.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=66');
-				exit;
-			}
-			else
-			{
-				// this removes the sessiondata if its saved in the URL
-				$query = preg_replace('/[&]?sessionid(=|%3D)[^&]+&kp3(=|%3D)[^&]+&domain=.*$/','',$_SERVER['QUERY_STRING']);
-				Header('Location: '.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=10&phpgw_forward='.urlencode($relpath.(!empty($query) ? '?'.$query : '')));
-				exit;
-			}
+			// this removes the sessiondata if its saved in the URL
+			$query = preg_replace('/[&]?sessionid(=|%3D)[^&]+&kp3(=|%3D)[^&]+&domain=.*$/','',$_SERVER['QUERY_STRING']);
+			Header('Location: '.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=10&phpgw_forward='.urlencode($relpath.(!empty($query) ? '?'.$query : '')));
+			exit;
 		}
 
 		$GLOBALS['phpgw']->datetime = CreateObject('phpgwapi.date_time');
