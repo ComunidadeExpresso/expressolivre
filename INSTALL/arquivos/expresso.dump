@@ -13517,14 +13517,6 @@ expressoAdmin1_2	expressoAdmin_prefix_org	false
 expressoAdmin1_2	expressoAdmin_defaultUserQuota	40
 expressoAdmin1_2	expressoAdmin_minimumSizeLogin	4
 expressoAdmin1_2	expressoAdmin_defaultDomain	
-phpgwapi	name_jabber	127.0.0.1
-phpgwapi	resource_jabber	celepar
-phpgwapi	port_jabber	8888
-phpgwapi	server_webjabber	127.0.0.1
-phpgwapi	server_ldap_jabber	127.0.0.1
-phpgwapi	context_ldap_jabber	LDAP_DN
-phpgwapi	user_ldap_jabber	cn=admin,LDAP_DN
-phpgwapi	password_ldap_jabber	LDAP_PWD
 workflow	workflow_database_type	pgsql
 workflow	database_type	pgsql
 workflow	database_admin_password	admin_workflow
@@ -13532,14 +13524,6 @@ workflow	database_name	workflow
 workflow	database_host	localhost
 workflow	database_port	5432
 workflow	database_admin_user	admin_workflow
-phpgwapi	name_jabberit	localhost
-phpgwapi	port_jabberit	5222
-phpgwapi	resource_jabberit	JABBER
-phpgwapi	use_ssl_jabberit	false
-phpgwapi	server_ldap_jabberit	localhost
-phpgwapi	context_ldap_jabberit	LDAP_DN
-phpgwapi	user_ldap_jabberit	uid=expresso-admin,ou=ORG,LDAP_DN
-phpgwapi	password_ldap_jabberit	LDAP_PWD
 contactcenter	cc_ldap_query_automatic	true
 workflow	log_type_file	True
 workflow	log_type_firebug	True
@@ -14585,14 +14569,11 @@ pt-br	common	groups ldap	Grupos Ldap
 pt-br	common	last message	Última Mensagem
 pt-br	common	liberar organizações para grupos restritos	Liberar Organizações para grupos restritos
 pt-br	common	log messaging (bandersnatch)	Log de Mensagens (Bandersnatch)
-pt-br	common	map organization for realm jabber	Mapear organização por domínio jabber
 pt-br	common	organizations	Organizações
-pt-br	common	organizations and jabber servers	Organizações e servidores jabber
 pt-br	common	restrict group	Restringir grupo
 pt-br	common	select organization	Selecione Organização
 pt-br	common	server ldap	Servidor Ldap
 pt-br	common	settings	Configurações
-pt-br	common	site configuration jabber	Configurações do servidor jabber
 pt-br	common	configure access permissions	Configurar Permissões de Acesso
 pt-br	common	configure rss exports	Configurar arquivos RSS para exportação
 pt-br	common	news_admin	Boletins Internos
