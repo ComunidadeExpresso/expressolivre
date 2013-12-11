@@ -3348,7 +3348,6 @@ expressoAdmin1_2	run	1003	1
 expressoMail1_2	run	1003	1
 preferences	run	1003	1
 workflow	run	1003	1
-mobile	run	1003	1
 news_admin	L2	1001	1
 news_admin	L2	1002	3
 news_admin	L1	1001	1
@@ -3357,13 +3356,11 @@ help	run	1001	1
 news_admin	run	1001	1
 contactcenter	run	1001	1
 expressoMail1_2	run	1001	1
-mobile	run	1001	1
 expressoCalendar	run	1001	1
 preferences	changepassword	1009	1
 workflow	run	1009	1
 expressoCalendar	run	1003	1
 help	run	1002	1
-mobile	run	1002	1
 expressoMail1_2	run	1002	1
 expressoCalendar	run	1002	1
 workflow	run	1002	1
@@ -3408,7 +3405,6 @@ COPY phpgw_applications (app_id, app_name, app_enabled, app_order, app_tables, a
 4	calendar	1	3	phpgw_cal,phpgw_cal_holidays,phpgw_cal_repeats,phpgw_cal_user,phpgw_cal_extra	2.5.0
 7	expressoAdmin1_2	1	1	phpgw_expressoadmin,phpgw_expressoadmin_apps,phpgw_expressoadmin_passwords,phpgw_expressoadmin_log,phpgw_expressoadmin_samba,phpgw_expressoadmin_configuration,phpgw_expressoadmin_acls	2.5.0
 11	help	2	5		2.5.0
-18	mobile	2	4		2.5.0
 9	news_admin	1	16	phpgw_news,phpgw_news_export	2.5.0
 15	workflow	1	10	egw_wf_activities,egw_wf_activity_roles,egw_wf_instance_activities,egw_wf_instances,egw_wf_processes,egw_wf_roles,egw_wf_transitions,egw_wf_user_roles,egw_wf_workitems,egw_wf_process_config,egw_wf_activity_agents,egw_wf_agent_mail_smtp,egw_wf_interinstance_relations,egw_wf_external_application,egw_wf_admin_access,egw_wf_user_cache,egw_wf_jobs,egw_wf_job_logs	2.5.0
 23	zpush	1	10		2.5.0
@@ -13705,7 +13701,6 @@ expresso-admin	LDAP_DN	calendar
 expresso-admin	LDAP_DN	help
 expresso-admin	LDAP_DN	news_admin
 expresso-admin	LDAP_DN	contactcenter
-expresso-admin	LDAP_DN	mobile
 expresso-admin	LDAP_DN	expressoAdmin1_2
 expresso-admin	LDAP_DN	expressoMail1_2
 expresso-admin	LDAP_DN	expressoCalendar
@@ -15251,7 +15246,6 @@ pt-br	common	%1 telephone number	Número de Telefone %1
 pt-br	common	birthday	Data de Nascimento
 pt-br	common	change your personal data	Altere seus dados pessoais
 pt-br	common	commercial	Comercial
-pt-br	common	mobile	Celular
 pt-br	common	/workflow directory does not exist and could not be created, please ask adminstrator to check the global configuration	O diretório /workflow não existe e não pode ser criado, por favor solicite ao administrador para verificar a configuração global
 pt-br	common	actions right options	Opções de Direitos para Ações
 en	common	time zone	Timezone
@@ -15270,7 +15264,6 @@ pt-br	common	mail smtp signature	Assinatura do correio smtp
 pt-br	common	ownership give abort right	A posse garante o direito de abortar
 pt-br	common	ownership give exception right	A posse garante o direito de lançar exceção
 pt-br	common	ownership give release right	A posse garante o direito de liberar
-pt-br	mobile	to	Para
 pt-br	common	role give abort right	Perfil garante o direito de abortar
 pt-br	common	role give exception right	Perfil garante o direito de lançar exceção
 pt-br	common	role give release right	Perfil garante o direito de liberar
@@ -15506,7 +15499,6 @@ pt-br	calendar	loading	Carregando
 pt-br	calendar	load [iv]cal	Carregar [iv]Cal
 pt-br	calendar	location	Localização
 pt-br	calendar	make freebusy information availible to not loged in persons?	Fazer a informação de disponibilidade ficar disponível para usuários não logados?
-pt-br	mobile	cc	Cc
 pt-br	calendar	matrixview	Visão em matriz
 pt-br	calendar	minutes	minutos
 pt-br	calendar	mo	Sg
@@ -17538,172 +17530,6 @@ pt-br	help	html_description	Sua mensagem foi enviada ao Administrador do Express
 pt-br	help	page(s) %1 not found !!!	Página %1 não encontrada !!!
 pt-br	help	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Iniciando a importação de %1, pode levar alguns minutos (especialmente se você o executa pela primeira vez agora) ...
 pt-br	help	your suggestion was sent successfully.	Sua sugestão foi enviada com sucesso.
-pt-br	mobile	schedule	Agendar
-pt-br	mobile	attachment	Anexo
-pt-br	mobile	add recipient	Adicionar Destinatário
-pt-br	mobile	at %1, %2 hours, %3 wrote:	Em %1 às %2 horas, %3 escreveu:
-pt-br	mobile	more attachment	mais anexo
-pt-br	mobile	cancel	Cancelar
-pt-br	mobile	calendar	Agenda
-pt-br	mobile	contact center	Contatos
-pt-br	mobile	messages	mensagens
-pt-br	mobile	continue	Continuar
-pt-br	mobile	context email	Email
-pt-br	mobile	context contact	Contato
-pt-br	mobile	context commitment	Compromisso
-pt-br	mobile	do you like to delete this message?	Deseja excluir esta mensagem?
-pt-br	mobile	download attachs	Deseja baixar anexos em e-mails?
-pt-br	mobile	download	Efetuar o download do anexo
-pt-br	mobile	draft not save	Rascunho não foi salvo
-pt-br	mobile	draft saved	Rascunho foi guardado com sucesso
-pt-br	mobile	drafts	Rascunhos
-pt-br	mobile	events	Eventos
-pt-br	mobile	expresso mini	Expresso Mini
-pt-br	mobile	e-mail	Cx Entrada
-pt-br	mobile	from	De
-pt-br	mobile	forward	Encaminhar
-pt-br	mobile	filter by	Filtrar por
-pt-br	mobile	logout	Sair
-pt-br	mobile	mini desktop	Mini Desktop
-pt-br	mobile	mini mobile	Mini Mobile
-pt-br	mobile	my mail	E-mails
-pt-br	mobile	my contacts	Contatos
-pt-br	mobile	my commitments	Compromissos
-pt-br	mobile	my folders	Outras Pastas
-pt-br	mobile	mark as read	marcar como lido
-pt-br	mobile	more	mais
-pt-br	mobile	mark as important	marcar como importante
-pt-br	mobile	mark as unread	marcar como não lido
-pt-br	mobile	read confirmation	receber confirmação de leitura
-pt-br	mobile	add history	adicionar histórico
-pt-br	mobile	new mail	Novo
-pt-br	mobile	save draft	Salvar rascunho
-pt-br	mobile	edit draft	Editar rascunho
-pt-br	mobile	search return	resultado de busca
-pt-br	mobile	see details	ver detalhes
-pt-br	mobile	subject	Assunto
-pt-br	mobile	send	Enviar
-pt-br	mobile	reply	Responder
-pt-br	mobile	reply to all	Responder a Todos
-pt-br	mobile	folder	Pasta
-pt-br	mobile	of	de
-pt-br	mobile	inbox	Caixa de Entrada
-pt-br	mobile	return	Retornar à lista de E-mails
-pt-br	mobile	people	Pessoal
-pt-br	mobile	search	Procurar
-pt-br	mobile	search message	Buscar mensagem
-pt-br	mobile	selected	Selecionados
-pt-br	mobile	create mail	Novo Mail
-pt-br	mobile	e-mails	E-mails
-pt-br	mobile	forward attachments	Anexos do encaminhamento
-pt-br	mobile	this message have attachment(s)	Este e-mail possui anexo(s)
-pt-br	mobile	this message don't have attachment(s)	Este e-mail não possui anexo(s)
-pt-br	mobile	this message has the follow attachments:	Esta mensagem possui anexo:
-pt-br	mobile	tips	Dicas
-pt-br	mobile	catalog	Catálogo
-pt-br	mobile	phone	Telefone
-pt-br	mobile	message sent successfully	Mensagem enviada com sucesso
-pt-br	mobile	message not sent	Mensagem não enviada
-pt-br	mobile	more folders...	Mais Pastas...
-pt-br	mobile	error	Erro: 
-pt-br	mobile	some addresses in the to field were not recognized. please make sure that all addresses are properly formed	Alguns endereços no campo "Para" não foram reconhecidos. Por favor certifique-se que todos endereços estão corretos
-pt-br	mobile	some addresses in the cc field were not recognized. please make sure that all addresses are properly formed	Alguns endereços no campo "Com Cópia" não foram reconhecidos. Por favor certifique-se que todos endereços estão corretos
-pt-br	mobile	empty folder	Pasta vazia
-pt-br	mobile	accept	Aceitar
-pt-br	mobile	accepted	aceitou
-pt-br	mobile	reject	Rejeitar
-pt-br	mobile	rejected	rejeitou
-pt-br	mobile	refresh	Atualizar
-pt-br	mobile	location	Local
-pt-br	mobile	start date/time	Data/Hora Início
-pt-br	mobile	end date/time	Data/Hora Término
-pt-br	mobile	continue scheduling	Continuar o agendamento
-pt-br	mobile	already_addeds:	Já adicionados:
-pt-br	mobile	start date	Data(Início)
-pt-br	mobile	end date	Data(Término)
-pt-br	mobile	start time	Hora(Início)
-pt-br	mobile	end time	Hora(Término)
-pt-br	mobile	keep add participants	Adicionar participantes
-pt-br	mobile	your suggested time of <b> %1 - %2 </b> conflicts with the following existing calendar entries:	Horário sugerido: <B> %1 - %2 </B> está em conflito com as seguintes entradas no calendário:
-pt-br	mobile	scheduling conflict	Conflito de agendamento
-pt-br	mobile	sent	Enviados
-pt-br	mobile	ignore conflict	Ignorar conflito
-pt-br	mobile	re-edit event	Re-Editar evento
-pt-br	mobile	username_mobile	Usuário
-pt-br	mobile	password_mobile	Senha
-pt-br	mobile	the search argument must have at least 4 digits	O argumento da busca deve possuir pelo menos 4 dígitos
-pt-br	mobile	choose the participants	Escolha os participantes
-pt-br	mobile	choose the recipients	Escolha os destinatários
-pt-br	mobile	added	Adicionado
-pt-br	mobile	to see commitment	Para ver compromisso
-pt-br	mobile	to accept	Aceitar
-pt-br	mobile	to reject	Rejeitar
-pt-br	mobile	trash	Lixeira
-pt-br	mobile	alarm	Alarme
-pt-br	mobile	to delegate	Delegar
-pt-br	mobile	no matches found	Contato não localizado
-pt-br	mobile	the message was moved to trash	A mensagem foi movida para a lixeira.
-pt-br	mobile	the messages were deleted	As mensagens foram apagadas.
-pt-br	mobile	the messages were moved to trash	As mensagens foram movidas para a lixeira.
-pt-br	mobile	the messages were marked as seen	As mensagens foram marcadas como lidas.
-pt-br	mobile	reading message	Lendo mensagem
-pt-br	mobile	what is the maximum number of messages per page?	Qual o número máximo de mensagens por página?
-pt-br	mobile	option	Opção
-pt-br	mobile	one or more contacts couldnt be removed	um ou mais contatos não puderam ser removidos
-pt-br	mobile	one or more groups couldnt be removed	um ou mais grupos não puderam ser removidos
-pt-br	mobile	value	Valor
-pt-br	mobile	your search was by	você buscou por
-pt-br	mobile	yesterday	Ontem
-pt-br	mobile	monday	Segunda-feira
-pt-br	mobile	tuesday	Terça-feira
-pt-br	mobile	wednesday	Quarta-feira
-pt-br	mobile	thursday	Quinta-feira
-pt-br	mobile	friday	Sexta-feira
-pt-br	mobile	saturday	Sábado
-pt-br	mobile	selected contacts were removed successfully	os contatos selecionados foram removidos com sucesso
-pt-br	mobile	selected groups were removed successfully	os grupos selecionados foram removidos com sucesso
-pt-br	mobile	sunday	Domingo
-pt-br	mobile	short monday	Seg
-pt-br	mobile	short tuesday	Ter
-pt-br	mobile	short wednesday	Qua
-pt-br	mobile	short thursday	Qui
-pt-br	mobile	short friday	Sex
-pt-br	mobile	short saturday	Sáb
-pt-br	mobile	short sunday	Dom
-pt-br	mobile	spam	Spam
-pt-br	mobile	you have been successfully logged out	Você desconectou do expresso com sucesso.
-pt-br	mobile	now	Agora
-pt-br	mobile	minutes ago	minutos atrás
-pt-br	mobile	minute ago	minuto atrás
-pt-br	mobile	no results found	nenhum resultado encontrado
-pt-br	mobile	not defined	Não definido
-pt-br	mobile	new message	Nova mensagem
-pt-br	mobile	need choose one option	É preciso escolher pelo menos uma opção de busca
-pt-br	mobile	search word need not be empty and has more then four char	É preciso informar um argumento com mais de 4 dígitos para realizar a busca
-pt-br	mobile	new	nova
-pt-br	mobile	dont have event that day	Não tem evento neste dia.
-pt-br	mobile	dont have event that week	Não tem evento nesta semana.
-pt-br	mobile	today	Hoje
-pt-br	mobile	view day	Dia
-pt-br	mobile	view calendar	Calendário
-pt-br	mobile	view week	Semana
-pt-br	mobile	alias	Apelido
-pt-br	mobile	family names	Sobrenome
-pt-br	mobile	use contact	usar contato
-pt-br	mobile	selecteds	Selecionados
-pt-br	mobile	confirm edit	confirmar edição
-pt-br	mobile	confirm add	confirmar adição
-pt-br	mobile	title view contact	Visualizando Contato
-pt-br	mobile	title edit contact	Editando Contato
-pt-br	mobile	title add contact	Adicionando Contato
-pt-br	mobile	invalid field e-mail	Campo E-Mail inválido
-pt-br	mobile	invalid field phone	Campo Telefone inválido
-pt-br	mobile	contact save successfully	Contato salvo com sucesso
-pt-br	mobile	name is mandatory	Nome é obrigatório
-pt-br	mobile	tel or email is required	Você precisa informar ou o e-mail ou o telefone
-pt-br	mobile	please select one contact	Você precisa selecionar pelo menos um contato
-pt-br	mobile	please select one e-mail	Você precisa selecionar pelo menos um E-Mail
-pt-br	mobile	context group	Grupo
 pt-br	news_admin	active	Ativo
 pt-br	news_admin	add new article	Adicionar Artigo
 pt-br	news_admin	add new news	Adicionar Notícia
@@ -20517,10 +20343,6 @@ en	manual	%1 manual page(s) added or updated	%1 manual page(s) added or updated
 en	manual	download	download
 en	manual	page(s) %1 not found !!!	Page(s) %1 not found !!!
 en	manual	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Starting import from %1, this might take several minutes (specialy if you start it the first time) ...
-en	mobile	from	From
-en	mobile	folder	Folder
-en	mobile	inbox	Inbox
-en	mobile	return	Return
 en	news_admin	active	Active
 en	news_admin	add new article	Add New Article
 en	news_admin	add new news	Add new news
@@ -22664,7 +22486,6 @@ es-es	common	access without digital certificate	Accesso sin Certificado Digital
 es-es	common	%1 telephone number	Número de Teléfono %1
 es-es	common	commercial telephone number	Número de teléfono comercial
 es-es	common	commercial	Comercial
-es-es	common	mobile	Celular
 es-es	common	/workflow directory does not exist and could not be created, please ask adminstrator to check the global configuration	El directorio /workflow no existe y no se pudo crear. Por favor, pida al administrador que compruebe la configuración global
 es-es	common	actions right options	Opciones para derechos de acciones
 es-es	common	admin processes	Administrar procesos
@@ -23775,7 +23596,6 @@ es-es	expressoMail1_2	it's not possible delete the folder:	No es posible borrar 
 es-es	expressoMail1_2	it's not possible delete this folder, because it is being used in the moment!	No es posible borrar esta carpeta, porque está siendo usada en este momento! 
 es-es	expressoMail1_2	it's not possible	No es posible
 es-es	expressoMail1_2	it's not possible rename the folder:	No es posible cambiar el nombre de la carpeta: 
-es-es	mobile	forward	reenviar
 es-es	expressoMail1_2	it's not possible rename this folder, because it is being used in the moment!	No es posible cambiar el nombre de esta carpeta, pues la misma está siendo usada en este momento!
 es-es	expressoMail1_2	it's not possible rename this folder!	No es posible cambiar el nombre de esta carpeta!
 es-es	expressoMail1_2	justifycenter	Centrar
@@ -24115,7 +23935,6 @@ es-es	instant_messenger	user didn't accepted you yet	Todavía no te ha aceptado
 es-es	instant_messenger	user not connected	Esta desconectado
 es-es	instant_messenger	user not registered	No está registrado
 es-es	instant_messenger	you didn't accepted yet	Usted todavía no aceptó
-es-es	mobile	logout	Salir
 es-es	preferences	preferences old	Preferencias antiguas
 es-es	preferences	timetrack	Seguimiento del Tiempo
 es-es	preferences	12 hour	12 horas
@@ -24123,16 +23942,12 @@ es-es	preferences	%1 hours	%1 horas
 es-es	preferences	%1 - preferences	%1 - Preferencias
 es-es	preferences	24 hour	24 horas
 es-es	preferences	acl grants have been updated	Los permisos de la ACL se han actualizado
-es-es	mobile	contact center	Contactos
-es-es	mobile	continue	Continuar
-es-es	mobile	do you like to delete this message?	Desea excluir este mensaje?
 es-es	preferences	any listing in phpgw will show you this number of entries or lines per page.<br>to many slow down the page display, to less will cost you the overview.	Cualquier listado en eGW le mostrará este número de entradas o líneas por página.<br>Demasiadas ralentizan la página,  pocos pueden ser malo.
 es-es	preferences	are you sure you want to delete this category ?	¿Seguro que desea borrar esta categoría?
 es-es	preferences	a template defines the layout of phpgroupware and it contains icons for each application.	Una plantilla define el formato de eGroupWare y contiene iconos para cada aplicación.
 es-es	preferences	a theme defines the colors and fonts used by the template.	Un tema define los colores y los tipos de letra usados en la plantilla
 es-es	preferences	autohide sidebox menu's	Ocultar automáticamente menu lateral
 es-es	preferences	automatically hide the sidebox menu's?	¿El menú lateral  debe ser ocultado automáticamente?
-es-es	mobile	phone	Teléfono
 es-es	preferences	change your password	Cambiar su contraseña
 es-es	preferences	change your personal data	Cambie sus datos personales
 es-es	preferences	change your profile	Cambiar su perfil
@@ -24181,16 +23996,10 @@ es-es	preferences	re-enter your password	Re-Ingrese su contraseña
 es-es	preferences	selectbox	Cuadro de selección
 es-es	preferences	select different theme	Seleccione un tema diferente
 es-es	preferences	select one	Seleccione uno
-es-es	mobile	download attachs	Desea bajar anexos en e-mails?
-es-es	mobile	download	Bajar Archivos (Download)
-es-es	mobile	drafts	Borrador
-es-es	mobile	e-mail	E-mail
-es-es	mobile	from	De
 es-es	preferences	select the language of texts and messages within phpgroupware.<br>some languages may not contain all messages, in that case you will see an english message.	Seleccione el idioma de los textos y los mensajes en eGroupWare.<br>Algunos idiomas puede que no tengan todos los mensajes, en cuyo caso verá el mensaje en inglés.
 es-es	preferences	set this to your convenience. for security reasons, you might not want to show your loginname in public.	Ponga esto a su gusto. Por razones de seguridad, puede no querer mostrar su usuario en público.
 es-es	preferences	should the number of active sessions be displayed for you all the time.	¿Mostrar el número de sesiones activas todo el tiempo?
 es-es	preferences	should this help messages shown up always, when you enter the preferences or only on request.	¿Mostrar estos mensajes de ayuda al modificar preferencias, o sólo cuando lo solicite?
-es-es	mobile	message sent successfully	Mensaje enviado con éxito
 es-es	preferences	show current users on navigation bar	Mostrar usuarios conectados en la barra de navegación
 es-es	preferences	show helpmessages by default	Mostrar mensajes de ayuda por defecto
 es-es	preferences	show home and logout button in main application bar?	¿Exhibir botón Página Principal y Cerrar en la barra de herramientas?
@@ -24237,66 +24046,6 @@ es-es	help	html_description	Su mensaje fue enviado al Administrador de Expresso 
 es-es	help	page(s) %1 not found !!!	Página %1 no encontrada !!!
 es-es	help	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Iniciando la importación de %1, puede llevar algunos minutos (especialmente se usted lo ejecuta por primera vez ahora) ...
 es-es	help	your suggestion was sent successfully.	Su sugerencia fue enviada con éxito.
-es-es	mobile	add recipient	Agregar Destinatario
-es-es	mobile	calendar	Agenda
-es-es	mobile	to	Para
-es-es	mobile	subject	Asunto
-es-es	mobile	send	Enviar
-es-es	mobile	reply	Responder
-es-es	mobile	reply to all	Responder a Todos
-es-es	mobile	folder	Carpeta
-es-es	mobile	of	de
-es-es	mobile	inbox	Bandeja de Entrada
-es-es	mobile	return	Regresar a la lista de E-mails
-es-es	mobile	people	Personal
-es-es	mobile	create mail	Nuevo Correo
-es-es	mobile	this message have attachment(s)	Este e-mail posee anexo(s)
-es-es	mobile	this message don't have attachment(s)	Este e-mail no posee anexo(s)
-es-es	mobile	catalog	Catálogo
-es-es	mobile	message not sent	Mensaje no enviado
-es-es	mobile	more folders...	Mas Carpetas...
-es-es	mobile	error	Error: 
-es-es	mobile	some addresses in the to field were not recognized. please make sure that all addresses are properly formed	Algunas direcciones en el campo "Para" no fueron reconocidos. Por favor verifique que todas las direcciones estén bien escritas
-es-es	mobile	empty folder	Carpeta vacía
-es-es	mobile	accept	Aceptar
-es-es	mobile	accepted	acepto
-es-es	mobile	reject	Rechazar
-es-es	mobile	rejected	rechazado
-es-es	mobile	location	Local
-es-es	mobile	start date/time	Fecha/Hora Inicio
-es-es	mobile	end date/time	Fecha/Hora Fin
-es-es	mobile	schedule	Agendar
-es-es	mobile	continue scheduling	Continuar agendando
-es-es	mobile	already_addeds:	ya agregados:
-es-es	mobile	start date	Fecha(Inicio)
-es-es	mobile	end date	Fecha(Fin)
-es-es	mobile	start time	Hora(Inicio)
-es-es	mobile	end time	Hora(Fin)
-es-es	mobile	keep add participants	Agregar participantes
-es-es	mobile	your suggested time of <b> %1 - %2 </b> conflicts with the following existing calendar entries:	Horário sugerido: <B> %1 - %2 </B> está en conflicto con las siguientes entradas en el calendario:
-es-es	mobile	scheduling conflict	Conflicto de agendamiento
-es-es	mobile	sent	Enviados
-es-es	mobile	ignore conflict	Ignorar conflicto
-es-es	mobile	re-edit event	Re-Editar evento
-es-es	mobile	username_mobile	Usuario
-es-es	mobile	password_mobile	Contraseña
-es-es	workflow	inst. status	Estado de la instancia
-es-es	mobile	the search argument must have at least 4 digits	El argumento de búsqueda debe poseer por lo menos 4 dígitos
-es-es	mobile	choose the participants	Seleccione los participantes
-es-es	mobile	choose the recipients	Seleccione los destinatarios
-es-es	mobile	added	Agregando
-es-es	mobile	to see commitment	Para ver compromiso
-es-es	mobile	to accept	Aceptar
-es-es	mobile	to reject	Rechazar
-es-es	mobile	trash	Papelera
-es-es	mobile	alarm	Alarma
-es-es	mobile	to delegate	Delegar
-es-es	mobile	no matches found	Contacto no localizado
-es-es	mobile	the message was moved to trash	El mensaje fue movido para la papelera.
-es-es	mobile	what is the maximum number of messages per page?	Cual es el número máximo de mensajes por página?
-es-es	mobile	option	Opción
-es-es	mobile	value	Valor
-es-es	mobile	search	Buscar
 es-es	news_admin	active	Activo
 es-es	news_admin	add new article	Añadir artículo nuevo
 es-es	news_admin	add new news	Añadir noticias nuevas
