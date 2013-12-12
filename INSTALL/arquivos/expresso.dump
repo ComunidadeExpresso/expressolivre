@@ -13540,7 +13540,7 @@ workflow	role_give_exception_right	False
 workflow	role_give_release_right	False
 workflow	disable_advanced_actions	False
 workflow	workflow_database_name	expresso
-workflow	workflow_database_host	/tmp
+workflow	workflow_database_host	localhost
 workflow	workflow_database_port	5432
 workflow	workflow_database_user	postgres
 workflow	ldap_user_context	LDAP_DN

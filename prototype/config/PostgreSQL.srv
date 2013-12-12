@@ -2,9 +2,9 @@ path = "services/PostgreSQL.php"
 class = "PostgreSQL"
 [config]
 ; Conexao via socket unix
-host = /tmp
+;host = /tmp
 ; Conexão via TCP/IP
-;host = 127.0.0.1
+host = localhost
 port = 5432
 dbname = expresso
 user = postgres
