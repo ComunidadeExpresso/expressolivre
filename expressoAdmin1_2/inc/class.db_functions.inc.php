@@ -160,14 +160,14 @@ class db_functions
 		
 		$current_config = $_SESSION['phpgw_info']['expresso']['expressoAdmin'];
 		
-		if ($current_config['expressoAdmin_nextid_db_host'] != '')
+		if( $current_config['expressoAdmin_nextid_db_host'] != '' )
 		{
 			$this->db->disconnect();
 			$host = $current_config['expressoAdmin_nextid_db_host'];
 			$port = $current_config['expressoAdmin_nextid_db_port'];
 			$name = $current_config['expressoAdmin_nextid_db_name'];
 			$user = $current_config['expressoAdmin_nextid_db_user'];
-			$pass = $current_config['expressoAdmin_nextid_db_password'];
+			$pass = (isset($current_config['expressoAdmin_nextid_db_password'])) ? $current_config['expressoAdmin_nextid_db_password'] : "";
 			
 			$db = new db();
 			$db->Halt_On_Error = 'no';
@@ -290,7 +290,7 @@ class db_functions
 		while($this->db->next_record())
 			$user_pref_changepassword[] = $this->db->row();
 		
-		if (count($user_pref_changepassword) == 0)
+		if( isset($user_pref_changepassword) && count($user_pref_changepassword) == 0 )
 		{
 			$sql = "INSERT INTO phpgw_acl (acl_appname, acl_location, acl_account, acl_rights) "
 			. "VALUES('preferences','changepassword','" . $uidnumber . "','1')";

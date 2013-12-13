@@ -258,7 +258,7 @@
 				}
                        
 				// APPS
-				if (count($params['apps']))
+				if( isset($params['apps']) && count($params['apps']) )
 				{
 					$result = $this->db_functions->add_id2apps($id, $params['apps']);
 					if (!$result['status'])

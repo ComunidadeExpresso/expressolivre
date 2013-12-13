@@ -47,17 +47,18 @@ class imap_functions
 		$this->init();
 	}
 
-	function init(){
-		$this->foldersLimit    = $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['imap_max_folders'] ?  $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['imap_max_folders'] : 20000; //Limit of folders (mailboxes) user can see
-	 	$this->username 	   = $_SESSION['phpgw_info']['expressomail']['user']['userid'];
-		$this->password 	   = $_SESSION['phpgw_info']['expressomail']['user']['passwd'];
-		$this->imap_server	   = $_SESSION['phpgw_info']['expressomail']['email_server']['imapServer'];
-		$this->imap_port	   = $_SESSION['phpgw_info']['expressomail']['email_server']['imapPort'];
-		$this->imap_delimiter  = $_SESSION['phpgw_info']['expressomail']['email_server']['imapDelimiter'];
-		$this->functions	   = new functions();
-		$this->imap_sentfolder = $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']   ? $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']   : str_replace("*","", $this->functions->getLang("Sent"));
-		$this->has_cid = false;
-		$this->prefs 		   = $_SESSION['phpgw_info']['user']['preferences']['expressoMail'];
+	function init()
+	{
+		$this->foldersLimit    	= $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['imap_max_folders'] ?  $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['imap_max_folders'] : 20000; //Limit of folders (mailboxes) user can see
+	 	$this->username 	   	= $_SESSION['phpgw_info']['expressomail']['user']['userid'];
+		$this->password 	   	= $_SESSION['phpgw_info']['expressomail']['user']['passwd'];
+		$this->imap_server	   	= $_SESSION['phpgw_info']['expressomail']['email_server']['imapServer'];
+		$this->imap_port	   	= $_SESSION['phpgw_info']['expressomail']['email_server']['imapPort'];
+		$this->imap_delimiter  	= $_SESSION['phpgw_info']['expressomail']['email_server']['imapDelimiter'];
+		$this->functions	   	= new functions();
+		$this->imap_sentfolder	= $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']   ? $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']   : str_replace("*","", $this->functions->getLang("Sent"));
+		$this->has_cid			= false;
+		$this->prefs 		   	= $_SESSION['phpgw_info']['user']['preferences']['expressoMail'];
 		
 		//armazena os caminhos das pastas ( sent, spam, drafts, trash )
 		$this->folders['sent']    =  empty($_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']) ? 'Sent' : $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']; //Variavel folders armazena o caminho /sent
@@ -65,11 +66,11 @@ class imap_functions
 		$this->folders['drafts']  =  empty($_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultDraftsFolder']) ? 'Drafts' : $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultDraftsFolder'];
 		$this->folders['trash']   =  empty($_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultTrashFolder']) ? 'Trash' : $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultTrashFolder'];
 
-                if(isset($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_enable_memcache']) && $_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_enable_memcache'] === 'true')
-                    $this->useCache = true;
-                 
-                if(isset($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache']) && trim($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache']) != '')
-                    $this->expirationCache = $_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache'];
+        if(isset($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_enable_memcache']) && $_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_enable_memcache'] === 'true')
+            $this->useCache = true;
+         
+        if(isset($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache']) && trim($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache']) != '')
+            $this->expirationCache = $_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache'];
                 
 		if ($_SESSION['phpgw_info']['expressomail']['email_server']['imapTLSEncryption'] == 'yes')
 			$this->imap_options = '/tls/novalidate-cert';
