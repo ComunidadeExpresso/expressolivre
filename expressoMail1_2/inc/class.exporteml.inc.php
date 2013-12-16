@@ -576,8 +576,8 @@ function export_all($params){
 		  	return str_replace( $array1, $array2, $string );
 		*/
 		return strtr($string,
-			"áàâãäéèêëíìîïóòôõöúùûüç?\"'!@#$%¨&*()-=+´`[]{}~^,<>;:/?\\|¹²³£¢¬§ªº°ÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ",
-			"aaaaaeeeeiiiiooooouuuuc___________________________________________AAAAAEEEEIIIIOOOOOUUUUC");
+			"áàâãäéèêëíìîïóòôõöúùûüç?\"'!@#$%¨&*()=+´`[]{}~^,<>;:/?\\|¹²³£¢¬§ªº°ÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ",
+			"aaaaaeeeeiiiiooooouuuuc__________________________________________AAAAAEEEEIIIIOOOOOUUUUC");
         }
 
 	function get_attachments_headers( $folder, $id_number ){
