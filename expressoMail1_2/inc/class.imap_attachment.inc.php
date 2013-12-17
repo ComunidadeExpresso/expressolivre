@@ -88,12 +88,18 @@ class imap_attachment
 	function decode_mimeheader($string) {
         return mb_decode_mimeheader($string);
     }
-	function flat_mime_decode($string) {
+	
+	function flat_mime_decode($string)
+	{
 	   	$array = imap_mime_header_decode($string);
-	   	$str = "";
-	   	foreach ($array as $key => $part)
-	   		$str .= @preg_replace('/\{\/i', '['',@preg_replace('\/\}/i', ']',$part->text));
 	   	
+	   	$str = "";
+	   	
+	   	foreach ($array as $key => $part)
+	   	{
+	   		$str .= str_replace( ['{','}'], ['[',']'], $part->text );
+	   	}
+   		
    		return $str;
 	}
 }
