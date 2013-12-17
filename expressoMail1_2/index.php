@@ -66,12 +66,6 @@
 		';	
 
 	echo "<script src='js/globals.js?".$update_version."' type='text/javascript'></script>";
-	echo "<script src='js/sniff_browser.js?".$update_version."' type='text/javascript'></script>";
-	//echo "<script src='js/QuickCatalogSearch.js' type='text/javascript'></script>";
-	//echo "<style type='text/css'>@import url(../phpgwapi/js/jscalendar/calendar-win2k-1.css);</style>";
-	//echo "<script src='../phpgwapi/js/jscalendar/calendar.js?".$update_version."' type='text/javascript'></script>";
-	//echo "<script src='../phpgwapi/js/jscalendar/calendar-setup.js?".$update_version."' type='text/javascript'></script>";
-	//echo "<script src='../phpgwapi/js/jscalendar/lang/calendar-br.js?".$update_version."' type='text/javascript'></script>";
 	echo '<script type="text/javascript" src="../phpgwapi/js/wz_dragdrop/wz_dragdrop.js?'.$update_version.'"></script>
 		  <script type="text/javascript" src="../phpgwapi/js/dJSWin/dJSWin.js?'.$update_version.'"></script>
 		  <script type="text/javascript" src="js/connector.js"></script>
@@ -158,9 +152,6 @@
 	$_SESSION['phpgw_info']['server']['temp_dir'] = $GLOBALS['phpgw_info']['server']['temp_dir'];
 	
 	$preferences = $GLOBALS['phpgw']->preferences->read();
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['gears_firefox_windows'] = $current_config['expressoMail_gears_firefox_windows'] ? $current_config['expressoMail_gears_firefox_windows'] : "";
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['gears_firefox_linux'] = $current_config['expressoMail_gears_firefox_linux'] ? $current_config['expressoMail_gears_firefox_linux'] : "";
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['gears_ie'] = $current_config['expressoMail_gears_ie'] ? $current_config['expressoMail_gears_ie'] : "";
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['enable_local_messages']; 
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['expressoMail'];
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['voip_enabled'] = $voip_enabled;
@@ -199,7 +190,7 @@
 		$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['blockpersonaldata'] = $GLOBALS['phpgw']->acl->check('blockpersonaldata',1,'preferences');		
 	}
 
-        $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] : "0";
+	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] : "0";
 	$template->set_var("txt_loading",lang("Loading"));
 	$template->set_var("txt_clear_trash",lang("message(s) deleted from your trash folder."));
     $template->set_var("new_message", lang("New Message"));
@@ -309,7 +300,9 @@
     //MAILARCHIVER-02
     //todo: remover a linha abaixo e implementar a configuração
     //$GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'] = true;
-        if ( $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'] == true ) {
+	
+	if ( $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'] == true )
+	{
         $mail_archiver_host = '127.0.0.1';
         //Check protocol in use (https or http)
         if($_SERVER['HTTPS'] != 'on'){
@@ -355,9 +348,6 @@
 	//echo $obj -> getFilesJs("js/common_functions.js",$update_version);
 	include("inc/load_lang.php");
 
-    // INCLUDE these JS Files:
-	if ($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages']) 
-		echo "<script src='js/gears_init.js?".$update_version."'></script>"; 
  	echo '<script src="../phpgwapi/js/dftree/dftree.js?'.$update_version.'"></script>'; 
     
 	$scripts = "";
@@ -367,10 +357,7 @@
 		//echo $obj -> getFilesJs("js/shortcut.js", $update_version); 
 		$scripts .= "js/shortcut.js,";
 	}
-	echo "<script> use_local_messages = ".$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages']."</script>";		
-	if($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'])
-		$scripts .= "js/local_messages.js";
-
+	echo '<script> use_local_messages = '.$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'].'</script>';		
 	echo '
 		<!--<script type="text/javascript" src="../prototype/modules/mail/js/followupflag.js"></script>-->
 		<script language="javascript">
@@ -423,18 +410,22 @@
     $pos = strripos($script, "#PseudoScript#");
     $pseudo_script = substr( $script, $pos+17 );
     $sieveRules = json_decode( $pseudo_script, true );
-    foreach( $sieveRules as $i => $v)
-        if($v['id'] == 'vacation' && $v['enabled'] == 'true')
-            $inVacation = true;
+
+	if( count($sieveRules) > 0 )
+    {
+	    foreach( $sieveRules as $i => $v)
+	    {
+	        if($v['id'] == 'vacation' && $v['enabled'] == 'true')
+	            $inVacation = true;
+	    }
+	}
 
     if($inVacation)
-        echo '<script language="javascript"> write_msg(get_lang("Attention, you are in out of office mode."), true);   </script>';
+    {	
+		echo '<script language="javascript"> write_msg(get_lang("Attention, you are in out of office mode."), true);   </script>';
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 	// Get Preferences or redirect to preferences page.
 	$GLOBALS['phpgw']->preferences->read_repository();

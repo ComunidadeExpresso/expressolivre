@@ -80,7 +80,6 @@ $scripts = new AssetCollection(array(
     new FileAsset('../prototype/modules/calendar/js/desktop.notification.js'),
     new FileAsset('js/main.js'),
     new FileAsset('../prototype/modules/mail/js/followupflag.js'),
-    new FileAsset('js/messages_controller.js'),
     new FileAsset('js/doiMenuData.js'),
     new FileAsset('js/rich_text_editor.js'),
     new FileAsset('../prototype/modules/filters/filters.js'),
