@@ -287,36 +287,6 @@ function draw_tree_folders(folders){
                     
                 }
 
-		var handlerChannel = function(data){
-			if (data == null || typeof(data) == 'string')
-				return;
-			/*
-			*  RSS NEWS
-			*/
-			var root_rss = new dNode({
-				id: "news_root",
-				caption: get_lang('News')
-			});
-			tree_folders.add(root_rss, "root");
-			for(i=0; i < data.length; i++)
-			{
-				var nodeNews = new dNode({
-					id: "NEWS/"+data[i].name,
-					caption: data[i].name,
-					onClick: "open_rss('"+data[i].rss_url+"')",
-					plusSign: 0
-				});
-				tree_folders.add(nodeNews,"news_root");
-			}
-			var noden=document.getElementById('lnews_roottree_folders');
-			noden.style.backgroundImage="url(templates/"+template+"/images/menu/rss.png)";
-			
-			
-			
-		}
-//		cExecute('$this.rss.getChannels',handlerChannel);
-
-
 		/**
 		 * Pastas locais
 		 */
@@ -596,64 +566,52 @@ function force_update_menu(data){
 }
 
 
-function update_menu(data, forceLoadFolders){
-		/*
-		 * @AUTHOR Rodrigo Souza dos Santos
-		 * @DATE 2008/09/15
-		 * @BRIEF When occurs a error in imap server show the message that is in file "error.html".
-		 */
-		if ( data && data.imap_error )
-		{
-			if(preferences.use_local_messages==1 && expresso_local_messages.is_offline_installed){
-				conf = confirm(get_lang("The expresso imap server is currently down, expresso noticed you have offline mail module installed, would you like to use it?"));
-				if(conf) {
-					window.onresize = function() {
-						var target = document.getElementById('divAppbox');
-						target.style.height= document.body.clientHeight - 83;
-					}
-					var target = document.getElementById('divAppbox');
-					document.getElementById("divAppboxHeader").innerHTML="";
-					target.style.height= document.body.clientHeight - 83;
-					expresso_local_messages.set_as_logged(account_id,0,true);
-					target.innerHTML = "<iframe src='offline.php?inside=1' width='100%' height='100%' frameBorder='0'></iframe>";
-					return false;
-				}
-			}
-			connector.newRequest('error.html', 'templates/'+template+'/error.html', 'GET',
-				function(data)
-				{
-					var target = document.getElementById('divAppbox');
-					if ( target )
-						target.innerHTML = data;
-				}
-			);
-			return false;
-		}
-		
-		
-		if(data) {
-			draw_tree_folders(data);
-			draw_quota(data);
-			var f_unseen = Element('dftree_'+current_folder+'_unseen');
-			if(f_unseen && f_unseen.innerHTML)
-				Element('new_m').innerHTML = '<font face="Verdana" size="1" color="RED">'+f_unseen.innerHTML+'</font>';
-			else
+function update_menu(data, forceLoadFolders)
+{
+	/*
+	 * @AUTHOR Rodrigo Souza dos Santos
+	 * @DATE 2008/09/15
+	 * @BRIEF When occurs a error in imap server show the message that is in file "error.html".
+	 */
+	if ( data && data.imap_error )
+	{
+		connector.newRequest('error.html', 'templates/'+template+'/error.html', 'GET',
+			function(data)
 			{
-				if( parseInt(Element('new_m').innerHTML) == 0 )
-					Element('new_m').innerHTML = 0;
+				var target = document.getElementById('divAppbox');
+				if ( target )
+					target.innerHTML = data;
 			}
-			folders = data;
+		);
+		return false;
+	}
+	
+	
+	if(data)
+    {
+		draw_tree_folders(data);
+		draw_quota(data);
+		var f_unseen = Element('dftree_'+current_folder+'_unseen');
+		if(f_unseen && f_unseen.innerHTML)
+			Element('new_m').innerHTML = '<font face="Verdana" size="1" color="RED">'+f_unseen.innerHTML+'</font>';
+		else
+		{
+			if( parseInt(Element('new_m').innerHTML) == 0 )
+				Element('new_m').innerHTML = 0;
 		}
-		draw_new_tree_folder(false, forceLoadFolders);
+		folders = data;
+	}
+	
+    draw_new_tree_folder(false, forceLoadFolders);
 
-        if( preferences['use_followupflags_and_labels'] == "1" )
-            draw_tree_labels();
+    if( preferences['use_followupflags_and_labels'] == "1" )
+        draw_tree_labels();
 
-		if(Element("table_quota"))
-			connector.loadScript("InfoQuota");
+	if( Element("table_quota") )
+		connector.loadScript("InfoQuota");
 
-		if(preferences.enable_quickadd_telephonenumber)
-			connector.loadScript("QuickAddTelephone");
+	if( preferences.enable_quickadd_telephonenumber )
+		connector.loadScript("QuickAddTelephone");
 }
 
 var handler_draw_box = function(data){
