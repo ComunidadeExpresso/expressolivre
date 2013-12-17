@@ -3424,8 +3424,9 @@ class imap_functions
 					continue;
 				}
 
-				if($sort_box_type=='SORTFROM') {										
-					if (strrpos($folder,'Sent') && $from_to_sent)
+				if($sort_box_type=='SORTFROM') {
+                                  
+					if ($this->prefs['save_in_folder'] == $folder && $from_to_sent)
 						$tmp = self::formatMailObject($header->to[0]);
 					else
 						$tmp = self::formatMailObject($header->from[0]);
@@ -3443,7 +3444,10 @@ class imap_functions
 				$dates[$iuid] = $header->udate;
 			}
 			$keys = array_keys($sort);
-			array_multisort($sort, SORT_ASC, $keys, SORT_DESC, $dates, SORT_DESC);
+                        
+			//Applies the strtolower() function in each element of $sort array name
+                        $sort_lowercase = array_map('strtolower',$sort);
+			array_multisort($sort_lowercase, SORT_ASC,SORT_STRING,$sort,$keys, SORT_NUMERIC, SORT_DESC, $dates, SORT_DESC);
 			$sort = array_combine($keys, $sort);
 			if ($sort_box_reverse)
 				$sort = array_reverse($sort,true);
