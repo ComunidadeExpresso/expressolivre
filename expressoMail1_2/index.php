@@ -52,6 +52,7 @@
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery.jrating/jRating.jquery.css"/>
 		
 		<script src="../prototype/plugins/jquery/jquery.min.js" language="javascript" charset="utf-8"></script>
+		<script src="../prototype/plugins/jquery/jquery.migrate.js" language="javascript" charset="utf-8"></script>
 		<script src="../library/ckeditor/ckeditor.js" language="javascript" charset="utf-8"></script>
 		<script src="../library/ckeditor/adapters/jquery.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/jquery/jquery-ui.min.js" language="javascript" charset="utf-8"></script>
