@@ -134,8 +134,6 @@
 		</tr>
 	</table>
 </div>
-<link href="../library/jquery/css/redmond/jquery-ui.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../library/jquery/jquery-ui.min.js"></script>
                                        
 <script type="text/javascript" src="js/QuickCatalogSearch.js"></script>
 <div style="display:none; width: auto; min-height: 0px; height: 410px; overflow: hidden" id="dialog-modal" class="dialog-modal expressomail-qs-container" title="{lang_quick_search_users_dialog_title}">

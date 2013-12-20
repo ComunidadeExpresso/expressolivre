@@ -611,7 +611,7 @@ if ($type == 'user' || $type == ''){
 	$vars = $GLOBALS['phpgw']->preferences->user['expressoMail'];
 
 
-	create_html_code("signature","<script src='../library/jquery/jquery.js' language='javascript'></script>
+	create_html_code("signature","<script src='../prototype/plugins/jquery/jquery.min.js' language='javascript'></script>
  		            <script src='../library/ckeditor/ckeditor.js' language='javascript'></script> 
  		            <script src='../library/ckeditor/adapters/jquery.js' language='javascript'></script>
             
