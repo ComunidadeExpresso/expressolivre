@@ -56,7 +56,6 @@
 
         // Default Applications (Home Page) 
         $default_apps = Array(                  
-                        'workflow',                     
                         'expressoMail1_2',
                         'calendar',
                         'news_admin'
