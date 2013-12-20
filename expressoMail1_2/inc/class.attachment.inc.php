@@ -36,8 +36,8 @@ class attachment
         /*
          * Requires
          */
-            require_once dirname(__FILE__).'/../../library/mime/mimePart.php';
-            require_once dirname(__FILE__).'/../../library/mime/mimeDecode.php';
+            require_once dirname(__FILE__).'/../../prototype/library/mime/mimePart.php';
+            require_once dirname(__FILE__).'/../../prototype/library/mime/mimeDecode.php';
         //----------------------------------------------------------//
 
         $this->decodeConf['include_bodies'] = true;

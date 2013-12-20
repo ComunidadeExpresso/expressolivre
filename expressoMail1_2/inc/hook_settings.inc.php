@@ -612,8 +612,8 @@ if ($type == 'user' || $type == ''){
 
 
 	create_html_code("signature","<script src='../prototype/plugins/jquery/jquery.min.js' language='javascript'></script>
- 		            <script src='../library/ckeditor/ckeditor.js' language='javascript'></script> 
- 		            <script src='../library/ckeditor/adapters/jquery.js' language='javascript'></script>
+ 		            <script src='../prototype/library/ckeditor/ckeditor.js' language='javascript'></script> 
+ 		            <script src='../prototype/library/ckeditor/adapters/jquery.js' language='javascript'></script>
             
 	<input type='hidden' id='counter' value='0'>
 	<input type='hidden' id='signatures' name='user[signatures]' value='". $vars['signatures']."'>

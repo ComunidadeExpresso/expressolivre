@@ -1,7 +1,7 @@
 <?php
 $_SESSION['rootPath'] =  ROOTPATH.'/..';
 //if(isset($_SESSION['rootPath']) ) $_SESSION['rootPath'] = ROOTPATH;
-require_once ROOTPATH.'/../library/Net/Sieve.php';
+require_once ROOTPATH.'/../prototype/library/Net/Sieve.php';
 
 
 class Sieve extends Net_Sieve implements Service

@@ -497,7 +497,7 @@ class ExpressoImapProvider extends BackendDiff {
             if (!empty($bccaddr)) $headers .= "\nBcc: $bccaddr";
             // changed by mku ZP-330
 
-	    require_once(__DIR__."/../../../../library/Mail/Mail.php");
+	    require_once(__DIR__."/../../../../prototype/library/Mail/Mail.php");
             $mail_object =& Mail::factory("smtp", $GLOBALS['config']['SMTP']);
             $send = $mail_object->send($toaddr, $message->headers , $body);
           //  $send =  @mail ( $toaddr, $message->headers["subject"], $body, $headers, $envelopefrom );

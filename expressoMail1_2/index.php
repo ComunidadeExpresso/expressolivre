@@ -53,8 +53,8 @@
 		
 		<script src="../prototype/plugins/jquery/jquery.min.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/jquery/jquery.migrate.js" language="javascript" charset="utf-8"></script>
-		<script src="../library/ckeditor/ckeditor.js" language="javascript" charset="utf-8"></script>
-		<script src="../library/ckeditor/adapters/jquery.js" language="javascript" charset="utf-8"></script>
+		<script src="../prototype/library/ckeditor/ckeditor.js" language="javascript" charset="utf-8"></script>
+		<script src="../prototype/library/ckeditor/adapters/jquery.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/jquery/jquery-ui.min.js" language="javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="../prototype/plugins/farbtastic/farbtastic.js"></script>
 		<script src="../prototype/plugins/countdown/jquery.countdown.min.js" language="javascript" charset="utf-8"></script>
@@ -100,8 +100,8 @@
 		echo "\n".'<link rel="stylesheet" type="text/css" href="../prototype/plugins/jcarousel/skins/default/skin.css" />';
 		echo "\n".'<script src="../prototype/plugins/jcarousel/lib/jquery.jcarousel.min.js" type="text/javascript"></script>';
 		//fancybox
-		echo "\n".'<link rel="stylesheet" type="text/css" href="../library/fancybox/jquery.fancybox-1.3.4.css" />';		
-		echo "\n".'<script src="../library/fancybox/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>';
+		echo "\n".'<link rel="stylesheet" type="text/css" href="../prototype/library/fancybox/jquery.fancybox-1.3.4.css" />';		
+		echo "\n".'<script src="../prototype/library/fancybox/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>';
 	}
 
 	echo "<div id='overlay' style='background-color: #AAAAAAA; opacity: .50; filter:Alpha(Opacity=50); height: 100%; width: 100%; position: absolute; top: 0; left: 0; visibility: hidden; z-index: 30000000000000000000000'></div>";
@@ -400,7 +400,7 @@
 
 /////////   Verifica se o usuario esta fora do escritorio imprime a variavel javascript "outOfficeFlag" /////////////////////////////
 
-    include_once(__DIR__ .'/../library/Net/Sieve.php');
+    include_once(__DIR__ .'/../prototype/library/Net/Sieve.php');
     $sieveConf  =  parse_ini_file( __DIR__."/../prototype/config/Sieve.srv", true );
     $sieveConf = $sieveConf['config'];
     $sieve = new Net_Sieve();

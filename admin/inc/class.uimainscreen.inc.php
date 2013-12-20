@@ -145,7 +145,7 @@
 				
 				$current_message = $GLOBALS['phpgw']->db->f('content');
 				
-				$text_or_htmlarea.= '<script type="text/javascript" src="./library/ckeditor/ckeditor.js"></script>';
+				$text_or_htmlarea.= '<script type="text/javascript" src="./prototype/library/ckeditor/ckeditor.js"></script>';
 				$text_or_htmlarea.= '<textarea name="message">'.$current_message.'</textarea>';				
 				$text_or_htmlarea.= '<script type="text/javascript">'.
 						'CKEDITOR.replace( \'message\',{'.

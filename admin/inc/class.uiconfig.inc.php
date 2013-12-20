@@ -328,7 +328,7 @@ use prototype\api\Config as Config;
 				 * New CKEditor to agree term
 				 */
 				$content = isset($GLOBALS['phpgw_info']['server']['agree_term']) ? $GLOBALS['phpgw_info']['server']['agree_term'] : '';
-				$ckeditor = '<script type="text/javascript" src="./library/ckeditor/ckeditor.js"></script>
+				$ckeditor = '<script type="text/javascript" src="./prototype/library/ckeditor/ckeditor.js"></script>
 							<textarea cols="80" id="newsettings[agree_term]" name="newsettings[agree_term]" rows="10">' . $content . '</textarea>
 							<script type="text/javascript"> CKEDITOR.replace( \'newsettings[agree_term]\',{
 								removePlugins : \'elementspath\',

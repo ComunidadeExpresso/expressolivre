@@ -1527,8 +1527,8 @@ class imap_functions
             /*
              * Requires of librarys
              */
-            require_once dirname(__FILE__).'/../../library/mime/mimePart.php';
-            require_once dirname(__FILE__).'/../../library/mime/mimeDecode.php';
+            require_once dirname(__FILE__).'/../../prototype/library/mime/mimePart.php';
+            require_once dirname(__FILE__).'/../../prototype/library/mime/mimeDecode.php';
             require_once dirname(__FILE__).'/class.attachment.inc.php';
             //include_once("class.message_components.inc.php");
             //--------------------------------------------------------------------//
@@ -1983,7 +1983,7 @@ class imap_functions
                     $body = str_replace($rest[1][$i], "<" . $rest[2][$i] . $rest[3][$i] . $rest[7][$i] . ">", $body);
             }
             
-            require_once(dirname(__FILE__).'/../../library/CssToInlineStyles/css_to_inline_styles.php');
+            require_once(dirname(__FILE__).'/../../prototype/library/CssToInlineStyles/css_to_inline_styles.php');
             $cssToInlineStyles = new CSSToInlineStyles($body);
             $cssToInlineStyles->setUseInlineStylesBlock(true);
             $cssToInlineStyles->setCleanup(TRUE);

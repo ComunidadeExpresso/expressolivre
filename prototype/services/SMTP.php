@@ -13,9 +13,9 @@ class SMTP {
 		@session_start();
 		$_SESSION['rootPath'] = ROOTPATH .'/../';
 		
-		require_once ( ROOTPATH.'/../library/mime/mimePart.php' );
-		require_once ( ROOTPATH.'/../library/mime/mime.php' );
-		require_once ( ROOTPATH.'/../library/Mail/Mail.php');
+		require_once ( ROOTPATH.'/../prototype/library/mime/mimePart.php' );
+		require_once ( ROOTPATH.'/../prototype/library/mime/mime.php' );
+		require_once ( ROOTPATH.'/../prototype/library/Mail/Mail.php');
 	
 	}
 	
