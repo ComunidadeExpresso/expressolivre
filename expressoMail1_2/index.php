@@ -97,8 +97,8 @@
 	$jcarousel = false;
 	if ($jcarousel) {
 		//jcarousel
-		echo "\n".'<link rel="stylesheet" type="text/css" href="../library/jcarousel/skins/default/skin.css" />';
-		echo "\n".'<script src="../library/jcarousel/lib/jquery.jcarousel.min.js" type="text/javascript"></script>';
+		echo "\n".'<link rel="stylesheet" type="text/css" href="../prototype/plugins/jcarousel/skins/default/skin.css" />';
+		echo "\n".'<script src="../prototype/plugins/jcarousel/lib/jquery.jcarousel.min.js" type="text/javascript"></script>';
 		//fancybox
 		echo "\n".'<link rel="stylesheet" type="text/css" href="../library/fancybox/jquery.fancybox-1.3.4.css" />';		
 		echo "\n".'<script src="../library/fancybox/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>';
