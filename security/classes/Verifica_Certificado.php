@@ -9,7 +9,7 @@ class Verifica_Certificado
 	public $status = false;
 	public $certificado = '';
 	public $CRL = '';
-        public $erros_ssl = array();
+	public $erros_ssl = array();
 	public $arquivos_para_deletar = array();
 	
 	public function __construct($parametro1,$parametro2)
@@ -51,7 +51,7 @@ class Verifica_Certificado
   public function __destruct()
   {
 		#Remover arquivos temporarios.....	
-		deleta_arquivos_temporarios(&$this->arquivos_para_deletar);
+		deleta_arquivos_temporarios($this->arquivos_para_deletar);
   }
   
    private function cmd_openssl_verify($ZXZ)
@@ -63,7 +63,7 @@ class Verifica_Certificado
 			$this->erros_ssl[]= 'Autoridade certificadora desconhecida.(CA-01)';  //'Arquivo CAs n�o localizado.';
 			return false;
 		}
-		$arq = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
+		$arq = gera_nome_arquivo_temporario($this->arquivos_para_deletar);
 		if(!$arq)
 		 {
 			#Nao foi possivel gerar path(nome) para arquivo temporario...
@@ -73,7 +73,7 @@ class Verifica_Certificado
 		$ret = grava_arquivo($arq,$this->certificado);
 		$saida = array();
 		$w = exec('openssl verify -CAfile '.$GLOBALS['CAs'].' '.$arq,$saida);
-		deleta_arquivos_temporarios(&$this->arquivos_para_deletar);
+		deleta_arquivos_temporarios($this->arquivos_para_deletar);
 		$this->arquivos_para_deletar = array();
 		//echo 'w= '.$w.'<br>';
 		//echo '<pre>';

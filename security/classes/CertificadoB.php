@@ -29,7 +29,7 @@ class certificadoB
     $this->arquivos_para_deletar = array();
   }
 
-public function __destruct()
+  public function __destruct()
   {
     #Remover arquivos temporarios.....
     deleta_arquivos_temporarios($this->arquivos_para_deletar);
@@ -54,7 +54,7 @@ public function __destruct()
 	{
 		if($s == '')	return false;
 		if($c == '')	return false;
-		$senha_arquivo_temporario = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
+		$senha_arquivo_temporario = gera_nome_arquivo_temporario($this->arquivos_para_deletar);
 		//echo $senha_arquivo_temporario.'<br>';
 		if(!grava_arquivo($senha_arquivo_temporario,$s))
 		{

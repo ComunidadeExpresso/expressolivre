@@ -171,18 +171,20 @@
 	}
 
 
-       	function print_hex($value)
+	function print_hex($value)
 	{
 		$tab_val = array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');
+		
 		for($A=0;$A<strlen($value);++$A)
-			{
-				$aux_parte_numerica =ord(substr($value,$A,1)) % 16;
-				$aux_parte_zona = (ord(substr($value,$A,1)) - $aux_parte_numerica) / 16;
-				$parte_numerica = $tab_val[$aux_parte_numerica];
-				$parte_zona = $tab_val[$aux_parte_zona];
-				$hex .=  $parte_zona.$parte_numerica;
-			}
-			return $hex;
+		{
+			$aux_parte_numerica =ord(substr($value,$A,1)) % 16;
+			$aux_parte_zona = (ord(substr($value,$A,1)) - $aux_parte_numerica) / 16;
+			$parte_numerica = $tab_val[$aux_parte_numerica];
+			$parte_zona = $tab_val[$aux_parte_zona];
+			$hex .=  $parte_zona.$parte_numerica;
+		}
+		
+		return $hex;
 	}
 
 
@@ -245,30 +247,31 @@
 		for($n = 0; $n < $partes_count; ++$n)
 		{
 			if($n==0)
-				{
-					$b = 40 * $partes[$n];
-				}
+			{
+				$b = 40 * $partes[$n];
+			}
 			elseif($n==1)
-				{
-					$b +=  $partes[$n];
-					$abBinary[] = $b;
-				}
+			{
+				$b +=  $partes[$n];
+				$abBinary[] = $b;
+			}
 			else
-				{
-					$abBinary = xBase128($abBinary, $partes[$n], 1 );
-				}
+			{
+				$abBinary = xBase128($abBinary, $partes[$n], 1 );
+			}
 		}
+
 		$value =chr(0x06) . chr(count($abBinary));
+
 		foreach($abBinary as $item)
 		{
 			$value .= chr($item);
 		}
+
 		return $value;
 	}
 
-
-
-        function Crl_parseASN($data,$context_especific = false)
+	function Crl_parseASN($data,$context_especific = false)
 	{
         // Tabela de OIDs .
                	$_oids = array(
@@ -1151,7 +1154,7 @@
 					// Sequence
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length($len,$bytes,$data);
 					$sequence_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$values = Crl_parseASN($sequence_data);
@@ -1166,7 +1169,7 @@
 					// Set of
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes, $data);
 					$sequence_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('set (' . $len . ')' , Crl_parseASN($sequence_data));
@@ -1183,52 +1186,17 @@
 					// Integer type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len , $bytes, $data);
 					$integer_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
                                         $result[] = array('integer(' . $len . ')', print_hex($integer_data));
 					break;
-                                        /*
-					if($len == 16)
-					{
-						$result[] = array('integer(' . $len . ')', $integer_data);
-						break;
-					}
-					else
-					{
-						$value = 0;
-						if ($len <= 4)
-						{
-							// Method works fine for small integers
-							for ($i = 0; $i < strlen($integer_data); ++$i)
-							{
-								$value = ($value << 8) | ord($integer_data[$i]);
-							}
-						}
-						else
-						{
-							// Method works for arbitrary length integers
-							if (extension_loaded('bcmath'))
-							{
-								for ($i = 0; $i < strlen($integer_data); ++$i)
-								{
-									$value = bcadd(bcmul($value, 256), ord($integer_data[$i]));
-								}
-							}
-							else
-							{
-								$value = -1;
-							}
-						}
-						$result[] = array('integer(' . $len . ')', $value);
-						break;
-					}
-                                        */
+
 				case 0x03:
 					// Bitstring type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length($len,$bytes,$data);
 					$bitstring_data = substr($data, 2+bytes ,  $len);
 					$data = substr($data, 2 + $bytes + $len);
 					//$result[] = array('bit string (' . $len . ')' ,Crl_parseASN($bitstring_data));
@@ -1239,7 +1207,7 @@
 					// Octetstring type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length($len,$bytes,$data);
 					$octectstring_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					if($context_especific)
@@ -1263,7 +1231,7 @@
 					// UTF8 STRING
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length($len,$bytes,$data);
 					$octectstring_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					if($context_especific)
@@ -1286,7 +1254,7 @@
 					// Object identifier type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length($len, $bytes,$data);
 					$oid_data = substr($data, 2 + $bytes, $len);
 					$x_len = $data[1];
 					$data = substr($data, 2 + $bytes + $len);
@@ -1324,7 +1292,7 @@
 					// Character string type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes, $data);
 					$string_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('IA5 String (' . $len . ')'  , $string_data);
@@ -1337,7 +1305,7 @@
 					// Character string type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes, $data);
 					$string_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('string (' . $len . ')'  , $string_data);
@@ -1347,8 +1315,7 @@
 					// Character string type
 					$len = strlen($data)-2;
 					$bytes = 0;
-					//get_length(&$len,&$bytes,$data);
-                                        $data_aux = $data;
+					$data_aux = $data;
 					$string_data = substr($data, strlen($data)-20);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('string (' . $len . ')'  , print_hex($string_data));
@@ -1359,7 +1326,7 @@
 					// Printable string type
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length($len, $bytes,$data);
 					$string_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('Printable String (' . $len . ')'  , $string_data);
@@ -1369,7 +1336,7 @@
 					// Time types
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes, $data );
 					$time_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('utctime (' . $len . ')'  , $time_data);
@@ -1379,18 +1346,18 @@
 					// X509v3 extensions?
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes,$data);
 					$sequence_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('extension : X509v3 extensions (' . $len . ')'  , array(Crl_parseASN($sequence_data)));
 					break;
 
 				case 0xa0:
-                                case 0xa4:
+				case 0xa4:
 					// Extensions
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes, $data);
 					$extension_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('Context Especific (' . $len . ')' , array(Crl_parseASN($extension_data,true)));
@@ -1400,7 +1367,7 @@
 					// Extensions
 					$len = ord($data[1]);
 					$bytes = 0;
-					get_length(&$len,&$bytes,$data);
+					get_length( $len, $bytes, $data);
 					$extension_data = substr($data, 2 + $bytes, $len);
 					$data = substr($data, 2 + $bytes + $len);
 					$result[] = array('extension (0xA3)  (' . $len . ')' ,array(Crl_parseASN($extension_data)));
@@ -1442,9 +1409,9 @@
         return gmmktime($hour, $min, $sec, $month, $day, $year);
 	}
 
-#============================================================================================
-# Transforma o certificado do formato PEM para o formato DER ...
-function pem2der($pem_data)
+	#============================================================================================
+	# Transforma o certificado do formato PEM para o formato DER ...
+	function pem2der($pem_data)
 	{
 		$begin = "CERTIFICATE-----";
 		$end   = "-----END";
@@ -1455,7 +1422,7 @@ function pem2der($pem_data)
 	}
 
 
-function testa_p7m($msg)
+	function testa_p7m($msg)
 	{
 		// oids pesquisadas:
 		//                                1.2.840.113549.1.7.2     assinatura digital
@@ -1481,68 +1448,70 @@ function testa_p7m($msg)
 
 
 function parse_sequence($data)
-	{
-		$len = ord($data[1]);
-		$bytes = 0;
-		get_length(&$len,&$bytes,$data);                  // obtem tamanho da parte de dados da oid.
-		$oid_data = substr($data,2 + $bytes,$len);    // Obtem porcao de bytes pertencentes a oid.
-		$ret =  Crl_parseASN($oid_data);                 // parse dos dados da oid.
-		return $ret;
-	}
+{
+	$len = ord($data[1]);
+	$bytes = 0;
+	get_length( $len, $bytes, $data);                  // obtem tamanho da parte de dados da oid.
+	$oid_data = substr($data,2 + $bytes,$len);    // Obtem porcao de bytes pertencentes a oid.
+	$ret =  Crl_parseASN($oid_data);                 // parse dos dados da oid.
+	return $ret;
+}
 
 function recupera_dados_oid($certificado_digital_formato_der, $oid)
+{
+	// Esta função assume que a oid esta inserida dentro de uma estrutura do tipo "sequencia" , como primeiro elemento da estrutura...
+        $oid_hexa = OIDtoHex($oid);     // converte oid de texto para hexadecimal ...
+	$partes = explode($oid_hexa,$certificado_digital_formato_der);    // Faz o split pela oid...
+	$retr = array();
+	if(count($partes)>1)
 	{
-		// Esta função assume que a oid esta inserida dentro de uma estrutura do tipo "sequencia" , como primeiro elemento da estrutura...
-	        $oid_hexa = OIDtoHex($oid);     // converte oid de texto para hexadecimal ...
-		$partes = explode($oid_hexa,$certificado_digital_formato_der);    // Faz o split pela oid...
-		$retr = array();
-		if(count($partes)>1)
+        $partes_count = count($partes);
+		for($i=1;$i<$partes_count;++$i)
+		{
+		    //O inicio da seq pode estar a 3 ou 2 digitos antes do inicio da oid .... depende do numero de bytes usados para  tamanho da seq.
+			$xcv4 = substr($partes[$i-1],strlen($partes[$i-1])-4,4); // recupera da primeira parte os 4 ultimos digitos...
+			$xcv3 = substr($partes[$i-1],strlen($partes[$i-1])-3,3); // recupera da primeira parte os 3 ultimos digitos...
+			$xcv2 = substr($partes[$i-1],strlen($partes[$i-1])-2,2); // recupera da primeira parte os 2 ultimos digitos...
+			if($xcv2[0] == chr(0x30))
 			{
-                $partes_count = count($partes);
-				for($i=1;$i<$partes_count;++$i)
-					{
-					        //O inicio da seq pode estar a 3 ou 2 digitos antes do inicio da oid .... depende do numero de bytes usados para  tamanho da seq.
-						$xcv4 = substr($partes[$i-1],strlen($partes[$i-1])-4,4); // recupera da primeira parte os 4 ultimos digitos...
-						$xcv3 = substr($partes[$i-1],strlen($partes[$i-1])-3,3); // recupera da primeira parte os 3 ultimos digitos...
-						$xcv2 = substr($partes[$i-1],strlen($partes[$i-1])-2,2); // recupera da primeira parte os 2 ultimos digitos...
-						if($xcv2[0] == chr(0x30))
-							{
-								$xcv = $xcv2;
-								$data = $xcv . $oid_hexa . $partes[$i];           // reconstroi a sequencia.....
-								$ret = parse_sequence($data);
+				$xcv = $xcv2;
+				$data = $xcv . $oid_hexa . $partes[$i];           // reconstroi a sequencia.....
+				$ret = parse_sequence($data);
 
-								if($ret[0] != '')
-									{
-										$retr[] = $ret;
-										continue;
-									}
-							}
-						if($xcv3[0] == chr(0x30))
-							{
-								$xcv = $xcv3;
-								$data = $xcv . $oid_hexa . $partes[$i];           // reconstroi a sequencia.....
-								$ret = parse_sequence($data);
-								if($ret[0] != '')
-									{
-										$retr[] = $ret;
-										continue;
-									}
-							}
-						if($xcv4[0] == chr(0x30))
-							{
-								$xcv = $xcv4;
-								$data = $xcv . $oid_hexa . $partes[$i];           // reconstroi a sequencia.....
-								$ret = parse_sequence($data);
-								if($ret[0] != '')
-									{
-										$retr[] = $ret;
-										continue;
-									}
-							}
+				if($ret[0] != '')
+					{
+						$retr[] = $ret;
+						continue;
 					}
 			}
-		return $retr;
+
+			if($xcv3[0] == chr(0x30))
+			{
+				$xcv = $xcv3;
+				$data = $xcv . $oid_hexa . $partes[$i];           // reconstroi a sequencia.....
+				$ret = parse_sequence($data);
+				if($ret[0] != '')
+					{
+						$retr[] = $ret;
+						continue;
+					}
+			}
+
+			if($xcv4[0] == chr(0x30))
+			{
+				$xcv = $xcv4;
+				$data = $xcv . $oid_hexa . $partes[$i];           // reconstroi a sequencia.....
+				$ret = parse_sequence($data);
+				if($ret[0] != '')
+					{
+						$retr[] = $ret;
+						continue;
+					}
+			}
+		}
 	}
+	return $retr;
+}
 
 
 # Recupera dados da oid passada como parametro.....

@@ -142,7 +142,6 @@
 		{
 			echo '<script type="text/javascript" src="prototype/plugins/jquery/jquery.min.js"></script>
 				  <script type="text/javascript" src="prototype/plugins/jquery/jquery-ui.min.js"></script>
-				  <link rel="stylesheet" href="prototype/plugins/jqgrid/themes/prognusone/jquery-ui-1.8.2.custom.css" type="text/css" />
 				  <script src="prototype/plugins/json2/json2.js" language="javascript"></script>
 				  <script src="prototype/plugins/ejs/ejs.js" language="javascript"></script>
 				  <script src="prototype/plugins/store/jquery.store.js" language="javascript"></script>

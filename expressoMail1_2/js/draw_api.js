@@ -4087,28 +4087,28 @@ function input_keydowns(input, ID){
 		//SE OS CONTATOS DINAMICOS ESTAO ATIVOS
 		if(parseInt(preferences.use_dynamic_contacts) && !input.hasClass("box-input")){
 			//SELECIONA O CONTATO E EVITA OUTROS COMANDOS
-			if ( e.keyCode === $.ui.keyCode.TAB && $( this ).data( "autocomplete" ).menu.active ) {
+			if ( e.keyCode === $.ui.keyCode.TAB && $( this ).data( "ui-autocomplete" ).menu.active ) {
 				e.preventDefault();
 				return false;
 			}		
 			
 			//FECHA OS CONTATOS DINÂMICOS
-			if( (e.keyCode == 27) && $( this ).data( "autocomplete" ).menu.active ){
+			if( (e.keyCode == 27) && $( this ).data( "ui-autocomplete" ).menu.active ){
 				   e.stopPropagation();
 				   e.preventDefault();
 			}
             if ( (e.keyCode == 8) && (input.val().length == 1) ){
-                $( this ).data( "autocomplete" ).close();
+                $( this ).data( "ui-autocomplete" ).close();
             }			
 			//SELECIONA O CONTATO E EVITA OUTROS COMANDOS
-			if(e.keyCode == $.ui.keyCode.ENTER && $( this ).data( "autocomplete" ).menu.active){
+			if(e.keyCode == $.ui.keyCode.ENTER && $( this ).data( "ui-autocomplete" ).menu.active){
 				e.preventDefault();
 				return false;
 			}
 			
-			if(e.keyCode == $.ui.keyCode.DELETE && $( this ).data( "autocomplete" ).menu.active){
-				if($($( this ).data( "autocomplete" ).menu.element).find(".ui-state-hover").parents("li:first").hasClass("dynamic-recent"))
-					$($( this ).data( "autocomplete" ).menu.element).find(".ui-state-hover").next().trigger("click");
+			if(e.keyCode == $.ui.keyCode.DELETE && $( this ).data( "ui-autocomplete" ).menu.active){
+				if($($( this ).data( "ui-autocomplete" ).menu.element).find(".ui-state-hover").parents("li:first").hasClass("dynamic-recent"))
+					$($( this ).data( "ui-autocomplete" ).menu.element).find(".ui-state-hover").next().trigger("click");
 				return false;
 			}
 		}
@@ -4551,7 +4551,8 @@ function input_binds(div, ID){
             }
 	    }
 
-        div.find("textarea").autocomplete({
+        div.find("textarea").autocomplete(
+        {
             source: function(request, response){
                 if ($.trim(request.term).length == 0)
                     return false;
@@ -4605,7 +4606,8 @@ function input_binds(div, ID){
             canMakeBox = false;
             $(this).data('is_open',false);
             $(this).blur().focus();
-        }).data( "autocomplete" )._renderItem = function( ul, item ) {
+        }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+            
             var autocomplete = $(this)[0].element;
 
             ul.css({"width":'50%',"min-width":'600px', "max-height" : "180px", "overflow-y" : "auto", "min-height": "30px"});

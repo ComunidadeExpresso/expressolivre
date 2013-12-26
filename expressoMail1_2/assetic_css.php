@@ -37,7 +37,6 @@ $css = new AssetCollection(array(
             new FileAsset('../prototype/plugins/freeow/style/freeow/freeow.css'),
             new FileAsset('../phpgwapi/js/dftree/dftree.css'),
             new FileAsset('../prototype/plugins/farbtastic/farbtastic.css'),
-            new FileAsset('../prototype/plugins/jqgrid/themes/prognusone/jquery-ui-1.8.2.custom.css'),
             new FileAsset('../prototype/modules/mail/css/foldertree.css'),
             new FileAsset('../prototype/modules/calendar/css/layout.css'),
             new FileAsset('../prototype/plugins/jquery.spinner/jquery.spinner.css'),
