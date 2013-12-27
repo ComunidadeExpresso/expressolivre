@@ -1288,24 +1288,22 @@ class ldap_functions
 			
 	function get_available_maillists($params)
 	{
-		if ( !$ldapMasterConnect = $this->ldapMasterConnect() )
-			return false;
-			
-		$context = $params['context'];
-		$justthese = array("uid","mail","uidNumber");
-                $maillists=ldap_list($ldapMasterConnect, $context, ("(phpgwAccountType=l)"), $justthese);
-                ldap_sort($ldapMasterConnect, $maillists, "uid");
-		
-                $entries = ldap_get_entries($ldapMasterConnect, $maillists);
-			
-		$options = '';			
-		for ($i=0; $i<$entries['count']; ++$i)
-			{
-			$options .= "<option value=" . $entries[$i]['uid'][0] . ">" . $entries[$i]['uid'][0] . " (" . $entries[$i]['mail'][0] . ")" . "</option>";
-		}
-		
-    	ldap_close($ldapMasterConnect);
-   		return $options;
+            $options = '';
+            $context = $params['context'];
+
+            //Exibe todas as listas
+            if (empty($params['sentence']))
+            {
+                    $params['sentence'] = '.';                       
+            }
+            $maillists_info = $this->functions->get_list('maillists', $params['sentence'],(array) $context);
+
+            foreach ($maillists_info as $maillist) 
+            {
+                $options .= "<option value=" . $maillist['uid'] . ">" . $maillist['uid'] . " (" . $maillist['email'] . ")" . "</option>";
+            }
+
+            return $options;
 	}
 
         function get_available_institutional_account($params)
