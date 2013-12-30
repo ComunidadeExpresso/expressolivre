@@ -45,6 +45,7 @@ $js = new AssetCollection(array(
         new FileAsset(PLUGINSURL.'/fileupload/jquery.iframe-transport.js'),
         new FileAsset(PLUGINSURL.'/jquery.pagination/jquery.pagination.js'),
         //new FileAsset(PLUGINSURL.'/mask/jquery.maskedinput.js'),
+        new FileAsset(PLUGINSURL.'/jquery.cookie/jquery.cookie.js'),            
         new FileAsset(PLUGINSURL.'/alphanumeric/jquery.alphanumeric.js'),
         new FileAsset(PLUGINSURL.'/watermark/jquery.watermarkinput.js'),
         new FileAsset(PLUGINSURL.'/encoder/encoder.js'),      

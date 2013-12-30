@@ -48,7 +48,7 @@ $plugins = new AssetCollection(array(
         new FileAsset('../prototype/plugins/fileupload/jquery.iframe-transport.js'),
         new FileAsset('../prototype/plugins/qtip/jquery.qtip-1.0.0-rc3.min.js'),
         new FileAsset('../prototype/plugins/treeview/jquery.treeview.js'),
-        new FileAsset('../prototype/plugins/treeview/lib/jquery.cookie.js'),    
+        new FileAsset('../prototype/plugins/jquery.cookie/jquery.cookie.js'),    
         new FileAsset('../prototype/plugins/scrollto/jquery.scrollTo.js'),
         new FileAsset('../prototype/plugins/jqgrid/js/i18n/grid.locale-pt-br.js'),
         new FileAsset('../prototype/plugins/jqgrid/js/jquery.jqGrid.min.js'),
