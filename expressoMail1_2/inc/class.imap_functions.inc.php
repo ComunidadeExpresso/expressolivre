@@ -195,82 +195,95 @@ class imap_functions
 	function get_range_msgs2($params)
 	{ 	
 		include_once dirname(__FILE__).'/../../prototype/api/controller.php';
-            // Free others requests
-            session_write_close();
-            $folder = $params['folder'];
-            $msg_range_begin = $params['msg_range_begin'];
-            $msg_range_end = $params['msg_range_end'];
-            $sort_box_type		= isset($params['sort_box_type']) ? $params['sort_box_type'] : '';
-            $sort_box_reverse	= isset($params['sort_box_reverse']) ? $params['sort_box_reverse'] : '';
-            $search_box_type	= (isset($params['search_box_type']) && $params['search_box_type'] != 'ALL' && $params['search_box_type'] != '' )? $params['search_box_type'] : false;
+        // Free others requests
+        session_write_close();
+        $folder = $params['folder'];
+        $msg_range_begin = $params['msg_range_begin'];
+        $msg_range_end = $params['msg_range_end'];
+        $sort_box_type		= isset($params['sort_box_type']) ? $params['sort_box_type'] : '';
+        $sort_box_reverse	= isset($params['sort_box_reverse']) ? $params['sort_box_reverse'] : '';
+        $search_box_type	= (isset($params['search_box_type']) && $params['search_box_type'] != 'ALL' && $params['search_box_type'] != '' )? $params['search_box_type'] : false;
 
-            if( !$this->mbox || !is_resource( $this->mbox ) )
-                $this->mbox = $this->open_mbox($folder);
+        if( !$this->mbox || !is_resource( $this->mbox ) )
+            $this->mbox = $this->open_mbox($folder);
 
-            $return = array();
-            $return['folder'] = $folder;
-            //Para enviar o offset entre o timezone definido pelo usuário e GMT
-            $return['offsetToGMT'] = $this->functions->CalculateDateOffset();
+        $return = array();
+        $return['folder'] = $folder;
+        //Para enviar o offset entre o timezone definido pelo usuário e GMT
+        $return['offsetToGMT'] = $this->functions->CalculateDateOffset();
 
-            if(!$search_box_type || $search_box_type == 'UNSEEN' || $search_box_type == 'SEEN') {
-                    $msgs_info = imap_status($this->mbox,"{".$this->imap_server.":".$this->imap_port.$this->imap_options."}".mb_convert_encoding( $folder, 'UTF7-IMAP', 'UTF-8, ISO-8859-1' ) ,SA_ALL);
 
-                    $return['tot_unseen'] = ($search_box_type == 'SEEN') ? 0 : $msgs_info->unseen;
+		if(!$search_box_type || $search_box_type == 'UNSEEN' || $search_box_type == 'SEEN')
+		{
+            $msgs_info = imap_status($this->mbox,"{".$this->imap_server.":".$this->imap_port.$this->imap_options."}".mb_convert_encoding( $folder, 'UTF7-IMAP', 'UTF-8, ISO-8859-1' ) ,SA_ALL);
 
-                    $sort_array_msg = $this->get_msgs($folder, $sort_box_type, $search_box_type, $sort_box_reverse,$msg_range_begin,$msg_range_end);
+            $return['tot_unseen'] = ($search_box_type == 'SEEN') ? 0 : $msgs_info->unseen;
 
-                    $num_msgs = ($search_box_type=="UNSEEN") ? $msgs_info->unseen : (($search_box_type=="SEEN") ? ($msgs_info->messages - $msgs_info->unseen) : $msgs_info->messages);
+            $sort_array_msg = $this->get_msgs($folder, $sort_box_type, $search_box_type, $sort_box_reverse,$msg_range_begin,$msg_range_end);
 
-                    $i = 0;
-                    if(is_array($sort_array_msg)){
-                            foreach($sort_array_msg as $msg_number => $value)
+            $num_msgs = ($search_box_type=="UNSEEN") ? $msgs_info->unseen : (($search_box_type=="SEEN") ? ($msgs_info->messages - $msgs_info->unseen) : $msgs_info->messages);
+
+            $i = 0;
+
+            if( is_array($sort_array_msg) )
+            {
+                foreach($sort_array_msg as $msg_number => $value)
+                {
+                    $sample = false;
+
+                    if( (isset($this->prefs['preview_msg_subject']) && ($this->prefs['preview_msg_subject'] === '1')) ||
+                        (isset($this->prefs['preview_msg_tip']    ) && ($this->prefs['preview_msg_tip']     === '1')) )
+                        $sample = true;
+                                
+                        $return[$i++] = $this->get_info_head_msg( $msg_number , $sample );					
+                }
+
+                if($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_followupflags_and_labels'] == "1")
+                {
+                    $filter = array('AND', array('=', 'folderName', $folder), array('IN','messageNumber', $sort_array_msg));
+                    $followupflagged = Controller::find(
+                        array('concept' => 'followupflagged'),
+                        false,
+                        array('filter' => $filter, 'criteria' => array('deepness' => '2'))
+                    );
+                    $labeleds = Controller::find(
+                        array('concept' => 'labeled'),
+                        false,
+                        array('filter' => $filter, 'criteria' => array('deepness' => '2'))
+                    );
+                    
+                    $sort_array_msg_count = count($sort_array_msg);
+                    
+                    for($i=0; $i<$sort_array_msg_count; ++$i)
+                    {
+                        if(!isset($return[$i]['msg_number']))
+                            continue;
+
+                        $numFlags = count($followupflagged);
+                        for($ii=0; $ii<$numFlags; ++$ii)
+                        {
+                            if($return[$i]['msg_number'] == $followupflagged[$ii]['messageNumber'])
                             {
-                                $sample = false;
-                                if( (isset($this->prefs['preview_msg_subject']) && ($this->prefs['preview_msg_subject'] === '1')) ||
-                                    (isset($this->prefs['preview_msg_tip']    ) && ($this->prefs['preview_msg_tip']     === '1')) )
-                                    $sample = true;
-                                            
-                                    $return[$i] = $this->get_info_head_msg( $msg_number , $sample );					
-                                    ++$i;
+                                $followupflag = Controller::read( array( 'concept' => 'followupflag', 'id' => $followupflagged[$ii]['followupflagId'] ));
+                                $return[$i]['followupflagged'] = $followupflagged[$ii];
+                                $return[$i]['followupflagged']['followupflag'] = $followupflag;
+                                break;
                             }
-                            if($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_followupflags_and_labels'] == "1")
+                        }
+                        $numLabels = count($labeleds);
+                        
+                        for($ii=0; $ii<$numLabels; ++$ii)
+                        {
+                            if($return[$i]['msg_number'] == $labeleds[$ii]['messageNumber'])
                             {
-                                $filter = array('AND', array('=', 'folderName', $folder), array('IN','messageNumber', $sort_array_msg));
-                                $followupflagged = Controller::find(
-                                    array('concept' => 'followupflagged'),
-                                    false,
-                                    array('filter' => $filter, 'criteria' => array('deepness' => '2'))
-                                );
-                                $labeleds = Controller::find(
-                                    array('concept' => 'labeled'),
-                                    false,
-                                    array('filter' => $filter, 'criteria' => array('deepness' => '2'))
-                                );
-                                $sort_array_msg_count = count($sort_array_msg);
-                                for($i=0; $i<$sort_array_msg_count; ++$i){
-                                    if(!isset($return[$i]['msg_number']))
-                                        continue;
-
-                                    $numFlags = count($followupflagged);
-                                    for($ii=0; $ii<$numFlags; ++$ii){
-                                        if($return[$i]['msg_number'] == $followupflagged[$ii]['messageNumber']){
-                                            $followupflag = Controller::read( array( 'concept' => 'followupflag', 'id' => $followupflagged[$ii]['followupflagId'] ));
-                                            $return[$i]['followupflagged'] = $followupflagged[$ii];
-                                            $return[$i]['followupflagged']['followupflag'] = $followupflag;
-                                            break;
-                                        }
-                                    }
-                                    $numLabels = count($labeleds);
-                                    for($ii=0; $ii<$numLabels; ++$ii){
-                                        if($return[$i]['msg_number'] == $labeleds[$ii]['messageNumber']){
-                                            $labels = Controller::read( array( 'concept' => 'label', 'id' =>  $labeleds[$ii]['labelId']));
-                                            $return[$i]['labels'][$labeleds[$ii]['labelId']] = $labels;
-                                        }
-                                    }
-                                }
+                                $labels = Controller::read( array( 'concept' => 'label', 'id' =>  $labeleds[$ii]['labelId']));
+                                $return[$i]['labels'][$labeleds[$ii]['labelId']] = $labels;
                             }
+                        }
                     }
-                    $return['num_msgs'] =  $num_msgs;   
+                }
+            }
+            $return['num_msgs'] =  $num_msgs;   
 		}
         else
         {
@@ -408,100 +421,119 @@ class imap_functions
         */
 	function get_info_head_msg( $msg_number , $appendSample = false )
 	{         
-            $return = false;
-            $cached = false;
-            if( $this->useCache === true )
+        $return = false;
+        $cached = false;
+        if( $this->useCache === true )
+        {
+            if( $this->cache === false )
             {
-                if( $this->cache === false )
-                {
-                    $this->cache = ServiceLocator::getService( 'memCache' ); //Serviço Cache
-                    $this->cache->connect( $_SESSION['phpgw_info']['expressomail']['server']['server_memcache'] , $_SESSION['phpgw_info']['expressomail']['server']['port_server_memcache'] );
-                }
-                
-                if( $return = $this->cache->get( 'infoHead://'.$this->username.'://'.$this->mboxFolder.'://'.$msg_number ))
-                   $cached = true;   
-			}
-
-            $header = imap_headerinfo($this->mbox,imap_msgno( $this->mbox, $msg_number )); //Resgata o objeto Header da mensagem , nescessario mesmo com o cache pois as flags podem ser atualizadas por outro cliente de email
-            $return['Recent'] = $header->Recent;
-            $return['Unseen'] = $header->Unseen;
-            $return['Deleted'] = $header->Deleted;
-            $return['Flagged'] = $header->Flagged;
-            if($header->Answered =='A' && $header->Draft == 'X')
-                $return['Forwarded'] = 'F';
-            else 
-            {
-                $return['Answered']	= $header->Answered;
-                $return['Draft']	= $header->Draft;
-            }    
-            
-            if( $cached === true ) //Caso a mensagem ja tenha vindo do cache da o return
-            {
-                if($appendSample !== false && !isset($return['msg_sample'])) //verifica o msg_sample caso seja alterada a preferencia e não esteja em cache carregar
-                {
-                    $return['msg_sample'] = $this->get_msg_sample($msg_number);
-                    $this->cache->set( 'infoHead://'.$this->username.'://'.$this->mboxFolder.'://'.$msg_number , $return , $this->expirationCache);
-                }
-               
-                return $return;
+                $this->cache = ServiceLocator::getService( 'memCache' ); //Serviço Cache
+                $this->cache->connect( $_SESSION['phpgw_info']['expressomail']['server']['server_memcache'] , $_SESSION['phpgw_info']['expressomail']['server']['port_server_memcache'] );
             }
-      
-            $importance = array();
-            $mimeHeader = imap_fetchheader( $this->mbox, $msg_number , FT_UID ); //Resgata o Mime Header da mensagem
-			
-            $mimeBody = imap_body( $this->mbox, $msg_number  , FT_UID|FT_PEEK  ); //Resgata o Mime Body da mensagem sem marcar como lida
-            $offsetToGMT =  $this->functions->CalculateDateOffset();
-            $return['ContentType'] = $this->getMessageType( $msg_number , $mimeHeader , $mimeBody ); 
-            $return['Importance'] = ( preg_match('/importance *: *(.*)\r/i', $mimeHeader , $importance) === 0 ) ? 'Normal' : $importance[1];
-            $return['msg_number'] = $msg_number;
-            $return['udate'] = $header->udate;
-            $return['offsetToGMT'] = $offsetToGMT;
-            $return['timestamp'] = $header->udate + $return['offsetToGMT'];
-            $return['smalldate'] = (date('d/m/Y') == gmdate( 'd/m/Y', $return['timestamp'] )) ?  gmdate("H:i", $return['timestamp'] ) : gmdate("d/m/Y", $return['timestamp'] );
-            $return['Size'] = $header->Size;
-            $return['from'] =  (isset( $header->from[0] )) ? self::formatMailObject( $header->from[0] ) : array( 'name' => '' , 'email' => '');
-            $return['subject']  =  ( isset($header->subject) && trim($header->subject) !== '' ) ?  self::decodeMimeString($header->subject) : $this->functions->getLang('(no subject)   ');
-            $return['attachment'] = ( preg_match('/((Content-Disposition:(.)*([\r\n\s]*filename))|(Content-Type:(.)*([\r\n\s]*name)))/i', $mimeBody) ) ? '1' : '0'; //Verifica se a anexos na mensagem
-            $return['reply_toaddress'] = isset($header->reply_toaddress) ? self::decodeMimeString($header->reply_toaddress) : '';
-            $return['flag'] = $header->Unseen.
-                $header->Recent.
-                ($header->Flagged == 'F' || !( preg_match('/importance *: *(.*)\r/i', $mimeHeader , $importance) === 0 )? 'F' : '').
-                $header->Draft.
-                $header->Answered.
-                $header->Deleted.
-                ( $return['attachment'] === '1' ? 'T': '' );
-
-        if (!empty($header->to)){
-				foreach ($header->to as $i => $v){
-					$return['to'][$i] = self::formatMailObject( $v );
-				}
-			} 
-			else if (!empty($header->cc)){
-				foreach ($header->cc as $i => $v){
-					$return['to'][$i] = self::formatMailObject( $v );
-				}
-			}
-			else if (!empty($header->bcc)){
-				foreach ($header->bcc as $i => $v){
-					$return['to'][$i] = self::formatMailObject( $v );
-				}
-			}
-			else
-                $return['to'] = array( 'name' => '' , 'email' => '');
-				
-			if (!empty($return['to'])){
-				foreach ($return['to'] as $i => $v){
-					if($v['name'] == 'undisclosed-recipients@' || $v['name'] == '@')
-						$return['to'][$i] = $return['from'];
-				}
-			}	
-
-            if($appendSample !== false)
-                $return['msg_sample'] = $this->get_msg_sample($msg_number);
             
-            if( $this->useCache === true )
+            if( $return = $this->cache->get( 'infoHead://'.$this->username.'://'.$this->mboxFolder.'://'.$msg_number ))
+               $cached = true;   
+		}
+
+        $header = imap_headerinfo($this->mbox,imap_msgno( $this->mbox, $msg_number )); //Resgata o objeto Header da mensagem , nescessario mesmo com o cache pois as flags podem ser atualizadas por outro cliente de email
+        $return['Recent'] = $header->Recent;
+        $return['Unseen'] = $header->Unseen;
+        $return['Deleted'] = $header->Deleted;
+        $return['Flagged'] = $header->Flagged;
+
+        if($header->Answered =='A' && $header->Draft == 'X')
+        {
+            $return['Forwarded'] = 'F';
+        }
+        else 
+        {
+            $return['Answered']	= $header->Answered;
+            $return['Draft']	= $header->Draft;
+        }    
+        
+        if( $cached === true ) //Caso a mensagem ja tenha vindo do cache da o return
+        {
+            if($appendSample !== false && !isset($return['msg_sample'])) //verifica o msg_sample caso seja alterada a preferencia e não esteja em cache carregar
+            {
+                $return['msg_sample'] = $this->get_msg_sample($msg_number);
                 $this->cache->set( 'infoHead://'.$this->username.'://'.$this->mboxFolder.'://'.$msg_number , $return , $this->expirationCache);
+            }
+           
             return $return;
+        }
+
+        $importance = array();
+        $mimeHeader = imap_fetchheader( $this->mbox, $msg_number , FT_UID ); //Resgata o Mime Header da mensagem
+		
+        $mimeBody = imap_body( $this->mbox, $msg_number  , FT_UID|FT_PEEK  ); //Resgata o Mime Body da mensagem sem marcar como lida
+        $offsetToGMT =  $this->functions->CalculateDateOffset();
+        $return['ContentType'] = $this->getMessageType( $msg_number , $mimeHeader , $mimeBody ); 
+        $return['Importance'] = ( preg_match('/importance *: *(.*)\r/i', $mimeHeader , $importance) === 0 ) ? 'Normal' : $importance[1];
+        $return['msg_number'] = $msg_number;
+        $return['udate'] = $header->udate;
+        $return['offsetToGMT'] = $offsetToGMT;
+        $return['timestamp'] = $header->udate + $return['offsetToGMT'];
+        $return['smalldate'] = (date('d/m/Y') == gmdate( 'd/m/Y', $return['timestamp'] )) ?  gmdate("H:i", $return['timestamp'] ) : gmdate("d/m/Y", $return['timestamp'] );
+        $return['Size'] = $header->Size;
+        $return['from'] =  (isset( $header->from[0] )) ? self::formatMailObject( $header->from[0] ) : array( 'name' => '' , 'email' => '');
+        $return['subject']  =  ( isset($header->subject) && trim($header->subject) !== '' ) ?  self::decodeMimeString($header->subject) : $this->functions->getLang('(no subject)   ');
+        $return['attachment'] = ( preg_match('/((Content-Disposition:(.)*([\r\n\s]*filename))|(Content-Type:(.)*([\r\n\s]*name)))/i', $mimeBody) ) ? '1' : '0'; //Verifica se a anexos na mensagem
+        $return['reply_toaddress'] = isset($header->reply_toaddress) ? self::decodeMimeString($header->reply_toaddress) : '';
+        $return['flag'] = $header->Unseen.
+            $header->Recent.
+            ($header->Flagged == 'F' || !( preg_match('/importance *: *(.*)\r/i', $mimeHeader , $importance) === 0 )? 'F' : '').
+            $header->Draft.
+            $header->Answered.
+            $header->Deleted.
+            ( $return['attachment'] === '1' ? 'T': '' );
+
+        if (!empty($header->to))
+        {
+				foreach ($header->to as $i => $v)
+				{
+					$return['to'][$i] = self::formatMailObject( $v );
+				}
+		} 
+		else if (!empty($header->cc))
+		{
+			foreach ($header->cc as $i => $v)
+			{
+				$return['to'][$i] = self::formatMailObject( $v );
+			}
+		}
+		else if (!empty($header->bcc))
+		{
+			foreach ($header->bcc as $i => $v)
+			{
+				$return['to'][$i] = self::formatMailObject( $v );
+			}
+		}
+		else
+		{
+            $return['to'] = array( 'name' => '' , 'email' => '');
+        }
+			
+		if (!empty($return['to']))
+		{
+			foreach ($return['to'] as $i => $v)
+			{
+				if($v['name'] == 'undisclosed-recipients@' || $v['name'] == '@')
+					$return['to'][$i] = $return['from'];
+			}
+		}	
+
+        if($appendSample !== false)
+		{ 
+			$return['msg_sample'] = $this->get_msg_sample($msg_number);
+		}
+        
+        if( $this->useCache === true )
+        {
+            $this->cache->set( 'infoHead://'.$this->username.'://'.$this->mboxFolder.'://'.$msg_number , $return , $this->expirationCache);
+        }
+
+        return $return;
+
 	}
 
 	/**
@@ -2362,19 +2394,23 @@ class imap_functions
      * @param $msg_number O número da mesagem
      * @return Retorna o tipo da mensagem (normal, signature, cipher).
      */
-    function getMessageType($msg_number, $headers = false , &$body = false){
-            include_once(dirname( __FILE__ ) ."/../../security/classes/CertificadoB.php");
-            $contentType = "normal";
-          
-            if (!$headers)
-                $headers = imap_fetchheader($this->mbox, $msg_number, FT_UID);
+    function getMessageType($msg_number, $headers = false , &$body = false)
+    {
+        //include_once(dirname( __FILE__ ) ."/../../security/classes/CertificadoB.php");
+        $contentType = "normal";
+      
+        if( !$headers ){ $headers = imap_fetchheader($this->mbox, $msg_number, FT_UID); }
 
-            if (preg_match("/pkcs7-signature/i", $headers) == 1)
-                $contentType = "signature";
-             else if (preg_match("/pkcs7-mime/i", $headers) == 1)
-                $contentType = testa_p7m(  $body ? $body :  imap_body($this->mbox, $msg_number , FT_UID )) ;
- 
-            return $contentType;
+        if( preg_match("/pkcs7-signature/i", $headers) == 1 )
+        {
+            $contentType = "signature";
+        }
+        else if( preg_match("/pkcs7-mime/i", $headers) == 1 )
+        {
+            $contentType = testa_p7m(  $body ? $body :  imap_body($this->mbox, $msg_number , FT_UID )) ;
+        }
+
+        return $contentType;
     }
     
 		/**
@@ -2537,7 +2573,9 @@ class imap_functions
 				);
 
  			}	
-			else if( $folderId !== $decifrada){ //Escapa pasta decifrada
+			else if( $folderId !== $decifrada)
+			{ 
+				//Escapa pasta decifrada
 				$folders['INBOX'][strtolower($folderId)] = array(
 					'id' => $folderId , 
 					'stream' => $v->name , 

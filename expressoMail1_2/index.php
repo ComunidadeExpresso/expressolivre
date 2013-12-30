@@ -74,22 +74,6 @@
 		  <script type="text/javascript" src="js/DropDownContacts.js"></script>
 		  ';
 
-//
-//    include_once(__DIR__.'/inc/class.imap_functions.inc.php');
-//
-//    $param = array();
-//    $param['folder'] = 'INBOX';
-//    $param['msg_range_begin'] = '1';
-//    $param['msg_range_end'] = '50';
-//    $param['sort_box_type'] = 'SORTARRIVAL';
-//    $param['search_box_type'] = 'ALL';
-//    $param['sort_box_reverse'] = '1';
-//
-//    $imapf = new imap_functions();
-//    $initialMessages = $imapf->get_range_msgs2($param);
-//
-//    echo '<script type="text/javascript"> var initialMessages  = '.json_encode($initialMessages).'</script>';
-
 	/*
 	 * TODO: implementar o controle como preferência do usuário 
 	 *
