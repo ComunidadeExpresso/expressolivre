@@ -4894,8 +4894,7 @@ class imap_functions
 
         function show_decript($params,$dec=0){ 
         $source = $params['source'];
- 		 
-        //error_log("source: $source\nversao: " . PHP_VERSION); 	 
+	 
         if ($dec == 0) 
         { 
             $source = str_replace(" ", "+", $source,$i); 

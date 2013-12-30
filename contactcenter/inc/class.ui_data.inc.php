@@ -1320,12 +1320,8 @@
 			}
 			else if ($letter === 'search')
 			{
-				//if (!$ids and $this->page_info['actual_letter'] !== 'search')
 				if (!$ids)
 				{
-/**rev 104**/
-					//error_log('!$ids e $this->page_info[\'actual_letter\'] != search');
-/*****/
 					$this->page_info['actual_entries'] = false;
 
 					$this->page_info['actual_letter'] = $letter;

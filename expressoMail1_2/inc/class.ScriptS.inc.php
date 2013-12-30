@@ -292,10 +292,6 @@ class ScriptS {
 
             if( $a < 2 )
             {
-                error_log( print_r($tmp, true), 3, "/tmp/log" );
-
-                error_log( print_r($rule, true), 3, "/tmp/log" );
-
                 ++$a;
             }
 

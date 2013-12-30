@@ -1996,8 +1996,6 @@ $this->debug('Put complete,  status: '.$status);
 		*/
 		function delete ($data)
 		{
-			error_log("Aqui", 3, "/tmp/log");
-			
 			return $this->rm ($data);
 		}
 

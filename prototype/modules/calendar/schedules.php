@@ -113,9 +113,9 @@ class Schedule{
         return $this->normalizeEvents( $params, $timezones );
     }
 
-    function normalizeEvents( &$result, $timezones ){
+    function normalizeEvents( $result, $timezones ){
 
-        $mySig = Controller::find(array('concept' => 'calendarSignature') , array('calendar') , array('filter' => array( 'AND' , array('=' , 'type' , '0' ) , array( '=' , 'user' ,Config::me('uidNumber') ) , array('=' , 'isOwner' , '0' ))));
+        $mySig = Controller::find(array('concept' => 'calendarSignature') , array('calendar') , array('filter' => array( 'AND' , array('=' , 'type' , '0' ) , array( '=' , 'user' , 1003 ) , array('=' , 'isOwner' , '0' ))));
 
         $signedCalendars = array();
         if(is_array($mySig))

@@ -241,9 +241,6 @@
 			$users_process = 0;
 			$new_uidnumber = 12011;
 
-			//error_log( print_r( $_POST[ 'users' ], true ), 3, '/tmp/log' );
-			//error_log( print_r( $config, true ), 3, '/tmp/log' );
-
 			foreach ( array( 'admins', 'users' ) as $type )
 				if ( array_key_exists( $type, $_POST ) )
 				{
