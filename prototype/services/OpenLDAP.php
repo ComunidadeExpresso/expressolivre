@@ -15,7 +15,7 @@ class OpenLDAP implements Service
 	if( !isset($criteria["limit"]) )
 		$criteria["limit"] = $this->limit;
       
-	$sr =  ldap_search( $this->con , $this->config['context'] , self::parseCriteria($criteria , $map) , self::parseJustthese($justthese, $map) , 0 , $criteria["limit"]); 
+	$sr =  @ldap_search( $this->con , $this->config['context'] , self::parseCriteria($criteria , $map) , self::parseJustthese($justthese, $map) , 0 , $criteria["limit"]); 
 	if(!$sr) return false; 
 
 	if( isset($criteria["order"]) )

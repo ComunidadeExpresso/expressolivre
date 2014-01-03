@@ -146,27 +146,34 @@ class PostgreSQL implements Service
 
     public function execSql( $sql, $unique = false )
     {
-        if(!$this->con) $this->open( $this->config );
+      if(!$this->con) $this->open( $this->config );
 
-        $rs = pg_query( $this->con, $sql );
+      if( $this->con )
+      {
+        $rs = @pg_query( $this->con, $sql );
+
+        if( !$rs )
+          return false;
 
         switch( pg_num_rows( $rs ) )
         {
-        case -1: 
-          $this->error = pg_last_error ( $this->con );
-          return( false );
+          case -1: 
+            $this->error = pg_last_error ( $this->con );
+            return( false );
 
-        case 0:
-          return( pg_affected_rows( $rs ) ? true : array() );
+          case 0:
+            return( pg_affected_rows( $rs ) ? true : array() );
 
-        default:
-          $return = array();
+          default:
+            $return = array();
 
-          while( $row = pg_fetch_assoc( $rs ) )
+            while( $row = pg_fetch_assoc( $rs ) )
+            {
               $return[] = $row;
-
-          return( $unique ? $return[0] : $return );
+            }
+            return( $unique ? $return[0] : $return );
         }
+      }
     }
 
 
@@ -316,42 +323,44 @@ class PostgreSQL implements Service
         return $query;
     }
     
-    private static function parseFilter( $filter ,&$map){
-    
-    if( !is_array( $filter ) || count($filter) <= 0) return null;
-                
-    $op = self::parseOperator( array_shift( $filter ) );
-        
-    if( is_array($filter[0]) )
+    private static function parseFilter( $filter ,$map)
     {
-        $nested = array();
-
-        foreach( $filter as $i => $f )
-                if( $n = self::parseFilter( $f , $map))
-                    $nested[] = $n; 
-
-                
-        return (count($nested) > 0 ) ? '('.implode( ' '.$op.' ', $nested ).')' : '';
-    }
-
-        if(!isset($map[$filter[0]])) return '';
+      if( !is_array( $filter ) || count($filter) <= 0) return null;
                   
-        $filter[0] = $map[$filter[0]];
-        
-    $igSuffix = $igPrefix = '';
+      $op = self::parseOperator( array_shift( $filter ) );
+          
+      if( is_array($filter[0]) )
+      {
+          $nested = array();
+
+          foreach( $filter as $i => $f )
+                  if( $n = self::parseFilter( $f , $map))
+                      $nested[] = $n; 
+
+                  
+          return (count($nested) > 0 ) ? '('.implode( ' '.$op.' ', $nested ).')' : '';
+      }
+
+      if(!isset($map[$filter[0]])) return '';
                 
-    if( strpos( $op[0], 'i' ) === 0 )
-    {
-        $op[0] = substr( $op[0], 1 );
-        $filter[0] = 'upper("'.$filter[0].'")';
-        $igPrefix = 'upper(';
-        $igSuffix = ')';
-    }
+      $filter[0] = $map[$filter[0]];
+          
+      $igSuffix = $igPrefix = '';
+                  
+      if( strpos( $op[0], 'i' ) === 0 )
+      {
+          $op[0] = substr( $op[0], 1 );
+          $filter[0] = 'upper("'.$filter[0].'")';
+          $igPrefix = 'upper(';
+          $igSuffix = ')';
+      }
 
-    if( is_array($filter[1]) )
-        return( $filter[0].' '.$op[0]." ($igPrefix'".implode( "'$igSuffix,$igPrefix'", array_map("pg_escape_string" , $filter[1]) )."'$igSuffix)" );
-
-    return( $filter[0].' '.$op[0]." $igPrefix'".$op[1].pg_escape_string( $filter[1] ).$op[2]."'$igSuffix" );
+      if( isset($filter[1]) && is_array($filter[1]) )
+      {
+        return ( $filter[0].' '.$op[0]." ($igPrefix'".implode( "'$igSuffix,$igPrefix'", array_map("pg_escape_string" , $filter[1]) )."'$igSuffix)" );
+      }
+      
+      return ($filter[0].' '.$op[0]." $igPrefix'".$op[1].(isset($filter[1])?pg_escape_string($filter[1]):"").$op[2]."'$igSuffix" );
     }
 
     private static function parseOperator( $op ){
