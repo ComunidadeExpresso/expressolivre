@@ -29,13 +29,12 @@
 		$GLOBALS['celepar_tpl']->set_block('navbar','sidebox_hide_footer','sidebox_hide_footer');
 		$GLOBALS['celepar_tpl']->set_block('navbar','appbox','appbox');
 		$GLOBALS['celepar_tpl']->set_block('navbar','navbar_footer','navbar_footer');
+                $GLOBALS['celepar_tpl']->set_block('navbar','help_link_block','help_link_block');
 		
 	        $GLOBALS['celepar_tpl']->set_var('my_preferences', lang("My Preferences"));
                 $GLOBALS['celepar_tpl']->set_var('title_my_preferences', lang("Click here to change your Expresso password and other preferences"));
                 $GLOBALS['celepar_tpl']->set_var('title_suggestions', lang("Send your critics, doubts or suggestions"));
                 $GLOBALS['celepar_tpl']->set_var('suggestions', lang("Suggestions"));
-                $GLOBALS['celepar_tpl']->set_var('help', lang("Help"));
-                $GLOBALS['celepar_tpl']->set_var('title_help', lang("Click here for help"));
 
 		$var['img_root'] = $GLOBALS['phpgw_info']['server']['webserver_url'] . '/phpgwapi/templates/celepar/images';
 		$var['dir_root'] = $GLOBALS['phpgw_info']['server']['webserver_url'];
@@ -64,8 +63,24 @@
 		
 		$i = 0;
 		foreach($GLOBALS['phpgw_info']['navbar'] as $app => $app_data)
-		{
-			
+		{                   
+                                if($app == 'help')
+                                {
+                                    if($app_data['status'] != 0 && $app_data['enabled'] == true )
+                                    {
+
+                                        $GLOBALS['celepar_tpl']->set_var('help', lang("Help"));
+                                        $GLOBALS['celepar_tpl']->set_var('title_help', lang("Click here for help"));
+                                        $GLOBALS['celepar_tpl']->parse('help_link','help_link_block');
+
+                                    }
+                                }
+
+                                if($app_data['enabled'] == false || $app_data['status'] == 0)
+                                {
+                                    continue;
+                                }
+                                
 				if($app != 'preferences' && $app != 'about' && $app != 'logout')
 				{
 					$title = $GLOBALS['phpgw_info']['apps'][$app]['title'];

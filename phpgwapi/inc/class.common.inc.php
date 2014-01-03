@@ -1140,7 +1140,11 @@
 					$GLOBALS['phpgw_info']['navbar'][$app]['title'] = $GLOBALS['phpgw_info']['apps'][$app]['title'];
 					$GLOBALS['phpgw_info']['navbar'][$app]['url']   = $GLOBALS['phpgw']->link('/' . $app . '/index.php',$GLOBALS['phpgw_info']['flags']['params'][$app]);
 					$GLOBALS['phpgw_info']['navbar'][$app]['name']  = $app;
-
+                                        
+                                        //Add 'status' and 'enabled' to global navbar
+                                        $GLOBALS['phpgw_info']['navbar'][$app]['enabled'] = $data['enabled'];
+                                        $GLOBALS['phpgw_info']['navbar'][$app]['status']  = $data['status'];
+                                        
 					// create popup target
 					if ($data['status'] == 4)
 					{

@@ -72,11 +72,11 @@
   <td width="30%" align="left" id="user_info" nowrap>{user_info}{frontend_name}</td>
   <td width="30%" id="admin_info" nowrap>{current_users}</td>
   <td style="padding-right:10px" width="*" align="right" valign="center" nowrap="true">
-  		<a href="{dir_root}/preferences" title="{title_my_preferences}" alt="{title_my_preferences}" onmouseover="javascript:self.status='{title_my_preferences}'" onmouseout="javascript:self.status=''"><img height="15px" src="{dir_root}/phpgwapi/templates/celepar/images/preferences.png"><font size="-1">{my_preferences}</font></a>
-  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  		<a href="#" title="{title_suggestions}" alt="{title_suggestions}" onmouseover="javascript:self.status='{title_suggestions}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(400,550,'{dir_root}/help/enviasugestao.php')"><img src="{dir_root}/phpgwapi/templates/celepar/images/criticas.jpg"><font size="-1">{suggestions}</font></a>
-  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<a href="#" title="{title_help}" alt="{title_help}" onmouseover="javascript:self.status='{title_help}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(480,510,'{dir_root}/help')"><img src="{dir_root}/phpgwapi/templates/celepar/images/ajuda.jpg"><font size="-1">{help}</font></a>
+    <a href="{dir_root}/preferences" title="{title_my_preferences}" alt="{title_my_preferences}" onmouseover="javascript:self.status='{title_my_preferences}'" onmouseout="javascript:self.status=''"><img height="15px" src="{dir_root}/phpgwapi/templates/celepar/images/preferences.png"><font size="-1">{my_preferences}</font></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="#" title="{title_suggestions}" alt="{title_suggestions}" onmouseover="javascript:self.status='{title_suggestions}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(400,550,'{dir_root}/help/enviasugestao.php')"><img src="{dir_root}/phpgwapi/templates/celepar/images/criticas.jpg"><font size="-1">{suggestions}</font></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {help_link}
   </td>
  </tr>
 </table>
@@ -92,6 +92,11 @@
   }	
 </script>
 <!-- END navbar_header -->
+
+<!-- BEGIN help_link_block -->
+    <a href="#" title="{title_help}" alt="{title_help}" onmouseover="javascript:self.status='{title_help}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(480,510,'{dir_root}/help/')"><img src="{dir_root}/phpgwapi/templates/{template}/images/help.png" width="16px"><font id="links_bar">{help}</font></a>
+<!-- END help_link_block -->
+
 <!-- BEGIN appbox -->	
 	<div id="divSubContainer">
 		<table width="100%" cellspacing="0" cellpadding="0" border="0">
