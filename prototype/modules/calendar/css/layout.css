@@ -535,6 +535,9 @@ label.messagesHelpers{display: block; position: absolute; left: 60px; top: 21px;
 	margin-top:2px;
 	background-position: -500px -10px;
 }
+
+.my-groups-task{ font-size: 12px; }
+
 .my-calendars {
   font-size: 12px;
   padding-top: 3px;
