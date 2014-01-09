@@ -41,6 +41,9 @@
   {
     $(document).ready(function()
     {   
+      //Set Focus
+      $("form[name=flogin]").find("input[name=user]").focus();
+
       // Element Form
       formLogin = $("form[name=flogin]");
 
@@ -56,7 +59,7 @@
         $('#passwd').keypad({
              keypadOnly: false,
              showOn: 'button', 
-             layout: $.keypad.qwertyLayout,
+             layout: $.keypad.qwertyLayoutWithOutEnter,
              buttonImageOnly: true,
              buttonImage: './prototype/plugins/jquery.keyboard/keypad.png'
         });
@@ -94,3 +97,20 @@
   window.loginExpresso = new loginExpresso;
 
 })();
+
+jQuery(document).ready(function($)
+{
+  $(window).bind('resize', function() 
+  {
+    var _mainDiv = $('.keypad-popup');
+
+    if( _mainDiv.is(':visible') )
+    {
+      _mainDiv.position({
+        my: "right bottom",
+        at: "right bottom",
+        of: window
+      });
+    }
+  });
+})

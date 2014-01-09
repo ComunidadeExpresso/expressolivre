@@ -70,26 +70,23 @@ DataLayer.codec( "calendarSignature", "calendar", {
 	    return {
 		events: function( start, end, callback ){
 		    var viewKey = start + ':' + end;
-		    if( Calendar.currentViewKey !== viewKey ){
-			Calendar.currentViewKey = viewKey;
-			Calendar.currentView =  DataLayer.encode('schedulable:calendar', DataLayer.dispatch('modules/calendar/schedules', DataLayer.criteria('schedulable:calendar', {start: start,end: end}))  );   //DataLayer.get( 'schedulable:calendar', {start: start,end: end} );
+		    if( Calendar.currentViewKey !== viewKey )
+		    {
+				Calendar.currentViewKey = viewKey;
+				Calendar.currentView =  DataLayer.encode('schedulable:calendar', DataLayer.dispatch('modules/calendar/schedules', DataLayer.criteria('schedulable:calendar', {start: start,end: end}))  );   //DataLayer.get( 'schedulable:calendar', {start: start,end: end} );
 		    }
 
-		    if( signature.calendar != undefined )
-		    {	
-	            if( !!Calendar.currentView[ signature.calendar.id ])
-	            {
-	                if(signature.hidden == true  )
-	                    Calendar.currentView[ signature.calendar.id ].hidden = true;
-	                else
-	                    Calendar.currentView[ signature.calendar.id ].hidden = false;
-	            }
+            if( !!Calendar.currentView[ signature.calendar.id ])
+            {
+                if(signature.hidden == true  )
+                    Calendar.currentView[ signature.calendar.id ].hidden = true;
+                else
+                    Calendar.currentView[ signature.calendar.id ].hidden = false;
+            }
 
-			    var view = Calendar.currentView[ signature.calendar.id ];
+		    var view = Calendar.currentView[ signature.calendar.id ];
 
-
-			    callback( view && !view.hidden ? view : [] );
-			}
+		    callback( view && !view.hidden ? view : [] );
 		},
 
 		backgroundColor: '#' + signature.backgroundColor || User.preferences.backgroundColor,

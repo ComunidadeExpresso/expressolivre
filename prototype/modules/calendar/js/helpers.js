@@ -193,27 +193,28 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
         });
     }
 
-    if(path == undefined)
-	path = "";
+    if( path == undefined ) path = "";
 	
-    if( !decoded )
-	objEvent = DataLayer.decode("schedulable:calendar", objEvent );
+    if( !decoded ){ objEvent = DataLayer.decode("schedulable:calendar", objEvent ); }
 
 	var dtstamp = objEvent.dtstamp;
-    if(!isMail)
-		objEvent = DataLayer.encode( "schedulable:preview", objEvent );
+    
+    if(!isMail){ objEvent = DataLayer.encode( "schedulable:preview", objEvent ); }
+	
 	if (!dtstamp)
 		var date = new Date();
 	else
 		var date = new Date(parseInt(dtstamp));
+	
 	objEvent.creationDate = [];
 	objEvent.creationDate[0] = dateFormat(parseInt(dtstamp),'dd/mm/yyyy');
 	objEvent.creationDate[1] = date.getHours();
 	objEvent.creationDate[2] = date.getMinutes();	
     
-    if(typeof(objEvent.id) == 'undefined'){
-	objEvent.alarms = Calendar.signatureOf[User.preferences.defaultCalendar || Calendar.calendarIds[0]].defaultAlarms || false;
-	objEvent.useAlarmDefault = 1;
+    if( typeof(objEvent.id) == 'undefined' )
+    {
+		objEvent.alarms = Calendar.signatureOf[User.preferences.defaultCalendar || Calendar.calendarIds[0] ].defaultAlarms || false;
+		objEvent.useAlarmDefault = 1;
     }
 	
     /**

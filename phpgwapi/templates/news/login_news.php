@@ -13,6 +13,21 @@
 
 	require_once "logout_code.php";
 
+	$ifMobile = false;
+	// $browser = CreateObject('phpgwapi.browser');
+	// switch ( $browser->get_platform() )
+	// {
+	// 	case browser::PLATFORM_IPHONE:
+	// 	case browser::PLATFORM_IPOD:
+	// 	case browser::PLATFORM_IPAD:
+	// 	case browser::PLATFORM_BLACKBERRY:
+	// 	case browser::PLATFORM_NOKIA:
+	// 	case browser::PLATFORM_ANDROID:
+	// 		$ifMobile = true;						
+	// 		break;
+	// }
+	
+
 	/* Program starts here */
 	if($GLOBALS['phpgw_info']['server']['auth_type'] == 'http' && isset($_SERVER['PHP_AUTH_USER']))
 	{
@@ -83,29 +98,10 @@
 				unset($_SESSION['CAPTCHAString']);
 			}
 		}
-		
-		if( $_POST['user'] )
+
+		if( $_POST['user'] && (trim($_POST['user']) != "") )
 		{
-			if($GLOBALS['phpgw_info']['server']['use_prefix_organization'])
-			{
-				$common		= CreateObject('phpgwapi.common');
-				$ldap_conn	= $common->ldapConnect();
-				$justthese	= array("uid");
-				$filter		= "(&(phpgwAccountType=u)(uid=".$_POST['user']."))";
-				$ldap_search	= ldap_search($ldap_conn, $GLOBALS['phpgw_info']['server']['ldap_context'], $filter, $justthese);
-				$ldap_info 	 	= ldap_get_entries($ldap_conn, $ldap_search);
-				
-				ldap_close($ldap_conn);
-				
-				if( $ldap_info['count'] != 0 )
-				{
-					$_POST['login'] = $_POST['user'];
-				}
-			}
-			else
-			{
-				$_POST['login'] = $_POST['user'];
-			}
+	 		$_POST['login'] = $_POST['user'];
 		}
 		
 		if(getenv('REQUEST_METHOD') != 'POST' && $_SERVER['REQUEST_METHOD'] != 'POST' &&
@@ -122,16 +118,7 @@
 		{
 			$login = $_POST['login'];
 		}
-		
-		if( strstr($login,'@') === False && isset($_POST['logindomain']) )
-		{
-			$login .= '@' . $_POST['logindomain'];
-		}
-		elseif(!isset($GLOBALS['phpgw_domain'][$GLOBALS['phpgw_info']['user']['domain']]))
-		{
-			$login .= '@'.$GLOBALS['phpgw_info']['server']['default_domain'];
-		}
-		
+
 		if( !$_GET['cd'] )
 		{
 			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create(strtolower($login),$passwd,$passwd_type,'u');
@@ -189,7 +176,6 @@
 	if( isset( $_COOKIE['last_loginid'] ) )
 	{
 		$accounts = CreateObject('phpgwapi.accounts');
-
 		$prefs = CreateObject('phpgwapi.preferences', $accounts->name2id($_COOKIE['last_loginid']));
 
 		if($prefs->account_id)
@@ -199,7 +185,6 @@
 	}
 	
 	$_GET['lang'] = addslashes($_GET['lang']);
-	
 	if ($_GET['lang'])
 	{
 		$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $_GET['lang'];
@@ -216,66 +201,11 @@
 	$GLOBALS['phpgw']->translation->add_app('login');
 	$GLOBALS['phpgw']->translation->add_app('loginscreen');
 
-	// OUs LDAP
-	$show_Organization = "none";
-	
-	if( $GLOBALS['phpgw_info']['server']['use_prefix_organization'] )
-	{
-		$show_Organization = "block";
-
-		$obj_organization = CreateObject('phpgwapi.sector_search_ldap');
-		
-		$organizations = $obj_organization->organization_search($GLOBALS['phpgw_info']['server']['ldap_context']);
-		
-		for ($i=0; $i<count($organizations); $i++)
-		{
-			$tmp_array[strtolower($organizations[$i])] = $organizations[$i];	
-		}
-		
-		$arrayOrganization = $tmp_array;		
-		
-		ksort($arrayOrganization);
-		
-		foreach($arrayOrganization as $organization_name => $organization_vars)
-		{
-			$organization_select .= '<option value="' . $organization_name . '"';
-
-			if( $organization_name == $_COOKIE['last_organization'] )
-			{
-				$organization_select .= ' selected';
-			}
-			$organization_select .= '>' . $organization_vars . "</option>\n";
-		}
-
-		$tmpl->set_var('select_organization',$organization_select);
-	}
-
-	$tmpl->set_var( 'show_organization', $show_Organization );
-		
-	$domain_select = '&nbsp;';
-
+	// Get cookie last_loginid
 	$last_loginid = $_COOKIE['last_loginid'];
-	
-	if( $GLOBALS['phpgw_info']['server']['show_domain_selectbox'] )
-	{
-		$domain_select = "<select name=\"logindomain\">\n";
-		
-		foreach($GLOBALS['phpgw_domain'] as $domain_name => $domain_vars)
-		{
-			$domain_select .= '<option value="' . $domain_name . '"';
-
-			if($domain_name == $_COOKIE['last_domain'])
-			{
-				$domain_select .= ' selected';
-			}
-			$domain_select .= '>' . $domain_name . "</option>\n";
-		}
-		$domain_select .= "</select>\n";
-	}
-	elseif($last_loginid !== '')
+	if($last_loginid !== '')
 	{
 		reset($GLOBALS['phpgw_domain']);
-		
 		list($default_domain) = each($GLOBALS['phpgw_domain']);
 
 		if($_COOKIE['last_domain'] != $default_domain && !empty($_COOKIE['last_domain']))
@@ -284,11 +214,9 @@
 		}
 	}
 
-	$tmpl->set_var('select_domain',$domain_select);
-
  	foreach($_GET as $name => $value)
 	{
-		if( preg_match('/phpgw_/i', $name ) )
+		if(ereg('phpgw_',$name))
 		{
 			$extra_vars .= '&' . $name . '=' . urlencode($value);
 		}
@@ -426,13 +354,6 @@
 	if(is_file(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php'))
 	include_once(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php');
 	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br>' . $ultima_revisao);
-
-	// Adiciona código personalizado de outro template
-	// que esteja utilizando o login_default.php
-	if(is_file('.'.$template_dir.'/login.inc.php'))
-	{
-		include_once('.'.$template_dir.'/login.inc.php');
-	}
 
 	$tmpl->pfp('loginout','login_form');
 

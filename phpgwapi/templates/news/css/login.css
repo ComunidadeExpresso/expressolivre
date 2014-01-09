@@ -1,152 +1,45 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
-body {
-	font:12px Arial, Helvetica, sans-serif;
-	color:#333;
-}
+body { font:12px Arial, Helvetica, sans-serif; color:#333; }
 
+#main { display:block; height:500px; background:url(../images/bg_main_azul.jpg) no-repeat center top; }
 
-
-#main {
-	display:block;
-	height:500px;
-	/*background:url(../images/bg_main_default.jpg) no-repeat center top;*/
-	background:url(../images/bg_main_azul.jpg) no-repeat center top;
-}
-#main #login {
-	display:block;
-	width:284px;
-	min-height:354px;
-	padding:25px;
-	background:#FFF url(../images/bg_box_login.jpg) no-repeat;
-	position:absolute;
-	top:37px;
-	left:50%;
-	margin-left:97px;
-	border:1px solid #CCC;
-	-moz-box-shadow: 0 0 12px #999;
-	-webkit-box-shadow: 0 0 12px #999;
-	box-shadow: 0 0 12px #999;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=12, Direction=180, Color='#999999')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=12, Direction=180, Color='#999999');
-}
-#main #login h1 {
-	display:block;
-	width:278px;
-	height:125px;
-	background:url(../images/logo_expresso_login.png) no-repeat center;
-	overflow:hidden;
-	text-indent:-1000px;
-}
-#main #login label, #main #login input, #main #login select {display:block;clear:both;}
-#main #login label {color:#203184;font-size:1.083em;text-align:left;}
+#main #login { display:block; width:284px; min-height:354px; padding:25px; background:#FFF url(../images/bg_box_login.jpg) no-repeat; }
+#main #login { position:absolute; top:37px; left:50%; margin-left:97px; border:1px solid #CCC; }
+#main #login { -moz-box-shadow: 0 0 12px #999; -webkit-box-shadow: 0 0 12px #999; box-shadow: 0 0 12px #999; }
+#main #login h1 { display:block; width:284px; height:125px; background:url(../images/logo_expresso_login.png) no-repeat center; }
+#main #login h1 { overflow:hidden; text-indent:-1000px; }
+#main #login label, #main #login input, #main #login select { display:block;clear:both; }
+#main #login label { color:#203184;font-size:1.083em;text-align:left; }
 #main #login #user, #main #login #passwd, #main #login #organizacao {display:block;width:292px;height:35px;padding:5 10px;border:1px solid #BABABA;background:#FFF;color:#666;font-size:1.083em;}
-#main #login #organizacao, #main #login #user {margin-bottom:7px;}
-#main #login #organizacao { padding:5px;}
-#main #login #submitit{display:block;width:77px;height:32px;background:url(../images/bt_login.png) no-repeat;text-indent:-1000px;overflow:hidden;border:none;margin:14px 0;float:left;font-size:0;}
-#main #login .bt-keyboard {display:block;width:32px;height:28px;background:url(../images/icon_teclado.png);text-indent:-1000px;overflow:hidden;float:left;margin:14px 10px;}
+#main #login #organizacao, #main #login #user { margin-bottom:7px; padding-left: 5px; font-size:12pt; }
+#main #login #organizacao, #main #login #passwd { padding-left: 5px; font-size:12pt; }
+#main #login #organizacao { padding:5px; }
+#main #login #submitit { display:block;width:77px;height:32px;background:url(../images/bt_login.png) no-repeat;text-indent:-1000px;overflow:hidden;border:none;margin:14px 0;float:left;font-size:0; }
+#main #login .bt-keyboard { display:block;width:32px;height:28px;background:url(../images/icon_teclado.png);text-indent:-1000px;overflow:hidden;float:left;margin:14px 10px;}
+#main #login #msg-login { display:block;padding:10px;border:1px solid #333;clear:both; }
+#main #login #msg-login.alerta { color:#D9A300;border-color:#FFDC73;background:#FFFFBF; }
+#main #login #msg-login.erro { color:#9C3030;border-color:#E29494;background:#F5DEDE; }
+#main #login #msg-login.sucesso { color:#0072C5;border-color:#97D2FF;background:#D9EFFF; }
 
-#main #login #msg-login {display:block;padding:10px;border:1px solid #333;clear:both;}
-#main #login #msg-login.alerta {color:#D9A300;border-color:#FFDC73;background:#FFFFBF;}
-#main #login #msg-login.erro {color:#9C3030;border-color:#E29494;background:#F5DEDE;}
-#main #login #msg-login.sucesso {color:#0072C5;border-color:#97D2FF;background:#D9EFFF;}
+#main #information-login { display:block; width:500px; height:424px; overflow:hidden; position:absolute; top:37px; left:50%; }
+#main #information-login { margin-left:-448px; z-index:5000; }
 
-#main #informacao-login {
-	display:block;
-	width:500px;
-	height:424px;
-	overflow:hidden;
-	position:absolute;
-	top:37px;
-	left:50%;
-	margin-left:-448px;
-	z-index:5000;
-}
-#main #informacao-login ul {
-	display:block;
-	width:500px;
-	height:424px;
-}
-#main #informacao-login span {display:block;clear:both;height:0;overflow:hidden;}
-#nav-informacao-login {
-	display: block;
-    height: 12px;
-    left: 50%;
-    margin-left: -448px;
-    position: absolute;
-    top: 472px;
-    z-index: 9999;
-}
-#nav-informacao-login a {
-    display: block;
-    float: left;
-    width: 12px;
-	height: 12px;
-    margin: 0 4px 0 0;
-    overflow: hidden;
-    text-decoration: none;
-	text-indent: -1000px;
-	background:#CCC;
-}
-#nav-informacao-login a.activeSlide {
-    background:#DDD;
-}
-#nav-informacao-login-control.play-pause {
-    background: url("../images/icon_play_pause.png") left top #DFDFDF;
-    float: right;
-    margin-right: 0;
-    text-indent: -1000px;
-	
-	display: block;
-    float: left;
-    width: 12px;
-	height: 12px;
-    margin: 0 4px 0 0;
-    overflow: hidden;
-    text-decoration: none;
-	text-indent: -1000px;
-	position:absolute;
-	top:472px;
-	left:50%;
-	margin-left:48px;
-}
-#nav-informacao-login-control.play {background-position:bottom;}
-#footer {
-	display:block;
-	text-align:center;
-	padding:20px 0;
-	color:#006699;
-	font-size:0.917em;
-}
-#footer ul {
-	display:block;
-	margin:0 auto;
-	width:290px;
-}
-#footer li {
-	float:left;
-	width:130px;
-	text-align:center;
-}
+#main #information-login ul { display:block; width:500px; height:424px; }
+#main #information-login span {display:block;clear:both;height:0;overflow:hidden;}
+
+#nav-information-login { display:block; width:500px; height:12px; left:50%; margin-left:-448px; position:absolute; top:472px; z-index:9999; }
+#nav-information-login a { display:block; float:left; width:12px; height: 12px; margin: 0 4px 0 0; overflow: hidden; text-decoration: none; }
+#nav-information-login a { text-indent: -1000px; background:#CCC; }
+#nav-information-login a.activeSlide { background:#DDD; }
+#nav-information-login-control.play-pause { background: url("../images/icon_play_pause.png") left top #DFDFDF; float: right; }
+#nav-information-login-control.play {background-position:bottom;}
+#footer { display:block; text-align:center; padding:20px 0; color:#006699; font-size:0.917em; }
+#footer ul { display:block; margin:0 auto; width:290px; }
+#footer li { float:left; width:130px; text-align:center; }
 #footer .logo-governo,
-#footer .logo-celepar {
-	display:block;
-	float:left;
-	overflow:hidden;
-	text-indent:-1000px;
-}
-#footer .logo-governo {
-	width:83px;
-	height:71px;
-	background:url(../images/logo_govparana_83x71.png) no-repeat;
-}
-#footer .logo-celepar {
-	width:104px;
-	height:49px;
-	background:url(../images/logo_celepar_104x49.png) no-repeat;
-	margin:0 10px;
-}
+#footer .logo-celepar { display:block; float:left; overflow:hidden; text-indent:-1000px; }
+#footer .logo-governo { width:83px; height:71px; background:url(../images/logo_govparana_93x70.gif) no-repeat; }
+#footer .logo-celepar {	width:104px; height:49px; background:url(../images/logo_celepar_104x49.png) no-repeat; margin:0 10px; }
 #footer span {display:block;clear:both;}

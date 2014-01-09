@@ -54,18 +54,15 @@
 		exit;
 	}
 		
-	if($_POST)
+	if( $_POST )
 	{
 	    $accountInfo = $GLOBALS['phpgw']->accounts->read_repository();
-	    isset($_COOKIE[ 'sessionid' ]) ? session_id($_COOKIE[ 'sessionid' ]) : session_id(); 
+	    isset( $_COOKIE[ 'sessionid' ] ) ? session_id( $_COOKIE[ 'sessionid' ] ) : session_id(); 
 	    session_start();
+	    
 	    //Carregando na sessão configurações do usuario usado na nova API.	
-	    $_SESSION['wallet']['user']['uid']	          =  $accountInfo['account_lid'];
-	    $_SESSION['wallet']['user']['uidNumber']      =  $accountInfo['account_id'];
 	    $_SESSION['wallet']['user']['password']       =  $_POST['passwd'];
-	    $_SESSION['wallet']['user']['cn']             =  $accountInfo['firstname'].' '.$accountInfo['lastname'];
-	    $_SESSION['wallet']['user']['mail']           =  $accountInfo['email'];
-
+	    
 	    $_SESSION['wallet']['Sieve']['user']          =  $accountInfo['account_lid'];
 	    $_SESSION['wallet']['Sieve']['password']      =  $_POST['passwd'];
 
@@ -120,7 +117,7 @@
   	{
 		session_start();
   	}
-		  			
+
 	include(personalize_include_path('phpgwapi','login'));
             
 ?>

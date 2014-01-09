@@ -812,7 +812,7 @@
 		});
 	}	
 	
-	$("#dialog-modal_help").live("dialogclose", function(){
+	$("#dialog-modal_help").on("dialogclose", function(){
 		if(!is_ie)
 			$( "#amount-text" ).focus();
 	});

@@ -987,8 +987,8 @@ var $mailpreview_tabs = $( "#mailpreview_container").tabs({
 	}
 });
 
-$( "#mailpreview_container span.ui-icon-close" ).unbind("click");
-$( "#mailpreview_container span.ui-icon-close" ).live( "click", function(e) {
+$( "#mailpreview_container span.ui-icon-close" ).off("click");
+$( "#mailpreview_container span.ui-icon-close" ).on( "click", function(e) {
 	var index = $("li", $mailpreview_tabs).index($(this).parent());
 	$mailpreview_tabs.tabs("remove", index);
 	e.stopImmediatePropagation();

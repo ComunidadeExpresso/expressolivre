@@ -39,6 +39,13 @@ function Keypad() {
 		this.SPACE + 'zxcvbnm,.?' + this.SPACE + this.HALF_SPACE + '-0+',
 		'' + this.TAB + this.ENTER + this.SPACE_BAR + this.SHIFT +
 		this.HALF_SPACE + this.BACK + this.CLEAR];
+	this.qwertyLayoutWithOutEnter = ['!@#$%^&*()_=' + this.HALF_SPACE + this.SPACE + this.CLOSE,
+		this.HALF_SPACE + '`~[]{}<>\\|/' + this.SPACE + '789',
+		'qwertyuiop\'"' + this.HALF_SPACE + '456',
+		this.HALF_SPACE + 'asdfghjkl;:' + this.SPACE + '123',
+		this.SPACE + 'zxcvbnm,.?' + this.SPACE + this.HALF_SPACE + '-0+',
+		'' + this.TAB + this.SPACE_BAR + this.SHIFT +
+		this.HALF_SPACE + this.BACK + this.CLEAR];
 	this.regional = []; // Available regional settings, indexed by language code
 	this.regional[''] = { // Default regional settings
 		buttonText: '...', // Display text for trigger button
@@ -375,13 +382,23 @@ $.extend(Keypad.prototype, {
 		var offset = {left: plugin._pos[0], top: plugin._pos[1]};
 		plugin._pos = null;
 		// determine sizing offscreen
-		inst._mainDiv.css({position: 'absolute', display: 'block', top: '-1000px',
-			width: ($.browser.opera ? '1000px' : 'auto')});
+		inst._mainDiv.css({
+			'position'	: 'absolute', 
+			'display'	: 'block', 
+			'top'		: '-1000px', 
+			'z-index'	: '9999',
+			'min-width'	: '493px'});
+
 		plugin._updateKeypad(inst);
 		// and adjust position before showing
 		offset = plugin._checkOffset(inst, offset, isFixed);
-		inst._mainDiv.css({position: (isFixed ? 'fixed' : 'absolute'), display: 'none',
-			left: offset.left + 'px', top: offset.top + 'px'});
+		
+		inst._mainDiv.position({
+			my: "right bottom",
+			at: "right bottom",
+			of: window
+		});
+
 		var duration = inst.options.duration;
 		duration = (duration == 'normal' && $.ui && $.ui.version >= '1.8' ? '_default' : duration);
 		var showAnim = inst.options.showAnim;
