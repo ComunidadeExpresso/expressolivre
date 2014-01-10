@@ -34,7 +34,7 @@ if($_POST){
 	$_SESSION['phpgw_info']['expressomail']['email_server'] = $boemailadmin->getProfile($emailadmin_profile[0]['profileID']);
 	$_SESSION['phpgw_info']['expressomail']['server'] = $GLOBALS['phpgw_info']['server'];		
 	$_SESSION['phpgw_info']['expressomail']['user']['email'] = $GLOBALS['phpgw']->preferences->values['email'];									
-	$expressoMail = CreateObject('expressoMail1_2.imap_functions');			
+	$expressoMail = CreateObject('expressoMail.imap_functions');			
 	$returncode = $expressoMail->send_mail($params);
 	if (!$returncode) {
 		echo "$to<Br>$subject<br>$tmpbody<br>$sender<br>\n";

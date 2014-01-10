@@ -1,0 +1,199 @@
+Account Active	expressoAdmin	es-es	Cuenta Activa
+Account Invisible	expressoAdmin	es-es	Ocultar esta cuenta de las búsquedas y del Catálogo General?
+AcctFlags	expressoAdmin	es-es	Tipo de Cuenta
+Active email account	expressoAdmin	es-es	Cuenta de E-mail activa
+Add Email Lists	expressoAdmin	es-es	Añadir listas de e-mails
+Add email lists	expressoAdmin	es-es	Crear listas de E-mail
+Add Groups	expressoAdmin	es-es	Añadir grupos
+Add groups	expressoAdmin	es-es	Crear grupos
+Add Manager	expressoAdmin	es-es	Añadir Gerente
+Add Managers	expressoAdmin	es-es	Añadir Gerentes
+Add Samba Domain	expressoAdmin	es-es	Crear dominio Samba
+Add Samba Domains	expressoAdmin	es-es	Crear dominios Samba
+Add Sectores	expressoAdmin	es-es	Añadir Sectores
+Add Sectors	expressoAdmin	es-es	Crear Sector
+Add Sub-Sectors	expressoAdmin	es-es	Añadir Sub-Sectores
+Add User	expressoAdmin	es-es	Añadir Usuario
+Add users	expressoAdmin	es-es	Añadir Usuarios
+Alias email	expressoAdmin	es-es	E-mail alternativo
+All users, groups and sub-sectors of this sector will be DELETED!	expressoAdmin	es-es	¡Todos los usuarios, grupos y subsectores de este sector serán ELIMINADOS!
+Anonymous	expressoAdmin	es-es	Anónimo
+Aplication Permission	expressoAdmin	es-es	Permiso de aplicativos
+App Info	expressoAdmin	es-es	Info sobre aplicativos
+Applications	expressoAdmin	es-es	Aplicativos
+Applications for this group	expressoAdmin	es-es	Aplicativos para este grupo
+Change password	expressoAdmin	es-es	Cambiar seña
+Change users password	expressoAdmin	es-es	Cambiar señas de los usuarios
+Change users quote	expressoAdmin	es-es	Cambiar cota de los usuarios 
+Computer	expressoAdmin	es-es	Computadora
+Computers	expressoAdmin	es-es	Computadoras
+Computer Type	expressoAdmin	es-es	Tipo de Computadora
+Computer UID	expressoAdmin	es-es	UID de la Computadora
+Content the folling groups	expressoAdmin	es-es	Contiene los siguientes grupos
+Content the folling sectors	expressoAdmin	es-es	Contiene los siguientes grupos
+Content the folling users	expressoAdmin	es-es	Contiene los siguientes usuarios
+Context	expressoAdmin	es-es	Contexto
+Context	expressoAdmin	es-es	Contexto
+Contexts	expressoAdmin	es-es	Contextos
+Corporative Information	expressoAdmin	es-es	Infomaciones Corporativas
+cpf	expressoAdmin	es-es	CPF
+Create Computers	expressoAdmin	es-es	Crear computadoras
+Create Email List	expressoAdmin	es-es	Crear Lista de E-mail
+Create Group	expressoAdmin	es-es	Crear Grupo de Usuarios
+Create Organizations	expressoAdmin	es-es	Crear Organizaciones
+Create Sector	expressoAdmin	es-es	Crear Sector
+Create Sectors	expressoAdmin	es-es	Crear sectores
+Create User	expressoAdmin	es-es	Crear Usuario
+Delete computers	expressoAdmin	es-es	Eliminar computadoras
+Delete email lists	expressoAdmin	es-es	Eliminar listas de e-mails
+Delete Group	expressoAdmin	es-es	Eliminar Grupo
+Delete groups	expressoAdmin	es-es	Eliminar grupos
+Delete Organizations	expressoAdmin	es-es	Eliminar organizaciones
+Delete Sectors	expressoAdmin	es-es	Eliminar sectores
+Delete user	expressoAdmin	es-es	Excluir Usuario
+Delete users	expressoAdmin	es-es	Eliminar usuarios
+Do you realy want delete this Email List?	expressoAdmin	es-es	¿Usted realmente quiere ELIMINAR esta Lista de E-mail?
+Do you realy want delete this group?	expressoAdmin	es-es	¿Usted realmente quiere ELIMINAR este Grupol?
+Do you realy want delete this sector?	expressoAdmin	es-es	¿Usted realmente desea excluir este sector?
+Edit computers	expressoAdmin	es-es	Editar computadoras
+Edit email attribute from the groups	expressoAdmin	es-es	Editar campo e-mail del grupo
+Edit Email Lists	expressoAdmin	es-es	Editar Lista de E-mail
+Edit email lists	expressoAdmin	es-es	Editar Lista de E-mails
+Edit Group	expressoAdmin	es-es	Editar Grupos
+Edit groups	expressoAdmin	es-es	Editar Grupos
+Edit Managers	expressoAdmin	es-es	Editar Gerentes
+Edit Organizations	expressoAdmin	es-es	Editar organizaciones
+Edit SAMBA domains	expressoAdmin	es-es	Editar dominios SAMBA
+Edit SAMBA users attributes	expressoAdmin	es-es	Editar atributos SAMBA
+Edit Sector	expressoAdmin	es-es	Editar Sectores
+Edit Sectors	expressoAdmin	es-es	Editar sectores
+Edit Sending Control List	expressoAdmin	es-es	Editar Lista de Control de Envío
+Edit User	expressoAdmin	es-es	Edición de Usuario
+Edit users	expressoAdmin	es-es	Editar usuarios
+Email Config	expressoAdmin	es-es	Configuración de E-mail
+Email List active	expressoAdmin	es-es	Lista de E-mail activa
+Email List name	expressoAdmin	es-es	Nombre de la Lista de E-mail
+Email Lists	expressoAdmin	es-es	Listas de E-mail
+Email Lists Logins	expressoAdmin	es-es	Autenticación de las Listas de E-mail
+Email Lists Names	expressoAdmin	es-es	Nombre de la Lista de E-mail
+Email quota in MB	expressoAdmin	es-es	Cuenta de E-mail en MB
+Employee number	expressoAdmin	es-es	Matrícula
+Empty user inbox	expressoAdmin	es-es	Baciar BUZÓN DE ENTRADA
+Error in OpenLDAP.	expressoAdmin	es-es	Error em el OpenLDAP.
+Expire	expressoAdmin	es-es	Expira
+expressoadmin1_2	common	es-es	Expresso Admin
+Forwarding email	expressoAdmin	es-es	E-mail de reenvío
+General Information	expressoAdmin	es-es	Informaciones Generales
+Global Configuration	common	es-es	Configuraciones Globales
+Group Info	expressoAdmin	es-es	Info sobre grupos
+Group Organization	expressoAdmin	es-es	Organización del Grupo
+Groups Names	expressoAdmin	es-es	Nombre de los Grupos 
+Groups Permission	expressoAdmin	es-es	Permiso de los Grupos
+Group users	expressoAdmin	es-es	Usuarios del Grupo
+Home Directory	expressoAdmin	es-es	Directorio Central
+Hour	expressoAdmin	es-es	Hora
+leave empty for no quota	expressoAdmin	es-es	deje vacio para no ocupar espacio
+Leave empty for no quota	expressoAdmin	es-es	Mantenga vacía para ninguna cuenta
+ListGroups	expressoAdmin	es-es	Lista de Grupos
+List Managers	expressoAdmin	es-es	Lista de Gerentes
+List of current users	expressoAdmin	es-es	Lista de Usuarios Conectados
+Login ID	expressoAdmin	es-es	Login
+Logon Script	expressoAdmin	es-es	Script de Logon
+Logs	expressoAdmin	es-es	Logs
+Maillist login	expressoAdmin	es-es	Autenticación de la Lista de E-mail
+Maillist Mail	expressoAdmin	es-es	E-mail de la Lista de E-mail
+Maillist name	expressoAdmin	es-es	Nombre de la Lista de E-mail
+Maillist Organization	expressoAdmin	es-es	Organización de la Lista de E-mail 
+Maillist users	expressoAdmin	es-es	Usuarios de la Lista de E-mail
+Manager LID	expressoAdmin	es-es	Autenticación del  Gerente
+Manager Login	expressoAdmin	es-es	Autenticación del  Gerente
+Manager name	expressoAdmin	es-es	Nombre del Gerente
+Managers	common	es-es	Encargados
+Manipulate corporative information	expressoAdmin	es-es	Manipular informaciones corporativas
+No matches found	expressoAdmin	es-es	Ningún registro encontrado
+Occult Sector	expressoAdmin	es-es	Ocultar sector
+Only forwarding	expressoAdmin	es-es	Solamente reenviar
+Organizations	expressoAdmin	es-es	Organizaciones
+partici lists	expressoAdmin	es-es	Participante de las Listas
+Password and Re-Password doesnt are equal.	expressoAdmin	es-es	Seña y  Contraseña no son iguales
+Password expired	expressoAdmin	es-es	Seña expirada
+Phone	expressoAdmin	es-es	Teléfono
+Photo	expressoAdmin	es-es	Fotografía
+Primary Group	expressoAdmin	es-es	Grupo Primario
+Quota used in MB	expressoAdmin	es-es	Espacio utilizado (en MB)
+Rel Lists	expressoAdmin	es-es	Relación de Listas
+Remove	expressoAdmin	es-es	Remover
+Remove User	expressoAdmin	es-es	Remover Usuario
+Remove Users	expressoAdmin	es-es	Remover Usuarios
+Rename users	expressoAdmin	es-es	Renombrar usuarios
+Re-Password	expressoAdmin	es-es	Contraseña
+rg	expressoAdmin	es-es	RG
+rguf	expressoAdmin	es-es	rgUF
+Samba Config	expressoAdmin	es-es	Configuaciones de SAMBA
+Samba domain name	expressoAdmin	es-es	Nombre del dominio Samba
+Samba domain name or SID already exist	expressoAdmin	es-es	El nombre del dominio samba o sambaSID ya existe
+Samba Domains	expressoAdmin	es-es	Dominios Samba
+Samba domain SID	expressoAdmin	es-es	SID del dominio Samba
+Samba domains name	expressoAdmin	es-es	Nombre de los dominios Samba
+Samba domains name is empty	expressoAdmin	es-es	El nombre del dominio samba esta vacío
+sambaSID	expressoAdmin	es-es	sambaSID
+Samba SID is empty	expressoAdmin	es-es	El SID del dominio samba está vacío
+Samba User Active	expressoAdmin	es-es	Usuario Samba Activo
+Samba User Desactive	expressoAdmin	es-es	Usuario Samba Deshabilitado
+scl	expressoAdmin	es-es	scl
+Search Organiztion	expressoAdmin	es-es	Buscar Organización
+Sector	expressoAdmin	es-es	Sector
+Sector name	expressoAdmin	es-es	Nombre del Sector
+Sector Name	expressoAdmin	es-es	Nombre del Sector/Organización
+Sectors	expressoAdmin	es-es	Sectores
+Select users from all sub-organizations	expressoAdmin	es-es	Seleccionar usuarios de todas las sub organizaciones
+Server	expressoAdmin	es-es	Servidor
+Set default user password	expressoAdmin	es-es	Configurar seña stándar
+Set default users password	expressoAdmin	es-es	Configurar seña stándar
+Show Session - Global	expressoAdmin	es-es	Exhibir sesiones - Global
+Show Sessions	expressoAdmin	es-es	Exhibir Sesiones
+Show Sessions - Local	expressoAdmin	es-es	Exhibir Sesiones - Local
+Show users from all sub-organizations	expressoAdmin	es-es	Exhibir usuários de todas las sub-organizaciones
+totalsessions	expressoAdmin	es-es	Total de Sesiones
+Total Sessions	expressoAdmin	es-es	Total de Sesiones
+Trust Account	expressoAdmin	es-es	Cuenta de TRUST
+User Accounts	expressoAdmin	es-es	Cuentas de usuários
+User email alredy exist.	expressoAdmin	es-es	E-mail del usuario ya registrado
+User Groups	expressoAdmin	es-es	Grupo de usuarios
+User Info	expressoAdmin	es-es	Info sobre usuario
+User login alredy exist.	expressoAdmin	es-es	Login del usuario ya registrado
+Users for inclusion	expressoAdmin	es-es	Usuarios para inclusión
+Users in Email List	expressoAdmin	es-es	Usuarios en la Lista de E-mail
+Use samba attributes	expressoAdmin	es-es	Usar atributos samba
+View email lists	expressoAdmin	es-es	Exhibir listas de e-mails
+View Log	expressoAdmin	es-es	Exhibir Log
+View logs	expressoAdmin	es-es	Exhibir Logs
+View sessions (global)	expressoAdmin	es-es	Exhibir sesiones (global)
+View sessions (local)	expressoAdmin	es-es	Exhibir sesiones (local)
+View User	expressoAdmin	es-es	Exhibir usuario
+View user	expressoAdmin	es-es	Exhibir Usuarios
+View users	expressoAdmin	es-es	Exhibir usuarios
+WorkStation Active	expressoAdmin	es-es	Estación de Trabajo (ACTIVO)
+WorkStation Desactive	expressoAdmin	es-es	Estación de Trabajo (INACTIVO)
+You dont have access to this module.	expressoAdmin	es-es	Usted no tiene acceso a este módulo
+shared accounts	expressoAdmin	es-es	Cuentas compartidas
+create shared account	expressoAdmin	es-es	Crear cuenta compartida
+to search	expressoAdmin	es-es	Buscar
+full name	expressoAdmin	es-es	Nombre completo
+mail	expressoAdmin	es-es	E-mail
+manager	expressoAdmin	es-es	Gerente
+search for manager	expressoAdmin	es-es	Buscar gerente
+access control list	expressoAdmin	es-es	Lista de control de acceso
+select all	expressoAdmin	es-es	Seleccionar todos
+edit users picture	expressoAdmin	es-es	Edición de fotos de los usuarios
+edit users phonenumber	expressoAdmin	es-es	Edición de teléfonos de usuarios
+add shared accounts	expressoAdmin	es-es	Crear cuentas compartidas
+edit shared accounts	expressoAdmin	es-es	Editar cuenta compartida
+delete shared accounts	expressoAdmin	es-es	Eliminar cuenta compartida
+edit shared accounts acl	expressoAdmin	es-es	Editar ACL de cuentas compartidas
+edit shared accounts quote	expressoAdmin	es-es	Editar contingente de cuenta compartida
+edit SCL email lists	expressoAdmin	es-es	Editar SCL de listas de correo
+add institutional accounts	expressoAdmin	es-es	Agregar cuentas institucionales
+edit institutional accounts	expressoAdmin	es-es	Editar cuentas institucionales
+remove institutional accounts	expressoAdmin	es-es	Eliminar cuentas institucionales
+Context already added or redundant	expressoAdmin	es-es	Contexto ya se agregado o redundantes

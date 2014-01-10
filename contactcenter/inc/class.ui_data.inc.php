@@ -1521,7 +1521,7 @@
 					$this->page_info['actual_page'] = $page;
 
 
-					$lnk_compose = "location.href=('../expressoMail1_2/index.php?to=";
+					$lnk_compose = "location.href=('../expressoMail/index.php?to=";
 
 					$final[5] = '<span class="link"  onclick="'.$lnk_compose;
 /**rev 104**/
@@ -1688,7 +1688,7 @@
 						// coloca mensagem de erro no vetor que retorna para o browser
 					}
 				}
-				$lnk_compose = "location.href=('../expressoMail1_2/index.php?to=";
+				$lnk_compose = "location.href=('../expressoMail/index.php?to=";
 				$final[5] = '<span class="link" onclick="'.$lnk_compose;
 				$final[6] = $prop_names;
 				$final[7] = $validos;

@@ -138,7 +138,7 @@
 	{
 		$modulo = explode('.', $_GET['menuaction']);
 		
-		if($modulo[0] == 'expressoAdmin1_2' || $modulo[0] == 'calendar')
+		if($modulo[0] == 'expressoAdmin' || $modulo[0] == 'calendar')
 		{
 			echo '<script type="text/javascript" src="prototype/plugins/jquery/jquery.min.js"></script>
 				  <script type="text/javascript" src="prototype/plugins/jquery/jquery-ui.min.js"></script>
@@ -150,13 +150,13 @@
 				  <script type="text/javascript">DataLayer.dispatchPath = "/"; REST.dispatchPath = "prototype/";REST.load("")</script>
 				  <link rel="stylesheet" type="text/css" href="prototype/plugins/zebradialog/css/zebra_dialog.css"></link>
 				  <script type="text/javascript" src="prototype/plugins/zebradialog/javascript/zebra_dialog.js"></script>	
- 				  <script src="expressoMail1_2/js/ccQuickAdd.js" type="text/javascript"></script>
+ 				  <script src="expressoMail/js/ccQuickAdd.js" type="text/javascript"></script>
 				';
 			if($modulo[0] == 'calendar')
 			{
                 echo '<link rel="stylesheet" href="prototype/plugins/jquery.jrating/jRating.jquery.css" type="text/css" />
                 <script type="text/javascript" src="prototype/plugins/jquery.jrating/jRating.jquery.js"></script>
-                <script src="expressoMail1_2/js/common_functions.js" type="text/javascript"></script>
+                <script src="expressoMail/js/common_functions.js" type="text/javascript"></script>
                 <script type="text/javascript">userContacts = false; currentTypeContact = ""; REST.get("/usercontacts", false, updateDynamicContact);</script>';
             }
 		}

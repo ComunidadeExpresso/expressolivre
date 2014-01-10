@@ -24,7 +24,7 @@ class SendSupportFeedbackResource extends MailAdapter {
 			$_SESSION['phpgw_info']['expressomail']['server'] = $GLOBALS['phpgw_info']['server'];
 			$_SESSION['phpgw_info']['expressomail']['user']['email'] = $GLOBALS['phpgw']->preferences->values['email'];
 
-			$expressoMail = CreateObject('expressoMail1_2.imap_functions');
+			$expressoMail = CreateObject('expressoMail.imap_functions');
 			$returncode   = $expressoMail->send_mail($params);
 
 			if (!$returncode || !(is_array($returncode) && $returncode['success'] == true))

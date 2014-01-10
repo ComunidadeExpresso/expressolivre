@@ -293,7 +293,7 @@ use prototype\api\Config as Config;
 			} 
         	
 			
-			if($appname=="expressoAdmin1_2") {
+			if($appname=="expressoAdmin") {
 				/* Varre a pasta inc do admin do expresso procurando scripts de geração de login automático
 				   (classes com nomes iniciados pela string 'login', procedida da string '_' mais o nome
 				   do algoritmo.

@@ -172,7 +172,7 @@
 			$dn = $allValues[0]['dn'];
 			
 			/* userPasswordRFC2617 Begin's*/
-			$c = CreateObject('phpgwapi.config','expressoAdmin1_2');
+			$c = CreateObject('phpgwapi.config','expressoAdmin');
 			$c->read_repository();
 			$current_config = $c->config_data;
 			if ($current_config['expressoAdmin_userPasswordRFC2617'] == 'true')

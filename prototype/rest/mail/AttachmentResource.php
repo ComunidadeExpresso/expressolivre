@@ -11,7 +11,7 @@ class AttachmentResource extends MailAdapter {
 		if($this-> isLoggedIn()) {
 								
 			if( $folderID && $msgID && $attachmentID) {				
-				$dir = PHPGW_INCLUDE_ROOT."/expressoMail1_2/inc";
+				$dir = PHPGW_INCLUDE_ROOT."/expressoMail/inc";
 				
 				if($this->getExpressoVersion() != "2.2"){
 					$_GET['msgFolder'] = $folderID;

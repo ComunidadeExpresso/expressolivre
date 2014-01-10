@@ -64,7 +64,7 @@
 		}
 		else
 		{
-	                return ($_GET['appname'] == 'expressoMail1_2'?'expressoMail':$_GET['appname']);	            
+	                return ($_GET['appname'] == 'expressoMail'?'expressoMail':$_GET['appname']);	            
 		}
 	}
 
@@ -526,7 +526,7 @@
 	
 	$t->set_var('action_url',$GLOBALS['phpgw']->link('/preferences/preferences.php','appname=' . $_GET['appname']));
 
-        if($_GET['appname'] == 'expressoMail1_2')
+        if($_GET['appname'] == 'expressoMail')
             $t->set_var('validateForm','onSubmit="return validateSignature();"');
 
         $t->set_var('th_bg',  $GLOBALS['phpgw_info']['theme']['th_bg']);

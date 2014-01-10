@@ -3161,5 +3161,5 @@ function connectVoip (phoneUser, typePhone){
 			alert("Requisitando chamada para o ramal: "+data);
         }
 	}
-	Connector.newRequest('voip', "../../expressoMail1_2/controller.php?action=expressoMail1_2.functions.callVoipconnect&to="+phoneUser+"&typePhone="+typePhone, 'POST', handler_voip);
+	Connector.newRequest('voip', "../../expressoMail/controller.php?action=expressoMail.functions.callVoipconnect&to="+phoneUser+"&typePhone="+typePhone, 'POST', handler_voip);
 	}

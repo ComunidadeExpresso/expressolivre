@@ -21,7 +21,7 @@ class MailAdapter extends ExpressoAdapter {
     }
     
 	protected function loadLang($lang_user){		
-		$fn = PHPGW_INCLUDE_ROOT."/expressoMail1_2/setup/phpgw_".$lang_user.'.lang';
+		$fn = PHPGW_INCLUDE_ROOT."/expressoMail/setup/phpgw_".$lang_user.'.lang';
 		if (file_exists($fn)){
 			$fp = fopen($fn,'r');
 			while ($data = fgets($fp,16000)){
@@ -35,7 +35,7 @@ class MailAdapter extends ExpressoAdapter {
 		
 	protected function getImap(){
 		if($this->imap == null) {
-			$c = CreateObject('phpgwapi.config','expressoMail1_2');
+			$c = CreateObject('phpgwapi.config','expressoMail');
 			$c->read_repository();
 			$current_config = $c->config_data;
 			$boemailadmin	= CreateObject('emailadmin.bo');
@@ -68,7 +68,7 @@ class MailAdapter extends ExpressoAdapter {
 			$_SESSION['phpgw_info']['expressomail']['user']['email'] = $GLOBALS['phpgw']->preferences->values['email'];
 			
 			
-			$this->imap = CreateObject("expressoMail1_2.imap_functions");
+			$this->imap = CreateObject("expressoMail.imap_functions");
 			
 			if($this->defaultFolders == null) {
 				$sent   = $_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder'] = empty($_SESSION['phpgw_info']['expressomail']['email_server']['imapDefaultSentFolder']) ?

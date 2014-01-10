@@ -56,7 +56,7 @@
 
         // Default Applications (Home Page) 
         $default_apps = Array(                  
-                        'expressoMail1_2',
+                        'expressoMail',
                         'calendar',
                         'news_admin'
                 );

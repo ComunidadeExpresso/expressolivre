@@ -21,7 +21,7 @@
 		'pref' => 'index.tpl'
 	);
 	//Check preferences that influences the hooks 
- 	$c = CreateObject('phpgwapi.config','expressoMail1_2'); 
+ 	$c = CreateObject('phpgwapi.config','expressoMail'); 
  	$c->read_repository(); 
  	$current_config = $c->config_data; 
  	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['enable_expresso_offline'] = $current_config['enable_expresso_offline']; 
