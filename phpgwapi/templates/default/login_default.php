@@ -158,49 +158,8 @@ function check_logoutcode($code)
 			else
 				$_POST['login'] = $_POST['user'];
 
-			/**
-			 * LOGIN OAUTH POR CURL
-			 */
-			$ch = curl_init();
-
-			$restConf = parse_ini_file( __DIR__ . '/../../../prototype/config/REST.ini', true );
-
-			$param  = 'grant_type=password';
-			$param .= '&client_id=' . $restConf['oauth']['client_id'];
-			$param .= '&client_secret=' . $restConf['oauth']['client_secret'];
-			$param .= '&username=' . $_POST['user'];
-			$param .= '&password=' . $_POST['passwd'];
-
-			// set URL and other appropriate options
-			curl_setopt($ch, CURLOPT_URL, $restConf['oauth']['url_token']);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: */*'));
-			curl_setopt($ch, CURLOPT_POST, TRUE);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  //configura para nao imprimir a saida na tela
-			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);//Passe um n�mero long como par�metro que cont�m o limite de tempo, em segundos, que voc� permite as fun��es CURL levar. 
-
-			// grab URL and pass it to the browser
-			$res = curl_exec($ch);
-			
-			// close cURL resource, and free up system resources
-			curl_close($ch);
-			$a = json_decode($res);
-	
-			if ( isset($a->access_token) ) {
-				$_SESSION['oauth']['access_token'] = $a->access_token;
-				$_SESSION['oauth']['expires_in'] = $a->expires_in;
-				$_SESSION['oauth']['token_type'] = $a->token_type;
-				$_SESSION['oauth']['scope'] = $a->scope;
-				$_SESSION['oauth']['refresh_token'] = $a->refresh_token;
-				
-			}
-			else {
-			}
-			/**
-			 * ####################
-			 */
-
 		}
+		
 		if(getenv('REQUEST_METHOD') != 'POST' && $_SERVER['REQUEST_METHOD'] != 'POST' &&
 			!isset($_SERVER['PHP_AUTH_USER']) && !isset($_SERVER['SSL_CLIENT_S_DN']))
 		{
