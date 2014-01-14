@@ -149,6 +149,7 @@
 	$oProc->query("INSERT INTO phpgw_languages (lang_id, lang_name) VALUES ('zt','Chinese(Taiwan)')");
 	$oProc->query("INSERT INTO phpgw_languages (lang_id, lang_name) VALUES ('zu','Zulu')");
 
+	$oProc->query("INSERT INTO phpgw_config (config_app, config_name, config_value) VALUES ('phpgwapi','is_configured','false')");
 	$oProc->query("INSERT INTO phpgw_config (config_app, config_name, config_value) VALUES ('phpgwapi','sessions_checkip','True')");
 	$oProc->query("INSERT INTO phpgw_config (config_app, config_name, config_value) VALUES ('phpgwapi','image_type','1')");
 

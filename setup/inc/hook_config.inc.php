@@ -10,7 +10,11 @@
   *  option) any later version.                                              *
   \**************************************************************************/
 
-
+	function encryptalgo_arr()
+	{
+		return function_exists('mcrypt_list_algorithms')? mcrypt_list_algorithms() : array();
+	}
+	
 	function encryptalgo($config)
 	{
 		if(@function_exists('mcrypt_list_algorithms'))
@@ -22,7 +26,7 @@
 			}
 			$algos = @mcrypt_list_algorithms();
 			$found = False;
-
+			
 			$out = '';
 			while(list($key,$value) = each($algos))
 			{
@@ -47,16 +51,21 @@
 			if(!$found)
 			{
 				/* Something is wrong with their mcrypt install or php.ini */
-				$out = '<option value="">' . lang('no algorithms available') . '</option>' . "\n";;
+				$out = '<option value="">' . lang('no algorithms available') . '</option>' . "\n";
 			}
 		}
 		else
 		{
-			$out = '<option value="tripledes">TRIPLEDES</option>' . "\n";;
+			$out = '<option value="tripledes">TRIPLEDES</option>' . "\n";
 		}
 		return $out;
 	}
 
+	function encryptmode_arr()
+	{
+		return function_exists('mcrypt_list_modes')? mcrypt_list_modes() : array();
+	}
+	
 	function encryptmode($config)
 	{
 		if(@function_exists('mcrypt_list_modes'))
@@ -103,12 +112,13 @@
 		return $out;
 	}
 
-	function passwdhashes($config)
+	function passwdhashes_arr()
 	{
 		$hashes = array(
 			'des' => 'des',
 			'md5' => 'md5'
 		);
+		
 		if(@function_exists('mhash'))
 		{
 			$hashes += array(
@@ -117,25 +127,26 @@
 				'ssha' => 'ssha'
 			);
 		}
-
+		return $hashes;
+	}
+	
+	function passwdhashes($config)
+	{
+		$hashes = passwdhashes_arr();
+		
+		$result = '';
 		while(list($key, $value) = each($hashes))
 		{
-			if($config['ldap_encryption_type'] == $value)
-			{
-				$selected = ' selected';
-			}
-			else
-			{
-				$selected = '';
-			}
+			$selected = ( isset($config['ldap_encryption_type']) && $config['ldap_encryption_type'] == $value )? ' selected' : '';
+			
 			$descr = strtoupper($value);
-
-			$out .= '<option value="' . $value . '"' . $selected . '>' . $descr . '</option>' . "\n";
+			
+			$result .= '<option value="' . $value . '"' . $selected . '>' . $descr . '</option>' . "\n";
 		}
-		return $out;
+		return $result;
 	}
 
-	function sql_passwdhashes($config)
+	function sql_passwdhashes_arr()
 	{
 		$hashes = array(
 			'md5' => 'md5'
@@ -167,21 +178,22 @@
 				'ssha' => 'ssha'
 			);
 		}
-
+		return $hashes;
+	}
+	
+	function sql_passwdhashes($config)
+	{
+		$hashes = sql_passwdhashes_arr();
+		
+		$result = '';
 		while(list($key, $value) = each($hashes))
 		{
-			if($config['sql_encryption_type'] == $value)
-			{
-				$selected = ' selected';
-			}
-			else
-			{
-				$selected = '';
-			}
+			$selected = ( isset($config['sql_encryption_type']) && $config['sql_encryption_type'] == $value )? ' selected' : '';
+			
 			$descr = strtoupper($value);
-
-			$out .= '<option value="' . $value . '"' . $selected . '>' . $descr . '</option>' . "\n";
+			
+			$result .= '<option value="' . $value . '"' . $selected . '>' . $descr . '</option>' . "\n";
 		}
-		return $out;
+		return $result;
 	}
 ?>
