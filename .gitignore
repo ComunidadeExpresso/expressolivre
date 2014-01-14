@@ -1,0 +1,10 @@
+/.project
+/.settings
+/.buildpath
+/.classpath
+/header.inc.php
+*.log
+*.orig
+
+!.empty
+!.gitignore
