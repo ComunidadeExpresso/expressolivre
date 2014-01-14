@@ -124,7 +124,7 @@
 	{
 		include(PHPGW_API_INC . '/functions.inc.php');
 	}
-	$connection_id = $GLOBALS['phpgw']->session->sessionid;
+	$connection_id = isset($GLOBALS['phpgw']->session->sessionid)? $GLOBALS['phpgw']->session->sessionid : false;
 	if (!strlen($connection_id) != 32){
 		include("header.session.inc.php");
 	}

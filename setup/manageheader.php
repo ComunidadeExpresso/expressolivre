@@ -30,7 +30,7 @@
 	 * Otherwise, don't guess, just show the usual instructive default.
 	 */
 	$realpath = realpath('..');
-	if(!preg_match("/^".$_SERVER['DOCUMENT_ROOT']."/",$realpath))
+	if(!preg_match('/^'.preg_quote($_SERVER['DOCUMENT_ROOT'],'/').'/',$realpath))
 	{
 		if(PHP_OS == 'Windows')
 		{
@@ -199,7 +199,7 @@
 			echo '<br>' . lang('Save this text as contents of your header.inc.php') . '<br><hr>';
 			$newheader = $GLOBALS['phpgw_setup']->html->generate_header();
 			echo '<pre>';
-			echo htmlentities($newheader);
+			echo htmlentities( $newheader, null, mb_detect_encoding( $newheader, array( 'ISO-8859-1', 'UTF-8' ), true ) );
 			echo '</pre><hr>';
 			echo '<form action="index.php" method="post">';
 			echo '<br>' . lang('After retrieving the file, put it into place as the header.inc.php.  Then, click "continue".') . '<br>';
@@ -218,6 +218,7 @@
 				$fsetup = fopen('../header.inc.php','wb');
 				fwrite($fsetup,$newheader);
 				fclose($fsetup);
+				chmod('../header.inc.php', 0660);
 				$GLOBALS['phpgw_setup']->html->show_header('Saved header.inc.php', False, 'header');
 				echo '<div align="center"><form action="index.php" method="post">';
  				echo '' . lang('Created header.inc.php!');
