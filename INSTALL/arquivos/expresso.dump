@@ -13538,7 +13538,6 @@ contactcenter	cc_attribute_type_0	multivalues
 contactcenter	cc_attribute_searchable_0	true
 contactcenter	cc_allow_details	true
 contactcenter	cc_ldap_max_results	100
-phpgwapi	useframes	never
 phpgwapi	temp_dir	/tmp
 phpgwapi	files_dir	/home/expressolivre
 phpgwapi	image_type	1
@@ -22651,7 +22650,7 @@ es-es	expressoMail	displays the user name in the header print email	Muestra el n
 es-es	expressoMail	report error	Informe de error
 es-es	expressoMail	describe the problem to report to technical support (optional)	Describa el problema que le informe de apoyo técnico (opcional)
 es-es	expressoMail	attention! the original message will be sent along with the original source of the email message	¡Atención! El mensaje original se enviará junto con la fuente original del mensaje de correo electrónico
-es-es	¿expressoMail	do you want to automatically display the message header?	Desea ver automáticamente el encabezado del mensaje?
+es-es	expressoMail	do you want to automatically display the message header?	Desea ver automáticamente el encabezado del mensaje?
 es-es	instant_messenger	user connected	Esta conectado
 es-es	instant_messenger	user didn't accepted you yet	Todavía no te ha aceptado
 es-es	instant_messenger	user not connected	Esta desconectado

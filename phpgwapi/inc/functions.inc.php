@@ -417,18 +417,6 @@
 			$_SESSION['phpgw_info'][$GLOBALS['phpgw_info']['flags']['currentapp']]['user']['preferences']['common']['template_set'] = $matches[2];
 		}
 
-
-		/*************************************************************************\
-		* If they are using frames, we need to set some variables                 *
-		\*************************************************************************/
-		if (((isset($GLOBALS['phpgw_info']['user']['preferences']['common']['useframes']) &&
-			$GLOBALS['phpgw_info']['user']['preferences']['common']['useframes']) &&
-			$GLOBALS['phpgw_info']['server']['useframes'] == 'allowed') ||
-			($GLOBALS['phpgw_info']['server']['useframes'] == 'always'))
-		{
-			$GLOBALS['phpgw_info']['flags']['navbar_target'] = 'phpgw_body';
-		}
-
 		/*************************************************************************\
 		* Verify that the users session is still active otherwise kick them out   *
 		\*************************************************************************/
