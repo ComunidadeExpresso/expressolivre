@@ -329,7 +329,7 @@
 			return !!($oProc->m_odb->query($query));
 		}
 
-		function GetSequenceSQL($sTableName, &$sSequenceSQL)
+		function GetSequenceSQL($sTableName, $sFieldName, &$sSequenceSQL)
 		{
 			$sSequenceSQL = '';
 			return true;

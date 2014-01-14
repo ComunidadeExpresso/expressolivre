@@ -868,7 +868,10 @@
 				$this->Database = $meta_db;
 			}
 			$this->disconnect();
-			$this->query("CREATE DATABASE $currentDatabase");
+			
+			if ( !$this->query("CREATE DATABASE $currentDatabase") )
+				return array( 'status' => false, 'msg' => $this->Error );
+			
 			foreach($extra as $sql)
 			{
 				$this->query($sql);
@@ -879,6 +882,8 @@
 			$this->Password = $currentPassword;
 			$this->Database = $currentDatabase;
 			$this->connect();
+			
+			return array( 'status' => true );
 		}
 
 		/**

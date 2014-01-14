@@ -152,20 +152,20 @@
 	function expressoAdmin_upgrade2_3_0() {
                 $GLOBALS['phpgw_setup']->db->query("
 
-                    DROP SEQUENCE IF EXISTS seq_phpgw_expressoadmin_configuration;
-                    CREATE SEQUENCE seq_phpgw_expressoadmin_configuration
+                    DROP SEQUENCE IF EXISTS phpgw_expressoadmin_configuration_id_seq;
+                    CREATE SEQUENCE phpgw_expressoadmin_configuration_id_seq
                       INCREMENT 1
                       MINVALUE 1
                       MAXVALUE 9223372036854775807
                       START 93
                       CACHE 1;
-                    ALTER TABLE seq_phpgw_expressoadmin_configuration OWNER TO ".$GLOBALS['phpgw_domain']['default']['db_user'].";
+                    ALTER TABLE phpgw_expressoadmin_configuration_id_seq OWNER TO ".$GLOBALS['phpgw_domain']['default']['db_user'].";
 
 
                     DROP TABLE IF EXISTS phpgw_expressoadmin_configuration;
                     CREATE TABLE phpgw_expressoadmin_configuration
                     (
-                      id integer NOT NULL DEFAULT nextval(('seq_phpgw_expressoadmin_configuration'::text)::regclass),
+                      id integer NOT NULL DEFAULT nextval('phpgw_expressoadmin_configuration_id_seq'::regclass),
                       email_user character varying(100),
                       configuration_type character varying(30) NOT NULL,
                       email_max_recipient integer DEFAULT 0,
