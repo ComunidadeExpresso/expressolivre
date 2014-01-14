@@ -12,7 +12,7 @@
 
 
 	$diagnostics = 1;	// can be set to 0=non, 1=some (default for now), 2=all
-
+	$errors = array();
 	$phpgw_info = array();
 	$GLOBALS['phpgw_info']['flags'] = array(
 		'noheader' => True,
@@ -23,7 +23,7 @@
 	include('./inc/functions.inc.php');
 	// Authorize the user to use setup app and load the database
 	// Does not return unless user is authorized
-	if (!$GLOBALS['phpgw_setup']->auth('Config') || @$_POST['cancel'])
+	if ( !$GLOBALS['phpgw_setup']->auth('Config') || isset($_POST['cancel']) )
 	{
 		Header('Location: index.php');
 		exit;
@@ -31,7 +31,7 @@
 	$GLOBALS['phpgw_setup']->loaddb();
 
 	$GLOBALS['phpgw_setup']->translation->setup_translation_sql();
-	$translation = &$GLOBALS['phpgw_setup']->translation->sql;
+	$translation = $GLOBALS['phpgw_setup']->translation->sql;
 	$translation->translation(True);	// to get the mbstring warnings
 
 	$tpl_root = $GLOBALS['phpgw_setup']->html->setup_tpl_dir('setup');
@@ -45,16 +45,19 @@
 	$stage_title = lang('Change system-charset');
 	$stage_desc  = lang('This program will convert your database to a new system-charset.');
 
-	if ($diagnostics || !@$_POST['convert'])
+	if ( $diagnostics || !isset($_POST['convert']) )
 	{
 		$GLOBALS['phpgw_setup']->html->show_header($stage_title,False,'config',$GLOBALS['phpgw_setup']->ConfigDomain . '(' . $phpgw_domain[$GLOBALS['phpgw_setup']->ConfigDomain]['db_type'] . ')');
 	}
-	if (@$_POST['convert'])
+	if ( isset($_POST['convert']) )
 	{
 		if (empty($_POST['current_charset']))
 		{
 			$errors[] = lang('You need to select your current charset!');
-			$GLOBALS['phpgw_setup']->html->show_header($stage_title,False,'config',$GLOBALS['phpgw_setup']->ConfigDomain . '(' . $phpgw_domain[$GLOBALS['phpgw_setup']->ConfigDomain]['db_type'] . ')');
+		}
+		else if (empty($_POST['new_charset']))
+		{
+			$errors[] = lang('You need to select your new charset!');
 		}
 		else
 		{
@@ -74,7 +77,7 @@
 	{
 		if ($diagnostics) echo "<h3>Converting database from '$from' to '$to'</h3>\n";
 
-		@set_time_limit(0);		// this might take a while
+		set_time_limit(0);		// this might take a while
 
 		$db2 = $GLOBALS['phpgw_setup']->db;
 		$setup_info = $GLOBALS['phpgw_setup']->detection->get_versions();
@@ -95,7 +98,7 @@
 			foreach($table_definitions as $table => $definition)
 			{
 				if ($diagnostics) { echo "<br>start converting table '$table' ... "; }
-				$db2->set_column_definitions($definitions['fd']);
+				$db2->set_column_definitions($definition['fd']);
 				$updates = 0;
 				$GLOBALS['phpgw_setup']->db->query("SELECT * FROM $table",__LINE__,__FILE__);
 				while($columns = $GLOBALS['phpgw_setup']->db->row(True))
@@ -143,13 +146,13 @@
 				}
 			}
 		}
-		@$GLOBALS['phpgw_setup']->db->query("DELETE FROM phpgw_config WHERE config_app='phpgwapi' AND config_name='system_charset'",__LINE__,__FILE__);
+		$GLOBALS['phpgw_setup']->db->query("DELETE FROM phpgw_config WHERE config_app='phpgwapi' AND config_name='system_charset'",__LINE__,__FILE__);
 		$GLOBALS['phpgw_setup']->db->query("INSERT INTO phpgw_config (config_app,config_name,config_value) VALUES ('phpgwapi','system_charset','$to')",__LINE__,__FILE__);
 	}
 
 	$setup_tpl->set_var('stage_title',$stage_title);
 	$setup_tpl->set_var('stage_desc',$stage_desc);
-	$setup_tpl->set_var('error_msg',is_array($errors) ? implode('<br>',$errors) : '&nbsp');
+	$setup_tpl->set_var('error_msg',count($errors) ? implode('<br>',$errors) : '&nbsp');
 
 	$setup_tpl->set_var('lang_convert',lang('Convert'));
 	$setup_tpl->set_var('lang_cancel',lang('Cancel'));
@@ -158,52 +161,38 @@
 	$setup_tpl->set_var('lang_warning','<b>'.lang('Setting the system-charset to UTF-8 (unicode) allows the coexistens of data from languages of different charsets.').'</b><br>'.
 		lang('If you use only languages of the same charset (eg. western european ones) you dont need to set a system-charset!'));
 
+	
 	$installed_charsets = $translation->get_installed_charsets();
-	if ($translation->system_charset || count($installed_charsets) == 1)
+	$system_charset = isset($translation->system_charset)? $translation->system_charset : 'none';
+	if ( count($installed_charsets) > 1 )
 	{
-		reset($installed_charsets);
-		list($current_charset) = each($installed_charsets);
-		if ($translation->system_charset)
-		{
-			$current_charset = $translation->system_charset;
-		}
-		$setup_tpl->set_var('current_charset',"<b>$current_charset</b>".
-			"<input type=\"hidden\" name=\"current_charset\" value=\"$current_charset\">\n");
+		$input = '<select name="current_charset"><option value="">'.lang('select one...').'</option>';
+		foreach ( $installed_charsets as $charset => $description )
+			$input .= '<option value="'.$charset.'"'.($system_charset===$charset?' selected="selected"':'').'>'.$description.'</option>';
+		$input .= '</select>';
 	}
 	else
 	{
-		$options = '<option value="">'.lang('select one...')."</option>\n";
-		foreach($installed_charsets as $charset => $description)
-		{
-			$options .= "<option value=\"$charset\">$description</option>\n";
-		}
-		$setup_tpl->set_var('current_charset',"<select name=\"current_charset\">\n$options</select>\n");
+		$charset = current( array_keys( $installed_charsets ) );
+		$input = '<b>'.$charset.'</b><input type="hidden" name="current_charset" value="'.$charset.'">';
 	}
-	if ($translation->system_charset == 'utf-8' || count($installed_charsets) == 1)
+	$setup_tpl->set_var( 'current_charset', $input );
+	
+	if ( !isset($installed_charsets['utf-8']) ) $installed_charsets['utf-8'] = lang('utf-8 (Unicode)');
+	if ( count($installed_charsets) > 1 )
 	{
-		reset($installed_charsets);
-		list($other_charset) = each($installed_charsets);
-		if (!$translation->system_charset || $other_charset == $translation->system_charset)
-		{
-			$other_charset = 'utf-8';
-		}
-		$setup_tpl->set_var('new_charset',"<b>$other_charset</b><input type=\"hidden\" name=\"new_charset\" value=\"$other_charset\">\n");
+		$input = '<select name="new_charset"><option value="">'.lang('select one...').'</option>';
+		foreach ( $installed_charsets as $charset => $description )
+			$input .= '<option value="'.$charset.'">'.$description.'</option>';
+		$input .= '</select>';
 	}
 	else
 	{
-		if ($translation->system_charset != 'utf-8')
-		{
-			$options = '<option value="utf-8">'.lang('utf-8 (Unicode)')."</option>\n";
-		}
-		foreach($installed_charsets as $charset => $description)
-		{
-			if ($charset != $translation->system_charset)
-			{
-				$options .= "<option value=\"$charset\">$description</option>\n";
-			}
-		}
-		$setup_tpl->set_var('new_charset',"<select name=\"new_charset\">\n$options</select>\n");
+		$charset = current( array_keys( $installed_charsets ) );
+		$input = '<b>'.$charset.'</b><input type="hidden" name="new_charset" value="'.$charset.'">';
 	}
+	$setup_tpl->set_var( 'new_charset', $input );
+	
 	$setup_tpl->pparse('out','T_system_charset');
 	$GLOBALS['phpgw_setup']->html->show_footer();
 ?>

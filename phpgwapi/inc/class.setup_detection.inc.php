@@ -61,7 +61,7 @@
 						$setup_info[$GLOBALS['phpgw_setup']->db->f('app_name')]['enabled'] = $GLOBALS['phpgw_setup']->db->f('app_enabled');
 					}
 					/* This is to catch old setup installs that did not have phpgwapi listed as an app */
-					$tmp = @$setup_info['phpgwapi']['version']; /* save the file version */
+					$tmp = isset($setup_info['phpgwapi']['version'])? $setup_info['phpgwapi']['version'] : false; /* save the file version */
 					if(!@$setup_info['phpgwapi']['currentver'])
 					{
 						$setup_info['phpgwapi']['currentver'] = $setup_info['admin']['currentver'];
@@ -77,7 +77,7 @@
 					{
 						$GLOBALS['setup_info'] = $setup_info;
 					}
-					$setup_info['phpgwapi']['version'] = $tmp; /* restore the file version */
+					$setup_info['phpgwapi']['version'] = ( $tmp !== false )? $tmp : $setup_info['phpgwapi']['currentver']; /* restore the file version */
 				}
 				elseif($oldapps)
 				{
@@ -106,30 +106,25 @@
 		V	Version mismatch at end of upgrade (Not used, proposed only)
 		M	Missing files at start of upgrade (Not used, proposed only)
 		*/
-		function compare_versions($setup_info)
+		function compare_versions( $setup_info )
 		{
-			foreach($setup_info as $key => $value)
+			foreach ( $setup_info as $key => $value )
 			{
 				//echo '<br>'.$value['name'].'STATUS: '.$value['status'];
 				/* Only set this if it has not already failed to upgrade - Milosch */
-				if(!( (@$value['status'] == 'F') || (@$value['status'] == 'C') ))
+				if ( !( isset($value['status']) && ($value['status'] == 'F' || $value['status'] == 'C') ) )
 				{
-					//if ($setup_info[$key]['currentver'] > $setup_info[$key]['version'])
-					if($GLOBALS['phpgw_setup']->amorethanb($value['currentver'],@$value['version']))
+					$setup_info[$key]['status'] = 'U';
+					if ( isset($value['currentver']) && isset($value['version']) )
 					{
-						$setup_info[$key]['status'] = 'V';
-					}
-					elseif(@$value['currentver'] == @$value['version'])
-					{
-						$setup_info[$key]['status'] = 'C';
-					}
-					elseif($GLOBALS['phpgw_setup']->alessthanb(@$value['currentver'],@$value['version']))
-					{
-						$setup_info[$key]['status'] = 'U';
-					}
-					else
-					{
-						$setup_info[$key]['status'] = 'U';
+						if ( $value['currentver'] == $value['version'] )
+						{
+							$setup_info[$key]['status'] = 'C';
+						}
+						else if ( $GLOBALS['phpgw_setup']->amorethanb( $value['currentver'], $value['version'] ) )
+						{
+							$setup_info[$key]['status'] = 'V';
+						}
 					}
 				}
 			}
@@ -154,6 +149,8 @@
 
 						foreach($depvalue['versions'] as $depskey => $depsvalue)
 						{
+							if ( !isset($setup_info[$depvalue['appname']]['currentver']) ) continue;
+							
 							$currentver = $setup_info[$depvalue['appname']]['currentver'];
 							if ($depvalue['appname'] == 'phpgwapi' && substr($currentver,0,6) == '0.9.99')
 							{
@@ -324,18 +321,10 @@
 				}
 			}
 
-			@$GLOBALS['phpgw_setup']->db->query("select config_value from $config_table where config_name='freshinstall'");
-			$configured = $GLOBALS['phpgw_setup']->db->next_record() ? $GLOBALS['phpgw_setup']->db->f('config_value') : False;
-			if($configed)
-			{
-				$GLOBALS['phpgw_info']['setup']['header_msg'] = 'Stage 2 (Needs Configuration)';
-				return 1;
-			}
-			else
-			{
-				$GLOBALS['phpgw_info']['setup']['header_msg'] = 'Stage 2 (Configuration OK)';
-				return 10;
-			}
+			@$GLOBALS['phpgw_setup']->db->query("select config_value from $config_table where config_name='is_configured'");
+			$configured = $GLOBALS['phpgw_setup']->db->next_record() ? strtolower($GLOBALS['phpgw_setup']->db->f('config_value')) === 'true' : false;
+			$GLOBALS['phpgw_info']['setup']['header_msg'] = 'Stage 2 ('.($configured? 'Configuration OK' : 'Needs Configuration' ).')';
+			return $configured? 10 : 1;
 		}
 
 		function check_lang($check = True)
@@ -397,7 +386,7 @@
 			$none = 0;
 			$setup_info = $GLOBALS['setup_info'];
 
-			if(@$setup_info[$appname]['tables'])
+			if(isset($setup_info[$appname]['tables']))
 			{
 				/* Make a copy, else we send some callers into an infinite loop */
 				$copy = $setup_info;

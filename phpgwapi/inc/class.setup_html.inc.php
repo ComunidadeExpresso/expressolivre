@@ -130,6 +130,8 @@
 				'msg'		=> '#FF0000',
 			);
 			$GLOBALS['setup_tpl']->set_var($style);
+			$btn_logout = '';
+			$check_install = '';
 			if ($nologoutbutton)
 			{
 				$GLOBALS['setup_tpl']->set_block('T_head','loged_in');
@@ -151,7 +153,9 @@
 			{
 				$GLOBALS['setup_tpl']->set_var('configdomain',' - ' . lang('Domain') . ': ' . $configdomain);
 			}
-
+			
+			$index_btn = '';
+			$index_img = '';
 			if(basename($_SERVER['SCRIPT_FILENAME']) != 'index.php')
 			{
 				$index_btn = '<a href="index.php" class="link">' . lang('Setup Main Menu') . '</a>';
@@ -222,8 +226,8 @@
 		function login_form()
 		{
 			/* begin use TEMPLATE login_main.tpl */
-			$GLOBALS['setup_tpl']->set_var('ConfigLoginMSG',@$GLOBALS['phpgw_info']['setup']['ConfigLoginMSG']);
-			$GLOBALS['setup_tpl']->set_var('HeaderLoginMSG',@$GLOBALS['phpgw_info']['setup']['HeaderLoginMSG']);
+			$GLOBALS['setup_tpl']->set_var('ConfigLoginMSG',isset($GLOBALS['phpgw_info']['setup']['ConfigLoginMSG'])? $GLOBALS['phpgw_info']['setup']['ConfigLoginMSG'] : '');
+			$GLOBALS['setup_tpl']->set_var('HeaderLoginMSG',isset($GLOBALS['phpgw_info']['setup']['HeaderLoginMSG'])? $GLOBALS['phpgw_info']['setup']['HeaderLoginMSG'] : '');
 			$GLOBALS['setup_tpl']->set_var('lang_header_username',lang('Header Username'));
 			$GLOBALS['setup_tpl']->set_var('lang_header_password',lang('Header Password'));
 			$GLOBALS['setup_tpl']->set_var('lang_header_login',lang('Header Admin Login'));

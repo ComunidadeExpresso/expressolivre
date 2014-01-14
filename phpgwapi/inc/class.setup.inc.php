@@ -386,7 +386,7 @@
 			Use old applications table if the currentver is less than 0.9.10pre8,
 			but not if the currentver = '', which probably means new install.
 			*/
-			if($this->alessthanb($setup_info['phpgwapi']['currentver'],'0.9.10pre8') && ($setup_info['phpgwapi']['currentver'] != ''))
+			if( isset($setup_info['phpgwapi']['currentver']) && ($setup_info['phpgwapi']['currentver'] != '') && $this->alessthanb($setup_info['phpgwapi']['currentver'],'0.9.10pre8'))
 			{
 				$appstbl = 'applications';
 			}
@@ -403,11 +403,9 @@
 
 			if($setup_info[$appname]['version'])
 			{
-				if($setup_info[$appname]['tables'])
-				{
-					$tables = implode(',',$setup_info[$appname]['tables']);
-				}
-				if ($setup_info[$appname]['tables_use_prefix'] == True)
+				$tables = isset($setup_info[$appname]['tables'])? implode(',',$setup_info[$appname]['tables']) : '';
+				
+				if ( isset($setup_info[$appname]['tables_use_prefix']) && $setup_info[$appname]['tables_use_prefix'] == True)
 				{
 					echo $setup_info[$appname]['name'] . ' uses tables_use_prefix, storing ' 
 						. $setup_info[$appname]['tables_prefix']
@@ -446,7 +444,7 @@
 				return False;
 			}
 
-			if($this->alessthanb($setup_info['phpgwapi']['currentver'],'0.9.10pre8') && ($setup_info['phpgwapi']['currentver'] != ''))
+			if( isset($setup_info['phpgwapi']['currentver']) && ($setup_info['phpgwapi']['currentver'] != '') && $this->alessthanb($setup_info['phpgwapi']['currentver'],'0.9.10pre8'))
 			{
 				$appstbl = 'applications';
 			}
@@ -455,7 +453,7 @@
 				$appstbl = 'phpgw_applications';
 			}
 
-			if(@$GLOBALS['DEBUG'])
+			if( isset($GLOBALS['DEBUG']) && $GLOBALS['DEBUG'] )
 			{
 				echo '<br>app_registered(): checking ' . $appname . ', table: ' . $appstbl;
 				// _debug_array($setup_info[$appname]);
@@ -465,13 +463,13 @@
 			$this->db->next_record();
 			if($this->db->f(0))
 			{
-				if(@$GLOBALS['DEBUG'])
+				if( isset($GLOBALS['DEBUG']) && $GLOBALS['DEBUG'] )
 				{
 					echo '... app previously registered.';
 				}
 				return True;
 			}
-			if(@$GLOBALS['DEBUG'])
+			if( isset($GLOBALS['DEBUG']) && $GLOBALS['DEBUG'] )
 			{
 				echo '... app not registered';
 			}
@@ -518,10 +516,7 @@
 			if($setup_info[$appname]['version'])
 			{
 				//echo '<br>' . $setup_info[$appname]['version'];
-				if($setup_info[$appname]['tables'])
-				{
-					$tables = implode(',',$setup_info[$appname]['tables']);
-				}
+				$tables = isset($setup_info[$appname]['tables'])? implode(',',$setup_info[$appname]['tables']) : '';
 
 				$sql = "UPDATE $appstbl "
 					. "SET app_name='" . $setup_info[$appname]['name'] . "',"
@@ -573,7 +568,7 @@
 		/*!
 		@function deregister_app
 		@abstract de-Register an application
-		@param	$appname	Application 'name' with a matching $setup_info[$appname] array slice
+		@param	$appname	Application 'name' $setup_info[$appname]['hooks']with a matching $setup_info[$appname] array slice
 		*/
 		function deregister_app($appname)
 		{
@@ -611,17 +606,17 @@
 				return False;
 			}
 
-			if($this->alessthanb($setup_info['phpgwapi']['currentver'],'0.9.8pre5') && ($setup_info['phpgwapi']['currentver'] != ''))
+			if( isset($setup_info['phpgwapi']['currentver']) && ($setup_info['phpgwapi']['currentver'] != '') && $this->alessthanb($setup_info['phpgwapi']['currentver'],'0.9.8pre5') )
 			{
 				/* No phpgw_hooks table yet. */
 				return False;
 			}
 
-			if (!is_object($this->hooks))
+			if ( !( isset($this->hooks) && is_object($this->hooks) ) )
 			{
 				$this->hooks = CreateObject('phpgwapi.hooks',$this->db);
 			}
-			$this->hooks->register_hooks($appname,$setup_info[$appname]['hooks']);
+			$this->hooks->register_hooks( $appname, isset($setup_info[$appname]['hooks'])? $setup_info[$appname]['hooks'] : '' );
 		}
 
 		/*!
@@ -668,7 +663,7 @@
 		*/
 		function hook($location, $appname='')
 		{
-			if (!is_object($this->hooks))
+			if ( !( isset($this->hooks) && is_object($this->hooks) ) )
 			{
 				$this->hooks = CreateObject('phpgwapi.hooks',$this->db);
 			}
@@ -847,9 +842,11 @@
 
 		function get_hooks_table_name()
 		{
-			if(@$this->alessthanb($GLOBALS['setup_info']['phpgwapi']['currentver'],'0.9.8pre5') &&
-			   @$GLOBALS['setup_info']['phpgwapi']['currentver'] != '')
-			{
+			if (
+				isset($GLOBALS['setup_info']['phpgwapi']['currentver']) &&
+				$GLOBALS['setup_info']['phpgwapi']['currentver'] != '' &&
+				$this->alessthanb($GLOBALS['setup_info']['phpgwapi']['currentver'],'0.9.8pre5')
+			) {
 				/* No phpgw_hooks table yet. */
 				return False;
 			}

@@ -1293,7 +1293,7 @@
 				$GLOBALS[$where][$name] = '';
 			}
 		}
-		if (is_array($GLOBALS[$where]))
+		if (isset($GLOBALS[$where]) && is_array($GLOBALS[$where]))
 		{
 			_check_script_tag($GLOBALS[$where],$where);
 		}

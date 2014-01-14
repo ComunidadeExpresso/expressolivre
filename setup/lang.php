@@ -9,7 +9,7 @@
   *  option) any later version.                                              *
   \**************************************************************************/
 
-
+	$alert = false;
 	$phpgw_info = array();
 	$GLOBALS['phpgw_info']['flags'] = array(
 		'noheader' => True,
@@ -20,14 +20,14 @@
 	include('./inc/functions.inc.php');
 	// Authorize the user to use setup app and load the database
 	// Does not return unless user is authorized
-	if (!$GLOBALS['phpgw_setup']->auth('Config') || @$_POST['cancel'])
+	if (!$GLOBALS['phpgw_setup']->auth('Config') || isset($_POST['cancel']) )
 	{
 		Header('Location: index.php');
 		exit;
 	}
 	$GLOBALS['phpgw_setup']->loaddb();
 
-	if (@$_POST['submit'])
+	if ( isset($_POST['submit']) )
 	{
 		$GLOBALS['phpgw_setup']->translation->setup_translation_sql();
 		$GLOBALS['phpgw_setup']->translation->sql->install_langs(@$_POST['lang_selected'],@$_POST['upgrademethod']);
@@ -50,7 +50,9 @@
 	));
 
 	$setup_tpl->set_block('T_lang_main','B_choose_method','V_choose_method');
-
+	
+	$newinstall = false;
+	
 	$stage_title = lang('Multi-Language support setup');
 	$stage_desc  = lang('This program will help you upgrade or install different languages for eGroupWare');
 	$tbl_width   = @$newinstall ? '60%' : '80%';
@@ -66,12 +68,11 @@
 	$select_box = '';
 	$languages = get_langs();
 	uasort($languages,create_function('$a,$b','return strcmp(@$a[\'descr\'],@$b[\'descr\']);'));
+	$select_box_langs = '';
 	foreach($languages as $id => $data)
 	{
-		$select_box_langs =
-			@$select_box_langs
-			.'<option value="' . $id . '"'
-			.(@$GLOBALS['phpgw_info']['setup']['installed_langs'][$id]?' SELECTED="1"':'').'>'
+		$select_box_langs .= '<option value="' . $id . '"'
+			.(isset($GLOBALS['phpgw_info']['setup']['installed_langs'][$id])?' SELECTED="1"':'').'>'
 			. $data['descr'] . '</option>'
 			."\n";
 	}
@@ -96,7 +97,7 @@
 	}
 
 	// Rejected Lines
-	if($_POST['debug'] && count($GLOBALS['phpgw_setup']->translation->sql->line_rejected))
+	if( isset($_POST['debug']) && $_POST['debug'] && count($GLOBALS['phpgw_setup']->translation->sql->line_rejected))
 	{
 		$str = '';
 		foreach($GLOBALS['phpgw_setup']->translation->sql->line_rejected as $badline)

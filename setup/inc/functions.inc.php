@@ -16,9 +16,9 @@
 
 
 	/* ######## Start security check ########## */
-	$d1 = strtolower(substr(@$GLOBALS['phpgw_info']['server']['api_inc'],0,3));
-	$d2 = strtolower(substr(@$GLOBALS['phpgw_info']['server']['server_root'],0,3));
-	$d3 = strtolower(substr(@$GLOBALS['phpgw_info']['server']['app_inc'],0,3));
+	$d1 = isset($GLOBALS['phpgw_info']['server']['api_inc'])? strtolower(substr($GLOBALS['phpgw_info']['server']['api_inc'],0,3)) : '';
+	$d2 = isset($GLOBALS['phpgw_info']['server']['server_root'])? strtolower(substr($GLOBALS['phpgw_info']['server']['server_root'],0,3)) : '';
+	$d3 = isset($GLOBALS['phpgw_info']['server']['app_inc'])? strtolower(substr($GLOBALS['phpgw_info']['server']['app_inc'],0,3)) : '';
 	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
 	{
 		echo 'Failed attempt to break in via an old Security Hole!<br>';
@@ -26,8 +26,6 @@
 	}
 	unset($d1);unset($d2);unset($d3);
 	/* ######## End security check ########## */
-
-	error_reporting(error_reporting() & ~E_NOTICE);
 
 	if(file_exists('../header.inc.php'))
 	{

@@ -95,7 +95,7 @@
 
 		function setup_translation_sql()
 		{
-			if (!is_object($this->sql))
+			if ( !( isset($this->sql) && is_object($this->sql) ) )
 			{
 				include_once(PHPGW_API_INC.'/class.translation_sql.inc.php');
 				$this->sql = new translation;

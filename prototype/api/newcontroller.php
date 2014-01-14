@@ -125,7 +125,7 @@ class Controller {
 		{
 		    $return = array();
 
-		    for( $data as $concept => $dt )
+		    foreach( $data as $concept => $dt )
 			 $return[] = self::put( $dt, array_merge( array( 'concept' => $concept ), $options ) );
 			
 		    return $return;

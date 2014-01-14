@@ -24,9 +24,9 @@
 	\**************************************************************************/
 
 
-	$d1 = strtolower(@substr(PHPGW_API_INC,0,3));
-	$d2 = strtolower(@substr(PHPGW_SERVER_ROOT,0,3));
-	$d3 = strtolower(@substr(PHPGW_APP_INC,0,3));
+	$d1 = strtolower( defined('PHPGW_API_INC')? substr(PHPGW_API_INC,0,3) : '' );
+	$d2 = strtolower( defined('PHPGW_SERVER_ROOT')? substr(PHPGW_SERVER_ROOT,0,3) : '' );
+	$d3 = strtolower( defined('PHPGW_APP_INC')? substr(PHPGW_APP_INC,0,3) : '' );
 	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
 	{
 		echo 'Failed attempt to break in via an old Security Hole!<br>'."\n";
@@ -51,7 +51,7 @@
 
 		function date_time()
 		{
-			$this->tz_offset = 3600 * (int)@$GLOBALS['phpgw_info']['user']['preferences']['common']['tz_offset'];
+			$this->tz_offset = 3600 * (isset($GLOBALS['phpgw_info']['user']['preferences']['common']['tz_offset'])? (int)$GLOBALS['phpgw_info']['user']['preferences']['common']['tz_offset']: 0);
 			print_debug('datetime::datetime::gmtnow',$this->gmtnow,'api');
 
 			$error_occured = True;
