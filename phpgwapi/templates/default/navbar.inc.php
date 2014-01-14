@@ -61,7 +61,7 @@
                         if($app == 'help')
                         {
                           
-                          if($app_data['status'] != 0 && $app_data['enabled'] == true )
+                          if($app_data['status'] != 0)
                           {
                               
                             $GLOBALS['celepar_tpl']->set_var('help', lang("Help"));
@@ -72,9 +72,12 @@
 
                         }
                   
-                        if($app_data['enabled'] == false || $app_data['status'] == 0)
+                        if($app != 'home')
                         {
-                            continue;
+                            if($app_data['enabled'] == false || ($app_data['status'] == 0 || $app_data['status'] == 2))
+                            {
+                                continue;
+                            }
                         }
                         
 			$current_app = False;
