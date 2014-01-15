@@ -1,16 +1,21 @@
 <?php
-		/*************************************************************************** 
-		* Expresso Livre                                                           * 
-		* http://www.expressolivre.org                                             * 
-		* --------------------------------------------                             * 
-		*  This program is free software; you can redistribute it and/or modify it * 
-		*  under the terms of the GNU General Public License as published by the   * 
-		*  Free Software Foundation; either version 2 of the License, or (at your  * 
-		*  option) any later version.                                              * 
-		\**************************************************************************/ 
-		
-define('PHPGW_INCLUDE_ROOT','../');
-define('PHPGW_API_INC','../phpgwapi/inc');	
+
+/***************************************************************************
+* Expresso Livre                                                           *
+* http://www.expressolivre.org                                             *
+* --------------------------------------------                             *
+*  This program is free software; you can redistribute it and/or modify it *
+*  under the terms of the GNU General Public License as published by the   *
+*  Free Software Foundation; either version 2 of the License, or (at your  *
+*  option) any later version.                                              *
+\**************************************************************************/
+
+if(!defined('PHPGW_INCLUDE_ROOT'))
+    define('PHPGW_INCLUDE_ROOT', __DIR__ . '/../../');
+
+if(!defined('PHPGW_API_INC'))
+    define('PHPGW_API_INC', __DIR__ . '/../../phpgwapi/inc');
+
 include_once(PHPGW_API_INC.'/class.common.inc.php');
 include_once('class.functions.inc.php');
 include_once('class.db_functions.inc.php');
@@ -438,22 +443,22 @@ class ldap_functions
 
 		$del = array();
 
-		if( $params['mailalternateaddress'] )
+		if( isset($params['mailalternateaddress']) && $params['mailalternateaddress'] )
 			$info['mailalternateaddress'] = $params['mailalternateaddress'];
 		else
 		    $del['mailalternateaddress'] = array();
 
-		if ($params['accountStatus'] == 'on')
+		if ( isset($params['accountStatus']) && $params['accountStatus'] == 'on')
 			$info['accountStatus'] = 'active';
 		else
 			$info['accountStatus'] = array();
 		
-		if ($params['phpgwAccountVisible'] == 'on')
+		if (isset($params['phpgwAccountVisible']) && $params['phpgwAccountVisible'] == 'on')
 			$info['phpgwAccountVisible'] = '-1';
 		else
 			$info['phpgwAccountVisible'] = array();
 		
-		if ($params['desc'] != '')
+		if (isset($params['desc']) && $params['desc'] != '')
 			$info['description'] = utf8_encode($params['desc']);
 		else
 			$info['description'] = array();
@@ -1432,7 +1437,7 @@ class ldap_functions
 		else
 		{
 			$result['status'] = false;
-			$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->add_user2group ($dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($this->ldap);
+			$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->add_user2group ($group_dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($this->ldap);
 		}
 		return $result;
 	}
@@ -1454,7 +1459,7 @@ class ldap_functions
 		else
 		{
 			$result['status'] = false;
-			$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->remove_user2group ($dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($this->ldap);
+			$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->remove_user2group ($group_dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($this->ldap);
 		}
 		return $result;
 	}
@@ -1491,7 +1496,7 @@ class ldap_functions
 									$this->functions->lang('Edit Global Catalog Config, in the admin module, and add an user with write access') . ".\n";
 			}					 
 			else
-				$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->add_user2maillist ($dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($ldapMasterConnect);
+				$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->add_user2maillist ($group_dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($ldapMasterConnect);
 		}
 		
 		ldap_close($ldapMasterConnect);
@@ -1548,7 +1553,7 @@ class ldap_functions
 									$this->functions->lang('Edit Global Catalog Config, in the admin module, and add an user with write access') . ".\n";
 			}					 
 			else
-				$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->remove_user2maillist ($dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($ldapMasterConnect);
+				$result['msg'] = $this->functions->lang('Error on function') . " ldap_functions->remove_user2maillist ($group_dn)" . ".\n" . $this->functions->lang('Server returns') . ': ' . ldap_error($ldapMasterConnect);
 		}
 		ldap_close($ldapMasterConnect);
 		return $result;
@@ -2039,6 +2044,7 @@ class ldap_functions
 
 			if ($entry['count'])
 			{
+                $sector_dn = '';
 				//Pega o dn do setor do usuario.
 				$entry[0]['dn'] = strtolower($entry[0]['dn']);
 				$sector_dn_array = explode(",", $entry[0]['dn']);
@@ -2172,7 +2178,7 @@ class ldap_functions
 			$context = $params['context'];
 			$search = ldap_search($this->ldap,$context, $filter, $justthese);
 			$entry = ldap_get_entries($this->ldap, $search);
-			return $entry[0]['associateddomain'][0];
+			return isset($entry[0]['associateddomain']) ?  $entry[0]['associateddomain'][0] : false;
         }
 	
 	function change_user_context($dn, $newrdn, $newparent)
@@ -2806,21 +2812,17 @@ class ldap_functions
 			$tmp_reverse_user_context = array_reverse($tmp_user_context);
 			array_pop($tmp_reverse_user_context);
 			$return['user_context'] = implode(",", array_reverse($tmp_reverse_user_context));
-			
-			$return['status'] = 'true';
-			$return['accountStatus']		= $entrie[0]['accountstatus'][0];
 
-			$return['phpgwAccountVisible']	= $entrie[0]['phpgwaccountvisible'][0];
+			$return['status'] = 'true';
+			$return['accountStatus']		= isset($entrie[0]['accountstatus']) ? $entrie[0]['accountstatus'][0] : null;
+			$return['phpgwAccountVisible']	= isset($entrie[0]['phpgwaccountvisible']) ? $entrie[0]['phpgwaccountvisible'][0] : null;
 			$return['cn']			= utf8_decode($entrie[0]['cn'][0]);
 			$return['mail']					= $entrie[0]['mail'][0];
 			$return['description']			= utf8_decode($entrie[0]['description'][0]);
 			$return['dn']			= utf8_decode($entrie[0]['dn']);
-			$return['mailalternateaddress']	= $entrie[0]['mailalternateaddress'];
+			$return['mailalternateaddress']	= isset($entrie[0]['mailalternateaddress']) ?  $entrie[0]['mailalternateaddress'] : null;
 		}
-		
 
-                
-		
 		return $return;
 	}		
 	function mailforwardingaddress2uidnumber($mail)

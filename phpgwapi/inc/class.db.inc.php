@@ -146,115 +146,119 @@
 		* @param string $User name of database user (optional)
 		* @param string $Password password for database user (optional)
 		*/
-		function connect($Database = NULL, $Host = NULL, $Port = NULL, $User = NULL, $Password = NULL,$Type = NULL)
-		{
-			/* Handle defaults */
-			if (!is_null($Database) && $Database)
-			{
-				$this->Database = $Database;
-			}
-			if (!is_null($Host) && $Host)
-			{
-				$this->Host     = $Host;
-			}
-			if (!is_null($Port) && $Port)
-			{
-				$this->Port     = $Port;
-			}
-			if (!is_null($User) && $User)
-			{
-				$this->User     = $User;
-			}
-			if (!is_null($Password) && $Password)
-			{
-				$this->Password = $Password;
-			}
-			if (!is_null($Type) && $Type)
-			{
-				$this->Type = $Type;
-			}
-			elseif (!$this->Type)
-			{
-				$this->Type = $GLOBALS['phpgw_info']['server']['db_type'];
-			}
+        function connect($Database = NULL, $Host = NULL, $Port = NULL, $User = NULL, $Password = NULL,$Type = NULL)
+        {
+            /* Handle defaults */
+            if (!is_null($Database) && $Database)
+            {
+                $this->Database = $Database;
+            }
+            if (!is_null($Host) && $Host)
+            {
+                $this->Host     = $Host;
+            }
+            if (!is_null($Port) && $Port)
+            {
+                $this->Port     = $Port;
+            }
+            if (!is_null($User) && $User)
+            {
+                $this->User     = $User;
+            }
+            if (!is_null($Password) && $Password)
+            {
+                $this->Password = $Password;
+            }
+            if (!is_null($Type) && $Type)
+            {
+                $this->Type = $Type;
+            }
+            elseif (!$this->Type)
+            {
+                $this->Type = $GLOBALS['phpgw_info']['server']['db_type'];
+            }
 
-			if (!$this->Link_ID)
-			{
-				foreach(array('Host','Database','User','Password') as $name)
-				{
-					$$name = $this->$name;
-				}
-				$type = $this->Type;
+            if (!$this->Link_ID)
+            {
+                foreach(array('Host','Database','User','Password') as $name)
+                {
+                    $$name = $this->$name;
+                }
+                $type = $this->Type;
 
-				switch($this->Type)	// convert to ADO db-type-names
-				{
-					case 'pgsql':
-						$type = 'postgres';
-						// create our own pgsql connection-string, to allow unix domain soccets if !$Host
-						$Host = "dbname=$this->Database".($this->Host ? " host=$this->Host".($this->Port ? " port=$this->Port" : '') : '').
-							" user=$this->User".($this->Password ? " password='".addslashes($this->Password)."'" : '');
-						$User = $Password = $Database = '';	// to indicate $Host is a connection-string
-						break;
-					case 'mssql':
-						if ($this->Port) $Host .= ','.$this->Port;
-						break;
-					default:
-						if ($this->Port) $Host .= ':'.$this->Port;
-						break;
-				}
+                switch($this->Type)	// convert to ADO db-type-names
+                {
+                    case 'pgsql':
+                        $type = 'postgres';
+                        // create our own pgsql connection-string, to allow unix domain soccets if !$Host
+                        $Host = "dbname=$this->Database".($this->Host ? " host=$this->Host".($this->Port ? " port=$this->Port" : '') : '').
+                            " user=$this->User".($this->Password ? " password='".addslashes($this->Password)."'" : '');
+                        $User = $Password = $Database = '';	// to indicate $Host is a connection-string
+                        break;
+                    case 'mssql':
+                        if ($this->Port) $Host .= ','.$this->Port;
+                        break;
+                    default:
+                        if ($this->Port) $Host .= ':'.$this->Port;
+                        break;
+                }
 
-				if ( ! isset( $GLOBALS[ 'phpgw' ] ) )
-				{
-					$GLOBALS[ 'phpgw' ] = new stdClass;
-					$GLOBALS[ 'phpgw' ]->ADOdb = NULL;
-				}
+                if ( ! isset( $GLOBALS[ 'phpgw' ] ) )
+                {
+                    $GLOBALS[ 'phpgw' ] = new stdClass;
+                    $GLOBALS[ 'phpgw' ]->ADOdb = NULL;
+                }
 
-				if (!is_object($GLOBALS['phpgw']->ADOdb) ||	// we have no connection so far
-					(is_object($GLOBALS['phpgw']->db) &&	// we connect to a different db, then the global one
-						($this->Type != $GLOBALS['phpgw']->db->Type ||
-						$this->Database != $GLOBALS['phpgw']->db->Database ||
-						$this->User != $GLOBALS['phpgw']->db->User ||
-						$this->Host != $GLOBALS['phpgw']->db->Host ||
-						$this->Port != $GLOBALS['phpgw']->db->Port)))
-				{
-					if (!is_object($GLOBALS['phpgw']->ADOdb))	// use the global object to store the connection
-					{
-						$this->Link_ID = &$GLOBALS['phpgw']->ADOdb;
-					}
-					else
-					{
-						$this->privat_Link_ID = True;	// remember that we use a privat Link_ID for disconnect
-					}
-					$this->Link_ID = ADONewConnection($type);
-					if (!$this->Link_ID)
-					{
-						$this->halt("No ADOdb support for '$type' !!!");
-						return 0;	// in case error-reporting = 'no'
-					}
-					$connect = ( isset( $GLOBALS['phpgw_info']['server']['db_persistent'] ) && $GLOBALS['phpgw_info']['server']['db_persistent'] ) ? 'PConnect' : 'Connect';
-					if (!$this->Link_ID->$connect($Host, $User, $Password, $Database))
-					{
-						$this->halt("ADOdb::$connect($Host, $User, \$Password, $Database) failed.");
-						return 0;	// in case error-reporting = 'no'
-					}
-					//echo "new ADOdb connection<pre>".print_r($GLOBALS['phpgw']->ADOdb,True)."</pre>\n";
 
-					if ($this->Type == 'mssql')
-					{
-						// this is the format ADOdb expects
-						$this->Link_ID->Execute('SET DATEFORMAT ymd');
-						// sets the limit to the maximum
-						ini_set('mssql.textlimit',2147483647);
-						ini_set('mssql.sizelimit',2147483647);
-					}
-				}
-				else
-				{
-					$this->Link_ID = &$GLOBALS['phpgw']->ADOdb;
-				}
-			}
-			return $this->Link_ID;
-		}
+
+
+
+                if ( !isset($GLOBALS['phpgw']->ADOdb) || !is_object($GLOBALS['phpgw']->ADOdb) ||	// we have no connection so far
+                    (is_object($GLOBALS['phpgw']->db) &&	// we connect to a different db, then the global one
+                        ($this->Type != $GLOBALS['phpgw']->db->Type ||
+                            $this->Database != $GLOBALS['phpgw']->db->Database ||
+                            $this->User != $GLOBALS['phpgw']->db->User ||
+                            $this->Host != $GLOBALS['phpgw']->db->Host ||
+                            $this->Port != $GLOBALS['phpgw']->db->Port)))
+                {
+                    if (isset($GLOBALS['phpgw']->ADOdb) && !is_object($GLOBALS['phpgw']->ADOdb))	// use the global object to store the connection
+                    {
+                        $this->Link_ID = &$GLOBALS['phpgw']->ADOdb;
+                    }
+                    else
+                    {
+                        $this->privat_Link_ID = True;	// remember that we use a privat Link_ID for disconnect
+                    }
+                    $this->Link_ID = ADONewConnection($type);
+                    if (!$this->Link_ID)
+                    {
+                        $this->halt("No ADOdb support for '$type' !!!");
+                        return 0;	// in case error-reporting = 'no'
+                    }
+                    $connect = ( isset( $GLOBALS['phpgw_info']['server']['db_persistent'] ) && $GLOBALS['phpgw_info']['server']['db_persistent'] ) ? 'PConnect' : 'Connect';
+                    if (!$this->Link_ID->$connect($Host, $User, $Password, $Database))
+                    {
+                        $this->halt("ADOdb::$connect($Host, $User, \$Password, $Database) failed.");
+                        return 0;	// in case error-reporting = 'no'
+                    }
+                    //echo "new ADOdb connection<pre>".print_r($GLOBALS['phpgw']->ADOdb,True)."</pre>\n";
+
+                    if ($this->Type == 'mssql')
+                    {
+                        // this is the format ADOdb expects
+                        $this->Link_ID->Execute('SET DATEFORMAT ymd');
+                        // sets the limit to the maximum
+                        ini_set('mssql.textlimit',2147483647);
+                        ini_set('mssql.sizelimit',2147483647);
+                    }
+                }
+                else
+                {
+                    $this->Link_ID = &$GLOBALS['phpgw']->ADOdb;
+                }
+            }
+            return $this->Link_ID;
+        }
 
 		/**
 		* Close a connection to a database
@@ -1008,7 +1012,7 @@
 			}
 			if (!$column_definitions)
 			{
-				$column_definitions = $this->column_definitions;
+				$column_definitions = isset($this->column_definitions) ? $this->column_definitions : null ;
 			}
 			if ($this->Debug) echo "<p>db::column_data_implode('$glue',".print_r($array,True).",'$use_key',".print_r($only,True).",<pre>".print_r($column_definitions,True)."</pre>\n";
 
@@ -1077,7 +1081,7 @@
 		{
 			if (!$app)
 			{
-				$app = $this->app ? $this->app : $GLOBALS['phpgw_info']['flags']['currentapp'];
+				$app = isset($this->app) && $this->app ? $this->app : $GLOBALS['phpgw_info']['flags']['currentapp'];
 			}
 			if (isset($GLOBALS['phpgw_info']['apps']))	// dont set it, if it does not exist!!!
 			{

@@ -28,7 +28,7 @@
 		<table border="0" width="90%">
 			<tr>
 				<td align="left" width="25%">
-					<input type="button" value="{lang_create_shared_account}" "{create_share:_account_disabled}" onClick='{onclick_create_shared_account}'>
+					<input type="button" value="{lang_create_shared_account}" "{create_share:_account_disabled}" onClick='{onclick_create_shared_account} ; sharemailbox.clear()'>
 					<input type="button" value="{lang_back}" onClick="document.location.href='{back_url}'">
 				</td>
 				<td align="center" "left" width="50%">

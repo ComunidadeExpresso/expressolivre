@@ -21,7 +21,7 @@ require_once '../services/class.servicelocator.php';
 
 	//	Explode action from cExecuteForm function
 	$cExecuteFormReturn = false;
- 	if($_POST['_action']) { 		
+ 	if( isset($_POST['_action']) && $_POST['_action']) {
  		if($_FILES) {
  			$count_files = $_POST['countFiles'];
 			$array_files = array(); 		
@@ -35,10 +35,14 @@ require_once '../services/class.servicelocator.php';
  		$cExecuteFormReturn = true;
  	}
  	//	Explode action from cExecute function
- 	else if($_GET['action'])
-		list($app,$class,$method) = explode('.',@$_GET['action']);
-	// NO ACTION
-	else
+ 	else if(isset($_GET['action']) && $_GET['action'])
+    {
+        $aAction =  explode('.',$_GET['action']);
+        $app = isset($aAction[0]) ? $aAction[0] : null;
+        $class = isset($aAction[1]) ? $aAction[1] : null;
+        $method = isset($aAction[2]) ? $aAction[2] : null;
+    }
+	else // NO ACTION
 		return $_SESSION['response'] = 'false';
 	
 	// Load dinamically class file.

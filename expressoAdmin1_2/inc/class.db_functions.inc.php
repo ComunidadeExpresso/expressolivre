@@ -7,10 +7,15 @@
 		*  under the terms of the GNU General Public License as published by the   * 
 		*  Free Software Foundation; either version 2 of the License, or (at your  * 
 		*  option) any later version.                                              * 
-		\**************************************************************************/ 
-		
-define('PHPGW_INCLUDE_ROOT','../');	
-define('PHPGW_API_INC','../phpgwapi/inc');
+		\**************************************************************************/
+
+
+if(!defined('PHPGW_INCLUDE_ROOT'))
+    define('PHPGW_INCLUDE_ROOT', __DIR__ . '/../../');
+
+if(!defined('PHPGW_API_INC'))
+    define('PHPGW_API_INC', __DIR__ . '/../../phpgwapi/inc');
+
 include_once(PHPGW_API_INC.'/class.db.inc.php');
 
 class db_functions
@@ -838,7 +843,7 @@ class db_functions
                 $where = array('acl_appname' => 'calendar','acl_account' => $owner);
                 $this->db->select('phpgw_acl', $colunas, $where, null, null);
 
-                $return;
+                $return = array();
 
                 include_once 'class.ldap_functions.inc.php';
                 $ldap = new ldap_functions();
