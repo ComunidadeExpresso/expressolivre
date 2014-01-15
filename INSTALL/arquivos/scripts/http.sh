@@ -52,7 +52,7 @@ http_debian ()
 {
 	# Instala o apache2 juntamente com o PHP5 e seus respectivos módulos
 	apt-get install -y apache2-mpm-prefork libapache2-mod-php5 apache2-utils \
-		php5 php5-common php5-dev php5-gd php5-imap php5-ldap php5-pgsql php5-cgi php5-cli php5-curl php5-xmlrpc php5-memcache php5-pspell \
+		php5 php5-common php5-dev php5-mcrypt php5-gd php5-imap php5-ldap php5-pgsql php5-cgi php5-cli php5-curl php5-xmlrpc php5-memcache php5-pspell \
 		libgv-php5 zip unzip memcached
 
 	# para que o yuicompressor funcione

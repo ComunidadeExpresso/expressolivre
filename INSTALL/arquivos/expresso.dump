@@ -13542,6 +13542,7 @@ phpgwapi	temp_dir	/tmp
 phpgwapi	files_dir	/home/expressolivre
 phpgwapi	image_type	1
 phpgwapi	hostname	127.0.0.1
+phpgwapi    is_configured   true
 phpgwapi	server_memcache	localhost
 phpgwapi	port_server_memcache	11211
 phpgwapi	auth_type	ldap
