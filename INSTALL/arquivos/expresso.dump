@@ -14493,9 +14493,9 @@ pt-br	common	text	Texto
 pt-br	common	multivalued	Multivalorado
 pt-br	common	could not find the ldap attribute pointed by	Não foi encontrado o correspondente LDAP para o atributo
 pt-br	common	emailadmin	Admin do E-mail
-pt-br	common	expressoadmin1_2	Expresso Admin
+pt-br	common	expressoadmin	Expresso Admin
 pt-br	common	global configuration	Configurações Globais
-pt-br	common	expressomail1_2	Expresso Mail
+pt-br	common	expressomail	Expresso Mail
 pt-br	common	reliable domains	Domínios confiáveis (pode usar a hierarquia DNS, ex:. pr.gov.br)
 pt-br	common	email notify uploads	Notificar por email uploads
 pt-br	common	manual	Manual / Ajuda
@@ -16520,7 +16520,7 @@ pt-br	expressoMail	close	Fechar
 pt-br	expressoMail	coincident	Coincidente
 pt-br	expressoMail	cols	Colunas
 pt-br	expressoMail	confirmation message is not sent	Confirmação de mensagem não enviada
-pt-br	expressoMail	config for expressomail1_2	Configurações do expressoMail
+pt-br	expressoMail	config for expressomail	Configurações do expressoMail
 pt-br	expressoMail	config for expressomail	Configurações para o ExpressoMail
 pt-br	expressoMail	contact added successfully.	Contato adicionado com sucesso.
 pt-br	expressoMail	continue checking other rules if the criteria is met.	Continuar verificando outras regras caso o critério seja encontrado.
@@ -18081,7 +18081,7 @@ en	common	go	Go
 en	common	search for...	Search for ...
 en	common	send mail	Send Mail
 en	common	showing found entries	Showing found entries 
-en	common	expressomail1_2	Expresso Mail
+en	common	expressomail	Expresso Mail
 en	common	manual	Manual / Help
 en	common	configure access permissions	Configure Access Permissions
 en	common	configure rss exports	Configure RSS exports
@@ -20584,10 +20584,10 @@ es-es	common	the reported field was not found in ldap	El campo reportado como co
 es-es	common	text	Texto
 es-es	common	multivalued	multivalor
 es-es	common	emailadmin	Admin do E-mail
-es-es	common	expressoadmin1_2	Expresso Admin
+es-es	common	expressoadmin	Expresso Admin
 es-es	common	global configuration	Configuración global
 es-es	common	managers	Encargados
-es-es	common	expressomail1_2	Expresso Mail
+es-es	common	expressomail	Expresso Mail
 es-es	common	reliable domains	Domínios confiables (pude usar la jerarquía DNS, ej:. pr.gov.br)
 es-es	common	manual	Manual / Ayuda
 es-es	common	configure access permissions	Configurar permisos de acceso
