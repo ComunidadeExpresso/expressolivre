@@ -4869,7 +4869,27 @@ function attach_message (folder_name, message_number) {
     }
     upload.find('.att-box-loading').remove();     
 }
-		
+
+function organize_input_focus( start , borderID )
+{
+    var order = ["input_aux_to","input_aux_cc","input_aux_cco","input_aux_reply_to","input_subject"];
+    var content = $('#content_id_'+borderID);
+
+    for( var i = start ; i < order.length  ; i++ )
+    {
+        if( order[ i + 1 ] === undefined)
+        {
+            RichTextEditor.focus(borderID);
+            break;
+        }
+        else if( !content.find('[name="'+order[ i + 1 ]+'"]').is(':hidden') )
+        {
+            content.find('[name="'+order[ i + 1 ]+'"]').focus();
+            break;
+        }
+    }
+}
+
 function draw_new_message(border_ID){
 	connector.loadScript("color_palette");
 	connector.loadScript('wfolders');
@@ -4898,11 +4918,21 @@ function draw_new_message(border_ID){
 	}
 	var content = $("#content_id_"+ID).html(DataLayer.render("../prototype/modules/mail/templates/new_message.ejs", {id: ID}));    
 	RichTextEditor.loadEditor2(ID);
-	
-	//if(!expresso_offline)
-	//	draw_from_field(sel_from,tr1_1);
-	
-	//content.find('name="input_to"').elastic().elastic("destroy");
+
+    content.find('[name="input_aux_to"],[name="input_aux_cc"],[name="input_aux_cco"],[name="input_aux_reply_to"],[name="input_subject"]').keydown( function( e )
+    {
+        if (e.which === 9)
+        {
+            if( this.name == 'input_aux_to' ) start = 0;
+            else if( this.name == 'input_aux_cc' ) start = 1;
+            else if( this.name == 'input_aux_cco' ) start = 2;
+            else if( this.name == 'input_aux_reply_to' ) start = 3;
+            else if( this.name == 'input_subject' ) start = 4;
+            organize_input_focus(start , ID );
+            e.preventDefault();
+        }
+     });
+
 	draw_from_field(content.find(".from-select")[0], content.find(".from-tr")[0]);
 	
 	var check_input = function(field){

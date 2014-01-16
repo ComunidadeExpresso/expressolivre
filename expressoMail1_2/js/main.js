@@ -2391,7 +2391,7 @@ function new_message(type, border_ID, flagged)
             // Insert the signature automaticaly at message body if use_signature preference is set
             if (preferences.use_signature == "1")
             {
-                RichTextEditor.setInitData(new_border_ID, '<div><br type="_moz"></div>' + signature, true);
+                RichTextEditor.setInitData(new_border_ID, '<div><br type="_moz"></div>' + signature);
             }
             break;
         case "reply_with_history":
@@ -2419,7 +2419,7 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, body_text, true);
+                    RichTextEditor.setInitData(new_border_ID, body_text);
                 }
             }
             else
@@ -2432,7 +2432,7 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, body_text, true);
+                    RichTextEditor.setInitData(new_border_ID, body_text);
                 }
             }
             break;
@@ -2548,7 +2548,7 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, body_text, true);
+                    RichTextEditor.setInitData(new_border_ID, body_text);
                 }
             }
             else
@@ -2561,7 +2561,7 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, body_text, true);
+                    RichTextEditor.setInitData(new_border_ID, body_text);
                 }
             }
 
@@ -2588,7 +2588,7 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, body_text, true);
+                    RichTextEditor.setInitData(new_border_ID, body_text);
                 }
             }
             else
@@ -2601,7 +2601,7 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, body_text, true);
+                    RichTextEditor.setInitData(new_border_ID, body_text);
                 }
             }
             RichTextEditor.dataReady(new_border_ID, 'forward');
@@ -2645,11 +2645,9 @@ function new_message(type, border_ID, flagged)
                 }
                 else
                 {
-                    RichTextEditor.setInitData(new_border_ID, signature_text, true);
+                    RichTextEditor.setInitData(new_border_ID, signature_text);
                 }
-                content.find(".to").focus();
             }
-            else content.find('[name="input_to"]').focus();
 
             RichTextEditor.dataReady(new_border_ID, 'new');
 
@@ -2739,7 +2737,6 @@ function new_message(type, border_ID, flagged)
         default:
     }
 
-    content.find('[name="input_to"]').trigger("update");
     var txtarea = $('#body_' + new_border_ID);
     var height = document.body.scrollHeight - 330;
     txtarea.css("overflowY", "auto");
