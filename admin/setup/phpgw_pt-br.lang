@@ -568,3 +568,4 @@ Minimum number of labels allowed	admin	pt-br	Número mínimo de marcadores permiti
 Identifier of the recipient of a message	admin	pt-br	Identificador do destinatário de uma mensagem
 LDAP attribute used to replacement	admin	pt-br	Atributo LDAP utilizado para substituição
 None	admin	pt-br	Nenhum
+Permission	admin	pt-br	Permissão

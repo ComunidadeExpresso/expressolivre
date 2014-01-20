@@ -976,4 +976,6 @@ Sending the message...	expressoMail1_2	pt-br	Enviando a mensagem...
 Please, Wait the messages from archieve be ready.	expressoMail1_2	pt-br	Por favor, Aguarde as mensagens arquivadas ficarem prontas.
 take on this option to regard the message body in the search.	expressoMail1_2	pt-br	Considerar o corpo da mensagem como filtro na busca
 take off this option to disregard the message body in the search.	expressoMail1_2	pt-br	Desconsiderar o corpo da mensagem como filtro na busca
-Local Archive	expressoMail1_2	pt-br	Arquivamento Local 
+Local Archive	expressoMail1_2	pt-br	Arquivamento Local
+Do you wish enable autosearch?	admin	pt-br	Você deseja habilitar a busca automática?
+Minimum number of characters to start the search for participants	admin	pt-br	Número mínimo de caracteres para pesquisa por participantes
