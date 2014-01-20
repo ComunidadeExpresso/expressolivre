@@ -1141,10 +1141,6 @@
 					$GLOBALS['phpgw_info']['navbar'][$app]['url']   = $GLOBALS['phpgw']->link('/' . $app . '/index.php',$GLOBALS['phpgw_info']['flags']['params'][$app]);
 					$GLOBALS['phpgw_info']['navbar'][$app]['name']  = $app;
                                         
-                                        //Add 'status' and 'enabled' to global navbar
-                                        $GLOBALS['phpgw_info']['navbar'][$app]['enabled'] = $data['enabled'];
-                                        $GLOBALS['phpgw_info']['navbar'][$app]['status']  = $data['status'];
-                                        
 					// create popup target
 					if ($data['status'] == 4)
 					{
@@ -1170,6 +1166,10 @@
 //						$GLOBALS['phpgw_info']['navbar'][$app]['icon']  = $this->image('phpgwapi','nonav');
 //					}
 				}
+                                
+                                //Add 'status' and 'enabled' to global navbar
+                                $GLOBALS['phpgw_info']['navbar'][$app]['enabled'] = $data['enabled'];
+                                $GLOBALS['phpgw_info']['navbar'][$app]['status']  = $data['status'];
 			}
 			if ($GLOBALS['phpgw_info']['flags']['currentapp'] == 'home' || $GLOBALS['phpgw_info']['flags']['currentapp'] == 'preferences' || $GLOBALS['phpgw_info']['flags']['currentapp'] == 'about')
 			{
