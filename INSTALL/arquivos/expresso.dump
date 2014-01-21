@@ -9,6 +9,8 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET escape_string_warning = off;
 
+BEGIN;
+
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
@@ -48,10 +50,10 @@ CREATE FUNCTION share_catalog_insert() RETURNS trigger
 ALTER FUNCTION public.share_catalog_insert() OWNER TO postgres;
 
 --
--- Name: seq_attachment; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: attachment_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_attachment
+CREATE SEQUENCE attachment_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -59,13 +61,13 @@ CREATE SEQUENCE seq_attachment
     CACHE 1;
 
 
-ALTER TABLE public.seq_attachment OWNER TO postgres;
+ALTER TABLE public.attachment_id_seq OWNER TO postgres;
 
 --
--- Name: seq_attachment; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: attachment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_attachment', 1, false);
+SELECT pg_catalog.setval('attachment_id_seq', 1, false);
 
 
 SET default_tablespace = '';
@@ -77,7 +79,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE attachment (
-    id integer DEFAULT nextval('seq_attachment'::regclass) NOT NULL,
+    id integer DEFAULT nextval('attachment_id_seq'::regclass) NOT NULL,
     source bytea NOT NULL,
     type character varying(255) NOT NULL,
     name character varying(255) NOT NULL,
@@ -89,10 +91,10 @@ CREATE TABLE attachment (
 ALTER TABLE public.attachment OWNER TO postgres;
 
 --
--- Name: seq_calendar; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar
+CREATE SEQUENCE calendar_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -100,13 +102,13 @@ CREATE SEQUENCE seq_calendar
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar OWNER TO postgres;
+ALTER TABLE public.calendar_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar', 2, true);
+SELECT pg_catalog.setval('calendar_id_seq', 2, true);
 
 
 --
@@ -114,7 +116,7 @@ SELECT pg_catalog.setval('seq_calendar', 2, true);
 --
 
 CREATE TABLE calendar (
-    id integer DEFAULT nextval('seq_calendar'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_id_seq'::regclass) NOT NULL,
     name character varying(150) NOT NULL,
     location character varying(150) NOT NULL,
     description text,
@@ -128,10 +130,10 @@ CREATE TABLE calendar (
 ALTER TABLE public.calendar OWNER TO postgres;
 
 --
--- Name: seq_calendar_alarm; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_alarm_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_alarm
+CREATE SEQUENCE calendar_alarm_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -139,13 +141,13 @@ CREATE SEQUENCE seq_calendar_alarm
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_alarm OWNER TO postgres;
+ALTER TABLE public.calendar_alarm_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_alarm; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_alarm_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_alarm', 1, false);
+SELECT pg_catalog.setval('calendar_alarm_id_seq', 1, false);
 
 
 --
@@ -153,7 +155,7 @@ SELECT pg_catalog.setval('seq_calendar_alarm', 1, false);
 --
 
 CREATE TABLE calendar_alarm (
-    id integer DEFAULT nextval('seq_calendar_alarm'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_alarm_id_seq'::regclass) NOT NULL,
     action_id bigint NOT NULL,
     unit character varying(20),
     "time" character varying(50),
@@ -167,10 +169,10 @@ CREATE TABLE calendar_alarm (
 ALTER TABLE public.calendar_alarm OWNER TO postgres;
 
 --
--- Name: seq_calendar_attach; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_attach_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_attach
+CREATE SEQUENCE calendar_attach_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -178,13 +180,13 @@ CREATE SEQUENCE seq_calendar_attach
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_attach OWNER TO postgres;
+ALTER TABLE public.calendar_attach_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_attach; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_attach_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_attach', 1, false);
+SELECT pg_catalog.setval('calendar_attach_id_seq', 1, false);
 
 
 --
@@ -192,7 +194,7 @@ SELECT pg_catalog.setval('seq_calendar_attach', 1, false);
 --
 
 CREATE TABLE calendar_attach (
-    id integer DEFAULT nextval('seq_calendar_attach'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_attach_id_seq'::regclass) NOT NULL,
     object_id bigint,
     attach_id bigint
 );
@@ -201,10 +203,10 @@ CREATE TABLE calendar_attach (
 ALTER TABLE public.calendar_attach OWNER TO postgres;
 
 --
--- Name: seq_calendar_class; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_class_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_class
+CREATE SEQUENCE calendar_class_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -212,13 +214,13 @@ CREATE SEQUENCE seq_calendar_class
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_class OWNER TO postgres;
+ALTER TABLE public.calendar_class_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_class; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_class_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_class', 1, false);
+SELECT pg_catalog.setval('calendar_class_id_seq', 1, false);
 
 
 --
@@ -226,7 +228,7 @@ SELECT pg_catalog.setval('seq_calendar_class', 1, false);
 --
 
 CREATE TABLE calendar_class (
-    id integer DEFAULT nextval('seq_calendar_class'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_class_id_seq'::regclass) NOT NULL,
     name character varying(50) NOT NULL
 );
 
@@ -234,10 +236,10 @@ CREATE TABLE calendar_class (
 ALTER TABLE public.calendar_class OWNER TO postgres;
 
 --
--- Name: seq_calendar_ex_participant; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_ex_participant_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_ex_participant
+CREATE SEQUENCE calendar_ex_participant_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -245,13 +247,13 @@ CREATE SEQUENCE seq_calendar_ex_participant
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_ex_participant OWNER TO postgres;
+ALTER TABLE public.calendar_ex_participant_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_ex_participant; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_ex_participant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_ex_participant', 1, false);
+SELECT pg_catalog.setval('calendar_ex_participant_id_seq', 1, false);
 
 
 --
@@ -259,7 +261,7 @@ SELECT pg_catalog.setval('seq_calendar_ex_participant', 1, false);
 --
 
 CREATE TABLE calendar_ex_participant (
-    id integer DEFAULT nextval('seq_calendar_ex_participant'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_ex_participant_id_seq'::regclass) NOT NULL,
     name character varying(100),
     mail character varying(100) NOT NULL,
     owner bigint NOT NULL
@@ -269,10 +271,10 @@ CREATE TABLE calendar_ex_participant (
 ALTER TABLE public.calendar_ex_participant OWNER TO postgres;
 
 --
--- Name: seq_calendar_historic; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_historic_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_historic
+CREATE SEQUENCE calendar_historic_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -280,13 +282,13 @@ CREATE SEQUENCE seq_calendar_historic
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_historic OWNER TO postgres;
+ALTER TABLE public.calendar_historic_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_historic; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_historic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_historic', 1, false);
+SELECT pg_catalog.setval('calendar_historic_id_seq', 1, false);
 
 
 SET default_with_oids = true;
@@ -296,7 +298,7 @@ SET default_with_oids = true;
 --
 
 CREATE TABLE calendar_historic (
-    id integer DEFAULT nextval('seq_calendar_historic'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_historic_id_seq'::regclass) NOT NULL,
     object_id bigint,
     user_uidnumber bigint NOT NULL,
     dtstamp bigint NOT NULL,
@@ -309,10 +311,10 @@ CREATE TABLE calendar_historic (
 ALTER TABLE public.calendar_historic OWNER TO postgres;
 
 --
--- Name: seq_calendar_object; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_object_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_object
+CREATE SEQUENCE calendar_object_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -320,13 +322,13 @@ CREATE SEQUENCE seq_calendar_object
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_object OWNER TO postgres;
+ALTER TABLE public.calendar_object_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_object; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_object_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_object', 1, false);
+SELECT pg_catalog.setval('calendar_object_id_seq', 1, false);
 
 
 SET default_with_oids = false;
@@ -336,7 +338,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE calendar_object (
-    id integer DEFAULT nextval('seq_calendar_object'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_object_id_seq'::regclass) NOT NULL,
     type_id bigint NOT NULL,
     cal_uid character varying(255),
     dtstamp bigint,
@@ -364,10 +366,10 @@ CREATE TABLE calendar_object (
 ALTER TABLE public.calendar_object OWNER TO postgres;
 
 --
--- Name: seq_calendar_object_type; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_object_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_object_type
+CREATE SEQUENCE calendar_object_type_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -375,13 +377,13 @@ CREATE SEQUENCE seq_calendar_object_type
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_object_type OWNER TO postgres;
+ALTER TABLE public.calendar_object_type_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_object_type; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_object_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_object_type', 1, false);
+SELECT pg_catalog.setval('calendar_object_type_id_seq', 1, false);
 
 
 --
@@ -389,7 +391,7 @@ SELECT pg_catalog.setval('seq_calendar_object_type', 1, false);
 --
 
 CREATE TABLE calendar_object_type (
-    id integer DEFAULT nextval('seq_calendar_object_type'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_object_type_id_seq'::regclass) NOT NULL,
     name character varying(50) NOT NULL
 );
 
@@ -397,10 +399,10 @@ CREATE TABLE calendar_object_type (
 ALTER TABLE public.calendar_object_type OWNER TO postgres;
 
 --
--- Name: seq_calendar_participant; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_participant_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_participant
+CREATE SEQUENCE calendar_participant_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -408,13 +410,13 @@ CREATE SEQUENCE seq_calendar_participant
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_participant OWNER TO postgres;
+ALTER TABLE public.calendar_participant_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_participant; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_participant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_participant', 1, false);
+SELECT pg_catalog.setval('calendar_participant_id_seq', 1, false);
 
 
 --
@@ -422,7 +424,7 @@ SELECT pg_catalog.setval('seq_calendar_participant', 1, false);
 --
 
 CREATE TABLE calendar_participant (
-    id integer DEFAULT nextval('seq_calendar_participant'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_participant_id_seq'::regclass) NOT NULL,
     user_info_id bigint NOT NULL,
     object_id bigint,
     delegated_from bigint DEFAULT 0 NOT NULL,
@@ -437,10 +439,10 @@ CREATE TABLE calendar_participant (
 ALTER TABLE public.calendar_participant OWNER TO postgres;
 
 --
--- Name: seq_calendar_participant_status; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_participant_status_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_participant_status
+CREATE SEQUENCE calendar_participant_status_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -448,13 +450,13 @@ CREATE SEQUENCE seq_calendar_participant_status
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_participant_status OWNER TO postgres;
+ALTER TABLE public.calendar_participant_status_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_participant_status; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_participant_status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_participant_status', 1, false);
+SELECT pg_catalog.setval('calendar_participant_status_id_seq', 1, false);
 
 
 --
@@ -462,7 +464,7 @@ SELECT pg_catalog.setval('seq_calendar_participant_status', 1, false);
 --
 
 CREATE TABLE calendar_participant_status (
-    id integer DEFAULT nextval('seq_calendar_participant_status'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_participant_status_id_seq'::regclass) NOT NULL,
     name character varying(50) NOT NULL
 );
 
@@ -470,10 +472,10 @@ CREATE TABLE calendar_participant_status (
 ALTER TABLE public.calendar_participant_status OWNER TO postgres;
 
 --
--- Name: seq_calendar_permission; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_permission
+CREATE SEQUENCE calendar_permission_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -481,13 +483,13 @@ CREATE SEQUENCE seq_calendar_permission
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_permission OWNER TO postgres;
+ALTER TABLE public.calendar_permission_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_permission; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_permission', 1, false);
+SELECT pg_catalog.setval('calendar_permission_id_seq', 1, false);
 
 
 --
@@ -495,7 +497,7 @@ SELECT pg_catalog.setval('seq_calendar_permission', 1, false);
 --
 
 CREATE TABLE calendar_permission (
-    id integer DEFAULT nextval('seq_calendar_permission'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_permission_id_seq'::regclass) NOT NULL,
     uidnumber bigint NOT NULL,
     object_id bigint NOT NULL,
     object_type bigint NOT NULL,
@@ -507,10 +509,10 @@ CREATE TABLE calendar_permission (
 ALTER TABLE public.calendar_permission OWNER TO postgres;
 
 --
--- Name: seq_calendar_repeat; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_repeat_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_repeat
+CREATE SEQUENCE calendar_repeat_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -518,13 +520,13 @@ CREATE SEQUENCE seq_calendar_repeat
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_repeat OWNER TO postgres;
+ALTER TABLE public.calendar_repeat_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_repeat; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_repeat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_repeat', 1, false);
+SELECT pg_catalog.setval('calendar_repeat_id_seq', 1, false);
 
 
 --
@@ -532,7 +534,7 @@ SELECT pg_catalog.setval('seq_calendar_repeat', 1, false);
 --
 
 CREATE TABLE calendar_repeat (
-    id integer DEFAULT nextval('seq_calendar_repeat'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_repeat_id_seq'::regclass) NOT NULL,
     frequency character varying(20) NOT NULL,
     until bigint,
     dtstart bigint,
@@ -556,10 +558,10 @@ CREATE TABLE calendar_repeat (
 ALTER TABLE public.calendar_repeat OWNER TO postgres;
 
 --
--- Name: seq_calendar_repeat_occurrence; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_repeat_occurrence_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_repeat_occurrence
+CREATE SEQUENCE calendar_repeat_occurrence_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -567,13 +569,13 @@ CREATE SEQUENCE seq_calendar_repeat_occurrence
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_repeat_occurrence OWNER TO postgres;
+ALTER TABLE public.calendar_repeat_occurrence_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_repeat_occurrence; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_repeat_occurrence_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_repeat_occurrence', 1, false);
+SELECT pg_catalog.setval('calendar_repeat_occurrence_id_seq', 1, false);
 
 
 --
@@ -581,7 +583,7 @@ SELECT pg_catalog.setval('seq_calendar_repeat_occurrence', 1, false);
 --
 
 CREATE TABLE calendar_repeat_occurrence (
-    id integer DEFAULT nextval('seq_calendar_repeat_occurrence'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_repeat_occurrence_id_seq'::regclass) NOT NULL,
     occurrence bigint NOT NULL,
     exception smallint DEFAULT 0 NOT NULL,
     repeat_id bigint NOT NULL
@@ -591,10 +593,10 @@ CREATE TABLE calendar_repeat_occurrence (
 ALTER TABLE public.calendar_repeat_occurrence OWNER TO postgres;
 
 --
--- Name: seq_calendar_repeat_ranges; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_repeat_ranges_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_repeat_ranges
+CREATE SEQUENCE calendar_repeat_ranges_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -602,13 +604,13 @@ CREATE SEQUENCE seq_calendar_repeat_ranges
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_repeat_ranges OWNER TO postgres;
+ALTER TABLE public.calendar_repeat_ranges_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_repeat_ranges; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_repeat_ranges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_repeat_ranges', 1, false);
+SELECT pg_catalog.setval('calendar_repeat_ranges_id_seq', 1, false);
 
 
 --
@@ -616,7 +618,7 @@ SELECT pg_catalog.setval('seq_calendar_repeat_ranges', 1, false);
 --
 
 CREATE TABLE calendar_repeat_ranges (
-    id integer DEFAULT nextval('seq_calendar_repeat_ranges'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_repeat_ranges_id_seq'::regclass) NOT NULL,
     range_start bigint NOT NULL,
     range_end bigint NOT NULL,
     user_info_id bigint NOT NULL
@@ -626,10 +628,10 @@ CREATE TABLE calendar_repeat_ranges (
 ALTER TABLE public.calendar_repeat_ranges OWNER TO postgres;
 
 --
--- Name: seq_calendar_signature; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_signature_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_signature
+CREATE SEQUENCE calendar_signature_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -637,13 +639,13 @@ CREATE SEQUENCE seq_calendar_signature
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_signature OWNER TO postgres;
+ALTER TABLE public.calendar_signature_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_signature; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_signature_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_signature', 2, true);
+SELECT pg_catalog.setval('calendar_signature_id_seq', 2, true);
 
 
 --
@@ -651,7 +653,7 @@ SELECT pg_catalog.setval('seq_calendar_signature', 2, true);
 --
 
 CREATE TABLE calendar_signature (
-    id integer DEFAULT nextval('seq_calendar_signature'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_signature_id_seq'::regclass) NOT NULL,
     user_uidnumber bigint NOT NULL,
     calendar_id bigint NOT NULL,
     is_owner smallint DEFAULT 0 NOT NULL,
@@ -671,10 +673,10 @@ CREATE TABLE calendar_signature (
 ALTER TABLE public.calendar_signature OWNER TO postgres;
 
 --
--- Name: seq_calendar_signature_alarm; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_signature_alarm_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_signature_alarm
+CREATE SEQUENCE calendar_signature_alarm_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -682,13 +684,13 @@ CREATE SEQUENCE seq_calendar_signature_alarm
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_signature_alarm OWNER TO postgres;
+ALTER TABLE public.calendar_signature_alarm_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_signature_alarm; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_signature_alarm_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_signature_alarm', 1, false);
+SELECT pg_catalog.setval('calendar_signature_alarm_id_seq', 1, false);
 
 
 --
@@ -696,7 +698,7 @@ SELECT pg_catalog.setval('seq_calendar_signature_alarm', 1, false);
 --
 
 CREATE TABLE calendar_signature_alarm (
-    id integer DEFAULT nextval('seq_calendar_signature_alarm'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_signature_alarm_id_seq'::regclass) NOT NULL,
     action_id bigint NOT NULL,
     unit character varying(20),
     "time" character varying(50),
@@ -709,20 +711,6 @@ ALTER TABLE public.calendar_signature_alarm OWNER TO postgres;
 SET default_with_oids = true;
 
 --
--- Name: calendar_task_to_activity_object; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE calendar_task_to_activity_object (
-    id integer NOT NULL,
-    calendar_object_activity_id integer NOT NULL,
-    calendar_object_task_id integer NOT NULL,
-    owner integer NOT NULL
-);
-
-
-ALTER TABLE public.calendar_task_to_activity_object OWNER TO postgres;
-
---
 -- Name: calendar_task_to_activity_object_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -733,28 +721,25 @@ CREATE SEQUENCE calendar_task_to_activity_object_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
-ALTER TABLE public.calendar_task_to_activity_object_id_seq OWNER TO postgres;
-
 --
--- Name: calendar_task_to_activity_object_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: calendar_task_to_activity_object; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER SEQUENCE calendar_task_to_activity_object_id_seq OWNED BY calendar_task_to_activity_object.id;
+CREATE TABLE calendar_task_to_activity_object (
+    id integer DEFAULT nextval('calendar_task_to_activity_object_id_seq'::regclass) NOT NULL,
+    calendar_object_activity_id integer NOT NULL,
+    calendar_object_task_id integer NOT NULL,
+    owner integer NOT NULL
+);
 
+
+ALTER TABLE public.calendar_task_to_activity_object OWNER TO postgres;
 
 --
--- Name: calendar_task_to_activity_object_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_timezones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('calendar_task_to_activity_object_id_seq', 1, false);
-
-
---
--- Name: seq_calendar_timezones; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_calendar_timezones
+CREATE SEQUENCE calendar_timezones_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -762,13 +747,13 @@ CREATE SEQUENCE seq_calendar_timezones
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_timezones OWNER TO postgres;
+ALTER TABLE public.calendar_timezones_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_timezones; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_timezones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_timezones', 1, true);
+SELECT pg_catalog.setval('calendar_timezones_id_seq', 1, true);
 
 
 --
@@ -776,7 +761,7 @@ SELECT pg_catalog.setval('seq_calendar_timezones', 1, true);
 --
 
 CREATE TABLE calendar_timezones (
-    id integer DEFAULT nextval('seq_calendar_timezones'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_timezones_id_seq'::regclass) NOT NULL,
     timezone character varying(150) NOT NULL,
     standard_frequency character varying(20) NOT NULL,
     standard_dtstart character varying(20),
@@ -797,10 +782,10 @@ CREATE TABLE calendar_timezones (
 ALTER TABLE public.calendar_timezones OWNER TO postgres;
 
 --
--- Name: seq_calendar_to_calendar_object; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: calendar_to_calendar_object_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_calendar_to_calendar_object
+CREATE SEQUENCE calendar_to_calendar_object_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -808,13 +793,13 @@ CREATE SEQUENCE seq_calendar_to_calendar_object
     CACHE 1;
 
 
-ALTER TABLE public.seq_calendar_to_calendar_object OWNER TO postgres;
+ALTER TABLE public.calendar_to_calendar_object_id_seq OWNER TO postgres;
 
 --
--- Name: seq_calendar_to_calendar_object; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: calendar_to_calendar_object_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_calendar_to_calendar_object', 1, false);
+SELECT pg_catalog.setval('calendar_to_calendar_object_id_seq', 1, false);
 
 
 SET default_with_oids = false;
@@ -824,7 +809,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE calendar_to_calendar_object (
-    id integer DEFAULT nextval('seq_calendar_to_calendar_object'::regclass) NOT NULL,
+    id integer DEFAULT nextval('calendar_to_calendar_object_id_seq'::regclass) NOT NULL,
     calendar_id bigint NOT NULL,
     calendar_object_id bigint NOT NULL
 );
@@ -1325,10 +1310,10 @@ CREATE TABLE egw_wf_workitems (
 ALTER TABLE public.egw_wf_workitems OWNER TO postgres;
 
 --
--- Name: seq_expressomail_attachment; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: expressomail_attachment_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_expressomail_attachment
+CREATE SEQUENCE expressomail_attachment_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1336,13 +1321,13 @@ CREATE SEQUENCE seq_expressomail_attachment
     CACHE 1;
 
 
-ALTER TABLE public.seq_expressomail_attachment OWNER TO postgres;
+ALTER TABLE public.expressomail_attachment_id_seq OWNER TO postgres;
 
 --
--- Name: seq_expressomail_attachment; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: expressomail_attachment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_expressomail_attachment', 1, false);
+SELECT pg_catalog.setval('expressomail_attachment_id_seq', 1, false);
 
 
 SET default_with_oids = false;
@@ -1352,7 +1337,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE expressomail_attachment (
-    id integer DEFAULT nextval('seq_expressomail_attachment'::regclass) NOT NULL,
+    id integer DEFAULT nextval('expressomail_attachment_id_seq'::regclass) NOT NULL,
     source bytea NOT NULL,
     type character varying(255) NOT NULL,
     name character varying(255) NOT NULL,
@@ -1366,10 +1351,10 @@ CREATE TABLE expressomail_attachment (
 ALTER TABLE public.expressomail_attachment OWNER TO postgres;
 
 --
--- Name: seq_expressomail_followupflag; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: expressomail_followupflag_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_expressomail_followupflag
+CREATE SEQUENCE expressomail_followupflag_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1377,13 +1362,13 @@ CREATE SEQUENCE seq_expressomail_followupflag
     CACHE 1;
 
 
-ALTER TABLE public.seq_expressomail_followupflag OWNER TO postgres;
+ALTER TABLE public.expressomail_followupflag_id_seq OWNER TO postgres;
 
 --
--- Name: seq_expressomail_followupflag; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: expressomail_followupflag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_expressomail_followupflag', 6, true);
+SELECT pg_catalog.setval('expressomail_followupflag_id_seq', 6, true);
 
 
 --
@@ -1391,7 +1376,7 @@ SELECT pg_catalog.setval('seq_expressomail_followupflag', 6, true);
 --
 
 CREATE TABLE expressomail_followupflag (
-    id integer DEFAULT nextval('seq_expressomail_followupflag'::regclass) NOT NULL,
+    id integer DEFAULT nextval('expressomail_followupflag_id_seq'::regclass) NOT NULL,
     user_id bigint,
     name character varying(255) NOT NULL
 );
@@ -1400,10 +1385,10 @@ CREATE TABLE expressomail_followupflag (
 ALTER TABLE public.expressomail_followupflag OWNER TO postgres;
 
 --
--- Name: seq_expressomail_label; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: expressomail_label_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_expressomail_label
+CREATE SEQUENCE expressomail_label_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1411,13 +1396,13 @@ CREATE SEQUENCE seq_expressomail_label
     CACHE 1;
 
 
-ALTER TABLE public.seq_expressomail_label OWNER TO postgres;
+ALTER TABLE public.expressomail_label_id_seq OWNER TO postgres;
 
 --
--- Name: seq_expressomail_label; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: expressomail_label_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_expressomail_label', 5, true);
+SELECT pg_catalog.setval('expressomail_label_id_seq', 5, true);
 
 
 --
@@ -1425,7 +1410,7 @@ SELECT pg_catalog.setval('seq_expressomail_label', 5, true);
 --
 
 CREATE TABLE expressomail_label (
-    id integer DEFAULT nextval('seq_expressomail_label'::regclass) NOT NULL,
+    id integer DEFAULT nextval('expressomail_label_id_seq'::regclass) NOT NULL,
     user_id bigint,
     name character varying(255),
     border_color character varying(7),
@@ -1438,10 +1423,10 @@ CREATE TABLE expressomail_label (
 ALTER TABLE public.expressomail_label OWNER TO postgres;
 
 --
--- Name: seq_expressomail_message_followupflag; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: expressomail_message_followupflag_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_expressomail_message_followupflag
+CREATE SEQUENCE expressomail_message_followupflag_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1449,13 +1434,13 @@ CREATE SEQUENCE seq_expressomail_message_followupflag
     CACHE 1;
 
 
-ALTER TABLE public.seq_expressomail_message_followupflag OWNER TO postgres;
+ALTER TABLE public.expressomail_message_followupflag_id_seq OWNER TO postgres;
 
 --
--- Name: seq_expressomail_message_followupflag; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: expressomail_message_followupflag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_expressomail_message_followupflag', 1, false);
+SELECT pg_catalog.setval('expressomail_message_followupflag_id_seq', 1, false);
 
 
 --
@@ -1463,7 +1448,7 @@ SELECT pg_catalog.setval('seq_expressomail_message_followupflag', 1, false);
 --
 
 CREATE TABLE expressomail_message_followupflag (
-    id integer DEFAULT nextval('seq_expressomail_message_followupflag'::regclass) NOT NULL,
+    id integer DEFAULT nextval('expressomail_message_followupflag_id_seq'::regclass) NOT NULL,
     followupflag_id bigint NOT NULL,
     border_color character varying(7),
     background_color character varying(7),
@@ -1478,10 +1463,10 @@ CREATE TABLE expressomail_message_followupflag (
 ALTER TABLE public.expressomail_message_followupflag OWNER TO postgres;
 
 --
--- Name: seq_module_preference; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: module_preference_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE seq_module_preference
+CREATE SEQUENCE module_preference_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1489,13 +1474,13 @@ CREATE SEQUENCE seq_module_preference
     CACHE 1;
 
 
-ALTER TABLE public.seq_module_preference OWNER TO postgres;
+ALTER TABLE public.module_preference_id_seq OWNER TO postgres;
 
 --
--- Name: seq_module_preference; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: module_preference_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('seq_module_preference', 1, false);
+SELECT pg_catalog.setval('module_preference_id_seq', 1, false);
 
 
 --
@@ -1503,7 +1488,7 @@ SELECT pg_catalog.setval('seq_module_preference', 1, false);
 --
 
 CREATE TABLE module_preference (
-    id integer DEFAULT nextval('seq_module_preference'::regclass) NOT NULL,
+    id integer DEFAULT nextval('module_preference_id_seq'::regclass) NOT NULL,
     user_uidnumber bigint NOT NULL,
     value character varying(100) NOT NULL,
     name character varying(50) NOT NULL,
@@ -1533,11 +1518,31 @@ CREATE TABLE phpgw_access_log (
 ALTER TABLE public.phpgw_access_log OWNER TO postgres;
 
 --
+-- Name: phpgw_accounts_account_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_accounts_account_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_accounts_account_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_accounts_account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_accounts_account_id_seq', 1, false);
+
+--
 -- Name: phpgw_accounts; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_accounts (
-    account_id integer DEFAULT nextval(('seq_phpgw_accounts'::text)::regclass) NOT NULL,
+    account_id integer DEFAULT nextval('phpgw_accounts_account_id_seq'::regclass) NOT NULL,
     account_lid character varying(25) NOT NULL,
     account_pwd character varying(100) NOT NULL,
     account_firstname character varying(50),
@@ -1571,11 +1576,31 @@ CREATE TABLE phpgw_acl (
 ALTER TABLE public.phpgw_acl OWNER TO postgres;
 
 --
+-- Name: phpgw_addressbook_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_addressbook_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_addressbook_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_addressbook_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_addressbook_id_seq', 1, false);
+
+--
 -- Name: phpgw_addressbook; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_addressbook (
-    id integer DEFAULT nextval(('seq_phpgw_addressbook'::text)::regclass) NOT NULL,
+    id integer DEFAULT nextval('phpgw_addressbook_id_seq'::regclass) NOT NULL,
     lid character varying(32),
     tid character(1),
     owner bigint,
@@ -1664,11 +1689,31 @@ CREATE TABLE phpgw_app_sessions (
 ALTER TABLE public.phpgw_app_sessions OWNER TO postgres;
 
 --
+-- Name: phpgw_applications_app_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_applications_app_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_applications_app_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_applications_app_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_applications_app_id_seq', 23, true);
+
+--
 -- Name: phpgw_applications; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_applications (
-    app_id integer DEFAULT nextval(('seq_phpgw_applications'::text)::regclass) NOT NULL,
+    app_id integer DEFAULT nextval('phpgw_applications_app_id_seq'::regclass) NOT NULL,
     app_name character varying(25) NOT NULL,
     app_enabled integer NOT NULL,
     app_order integer NOT NULL,
@@ -1696,11 +1741,31 @@ CREATE TABLE phpgw_async (
 ALTER TABLE public.phpgw_async OWNER TO postgres;
 
 --
+-- Name: phpgw_cal_cal_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_cal_cal_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_cal_cal_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_cal_cal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_cal_cal_id_seq', 1, false);
+
+--
 -- Name: phpgw_cal; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_cal (
-    cal_id integer DEFAULT nextval(('seq_phpgw_cal'::text)::regclass) NOT NULL,
+    cal_id integer DEFAULT nextval('phpgw_cal_cal_id_seq'::regclass) NOT NULL,
     uid character varying(255) NOT NULL,
     owner bigint NOT NULL,
     category character varying(30),
@@ -1742,11 +1807,31 @@ CREATE TABLE phpgw_cal_extra (
 ALTER TABLE public.phpgw_cal_extra OWNER TO postgres;
 
 --
+-- Name: phpgw_cal_holidays_hol_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_cal_holidays_hol_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_cal_holidays_hol_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_cal_holidays_hol_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_cal_holidays_hol_id_seq', 1, false);
+
+--
 -- Name: phpgw_cal_holidays; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_cal_holidays (
-    hol_id integer DEFAULT nextval(('seq_phpgw_cal_holidays'::text)::regclass) NOT NULL,
+    hol_id integer DEFAULT nextval('phpgw_cal_holidays_hol_id_seq'::regclass) NOT NULL,
     locale character(2) NOT NULL,
     name character varying(50) NOT NULL,
     mday bigint DEFAULT 0 NOT NULL,
@@ -1791,11 +1876,31 @@ CREATE TABLE phpgw_cal_user (
 ALTER TABLE public.phpgw_cal_user OWNER TO postgres;
 
 --
+-- Name: phpgw_categories_cat_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_categories_cat_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_categories_cat_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_categories_cat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_categories_cat_id_seq', 1, true);
+
+--
 -- Name: phpgw_categories; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_categories (
-    cat_id integer DEFAULT nextval(('seq_phpgw_categories'::text)::regclass) NOT NULL,
+    cat_id integer DEFAULT nextval('phpgw_categories_cat_id_seq'::regclass) NOT NULL,
     cat_main integer DEFAULT 0 NOT NULL,
     cat_parent integer DEFAULT 0 NOT NULL,
     cat_level smallint DEFAULT 0 NOT NULL,
@@ -2030,11 +2135,31 @@ CREATE TABLE phpgw_cc_contact_rels (
 ALTER TABLE public.phpgw_cc_contact_rels OWNER TO postgres;
 
 --
+-- Name: phpgw_cc_groups_id_group_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_cc_groups_id_group_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_cc_groups_id_group_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_cc_groups_id_group_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_cc_groups_id_group_seq', 1, false);
+
+--
 -- Name: phpgw_cc_groups; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_cc_groups (
-    id_group integer DEFAULT nextval(('seq_phpgw_cc_groups'::text)::regclass) NOT NULL,
+    id_group integer DEFAULT nextval('phpgw_cc_groups_id_group_seq'::regclass) NOT NULL,
     title character varying(50),
     owner bigint NOT NULL,
     short_name text
@@ -2209,11 +2334,31 @@ CREATE TABLE phpgw_config (
 ALTER TABLE public.phpgw_config OWNER TO postgres;
 
 --
+-- Name: phpgw_emailadmin_profileid_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_emailadmin_profileid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_emailadmin_profileid_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_emailadmin_profileid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_emailadmin_profileid_seq', 1, true);
+
+--
 -- Name: phpgw_emailadmin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_emailadmin (
-    profileid integer DEFAULT nextval(('seq_phpgw_emailadmin'::text)::regclass) NOT NULL,
+    profileid integer DEFAULT nextval('phpgw_emailadmin_profileid_seq'::regclass) NOT NULL,
     smtpserver character varying(80),
     smtptype integer,
     smtpport integer,
@@ -2293,11 +2438,31 @@ CREATE TABLE phpgw_expressoadmin_apps (
 ALTER TABLE public.phpgw_expressoadmin_apps OWNER TO postgres;
 
 --
+-- Name: phpgw_expressoadmin_configuration_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_expressoadmin_configuration_id_seq
+    START WITH 93
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_expressoadmin_configuration_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_expressoadmin_configuration_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_expressoadmin_configuration_id_seq', 93, false);
+
+--
 -- Name: phpgw_expressoadmin_configuration; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_expressoadmin_configuration (
-    id integer DEFAULT nextval(('seq_phpgw_expressoadmin_configuration'::text)::regclass) NOT NULL,
+    id integer DEFAULT nextval('phpgw_expressoadmin_configuration_id_seq'::regclass) NOT NULL,
     email_user character varying(100),
     configuration_type character varying(30) NOT NULL,
     email_max_recipient integer DEFAULT 0,
@@ -2359,9 +2524,29 @@ CREATE TABLE phpgw_expressomail_contacts (
 
 ALTER TABLE public.phpgw_expressomail_contacts OWNER TO postgres;
 
+--
+-- Name: phpgw_history_log_history_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_history_log_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_history_log_history_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_history_log_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_history_log_history_id_seq', 1, false);
+
 
 CREATE TABLE phpgw_history_log (
-    history_id integer DEFAULT nextval(('seq_phpgw_history_log'::text)::regclass) NOT NULL,
+    history_id integer DEFAULT nextval('phpgw_history_log_history_id_seq'::regclass) NOT NULL,
     history_record_id integer NOT NULL,
     history_appname character varying(64) NOT NULL,
     history_owner integer NOT NULL,
@@ -2375,11 +2560,31 @@ CREATE TABLE phpgw_history_log (
 ALTER TABLE public.phpgw_history_log OWNER TO postgres;
 
 --
+-- Name: phpgw_hooks_hook_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_hooks_hook_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_hooks_hook_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_hooks_hook_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_hooks_hook_id_seq', 913, true);
+
+--
 -- Name: phpgw_hooks; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_hooks (
-    hook_id integer DEFAULT nextval(('seq_phpgw_hooks'::text)::regclass) NOT NULL,
+    hook_id integer DEFAULT nextval('phpgw_hooks_hook_id_seq'::regclass) NOT NULL,
     hook_appname character varying(255),
     hook_location character varying(255),
     hook_filename character varying(255)
@@ -2389,11 +2594,31 @@ CREATE TABLE phpgw_hooks (
 ALTER TABLE public.phpgw_hooks OWNER TO postgres;
 
 --
+-- Name: phpgw_interserv_server_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_interserv_server_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_interserv_server_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_interserv_server_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_interserv_server_id_seq', 1, true);
+
+--
 -- Name: phpgw_interserv; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_interserv (
-    server_id integer DEFAULT nextval(('seq_phpgw_interserv'::text)::regclass) NOT NULL,
+    server_id integer DEFAULT nextval('phpgw_interserv_server_id_seq'::regclass) NOT NULL,
     server_name character varying(64),
     server_host character varying(255),
     server_url character varying(255),
@@ -2437,11 +2662,31 @@ CREATE TABLE phpgw_languages (
 ALTER TABLE public.phpgw_languages OWNER TO postgres;
 
 --
+-- Name: phpgw_log_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_log_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_log_log_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_log_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_log_log_id_seq', 7, true);
+
+--
 -- Name: phpgw_log; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_log (
-    log_id integer DEFAULT nextval(('seq_phpgw_log'::text)::regclass) NOT NULL,
+    log_id integer DEFAULT nextval('phpgw_log_log_id_seq'::regclass) NOT NULL,
     log_date timestamp without time zone NOT NULL,
     log_user integer NOT NULL,
     log_app character varying(50) NOT NULL,
@@ -2473,11 +2718,31 @@ CREATE TABLE phpgw_log_msg (
 ALTER TABLE public.phpgw_log_msg OWNER TO postgres;
 
 --
+-- Name: phpgw_news_news_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_news_news_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_news_news_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_news_news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_news_news_id_seq', 1, false);
+
+--
 -- Name: phpgw_news; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_news (
-    news_id integer DEFAULT nextval(('seq_phpgw_news'::text)::regclass) NOT NULL,
+    news_id integer DEFAULT nextval('phpgw_news_news_id_seq'::regclass) NOT NULL,
     news_date integer,
     news_subject character varying(255),
     news_submittedby character varying(255),
@@ -2554,11 +2819,31 @@ CREATE TABLE phpgw_sessions (
 ALTER TABLE public.phpgw_sessions OWNER TO postgres;
 
 --
+-- Name: phpgw_vfs_file_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE phpgw_vfs_file_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phpgw_vfs_file_id_seq OWNER TO postgres;
+
+--
+-- Name: phpgw_vfs_file_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('phpgw_vfs_file_id_seq', 4, true);
+
+--
 -- Name: phpgw_vfs; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE phpgw_vfs (
-    file_id integer DEFAULT nextval(('seq_phpgw_vfs'::text)::regclass) NOT NULL,
+    file_id integer DEFAULT nextval('phpgw_vfs_file_id_seq'::regclass) NOT NULL,
     owner_id integer NOT NULL,
     createdby_id integer,
     modifiedby_id integer,
@@ -2593,349 +2878,6 @@ CREATE TABLE phpgw_vfs_quota (
 
 
 ALTER TABLE public.phpgw_vfs_quota OWNER TO postgres;
-
---
--- Name: seq_calendar_task_to_activity_object; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_calendar_task_to_activity_object
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_calendar_task_to_activity_object OWNER TO postgres;
-
---
--- Name: seq_calendar_task_to_activity_object; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_calendar_task_to_activity_object', 1, false);
-
-
---
--- Name: seq_phpgw_accounts; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_accounts
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_accounts OWNER TO postgres;
-
---
--- Name: seq_phpgw_accounts; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_accounts', 1, false);
-
-
---
--- Name: seq_phpgw_addressbook; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_addressbook
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_addressbook OWNER TO postgres;
-
---
--- Name: seq_phpgw_addressbook; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_addressbook', 1, false);
-
-
---
--- Name: seq_phpgw_applications; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_applications
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_applications OWNER TO postgres;
-
---
--- Name: seq_phpgw_applications; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_applications', 23, true);
-
-
---
--- Name: seq_phpgw_cal; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_cal
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_cal OWNER TO postgres;
-
---
--- Name: seq_phpgw_cal; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_cal', 1, false);
-
-
---
--- Name: seq_phpgw_cal_holidays; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_cal_holidays
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_cal_holidays OWNER TO postgres;
-
---
--- Name: seq_phpgw_cal_holidays; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_cal_holidays', 1, false);
-
-
---
--- Name: seq_phpgw_categories; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_categories
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_categories OWNER TO postgres;
-
---
--- Name: seq_phpgw_categories; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_categories', 1, true);
-
-
---
--- Name: seq_phpgw_cc_groups; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_cc_groups
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_cc_groups OWNER TO postgres;
-
---
--- Name: seq_phpgw_cc_groups; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_cc_groups', 1, false);
-
-
---
--- Name: seq_phpgw_emailadmin; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_emailadmin
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_emailadmin OWNER TO postgres;
-
---
--- Name: seq_phpgw_emailadmin; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_emailadmin', 1, true);
-
-
---
--- Name: seq_phpgw_expressoadmin_configuration; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_expressoadmin_configuration
-    START WITH 93
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_expressoadmin_configuration OWNER TO postgres;
-
---
--- Name: seq_phpgw_expressoadmin_configuration; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_expressoadmin_configuration', 93, false);
-
-
---
--- Name: seq_phpgw_history_log; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_history_log
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_history_log OWNER TO postgres;
-
---
--- Name: seq_phpgw_history_log; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_history_log', 1, false);
-
-
---
--- Name: seq_phpgw_hooks; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_hooks
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_hooks OWNER TO postgres;
-
---
--- Name: seq_phpgw_hooks; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_hooks', 913, true);
-
-
---
--- Name: seq_phpgw_interserv; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_interserv
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_interserv OWNER TO postgres;
-
---
--- Name: seq_phpgw_interserv; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_interserv', 1, true);
-
-
---
--- Name: seq_phpgw_log; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_log
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_log OWNER TO postgres;
-
---
--- Name: seq_phpgw_log; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_log', 7, true);
-
-
---
--- Name: seq_phpgw_news; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_news
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_news OWNER TO postgres;
-
---
--- Name: seq_phpgw_news; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_news', 1, false);
-
-
---
--- Name: seq_phpgw_vfs; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE seq_phpgw_vfs
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.seq_phpgw_vfs OWNER TO postgres;
-
---
--- Name: seq_phpgw_vfs; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('seq_phpgw_vfs', 4, true);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY calendar_task_to_activity_object ALTER COLUMN id SET DEFAULT nextval('calendar_task_to_activity_object_id_seq'::regclass);
-
 
 --
 -- Data for Name: attachment; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -13542,7 +13484,7 @@ phpgwapi	temp_dir	/tmp
 phpgwapi	files_dir	/home/expressolivre
 phpgwapi	image_type	1
 phpgwapi	hostname	127.0.0.1
-phpgwapi    is_configured   true
+phpgwapi	is_configured	true
 phpgwapi	server_memcache	localhost
 phpgwapi	port_server_memcache	11211
 phpgwapi	auth_type	ldap
@@ -16521,7 +16463,6 @@ pt-br	expressoMail	close	Fechar
 pt-br	expressoMail	coincident	Coincidente
 pt-br	expressoMail	cols	Colunas
 pt-br	expressoMail	confirmation message is not sent	Confirmação de mensagem não enviada
-pt-br	expressoMail	config for expressomail	Configurações do expressoMail
 pt-br	expressoMail	config for expressomail	Configurações para o ExpressoMail
 pt-br	expressoMail	contact added successfully.	Contato adicionado com sucesso.
 pt-br	expressoMail	continue checking other rules if the criteria is met.	Continuar verificando outras regras caso o critério seja encontrado.
@@ -24276,3 +24217,4 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
+COMMIT;
