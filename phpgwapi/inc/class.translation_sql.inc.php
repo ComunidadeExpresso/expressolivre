@@ -52,9 +52,9 @@
 				$this->placeholders[] = '%'.$i;
 			}
 			$this->db = ( isset($GLOBALS['phpgw']->db) && is_object($GLOBALS['phpgw']->db) ) ? $GLOBALS['phpgw']->db : $GLOBALS['phpgw_setup']->db;
-			if (!isset($GLOBALS['phpgw_setup']))
+			if ( !isset($GLOBALS['phpgw_setup']) && isset($GLOBALS['phpgw_info']['server']['system_charset']) )
 			{
-				$this->system_charset = @$GLOBALS['phpgw_info']['server']['system_charset'];
+				$this->system_charset = $GLOBALS['phpgw_info']['server']['system_charset'];
 			}
 			else
 			{
@@ -103,12 +103,12 @@
 				}
 				return $this->charsets[$lang];
 			}
-			if ($this->system_charset)	// do we have a system-charset ==> return it
+			if ( isset($this->system_charset) && $this->system_charset )	// do we have a system-charset ==> return it
 			{
 				return $this->system_charset;
 			}
 			// if no translations are loaded (system-startup) use a default, else lang('charset')
-			return !is_array(@$GLOBALS['lang']) ? 'iso-8859-1' : strtolower($this->translate('charset'));
+			return ( !( isset($GLOBALS['lang']) && is_array($GLOBALS['lang']) ) )? 'iso-8859-1' : strtolower( $this->translate( 'charset' ) );
 		}
 
 		function init()

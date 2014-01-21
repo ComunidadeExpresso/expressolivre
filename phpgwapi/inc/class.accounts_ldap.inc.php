@@ -88,20 +88,20 @@
 				{
 					$this->data['email'] = $allValues[0]['mail'][0];
 				}
-				$this->data['telephonenumber']   = $allValues[0]['telephonenumber'][0];
-				$this->data['mobile']   = $allValues[0]['mobile'][0];
-				$this->data['homephone']   = $allValues[0]['homephone'][0];
-				$this->data['datanascimento']   = $allValues[0]['datanascimento'][0];			
+				$this->data['telephonenumber']   = isset($allValues[0]['telephonenumber'][0])? $allValues[0]['telephonenumber'][0] : null;
+				$this->data['mobile']   = isset($allValues[0]['mobile'][0])? $allValues[0]['mobile'][0] : null;
+				$this->data['homephone']   = isset($allValues[0]['homephone'][0])? $allValues[0]['homephone'][0] : null;
+				$this->data['datanascimento']   = isset($allValues[0]['datanascimento'][0])? $allValues[0]['datanascimento'][0] : null;
 				/* jakjr: this is not used for expressoLivre */
 				/*
 				$this->data['lastlogin']         = $allValues[0]['phpgwaccountlastlogin'][0];
 				$this->data['lastloginfrom']     = $allValues[0]['phpgwaccountlastloginfrom'][0];
 				*/
-				$this->data['lastpasswd_change'] = @$allValues[0]['phpgwlastpasswdchange'][0];
+				$this->data['lastpasswd_change'] = isset($allValues[0]['phpgwlastpasswdchange'][0])? $allValues[0]['phpgwlastpasswdchange'][0] : null;
 				$this->data['status']            = trim($allValues[0]['phpgwaccountstatus'][0]);
 				$this->data['expires']           = $allValues[0]['phpgwaccountexpires'][0];
 				$this->data['type']              = $allValues[0]['phpgwaccounttype'][0];
-				$this->data['agree_terms']   = $allValues[0]['phpgwagreeterm'][0];
+				$this->data['agree_terms']   = isset($allValues[0]['phpgwagreeterm'][0])? $allValues[0]['phpgwagreeterm'][0] : null;
 			}
 			$this->data['account_dn']  = $allValues[0]['dn'];
 			$this->data['fullname']    = $GLOBALS['phpgw']->translation->convert($allValues[0]['cn'][0],'utf-8');
@@ -635,7 +635,7 @@
 				$allValues = ldap_get_entries($this->ds, $sri);
 	
 				$attr = $which == 'account_lid' ? 'cn' : 'phpgwaccounttype';
-				if (@$allValues[0]['cn'][0])
+				if ( isset($allValues[0]['cn'][0]) )
 				{
 					return $allValues[0]['cn'][0];
 				}
@@ -657,7 +657,7 @@
 				return False;
 			$allValues = ldap_get_entries($this->ds, $sri);
 
-			if (@$allValues[0][$to_ldap[$which]][0])
+			if ( isset($allValues[0][$to_ldap[$which]][0]))
 			{
 				return $allValues[0][$to_ldap[$which]][0];
 			}
@@ -1121,6 +1121,8 @@
 			if(!$sri)
 				return False;
 			$allValues = ldap_get_entries($this->ds, $sri);
+
+			if ( $allValues['count'] == 0 ) return false;
 
 			if($acct_type =='g')
 			{

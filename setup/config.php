@@ -196,7 +196,6 @@ class Config {
 		if ( method_exists( $this, $method ) ) $result = call_user_func_array( [ $this , $method ], $params );
 		else if ( function_exists( $method ) ) $result = call_user_func_array( $method, $params );
 		
-		//Zend_Debug::dump($method.'( '.stripslashes(json_encode($params)).' ) '.str_replace(PHP_EOL,'',strip_tags(Zend_Debug::dump($ignore_dep? true : $result,'result',false))));
 		return $ignore_dep? true : $result;
 	}
 	
@@ -269,13 +268,11 @@ class Config {
 				if ( $this->_old_vars[$key] === $value ) continue;
 				if ( $value === '' ) {
 					if ( strstr( $key, 'passwd' ) || strstr( $key, 'password' ) || strstr( $key, 'root_pw' ) ) continue;
-					//Zend_Debug::dump('DELETE FROM '.$this->_getTableConfig().' '.'WHERE config_app=\'phpgwapi\' AND config_name=\''. $key .'\'');
 					$this->_getDB()->query(
 						'DELETE FROM '.$this->_getTableConfig().' '.
 						'WHERE config_app=\'phpgwapi\' AND config_name=\''. $key .'\''
 					);
 				} else {
-					//Zend_Debug::dump('UPDATE '.$this->_getTableConfig().' SET '.'config_value=\''.$this->_getDB()->db_addslashes( $value ).'\' '.'WHERE config_app=\'phpgwapi\' AND config_name=\''. $key .'\'');
 					$this->_getDB()->query(
 						'UPDATE '.$this->_getTableConfig().' SET '.
 						'config_value=\''.$this->_getDB()->db_addslashes( $value ).'\' '.
@@ -284,7 +281,6 @@ class Config {
 				}
 			} else {
 				if ( $value === '' ) continue;
-				//Zend_Debug::dump('INSERT INTO '.$this->_getTableConfig().' ( config_app, config_name, config_value ) '.'VALUES (\'phpgwapi\',\''.$key.'\',\''.$this->_getDB()->db_addslashes( $value ).'\')');
 				$this->_getDB()->query(
 					'INSERT INTO '.$this->_getTableConfig().' ( config_app, config_name, config_value ) '.
 					'VALUES (\'phpgwapi\',\''.$key.'\',\''.$this->_getDB()->db_addslashes( $value ).'\')'

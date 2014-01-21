@@ -203,6 +203,15 @@
 				unset($config);
 			}*/
 		}
+		
+		private function _init_crypto()
+		{
+			/* init the crypto object before appsession call below */
+			$encryptkey = isset($GLOBALS['phpgw_info']['server']['encryptkey'])? $GLOBALS['phpgw_info']['server']['encryptkey'] : '';
+			$this->key = md5( $this->kp3 . $this->sessionid . $encryptkey );
+			$this->iv  = isset($GLOBALS['phpgw_info']['server']['mcrypt_iv'])? $GLOBALS['phpgw_info']['server']['mcrypt_iv'] : '';
+			$GLOBALS['phpgw']->crypto->init( array( $this->key, $this->iv ) );
+		}
 
 		/**
 		* Introspection for XML-RPC/SOAP
@@ -301,12 +310,10 @@
 			$GLOBALS['phpgw_info']['user']['account_id'] = $this->account_id;
 			$_SESSION['phpgw_session']['account_id'] = $this->account_id;
 
-			/* init the crypto object before appsession call below */
-			$this->key = md5($this->kp3 . $this->sessionid . @$GLOBALS['phpgw_info']['server']['encryptkey']);
-			$this->iv  = $GLOBALS['phpgw_info']['server']['mcrypt_iv'];
-			$GLOBALS['phpgw']->crypto->init(array($this->key,$this->iv));
+			/* init the crypto object */
+			$this->_init_crypto();
 
-			$this->read_repositories(@$GLOBALS['phpgw_info']['server']['cache_phpgw_info']);
+			$this->read_repositories( isset($GLOBALS['phpgw_info']['server']['cache_phpgw_info'])? $GLOBALS['phpgw_info']['server']['cache_phpgw_info'] : null );
 			if (strlen($this->user['expires']) == 0)
 				$this->user['expires'] = $_SESSION['phpgw_session']['expires_account'];
 			if ($this->user['expires'] != -1 && $this->user['expires'] < time())
@@ -475,40 +482,50 @@
 			$user_ip = $this->getuser_ip();
 				
 			$this->account_id = $GLOBALS['phpgw']->accounts->name2id($this->account_lid);
-
-			if (($blocked = $this->login_blocked($login,$user_ip)) ||	// too many unsuccessful attempts
-				$GLOBALS['phpgw_info']['server']['global_denied_users'][$this->account_lid] ||
-				!$GLOBALS['phpgw']->auth->authenticate($this->account_lid, $this->passwd, $this->passwd_type) ||
-				$this->account_id && $GLOBALS['phpgw']->accounts->get_type($this->account_id) == 'g')
+			
+			if (
+				(
+					isset($GLOBALS['phpgw_info']['server']['global_denied_users'][$this->account_lid]) &&
+					$GLOBALS['phpgw_info']['server']['global_denied_users'][$this->account_lid]
+				) ||
+				( $blocked = $this->login_blocked( $login, $user_ip ) ) ||
+				( !$GLOBALS['phpgw']->auth->authenticate( $this->account_lid, $this->passwd, $this->passwd_type ) ) ||
+				( $this->account_id && $GLOBALS['phpgw']->accounts->get_type( $this->account_id ) == 'g' )
+			)
 			{
+				$blocked = isset($blocked)? $blocked : false;
 				$this->reason = $blocked ? 'blocked, too many attempts' : 'bad login or password';
 				$this->cd_reason = $blocked ? 99 : 5;
-
-				$this->log_access($this->reason,$login,$user_ip,0);	// log unsuccessfull login
-				return False;
+				$this->log_access( $this->reason, $login, $user_ip, 0 );	// log unsuccessfull login
+				return false;
 			}
+			
 			// Só verifica tempo de inatividade do usuário, caso esteja configurado no Administrador.
-			if(isset($GLOBALS['phpgw_info']['server']['time_to_account_expires']) && 
-				$this->account_id !=null && $this->account_lid != "expresso-admin") {
-					$last_access = $this->get_last_access_on_history($this->account_id);
-					$this->read_repositories(False);
-					if ($last_access && ($last_access+($GLOBALS['phpgw_info']['server']['time_to_account_expires']*86400) < time()))
+			if (
+				isset($GLOBALS['phpgw_info']['server']['time_to_account_expires']) &&
+				$this->account_id != null &&
+				$this->account_lid != 'expresso-admin'
+			)
+			{
+				$last_access = $this->get_last_access_on_history($this->account_id);
+				$this->read_repositories(false);
+				if ( $last_access && ( $last_access + ( $GLOBALS['phpgw_info']['server']['time_to_account_expires'] * 86400 ) < time() ) )
+				{
+					if ( isset($GLOBALS['phpgw']->log) && is_object($GLOBALS['phpgw']->log) )
 					{
-						if(is_object($GLOBALS['phpgw']->log))
-						{
-							$GLOBALS['phpgw']->log->message(array(
-								'text' => 'W-LoginFailure, account loginid %1 is expired for innativity',
-								'p1'   => $this->account_lid,
-								'line' => __LINE__,
-								'file' => __FILE__
-							));
-							$GLOBALS['phpgw']->log->commit();
-						}
-						$this->reason = 'account is expired';
-						$this->cd_reason = 98;
-		
-						return False;
+						$GLOBALS['phpgw']->log->message( array(
+							'text' => 'W-LoginFailure, account loginid %1 is expired for innativity',
+							'p1'   => $this->account_lid,
+							'line' => __LINE__,
+							'file' => __FILE__
+						) );
+						$GLOBALS['phpgw']->log->commit();
 					}
+					$this->reason = 'account is expired';
+					$this->cd_reason = 98;
+					
+					return false;
+				}
 			}
 
 			/* jakjr: Expresso does not use auto-create account.
@@ -519,16 +536,30 @@
 			*/
 
 			$GLOBALS['phpgw_info']['user']['account_id'] = $this->account_id;
-			$GLOBALS['phpgw']->accounts->accounts($this->account_id);
+			$GLOBALS['phpgw']->accounts->accounts( $this->account_id );
 			$this->sessionid = $this->new_session_id();
 			$this->kp3       = md5($GLOBALS['phpgw']->common->randomstring(15));
 
-			if ($GLOBALS['phpgw_info']['server']['usecookies'])
+			//Carregando na sessão configurações do usuario usado na nova API.
+			$accountInfo = $GLOBALS['phpgw']->accounts->read_repository();
+			$_SESSION['wallet']['user']['uid']            = $this->account_lid;
+			$_SESSION['wallet']['user']['uidNumber']      = $this->account_id;
+			$_SESSION['wallet']['user']['password']       = $this->passwd;
+			$_SESSION['wallet']['user']['cn']             = $accountInfo['firstname'].' '.$accountInfo['lastname'];
+			$_SESSION['wallet']['user']['mail']           = $accountInfo['email'];
+			$_SESSION['wallet']['user']['password']       = $this->passwd;
+			$_SESSION['wallet']['Sieve']['user']          = $this->account_lid;
+			$_SESSION['wallet']['Sieve']['password']      = $this->passwd;
+			$_SESSION['wallet']['Cyrus']['user']          = $this->account_lid;
+			$_SESSION['wallet']['Cyrus']['password']      = $this->passwd;
+			
+			if ( $GLOBALS['phpgw_info']['server']['usecookies'] )
 			{
-				$this->phpgw_setcookie('sessionid',$this->sessionid);
-				$this->phpgw_setcookie('kp3',$this->kp3);
-				$this->phpgw_setcookie('domain',$this->account_domain);
+				$this->phpgw_setcookie( 'sessionid', $this->sessionid );
+				$this->phpgw_setcookie( 'kp3', $this->kp3 );
+				$this->phpgw_setcookie( 'domain', $this->account_domain );
 			}
+			
 			if ($GLOBALS['phpgw_info']['server']['usecookies'] || isset($_COOKIE['last_loginid']))
 			{
 				$this->phpgw_setcookie('last_loginid', $this->account_lid ,$now+1209600); /* For 2 weeks */
@@ -538,9 +569,7 @@
 			unset($GLOBALS['phpgw_info']['server']['default_domain']); /* we kill this for security reasons */
 
 			/* init the crypto object */
-			$this->key = md5($this->kp3 . $this->sessionid . $GLOBALS['phpgw_info']['server']['encryptkey']);
-			$this->iv  = $GLOBALS['phpgw_info']['server']['mcrypt_iv'];
-			$GLOBALS['phpgw']->crypto->init(array($this->key,$this->iv));
+			$this->_init_crypto();
 
 			$this->read_repositories(False);
 			if ($this->user['expires'] != -1 && $this->user['expires'] < time())
@@ -645,54 +674,52 @@
 		* @param string $ip ip of the user
 		* @returns bool login blocked?
 		*/
-		function login_blocked($login,$ip)
+		function login_blocked( $login, $ip )
 		{
-			/*jakjr: Disable this protection. When block an proxy server ip, all the sub-network will be blocking.*/
-			//return false; //
-
-			$blocked = False;
-			$block_time = time() - $GLOBALS['phpgw_info']['server']['block_time'] * 60;
-			/*
-			$ip = $this->db->db_addslashes($ip);
-			$this->db->query("SELECT count(*) FROM phpgw_access_log WHERE account_id=0 AND ip='$ip' AND li > $block_time",__LINE__,__FILE__);
+			$blocked   = false;
+			$blk_min   = isset($GLOBALS['phpgw_info']['server']['block_time'])? (int)$GLOBALS['phpgw_info']['server']['block_time'] : 30;
+			$blk_time  = isset($GLOBALS['phpgw_info']['server']['login_blocked_mail_time'])? (int)$GLOBALS['phpgw_info']['server']['login_blocked_mail_time'] : 0;
+			$num_fail  = isset($GLOBALS['phpgw_info']['server']['num_unsuccessful_id'])? (int)$GLOBALS['phpgw_info']['server']['num_unsuccessful_id'] : 3;
+			$adm_mails = isset($GLOBALS['phpgw_info']['server']['admin_mails'])? $GLOBALS['phpgw_info']['server']['admin_mails'] : '';
+			$domain    = isset($GLOBALS['phpgw_info']['server']['mail_suffix'])? $GLOBALS['phpgw_info']['server']['mail_suffix'] : 'localhost';
+			
+			$block_time = time() - $blk_min * 60;
+			
+			$login = pg_escape_string( $login );
+			$this->db->query(
+				'SELECT count(*) '.
+				'FROM phpgw_access_log '.
+				'WHERE account_id = 0 AND ( loginid = \''.$login.'\' OR loginid LIKE \''.$login.'@%\' ) AND li > '.$block_time,
+				__LINE__,__FILE__
+			);
 			$this->db->next_record();
-			if (($false_ip = $this->db->f(0)) > $GLOBALS['phpgw_info']['server']['num_unsuccessful_ip'])
+			
+			if ( ( $false_id = $this->db->f(0) ) > $num_fail )
 			{
-				//echo "<p>login_blocked: ip='$ip' ".$this->db->f(0)." trys (".$GLOBALS['phpgw_info']['server']['num_unsuccessful_ip']." max.) since ".date('Y/m/d H:i',$block_time)."</p>\n";
-				$blocked = True;
+				$blocked = true;
 			}
-			*/
-			$login = pg_escape_string($login);
-			$this->db->query("SELECT count(*) FROM phpgw_access_log WHERE account_id=0 AND (loginid='$login' OR loginid LIKE '$login@%') AND li > $block_time",__LINE__,__FILE__);
-			$this->db->next_record();
-			if (($false_id = $this->db->f(0)) > $GLOBALS['phpgw_info']['server']['num_unsuccessful_id'])
-			{
-				//echo "<p>login_blocked: login='$login' ".$this->db->f(0)." trys (".$GLOBALS['phpgw_info']['server']['num_unsuccessful_id']." max.) since ".date('Y/m/d H:i',$block_time)."</p>\n";
-				$blocked = True;
-			}
-			if ($blocked && $GLOBALS['phpgw_info']['server']['admin_mails'] &&
-				// max. one mail each 5mins
-				$GLOBALS['phpgw_info']['server']['login_blocked_mail_time'] < time()-5*60)
+			
+			if ( $blocked && !empty($adm_mails) && $blk_time < ( time() - 5 * 60 ) ) // max. one mail each 5 mins
 			{
 				// notify admin(s) via email
-				$from    = 'eGroupWare@'.$GLOBALS['phpgw_info']['server']['mail_suffix'];
-				$subject = lang("eGroupWare: login blocked for user '%1', IP %2",$login,$ip);
-				$body    = lang("Too many unsucessful attempts to login: %1 for the user '%2', %3 for the IP %4",$false_id,$login,$false_ip,$ip);
-				
-				if(!is_object($GLOBALS['phpgw']->send))
+				if ( !( isset($GLOBALS['phpgw']->send) && is_object($GLOBALS['phpgw']->send) ) )
 				{
 					$GLOBALS['phpgw']->send = CreateObject('phpgwapi.send');
 				}
-				$subject = $GLOBALS['phpgw']->send->encode_subject($subject);
-				$admin_mails = explode(',',$GLOBALS['phpgw_info']['server']['admin_mails']);
-				foreach($admin_mails as $to)
+				
+				$from    = 'eGroupWare@'.$domain;
+				$body    = lang( 'Too many unsucessful attempts to login: %1 for the user \'%2\', %3 for the IP %4', $false_id, $login, $false_ip, $ip );
+				$subject = $GLOBALS['phpgw']->send->encode_subject( lang( 'eGroupWare: login blocked for user \'%1\', IP %2', $login, $ip ) );
+				
+				foreach ( explode( ',', $adm_mails ) as $to )
 				{
-					$GLOBALS['phpgw']->send->msg('email',$to,$subject,$body,'','','',$from,$from);
+					$GLOBALS['phpgw']->send->msg( 'email', $to, $subject, $body, '', '', '', $from, $from );
 				}
+				
 				// save time of mail, to not send to many mails
-				$config = CreateObject('phpgwapi.config','phpgwapi');
+				$config = CreateObject( 'phpgwapi.config', 'phpgwapi' );
 				$config->read_repository();
-				$config->value('login_blocked_mail_time',time());
+				$config->value( 'login_blocked_mail_time', time() );
 				$config->save_repository();
 			}
 			return $blocked;
@@ -738,10 +765,8 @@
 
 			$this->read_repositories(@$GLOBALS['phpgw_info']['server']['cache_phpgw_info']);
 
-			/* init the crypto object before appsession call below */
-			$this->key = md5($this->kp3 . $this->sessionid . $GLOBALS['phpgw_info']['server']['encryptkey']);
-			$this->iv  = $GLOBALS['phpgw_info']['server']['mcrypt_iv'];
-			$GLOBALS['phpgw']->crypto->init(array($this->key,$this->iv));
+			/* init the crypto object */
+			$this->_init_crypto();
 
 			$GLOBALS['phpgw_info']['user']  = $this->user;
 			$GLOBALS['phpgw_info']['hooks'] = $this->hooks;
@@ -878,9 +903,7 @@
 			$this->kp3       = md5($GLOBALS['phpgw']->common->randomstring(15));
 
 			/* re-init the crypto object */
-			$this->key = md5($this->kp3 . $this->sessionid . $GLOBALS['phpgw_info']['server']['encryptkey']);
-			$this->iv  = $GLOBALS['phpgw_info']['server']['mcrypt_iv'];
-			$GLOBALS['phpgw']->crypto->init(array($this->key,$this->iv));
+			$this->_init_crypto();
 
 			//$this->read_repositories(False);
 

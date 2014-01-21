@@ -150,7 +150,7 @@
 				// $this->halt("set_block: unable to find block '$handle' in '$parent'.");
 				// return False;
 			}
-			$this->set_var($handle,$match[1]);
+			if ( isset($match[1]) ) $this->set_var($handle,$match[1]);
 			$this->set_var($parent,preg_replace($reg, '{' . "$name}",$str));
 		}
 

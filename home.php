@@ -19,7 +19,7 @@
 		exit;
 	}
 
-	$GLOBALS['sessionid'] = @$_GET['sessionid'] ? $_GET['sessionid'] : @$_COOKIE['sessionid'];
+	$GLOBALS['sessionid'] = isset($_GET['sessionid']) ? $_GET['sessionid'] : ( isset($_COOKIE['sessionid'])? $_COOKIE['sessionid'] : false );
 	if (!isset($GLOBALS['sessionid']) || !$GLOBALS['sessionid'])
 	{
 		Header('Location: '.$current_url.'login.php?cd=10');

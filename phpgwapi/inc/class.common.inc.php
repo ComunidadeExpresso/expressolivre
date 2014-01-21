@@ -29,9 +29,9 @@
 	{
 		@ldap_bind($ldap_connection, $GLOBALS['phpgw_info']['server']['user_ldap_referral'], $GLOBALS['phpgw_info']['server']['password_ldap_referral']);
 	}
-	$d1 = strtolower(@substr(PHPGW_API_INC,0,3));
-	$d2 = strtolower(@substr(PHPGW_SERVER_ROOT,0,3));
-	$d3 = strtolower(@substr(PHPGW_APP_INC,0,3));
+	$d1 = strtolower( defined('PHPGW_API_INC')? substr(PHPGW_API_INC,0,3) : '' );
+	$d2 = strtolower( defined('PHPGW_SERVER_ROOT')? substr(PHPGW_SERVER_ROOT,0,3) : '' );
+	$d3 = strtolower( defined('PHPGW_APP_INC')? substr(PHPGW_APP_INC,0,3) : '' );
 	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
 	{
 		echo 'Failed attempt to break in via an old Security Hole!<br>'."\n";
@@ -393,12 +393,12 @@
 				}*/
 				// call the asyncservice check_run function if it is not explicitly set to cron-only
 				//
-				if (!$GLOBALS['phpgw_info']['server']['asyncservice'])	// is default
+				if ( !isset($GLOBALS['phpgw_info']['server']['asyncservice']) )	// is default
 				{
 					ExecMethod('phpgwapi.asyncservice.check_run','fallback');
 				}
 				/* Clean up mcrypt */
-				if (@is_object($GLOBALS['phpgw']->crypto))
+				if (is_object($GLOBALS['phpgw']->crypto))
 				{
 					$GLOBALS['phpgw']->crypto->cleanup();
 					unset($GLOBALS['phpgw']->crypto);
@@ -502,12 +502,12 @@
 		{
 			if (! $lid && ! $firstname && ! $lastname)
 			{
-				$lid       = $GLOBALS['phpgw_info']['user']['account_lid'];
-				$firstname = $GLOBALS['phpgw_info']['user']['firstname'];
-				$lastname  = $GLOBALS['phpgw_info']['user']['lastname'];
+				$lid       = isset($GLOBALS['phpgw_info']['user']['account_lid'])? $GLOBALS['phpgw_info']['user']['account_lid'] : '';
+				$firstname = isset($GLOBALS['phpgw_info']['user']['firstname'])? $GLOBALS['phpgw_info']['user']['firstname'] : '';
+				$lastname  = isset($GLOBALS['phpgw_info']['user']['lastname'])? $GLOBALS['phpgw_info']['user']['lastname'] : '';
 			}
-
-			$display = $GLOBALS['phpgw_info']['user']['preferences']['common']['account_display'];
+			$display = isset($GLOBALS['phpgw_info']['user']['preferences']['common']['account_display'])?
+				$GLOBALS['phpgw_info']['user']['preferences']['common']['account_display'] : '';
 
 			if ($firstname && $lastname)
 			{
@@ -1002,15 +1002,15 @@
 			}
 
 			// first look in the selected template dir
-			if(@$this->found_files[$appname][$image.$img_type[0]]==$imagedir)
+			if( isset($this->found_files[$appname][$image.$img_type[0]]) && $this->found_files[$appname][$image.$img_type[0]] == $imagedir )
 			{
 				$imgfile = $GLOBALS['phpgw_info']['server']['webserver_url'].$this->found_files[$appname][$image.$img_type[0]].'/'.$image.$img_type[0];
 			}
-			elseif(@$this->found_files[$appname][$image.$img_type[1]]==$imagedir)
+			elseif( isset($this->found_files[$appname][$image.$img_type[1]]) && $this->found_files[$appname][$image.$img_type[1]] == $imagedir )
 			{
 				$imgfile = $GLOBALS['phpgw_info']['server']['webserver_url'].$this->found_files[$appname][$image.$img_type[1]].'/'.$image.$img_type[1];
 			}
-			elseif(@$this->found_files[$appname][$image.$img_type[2]]==$imagedir)
+			elseif( isset($this->found_files[$appname][$image.$img_type[2]]) && $this->found_files[$appname][$image.$img_type[2]] == $imagedir )
 			{
 				$imgfile = $GLOBALS['phpgw_info']['server']['webserver_url'].$this->found_files[$appname][$image.$img_type[2]].'/'.$image.$img_type[2];
 			}
@@ -1515,15 +1515,9 @@ function get_css( )
 			
 			if (! $format)
 			{
-				$format = $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'] . ' - ';
-				if ($GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat'] == '12')
-				{
-					$format .= 'h:i a';
-				}
-				else
-				{
-					$format .= 'H:i';
-				}
+				$dfmt = isset( $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'])? $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'] : 'd/m/Y';
+				$tfmt = isset( $GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat'])? $GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat'] : '24';
+				$format = $dfmt.' - '.( ($tfmt == '12')? 'h:i a' : 'H:i' );
 			}
 			
 			if((PHP_OS == 'Windows' || PHP_OS == 'WINNT') && (int)$t < 21600)

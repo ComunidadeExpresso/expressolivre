@@ -712,8 +712,7 @@
          */
         function nearest_to_me()
         {
-                $proxies=explode(',',$_SERVER['HTTP_X_FORWARDED_HOST']);
-                return isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $proxies[0] : $_SERVER['HTTP_HOST'];
+                return isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? current( explode( ',', $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) : $_SERVER['HTTP_HOST'];
         }
 
 	/*!
@@ -842,7 +841,7 @@
 		if ($partscount == 2)
 		{
 			list($appname,$classname,$functionname) = explode(".", $method);
-			if (!is_object($GLOBALS[$classname]))
+			if ( !( isset($GLOBALS[$classname]) && is_object($GLOBALS[$classname]) ) )
 			{
 				if ($classparams != '_UNDEF_' && ($classparams || $classparams != 'True'))
 				{

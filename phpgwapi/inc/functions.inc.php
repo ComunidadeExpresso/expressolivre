@@ -26,8 +26,6 @@
 	/***************************************************************************\
 	* If running in PHP3, then force admin to upgrade                           *
 	\***************************************************************************/
-
-	error_reporting(error_reporting() & ~E_NOTICE);
 	
 	include(PHPGW_API_INC.'/common_functions.inc.php');
 	
@@ -304,7 +302,7 @@
 	{
 		if ($GLOBALS['phpgw_info']['flags']['currentapp'] == 'login')
 		{
-			if (@$_POST['login'] != '')
+			if ( isset($_POST['login']) && $_POST['login'] != '' )
 			{
 				if (count($GLOBALS['phpgw_domain']) > 1)
 				{

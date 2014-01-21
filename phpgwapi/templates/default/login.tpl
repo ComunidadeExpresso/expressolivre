@@ -131,7 +131,7 @@
 	-->
 </script>
 </HEAD>
-<body scroll="no"  style="overflow:hidden" onLoad="javascript:getLogin()" bgcolor="#ffffff">
+<body scroll="no"  style="" onLoad="javascript:getLogin()" bgcolor="#ffffff">
 <form id="loginForm" name="flogin" method="post" action="{login_url}" {autocomplete}>
 <div id="conteudo">
 <div style="position: absolute; top:0px; right: 10px;"><span class="login_label">{lang_language}&nbsp;&nbsp;</span>{select_language}</div>

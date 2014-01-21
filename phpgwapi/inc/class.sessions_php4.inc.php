@@ -154,24 +154,15 @@
 			/* This allows the user to put '' as the value. */
 			if ($data == '##NOTHING##')
 			{
-				// I added these into seperate steps for easier debugging
-				$data = $GLOBALS['phpgw_session']['phpgw_app_sessions'][$appname][$location]['content'];
-
-				/* do not decrypt and return if no data (decrypt returning garbage) */
-				if($data)
-				{
-					$data = $GLOBALS['phpgw']->crypto->decrypt($data);
-					//echo "appsession returning: location='$location',app='$appname',data=$data"; _debug_array($data);
-					return $data;
-				}
+				return
+					isset($GLOBALS['phpgw_session']['phpgw_app_sessions'][$appname][$location]['content'])?
+						$GLOBALS['phpgw']->crypto->decrypt( $GLOBALS['phpgw_session']['phpgw_app_sessions'][$appname][$location]['content'] ) :
+						false;
 			}
-			else
-			{
-				$encrypteddata = $GLOBALS['phpgw']->crypto->encrypt($data);
-				$GLOBALS['phpgw_session']['phpgw_app_sessions'][$appname][$location]['content'] = $encrypteddata;
-				$_SESSION['phpgw_session'] = $GLOBALS['phpgw_session'];
-				return $data;
-			}
+			
+			$GLOBALS['phpgw_session']['phpgw_app_sessions'][$appname][$location]['content'] = $GLOBALS['phpgw']->crypto->encrypt( $data );
+			$_SESSION['phpgw_session'] = $GLOBALS['phpgw_session'];
+			return $data;
 		}
 
 		function session_sort($a,$b)

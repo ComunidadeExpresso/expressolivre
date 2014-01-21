@@ -61,7 +61,7 @@
 			/* find the dn for this uid, the uid is not always in the dn */
 			$attributes	= array('uid','dn','givenName','sn','mail','uidNumber','gidNumber');
 			
-			$filter = $GLOBALS['phpgw_info']['server']['ldap_search_filter'] ? $GLOBALS['phpgw_info']['server']['ldap_search_filter'] : '(uid=%user)';
+			$filter = isset($GLOBALS['phpgw_info']['server']['ldap_search_filter']) ? $GLOBALS['phpgw_info']['server']['ldap_search_filter'] : '(uid=%user)';
 			$filter = str_replace(array('%user','%domain'),array($username,$GLOBALS['phpgw_info']['user']['domain']),$filter);
 
 			if ($GLOBALS['phpgw_info']['server']['account_repository'] == 'ldap')
@@ -74,12 +74,13 @@
 
 			if ($allValues['count'] > 0)
 			{
-				if($GLOBALS['phpgw_info']['server']['case_sensitive_username'] == true)
+				if (
+					isset($GLOBALS['phpgw_info']['server']['case_sensitive_username']) &&
+					$GLOBALS['phpgw_info']['server']['case_sensitive_username'] == true &&
+					$allValues[0]['uid'][0] != $username
+				)
 				{
-					if($allValues[0]['uid'][0] != $username)
-					{
-						return false;
-					}
+					return false;
 				}
 				/* we only care about the first dn */
 				$userDN = $allValues[0]['dn'];

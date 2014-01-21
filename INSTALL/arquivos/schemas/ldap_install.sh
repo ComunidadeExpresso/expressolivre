@@ -9,14 +9,14 @@ apt-get install slapd
 
 # Complete configuration of ldap (recommended)
 dpkg-reconfigure slapd || exit
-# > Omitir a configuraÃ§Ã£o do servidor OpenLDAP? <NÃ£o>
-# > Nome do domÃ­nio DNS: expressolab.celepar.parana
-# > Nome da organizaÃ§Ã£o: expressolab.celepar.parana
+# > Omitir a configuração do servidor OpenLDAP? <Não>
+# > Nome do domí­nio DNS: exemplo.com.br
+# > Nome da organização: exemplo.com.br
 # > Senha do administrador: senha
 # > Confirme a senha: senha
 # > "Backend" de base de dados a ser usado: HDB
-# > VocÃª deseja que a base de dados seja removida quando o pacote slapd for expurgado ("purge")? <Sim>
-# > Mover a base de dados antiga? <NÃ£o>
+# > Você deseja que a base de dados seja removida quando o pacote slapd for expurgado ("purge")? <Sim>
+# > Mover a base de dados antiga? <Não>
 # > Permitir o protocolo LDAPv2? <Sim>
 
 # Creating schemas in ldif format
