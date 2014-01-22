@@ -370,7 +370,7 @@ var progressBar;
 				if(debug_controller)
 					alert(e+"\n"+oxmlhttp.responseText);
 				// View Exception in Javascript Console
-				throw(e);
+				//throw(e);
 			}
 						
 		}
