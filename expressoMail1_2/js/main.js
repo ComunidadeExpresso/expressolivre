@@ -2367,10 +2367,10 @@ function new_message(type, border_ID, flagged)
             $("#content_id_" + currentTab + " " + dataBtn[i]).keydown(function ()
             {
                 $("#content_id_" + currentTab + " .save").button("enable");
+                autoSaveControl.status[currentTab] = false;
             });
         }
 
-        RichTextEditor.keydown(new_border_ID);
     }
 
     switch (type)

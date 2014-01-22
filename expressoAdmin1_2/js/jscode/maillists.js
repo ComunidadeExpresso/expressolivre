@@ -4,8 +4,8 @@ function Element(id){
    return document.getElementById( id );
 }
 
-function validate_fields(type)
-{
+function validate_fields(type){
+
 	document.forms[0].uid.value = document.forms[0].uid.value.toLowerCase();
 	document.forms[0].old_uid.value = document.forms[0].old_uid.value.toLowerCase();
 
@@ -57,19 +57,50 @@ function validate_fields(type)
 	
 	var handler_validate_fields = function(data)
 	{
-		if (!data.status)
+		if(!data.status){
 			alert(data.msg);
-		else
-		{
-			if (type == 'create_maillist')
-				cExecuteForm ("$this.maillist.create", document.forms[0], handler_create);
-			else if (type == 'edit_maillist')
-				cExecuteForm ("$this.maillist.save", document.forms[0], handler_save);
-		}
+        }else if(type == 'create_maillist'){
+            $.ajax({
+               type: "POST",
+               url: "expressoAdmin1_2/controller.php?action=$this.maillist.create",
+               data: new FormData(document.forms[0]),
+               mimeType:"multipart/form-data",
+               contentType: false,
+               cache: false,
+               processData:false,
+               success: function(data, textStatus, jqXHR)
+               {
+                 alert('Sua lista foi criada com sucesso!');
+                 location.href="./index.php?menuaction=expressoAdmin1_2.uimaillists.list_maillists";
+               },
+               error: function(jqXHR, textStatus, errorThrown)
+               {
+                 alert('Sua lista não pode ser criada:\n'+errorThrown.getStatusMessage());
+               }
+            });
+        }else if(type == 'edit_maillist'){
+            $.ajax({
+                type: "POST",
+                url: "expressoAdmin1_2/controller.php?action=$this.maillist.save",
+                data: new FormData(document.forms[0]),
+                mimeType:"multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data, textStatus, jqXHR)
+                {
+                   alert('Sua lista foi modificada com sucesso!');
+                   location.href="./index.php?menuaction=expressoAdmin1_2.uimaillists.list_maillists";
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                   alert('Sua lista não pode ser modificada:\n'+errorThrown.getStatusMessage());
+                }
+            });
+        }
 	}
-
 	// Needed select all options from select
-	for(var i=0; i<select_userInMaillist.options.length; i++)
+    for(var i=0; i<select_userInMaillist.options.length; i++)
 	{
 		// No IE, não seleciona o separador do select
 		if (select_userInMaillist.options[i].value != -1)
@@ -80,11 +111,28 @@ function validate_fields(type)
 
 	// O UID da lista foi alterado ou é uma nova lista.
 	if ((document.forms[0].old_uid.value != document.forms[0].uid.value) || (type == 'create_maillist')){
-		cExecute ('$this.maillist.validate_fields&uid='+document.forms[0].uid.value+'&mail='+document.forms[0].mail.value, handler_validate_fields);
+		cExecute('$this.maillist.validate_fields&uid='+document.forms[0].uid.value+'&mail='+document.forms[0].mail.value, handler_validate_fields);
 	}
 	else if (type == 'edit_maillist')
 	{
-		cExecuteForm ("$this.maillist.save", document.forms[0], handler_save);
+        $.ajax({
+            type: "POST",
+            url: "expressoAdmin1_2/controller.php?action=$this.maillist.save",
+            data: new FormData(document.forms[0]),
+            mimeType:"multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(data, textStatus, jqXHR)
+            {
+                alert('Sua lista foi modificada com sucesso!');
+                location.href="./index.php?menuaction=expressoAdmin1_2.uimaillists.list_maillists";
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                alert('Sua lista não pode ser modificada:\n'+errorThrown.getStatusMessage());
+            }
+        });
 	}
 }
 
