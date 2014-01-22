@@ -552,7 +552,7 @@
 						if ($new_values['photo_exist'])
 						{
 							$photo_exist = true;
-							$this->db_functions->write_log("mofified user photo",$dn);
+							$this->db_functions->write_log("modified user photo",$dn);
 						}
 						else
 						{
