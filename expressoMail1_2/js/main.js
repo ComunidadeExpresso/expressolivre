@@ -4913,12 +4913,12 @@ function import_window()
 		var fileExtension 	= ["eml","zip"];
 		var fileName 		= importEmails.find("input[type=file]").attr('value');
 			fileName 		= fileName.split(".");
-		
-		if( fileName[1] )
+
+		if( fileName[(fileName.length-1)] )
 		{
 			for( var i in fileExtension )
 			{
-				if( fileExtension[i].toUpperCase() === fileName[1].toUpperCase() )
+				if( fileExtension[i].toUpperCase() === fileName[(fileName.length-1)].toUpperCase() )
 				{
 					deniedExtension = false;
 					break;
