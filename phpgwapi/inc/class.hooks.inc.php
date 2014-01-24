@@ -138,21 +138,39 @@
 				$appname = is_array($args) && isset($args['appname']) ? $args['appname'] : $GLOBALS['phpgw_info']['flags']['currentapp'];
 			}
 			$SEP = filesystem_separator();
-			
+
 			/* First include the ordered apps hook file */
-			$method = isset($this->found_hooks[$appname][$location])? $this->found_hooks[$appname][$location] : '';
-			$parts = explode( '.', $method );
-			
-			if ( !( empty($method) || $try_unregistered ) ) return false;
-			
-			if ( count($parts) == 3 && $parts[1] == 'inc' && $parts[2] == 'php' ) return ExecMethod($method,$args);
-			
-			$f = PHPGW_SERVER_ROOT.$SEP.$appname.$SEP.'inc'.$SEP.'hook_'.$location.'.inc.php';
-			
-			if ( !( file_exists($f) && ( isset($GLOBALS['phpgw_info']['user']['apps'][$appname]) || ( ( $no_permission_check || $location == 'config' || $appname == 'phpgwapi' ) && $appname ) ) ) )
+			if (isset($this->found_hooks[$appname][$location]) || $try_unregistered)
+			{
+				$parts = explode('.',$method = $this->found_hooks[$appname][$location]);
+				
+				if (count($parts) != 3 || ($parts[1] == 'inc' && $parts[2] == 'php'))
+				{
+					if ($try_unregistered && empty($method))
+					{
+						$method = 'hook_'.$location.'.inc.php';
+					}
+					$f = PHPGW_SERVER_ROOT . $SEP . $appname . $SEP . 'inc' . $SEP . $method;
+					if (file_exists($f) &&
+						( $GLOBALS['phpgw_info']['user']['apps'][$appname] || (($no_permission_check || $location == 'config' || $appname == 'phpgwapi') && $appname)) )
+					{
+						include($f);
+						return True;
+					}
+					else
+					{
+						return False;
+					}
+				}
+				else	// new style method-hook
+				{
+					return ExecMethod($method,$args);
+				}
+			}
+			else
+			{
 				return False;
-			include($f);
-			return True;
+			}
 		}
 
 		/*!
