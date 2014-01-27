@@ -213,7 +213,7 @@ cRichTextEditor.prototype.execPosInstance = function(inst) {
         if (preferences.auto_save_draft == 1)
         {
             autoSaveControl.status[id] = true;
-            autoSaveControl.timer[id] = window.setInterval( "autoSave(\""+id+"\")" ,5000);
+            autoSaveControl.timer[id] = window.setInterval( "autoSave(\""+id+"\")" ,autosave_time);
 
             CKEDITOR.instances[inst].on('key', function(event){
                 autoSaveControl.status[id] = false;
