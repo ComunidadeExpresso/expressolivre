@@ -2,7 +2,7 @@
 <input type="hidden" id="txt_users" value="{lang_Users}" />
 <input type="hidden" id="txt_groups" value="{lang_Groups}" />
 
-	<link rel="stylesheet" type="text/css" href="./expressoAdmin1_2/templates/default/messages_size.css">
+	<link rel="stylesheet" type="text/css" href="./expressoAdmin1_2/templates/default/messages_size.css" />
 	<div style="display:none" id="{modal_id}">{messages_size_modal}</div>
 
 	<div align="center">

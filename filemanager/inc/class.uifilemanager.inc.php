@@ -357,7 +357,7 @@ class uifilemanager {
 		echo "<script type='text/javascript'>" . $js . "</script>";
 
 		// Expresso Window - CSS
-		print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'tp/expressowindow/css/' . $theme . '" >';
+		print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'tp/expressowindow/css/' . $theme . '" />';
 
 		// Expresso Window - JS 
 		echo "<script src='" . $GLOBALS['phpgw_info']['flags']['currentapp'] . "/tp/expressowindow/js/xtools.js'></script>";
@@ -622,8 +622,8 @@ class uifilemanager {
 
 		if ($this->numoffiles || $this->cwd) {
 			$vars['path'] = '<input type="hidden" id="currentPath" value="' . $this->path . '">';
-			$vars['css'] = '<link rel="stylesheet" type="text/css" href="filemanager/templates/default/main.css">';
-			$vars['css'].='<link rel="stylesheet" type="text/css" href="phpgwapi/js/dftree/dftree.css">';
+			$vars['css'] = '<link rel="stylesheet" type="text/css" href="filemanager/templates/default/main.css"/>';
+			$vars['css'].='<link rel="stylesheet" type="text/css" href="phpgwapi/js/dftree/dftree.css"/>';
 			$_SESSION['phpgw_info']['user']['preferences']['filemanager']['lid'] = $GLOBALS['phpgw_info']['user']['account_lid'];
 			$vars['preferences'] = '<input type="hidden" id="userPreferences" value=\'' . serialize($_SESSION['phpgw_info']['user']['preferences']['filemanager']) . '\'>';
 			// Used for important operations that needs security

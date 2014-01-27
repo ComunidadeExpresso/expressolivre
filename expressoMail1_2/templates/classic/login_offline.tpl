@@ -7,7 +7,7 @@
 <META NAME="description" CONTENT="{website_title} login screen, working environment powered by eGroupWare">
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 <META NAME="keywords" CONTENT="{website_title} login screen, eGroupWare, groupware, groupware suite">
-<link href="../phpgwapi/templates/celepar/login.css" rel="stylesheet" type="text/css">
+<link href="../phpgwapi/templates/celepar/login.css" rel="stylesheet" type="text/css"/>
 <TITLE>{website_title} - {lang_login}</TITLE>
 <script src="js/local_messages.js?1.222" type='text/javascript'></script>
 <script src="js/offline_access.js?1.222" type='text/javascript'></script>

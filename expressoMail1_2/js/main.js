@@ -4037,7 +4037,7 @@ function print_search_msg(){
 		try{ 
 			window_print.document.open(); 
 	 	    var html = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>' 
-	 	    + '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"></head>' 
+	 	    + '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"/></head>'
 	 	    + cabecalho + '</h4><hr>' 
 	 	    + '<h2>'+folder+'</h2><hr/><blockquote><font size="2">' 
 	 	    + '<table width="100%" cellpadding="0" cellspacing="0">' 
@@ -4071,7 +4071,7 @@ function print_messages_bodies(){
 			return;
 		}
 		var header = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>'
-		+ '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"></head>';
+		+ '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"/></head>';
 		window_print.document.write(header);
 		var printData ='<body style="overflow:auto">' + cabecalho + '</h4><hr>';
 		window_print.document.write(printData);
@@ -4223,7 +4223,7 @@ function print_messages_list(){
 			try{
 				window_print.document.open();
 				var html = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>'
-				+ '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"></head>'
+				+ '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"/></head>'
 		 	    + cabecalho + '</h4><hr>' 
 				+ '<h2>'+$('#border_id_0').html()+'</h2><hr/><blockquote><font size="2">'
 				+ '<table width="100%" cellpadding="0" cellspacing="0">'
@@ -4375,7 +4375,7 @@ function print_msg(msg_folder, msg_number, border_ID){
 		show_attachs = "";
 	}       
 	var current_path = window.location.href.substr(0,window.location.href.lastIndexOf("/"));
-	var head = '<head><title></title><link href="'+current_path+'/templates/default/main.css" type="text/css" rel="stylesheet"></head>';
+	var head = '<head><title></title><link href="'+current_path+'/templates/default/main.css" type="text/css" rel="stylesheet"/></head>';
 	window_print.document.write(head);
 
 	while (1){

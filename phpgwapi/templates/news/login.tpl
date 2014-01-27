@@ -10,7 +10,7 @@
 		<meta NAME="keywords" CONTENT="{website_title} login screen, eGroupWare, groupware, groupware suite">			
 		<link rel="stylesheet" type="text/css" href="./phpgwapi/templates/news/css/login.css"/>
 		<link rel="stylesheet" type="text/css" href="./prototype/plugins/jquery/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="./prototype/plugins/jquery.keyboard/jquery.keypad.css">		
+		<link rel="stylesheet" type="text/css" href="./prototype/plugins/jquery.keyboard/jquery.keypad.css"/>
 		<!-- JavaScript -->
 		<script type="text/javascript" src="./prototype/plugins/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="./prototype/plugins/jquery/jquery-ui.min.js"></script>

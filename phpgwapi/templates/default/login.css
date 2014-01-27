@@ -59,7 +59,6 @@ a:hover,a:active
         color:#fff;
         font-family: Arial,Verdana, Helvetica, sans-serif;
         font-size:12px;
-        padding-top:2px 4px 2px 4px;
         margin:2px 1px 0pt;
         border: medium none;
         font-weight: bold;
@@ -68,7 +67,7 @@ a:hover,a:active
 }
 
 #caixa_login {
-	width: 262px; 
+	width: 262px;
 	margin-right:10px;			
 	background: url("../../../phpgwapi/templates/default/images/corpo.jpg") repeat-y; 
 }
@@ -88,10 +87,16 @@ a:hover,a:active
 }
 
 #rodape {
-        text-align:left;
-        width:100%;
+        text-align:right;
+        width: 200px;
         position: relative;
         margin:0;
+        font: 12px "Verdana, Arial, Helvetica, sans-serif";
+        color: #9A9A9A;
+}
+
+#rodape img {
+    padding-left: 10px;
 }
 
 #rodape_login {

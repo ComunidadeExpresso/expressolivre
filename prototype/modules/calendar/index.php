@@ -22,7 +22,7 @@
 
 <link rel="Stylesheet" type="text/css" href="../../plugins/farbtastic/farbtastic.css" />
 <link rel="Stylesheet" type="text/css" href="../../plugins/timepicker/jquery-ui-timepicker-addon.css" />
-<link rel="stylesheet" type="text/css" href='../../plugins/zebradialog/css/zebra_dialog.css'></link>
+<link rel="stylesheet" type="text/css" href='../../plugins/zebradialog/css/zebra_dialog.css'/>
 
 <link rel="stylesheet" type="text/css" href="css/layout.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -89,7 +89,7 @@
 			<a class="button config-menu main-config-menu" href="#"></a>
 			<div class="main-config-menu-content hidden"> 
 				<ul>
-					<li><a href="#" onclick="add_tab_preferences();" class="menu-command configurations">Prefer&ecirc;ncias</a></l
+					<li><a href="#" onclick="add_tab_preferences();" class="menu-command configurations">Prefer&ecirc;ncias</a></li>
 					<li><a href="#" onclick="add_tab_configure_calendar();" class="menu-command configurations">Configura&ccedil;&atilde;o de agendas</a></li>
 					<li><a href="#" onclick="show_modal_import_export(0);" class="menu-pass-through">Importar</a></li>
 					<li><a href="#" onclick="show_modal_import_export(1);" class="menu-pass-through">Exportar</a></li>

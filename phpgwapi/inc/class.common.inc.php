@@ -1282,7 +1282,7 @@ function get_css( )
 
 				$path = PHPGW_SERVER_ROOT . str_replace( '/', SEP, $css );
 
-				$link = '<LINK href="%s" type="text/css" rel="StyleSheet">';
+				$link = '<link href="%s" type="text/css" rel="StyleSheet"/>';
 				$link = sprintf( $link,
 					"{$GLOBALS[ 'phpgw_info' ][ 'server' ][ 'webserver_url' ]}{$css}"
 				);

@@ -2,7 +2,7 @@
 <head>
 <title>AJAX-Spell</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" type="text/css" href="css/spell_checker.css">
+<link rel="stylesheet" type="text/css" href="css/spell_checker.css"/>
 <script src="cpaint/cpaint2.inc.compressed.js" type="text/javascript"></script>
 <!-- You can use either one of the files below, but the compressed one
      will be faster and a lot smaller to download -->

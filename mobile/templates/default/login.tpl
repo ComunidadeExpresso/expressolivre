@@ -7,7 +7,7 @@
 		<meta content="text/html;width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0; charset=utf-8;" http-equiv="Content-Type" name="viewport" /> 
 		<meta name="format-detection" content="telephone=no" />
 		<!-- link href="templates/css/mobile.css" type="text/css" rel="StyleSheet" /-->
-		<link type="text/css" rel="stylesheet" href="templates/css/login.css">
+		<link type="text/css" rel="stylesheet" href="templates/css/login.css"/>
 		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 		<link rel="apple-touch-icon" href="./templates/default/images/favicon.png" />
 		<link rel="apple-touch-icon-precomposed" href="./templates/default/images/favicon.png"/>

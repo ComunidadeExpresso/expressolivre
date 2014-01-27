@@ -110,7 +110,7 @@ var Effect = {
       throw("Effect.tagifyText requires including script.aculo.us' builder.js library");
       
     var tagifyStyle = 'position:relative';
-    if(/MSIE/.test(navigator.userAgent) && !window.opera) tagifyStyle += ';zoom:1';
+    if(/MSIE/.test(navigator.userAgent) && !window.opera) tagifyStyle += ';';
     
     element = $(element);
     $A(element.childNodes).each( function(child) {

@@ -11,7 +11,7 @@
 		<meta name="author" content="eGroupWare http://www.egroupware.org" />
 		<meta name="robots" content="none" />
 		<link rel="icon" href="{img_icon}" type="image/x-ico" />
-		<META http-equiv="Default-Style" content="eGroupWareStyle">
+		<META http-equiv="default-style" content="eGroupWareStyle">
 		{slider_effects}
 		{simple_show_hide}
 		{pngfix}

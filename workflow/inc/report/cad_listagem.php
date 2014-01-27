@@ -20,8 +20,8 @@ $habilitasincronizacao = $_SESSION['funcao']['webservice_listagem_sincronizacao'
 ?>
 <html>
 <head>
-  <link type="text/css" rel="stylesheet" href="./workflow/inc/report/includes/css/base_form.css">
-  <link type="text/css" rel="stylesheet" href="./workflow/inc/report/includes/css/calendar.css">
+  <link type="text/css" rel="stylesheet" href="./workflow/inc/report/includes/css/base_form.css" />
+  <link type="text/css" rel="stylesheet" href="./workflow/inc/report/includes/css/calendar.css" />
   <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/jquery-1.3.2.js"></script>
   <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/calendar.js"></script>
   <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/mascaras.js"></script>

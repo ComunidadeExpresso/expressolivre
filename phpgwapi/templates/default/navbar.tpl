@@ -1,7 +1,7 @@
 <!-- BEGIN navbar_header -->
-<div align="center" id="hiddenButton" style="position:absolute">
+<div id="hiddenButton" style="position:absolute">
 </div>
-<div align="center" id="extraButton" style="position:absolute">
+<div id="extraButton" style="position:absolute">
 <table><tr>{app_extra_icons_icon}</tr></table>
 </div>
 {app_extra_icons_div}

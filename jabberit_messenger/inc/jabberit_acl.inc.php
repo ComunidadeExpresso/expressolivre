@@ -111,8 +111,8 @@ else
 			if( !file_exists('../jabberit_messenger/templates/default/css/'.$theme) )
 				$theme = "window_default.css";
 			
-			print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'templates/default/css/'.$theme.'" >';
-			print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'templates/default/css/common.css" >';
+			print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'templates/default/css/'.$theme.'" />';
+			print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'templates/default/css/common.css" />';
 			//print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'templates/default/css/button.css" >';
 			//print '<link rel="stylesheet" type="text/css" href="' . $webserver_url . 'templates/default/css/selectEditStyle.css" >';		
 	

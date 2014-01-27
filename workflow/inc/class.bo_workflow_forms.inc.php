@@ -118,7 +118,7 @@
 			$this->t->set_file($this->template_name, $this->template_name . '.tpl');
 			
 			//common css
- 	  	    $this->t->set_var('processes_css', '<LINK href="'.$this->get_css_link('processes').'" type="text/css" rel="StyleSheet">');
+ 	  	    $this->t->set_var('processes_css', '<link href="'.$this->get_css_link('processes').'" type="text/css" rel="StyleSheet"/>');
  	  	 
  	  	 
 		}

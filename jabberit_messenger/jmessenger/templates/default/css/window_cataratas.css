@@ -60,7 +60,7 @@
     border-top:0 none;
     position: relative; 
     overflow:hidden;
-    zoom:1;
+
 }
 
 .x-panel-body-noheader
@@ -71,7 +71,7 @@
 .x-panel-bwrap
 {
     overflow:hidden;
-    zoom:1;
+
     left:0;
     top:0;
 }
@@ -254,7 +254,7 @@
 	background: transparent repeat-x 0 0;
 	background-image: url(../images/cataratas/top-bottom.png);
 	overflow:hidden;
-    zoom:1;
+
 }
 
 .x-window-tl
@@ -262,7 +262,7 @@
 	background: transparent no-repeat 0 0;
 	background-image: url(../images/cataratas/left-corners.png);
 	padding-left:6px;
-    zoom:1;
+
     position:relative;
 }
 
@@ -278,7 +278,7 @@
 	background: transparent no-repeat 0 bottom;
 	background-image: url(../images/cataratas/left-corners.png);
 	padding-left:6px;
-    zoom:1;
+
 }
 
 .x-window-br
@@ -286,7 +286,7 @@
 	background: transparent no-repeat right bottom;
 	background-image: url(../images/cataratas/right-corners.png);
 	padding-right:6px;
-    zoom:1;
+
 }
 
 .x-window-mc
@@ -303,7 +303,7 @@
 	background: transparent repeat-y 0 0;
 	background-image: url(../images/cataratas/left-right.png);
 	padding-left:6px;
-    zoom:1;
+
 }
 
 .x-window-mr
@@ -311,7 +311,7 @@
 	background: transparent repeat-y right 0;
 	background-image: url(../images/cataratas/left-right.png);
 	padding-right:6px;
-    zoom:1;
+
 }
 
 .x-window-noborder .x-window-mc
