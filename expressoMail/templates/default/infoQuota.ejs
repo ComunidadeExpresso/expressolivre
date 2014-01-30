@@ -1,0 +1,30 @@
+<div style="height:295px;font-size:9pt !important;">
+	<% for( var i in folders ){ %>
+		<% if( i === 'quota_root'){ %>
+			<p style="font-size:10pt;color:#bbbff;font-weight:bold;;margin-top:5px;">
+				<%=get_lang("You are currently using %1 (%2%).", borkb( folders[i]['quota_used']*1024 ) , folders[i]['quota_percent']) %>
+			</p>
+			<div style="position:relative;margin-top:10px; font-weight:bold;">
+				<div style="background-color:#cecece !important;float:left;width:185px;margin:0 5px 5px 0;">
+					<span style="margin-left:5px;"><%=get_lang('Folder')%></span>
+				</div>
+				<div style="background-color:#cecece !important;text-align:center;float:left;width:155px;margin-right:5px;">
+					<%=get_lang('% used')%>
+				</div>
+				<div style="background-color:#cecece !important;text-align:center;float:left;width:100px;">
+					<%=get_lang("Size")%>
+				</div>
+			</div>
+		<% }else{ %>
+			<div style="position:relative;">
+				<div style="float:left;width:185px;margin:0 5px 5px 0;"><span style="margin-left:5px;"><%=i%></span></div>
+				<div style="float:left;width:155px;margin-right:5px;">
+					<span style="font-style:italic;font-size:8pt !important;float:left;width:40px;"><%=folders[i]['quota_percent']%>%</span>
+					<div quota_percent="<%=folders[i]['quota_percent']%>" style="float:left;background:url(../phpgwapi/templates/<%=template%>/images/dsunused.gif);width:100px;height:15px;"></div>
+				</div>
+				<div style="text-align:center;float:left;width:100px;"><%=borkb(folders[i]['quota_used'])%></div>
+			</div>
+		<% } %>
+		<div style="clear:both"></div>
+	<% } %>
+</div>

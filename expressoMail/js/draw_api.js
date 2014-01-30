@@ -5467,76 +5467,126 @@ function changeBgColor(event, msg_number) {
 	last_message_selected = _element_id;
 }
 
-function build_quota(data){
-    //MAILARCHIVE
+
+function build_quota( data )
+{
+    // MAILARCHIVE
     // se for a pasta de mensagens locais
-    if(proxy_mensagens.is_local_folder(current_folder)) {
-        return;        
+    if( proxy_mensagens.is_local_folder(current_folder) ) { return; }
+
+    var content_quota   = $("#content_quota");
+
+    if( !data['quota_limit'] )
+    {
+        content_quota.html('<span><font size="2" style="color:red"><strong>'+get_lang("Without Quota")+'</strong></font></span>');
     }
+    else
+    {
+        var quota_limit     = data['quota_limit'];
+        var quota_used      = data['quota_used'];
+        var value           = data['quota_percent'];
 
-	id = "content_quota";
-	q_limit = data['quota_limit'];
-	var div	= document.getElementById(id);
-	if(!q_limit){
-		div.innerHTML = '<span><font size="2" style="color:red"><strong>'+get_lang("Without Quota")+'</strong></font></span>';
-	}
-	else{
-		if(div)
-			div.innerHTML = '';
-		value = data['quota_percent'];
-		q_used = data['quota_used'];
-		table = document.getElementById("table_quota");
-		if(table)
-			table.parentNode.removeChild(table);
-		table = document.createElement("TABLE");
-		tbody = document.createElement("TBODY");
-		table.appendChild(tbody);
-		table.id = "table_quota";
-		table.width="102";
-		table.border="0";
-		table.cellSpacing = 0;
-		table.cellPadding = 0;
+        content_quota.html('');
+        content_quota.css({'height':'15px'});
 
-		//tr1 = document.createElement("TR");
-		td11 = document.createElement("TD");
-		td11.align="center";
-		td11.setAttribute("noWrap","true");
-		td11.innerHTML += '<div id="quota_progressbar" class="boxHeaderText" style="display: block; float: left; height: 13px; width: 121px;"></div>&nbsp;<span class="boxHeaderText" style="line-height : 0px;">' + value+"% ("+borkb(q_used*1024)+"/"+borkb(q_limit*1024)+")</span>";
-		//tr1.appendChild(td11);
+        var divDrawQuota = $("<div>");
+        divDrawQuota.width(121);
+        divDrawQuota.height(15);
+        divDrawQuota.css({"background": "url(../phpgwapi/templates/"+template+"/images/dsunused.gif)","float":"left","margin-right":"5px", "cursor":"pointer"});
+        divDrawQuota.on("click", function()
+        {
+            var showQuota = function(data)
+            {
+                var windowQuota = $("#window_InfoQuota");
 
-		tr2 = document.createElement("TR");
-		td22 = document.createElement("TD");
+                windowQuota.dialog({
+                    modal       : true,
+                    width       : 500,
+                    height      : 400,
+                    title       : get_lang("View Quota Usage in Folders"),
+                    buttons     : [
+                                   {
+                                        text : get_lang("Close"),
+                                        click : function()
+                                        {
+                                            $(this).dialog("destroy");
+                                        }
+                                   }]               
 
-		//td21.appendChild(table221);
-		//tr2.appendChild(td21);
-		tr2.appendChild(td11);
-		//tr2.appendChild(td1);
+                });
 
-		tbody.appendChild(tr2); //Desenho
-		//tbody.appendChild(tr1); //Letras
-		div.appendChild(table);
-		$("#quota_progressbar").progressbar({
-			value: value
-		});
-		if(value > 90) {
-			if(value >= 100)
-				write_msg(get_lang("Your Mailbox is 100% full! You must free more space or will not receive messages."));
-			else
-				write_msg(get_lang("Warning: Your Mailbox is almost full!"));
-			$("#quota_progressbar").find(".ui-progressbar-value").css({"background-image": "url(templates/default/images/dsalert.gif)", "border-color" : "red"});
-		}
-		else if(value > 80)
-			$("#quota_progressbar").find(".ui-progressbar-value").css({"background-image": "url(templates/default/images/dswarn.gif)", "border-color" : "yellow"});
-	}
+                windowQuota.next().css("background-color", "#E0EEEE");
+                windowQuota.html( new EJS( {url: 'templates/default/infoQuota.ejs'} ).render({ folders : data }));
+                windowQuota.find("div[quota_percent]").each(function()
+                {
+                    var divQuotaUsed = $("<div>");
+                    divQuotaUsed.width(parseInt($(this).attr("quota_percent"))+"%");
+                    divQuotaUsed.height(15);
+
+                    if( parseInt($(this).attr("quota_percent")) > 90 )
+                    {
+                        imageBackground = "url(./templates/"+template+"/images/dsalert.gif)";
+                    }
+                    else if( parseInt($(this).attr("quota_percent")) > 80 )
+                    {
+                        imageBackground = "url(./templates/"+template+"/images/dswarn.gif)";
+                    }
+                    else
+                    {
+                        imageBackground = "url(./templates/"+template+"/images/dsused.gif)";
+                    }
+
+                    divQuotaUsed.css({"background": imageBackground });
+
+                    $(this).append(divQuotaUsed);
+                }); 
+            }
+
+            cExecute ("$this.imap_functions.get_quota_folders", showQuota );
+        });
+
+        var divQuotaUsed = $("<div>");
+        divQuotaUsed.width(value+"%");
+        divQuotaUsed.height(15);
+
+        var imageBackground = "";
+
+        if( value > 90 )
+        {
+            if( value >= 100 )
+                write_msg(get_lang("Your Mailbox is 100% full! You must free more space or will not receive messages."));
+            else
+                write_msg(get_lang("Warning: Your Mailbox is almost full!"));
+            
+            imageBackground = "url(./templates/"+template+"/images/dsalert.gif)";
+        }
+        else if( value > 80 )
+        {
+            imageBackground = "url(./templates/"+template+"/images/dswarn.gif)";
+        }
+        else
+        {
+            imageBackground = "url(./templates/"+template+"/images/dsused.gif)";
+        }
+        
+        divQuotaUsed.css({"background": imageBackground });
+        divDrawQuota.append(divQuotaUsed);
+
+        var spanInfoQuota = $("<span>");
+        spanInfoQuota.attr("class","boxHeaderText");
+        spanInfoQuota.html( value + "% ( "+borkb(quota_used*1024)+" / "+borkb(quota_limit*1024)+" )" );
+
+        content_quota.append(divDrawQuota);
+        content_quota.append(spanInfoQuota);
+    }
 }
 
-
 function draw_quota(data){
-	this.build_quota(data);
+	build_quota(data);
 }
 
 function update_quota(folder_id){
-	cExecute ("$this.imap_functions.get_quota&folder_id="+folder_id,this.build_quota);
+	cExecute ("$this.imap_functions.get_quota&folder_id="+folder_id,build_quota);
 }
 
 function draw_search(headers_msgs){

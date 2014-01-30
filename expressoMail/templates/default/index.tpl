@@ -200,8 +200,7 @@
 		</select>
 	</p>
 </div>
-<div id="sandbox" class="expresso-calendar-container hidden">
-</div>
+<div id="sandbox" class="expresso-calendar-container hidden"></div>
 <div id="windowLabels" class="label-configure-win" style="display: none;"></div>
 <div id="followupFlag" class="followupflag-configure-win" style="display: none;"></div>
 <div class="expressomail-module-container" style="display: none;"></div>
@@ -210,4 +209,5 @@
 <div id="sendFileMessages" style="display:none;"></div>
 <div id="quickAddContact" style="display:none;"></div>
 <div id="freeow" class="freeow freeow-bottom-right"></div>
+<div id="window_InfoQuota" style="display:none"></div>
 <!-- END list -->
