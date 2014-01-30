@@ -5804,9 +5804,8 @@ function draw_plugin_cc(ID, addrs, notValidUser){
 	return to_addybook_add;
 }
 
-function deny_email(email){
-	connector.loadScript("filter");
-	connector.loadScript("filters");
+function deny_email(email)
+{
 	var dn_em 	= document.createElement("SPAN");
 		dn_em.id = "tt_d";
 		dn_em.onclick = function(){block_user_email(email); /*filter.new_rule(email);*/};
@@ -5814,7 +5813,6 @@ function deny_email(email){
 		dn_em.style.cursor = "pointer";
 		dn_em.innerHTML = "<script src='../prototype/modules/filters/filters.js'></script><img align='top' src='./templates/"+template+"/images/deny.gif'>";
 	return dn_em;
-
 }
 
 function show_div_address_full(id, type) {

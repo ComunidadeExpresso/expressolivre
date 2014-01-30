@@ -247,7 +247,7 @@
     	var menuToolsItems = {
     		"i01": {"name": get_lang("Preferences"), "icon": "preferences-mail", callback: preferences_mail },
     		"i02": {"name": get_lang("Search"), "icon": "search-mail", callback: function(key, opt){ search_emails(""); }},
-    		"103": {"name": get_lang("Edit filters"), "icon": "filter", callback: filterbox2 },
+    		"103": {"name": get_lang("Edit filters"), "icon": "filter", callback: filterbox },
     		"i05": {"name": get_lang("Share mailbox"), "icon": "share-mailbox", callback: sharebox } 
     	};
         if ( preferences['use_followupflags_and_labels'] == "1" )

@@ -67,30 +67,6 @@ function updateDynamicContact(userContacts){
     }
 
     dynamicData = dynamicContactsList;
-
-
-	/*dynamicContacts = new Array();
-
-    var dynamicUsers = REST.get("/dynamiccontacts");
-
-    if(dynamicUsers.collection && !dynamicUsers.collection.error){
-        var dynamicData = normalizeContacts(dynamicUsers.collection.itens)
-
-        $.each(dynamicData, function(index, value){
-			if(index ==0){
-				topContact = parseInt(value['number_of_messages']);
-			}
-			var dynamic = {
-				name : value.name,
-				mail : value.mail,
-				value: value.name + " - " + value.mail,
-				type: "",
-				id: value.id,
-				qtd : value['number_of_messages']
-			};
-			dynamicContacts.push(dynamic);
-		});
-	}*/
 }
 
 
@@ -170,25 +146,10 @@ function init(){
             write_msg(get_lang('Sorry, but Mail Archiver does not seems to be running or installed at this workstation. By now, we are turning off local messages!'));
     }
 
-//  cExecute ("$this.db_functions.get_dropdown_contacts", save_contacts); //Save contacts needs preferences.
-
     cExecute ("$this.imap_functions.get_range_msgs2&folder=INBOX&msg_range_begin=1&msg_range_end="+preferences.max_email_per_page+"&sort_box_type=SORTARRIVAL&search_box_type=ALL&sort_box_reverse=1", handler_draw_box);
 
     if(preferences.hide_folders == "1")
         Element('divAppboxHeader').innerHTML =  title_app_menu;
-
-    //Desbilitado limpeza de lixeira por request. Ticket #3253
-    //if (preferences.delete_trash_messages_after_n_days != 0)
-    ///	cExecute ("$this.imap_functions.automatic_trash_cleanness&before_date="+preferences.delete_trash_messages_after_n_days+"&cyrus_delimiter="+cyrus_delimiter, handler_automatic_trash_cleanness);
-
-    //if(preferences.outoffice == "1")
-    //
-
-    //Troca da forma de construção de menu para o plugin jquery.contextMenu
-    //ConstructMenuTools();
-    //MAILARCHIVER-00
-    //if ( (preferences.use_local_messages==1) && (expresso_local_messages.is_offline_installed()) )  //Precisa ser feito após a renderização da caixa de emails
-        //check_mail_in_queue();
 
     // Insere a applet de criptografia
     if (preferences.use_signature_digital_cripto == '1'){
@@ -299,10 +260,8 @@ function init_offline(){
 		})
 
 		// Get cyrus delimiter
-	cyrus_delimiter = Element('cyrus_delimiter').value;
+		cyrus_delimiter = Element('cyrus_delimiter').value;
 
-	//cExecute ("$this.db_functions.get_dropdown_contacts_to_cache", function(data) {contacts = data;});
-	//cExecute ("$this.functions.get_preferences", save_preferences);
 	}
 }
 /**
@@ -656,11 +615,6 @@ function show_msg(msg_info){
 function auto_refresh(){
 	refresh(preferences.alert_new_msg, preferences.notifications);
 	setTimeout('auto_refresh()', time_refresh);
-}
-
-function auto_archiving() {
-	expresso_mail_sync.start_sync();
-	setTimeout('auto_archiving()',600000);
 }
 
 function notificationFilter(data, notifyCriteria){

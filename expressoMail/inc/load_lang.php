@@ -9,11 +9,6 @@
 		*  option) any later version.                                              * 
 		\**************************************************************************/ 
 		
-// Load the lang of the module.
-	if(isset($offline_language)) { //Expresso offline, quando o gears sincroniza com uma nova versão, não é dado acesso as sessões do usuário, e é preciso o nome do arquivo de linguagens na session abaixo.
-		$_SESSION['phpgw_info']['expressomail']['user']['preferences']['common']['lang'] = $offline_language;
-	}
-	
 	$array_keys = array();
 	$fn = 'setup/phpgw_'.$_SESSION['phpgw_info']['expressomail']['user']['preferences']['common']['lang'].'.lang';			
 	if (file_exists($fn)){

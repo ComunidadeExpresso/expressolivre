@@ -89,8 +89,8 @@ $scripts = new AssetCollection(array(
 ));
 
 if (strpos($javaVersion,"java version") !== false){
-//    $filterManager->set('yui_js', $compressor);
-//    $scripts->ensureFilter($filterManager->get('yui_js'));
+    $filterManager->set('yui_js', $compressor);
+    $scripts->ensureFilter($filterManager->get('yui_js'));
 }
 
 $scriptsCache = new AssetCache($scripts,new FilesystemCache('/tmp'));

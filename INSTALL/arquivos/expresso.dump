@@ -14255,10 +14255,6 @@ pt-br	admin	multivalued	Multivalorado
 pt-br	admin	searchable	Pesquisável
 pt-br	admin	allow hidden copy	Liberar todos os usuários a enviar e-mail com cópia oculta
 pt-br	admin	imap max folders	Número de pastas imap
-pt-br	admin	googlegears url	Url Google Gears
-pt-br	admin	gears firefox windows url	Url Google Gears para Firefox (windows)
-pt-br	admin	gears firefox linux url	Url Google Gears para Firefox (linux)
-pt-br	admin	gears ie url	Url Google Gears para Internet Explorer
 pt-br	admin	allow importing and creating events directly on expressocalendar module (new)	Permitir importar e criar eventos diretamente para o módulo ExpressoCalendar (novo)
 pt-br	admin	quick add widget for telephone number	Widget para edição rápida de telefone corporativo
 pt-br	admin	enable quick add for user	Habilitar edição rápida para usuário
@@ -16938,10 +16934,7 @@ pt-br	expressoMail	thursday	Quinta-feira
 pt-br	expressoMail	to:	Para:
 pt-br	expressoMail	to	Para
 pt-br	expressoMail	tools	Ferramentas
-pt-br	expressoMail	to use local messages, install google gears	Para utilizar mensagens locais no expresso, instale o Google Gears
-pt-br	expressoMail	to use local messages you have to install google gears. would you like to install it now?	Para utilizar o recurso de mensagens locais, é preciso instalar o Google Gears. Você gostaria de instala-lo agora mesmo?
 pt-br	expressoMail	include digital signature	Incluir assinatura digital
-pt-br	expressoMail	to use local messages you have to install google gears. would you like to be redirected to gears installation page?	Para utilizar o recurso de mensagens locais, é preciso instalar o Google Gears. Você gostaria de ser encaminhado para a página de instalação do mesmo?
 pt-br	expressoMail	trash	Lixeira
 pt-br	expressoMail	tuesday	Terça-feira
 pt-br	expressoMail	type the subject of the message for receiving a phone warning	Digite o assunto da mensagem que deseja ser alertado por telefone
@@ -17066,9 +17059,6 @@ pt-br	expressoMail	send messages with return recipient option by default	Sempre 
 pt-br	expressoMail	with this option every new email will get the return recipient option marked	Com essa opção ativa todo novo e-mail terá marcada a opção de confirmação de leitura padrão
 pt-br	expressoMail	you must manually close one of your tabs before opening a new one	Você deve fechar uma de suas abas de edição manualmente para poder abrir outra
 pt-br	expressoMail	auto close the first tab on reaching the maximum number of tabs?	Fechar automaticamente a primeira aba ao atingir o número máximo de abas?
-pt-br	expressoMail	gears firefox windows url	URL de instalação do Gears para o Firefox - windows
-pt-br	expressoMail	gears firefox linux url	URL de instalação do Gears para o Firefox - linux
-pt-br	expressoMail	gears ie url	URL de instalação do Gears para o Internet explorer
 pt-br	expressoMail	view the user name in the header of the messages printed?	Exibir o meu nome no cabeçalho das mensagens impressas?
 pt-br	expressoMail	displays the user name in the header print email	Exibe o nome do usuário no cabeçalho de impressão do email 
 pt-br	expressoMail	error exporting messages, try again latter	Não foi possível exportar as mensagens selecionadas.
@@ -22509,8 +22499,6 @@ es-es	expressoMail	this message is signed, but it is invalid. you should not tru
 es-es	expressoMail	to:	Para:
 es-es	expressoMail	to	Para
 es-es	expressoMail	tools	Herramientas
-es-es	expressoMail	to use local messages, install google gears	Para utilizar mensajes locales en expresso, instale  Google Gears
-es-es	expressoMail	to use local messages you have to install google gears. would you like to install it now?	Para utilizar el recurso de mensajes locales, es necesario instalar Google Gears. ¿Usted desea instalarlo ahora mismo?
 es-es	expressoMail	trash	Papelera
 es-es	expressoMail	tuesday	Martes
 es-es	expressoMail	type the subject of the message for receiving a phone warning	Escriba el asunto del mensaje que desea ser cambiado por teléfono

@@ -102,21 +102,15 @@ window.onbeforeunload = unloadMess;
 
 function unloadMess(){
     if (typeof BordersArray == 'undefined') return; // We're not on expressoMail
-	if (typeof(expresso_mail_sync) != "undefined" && expresso_mail_sync.working) {
-		var mess = get_lang("You're about archiving your e-mails from server. Do you really want to stop this action?");
-		return mess;
-	}
-	else {
-		var ret = null;
-		$(".conteudo .new-msg-head-buttons .save").each(function(index) { //Pega todos os botões "Save" de todas as abas
-			if($(this).is(':disabled')) { //se a mensagem estiver salva (botão Salvar desabilitado)
-				ret = null;
-			} else { //se estiver em modo edição (botão Salvar habilitado)
-				ret = get_lang('There are still editing posts, really want to leave the page')+'?';
-			}
-		});
-		if (ret) return ret;
-	}
+	var ret = null;
+	$(".conteudo .new-msg-head-buttons .save").each(function(index) { //Pega todos os botões "Save" de todas as abas
+		if($(this).is(':disabled')) { //se a mensagem estiver salva (botão Salvar desabilitado)
+			ret = null;
+		} else { //se estiver em modo edição (botão Salvar habilitado)
+			ret = get_lang('There are still editing posts, really want to leave the page')+'?';
+		}
+	});
+	if (ret) return ret;
 }
 
 // Translate words and phrases using user language from eGroupware.
@@ -677,18 +671,6 @@ function emQuickSearch(emailList, field, ID, Type, force){
 }
 
 function filterbox(){
-	connector.loadScript("filter");
-	connector.loadScript("filters");
-	if (typeof(filters) == 'undefined')
-	{
-		 setTimeout('filterbox()',500);
-	         return false;
-	}
-	filters.Forms();
-}
-
-
-function filterbox2(){
 	init_filters();
 	jQuery('.expresso-window-container').dialog('open');
 }

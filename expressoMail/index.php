@@ -148,16 +148,14 @@
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_x_origin'] = $current_config['expressoMail_use_x_origin'];
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['number_of_contacts'] = $current_config['expressoMail_Number_of_dynamic_contacts'] ? $current_config['expressoMail_Number_of_dynamic_contacts'] : "0";
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['notification_domains'] = $current_config['expressoMail_notification_domains'];
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['googlegears_url'] = $current_config['expressoMail_googlegears_url'];
-    $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_assinar_criptografar'] = $GLOBALS['phpgw_info']['server']['use_assinar_criptografar'] ?  $GLOBALS['phpgw_info']['server']['use_assinar_criptografar'] : "0";
+	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_assinar_criptografar'] = $GLOBALS['phpgw_info']['server']['use_assinar_criptografar'] ?  $GLOBALS['phpgw_info']['server']['use_assinar_criptografar'] : "0";
     $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_signature_digital_cripto'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_signature_digital_cripto'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_signature_digital_cripto'] : "0";
     $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_signature_digital'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_signature_digital'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_signature_digital'] : "0";
     $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['search_result_number'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['search_result_number'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['search_result_number'] : "50";
     $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['search_characters_number'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['search_characters_number'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['search_characters_number'] : "4";
     $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['num_max_certs_to_cipher'] = $GLOBALS['phpgw_info']['server']['num_max_certs_to_cipher'] ?  $GLOBALS['phpgw_info']['server']['num_max_certs_to_cipher'] : "10";
     $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_signature_cripto'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_signature_cripto'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_signature_cripto'] : "0";
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['keep_after_auto_archiving'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['keep_after_auto_archiving'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['keep_after_auto_archiving'] : "0";
-
+	
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['max_attachment_size'] = $current_config['expressoMail_Max_attachment_size'] ? $current_config['expressoMail_Max_attachment_size']."M" : '';
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['max_msg_size'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['max_msg_size'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['max_msg_size'] : "0";
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['imap_max_folders'] = $current_config['expressoMail_imap_max_folders'];
