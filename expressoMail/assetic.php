@@ -66,7 +66,7 @@ if (strpos($javaVersion,"java version") !== false){
     $plugins->ensureFilter($filterManager->get('yui_js'));
 }
 
-$pluginsCache = new AssetCache($plugins,new FilesystemCache('/tmp'));
+$pluginsCache = new AssetCache($plugins,new FilesystemCache('/tmp/js'));
 echo $pluginsCache->dump();
 
 $scripts = new AssetCollection(array(
@@ -74,6 +74,7 @@ $scripts = new AssetCollection(array(
     new FileAsset('js/folder.js'),
     new FileAsset('js/base64.js'),
     new FileAsset('js/QuickCatalogSearch.js'),
+    new FileAsset('js/QuickAddTelephone.js'),
     new FileAsset('js/common_functions.js'),
     new FileAsset('js/abas.js'),
     new FileAsset('js/draw_api.js'),
@@ -93,6 +94,6 @@ if (strpos($javaVersion,"java version") !== false){
     $scripts->ensureFilter($filterManager->get('yui_js'));
 }
 
-$scriptsCache = new AssetCache($scripts,new FilesystemCache('/tmp'));
+$scriptsCache = new AssetCache($scripts,new FilesystemCache('/tmp/js'));
 echo $scriptsCache->dump();
 ?>

@@ -116,15 +116,14 @@ function updateDynamicPersonalGroups(){
 }
 
 
-function init(){
-	if (!is_ie)
-		Element('tableDivAppbox').width = '100%';
+function init()
+{
+	if ( !is_ie ) Element('tableDivAppbox').width = '100%';
 
     //MailArchiver save offset to gmt user preference data to list correctly date/time from messages list
     var save_gmtoffset = function(data){
         gmtoffset = data;
     }
-
 		
     if(preferences.show_name_print_messages == "1") {
         var getUserName = document.getElementById("user_info");
@@ -134,7 +133,7 @@ function init(){
         cabecalho = '<h4>' + userName;
     }
 
-	current_folder="INBOX";
+	current_folder = "INBOX";
 
     //MAILARCHIVER-02
     //Try to get ArchiveServices object directly
@@ -156,9 +155,10 @@ function init(){
         loadApplet();
     }
     // Fim da inserção da applet
-    cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
-    //update_menu(Folder.getList(false));
 
+    cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
+
+    
     if($.cookie('collapse_folders') == "true"){
         if(!is_ie)
             $("#folderscol").addClass( "hidden");
@@ -249,11 +249,6 @@ function init_offline(){
 		'<b>ExpressoMail Offline</b><font size=1><b> - Versão 1.0</b></font></td>' +
 		'<td width=33% id="div_menu_c3" align=right></td>' +
 		'</tr></table>';
-
-		//Troca da forma de construção de menu para o plugin jquery.contextMenu
-		//ConstructMenuTools();
-
-		draw_tree_folders();
 
 		proxy_mensagens.messages_list('local_Inbox', 1, preferences.max_email_per_page, 'SORTARRIVAL', null, 1,1,1, function handler(data){
 			draw_box(data, 'local_Inbox');
@@ -405,8 +400,6 @@ function watch_changes_in_msg(border_id)
 			else if ( cco_obj.attachEvent )
 				cco_obj.attachEvent('onkeypress', keypress_handler);
 		}
-		//var important_obj = $("important_message_options_"+border_id).bind('click',keypress_handler);
-			//important_obj.addEventListener('click', keypress_handler, false);
 			
         var txtarea_obj = Element('body_'+border_id);
         if (txtarea_obj){
@@ -459,28 +452,20 @@ function show_msg(msg_info){
 	{
 		// Abrindo um e-mail criptografado
 		// Verifica se existe o objeto applet
-		if (!Element('cert_applet')){
+		if (!Element('cert_applet'))
+		{
 			// se não existir, mostra mensagem de erro.
 			write_msg(get_lang('The preference "%1" isn\'t enabled.', get_lang('Enable digitally sign/cipher the message?')));
-		} else {
-			// se existir prepara os dados para serem enviados e chama a
-			// operação na applet
-
-		   // if ((msg_info.DispositionNotificationTo) && ((msg_info.Unseen == 'U') || (msg_info.Recent == 'N'))){
-			/*	var confNotification = confirm(get_lang("The sender waits your notification of reading. Do you want to confirm this?"), "");
-				if (confNotification)*/
-			//		cExecute ("$this.imap_functions.send_notification&notificationto="+msg_info.DispositionNotificationTo+"&subject="+url_encode(msg_info.subject), handler_sendNotification);
-		   // }
-
-			Element('cert_applet').doButtonClickAction('decript',
-														msg_info.msg_number,
-														msg_info.source,
-														msg_info.msg_folder); // Passa os dados para a applet
 		}
+		else
+		{
+			// Passa os dados para a applet
+			Element('cert_applet').doButtonClickAction('decript', msg_info.msg_number, msg_info.source, msg_info.msg_folder); 
+		}
+		
 		return;
 
 	}
-
 
 	if (msg_info.status_get_msg_info == 'false')
 	{
@@ -523,23 +508,14 @@ function show_msg(msg_info){
 			alternate_border(id_msg_read);
 			resizeWindow();
 		}
-		else {
+		else
+		{
 			var border_id = create_border(msg_info.subject, id_msg_read);
 			if(border_id && border_id != "maximo")
 			{
 				openTab.type[border_id] = 2;
 				openTab.imapBox[border_id] = msg_info.msg_folder;
 				draw_message(msg_info,border_id);
-//				var unseen_sort = document.getElementById('span_flag_UNSEEN').getAttribute('onclick');
-//				unseen_sort = unseen_sort.toString();
-//				if ( !(unseen_sort.indexOf("'UNSEEN' == 'UNSEEN'") < 0) )
-//				{
-//					var sort_type = sort_box_type;
-//					sort_box_type = null;
-//					sort_box('UNSEEN', sort_type,false); 
-//					delete selectedPagingMsgs[msg_info.msg_number];
-//					totalFolderMsgs--;
-//				}
 			}
 			else
 				return;
@@ -710,9 +686,6 @@ function refresh(alert_new_msg, notifyPermission){
 			}
 			if (data[0] && data[0].msg_folder != current_folder) // Bad request
 				return false;
-			/* removido incremento da variável pois estava incrementando mais do que o necessário
-			* devido ao incremento realizado em seguida, quando novas são recebidas */
-			//totalFolderMsgs += data.new_msgs;
 				
 			for (var i=0; i<data.length; i++){
 				var existent = document.getElementById(data[i].msg_number);
@@ -1868,11 +1841,6 @@ function complete_archiving( success, fails, has_local_messages_before )
 	
 	var msg_info = success[i];
 
-// 	if ( msg_info.dest_folder == target )
-// 	{
-// 		msg_info.msg_folder += (Date.parse(new Date));
-// 	}
-
 	//////////////// deselecionando ////////////////
 	Element('chk_box_select_all_messages').checked = false;
 
@@ -1884,13 +1852,6 @@ function complete_archiving( success, fails, has_local_messages_before )
 	{
 		remove_className(Element(msg_info.original_id), 'selected_msg');
 	}
-
-// 	if ( tree_folders._selected.id.indexOf( 'local_' ) == 0 || msg_info.dest_folder.indexOf( target ) == 0 )
-// 	{
-// 		openTab.imapBox[0] = '';
-// 		tree_folders.getNodeById( 'local_Inbox' )._select( );
-// 		change_folder('local_Inbox','Inbox');
-// 	}
 	/////////////////////////////////////////////////
 
 	//As mensagens arquivadas devem ser removidas, caso o usuario tenha isso configurado.
@@ -3659,21 +3620,9 @@ function save_msg(border_id){
 
 }
 
-function set_messages_flag_search_local(flag){
-	// var msgs_flag = this.get_selected_messages_search();
-	// if(local_messages.prototype.set_messages_flag(msgs_flag, flag, true)){
-	// 	var id_border = currentTab.replace(/[a-zA-Z_]+/, "");
-	// 	var msgs = msgs_flag.split(',');
-	// 	for(var i = 0; i < msgs.length; i++){
-	// 		Element("search_local_msg"+id_border+"_check_box_message_"+msgs[i]).checked = false;
-	// 	}
-	// 	draw_tree_folders();
-	// 	Element('chk_box_select_all_messages_search_local').checked = false;
-	// 	refresh();
-	// 	write_msg(get_lang('The messages were marked with success!'));		
-	// }else{
-	// 	write_msg(get_lang('Error marking messages.'));
-	// }
+function set_messages_flag_search_local(flag)
+{
+	// Verificar chamadas
 }
 
 function set_messages_flag_search(flag){
@@ -5502,11 +5451,11 @@ function searchEmail(emailString){
 		return arrayInvalidEmails;
 }
 
-		/* Funçãoo que chama a tela para o usuário reportar um erro no email. */
- 		function reports_window(currentTab){ 
- 		        ID_msg = currentTab.substr(0,currentTab.indexOf("_")); 
- 		        report_wind.make_report_window(ID_msg); 
-		} 
+/* Funçãoo que chama a tela para o usuário reportar um erro no email. */
+function reports_window(currentTab){ 
+    ID_msg = currentTab.substr(0,currentTab.indexOf("_")); 
+    report_wind.make_report_window(ID_msg); 
+} 
 
 
 DataLayer.codec( "message", "detail", {

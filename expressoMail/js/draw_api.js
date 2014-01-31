@@ -48,403 +48,10 @@ var currentTab,numBox = 0; // Open Tab and num of mailboxes opened at context
 // Objeto Map, talvez o ideal fosse adicionar este objeto à Api do egroupware, e carregá-lo
 // aqui no expressoMail.
 
-function draw_tree_folders(folders){
-	// Check if the tree folders alredy exist.
-	if (Element('dftree_tree_folders')){
-		if (!expresso_offline) {
-			var update_tree_folders = function(data){
-				draw_quota(data);
-				var unseen_in_mailbox = 0;
-				var unseen_in_shared_folders = 0;
-				for (var i=0; i<data.length; i++){
-					if ( data[i].folder_unseen > 0 )
-					{
-						unseen_in_mailbox = parseInt( unseen_in_mailbox + data[ i ].folder_unseen );
-						if ( data[i].folder_id.indexOf( 'INBOX' ) !== 0 )
-							unseen_in_shared_folders = parseInt( unseen_in_shared_folders + data[ i ].folder_unseen );
-					}
+function draw_tree_labels()
+{
+    console.log("function draw_tree_labels");
 
-					var folder_unseen = Element('dftree_'+data[i].folder_id+'_unseen');
-
-					if ((folder_unseen) && (data[i].folder_unseen > 0))
-					{
-						folder_unseen.innerHTML = data[i].folder_unseen;
-					}
-					else if (data[i].folder_unseen > 0)
-					{
-						tree_folders.getNodeById(data[i].folder_id).alter({caption:lang_folder(data[i].folder_name) + '<font style=color:red>&nbsp(</font><span id="dftree_'+data[i].folder_id+'_unseen" style=color:red>'+data[i].folder_unseen+'</span><font style=color:red>)</font>'});
-						tree_folders.getNodeById(data[i].folder_id)._refresh();
-					}
-					else if (data[i].folder_unseen <= 0)
-					{
-						if(tree_folders.getNodeById(data[i].folder_id)){
-						tree_folders.getNodeById(data[i].folder_id).alter({caption:lang_folder(data[i].folder_name)});
-						tree_folders.getNodeById(data[i].folder_id)._refresh();
-					}
-					}
-
-					if(data[i].folder_id == current_folder){
-						var old_new_m = isNaN(parseInt(Element('new_m').innerHTML)) ? parseInt(Element('new_m').firstChild.innerHTML) : parseInt(Element('new_m').innerHTML);
-						Element('new_m').innerHTML = data[i].folder_unseen ? '<font color="RED">'+data[i].folder_unseen+'</font>' : 0;
-						draw_paging(Element('tot_m').innerHTML);
-					}
-				}
-
-				var display_unseen_in_mailbox = tree_folders.getNodeById( 'root' );
-				display_unseen_in_mailbox.alter({caption:get_lang("My Folders")});
-				display_unseen_in_mailbox._refresh();
-
-				var display_unseen_in_shared_folders = tree_folders.getNodeById( 'user' );
-				if ( display_unseen_in_shared_folders )
-				{
-					if ( unseen_in_shared_folders )
-						display_unseen_in_shared_folders.alter({caption:'<font style=color:red>[</font><span id="dftree_user_unseen" style="color:red">' + unseen_in_shared_folders +'</span><font style=color:red>]</font> ' + get_lang("Shared folders")});
-					else
-						display_unseen_in_shared_folders.alter({caption:get_lang("Shared folders")});
-					display_unseen_in_shared_folders._refresh();
-				}
-			}
-			cExecute ("$this.imap_functions.get_folders_list&folder="+current_folder, update_tree_folders);
-            
-		}
-
-                
-                //MAILARCHIVER-01
-                //Create local folders main structure tree
-                if(preferences.use_local_messages=="1"){
-                    var disabled_local_span = document.getElementById('llocal_disabledtree_folders');
-
-                    //Services are disabled: because Mail Archiver is not running/installed or have just crashed. Link activation is created here
-                    if(!expresso_mail_archive.enabled){
-                        //window.alert('tem o nodo disabled? ' + tree_folders.getNodeById("local_disabled") + '[' + typeof(tree_folders.getNodeById('local_disabled')) + ']');
-                        if(typeof(tree_folders.getNodeById("local_disabled")) == 'undefined'){
-                          var n_LocalDisabled = new dNode({id: "local_disabled", caption: get_lang('Offline'), onClick: "services_retry()", plusSign:false});
-                          tree_folders.add(n_LocalDisabled, 'local_root');
-                        }
-
-                        tree_folders.getNodeById("local_disabled").alter({caption:get_lang('Offline'), onClick: "retry_local_folders()"});
-                        tree_folders.getNodeById("local_disabled")._refresh();
-                        
-                        if((disabled_local_span) && (!document.getElementById('services_retry'))){
-                            disabled_local_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_services.png)";
-
-                            var service_retry = document.createElement("SPAN");
-                            service_retry.id = 'services_retry';
-                            service_retry.className = 'clean_trash';
-                            service_retry.style.cursor = 'pointer';
-                            service_retry.onclick = function () {services_retry();};
-                            service_retry.innerHTML = "["+get_lang("Retry")+"]";
-                            service_retry.title="Reconectar ao Mail Archiver";
-                            service_retry.onmouseover = function() {service_retry.style.color="red";};
-                            service_retry.onmouseout= function() {service_retry.style.color="#666666";}; //#114FA4
-                            disabled_local_span.parentNode.appendChild(service_retry);
-                        }
-                        else{
-                            //Creates the tree node and MA console linkage
-                            if((!disabled_local_span) && (!document.getElementById('services_retry'))){
-                                var n_LocalDisabled = new dNode({id: "local_disabled", caption: get_lang('Offline'), onClick: "services_retry()", plusSign:false});
-                                tree_folders.add(n_LocalDisabled, 'local_root');
-                            
-                                var disabled_local_span = document.getElementById('llocal_disabledtree_folders');
-                                disabled_local_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_services.png)";
-                                var service_retry = document.createElement("SPAN");
-                                service_retry.id = 'services_retry';
-                                service_retry.className = 'clean_trash';
-                                service_retry.style.cursor = 'pointer';
-                                service_retry.onclick = function () {services_retry();};
-                                service_retry.innerHTML = "["+get_lang("Retry")+"]";
-                                service_retry.title= get_lang("Reconect to MailArchiver services");
-                                service_retry.onmouseover = function() {service_retry.style.color="red";};
-                                service_retry.onmouseout= function() {service_retry.style.color="#666666";}; //#114FA4
-                                disabled_local_span.parentNode.appendChild(service_retry);
-                            
-                                var div_ma_host = document.createElement('div');
-                                div_ma_host.id = 'div_login_ma_host';
-                                div_ma_host.style.position = 'absolute';
-                                div_ma_host.style.padding = '0px';
-                                div_ma_host.style.margin = '0px';
-                                div_ma_host.style.top = '25px';
-                                div_ma_host.style.left = '0px';
-                                div_ma_host.style.width = '145px';
-                                div_ma_host.style.height = '80px';
-                                div_ma_host.style.border = '1px solid #CCCCCC';
-                                div_ma_host.style.backgroundColor = '#F0F0F0';
-                                div_ma_host.style.fontWeight = 'normal';
-                                disabled_local_span.appendChild(div_ma_host);
-                                div_ma_host.innerHTML = '<p><b>'+get_lang('In trouble?')+'</b></p><p>&rarr; ' + get_lang('Try to access') + '<br/><a href="' + mail_archive_protocol + "://" + mail_archive_host + ":" + mail_archive_port + '/admin" target="_blank" title="MailArchiver Admin">'+get_lang('MailArchiver admin console')+'.</p>';                            
-                            }
-                            //Only creates the MA login linkage
-                            else{
-                                var div_ma_host = document.createElement('div');
-                                div_ma_host.id = 'div_login_ma_host';
-                                div_ma_host.style.position = 'absolute';
-                                div_ma_host.style.padding = '0px';
-                                div_ma_host.style.margin = '0px';
-                                div_ma_host.style.top = '25px';
-                                div_ma_host.style.left = '0px';
-                                div_ma_host.style.width = '145px';
-                                div_ma_host.style.height = '80px';
-                                div_ma_host.style.border = '1px solid #CCCCCC';
-                                div_ma_host.style.backgroundColor = '#F0F0F0';
-                                div_ma_host.style.fontWeight = 'normal';
-                                disabled_local_span.appendChild(div_ma_host);
-                                div_ma_host.innerHTML = '<p><b>'+get_lang('In trouble?')+'</b></p><p>&rarr; ' + get_lang('Try to access') + '<br/><a href="' + mail_archive_protocol + "://" + mail_archive_host + ":" + mail_archive_port + '/admin" target="_blank" title="MailArchiver Admin">'+get_lang('MailArchiver admin console')+'.</p>';                                                        
-                            }
-                        }
-                    }
-                    //Services enabled: list folders service must be invoqued
-                    else{
-                        var services_retry_span = document.getElementById('services_retry');
-
-                        if(services_retry_span){
-                            //window.alert('Tem services_retry -> vai remover o disabled_local_span');
-                            var node_disabled_to_remove = document.getElementById('nlocal_disabledtree_folders');
-                            //document.getElementById('chlocal_roottree_folders').removeChild('nlocal_disabledtree_folders');
-                            //services_retry_span.parentNode.removeChild(services_retry_span);
-                            node_disabled_to_remove.parentNode.removeChild(node_disabled_to_remove);
-                        }
-                        //else
-                          //  window.alert('Sem services retry');
-
-                        //tree_folders.getNodeById("local_disabled").alter({caption:get_lang('List_Folders')});
-                                                
-                       var drawinginfo = {treeObject: tree_folders, treeName: 'tree_folders'};
-                       expresso_mail_archive.drawdata = drawinginfo;
-                       //expresso_mail_archive.getFoldersList("");                        
-                        
-                        //tree_folders.getNodeById("local_root")._refresh();
-
-                        if(disabled_local_span)
-                            disabled_local_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_folder.png)";                       
-                    }      
-                }
-
-		return;
-	}
-	else{
-		if (!expresso_offline) {
-			tree_folders = new dFTree({name: 'tree_folders'});
-
-			var n_root = new dNode({id:'root', caption: get_lang("My Folders")});
-			tree_folders.add(n_root,'anything'); //Places the root; second argument can be anything.
-
-			var unseen_in_mailbox = 0;
-			var unseen_in_shared_folders = 0;
-			for (var i=0; i<folders.length; i++){
-				if (folders[i].folder_unseen > 0)
-				{
-					unseen_in_mailbox = parseInt( unseen_in_mailbox + folders[ i ].folder_unseen );
-					if ( folders[i].folder_id.indexOf( 'INBOX' ) !== 0 )
-						unseen_in_shared_folders = parseInt( unseen_in_shared_folders + folders[ i ].folder_unseen );
-
-					var nn = new dNode({id:folders[i].folder_id, caption:lang_folder(folders[i].folder_name) + '<font style=color:red>&nbsp(</font><span id="dftree_'+folders[i].folder_id+'_unseen" style=color:red>'+folders[i].folder_unseen+'</span><font style=color:red>)</font>', onClick:"change_folder('"+folders[i].folder_id+"','"+folders[i].folder_name+"')", plusSign:folders[i].folder_hasChildren});
-
-
-					// if( folders[i].folder_name.toLowerCase() == 'inbox' )
-					// 	Element('new_m').innerHTML = '<font style="color:black">' + folders[i].folder_unseen + '</font>';
-				}
-				else
-					var nn = new dNode({id:folders[i].folder_id, caption:lang_folder(folders[i].folder_name), onClick:"change_folder('"+folders[i].folder_id+"','"+folders[i].folder_name+"')", plusSign:folders[i].folder_hasChildren});
-
-				if (folders[i].folder_parent == '')
-					folders[i].folder_parent = 'root';
-				else if (folders[i].folder_parent == 'user'){
-
-					if (!tree_folders.getNodeById('user')){
-                                                tmpFolderId = folders[i].folder_id.split(cyrus_delimiter).pop();
-						var n_root_shared_folders = new dNode({id:'user', caption:get_lang("Shared folders"), plusSign:true});
-						tree_folders.add(n_root_shared_folders,'root');
-					}
-				}
-				tree_folders.add(nn,folders[i].folder_parent);
-			}
-		}
-
-                
-                //MAILARCHIVER-02
-                //Create local folders main structure tree
-                if(preferences.use_local_messages=="1"){   
-                    //Add the local_root node
-                    var root_local = new dNode({id: "local_root", caption: get_lang('local folders'), plusSign: true});
-                    tree_folders.add(root_local, "root");   
-                    
-                    //Services are disabled: because Mail Archiver is not running/installed or have just crashed. Link activation is created here
-                    if(!expresso_mail_archive.enabled){
-                        var n_LocalDisabled = new dNode({id: "local_disabled", caption: get_lang('Offline'), onClick: "services_retry()", plusSign:false});
-                        tree_folders.add(n_LocalDisabled, 'local_root');
-                        
-                    }
-                    
-                    //Services enabled: list folders service must be invoqued
-                    else{
-                        var drawinginfo = {treeObject: tree_folders, treeName: 'tree_folders'};
-                        expresso_mail_archive.drawdata = drawinginfo;
-                        //expresso_mail_archive.getFoldersList("");
-                    }
-                    
-                    //Opens the local folders tree view
-                    //tree_folders.getNodeById("local_root").open();
-                    
-                }
-
-		/**
-		 * Pastas locais
-		 */
-
-		/*tree_folders.draw(Element('content_folders'));
-		if (!expresso_offline) {
-			n_root.changeState();
-			tree_folders.getNodeById('INBOX')._select();
-		}
-		else {
-			root_local.changeState();
-			tree_folders.getNodeById('local_Inbox')._select();
-		}*/
-		
-		var trash_span = document.getElementById(mount_url_folder(["lINBOX",special_folders["Trash"]])  + 'tree_folders'); 
-		var draft_span = document.getElementById(mount_url_folder(["lINBOX",special_folders["Drafts"]]) + 'tree_folders'); 
-		var sent_span  = document.getElementById(mount_url_folder(["lINBOX",special_folders["Sent"]]) + 'tree_folders'); 
-		var spam_span  = document.getElementById(mount_url_folder(["lINBOX",special_folders["Spam"]]) + 'tree_folders');
-		//local folders
-		/*var sent_local_conf = this.preferences.save_in_folder.replace(mount_url_folder(["INBOX",""]),"local_");
-		var sent_local_conf_span=document.getElementById('l'+sent_local_conf+'tree_folders');*/
-		var trash_local_span=document.getElementById('llocal_'+special_folders['Trash']+'tree_folders');
-		var draft_local_span=document.getElementById('llocal_'+special_folders['Drafts']+'tree_folders');
-		var sent_span_default=document.getElementById('llocal_'+special_folders['Sent']+'tree_folders');
-
-
-		if (trash_span)
-			trash_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_trash.png)";
-
-		if (draft_span)
-			draft_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_draft.png)"
-
-		if (sent_span)
-			sent_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_sent.png)";
-		if (spam_span)
-			spam_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_spam.png)";
-
-		if (sent_span_default)
-			sent_span_default.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_sent.png)";
-		//Local folders
-
-		/*if (sent_local_conf_span)
-			sent_local_conf_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_sent.png)";*/
-		if (trash_local_span)
-			trash_local_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_trash.png)";
-		if (draft_local_span)
-			draft_local_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_draft.png)"
-		if (sent_span_default)
-			sent_span_default.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_sent.png)";
-
-
-                //MAILARCHIVER-04
-                if ((disabled_local_span) && (!expresso_mail_archive.enabled)){
-                    disabled_local_span.style.backgroundImage="url(../phpgwapi/templates/"+template+"/images/foldertree_services.png)";
-                        //div to login at MA Admin console
-                        var div_ma_host = document.createElement('div');
-                        div_ma_host.id = 'div_login_ma_host';
-                        div_ma_host.style.position = 'absolute';
-                        div_ma_host.style.padding = '0px';
-                        div_ma_host.style.margin = '0px';
-                        div_ma_host.style.top = '25px';
-                        div_ma_host.style.width = '145px';
-                        div_ma_host.style.height = '80px';
-                        div_ma_host.style.border = '1px solid #CCCCCC';
-                        div_ma_host.style.backgroundColor = '#F0F0F0';
-                        div_ma_host.style.fontWeight = 'normal';
-                        disabled_local_span.appendChild(div_ma_host);
-                        div_ma_host.innerHTML = '<p><b>'+get_lang('In trouble?')+'</b></p><p>&rarr; ' + get_lang('Try to access') + '<br/><a href="' + mail_archive_protocol + "://" + mail_archive_host + ":" + mail_archive_port + '/admin" target="_blank" title="MailArchiver Admin">'+get_lang('MailArchiver admin console')+'.</p>';
-                }
-
-
-		draw_paging(Element('tot_m').innerHTML);
-		if(document.getElementById(mount_url_folder(["nINBOX",special_folders["Trash"]])+"tree_folders"))
-		{
-			var trash = document.createElement("SPAN");
-			trash.id = 'empty_trash';
-			trash.className = 'clean_folder';
-			trash.style.cursor = 'pointer';
-			trash.onclick = function () {empty_trash_imap();};
-			trash.innerHTML = "["+get_lang("Clean")+"]";
-			trash.title=get_lang("Empty trash");
-			trash.onmouseover = function() {trash.style.color="red";};
-			trash.onmouseout= function() {trash.style.color="#666666";};
-			document.getElementById(mount_url_folder(["nINBOX",special_folders["Trash"]])+"tree_folders").appendChild(trash);
-		}
-		if(document.getElementById(mount_url_folder(["nINBOX",special_folders["Spam"]])+"tree_folders"))
-		{
-						var spam = document.createElement("SPAN");
-						spam.id = 'empty_spam';
-						spam.className = 'clean_folder';
-						spam.style.cursor = 'pointer';
-						spam.style.padding = '0 0 0 6px';
-						spam.onclick = function () {empty_spam_imap();};
-						spam.innerHTML = "["+get_lang("Clean")+"]";
-						spam.title=get_lang("Empty Spam Folder");
-						spam.onmouseover = function() {spam.style.color="red";};
-						spam.onmouseout= function() {spam.style.color="#666666";};
-						document.getElementById(mount_url_folder(["nINBOX",special_folders["Spam"]])+"tree_folders").appendChild(spam);
-			   }
-
-        //MAILARCHIVER-05
-        if(document.getElementById("nlocal_disabledtree_folders") && (!expresso_mail_archive.enabled) && (!document.getElementById('services_retry')))
-        {
-            var service_retry = document.createElement("SPAN");
-            service_retry.id = 'services_retry';
-            service_retry.className = 'clean_trash';
-            service_retry.style.cursor = 'pointer';
-            service_retry.onclick = function () {services_retry();};
-            service_retry.innerHTML = "["+get_lang("Retry")+"]";
-            service_retry.title="Reconectar ao Mail Archiver";
-            service_retry.onmouseover = function() {service_retry.style.color="red";};
-            service_retry.onmouseout= function() {service_retry.style.color="#666666";}; //#114FA4
-            document.getElementById("nlocal_disabledtree_folders").appendChild(service_retry);
-        }
-
-            //MAILARCHIVER-00
-		//if(!expresso_offline)
-			var display_unseen_in_mailbox = tree_folders.getNodeById( 'root' );
-		//else
-			//var display_unseen_in_mailbox = tree_folders.getNodeById( 'local_root' );
-		display_unseen_in_mailbox.alter({caption:get_lang("My Folders")});
-		display_unseen_in_mailbox._refresh();
-
-		var display_unseen_in_shared_folders = tree_folders.getNodeById( 'user' );
-		if ( display_unseen_in_shared_folders )
-		{
-			if ( unseen_in_shared_folders )
-				display_unseen_in_shared_folders.alter({caption:'<font style=color:red>[</font><span id="dftree_user_unseen" style="color:red">' + unseen_in_shared_folders +'</span><font style=color:red>]</font> ' + get_lang("Shared folders")});
-			else
-				display_unseen_in_shared_folders.alter({caption:get_lang("Shared folders")});
-			display_unseen_in_shared_folders._refresh();
-		}
-	}
-
-	if (!expresso_offline) {
-		var folder_create = "";
-		var nm1 = "";
-		if(tree_folders._folderPr.length > 0){
-			var nm_folder = "";
-			for(var i=0; i < tree_folders._folderPr.length; i++){
-				nm_folder = tree_folders._folderPr[i].split(cyrus_delimiter);
-				if(nm_folder[0] == "INBOX"){
-					if(nm1 == ""){
-						nm1 = nm_folder[1];
-						folder_create = "INBOX" + cyrus_delimiter + nm_folder[1] + ";";
-					}else{
-						if( nm1 != nm_folder[1]){
-							folder_create += "INBOX" + cyrus_delimiter + nm_folder[1] + ";";
-							nm1 = nm_folder[1];
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-function draw_tree_labels(){
     labels = DataLayer.get('label');
 
     labels = orderLabel( labels );
@@ -453,12 +60,10 @@ function draw_tree_labels(){
 		var myLabels = $('#content_folders').append("<div id='MyMarckersList' class='acc-list list-label' ></div>").find("#MyMarckersList");
 	else
 		var myLabels = $("#MyMarckersList");
-	myLabels.html("<div class='my-labels' style='background-image: url(../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -1711px; background-repeat: no-repeat;'>" +
+
+    myLabels.html("<div class='my-labels' style='background-image: url(../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -1711px; background-repeat: no-repeat;'>" +
 				"<a class='title-my-labels' style='margin-left: 15px;' tabindex='0' role='button' aria-expanded='false' title='"+get_lang("My Labels")+"'>"+get_lang("My Labels")+"</a>" +
-				
-				"<span class='status-list-labels ui-icon ui-icon-triangle-1-s'></span>" +
-			"</div>"
-	)
+				"<span class='status-list-labels ui-icon ui-icon-triangle-1-s'></span></div>")
 	.append(DataLayer.render("../prototype/modules/mail/templates/label_list.ejs", {labels: labels} ))
 	.find("li.label-item").css({"background-color":"#ffffff", "border-color":"#CCCCCC", "color":"#444444"}).click(function(event,ui){
 		if($(event.target).is('.square-color')){
@@ -488,91 +93,13 @@ function draw_tree_labels(){
 	}
 }
 
-function draw_tree_local_folders() {
-    /**
-     * Pastas locais
-     */
-        //MAILARCHIVER-04
-        if ( preferences.use_local_messages=="1" ) {
-            var local_folders_list = expresso_mail_archive.getFoldersList("");
-        }
+function force_update_menu(data)
+{
+    update_menu( data, true );
 }
-
-// function draw_tree_local_folders() {
-// 	/**
-// 	 * Pastas locais
-// 	 */
-// 		if(preferences.use_local_messages==1 || expresso_offline) {
-// 			var local_folders = expresso_local_messages.list_local_folders();
-// 			var has_changes = false;
-// 			for (var i in local_folders) { //Coloca as pastas locais.
-
-// 				var new_caption = local_folders[i][0];
-// 				if(local_folders[i][0].indexOf("/")!="-1") {
-// 					final_pos = local_folders[i][0].lastIndexOf("/");
-// 					new_caption = local_folders[i][0].substr(final_pos+1);
-// 				}
-
-// 				var folder_unseen = Element('dftree_local_'+local_folders[i][0]+'_unseen');
-
-// 				if ((folder_unseen) && (local_folders[i][1] > 0))
-// 				{
-// 					folder_unseen.innerHTML = local_folders[i][1];
-// 					has_changes = true;
-// 				}
-// 				else if (local_folders[i][1] > 0)
-// 				{
-// 					tree_folders.getNodeById("local_"+local_folders[i][0]).alter({caption:lang_folder(new_caption) + '<font style=color:red>&nbsp(</font><span id="dftree_local_'+local_folders[i][0]+'_unseen" style=color:red>'+local_folders[i][1]+'</span><font style=color:red>)</font>'});
-// 					tree_folders.getNodeById("local_"+local_folders[i][0])._refresh();
-// 					has_changes = true;
-// 				}
-// 				else if (local_folders[i][1] <= 0)
-// 				{
-// 					tree_folders.getNodeById("local_"+local_folders[i][0]).alter({caption:lang_folder(new_caption)});
-// 					tree_folders.getNodeById("local_"+local_folders[i][0])._refresh();
-// 					has_changes = true;
-// 				}
-
-// 			if("local_"+local_folders[i][0] == get_current_folder()){
-// 					var old_new_m = isNaN(parseInt(Element('new_m').innerHTML)) ? parseInt(Element('new_m').firstChild.innerHTML) : parseInt(Element('new_m').innerHTML);
-// 					if(!isNaN(old_new_m) && old_new_m < local_folders[i][1]){
-// 						Element('tot_m').innerHTML = parseInt(Element('tot_m').innerHTML) + (parseInt(local_folders[i][1])-old_new_m);
-// 					}
-// 					Element('new_m').innerHTML = local_folders[i][1] ? '<font color="RED">'+local_folders[i][1]+'</font>' : 0;
-// 					draw_paging(Element('tot_m').innerHTML);
-// 					has_changes = true;
-// 			}
-// 		}
-// 			if(has_changes)
-// 				tree_folders.getNodeById("local_root").open();
-//  	}
-// }
-
-
-function update_local_box(){
-    msg_range_end = (current_page*preferences.max_email_per_page);
-    msg_range_begin = (msg_range_end-(preferences.max_email_per_page)+1);
-    folder=get_current_folder();
-    var msgs  = expresso_local_messages.get_local_range_msgs(folder.substr(6),msg_range_begin,preferences.max_email_per_page,sort_box_type,sort_box_reverse,search_box_type,preferences.preview_msg_subject,preferences.preview_msg_tip);
-    alternate_border(0);
-    draw_box(msgs, folder, true);
-    draw_paging(msgs.num_msgs);
-    Element("tot_m").innerHTML = msgs.num_msgs;
-    update_menu();
-}
-
-function force_update_menu(data){
-    update_menu(data, true)
-}
-
 
 function update_menu(data, forceLoadFolders)
 {
-	/*
-	 * @AUTHOR Rodrigo Souza dos Santos
-	 * @DATE 2008/09/15
-	 * @BRIEF When occurs a error in imap server show the message that is in file "error.html".
-	 */
 	if ( data && data.imap_error )
 	{
 		connector.newRequest('error.html', 'templates/'+template+'/error.html', 'GET',
@@ -583,41 +110,24 @@ function update_menu(data, forceLoadFolders)
 					target.innerHTML = data;
 			}
 		);
-		return false;
+		
+        return false;
 	}
-	
-	
-	if(data)
+	else
     {
-		draw_tree_folders(data);
-		draw_quota(data);
-		var f_unseen = Element('dftree_'+current_folder+'_unseen');
-		if(f_unseen && f_unseen.innerHTML)
-			Element('new_m').innerHTML = '<font face="Verdana" size="1" color="RED">'+f_unseen.innerHTML+'</font>';
-		else
-		{
-			if( parseInt(Element('new_m').innerHTML) == 0 )
-				Element('new_m').innerHTML = 0;
-		}
-		folders = data;
-	}
-	
-    draw_new_tree_folder(false, forceLoadFolders);
+        draw_quota(data);
 
-    if( preferences['use_followupflags_and_labels'] == "1" )
-        draw_tree_labels();
+        folders = data;
+        
+        draw_new_tree_folder( false, forceLoadFolders );
 
-	if( Element("table_quota") )
-		connector.loadScript("InfoQuota");
-
-	if( preferences.enable_quickadd_telephonenumber )
-		connector.loadScript("QuickAddTelephone");
+        if( preferences['use_followupflags_and_labels'] == "1" ) draw_tree_labels();
+    }
 }
 
 var handler_draw_box = function(data){
     populateSelectedMsgs(data.messagesIds);
 	draw_box(data, 'INBOX', true);
-	//alternate_border(0);
 }
 
 // Action on change folders.
@@ -661,22 +171,32 @@ function change_folder(folder, folder_name){
 	}
 }
 
-function open_folder(folder, folder_name){
-	if (current_folder!= folder) {
+function open_folder(folder, folder_name)
+{
+	if( current_folder!= folder )
+    {
 		current_folder = folder;
-		var handler_draw_box = function(data){
-			if(!verify_session(data))
-				return false;
+		var handler_draw_box = function(data)
+        {
+			if(!verify_session(data)) return false;
+
 			numBox++;
-			create_border(folder_name,numBox.toString());
-			draw_box(data, current_folder, false);
-			alternate_border(numBox);
-			return true;
+			
+            create_border(folder_name,numBox.toString());
+			
+            draw_box(data, current_folder, false);
+			
+            alternate_border(numBox);
+			
+            return true;
 		}
 		cExecute ("$this.imap_functions.get_range_msgs2&folder="+current_folder+"&msg_range_begin=1&msg_range_end="+preferences.max_email_per_page+"&sort_box_type="+sort_box_type+ "&search_box_type="+ search_box_type +"&sort_box_reverse="+sort_box_reverse+"", handler_draw_box);
 	}
 	else
+    {
 		alternate_border(numBox);
+    }
+
 	return true;
 }
 
@@ -723,15 +243,17 @@ function draw_paging(num_msgs){
   	span_paging.innerHTML="";
   	msg_range_begin = 1;
 	msg_range_end = preferences.max_email_per_page;
-  	if(current_page != 1) {
+  	if(current_page != 1)
+    {
 	  	lnk_page = document.createElement("A");
-		//lnk_page.setAttribute("href", "javascript:current_page=1;kill_current_box(); draw_paging("+num_msgs+"); proxy_mensagens.messages_list(get_current_folder(),"+msg_range_begin+","+msg_range_end+",'"+sort_box_type+"','"+search_box_type+"',"+sort_box_reverse+","+preferences.preview_msg_subject+","+preferences.preview_msg_tip+",function handler(data){alternate_border(0); draw_box(data, get_current_folder());});");
 		lnk_page.setAttribute("href", "javascript:current_page=1; draw_paging("+num_msgs+"); proxy_mensagens.messages_list(get_current_folder(),"+msg_range_begin+","+msg_range_end+",'"+sort_box_type+"','"+search_box_type+"',"+sort_box_reverse+","+preferences.preview_msg_subject+","+preferences.preview_msg_tip+",function handler(data){alternate_border(0); draw_box(data, get_current_folder());});");
   	}
-  	else {
+  	else
+    {
   	 	lnk_page = document.createElement("SPAN");
   	}
-  	span_paging.appendChild(lnk_page);
+  	
+    span_paging.appendChild(lnk_page);
 
   	lnk_page.innerHTML = "&lt;&lt;";
 	lnk_page.title = get_lang("First");
@@ -766,7 +288,6 @@ function draw_paging(num_msgs){
   			span_paging.appendChild(lnk_page);
   			msg_range_begin = ((i*preferences.max_email_per_page)-(preferences.max_email_per_page-1));
 			msg_range_end = (i*preferences.max_email_per_page);
-			//lnk_page.setAttribute("href", "javascript:current_page="+i+";kill_current_box(); draw_paging("+num_msgs+"); proxy_mensagens.messages_list(get_current_folder(),"+msg_range_begin+","+msg_range_end+",'"+sort_box_type+"','"+search_box_type+"',"+sort_box_reverse+","+preferences.preview_msg_subject+","+preferences.preview_msg_tip+",function handler(data){alternate_border(0); draw_box(data, get_current_folder());});");
 			lnk_page.setAttribute("href", "javascript:current_page="+i+"; draw_paging("+num_msgs+"); proxy_mensagens.messages_list(get_current_folder(),"+msg_range_begin+","+msg_range_end+",'"+sort_box_type+"','"+search_box_type+"',"+sort_box_reverse+","+preferences.preview_msg_subject+","+preferences.preview_msg_tip+",function handler(data){alternate_border(0); draw_box(data, get_current_folder());});");
   		}
   		lnk_page.innerHTML = "&nbsp;...&nbsp;";
@@ -777,14 +298,15 @@ function draw_paging(num_msgs){
   		span_paging.innerHTML += "&nbsp;";
   	}
 
- 	if(current_page != total_pages) {
+ 	if(current_page != total_pages)
+    {
   		lnk_page = document.createElement("A");
   		msg_range_begin = ((total_pages*preferences.max_email_per_page)-(preferences.max_email_per_page-1));
 		msg_range_end = (total_pages*preferences.max_email_per_page);
-		//lnk_page.setAttribute("href", "javascript:current_page="+total_pages+";kill_current_box(); draw_paging("+num_msgs+"); proxy_mensagens.messages_list(get_current_folder(),"+msg_range_begin+","+msg_range_end+",'"+sort_box_type+"','"+search_box_type+"',"+sort_box_reverse+","+preferences.preview_msg_subject+","+preferences.preview_msg_tip+",function handler(data){alternate_border(0); draw_box(data, get_current_folder());});");
 		lnk_page.setAttribute("href", "javascript:current_page="+total_pages+"; draw_paging("+num_msgs+"); proxy_mensagens.messages_list(get_current_folder(),"+msg_range_begin+","+msg_range_end+",'"+sort_box_type+"','"+search_box_type+"',"+sort_box_reverse+","+preferences.preview_msg_subject+","+preferences.preview_msg_tip+",function handler(data){alternate_border(0); draw_box(data, get_current_folder());});");
 	}
-	else {
+	else
+    {
 		lnk_page = document.createElement("SPAN");
 	}
   	span_paging.innerHTML += "&nbsp;";
@@ -795,8 +317,6 @@ function draw_paging(num_msgs){
 }
 
 // stores the percentages of the cells
-//var colSizes = [ ["24","24","12","12","12","16","16","20%","58%","11%","11%"], ["16","16","12","12","12","20%","20%","*","10%","10%"] ];
-//var colSizes = [ ["2%","2%","1%","1%","1%","1%","2%","2%","20%","46%","11%","11%"], ["16","16","12","12","12","20%","20%","*","10%","10%"] ];
 var colSizes = [ ["3%","2%","1%","1%","1%","1%","2%","2%","2%","20%","45%","11%","11%"], ["2%","1%","1%","1%","1%","1%","1%","20%","20%","33%","10%","9%"] ];
 // stores the alignments of the cells
 var colAligns = [ ['','','','','','','','left','left','center','center'], ['','','','','','left','left','left','center','center'] ];
@@ -1051,14 +571,12 @@ function syncColumns() {
 					tbH.rows[0].cells[c].innerHTML = tbH.rows[0].cells[c].innerHTML;
 				}
 			}
-            /*else {
-				tbH.rows[0].cells[c].setAttribute("width",_cell.offsetWidth);
-			}*/
 		}
 	}
 	 
-	 //bug do firefox ao redefinir os tamanhos das colunas
-	if (is_mozilla && !is_webkit){  
+    //bug do firefox ao redefinir os tamanhos das colunas
+	if (is_mozilla && !is_webkit)
+    {  
 	    if(trM[r])
 	    for (var c=0;c<trM[r].cells.length;c++) 
 		document.getElementById("colgroup_main_"+numBox).childNodes[c].setAttribute("width",colSizes[tbl][c]);
@@ -1179,7 +697,6 @@ function drawSelectMsgsTable(){
 	div.html('<span class="none-selected">Nenhuma mensagem foi selecionada.</span>');
 	div.attr('class','select-all-messages'); 
 	$('#content_id_0').first().prepend(div);
-	//div.css('display','none');
 }
 
 function totalSelected(){
@@ -1517,26 +1034,6 @@ function draw_box(headers_msgs, msg_folder, alternate){
 	table_element.cellPadding = "0";
 	table_element.cellSpacing = "0";
 
-    // COMENTADO PARA REMOVOR O PROBLEMA DE EXECUTAR 2 VEZES A FUNÇÃO DO BOTÃO DELETE.
-    // A FUNÇÃO É FEITA NO SHORTCUT.
-	// table_element.onkeydown = function (e){
-	// 	if (is_ie)
-	// 	{
-	// 		if ((window.event.keyCode) == 46)
-	// 		{
-	// 			//delete_all_selected_msgs_imap();
-	// 			proxy_mensagens.delete_msgs(get_current_folder(),'selected','null');
-	// 		}
-	// 	}
-	// 	else
-	// 	{
-	// 		if ((e.keyCode) == 46)
-	// 		{
-	// 			//delete_all_selected_msgs_imap();
-	// 			proxy_mensagens.delete_msgs(get_current_folder(),'selected','null');
-	// 		}
-	// 	}
-	// };
 	if (is_ie)
 		table_element.style.cursor = "hand";
 
@@ -1783,7 +1280,7 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 
 		tr_element.msg_sample = "";
         tr_element.tip = "";
-		//if(headers_msgs.msg_sample && headers_msgs.msg_sample.preview_msg_subject != "")
+		
 		if(headers_msgs.msg_sample && preferences.preview_msg_subject == "1" && headers_msgs.msg_sample.body !== "")
 		{
 			if (cssForResizing) //Colunas redimensionaveis - nao trunca
@@ -1791,7 +1288,6 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 			else
 				tr_element.msg_sample = html_entities(Base64.decode(headers_msgs.msg_sample.body).substr(0,120) + "..."); //trecho do body que sera exibido com o assunto;
 
-            //if(preferences.use_local_messages==1 && !expresso_offline) { //MailArchive
                 if(proxy_mensagens.is_local_folder(current_folder)) {
                     // preferencia da pre-visualizacao
                     if (cssForResizing) {//Colunas redimensionaveis - nao trunca
@@ -1973,8 +1469,8 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 			else{
 				var spanSender = document.createElement("SPAN");
 				spanSender.setAttribute('class','span-sender');
-				spanSender.onmouseover = function (event) {/*this.style.textDecoration = "underline";*/try {InfoContact.begin(this,headers_msgs.reply_toaddress)} catch(e){};};
-				spanSender.onmouseout = function (){try {/*this.style.textDecoration = "none";*/clearTimeout(InfoContact.timeout);} catch(e){}};
+				spanSender.onmouseover = function (event) {try {InfoContact.begin(this,headers_msgs.reply_toaddress)} catch(e){};};
+				spanSender.onmouseout = function (){try {clearTimeout(InfoContact.timeout);} catch(e){}};
 				folder = special_folders['Sent'];
 				current = get_current_folder();
 				if ((preferences.from_to_sent == "1") && (current.substr(current.length - folder.length, folder.length) == folder)){

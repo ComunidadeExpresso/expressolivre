@@ -134,8 +134,6 @@
 			var content_search = document.getElementById('content_id_'+currentTab);
 			action_msg_selected_from_search(content_search.id, 'delete');
 			refresh();
-			//draw_tree_folders();
-			//update_local_box(); 
 			return;
 		}
 			

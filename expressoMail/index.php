@@ -91,6 +91,7 @@
 	echo "<div id='overlay' style='background-color: #AAAAAAA; opacity: .50; filter:Alpha(Opacity=50); height: 100%; width: 100%; position: absolute; top: 0; left: 0; visibility: hidden; z-index: 30000000000000000000000'></div>";
 
 	
+
 	//Enable/Disable VoIP Service -> Voip Server Config
 	$voip_enabled = false;
 	$voip_groups = array();	
@@ -172,7 +173,7 @@
 	if($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['enable_quickadd_telephonenumber']){
 		$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['blockpersonaldata'] = $GLOBALS['phpgw']->acl->check('blockpersonaldata',1,'preferences');		
 	}
-
+	
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] : "0";
 	$template->set_var("txt_loading",lang("Loading"));
 	$template->set_var("txt_clear_trash",lang("message(s) deleted from your trash folder."));
