@@ -66,7 +66,7 @@ if (strpos($javaVersion,"java version") !== false){
     $plugins->ensureFilter($filterManager->get('yui_js'));
 }
 
-$pluginsCache = new AssetCache($plugins,new FilesystemCache('/tmp/js'));
+$pluginsCache = new AssetCache($plugins,new FilesystemCache('/tmp'));
 echo $pluginsCache->dump();
 
 $scripts = new AssetCollection(array(
@@ -94,6 +94,6 @@ if (strpos($javaVersion,"java version") !== false){
     $scripts->ensureFilter($filterManager->get('yui_js'));
 }
 
-$scriptsCache = new AssetCache($scripts,new FilesystemCache('/tmp/js'));
+$scriptsCache = new AssetCache($scripts,new FilesystemCache('/tmp'));
 echo $scriptsCache->dump();
 ?>

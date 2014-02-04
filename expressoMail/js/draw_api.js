@@ -1,11 +1,11 @@
 /**
  * Estrutura que guarda em cache as mensagens abertas, a exemplo da estrutura utilizada
  * na funcionalidade de anexar mensagens.
- * Isto reduz a necessidade de acessar estruturas da tela para obter informa√ß√µes sobre 
+ * Isto reduz a necessidade de acessar estruturas da tela para obter informaÁıes sobre 
  * as mensagens, como tem sido para encaminhar, responder, etc.
  * Manter os dados 'limpos' em uma estrutura 'somente-leitura' permite maior flexibilidade
  * para mudar a tela e menos processamento de limpeza de dados (por exemplo retirar tags de 
- * formata√ß√£o, etc.) 
+ * formataÁ„o, etc.) 
  */
  
 focusIn = "";
@@ -45,7 +45,7 @@ var tabTypes = {
 	};
 
 var currentTab,numBox = 0; // Open Tab and num of mailboxes opened at context
-// Objeto Map, talvez o ideal fosse adicionar este objeto √† Api do egroupware, e carreg√°-lo
+// Objeto Map, talvez o ideal fosse adicionar este objeto ‡ Api do egroupware, e carreg·-lo
 // aqui no expressoMail.
 
 function draw_tree_labels()
@@ -691,7 +691,7 @@ function getColSizesCookie() {
 }
 
 
-/*Cria a div que permite a sele√ß√£o de todas as mensagens*/
+/*Cria a div que permite a seleÁ„o de todas as mensagens*/
 function drawSelectMsgsTable(){
 	var div = $('<div>');	
 	div.html('<span class="none-selected">Nenhuma mensagem foi selecionada.</span>');
@@ -714,7 +714,7 @@ function updateSelectedMsgs(selected,msg_number){
 	folder = folder.length > 70 ? '"'+folder.substr(0,70) + "..." +'"': '"'+folder+'"' ;
 	var div = $('.select-all-messages');
 	var filterFlag = search_box_type != "ALL" ? '"' + get_lang(search_box_type) + "s" + '"': "";
-	/*Seleciona as mensagens ao navegar pelas p√°ginas*/
+	/*Seleciona as mensagens ao navegar pelas p·ginas*/
 	if (allMsgsSelected && msg_number == undefined){
 		$('.checkbox').each(function(){
 			$(this).attr('checked', true);
@@ -745,7 +745,7 @@ function updateSelectedMsgs(selected,msg_number){
 		allMsgsSelected = true;
 		$('#chk_box_select_all_messages').attr('checked',true);
 		if (total_pages > 1){
-			var link = "<a class='select-link' href='#'>Limpar sele√ß√£o?</a>";
+			var link = "<a class='select-link' href='#'>Limpar seleÁ„o?</a>";
 			var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
 			div.html("<span>"+info+"<span>");
 			div.show();
@@ -755,7 +755,7 @@ function updateSelectedMsgs(selected,msg_number){
 	/*Se foram selecionadas algumas mensagens*/
 	else if (tSelected > 0 && !allMsgsSelected && total_pages > 1){
 		$('#chk_box_select_all_messages').attr('checked',false);
-		var link = "<a class='select-link' href='#'>Limpar sele√ß√£o?</a>";
+		var link = "<a class='select-link' href='#'>Limpar seleÁ„o?</a>";
 		if (tSelected == 1){
 			var info = "Foi selecionada <b>"+tSelected+"</b> mensagem "+filterFlag+" em "+folder+". "+link;
 		}
@@ -770,7 +770,7 @@ function updateSelectedMsgs(selected,msg_number){
         });		
 	}
 	else if (allMsgsSelected && total_pages > 1){
-		var link = "<a class='select-link' href='#'>Limpar sele√ß√£o?</a>";
+		var link = "<a class='select-link' href='#'>Limpar seleÁ„o?</a>";
 		var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
 		div.html("<span>"+info+"<span>");
 		div.show();
@@ -797,7 +797,7 @@ function selectAllFolderMsgs(select){
 	var div = $('.select-all-messages');
 	if (select){
 		allMsgsSelected = true;
-		var link = "<a class='select-link' href='#'>Limpar sele√ß√£o?</a>";
+		var link = "<a class='select-link' href='#'>Limpar seleÁ„o?</a>";
 		var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
 		div.html("<span>"+info+"<span>");
 		//div.show();
@@ -868,7 +868,7 @@ function draw_box(headers_msgs, msg_folder, alternate){
 	}
 	/**
 	 * Preenche a estrutura de cache de mensagens para posterior consulta de 
-	 * informa√ß√µes sobre as mensagens no escopo global.
+	 * informaÁıes sobre as mensagens no escopo global.
 	 */
 	for (var i=0; i<headers_msgs.length; i++) { 
 		if (!onceOpenedHeadersMessages[current_folder])
@@ -882,7 +882,7 @@ function draw_box(headers_msgs, msg_folder, alternate){
 	if(is_ie)
 		document.getElementById("border_table").width = "99.5%";
 
-	numBox = 0; //As pastas sempre estar√£o na aba 0
+	numBox = 0; //As pastas sempre estar„o na aba 0
 	
 	openTab.content_id[numBox] = document.getElementById("content_id_"+numBox);
 	openTab.content_id[numBox].innerHTML = "";
@@ -1265,7 +1265,7 @@ function html_entities(string) {
 		return String(string).replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// Passar o par√¢metro offset para esta fun√ß√£o
+// Passar o par‚metro offset para esta funÁ„o
 function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 		headers_msgs.subject = html_entities(headers_msgs.subject);
 		if (typeof offsetToGMT == 'undefined')
@@ -1585,8 +1585,8 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
             .find('img[alt=Carregando]');
 
 
-            //Verificar se est√° carregando a bandeira.
-            //Caso esteja ele sai da fun√ß√£o at√© que seja carregado. 
+            //Verificar se est· carregando a bandeira.
+            //Caso esteja ele sai da funÁ„o atÈ que seja carregado. 
             if( loading.length ) {
                 return false;
             }
@@ -1603,9 +1603,9 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 
 			/**
 				* Hack:
-				* headers_msgs.followupflagged.id n√£o vai funcionar porque j√° foi feito DataLayer.commit()
+				* headers_msgs.followupflagged.id n„o vai funcionar porque j· foi feito DataLayer.commit()
 				* por isso o id deve ser obtido do banco
-				* tamb√©m para verificar se h√° ou n√£o sinalizador nesta mensagem
+				* tambÈm para verificar se h· ou n„o sinalizador nesta mensagem
 			*/
 
 			DataLayer.remove('followupflagged', false);
@@ -1693,13 +1693,13 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 			   //Pega id do checkbox
                var id = $(tr_element).addClass('selected_msg').find(':checkbox').attr('id');
                 
-                //Verifica se o checkbox est√° selecionado
+                //Verifica se o checkbox est· selecionado
                 if($('#' + id).attr('checked') != 'checked')
                     $(tr_element).addClass('selected_msg').find(':checkbox').trigger('click');
 				
 				/**
-				 * Hack - For√ßa a atualiza√ß√£o da sele√ß√£o da mensagem, devido a problema na 
-				 * function de sele√ß√£o atribuida ao evento onclick do checkbox
+				 * Hack - ForÁa a atualizaÁ„o da seleÁ„o da mensagem, devido a problema na 
+				 * function de seleÁ„o atribuida ao evento onclick do checkbox
 				 */
 				updateSelectedMsgs(true,messageClickedId);
 				
@@ -1906,7 +1906,7 @@ function draw_message(info_msg, ID){
         var folder_id = ID.match(/\d+/)[0];
         var folder;
 
-        //Corre√ß√£o para fazer funcionar e-mails assinados no formato encapsulado.
+        //CorreÁ„o para fazer funcionar e-mails assinados no formato encapsulado.
        // folder_id = info_msg.original_ID ? info_msg.original_ID: info_msg.msg_number;
         //if ((folder = document.getElementById(info_msg.msg_number)) == null)
 	if ((folder = Element(info_msg.original_ID)) == null)
@@ -1938,7 +1938,7 @@ function draw_message(info_msg, ID){
 				}
 			};
 		}
-		/*Ultima mensagem de cada p√°gina, exceto a ultima*/
+		/*Ultima mensagem de cada p·gina, exceto a ultima*/
         else if( (current_page < total_pages) && !info_msg.msg_number.match("s[0-9]+") ){
 		   
 		   img_next_msg.onclick = function()
@@ -2019,7 +2019,7 @@ function draw_message(info_msg, ID){
 				}
 			};
 		}
-		//primeira mensagem de cada p√°gina, exceto a primeira
+		//primeira mensagem de cada p·gina, exceto a primeira
 		else if(current_page > 1){
 		      
 		      img_previous_msg.onclick = function()
@@ -2454,13 +2454,13 @@ function draw_message(info_msg, ID){
 		var option_move	= '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick=wfolders.makeWindow("'+ID+'","move_to");>'+get_lang("Move")+'</span> | ';
 		var option_print = '<span onclick="print_all()" onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options">'+get_lang("Print")+'</span> | ';
 		var option_export = '<span onclick="proxy_mensagens.export_all_messages()" onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options">'+get_lang("Export")+'</span> | ';
-		var report_error = '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick=reports_window("'+currentTab+'");>'+get_lang("Report error")+'</span> | '; 
-		// Op√ß√£o do menu 'Mais A√ß√µes' para criar filtro a partir da mensagem aberta:  
+		var report_error = '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick=reports_window("'+currentTab+'");>'+get_lang("Truncated message?")+'</span> | '; 
+		// OpÁ„o do menu 'Mais AÁıes' para criar filtro a partir da mensagem aberta:  
 		var option_create_filter = '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick=filter_from_msg(onceOpenedHeadersMessages[\'' + html_entities(info_msg.msg_folder) + '\'][' + info_msg.msg_number + ']);>' + get_lang("Create filter from message") + '</span> | '; 
 		div_other_more_options.innerHTML += option_create_filter + option_move + option_print + option_export + block_user +  report_error;
 		
 		
-		// CRIA√á√ÉO DE OP√á√ïES DE RESPONDER MENSAGEM
+		// CRIA«√O DE OP«’ES DE RESPONDER MENSAGEM
 		var space_replay1 = document.createElement('SPAN');
 		space_replay1.innerHTML = '&nbsp;|&nbsp;';
 		
@@ -2504,7 +2504,7 @@ function draw_message(info_msg, ID){
 		};
 		option_reply_to_all_without_history.innerHTML = get_lang("Reply to all without history");
 		
-		// RESPONDER COM HIST√ìRICO
+		// RESPONDER COM HIST”RICO
 		var option_reply_with_history = document.createElement('SPAN');
 		option_reply_with_history.onmouseover = function () {this.className = "reply_options_active";};
 		option_reply_with_history.onmouseout = function () {this.className= "reply_options";};
@@ -2515,7 +2515,7 @@ function draw_message(info_msg, ID){
 		};
 		option_reply_with_history.innerHTML = get_lang("Reply with history");
 		
-		// APENDAR OP√á√ïES DE RESPONDER
+		// APENDAR OP«’ES DE RESPONDER
 		div_other_options.appendChild(option_reply_to_all);
 		div_other_options.appendChild(space_replay1);
 		div_other_options.appendChild(option_reply_to_all_without_history);
@@ -2998,7 +2998,7 @@ function draw_message(info_msg, ID){
 	
 	
 	var update_labeleds_msg = function(){
-		//TODO Mudar quando API abstrair atualiza√ß√µes no cache
+		//TODO Mudar quando API abstrair atualizaÁıes no cache
 		DataLayer.remove('labeled', false);
 		//DataLayer.get('labeled');
 		var labels = DataLayer.get("labeled", {filter: [
@@ -3026,7 +3026,7 @@ function draw_message(info_msg, ID){
 			}
 			$(markers).find('span.removeLabeledMsg').click(function(event){
 				var id_labeled = $(event.target).attr("id");
-				//TODO Mudar quando API abstrair atualiza√ß√µes no cache
+				//TODO Mudar quando API abstrair atualizaÁıes no cache
 				//DataLayer.remove('labeled', false);
 				//DataLayer.get('labeled');
 				DataLayer.remove('labeled', id_labeled);
@@ -3050,7 +3050,7 @@ function draw_message(info_msg, ID){
 
 	if ( info_msg.attachments && info_msg.attachments.length > 0 )
 	{
-		//C√≥digo no padr√£o expresso 2.2
+		//CÛdigo no padr„o expresso 2.2
 	var tr6 = document.createElement("TR");
 		tr6.className = "tr_message_header";
 		var td6 = document.createElement("TD");
@@ -3095,7 +3095,7 @@ function draw_message(info_msg, ID){
 			//k trocar por match???
 			if((url_decode(info_msg.attachments[i].name).indexOf(".ics")!=-1) || (url_decode(info_msg.attachments[i].name).indexOf(".vcard")!=-1))
 			{
-				//Link para importar calend√°rio
+				//Link para importar calend·rio
 				var link_import_attachment = new Image();
 				link_import_attachment.src = "templates/"+template+"/images/new.png";
 				link_import_attachment.setAttribute("onclick","javascript:import_calendar('"+info_msg.msg_folder+"&msg_number="+info_msg.msg_number+"&msg_part="+info_msg.attachments[i].pid+"&idx_file="+i+"&encoding="+info_msg.attachments[i].encoding+"'); return false;");
@@ -3110,7 +3110,7 @@ function draw_message(info_msg, ID){
 
             if((url_decode(info_msg.attachments[i].name).indexOf(".eml") != -1))
 			{
-				//Link para importar calend√°rio
+				//Link para importar calend·rio
 				var link_open_msg = new Image();
 				link_open_msg.src = "templates/"+template+"/images/email.png";
 				//link_open_msg.setAttribute("onclick","javascript:import_calendar('"+info_msg.msg_folder+"&msg_number="+info_msg.msg_number+"&msg_part="+info_msg.attachments[i].pid+"&idx_file="+i+"&encoding="+info_msg.attachments[i].encoding+"'); return false;");
@@ -3160,7 +3160,7 @@ function draw_message(info_msg, ID){
 					return;
 					break;
 				case 12:
-					write_msg('Este evento n√£o existe mais.');
+					write_msg('Este evento n„o existe mais.');
 					return;
 					break;			
 				}
@@ -3277,7 +3277,7 @@ function draw_message(info_msg, ID){
 				var anchor_pattern = "http://"+location.host+location.pathname+"#";
 
 				if ( ( links.item( i ).href.indexOf( 'javascript:' ) !== 0 ) &&
-					(links.item( i ).href.indexOf(anchor_pattern) !== 0) ) //se n√£o for √¢ncora
+					(links.item( i ).href.indexOf(anchor_pattern) !== 0) ) //se n„o for ‚ncora
 						links.item( i ).setAttribute( 'target', '_blank' );
 			}
 		}catch(e){
@@ -3333,7 +3333,7 @@ function draw_message(info_msg, ID){
 	                var msg = info_msg.msg_number; 
 	                var fdr = info_msg.msg_folder; 
 					var i = 0;
-				//verifica se est√° no novo padr√£o de montagem das mensagens ou no antigo, necess√°rio
+				//verifica se est· no novo padr„o de montagem das mensagens ou no antigo, necess·rio
 				//para exibir as imagens no arquivamento local arquivamento local.
 				if(thumbs){
 	                jQuery.each(thumbs, function(i, thumb) {
@@ -3395,7 +3395,7 @@ function draw_message(info_msg, ID){
 	}
 
 	/*
-	 * TODO: implementar o controle como prefer√™ncia do usu√°rio
+	 * TODO: implementar o controle como preferÍncia do usu·rio
 	 *
 	 */
 	var jcarousel = false;
@@ -3428,7 +3428,7 @@ function draw_message(info_msg, ID){
 													'<img src="./templates/'+template+'/images/package_down.png" width="26" height="26" />' + 
 											'</a>'+ 
 											'<span style="margin-left:5px; margin-top:7px; position:absolute;">'+name+'</span>'+ 
-											'<a title="Pr√≥xima" onclick="javascript:$.fancybox.next();" style="float:right;">' + 
+											'<a title="PrÛxima" onclick="javascript:$.fancybox.next();" style="float:right;">' + 
 												'<img src="./templates/'+template+'/images/right_arrow_white.png" width="30" height="30" />' + 
 											'</a>' + 
 										'</div>' + 
@@ -3529,7 +3529,7 @@ function valid_emails(email){
 	var reComplexEmail = /<([^<]*)>[\s]*$/;
 	var validation = email.split('"');
 	
-	//FUN√á√ÉO QUE VALIDA OS DADOS QUANDO O EMAIL √â DIGITADO COM ("NOME SOBRENOME" <Email@dominio.com>)
+	//FUN«√O QUE VALIDA OS DADOS QUANDO O EMAIL … DIGITADO COM ("NOME SOBRENOME" <Email@dominio.com>)
 	var complexValidation = function(complexMail){
 		var Objct = {};
 		if($.trim(complexMail[1]).match(reComplexEmail)){
@@ -3549,11 +3549,11 @@ function valid_emails(email){
 			validation.unshift("");
 			ContactBox = complexValidation(validation);
 			break;
-		//CORRIGI ERRO DE DIGITA√á√ÉO COMO ( huahua"<huhau@hauhau.com>) ou (hahahaha"huahua@email.com) ou ainda (hahahaha"huahua@ema  il.com)
+		//CORRIGI ERRO DE DIGITA«√O COMO ( huahua"<huhau@hauhau.com>) ou (hahahaha"huahua@email.com) ou ainda (hahahaha"huahua@ema  il.com)
 		case 2: 
 			ContactBox = complexValidation(validation);
 			break;
-		//RECEBE O EMAIL CORRETAMENTE S√ì VALIDA POSSIVEIS ERROS COMO O DE CIMA E OS CORRIGI CASO ACONTE√áAM
+		//RECEBE O EMAIL CORRETAMENTE S” VALIDA POSSIVEIS ERROS COMO O DE CIMA E OS CORRIGI CASO ACONTE«AM
 		case 3:
 			//RETIRA O PRIMEIRO INDICE QUE FICOU "INUTIL"
 			validation.shift();
@@ -3588,7 +3588,7 @@ function input_keydowns(input, ID){
 				return false;
 			}		
 			
-			//FECHA OS CONTATOS DIN√ÇMICOS
+			//FECHA OS CONTATOS DIN¬MICOS
 			if( (e.keyCode == 27) && $( this ).data( "ui-autocomplete" ).menu.active ){
 				   e.stopPropagation();
 				   e.preventDefault();
@@ -3658,7 +3658,7 @@ function input_keydowns(input, ID){
 			}
 		}
 		setTimeout(function(){
-            // CASO FOR PRESSIONADO "," OU ";", √â CRIADA UMA CAIXINHA.
+            // CASO FOR PRESSIONADO "," OU ";", … CRIADA UMA CAIXINHA.
 			if(input.val()[input.val().length-1] == ";"){
 				draw_email_box(input.val().substring(0, input.val().length-1), input);
 				input.val("");
@@ -3672,12 +3672,12 @@ function input_keydowns(input, ID){
 			input_search = $(input).val();
 			var char = input.val().charAt(input.val().length-1);
 			var maiusculas = RegExp("[A-Z]");
-			/*Se o ultimo caracter for ">" √© porque o campo est√° sendo editado (a partir de duplo clique)*/
+			/*Se o ultimo caracter for ">" È porque o campo est· sendo editado (a partir de duplo clique)*/
 			var tamanho = 0;
 			if(char == ">"){
-				/*Faz um calculo pr√©vio do tamanho do campo de acordo com o tamanho de cada caracter da string*/
+				/*Faz um calculo prÈvio do tamanho do campo de acordo com o tamanho de cada caracter da string*/
 				for(i=0; i<input.val().length; i++){
-					/*Se o caracter for mai√∫sculo, o valor de pixel √© maior*/
+					/*Se o caracter for mai˙sculo, o valor de pixel È maior*/
 					if(maiusculas.test(input.val().substr(i, 1)) == true){
 						tamanho += 9;
 					}
@@ -3687,7 +3687,7 @@ function input_keydowns(input, ID){
 				}
 				input.css("width", tamanho);
 			}
-			/*Ao inserir novo contato, n√£o existe a necessidade de calcular tamanho do campo*/
+			/*Ao inserir novo contato, n„o existe a necessidade de calcular tamanho do campo*/
 			else{
 				input.css("width", 15+(input.val().length * 9));
 			}
@@ -3697,7 +3697,7 @@ function input_keydowns(input, ID){
 	//AO SAIR DO FOCO MONTAGEM DA CAIXA DE EMAIL
 	.focusout(function(e){
 		var these = $(this);
-		// Fun√ß√£o para montar a caixinha de e-mail.
+		// FunÁ„o para montar a caixinha de e-mail.
 		function makeBoxMail(){
 			if(canMakeBox && !fastSearch){
 				if(!(	f9	||	click	||	$(this).parents("tr:first").find("button").hasClass("ui-state-active")	)){
@@ -3742,7 +3742,7 @@ function input_keydowns(input, ID){
 			$(pthis).val("");
 		}, 50);
 	});
-	//SE FOR EDI√á√ÉO DE EMAILS RECALCULA O INPUT E SETA O FOCO
+	//SE FOR EDI«√O DE EMAILS RECALCULA O INPUT E SETA O FOCO
 	if(input.hasClass("box-input")){
 		input.css("max-width",parseInt(input.parents(".email-area:first").css("width"))-15);
 		input.trigger("keydown");
@@ -3969,7 +3969,7 @@ function normalizeContacts(data){
 dynamicData = false;
 currentTypeContact = '';
 
-//FUN√á√ÉO QUE "SETA" OS BINDS DOS CAMPOS PARA - CC - CCO
+//FUN«√O QUE "SETA" OS BINDS DOS CAMPOS PARA - CC - CCO
 function input_binds(div, ID){
 
 	//AO CLICAR NA DIV SETA O FOCO NO INPUT
@@ -3994,7 +3994,7 @@ function input_binds(div, ID){
 			if(box.find(".box-info").length){
 				box.unbind("dblclick").bind("dblclick", function(e){
 					new $.Zebra_Dialog('<strong>Impossivel editar</strong> um contato do ldap\n' +
-						'<strong>Por√©m</strong>√© possivel remove-lo', {
+						'<strong>PorÈm</strong>È possivel remove-lo', {
 						'buttons':  false,
 						'modal': false,
 						'position': ['right - 20', 'top + 20'],
@@ -4012,12 +4012,12 @@ function input_binds(div, ID){
 	input_keydowns(div.find("textarea:first"), ID);
 	
 	
-	//VERIFICA PREFERENCIA DE CONTATOS DIN√ÇMICOS ESTA ATIVA
+	//VERIFICA PREFERENCIA DE CONTATOS DIN¬MICOS ESTA ATIVA
 	if(parseInt(preferences.use_dynamic_contacts)){
 
         //REST.get("/usercontacts", false, updateDynamicContact);
 
-		//PREPARA√á√ÉO DA ARRAY DOS CONTATOS DIN√ÇMICOS
+		//PREPARA«√O DA ARRAY DOS CONTATOS DIN¬MICOS
 
         var decodeType = {
             '/dynamiccontacts': {
@@ -4070,7 +4070,7 @@ function input_binds(div, ID){
                 return false;
             },
 
-            //EVENTO AO SELECIONAR UM CONTATO DIN√ÇMICO
+            //EVENTO AO SELECIONAR UM CONTATO DIN¬MICO
             select: function( event, ui ) {
                 canMakeBox = true;
 
@@ -4151,7 +4151,7 @@ function input_binds(div, ID){
                     $.Zebra_Dialog('Deseja remover <b>'+(item.name ? (item.name.length <= 30 ? item.name: item.name.substr(0,27)+"...")+" - " : "")+ item.mail+'</b>?', {
                         'type':     'question',
                         'custom_class': (is_ie ? 'configure-zebra-dialog custom-zebra-filter' : 'custom-zebra-filter'),
-                        'buttons': ['Sim','N√£o'],
+                        'buttons': ['Sim','N„o'],
                         'overlay_opacity': '0.5',
                         'onClose':  function(caption) {
                             if(caption == 'Sim'){
@@ -4159,7 +4159,7 @@ function input_binds(div, ID){
                                 REST['delete']("/dynamiccontact/"+item.id);
                                 updateDynamicContact();
                                 cache = new Array();
-                            }else if(caption == 'N√£o'){
+                            }else if(caption == 'N„o'){
                                 $(focusIn).focus();
                             }
                         }
@@ -4188,7 +4188,7 @@ function input_binds(div, ID){
         };
 	}
 
-	//FUN√á√ÉO DOS BOT√ïES PARA - CC - CCO
+	//FUN«√O DOS BOT’ES PARA - CC - CCO
 	div.parents("tr:first").find("button").button().click(function(){
 		click = true;
 		fastSearch = true;
@@ -4200,7 +4200,7 @@ function input_binds(div, ID){
 
 /* 
 	Anexa uma mensagem a mensagem sendo enviada. 
-	Par√¢metros: 
+	Par‚metros: 
 		folder_name: nome da pasta na qual a mensagem sendo anexada se encontra. 
 		message_number: id da mensagem sendo anexada. 
 */ 
@@ -4367,13 +4367,13 @@ function draw_new_message(border_ID){
 		return (!check ? true : false);
 	}
 	
-	//A√á√ÉO GENERICA PARA ADICIONAR/REMOVER
+	//A«√O GENERICA PARA ADICIONAR/REMOVER
 	var change_text = function(field, text, to_text){
 		var text = (field.html() == text ? to_text : text);
 		field.html(text);
 	}
 	
-	//A√á√ÉO GENERICA PARA ADICIONAR/REMOVER CC & CCO
+	//A«√O GENERICA PARA ADICIONAR/REMOVER CC & CCO
 	var show_hide = function(field, button){
 		button.toggleClass("expressomail-button-icon-ative");
 		field.toggle();
@@ -4387,9 +4387,9 @@ function draw_new_message(border_ID){
 	
 	input_binds(content.find('[name="input_aux_to"]').css("max-width" , parseInt(content.find(".email-area").css("width"))-28).focus().parent().css({"max-height" : "115px", "overflow-y" : "auto"}), ID);	
 	
-	//Bot√£o TextoRico/TextoSimples
+	//Bot„o TextoRico/TextoSimples
 	content.find(".new-msg-head-right-buttons").find(".button").button().filter(".rich-button").click(function(){
-		/*Se o texto do bot√£o for "Texto simples" exibir√° a mensagem antes de alterar para texto simples*/
+		/*Se o texto do bot„o for "Texto simples" exibir· a mensagem antes de alterar para texto simples*/
 		if($(".rich-button").find("span").text() == get_lang("Simple Text")){
 			$.Zebra_Dialog(get_lang("Convert this message into plain text can make parts of it are removed. Continue?"), {
 	            'type':     'warning',
@@ -4405,24 +4405,24 @@ function draw_new_message(border_ID){
 	            }
 			})
 		}
-		/*Se o texto do bot√£o for "Texto rico" simplesmente altera para texto rico*/
+		/*Se o texto do bot„o for "Texto rico" simplesmente altera para texto rico*/
 		else{
 			RichTextEditor.setPlain(check_input(content.find('[name="textplain_rt_checkbox"]')), ID);
 			$(".rich-button").find("span").text(get_lang("Simple Text"));
 		}
 	})
 	
-	//Bot√£o Adicionar/Remover CCO
+	//Bot„o Adicionar/Remover CCO
 	.end().filter(".cco-button").click(function(){
 		show_hide(content.find(".cco-tr"), $(this));
 		change_text($(this).find(".ui-button-text"), get_lang("Add BCC"), get_lang('Remove CCo'));
 	})
-	//Bot√£o Adicionar/Remover CC
+	//Bot„o Adicionar/Remover CC
 	.end().filter(".cc-button").click(function(){
 		show_hide(content.find(".cc-tr"), $(this));
 		change_text($(this).find(".ui-button-text"), get_lang("Add CC"), get_lang('Remove CC'));
 	})
-    //Bot√£o Responder a
+    //Bot„o Responder a
     .end().filter(".reply-to-button").click(function(){
         show_hide(content.find(".reply-to-tr"), $(this));
     });
@@ -4738,7 +4738,7 @@ function draw_new_message(border_ID){
 	$(document).bind('drop dragover', function (e) {
 	    e.preventDefault();
 	});
-	//DRAG and DROP DE ARQUIVOS N√ÉO FUNCIONA NO IE
+	//DRAG and DROP DE ARQUIVOS N√O FUNCIONA NO IE
 	if(!is_ie){
 		$("body").bind('dragenter', function (e) {
 		    var dropZone = $("#fileupload_msg"+ID+"_droopzone");
@@ -4790,12 +4790,12 @@ function draw_new_message(border_ID){
 function draw_from_field(sel_from,tr1_1){
 
 	var el_shared_users = Element("el_shared_users");
-	/* Recupera a pasta atual do usu√°rio (selecionada) */
+	/* Recupera a pasta atual do usu·rio (selecionada) */
     if ((typeof(folder) == "object") && folder.id){ 
         folder = folder.id; 
     } 
 	var user_shared = folder.split(cyrus_delimiter);
-	/* Verifica se est√° nas pr√≥prias pastas */
+	/* Verifica se est· nas prÛprias pastas */
 	if(user_shared[0] == "INBOX"){
 		user_shared = User.me.uid;
 	}else{
@@ -4811,11 +4811,11 @@ function draw_from_field(sel_from,tr1_1){
 			var _option = document.createElement("OPTION");
 			_option.text = el_shared_users.options[x].text;
 			_option.value = el_shared_users.options[x].value;
-			/* Faz o tratamento do nome da pasta para fazer a verifica√ß√£o e selecionar o valor no select */
+			/* Faz o tratamento do nome da pasta para fazer a verificaÁ„o e selecionar o valor no select */
 			var str_begin_name = _option.text.indexOf('<') + 1;
 			var str_end_name = _option.text.indexOf('@');
 			var user_selected_name = _option.text.substring(str_begin_name, str_end_name);
-			/* Verifica se √© o usu√°rio da pasta selecionada */			
+			/* Verifica se È o usu·rio da pasta selecionada */			
 			if(user_selected_name == user_shared){
 				_option.selected = 'selected';
 			}
@@ -4848,7 +4848,7 @@ function draw_from_field(sel_from,tr1_1){
 			var _option = document.createElement("OPTION");
 			_option.text =  '"'+mycn+'" <'+Element("user_email").value+'>';
 			_option.value  = mycn+";"+Element("user_email").value;
-			/* Verifica se √© o usu√°rio logado */
+			/* Verifica se È o usu·rio logado */
 			if(user_shared == User.me.uid)
 				_option.selected = 'selected';
 			sel_from.options[sel_from.options.length] = _option;
@@ -4860,11 +4860,11 @@ function draw_from_field(sel_from,tr1_1){
 				var _option = document.createElement("OPTION");
 				_option.text = '"'+cn+'" <'+data[x].mail[0]+'>';
 				_option.value = cn+';'+data[x].mail[0]+';'+data[x].save_shared[0]+';'+data[x].uid[0];
-				/* Faz o tratamento do nome da pasta para fazer a verifica√ß√£o e selecionar o valor no select */
+				/* Faz o tratamento do nome da pasta para fazer a verificaÁ„o e selecionar o valor no select */
 				var str_begin_name = _option.text.indexOf('<') + 1;
 				var str_end_name = _option.text.indexOf('@');
 				var user_selected_name = _option.text.substring(str_begin_name, str_end_name); 
-				/* Verifica se √© o usu√°rio da pasta selecionada */
+				/* Verifica se È o usu·rio da pasta selecionada */
 				if(user_selected_name == user_shared){
 					_option.selected = 'selected';
 				}
@@ -5090,7 +5090,7 @@ function draw_search(headers_msgs){
 
 	var tbody = Element('tbody_box');
 	for (var i=0; i<(headers_msgs.length); i++){
-            // passa par√¢metro offset
+            // passa par‚metro offset
 		var tr = this.make_tr_message(headers_msgs[i], headers_msgs[i].msg_folder);
 		if (tr)
 			tbody.appendChild(tr);
@@ -5321,8 +5321,8 @@ function show_div_address_full(id, type) {
 		var isOverLimit = (_address.length > 100);
 
 		if(isOverLimit) {
-			alert("Esse campo possui muitos endere√ßos ("+_address.length+" destinat√°rios).\r\n"+
-			"Para evitar o travamento do navegador, o bot√£o 'Adicionar Contato' foi desabilitado!");
+			alert("Esse campo possui muitos endereÁos ("+_address.length+" destinat·rios).\r\n"+
+			"Para evitar o travamento do navegador, o bot„o 'Adicionar Contato' foi desabilitado!");
 		}
 
 		for(var idx = 1 ; idx  < _address.length;idx++) {
@@ -5370,7 +5370,7 @@ function draw_footer_box(num_msgs){
 		((expresso_offline)?" ":'<span class="message_options_import"><span ' + change_font_color + ' title="'+get_lang("Import")+'" class="message_options" onclick="import_window()">'+get_lang("Import")+'</span></span>');
 
     
-    //Link arquivar e desarquivar com a√ß√£o
+    //Link arquivar e desarquivar com aÁ„o
     //MAILARCHIVER
     if(preferences.use_local_messages==1){
         if(expresso_mail_archive.enabled){

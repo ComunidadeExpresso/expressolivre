@@ -1,7 +1,7 @@
 % used	expressoMail	pt-br	% utilizado
 View Quota Usage in Folders	expressoMail	pt-br	Visualizar quota utilizada por cada pasta
-You are currently using %1 (%2%).	expressoMail	pt-br	Voc√™ est√° usando atualmente %1 (%2%).
-News	expressoMail	pt-br	Not√≠cias
+You are currently using %1 (%2%).	expressoMail	pt-br	VocÍ est· usando atualmente %1 (%2%).
+News	expressoMail	pt-br	NotÌcias
 1 Day	expressoMail	pt-br	1 Dia
 2 Days	expressoMail	pt-br	2 Dias
 3 Days	expressoMail	pt-br	3 Dias
@@ -9,20 +9,20 @@ News	expressoMail	pt-br	Not√≠cias
 5 Day	expressoMail	pt-br	5 Dias
 5 Days	expressoMail	pt-br	5 Dias
 Access right	expressoMail	pt-br	Direitos de acesso
-Action	expressoMail	pt-br	A√ß√£o
+Action	expressoMail	pt-br	AÁ„o
 Add BCC	expressoMail	pt-br	Adicionar CCo
 Add CC	expressoMail	pt-br	Adicionar CC
 Add Contact	expressoMail	pt-br	Adicionar Contato
 Add user into my IM	expressoMail	pt-br	Adicionar no meu IM
-After store email in your local computer delete it from server	expressoMail	pt-br	Depois de guardar e-mail no seu computador local, exclu√≠-lo do servidor
+After store email in your local computer delete it from server	expressoMail	pt-br	Depois de guardar e-mail no seu computador local, excluÌ-lo do servidor
 Alert message filter by sender	expressoMail	pt-br	Alertar ao receber mensagens filtradas por remetente
 all	expressoMail	pt-br	Todas
 All messages are successfully unarchived	expressoMail	pt-br	Mensagens desarquivadas com sucesso
-Allowed domains for sieve forwarding	admin	pt-br	Dom√≠nios permitidos para encaminhamento em filtros
-Also check message against next rule	expressoMail	pt-br	Checar mensagem contra pr√≥xima regra tamb√©m
+Allowed domains for sieve forwarding	admin	pt-br	DomÌnios permitidos para encaminhamento em filtros
+Also check message against next rule	expressoMail	pt-br	Checar mensagem contra prÛxima regra tambÈm
 Always cipher message digitally?	expressoMail	pt-br	Sempre cifrar digitalmente a mensagem?
 Always sign message digitally?	expressoMail	pt-br	Sempre assinar digitalmente a mensagem?
-An archiving is in process, but dont worry, expresso will process this messages after the actual archiving	expressoMail	pt-br	Uma rotina de arquivamento j√° est√° sendo executada. Por√©m, n√£o se preocupe. O expresso tentar√° arquivar essas mensagens logo em seguida.
+An archiving is in process, but dont worry, expresso will process this messages after the actual archiving	expressoMail	pt-br	Uma rotina de arquivamento j· est· sendo executada. PorÈm, n„o se preocupe. O expresso tentar· arquivar essas mensagens logo em seguida.
 and	expressoMail	pt-br	e
 and save in	expressoMail	pt-br	e arquivar em
 Answered	expressoMail	pt-br	Respondida
@@ -31,54 +31,55 @@ Answer messages from	expressoMail	pt-br	responder mensagens de
 Archive	expressoMail	pt-br	Arquivar
 Archiving messages on folder	expressoMail	pt-br	Arquivando mensagens na pasta
 Are you sure to delete the filters?	expressoMail	pt-br	Tem certeza que deseja deletar os filtros?
-A read confirmation was sent.	expressoMail	pt-br	Uma confirma√ß√£o de leitura foi enviada.
-Read receipt	expressoMail	pt-br	Confirma√ß√£o de leitura
-Read receipt: %1	expressoMail	pt-br	Confirma√ß√£o de leitura: %1
+A read confirmation was sent.	expressoMail	pt-br	Uma confirmaÁ„o de leitura foi enviada.
+Read receipt	expressoMail	pt-br	ConfirmaÁ„o de leitura
+Read receipt: %1	expressoMail	pt-br	ConfirmaÁ„o de leitura: %1
 Your message: %1	expressoMail	pt-br	Sua mensagem: %1
-Event Calendar	expressoMail	pt-br	Evento do calend√°rio
-User	expressoMail	pt-br	Usu√°rio
+Event Calendar	expressoMail	pt-br	Evento do calend·rio
+User	expressoMail	pt-br	Usu·rio
 accepted your event	expressoMail	pt-br	aceitou seu evento
 Received in: %1	expressoMail	pt-br	Recebida em: %1
 Has been read by: %1 &lt; %2 &gt; at %3	expressoMail	pt-br	Foi lida por: %1 &lt; %2 &gt; em %3
-At %1, %2 hours, %3 wrote:	expressoMail	pt-br	Em %1 √†s %2 horas, %3 escreveu:
-At least one message have the same origin	expressoMail	pt-br	Pelo menos uma das mensagens est√° sendo movida para a mesma pasta
-at least, one of selected mails is already archived, expresso tried to archive the others, check them later	expressoMail	pt-br	Pelo menos uma das mensagens selecionadas j√° foi arquivada anteriormente, o expresso tentou arquivar as outras, verifique-as mais tarde.
-this message cant be marked as normal	expressoMail	pt-br	Esta mensagem n√£o pode ser marcada como normal
-At least one of selected message cant be marked as normal	expressoMail	pt-br	Pelo menos uma das mensagens selecionadas n√£o pode ser marcada como normal
+At %1, %2 hours, %3 wrote:	expressoMail	pt-br	Em %1 ‡s %2 horas, %3 escreveu:
+At least one message have the same origin	expressoMail	pt-br	Pelo menos uma das mensagens est· sendo movida para a mesma pasta
+at least, one of selected mails is already archived, expresso tried to archive the others, check them later	expressoMail	pt-br	Pelo menos uma das mensagens selecionadas j· foi arquivada anteriormente, o expresso tentou arquivar as outras, verifique-as mais tarde.
+this message cant be marked as normal	expressoMail	pt-br	Esta mensagem n„o pode ser marcada como normal
+At least one of selected message cant be marked as normal	expressoMail	pt-br	Pelo menos uma das mensagens selecionadas n„o pode ser marcada como normal
 attachment	expressoMail	pt-br	anexo
 Attachments: add+	expressoMail	pt-br	Anexos: adicionar+
 Attachments: 	expressoMail	pt-br	Anexos: 
 Attachments removed	expressoMail	pt-br	Anexos removidos com sucesso.
-Attention, you are in out of office mode.	expressoMail	pt-br	ATEN√á√ÉO: voc√™ est√° com filtro para "fora de escrit√≥rio" ativado.
-authentic	expressoMail	pt-br	aut√™ntica
+Attention, you are in out of office mode.	expressoMail	pt-br	ATEN«√O: vocÍ est· com filtro para "fora de escritÛrio" ativado.
+Attention! The information contained in the message will be sent in full to the support team.	expressoMail	pt-br	AtenÁ„o! As informaÁıes contidas na mensagem ser„o enviadas integralmente para a equipe de suporte.
+authentic	expressoMail	pt-br	autÍntica
 Auto archiving	expressoMail	pt-br	Auto-arquivando
 Auto save draft	expressoMail	pt-br	Salvar rascunhos automaticamente
 Back	expressoMail	pt-br	Voltar
 <b>Answer messages from:</b> %1 - <b>Status:</b><font color='red'> %2</font> - <b>message:</b> %3</a>	expressoMail	pt-br	<b>Responder mensagens de:</b> %1 - <b>Status:</b><font color='red'> %2</font> - <b>mensagem:</b> %3</a>
 BCC	expressoMail	pt-br	CCO
-Before Date	expressoMail	pt-br	At√© a Data
+Before Date	expressoMail	pt-br	AtÈ a Data
 Big	expressoMail	pt-br	Grande
 Block Sender	expressoMail	pt-br	Bloquear remetente
 body	expressoMail	pt-br	Corpo da mensagem
 Bold	expressoMail	pt-br	Negrito
 Border	expressoMail	pt-br	Borda
-<b>Tip:</b> For faster save, click over the image with <u>right button</u>.	expressoMail	pt-br	<b>Dica:</b> Para salvar rapidamente, clique sobre a imagem com o <u>bot√£o direito</u> do mouse.
+<b>Tip:</b> For faster save, click over the image with <u>right button</u>.	expressoMail	pt-br	<b>Dica:</b> Para salvar rapidamente, clique sobre a imagem com o <u>bot„o direito</u> do mouse.
 Calling extension: 	expressoMail	pt-br	Chamando Ramal: 
 Call to Comercial Number	expressoMail	pt-br	Discar para Telefone Comercial
 Call to Mobile Number	expressoMail	pt-br	Discar para Telefone Celular
 cancel	expressoMail	pt-br	Cancelar
 Cancel and returns the previous screen	expressoMail	pt-br	Cancela e retorna para a tela anterior
-cannot create folder. try other folder name	expressoMail	pt-br	Erro ao criar a pasta. Certifique-se de que n√£o tentou cri√°-la com um nome que cont√©m a palavra \"local_\" ou que possui algum caractere especial.
-cannot rename folder. try other folder name	expressoMail	pt-br	Imposs√≠vel renomear pasta, tente outro nome.
-Cannot import target event. Please check if the format is right.	expressoMail	pt-br	Imposs√É¬≠vel importar o e-mail, Por favor cheque se o formato est√É¬° correto.
-Caracter "#" is not allowed!	expressoMail	pt-br	Caracter "#" n√£o √© permitido!
-CC	expressoMail	pt-br	Com C√≥pia
+cannot create folder. try other folder name	expressoMail	pt-br	Erro ao criar a pasta. Certifique-se de que n„o tentou cri·-la com um nome que contÈm a palavra \"local_\" ou que possui algum caractere especial.
+cannot rename folder. try other folder name	expressoMail	pt-br	ImpossÌvel renomear pasta, tente outro nome.
+Cannot import target event. Please check if the format is right.	expressoMail	pt-br	Imposs√≠vel importar o e-mail, Por favor cheque se o formato est√° correto.
+Caracter "#" is not allowed!	expressoMail	pt-br	Caracter "#" n„o È permitido!
+CC	expressoMail	pt-br	Com CÛpia
 CCo	expressoMail	pt-br	CCo
 Certificate Authority: 	expressoMail	pt-br	Autoridade Certificadora:
 Certificate email: 	expressoMail	pt-br	Email do certificado:
 certificate has expired	expressoMail	pt-br	CERTIFICADO EXPIRADO
 Change folder	expressoMail	pt-br	Trocar pasta
-Check Spelling	expressoMail	pt-br	Corretor Ortogr√°fico
+Check Spelling	expressoMail	pt-br	Corretor Ortogr·fico
 Choose a name	expressoMail	pt-br	Escolha um nome
 Choose the file	expressoMail	pt-br	Escolha o arquivo
 Chose the text you want transform in link before.	expressoMail	pt-br	Selecione o texto que deseja transformar em link.
@@ -88,62 +89,62 @@ Click here to add into the fields	expressoMail	pt-br	Clique aqui para adicionar 
 Close	expressoMail	pt-br	Fechar
 Coincident	expressoMail	pt-br	Coincidente
 Cols	expressoMail	pt-br	Colunas
-Comma separated	admin	pt-br	Separado por v√≠rgula
-Command for spam	admin	pt-br	Comando que ser√° executado ao marcar como spam
-Command for unmark spam	admin	pt-br	Comando que ser√° executado ao marcar como n√£o-spam
-Confirmation message is not sent	expressoMail	pt-br	Confirma√ß√£o de mensagem n√£o enviada
-Config for expressoMail	expressoMail	pt-br	Configura√ß√µes do expressoMail
-Config for ExpressoMail	expressoMail	pt-br	Configura√ß√µes para o ExpressoMail
+Comma separated	admin	pt-br	Separado por vÌrgula
+Command for spam	admin	pt-br	Comando que ser· executado ao marcar como spam
+Command for unmark spam	admin	pt-br	Comando que ser· executado ao marcar como n„o-spam
+Confirmation message is not sent	expressoMail	pt-br	ConfirmaÁ„o de mensagem n„o enviada
+Config for expressoMail	expressoMail	pt-br	ConfiguraÁıes do expressoMail
+Config for ExpressoMail	expressoMail	pt-br	ConfiguraÁıes para o ExpressoMail
 Contact added successfully.	expressoMail	pt-br	Contato adicionado com sucesso.
-Continue checking other rules if the criteria is met.	expressoMail	pt-br	Continuar verificando outras regras caso o crit√©rio seja encontrado.
-Connection failed with %1 Server. Try later.	expressoMail	pt-br	Ocorreu uma falha de comunica√ß√£o com o servidor de %1. Tente mais tarde.
-Convert this message into plain text can make parts of it are removed. Continue?	expressoMail	pt-br	Converter esta mensagem para texto sem formata√ß√£o pode fazer com que partes dela sejam removidas. Deseja continuar?
-Couldn't verify if certificate was revoked.(CD-01)	expressoMail	pt-br	A lista de certificados revogados n√£o foi encontrada.(CD-01)
-Couldn't verify if certificate was revoked.(CD-02)	expressoMail	pt-br	N√£o foi poss√≠vel verificar se o certificado est√° revogado.(CD-02)
-Couldn't verify if certificate was revoked.(CD-03)	expressoMail	pt-br	N√£o foi poss√≠vel verificar se o certificado est√° revogado.(CD-03)
+Continue checking other rules if the criteria is met.	expressoMail	pt-br	Continuar verificando outras regras caso o critÈrio seja encontrado.
+Connection failed with %1 Server. Try later.	expressoMail	pt-br	Ocorreu uma falha de comunicaÁ„o com o servidor de %1. Tente mais tarde.
+Convert this message into plain text can make parts of it are removed. Continue?	expressoMail	pt-br	Converter esta mensagem para texto sem formataÁ„o pode fazer com que partes dela sejam removidas. Deseja continuar?
+Couldn't verify if certificate was revoked.(CD-01)	expressoMail	pt-br	A lista de certificados revogados n„o foi encontrada.(CD-01)
+Couldn't verify if certificate was revoked.(CD-02)	expressoMail	pt-br	N„o foi possÌvel verificar se o certificado est· revogado.(CD-02)
+Couldn't verify if certificate was revoked.(CD-03)	expressoMail	pt-br	N„o foi possÌvel verificar se o certificado est· revogado.(CD-03)
 Creating folders structure	expressoMail	pt-br	Criando estrutura de pastas
 Crypted message	expressoMail	pt-br	Mensagem cifrada digitalmente
 Cyrus IMAP Server	expressoMail	pt-br	Servidor de IMAP Cyrus
 Date: 	expressoMail	pt-br	Data:
 Date	expressoMail	pt-br	Data
 day(s)	expressoMail	pt-br	dia(s)
-Dear user,\nthis is your first time in the ExpressoMail, your preferences must be saved.\nPlease, choose your preferences and click on the button Save.	expressoMail	pt-br	Caro usu√°rio, \ncomo esta √© a primeira vez que voc√™ esta acessando o ExpressoMail, suas prefer√™ncias devem ser salvas.\n Favor escolher suas prefer√™ncias e clicar no bot√£o Salvar.
-Define some criterion to the fields Sender, To and Subject with more than 3 characters!	expressoMail	pt-br	Defina algum crit√©rio para os campos Remetente, Para, Assunto e Tamanho da mensagem com mais de 3 caracteres!
-Enter a numerical value to the message size!	expressoMail	pt-br	Informe um valor num√©rico para o tamanho da mensagem!
-Define some search parameters!	expressoMail	pt-br	Defina alguns par√¢metros para a busca!
+Dear user,\nthis is your first time in the ExpressoMail, your preferences must be saved.\nPlease, choose your preferences and click on the button Save.	expressoMail	pt-br	Caro usu·rio, \ncomo esta È a primeira vez que vocÍ esta acessando o ExpressoMail, suas preferÍncias devem ser salvas.\n Favor escolher suas preferÍncias e clicar no bot„o Salvar.
+Define some criterion to the fields Sender, To and Subject with more than 3 characters!	expressoMail	pt-br	Defina algum critÈrio para os campos Remetente, Para, Assunto e Tamanho da mensagem com mais de 3 caracteres!
+Enter a numerical value to the message size!	expressoMail	pt-br	Informe um valor numÈrico para o tamanho da mensagem!
+Define some search parameters!	expressoMail	pt-br	Defina alguns par‚metros para a busca!
 Define the boxes to search!	expressoMail	pt-br	Defina as pastas para a busca!
-delete all attachments confirmation	expressoMail	pt-br	ATEN√á√ÉO: Ap√≥s a confirma√ß√£o dessa mensagem, TODOS os anexos da mesma ser√£o apagados. Tenha certeza de que possui uma c√≥pia dos arquivos importantes. Deseja confirmar a opera√ß√£o?
-Delete automatically the messages in trash folder in how many days	expressoMail	pt-br	Apagar automaticamente as mensagens na pasta lixeira ap√≥s quantos dias
+delete all attachments confirmation	expressoMail	pt-br	ATEN«√O: ApÛs a confirmaÁ„o dessa mensagem, TODOS os anexos da mesma ser„o apagados. Tenha certeza de que possui uma cÛpia dos arquivos importantes. Deseja confirmar a operaÁ„o?
+Delete automatically the messages in trash folder in how many days	expressoMail	pt-br	Apagar automaticamente as mensagens na pasta lixeira apÛs quantos dias
 Delete	expressoMail	pt-br	Apagar
-Default font editor	expressoMail	pt-br	Fonte padr√£o do editor
-Default font size editor	expressoMail	pt-br	Tamanho de fonte padr√£o do editor
+Default font editor	expressoMail	pt-br	Fonte padr„o do editor
+Default font size editor	expressoMail	pt-br	Tamanho de fonte padr„o do editor
 Delete folder	expressoMail	pt-br	Excluir pasta
-Delete trash messages after how many days?	expressoMail	pt-br	Apagar mensagens ap√≥s quantos dias na lixeira?
+Delete trash messages after how many days?	expressoMail	pt-br	Apagar mensagens apÛs quantos dias na lixeira?
 Delete your sub-folders first	expressoMail	pt-br	Remova suas sub-pastas primeiro.
 Deleting downloadeds msgs...	expressoMail	pt-br	Apagando mensagens arquivadas...
-Desired action to archive messages to local folders	expressoMail	pt-br	A√ß√£o desejada ao arquivar mensagem nas pastas locais
+Desired action to archive messages to local folders	expressoMail	pt-br	AÁ„o desejada ao arquivar mensagem nas pastas locais
 Details	expressoMail	pt-br	Detalhes
 Digitally crypt message?	expressoMail	pt-br	Cifrar digitalmente a mensagem?
 Digitally sign message?	expressoMail	pt-br	Assinar digitalmente a mensagem?
 DISABLED	expressoMail	pt-br	Desabilitada
 Disable	expressoMail	pt-br	Desabilitar
-Don\`t use	expressoMail	pt-br	N√£o use
+Don\`t use	expressoMail	pt-br	N„o use
 Download all atachments	expressoMail	pt-br	Baixar todos de uma vez
 Download manual	expressoMail	pt-br	Baixar manual
-Do you confirm this import to your Calendar?	expressoMail	pt-br	Confirma a importa√ß√£o para tua agenda do Expresso?
-Do you really want to empty your spam folder?	expressoMail	pt-br	Voc√™ tem certeza que deseja limpar sua pasta Spam?
-Do you really want to empty your trash folder?	expressoMail	pt-br	Voc√™ tem certeza que deseja limpar sua lixeira?
-Do you wanna receive an alert for new messages?	expressoMail	pt-br	Voc√™ quer receber um alerta para mensagens novas?
-Wish you receive notifications for: "New messages", "Filter criteria", "Event alerts"?	expressoMail	pt-br	Exibir notifica√ß√µes de: "Nova mensagem", "Criterio atendido", "Alerta de evento"?
-Do you want to automatically display the message header?	expressoMail	pt-br	Voc√™ deseja exibir automaticamente o cabecalho da mensagem?
-Do you want to block this e-mail?	expressoMail	pt-br	Voc√™ gostaria de bloquear este e-mail?
-Do you want to cache php requests in javascript?	admin	pt-br	Utilizar cache de requisi√ß√µes no javascript?
+Do you confirm this import to your Calendar?	expressoMail	pt-br	Confirma a importaÁ„o para tua agenda do Expresso?
+Do you really want to empty your spam folder?	expressoMail	pt-br	VocÍ tem certeza que deseja limpar sua pasta Spam?
+Do you really want to empty your trash folder?	expressoMail	pt-br	VocÍ tem certeza que deseja limpar sua lixeira?
+Do you wanna receive an alert for new messages?	expressoMail	pt-br	VocÍ quer receber um alerta para mensagens novas?
+Wish you receive notifications for: "New messages", "Filter criteria", "Event alerts"?	expressoMail	pt-br	Exibir notificaÁıes de: "Nova mensagem", "Criterio atendido", "Alerta de evento"?
+Do you want to automatically display the message header?	expressoMail	pt-br	VocÍ deseja exibir automaticamente o cabecalho da mensagem?
+Do you want to block this e-mail?	expressoMail	pt-br	VocÍ gostaria de bloquear este e-mail?
+Do you want to cache php requests in javascript?	admin	pt-br	Utilizar cache de requisiÁıes no javascript?
 Do you want to enable expressoMail log?	admin	pt-br	Habilitar Log do expressoMail?
-Do you want to show common name instead of UID?	expressoMail	pt-br	Utilizar nome (CN) ao inv√©s de login (uid) em pastas compartilhadas?
-Do you want to use important flag in email editor?	expressoMail	pt-br	Voc√™ gostaria de usar a flag de importante na edi√ß√£o de emails?
-Do you want to use remove attachments function?	expressoMail	pt-br	Voc√™ gostaria de usar a fun√ß√£o de desanexar?
-Do you want to use the spam filter?	admin	pt-br	Voc√™ gostaria de utilizar o filtro anti-spam?
-Do you wish to exclude the folder 	expressoMail	pt-br	Voc√™ gostaria de excluir a pasta: 
+Do you want to show common name instead of UID?	expressoMail	pt-br	Utilizar nome (CN) ao invÈs de login (uid) em pastas compartilhadas?
+Do you want to use important flag in email editor?	expressoMail	pt-br	VocÍ gostaria de usar a flag de importante na ediÁ„o de emails?
+Do you want to use remove attachments function?	expressoMail	pt-br	VocÍ gostaria de usar a funÁ„o de desanexar?
+Do you want to use the spam filter?	admin	pt-br	VocÍ gostaria de utilizar o filtro anti-spam?
+Do you wish to exclude the folder 	expressoMail	pt-br	VocÍ gostaria de excluir a pasta: 
 Draft	expressoMail	pt-br	Rascunho
 Drafts	expressoMail	pt-br	Rascunhos
 Drafts Folder name	admin	pt-br	Nome da pasta rascunhos
@@ -162,52 +163,52 @@ Empty Trash	expressoMail	pt-br	Limpar Lixeira
 ENABLED	expressoMail	pt-br	Habilitada
 Enable digitally sign/cipher the message?	expressoMail	pt-br	Possibilitar assinar/cifrar digitalmente a mensagem?
 Enable	expressoMail	pt-br	Habilitar
-Enable Quick Reply	expressoMail	pt-br	Responder r√°pido (com hist√≥rico e ao remetente)
-Enable this option if you want to read the next message everytime you delete a message	expressoMail	pt-br	Habilite esta op√ß√£o se voc√™ quiser ler a mensagem seguinte sempre que voc√™ apagar uma mensagem
-Enabling this options you will be able to store messages in your local computer	expressoMail	pt-br	Ao ativar esta op√ß√£o voc√™ ser√° capaz de armazenar mensagens no seu computador local
+Enable Quick Reply	expressoMail	pt-br	Responder r·pido (com histÛrico e ao remetente)
+Enable this option if you want to read the next message everytime you delete a message	expressoMail	pt-br	Habilite esta opÁ„o se vocÍ quiser ler a mensagem seguinte sempre que vocÍ apagar uma mensagem
+Enabling this options you will be able to store messages in your local computer	expressoMail	pt-br	Ao ativar esta opÁ„o vocÍ ser· capaz de armazenar mensagens no seu computador local
 End of archive messages	expressoMail	pt-br	Fim do arquivamento de mensagens
-English	expressoMail	pt-br	Ingl√™s
+English	expressoMail	pt-br	InglÍs
 Enter a name for the box	expressoMail	pt-br	Entre com um nome para a pasta:
 Enter the name of the new folder:	expressoMail	pt-br	Insira o nome da nova pasta: 
 Enter with link URL:	expressoMail	pt-br	Entre com a URL do link:
 Erase Folder	expressoMail	pt-br	Apagar Pasta
 Erase the message	expressoMail	pt-br	Apague a mensagem
-error:21071065:PKCS7 routines:func(113):reason(101)	expressoMail	pt-br	Mensagem com prov√°vel viola√ß√£o de conte√∫do.
-error:21071065:PKCS7 routines:PKCS7_signatureVerify:digest failure	expressoMail	pt-br	Mensagem com prov√°vel viola√ß√£o de conte√∫do.
-error:21075069:PKCS7 routines:func(117):reason(105)	expressoMail	pt-br	Mensagem com prov√°vel viola√ß√£o de assinatura.
-error:21075069:PKCS7 routines:PKCS7_verify:signature failure	expressoMail	pt-br	Mensagem com prov√°vel viola√ß√£o de assinatura.
+error:21071065:PKCS7 routines:func(113):reason(101)	expressoMail	pt-br	Mensagem com prov·vel violaÁ„o de conte˙do.
+error:21071065:PKCS7 routines:PKCS7_signatureVerify:digest failure	expressoMail	pt-br	Mensagem com prov·vel violaÁ„o de conte˙do.
+error:21075069:PKCS7 routines:func(117):reason(105)	expressoMail	pt-br	Mensagem com prov·vel violaÁ„o de assinatura.
+error:21075069:PKCS7 routines:PKCS7_verify:signature failure	expressoMail	pt-br	Mensagem com prov·vel violaÁ„o de assinatura.
 #error:21075075:PKCS7 routines:PKCS7_verify:certificate verify error	expressoMail	pt-br	Erro ao verificar o certificado mensagem.
-error appending mail on delete attachments	expressoMail	pt-br	Ocorreu um erro ao criar uma nova mensagem na opera√ß√£o de remo√ß√£o de anexos.
+error appending mail on delete attachments	expressoMail	pt-br	Ocorreu um erro ao criar uma nova mensagem na operaÁ„o de remoÁ„o de anexos.
 Error compressing messages (ZIP). Contact the administrator.	expressoMail	pt-br	Erro ao comprimir as mensagens (ZIP)! Contacte o administrador.
-Error in SMTP sending read confirmation.	expressoMail	pt-br	Erro no SMTP ao enviar uma confirma√ß√£o de leitura.
+Error in SMTP sending read confirmation.	expressoMail	pt-br	Erro no SMTP ao enviar uma confirmaÁ„o de leitura.
 Error moving message.	expressoMail	pt-br	Erro ao mover mensagem.
 Error moving or delete message: Message too large. Select one message by one.	expressoMail	pt-br	Erro ao mover ou deletar mensagem: Mensagem muito grande. Selecione uma por vez.
 ERROR saving your message.	expressoMail	pt-br	Ocorreu um ERRO ao salvar sua mensagem.
 ERROR emptying your Spam folder.	expressoMail	pt-br	Ocorreu um ERRO ao limpar sua pasta Spam.
-Everytime you receive new messages you will be informed	expressoMail	pt-br	Cada vez que voc√™ receber novas mensagens voc√™ ser√° informado
-Exclusion	expressoMail	pt-br	Exclus√£o
+Everytime you receive new messages you will be informed	expressoMail	pt-br	Cada vez que vocÍ receber novas mensagens vocÍ ser· informado
+Exclusion	expressoMail	pt-br	Exclus„o
 Export	expressoMail	pt-br	Exportar
 Export messages	expressoMail	pt-br	Exportar mensagens
 Export folder messages	expressoMail	pt-br	Exportar mensagens da pasta
 expressoMail	common	pt-br	Expresso Mail
-ExpressoMail Configuration	expressoMail	pt-br	Configura√ß√µes do expressoMail
-ExpressoMail settings	admin	pt-br	Configura√ß√µes do ExpressoMail
+ExpressoMail Configuration	expressoMail	pt-br	ConfiguraÁıes do expressoMail
+ExpressoMail settings	admin	pt-br	ConfiguraÁıes do ExpressoMail
 Expresso Offline	expressoMail	pt-br	ExpressoMail Offline
 fail in import:	expressoMail	pt-br	Falha ao importar:
-File extension forbidden or invalid file	expressoMail	pt-br	Extens√£o de arquivo proibido ou arquivo inv√°lido
+File extension forbidden or invalid file	expressoMail	pt-br	Extens„o de arquivo proibido ou arquivo inv·lido
 files	expressoMail	pt-br	arquivos
 File name	expressoMail	pt-br	Nome do arquivo
 Filters	expressoMail	pt-br	Filtros
-Filters maintenance	expressoMail	pt-br	Manuten√ß√£o de Filtros
+Filters maintenance	expressoMail	pt-br	ManutenÁ„o de Filtros
 Filters management	expressoMail	pt-br	Gerenciamento de Filtros
 First	expressoMail	pt-br	Primeira
 First Name	expressoMail	pt-br	Primeiro Nome
-First page	expressoMail	pt-br	Primeira p√°gina
+First page	expressoMail	pt-br	Primeira p·gina
 Flag as important	expressoMail	pt-br	Marcar como Importante
 Flagged	expressoMail	pt-br	Importante
 Flags	expressoMail	pt-br	Etiquetas
 Folder	expressoMail	pt-br	Pasta
-Folder Management	expressoMail	pt-br	Ger√™nciamento de Pastas
+Folder Management	expressoMail	pt-br	GerÍnciamento de Pastas
 Folders	expressoMail	pt-br	Pastas
 Folders to sync	expressoMail	pt-br	Pastas para auto arquivamento
 Font	expressoMail	pt-br	Fonte
@@ -215,12 +216,12 @@ forecolor	expressoMail	pt-br	Cor do texto
 Forwarded	expressoMail	pt-br	Encaminhada
 Forwarded message	expressoMail	pt-br	Mensagem encaminhada
 Forward	expressoMail	pt-br	Encaminhar
-Forward to the address	expressoMail	pt-br	Encaminhar para o endere√ßo
+Forward to the address	expressoMail	pt-br	Encaminhar para o endereÁo
 Friday	expressoMail	pt-br	Sexta-feira
 From: 	expressoMail	pt-br	De:
 Labels: 	expressoMail	pt-br	Marcadores:
 From	expressoMail	pt-br	De
-Global Catalog	expressoMail	pt-br	Cat√°logo Geral
+Global Catalog	expressoMail	pt-br	Cat·logo Geral
 Go back	expressoMail	pt-br	Voltar
 greater than	expressoMail	pt-br	Maior que
 Groups	expressoMail	pt-br	Grupos
@@ -228,25 +229,27 @@ Hide menu folders?	expressoMail	pt-br	Ocultar menu das pastas?
 Hide details	expressoMail	pt-br	Ocultar detalhes
 Show details	expressoMail	pt-br	Mostrar detalhes
 if email	expressoMail	pt-br	Se o email
-is from	expressoMail	pt-br	√© de
-is to	expressoMail	pt-br	√© para
+is from	expressoMail	pt-br	È de
+is to	expressoMail	pt-br	È para
 subject is	expressoMail	pt-br	tem assunto
 reject	expressoMail	pt-br	Rejeitar
 discard	expressoMail	pr-br	Descartar
-Hide options	expressoMail	pt-br	Ocultar op√ß√µes
+Hide options	expressoMail	pt-br	Ocultar opÁıes
 Hide Search	expressoMail	pt-br	Ocultar Pesquisa
 size is over than	expressoMail	pt-br	tem tamanho maior que
 size is under than	expressoMail	pt-br	tem tamanho menor que
-Criteria	expressoMail	pt-br	Crit√©rio
+Criteria	expressoMail	pt-br	CritÈrio
 Find items	expressoMail	pt-br	Processar mensagens
-if any criterion is met	expressoMail	pt-br	Se algum crit√©rio for atendido
-if all criteria is met	expressoMail	pt-br	Se todos os crit√©rios forem atendidos
-hlp_msg_addcreate_acl	expressoMail	pt-br	Outros usu√°rios poder√£o CRIAR/ADICIONAR novas mensagens
-hlp_msg_delmov_acl	expressoMail	pt-br	Outros usu√°rios poder√£o APAGAR/MOVER suas mensagens
-hlp_msg_read_acl	expressoMail	pt-br	Outros usu√°rios poder√£o LER suas mensagens
-hlp_msg_sendlike_acl	expressoMail	pt-br	Outros usu√°rios poder√£o ENVIAR mensagens como sendo voc√™
-hlp_msg_savelike_acl	expressoMail	pt-br	Outros usu√°rios ir√£o SALVAR as mensagens enviadas como sendo voc√™ nesta caixa 
-hours ago	expressoMail	pt-br	horas atr√°s
+if any criterion is met	expressoMail	pt-br	Se algum critÈrio for atendido
+if all criteria is met	expressoMail	pt-br	Se todos os critÈrios forem atendidos
+hlp_msg_addcreate_acl	expressoMail	pt-br	Outros usu·rios poder„o CRIAR/ADICIONAR novas mensagens
+hlp_msg_delmov_acl	expressoMail	pt-br	Outros usu·rios poder„o APAGAR/MOVER suas mensagens
+hlp_msg_read_acl	expressoMail	pt-br	Outros usu·rios poder„o LER suas mensagens
+hlp_msg_sendlike_acl	expressoMail	pt-br	Outros usu·rios poder„o ENVIAR mensagens como sendo vocÍ
+hlp_msg_savelike_acl	expressoMail	pt-br	Outros usu·rios ir„o SALVAR as mensagens enviadas como sendo vocÍ nesta caixa 
+hours ago	expressoMail	pt-br	horas atr·s
+If opening this message you have noticed some inconsistency when viewing, such as truncated parts (broken) or complete impossibility of viewing the same, is likely to have been some failure in processing the message or even that there a flaw in the structure of the message that prevents proper visualization.	expressoMail	pt-br	Caso ao abrir esta mensagem vocÍ tenha percebido alguma inconsistÍncia durante sua visualizaÁ„o, como por exemplo partes truncadas (quebradas) ou impossibilidade total de visualizaÁ„o da mesma, È prov·vel que tenha ocorrido alguma falha no processamento da mensagem ou atÈ mesmo que exista uma falha na estrutura da mensagem que impede a correta visualizaÁ„o.
+If desired, this message can be routed to the support team, who will review the reasons for the inconsistency, so that it can be studied one compliance tool (if applicable) and that inconsistencies do not occur anymore.	expressoMail	pt-br	Se desejar, esta mensagem pode ser encaminhada para a equipe de suporte, que estar· analisando os motivos da inconsistÍncia, de forma que possa ser estudada uma compatibilizaÁ„o da ferramenta (quando for o caso) e que inconsistÍncias n„o ocorram mais.
 Image	expressoMail	pt-br	Imagem
 Imap Folders Properties	admin	pt-br	Propriedades das pastas IMAP
 Important	expressoMail	pt-br	Importante
@@ -256,13 +259,13 @@ Import	expressoMail	pt-br	Importar
 Import to calendar	expressoMail	pt-br	Importar para agenda
 In all the folders	expressoMail	pt-br	Em todas as pastas
 Inbox	expressoMail	pt-br	Caixa de Entrada
-Outbox	expressoMail	pt-br	Caixa de Sa√≠da
+Outbox	expressoMail	pt-br	Caixa de SaÌda
 Include	expressoMail	pt-br	Incluir
-indent	expressoMail	pt-br	Tabula√ß√£o a esquerda
+indent	expressoMail	pt-br	TabulaÁ„o a esquerda
 Inform a forwarding e-mail!	expressoMail	pt-br	Informe um email de encaminhamento!
 Inform a message	expressoMail	pt-br	Informe uma mensagem!
-Inform a text for rejection!	expressoMail	pt-br	Informe um texto para rejei√ß√£o!
-Inform a valid e-mail!	expressoMail	pt-br	Informe um email v√°lido!
+Inform a text for rejection!	expressoMail	pt-br	Informe um texto para rejeiÁ„o!
+Inform a valid e-mail!	expressoMail	pt-br	Informe um email v·lido!
 Inform between 1 and 31!	expressoMail	pt-br	Informe entre 1 e 31!
 Inform the days!	expressoMail	pt-br	Informe os dias!
 Inform the forwarding e-mail(s)	expressoMail	pt-br	Informe email(s) para encaminhamento!
@@ -271,50 +274,50 @@ insertorderedlist	expressoMail	pt-br	Inserir em lista ordenada
 Insert signature automatically in new messages?	expressoMail	pt-br	Inserir assinatura automaticamente em novas mensagens?
 Insert signature	expressoMail	pt-br	Inserir assinatura
 Insert Table	expressoMail	pt-br	Inserir tabela
-insertunorderedlist	expressoMail	pt-br	Inserir em lista n√£o ordenada
+insertunorderedlist	expressoMail	pt-br	Inserir em lista n„o ordenada
 Install Offline	expressoMail	pt-br	Instalar offline
 in this message	expressoMail	pt-br	na mensagem
-Invalid date on field %1	expressoMail	pt-br	Data inv√°lida no campo '%1'
-Invalid mail	expressoMail	pt-br	Email inv√°lido
-Invalid signature	expressoMail	pt-br	Erro indeterminado: N√£o foi poss√≠vel validar a assinatura digital da mensagem.
+Invalid date on field %1	expressoMail	pt-br	Data inv·lida no campo '%1'
+Invalid mail	expressoMail	pt-br	Email inv·lido
+Invalid signature	expressoMail	pt-br	Erro indeterminado: N„o foi possÌvel validar a assinatura digital da mensagem.
 italic	expressoMail	pt-br	Italico
-The %1 folder is not created. It is necessary to finish your request.	expressoMail	pt-br	Sua pasta \"%1\" n√£o est√° criada. √â necess√°rio cri√°-la para que funcione corretamente.
+The %1 folder is not created. It is necessary to finish your request.	expressoMail	pt-br	Sua pasta \"%1\" n„o est· criada. … necess·rio cri·-la para que funcione corretamente.
 ERROR saving your message. 	expressoMail	pt-br	Ocorreu um ERRO ao salvar sua mensagem.
 ERROR moving your folder.	expressoMail	pt-br	Ocorreu um ERRO ao mover sua pasta.
-In the local file attachments, including images, will be disregarded. To forward / reply with the attachments, please first make the reopening of the message	expressoMail	pt-br	No arquivamento local os anexos, incluindo imagens, ser√£o desconsiderados. Para encaminhar/responder com os anexos, por favor, primeiro fa√ßa o desarquivamento da mensagem
-It allow you to remove attachments from messages	expressoMail	pt-br	Permite que voc√™ remova anexos de mensagens
-It allow you to send emails with important flag, but you can receive unwanted messages with important flag	expressoMail	pt-br	Ela permite que voc√™ envie e-mails com sinaliza√ß√£o de importante, mas voc√™ pode receber mensagens indesejadas com sinaliza√ß√£o de importante
-It's not possible create inside: 	expressoMail	pt-br	N√£o √© possivel criar dentro de: 
-It's not possible delete the folder: 	expressoMail	pt-br	N√£o √© poss√≠vel remover a pasta: 
-It's not possible delete this folder, because it is being used in the moment!	expressoMail	pt-br	N√£o √© poss√≠vel remover esta pasta, pois est√° em uso no momento!
-It's not possible remove this folder, because it is being used in the moment!	expressoMail1_1	pt-br	N√£o √© poss√≠vel remover esta pasta, pois est√£o em uso no momento!
-It's not possible rename the folder: 	expressoMail	pt-br	N√£o √© poss√≠vel renomear a pasta: 
-It's not possible rename this folder, because it is being used in the moment!	expressoMail	pt-br	N√£o √© poss√≠vel renomear esta pasta, pois est√° em uso no momento!
-It's not possible move this folder, because it is being used in the moment!	expressoMail	pt-br	N√£o √© poss√≠vel mover esta pasta, pois est√° em uso no momento!
-Can not move this folder to this location, because the target has already a folder with this name	expressoMail	pt-br	Impossivel mover esta pasta para este local,Pois o destino j√° tem uma pasta com este nome
-It's not possible to move this folder to its subfolders!	expressoMail	pt-br	N√£o √© poss√≠vel mover esta pasta para suas subpastas!
-It's not possible move this folder, because its subfolder is being used in the moment!	expressoMail	pt-br	N√£o √© poss√≠vel mover esta pasta, pois uma subpasta desta pasta est√° em uso no momento!
-It's not possible rename this folder, because its subfolder is being used in the moment!	expressoMail	pt-br	N√£o √© poss√≠vel editar esta pasta, pois uma subpasta desta pasta est√° em uso no momento!
-It's not possible rename this folder!	expressoMail	pt-br	N√£o √© poss√≠vel renomear esta pasta!
+In the local file attachments, including images, will be disregarded. To forward / reply with the attachments, please first make the reopening of the message	expressoMail	pt-br	No arquivamento local os anexos, incluindo imagens, ser„o desconsiderados. Para encaminhar/responder com os anexos, por favor, primeiro faÁa o desarquivamento da mensagem
+It allow you to remove attachments from messages	expressoMail	pt-br	Permite que vocÍ remova anexos de mensagens
+It allow you to send emails with important flag, but you can receive unwanted messages with important flag	expressoMail	pt-br	Ela permite que vocÍ envie e-mails com sinalizaÁ„o de importante, mas vocÍ pode receber mensagens indesejadas com sinalizaÁ„o de importante
+It's not possible create inside: 	expressoMail	pt-br	N„o È possivel criar dentro de: 
+It's not possible delete the folder: 	expressoMail	pt-br	N„o È possÌvel remover a pasta: 
+It's not possible delete this folder, because it is being used in the moment!	expressoMail	pt-br	N„o È possÌvel remover esta pasta, pois est· em uso no momento!
+It's not possible remove this folder, because it is being used in the moment!	expressoMail1_1	pt-br	N„o È possÌvel remover esta pasta, pois est„o em uso no momento!
+It's not possible rename the folder: 	expressoMail	pt-br	N„o È possÌvel renomear a pasta: 
+It's not possible rename this folder, because it is being used in the moment!	expressoMail	pt-br	N„o È possÌvel renomear esta pasta, pois est· em uso no momento!
+It's not possible move this folder, because it is being used in the moment!	expressoMail	pt-br	N„o È possÌvel mover esta pasta, pois est· em uso no momento!
+Can not move this folder to this location, because the target has already a folder with this name	expressoMail	pt-br	Impossivel mover esta pasta para este local,Pois o destino j· tem uma pasta com este nome
+It's not possible to move this folder to its subfolders!	expressoMail	pt-br	N„o È possÌvel mover esta pasta para suas subpastas!
+It's not possible move this folder, because its subfolder is being used in the moment!	expressoMail	pt-br	N„o È possÌvel mover esta pasta, pois uma subpasta desta pasta est· em uso no momento!
+It's not possible rename this folder, because its subfolder is being used in the moment!	expressoMail	pt-br	N„o È possÌvel editar esta pasta, pois uma subpasta desta pasta est· em uso no momento!
+It's not possible rename this folder!	expressoMail	pt-br	N„o È possÌvel renomear esta pasta!
 The folder was successfully moved	expressoMail	pt-br	Pasta foi movida com sucesso
 The folder was successfully rename	expressoMail	pt-br	Pasta foi renomeada com sucesso
 justifycenter	expressoMail	pt-br	Centralizado
 justifyfull	expressoMail	pt-br	Justificar
 justifyleft	expressoMail	pt-br	A esquerda
 justifyright	expressoMail	pt-br	A direita
-Keep a copy of the message at your Inbox	expressoMail	pt-br	Manter uma c√≥pia da mensagem na sua Caixa de Entrada
+Keep a copy of the message at your Inbox	expressoMail	pt-br	Manter uma cÛpia da mensagem na sua Caixa de Entrada
 l_answered	expressoMail	pt-br	Respondidas
 title_answered	expressoMail	pt-br	Respondidas/Encaminhadas
-Last	expressoMail	pt-br	√öltima
-Last Name	expressoMail	pt-br	√öltimo Nome
-Last page	expressoMail	pt-br	√öltima p√°gina
+Last	expressoMail	pt-br	⁄ltima
+Last Name	expressoMail	pt-br	⁄ltimo Nome
+Last page	expressoMail	pt-br	⁄ltima p·gina
 Less	expressoMail	pt-br	Menos
 Less than	expressoMail	pt-br	Menor que
 l_important	expressoMail	pt-br	Importantes
 Limit reached folders	expressoMail	pt-br	Limite de pastas atingido!
 Link	expressoMail	pt-br	Link
 List All	expressoMail	pt-br	Listar Tudo
-List Catalog	expressoMail	pt-br	Listar Cat√°logo
+List Catalog	expressoMail	pt-br	Listar Cat·logo
 List	expressoMail	pt-br	Listar
 list of the filters	expressoMail	pt-br	Lista de filtros
 Loading	expressoMail	pt-br	Carregando
@@ -323,8 +326,8 @@ local messages	expressoMail	pt-br	Mensagens locais
 Local Results	expressoMail	pt-br	Resultados LOCAIS
 Logoff	expressoMail	pt-br	Desconectar
 l_seen	expressoMail	pt-br	Lidas
-l_unseen	expressoMail	pt-br	N√£o lidas
-Mailbox already exists	expressoMail	pt-br	Pasta j√° existe.
+l_unseen	expressoMail	pt-br	N„o lidas
+Mailbox already exists	expressoMail	pt-br	Pasta j· existe.
 Mailbox Sharing	expressoMail	pt-br	Compartilhamento de Caixa Postal
 Mail	expressoMail	pt-br	Correio
 Mail from: 	expressoMail	pt-br	Email proveniente de:
@@ -332,72 +335,73 @@ Manager your folders and export messages	expressoMail	pt-br	Gerencie suas pastas
 Mark as	expressoMail	pt-br	Marcar como
 Mark as Spam	expressoMail	pt-br	Marcar como Spam
 Is Spam	expressoMail	pt-br	Spam
-Max size	expressoMail	pt-br	Tamanho m√°ximo
-Medium	expressoMail	pt-br	M√©dio
+Max size	expressoMail	pt-br	Tamanho m·ximo
+Medium	expressoMail	pt-br	MÈdio
 Message body	expressoMail	pt-br	Corpo da mensagem
 Message date: 	expressoMail	pt-br	Data da mensagem:
 message	expressoMail	pt-br	mensagem
-Message required	expressoMail	pt-br	Mensagem obrigat√≥ria.
+Message required	expressoMail	pt-br	Mensagem obrigatÛria.
 Message Font	expressoMail	pt-br	Fonte da Mensagem
-Message Header	expressoMail	pt-br	Cabe√ßalho da Mensagem
+Message Header	expressoMail	pt-br	CabeÁalho da Mensagem
 Message marked as 	expressoMail	pt-br	Mensagem marcada como 
-Message not supported	expressoMail	pt-br	Mensagem n√£o suportada
+Message not supported	expressoMail	pt-br	Mensagem n„o suportada
 message(s) deleted from your trash folder.	expressoMail	pt-br	mensagem(s) deletada(s) da sua Lixeira.
 messages	expressoMail	pt-br	mensagens
 messages found in folder:	expressoMail	pt-br	mensagens encontradas na pasta:
 Message has attachment	expressoMail	pt-br	Mensagem tem anexo
 Message signed by: 	expressoMail	pt-br	Mensagem assinada por:
 Messages saved in %1 folder.	expressoMail	pt-br	Mensagens salvas na pasta %1.
-Message untouched	expressoMail	pt-br	Mensagem √çntegra
-Message untouched and authentic	expressoMail	pt-br	Mensagem √≠ntegra e aut√™ntica
-Message untouched with signer different from sender	expressoMail	pt-br	Mensagem √çntegra, com e-mail do signat√°rio diferente do remetente
-Message without receiver	expressoMail	pt-br	Voc√™ deve fornecer pelo menos um endere√ßo de destinat√°rio de email.
-Message with read notification	expressoMail	pt-br	Mensagem com confirma√ß√£o de leitura.
-minute ago	expressoMail	pt-br	minuto atr√°s
-minutes ago	expressoMail	pt-br	minutos atr√°s
+Message untouched	expressoMail	pt-br	Mensagem Õntegra
+Message untouched and authentic	expressoMail	pt-br	Mensagem Ìntegra e autÍntica
+Message untouched with signer different from sender	expressoMail	pt-br	Mensagem Õntegra, com e-mail do signat·rio diferente do remetente
+Message without receiver	expressoMail	pt-br	VocÍ deve fornecer pelo menos um endereÁo de destinat·rio de email.
+Message with read notification	expressoMail	pt-br	Mensagem com confirmaÁ„o de leitura.
+minute ago	expressoMail	pt-br	minuto atr·s
+minutes ago	expressoMail	pt-br	minutos atr·s
 Monday	expressoMail	pt-br	Segunda-feira
-More actions	expressoMail	pt-br	Mais A√ß√µes
+More actions	expressoMail	pt-br	Mais AÁıes
 More	expressoMail	pt-br	Mais
-More options	expressoMail	pt-br	Mais op√ß√µes
+More options	expressoMail	pt-br	Mais opÁıes
 More than %1 results. Please, try to refine your search.	expressoMail	pt-br	Mais que %1 resultados foram encontrados. Tente refinar sua pesquisa.
 More than %1 results were found	expressoMail	pt-br	Mais de %1 resultados foram encontrados
+More information about the problem (optional):	expressoMail	pt-br	Maiores informaÁıes sobre o problema (opcional):
 Move	expressoMail	pt-br	Mover
 Move to	expressoMail	pt-br	Mover para
-#MSG010- Erro verificando Expiracao/CAs do certificado.	expressoMail	pt-br	Erro ao verificar expira√ß√£o do certificado.
+#MSG010- Erro verificando Expiracao/CAs do certificado.	expressoMail	pt-br	Erro ao verificar expiraÁ„o do certificado.
 #MSG011- Ocorreu erro validando o certificado.	expressoMail	pt-br	Ocorreu erro validando o certificado.
 My Folders	expressoMail	pt-br	Minhas Pastas
-Nao foi possivel verificar se o certificado esta revogado.(CD-01)	expressoMail	pt-br	A lista de certificados revogados n√£o foi encontrada.(CD-01)
-Nao foi possivel verificar se o certificado esta revogado.(CD-02)	expressoMail	pt-br	N√£o foi poss√≠vel verificar se o certificado est√° revogado.(CD-02)
-Nao foi possivel verificar se o certificado esta revogado.(CD-03)	expressoMail	pt-br	N√£o foi poss√≠vel verificar se o certificado est√° revogado.(CD-03)
+Nao foi possivel verificar se o certificado esta revogado.(CD-01)	expressoMail	pt-br	A lista de certificados revogados n„o foi encontrada.(CD-01)
+Nao foi possivel verificar se o certificado esta revogado.(CD-02)	expressoMail	pt-br	N„o foi possÌvel verificar se o certificado est· revogado.(CD-02)
+Nao foi possivel verificar se o certificado esta revogado.(CD-03)	expressoMail	pt-br	N„o foi possÌvel verificar se o certificado est· revogado.(CD-03)
 New	expressoMail	pt-br	Novo
 New Folder	expressoMail	pt-br	Nova Pasta
 New Message	expressoMail	pt-br	Nova Mensagem
 New rule	expressoMail	pt-br	Nova Regra
-Next	expressoMail	pt-br	Pr√≥ximo
-Next page	expressoMail	pt-br	Pr√≥xima p√°gina
-Next Shortcut:Control + Down	expressoMail	pt-br	Pr√≥ximo (Atalho: Ctrl + Para baixo)
+Next	expressoMail	pt-br	PrÛximo
+Next page	expressoMail	pt-br	PrÛxima p·gina
+Next Shortcut:Control + Down	expressoMail	pt-br	PrÛximo (Atalho: Ctrl + Para baixo)
 SNickname	expressoMail	pt-br	Apelido
 Nickname	expressoMail	pt-br	Apelido
-n key (Open new message)<br>ESC key (Close tab)<br>i key (print)<br>e key (forward)<br>r key (reply)<br>DELETE key (delete the current message)<br>Ctrl + up (go to previous message)<br>Ctrl + down (go to next message)<br>Shift + up or down (select multiple messages)<br>F9  key (search at catalog)<br>	expressoMail	pt-br	tecla n (Abre nova mensagem)<br>tecla ESC (Fecha aba)<br>tecla i (imprime)<br>tecla e (encaminha)<br>tecla r (responde)<br>tecla DELETE (apaga mensagem atual)<br>Ctrl + pra cima (vai pra mensagem anterior)<br>Ctrl + pra baixo (vai para pr√≥xima mensagem)<br>Shift + pra cima ou pra baixo (seleciona v√°rias mensagens)<br>Tecla F9 (procura no cat√°logo)<br>
+n key (Open new message)<br>ESC key (Close tab)<br>i key (print)<br>e key (forward)<br>r key (reply)<br>DELETE key (delete the current message)<br>Ctrl + up (go to previous message)<br>Ctrl + down (go to next message)<br>Shift + up or down (select multiple messages)<br>F9  key (search at catalog)<br>	expressoMail	pt-br	tecla n (Abre nova mensagem)<br>tecla ESC (Fecha aba)<br>tecla i (imprime)<br>tecla e (encaminha)<br>tecla r (responde)<br>tecla DELETE (apaga mensagem atual)<br>Ctrl + pra cima (vai pra mensagem anterior)<br>Ctrl + pra baixo (vai para prÛxima mensagem)<br>Shift + pra cima ou pra baixo (seleciona v·rias mensagens)<br>Tecla F9 (procura no cat·logo)<br>
 No data to search	expressoMail	pt-br	Nenhum dado digitado para pesquisar.
-No	expressoMail	pt-br	N√£o
-No messages to send	expressoMail	pt-br	N√£o h√° mensagens na fila de e-mails offline.
+No	expressoMail	pt-br	N„o
+No messages to send	expressoMail	pt-br	N„o h· mensagens na fila de e-mails offline.
 None	expressoMail	pt-br	Nenhum
 None result was found.	expressoMail	pt-br	Nenhum resultado foi encontrado.
-No option marked!	expressoMail	pt-br	N√£o foi marcada nenhuma op√ß√£o!
+No option marked!	expressoMail	pt-br	N„o foi marcada nenhuma opÁ„o!
 Normal	expressoMail	pt-br	Normal
 No selected message.	expressoMail	pt-br	Nenhuma mensagem foi selecionada.
 No Subject	expressoMail	pt-br	Sem Assunto
-Not allowed in offline mode	expressoMail	pt-br	N√£o permitido no modo offline
-Note: This sharing will take action on all of your folders and messages.	expressoMail	pt-br	Aten√ß√£o: Este compartilhamento ter√° a√ß√£o em TODAS as suas pastas e mensagens.
-Not Spam	expressoMail	pt-br	N√£o √© spam
+Not allowed in offline mode	expressoMail	pt-br	N„o permitido no modo offline
+Note: This sharing will take action on all of your folders and messages.	expressoMail	pt-br	AtenÁ„o: Este compartilhamento ter· aÁ„o em TODAS as suas pastas e mensagens.
+Not Spam	expressoMail	pt-br	N„o È spam
 now	expressoMail	pt-bt	agora
-Number of dynamic contacts	admin	pt-br	N√∫mero de contatos din√¢micos
-Number of messages to send:	expressoMail	pt-br	N√∫mero de mensagens √† enviar:
-Notification	expressoMail	pt-br	Notifica√ß√£o
-Filter criteria	expressoMail	pt-br	Crit√©rio de filtro
-It isn't possible to send a folder by Archiver to My folders	expressoMail	pt-br	N√£o √© poss√≠vel enviar uma pasta das Pastas locais para as Minhas pastas
-It isn't possible to send a folder by My folders to Archiver	expressoMail	pt-br	N√£o √© poss√≠vel enviar uma pasta das Minhas pastas para as Pastas locais
+Number of dynamic contacts	admin	pt-br	N˙mero de contatos din‚micos
+Number of messages to send:	expressoMail	pt-br	N˙mero de mensagens ‡ enviar:
+Notification	expressoMail	pt-br	NotificaÁ„o
+Filter criteria	expressoMail	pt-br	CritÈrio de filtro
+It isn't possible to send a folder by Archiver to My folders	expressoMail	pt-br	N„o È possÌvel enviar uma pasta das Pastas locais para as Minhas pastas
+It isn't possible to send a folder by My folders to Archiver	expressoMail	pt-br	N„o È possÌvel enviar uma pasta das Minhas pastas para as Pastas locais
 Offline Pass	expressoMail	pt-br	Senha do Offline
 Offline success installed	expressoMail	pt-br	Offline instalado com sucesso
 Offline success uninstalled	expressoMail	pt-br	Offline removido com sucesso
@@ -407,53 +411,53 @@ Open chat window	expressoMail	pt-br	Abrir janela de conversa
 Open in New Tab	expressoMail	pt-br	Abrir em Nova Aba
 Open in New Window	expressoMail	pt-br	Abrir em Nova Janela
 Open search window	expressoMail	pt-br	Abrir janela de pesquisa
-Options	expressoMail	pt-br	Op√ß√µes
-Organization	expressoMail	pt-br	Organiza√ß√£o
+Options	expressoMail	pt-br	OpÁıes
+Organization	expressoMail	pt-br	OrganizaÁ„o
 Original Attachments: add	expressoMail	pt-br	Anexos originais: adicionar
 Original Attachments: remove	expressoMail	pt-br	Anexos originais: remover
-outdent	expressoMail	pt-br	Tabula√ß√£o a direita
-out office	expressoMail	pt-br	Fora do Escrit√≥rio
-Over quota	expressoMail	pt-br	Cota de espa√ßo excedida
+outdent	expressoMail	pt-br	TabulaÁ„o a direita
+out office	expressoMail	pt-br	Fora do EscritÛrio
+Over quota	expressoMail	pt-br	Cota de espaÁo excedida
 Padding Email List	expressoMail	pt-br	Altura das linhas da lista de mensagens
-Page Not Found!	expressoMail	pt-br	Pagina n√£o encontrada!
+Page Not Found!	expressoMail	pt-br	Pagina n„o encontrada!
 People	expressoMail	pt-br	Pessoas
-Personal Catalog	expressoMail	pt-br	Cat√°logo Pessoal
-Phone Warnings List	expressoMail	pt-br	Lista de Alertas Telef√¥nicos
+Personal Catalog	expressoMail	pt-br	Cat·logo Pessoal
+Phone Warnings List	expressoMail	pt-br	Lista de Alertas TelefÙnicos
 Postfix with LDAP	expressoMail	pt-br	Postfix with LDAP
-Portuguese	expressoMail	pt-br	Portugu√™s
-Preferences	expressoMail	pt-br	Prefer√™ncias
-Prev Page	expressoMail	pt-br	P√°gina anterior
-Preview message text within a tool-tip box	expressoMail	pt-br	Pr√©-visualizar a mensagem em uma caixa tool-tip?
-Preview message text within subject column?	expressoMail	pt-br	Pr√©-visualizar a mensagem na coluna Assunto?
+Portuguese	expressoMail	pt-br	PortuguÍs
+Preferences	expressoMail	pt-br	PreferÍncias
+Prev Page	expressoMail	pt-br	P·gina anterior
+Preview message text within a tool-tip box	expressoMail	pt-br	PrÈ-visualizar a mensagem em uma caixa tool-tip?
+Preview message text within subject column?	expressoMail	pt-br	PrÈ-visualizar a mensagem na coluna Assunto?
 Previous	expressoMail	pt-br	Anterior
 Previous Shortcut:Control + Up	expressoMail	pt-br	Anterior (Atalho: Ctrl + Para cima)
-Preview message text within subject column	expressoMail	pt-br	Pr√©-visualizar a mensagem na coluna Assunto?
+Preview message text within subject column	expressoMail	pt-br	PrÈ-visualizar a mensagem na coluna Assunto?
 Print	expressoMail	pt-br	Imprimir
-Problems reading your message	expressoMail	pt-br	N√£o foi poss√≠vel ler sua mensagem
+Problems reading your message	expressoMail	pt-br	N„o foi possÌvel ler sua mensagem
 Programed Archiving	expressoMail	pt-br	Arquivamento Programado
-Public Lists	expressoMail	pt-br	Listas P√∫blicas
+Public Lists	expressoMail	pt-br	Listas P˙blicas
 Question	expressoMail	pt-br	Pergunta
-Quick Add	expressoMail	pt-br	Adi√ß√£o R√°pida
-QuickAddInvalidMail	expressoMail	pt-br	O endere√ßo de email %1 n√£o √© v√°lido!\n Por favor informe um endere√ßo v√°lido.
-QuickAddEmptyMail	expressoMail	pt-br	O endere√ßo de e-mail deve ser informado.
-Reached maximum tab limit	expressoMail	pt-br	Limite m√°ximo de abas foi atingido.
+Quick Add	expressoMail	pt-br	AdiÁ„o R·pida
+QuickAddInvalidMail	expressoMail	pt-br	O endereÁo de email %1 n„o È v·lido!\n Por favor informe um endereÁo v·lido.
+QuickAddEmptyMail	expressoMail	pt-br	O endereÁo de e-mail deve ser informado.
+Reached maximum tab limit	expressoMail	pt-br	Limite m·ximo de abas foi atingido.
 Read	expressoMail	pt-br	Leitura
 Recent	expressoMail	pt-br	Recente
 Redo	expressoMail	pt-br	Refazer
 Refresh	expressoMail	pt-br	Atualizar
-reliable domains	common	pt-br	Dom√≠nios confi√°veis (pode usar a hierarquia DNS, ex:. pr.gov.br)
+reliable domains	common	pt-br	DomÌnios confi·veis (pode usar a hierarquia DNS, ex:. pr.gov.br)
 remove all attachments	expressoMail	pt-br	Remover anexos
 Remove	expressoMail	pt-br	Remover
 Rename folder	expressoMail	pt-br	Renomear pasta
 Reply	expressoMail	pt-br	Responder
 Reply sent messages to	expressoMail	pt-br	Responder mensagens enviadas para
 Reply to all	expressoMail	pt-br	Responder a todos
-Reply to all with history	expressoMail	pt-br	Responder a todos com hist√≥rico
-Reply to all without history	expressoMail	pt-br	Responder a todos sem hist√≥rico
+Reply to all with history	expressoMail	pt-br	Responder a todos com histÛrico
+Reply to all without history	expressoMail	pt-br	Responder a todos sem histÛrico
 Reply to	expressoMail	pt-br	Responder a
 Reply to sender	expressoMail	pt-br	Responder ao Remetente
-Reply with history	expressoMail	pt-br	Responder com hist√≥rico
-Reply without history	expressoMail	pt-br	Responder sem hist√≥rico
+Reply with history	expressoMail	pt-br	Responder com histÛrico
+Reply without history	expressoMail	pt-br	Responder sem histÛrico
 Result of the search	expressoMail	pt-br	Resultado da busca
 results found	expressoMail	pt-br	resultados encontrados
 Return receipt	expressoMail	pt-br	Conf. de Leitura
@@ -461,11 +465,11 @@ REVOKED Certificate.	expressoMail	pt-br	CERTIFICADO REVOGADO.
 Rich Text	expressoMail	pt-br	Texto Rico
 Rows	expressoMail	pt-br	Linhas
 Rule	expressoMail	pt-br	Regra
-Saturday	expressoMail	pt-br	S√°bado
+Saturday	expressoMail	pt-br	S·bado
 Save as Draft	expressoMail	pt-br	Salvar como Rascunho
 Save as	expressoMail	pt-br	Salvar como
 Save automatically sent messages in selected folder	expressoMail	pt-br	Salva automaticamente as mensagens enviadas na pasta selecionada
-Save deleted messages in trash folder?	expressoMail	pt-br	Salvar mensagens exclu√≠das na pasta Lixeira?
+Save deleted messages in trash folder?	expressoMail	pt-br	Salvar mensagens excluÌdas na pasta Lixeira?
 Save Draft	expressoMail	pt-br	Salvar Rascunho
 Save	expressoMail	pt-br	Salvar
 Save in folder	expressoMail	pt-br	Salvar na pasta
@@ -473,25 +477,25 @@ Save sent messages in folder	expressoMail	pt-br	Salvar automaticamente as mensag
 Search Email	expressoMail	pt-br	Procurar Email
 Search	expressoMail	pt-br	Pesquisar
 Search Inbox	expressoMail	pt-br	Buscar na caixa de entrada
-Search for Organization	expressoMail	pt-br	Pesquisar por Organiza√ß√£o
-Search in Catalog	expressoMail	pt-br	Buscando no Cat√°logo
+Search for Organization	expressoMail	pt-br	Pesquisar por OrganizaÁ„o
+Search in Catalog	expressoMail	pt-br	Buscando no Cat·logo
 Searching	expressoMail	pt-br	Procurando
-Search in the Global Catalog	expressoMail	pt-br	Pesquisar no Cat√°logo Geral
+Search in the Global Catalog	expressoMail	pt-br	Pesquisar no Cat·logo Geral
 Search Results	expressoMail	pt-br	Resultado da pesquisa
 search results	expressoMail	pt-br	 Resultados encontrados
 Search the messages in these folders	expressoMail	pt-br	Pesquise mensagens nessas pastas
-Search user...	expressoMail	pt-br	Procurar usu√°rio...
-Search user	expressoMail	pt-br	Procurar usu√°rios
+Search user...	expressoMail	pt-br	Procurar usu·rio...
+Search user	expressoMail	pt-br	Procurar usu·rios
 Sector	expressoMail	pt-br	Setor
 Seen	expressoMail	pt-br	Lida
-Select a user!	expressoMail	pt-br	Selecione um usu√°rio!
+Select a user!	expressoMail	pt-br	Selecione um usu·rio!
 Select a folder!	expressoMail	pt-br	Selecione uma pasta!
 Select a folder	expressoMail	pt-br	Selecione uma pasta
-Select all messages from this page.	expressoMail	pt-br	Selecionar todas as mensagens desta p√°gina.
+Select all messages from this page.	expressoMail	pt-br	Selecionar todas as mensagens desta p·gina.
 attachment(s)	expressoMail	pt-br	anexo(s).
 Select a name	expressoMail	pt-br	Selecione um nome
 Select a zip file or eml	expressoMail	pt-br	Selecione um arquivo zip ou eml
-Select an organization and click on button <b>Search</b>	expressoMail	pt-br	Selecione uma Organiza√ß√£o e clique no bot√£o <b>Pesquisar</b>
+Select an organization and click on button <b>Search</b>	expressoMail	pt-br	Selecione uma OrganizaÁ„o e clique no bot„o <b>Pesquisar</b>
 Select Date	expressoMail	pt-br	Selecione uma data
 selected messages have been archived	expressoMail	pt-br	As mensagens selecionadas foram arquivadas com sucesso
 Select on send	expressoMail	pt-br	Selecionar no envio da mensagem
@@ -500,8 +504,8 @@ Select the table size	expressoMail	pt-br	Selecione o tamanho da tabela
 Select the type of contact that you want to view	expressoMail	pt-br	Selecione o tipo de contato que deseja visualizar
 Select the user	expressoMail	pt-br	Selecionar no envio
 Send and file	expressoMail	pt-br	Enviar e Arquivar
-Send a rejection message	expressoMail	pt-br	Envie uma mensagem de rejei√ß√£o
-Sender blocked	expressoMail	pt-br	Remetente j√° bloqueado
+Send a rejection message	expressoMail	pt-br	Envie uma mensagem de rejeiÁ„o
+Sender blocked	expressoMail	pt-br	Remetente j· bloqueado
 Sender's Information	expressoMail	pt-br	Dados do Remetente
 Send	expressoMail	pt-br	Enviar
 Save and returns the previous screen	expressoMail	pt-br	Salva e retorna para a tela anterior
@@ -515,32 +519,32 @@ Sent by	expressoMail	pt-br	Enviado por
 Sent	expressoMail	pt-br	Enviados
 Sent Folder name	admin	pt-br	Nome da pasta enviadas
 Server Results	expressoMail	pt-br	Resultados do SERVIDOR
-Service unavailable	expressoMail	pt-br	Servi√ßo n√£o dispon√≠vel
+Service unavailable	expressoMail	pt-br	ServiÁo n„o disponÌvel
 Set Date	expressoMail	pt-br	Informar data
 Share folders	admin	pt-br	Compartilhar Pastas
 Shared folders	expressoMail	pt-br	Pastas compartilhadas
-Shared options saved with success	expressoMail	pt-br	Op√ß√µes de compartilhamento salvas com sucesso.
+Shared options saved with success	expressoMail	pt-br	OpÁıes de compartilhamento salvas com sucesso.
 Share mailbox	expressoMail	pt-br	Compartilhar Pastas
 Show default view on main screen?	expressoMail	pt-br	Exibir resumo do ExpressoMail na tela inicial do Expresso?
 Show images from	expressoMail	pt-br	Mostrar imagens de
-Showing only the results found in your organization	expressoMail	pt-br	Exibindo somente os resultados em sua organiza√ß√£o
-Show previous message, after delete actual message?	expressoMail	pt-br	Exibir mensagem anterior, ap√≥s apagar mensagem atual?
-Show unread messages in your home page	expressoMail	pt-br	Mostrar mensagens n√£o lidas na sua p√°gina inicial
-Signature Configuration	expressoMail	pt-br	Configura√ß√µes da Assinatura
+Showing only the results found in your organization	expressoMail	pt-br	Exibindo somente os resultados em sua organizaÁ„o
+Show previous message, after delete actual message?	expressoMail	pt-br	Exibir mensagem anterior, apÛs apagar mensagem atual?
+Show unread messages in your home page	expressoMail	pt-br	Mostrar mensagens n„o lidas na sua p·gina inicial
+Signature Configuration	expressoMail	pt-br	ConfiguraÁıes da Assinatura
 Signature	expressoMail	pt-br	Assinatura
 Signature Type	expressoMail	pt-br	Tipo de Assinatura
 Signed message	expressoMail	pt-br	Mensagem assinada digitalmente
 Simple Text	expressoMail	pt-br	Texto Simples
 Since Date	expressoMail	pt-br	Desta  Data
 Size	expressoMail	pt-br	Tamanho
-Size rule must be a number	expressoMail	pt-br	Tamanho da mensagem deve ser um n√∫mero
+Size rule must be a number	expressoMail	pt-br	Tamanho da mensagem deve ser um n˙mero
 Small	expressoMail	pt-br	Pequena
 Spam	expressoMail	pt-br	Spam
 Spam Folder name	admin	pt-br	Nome da pasta spam
 Spanish	expressoMail	pt-br	Espanhol
-SpellCheck	expressoMail	pt-br	Corretor Ortogr√°fico
-standard IMAP server	expressoMail	pt-br	servidor padr√£o de IMAP
-standard POP3 server	expressoMail	pt-br	servidor padr√£o de POP3
+SpellCheck	expressoMail	pt-br	Corretor Ortogr·fico
+standard IMAP server	expressoMail	pt-br	servidor padr„o de IMAP
+standard POP3 server	expressoMail	pt-br	servidor padr„o de POP3
 standard SMTP-Server	expressoMail	pt-br	standard SMTP-Server
 Starting to archive messages	expressoMail	pt-br	Iniciando arquivamento de mensagens
 Starting to sync folder	expressoMail	pt-br	Iniciando auto-arquivamento em
@@ -553,149 +557,150 @@ Subject	expressoMail	pt-br	Assunto
 Sunday	expressoMail	pt-br	Domingo
 Table	expressoMail	pt-br	Tabela
 Test Word: Hello %1 %2 %3 %4, Bye!	expressoMail	pt-br	Teste de Palavra: Oi %1 %2 %3 %4, Ate logo!
-The %1 folder is not created. It is necessary to finish your request.	expressoMail	pt-br	Sua pasta \"%1\" n√£o est√° criada. √â necess√°rio cri√°-la para que funcione corretamente.
-The Anti Pop-Up is enabled. Allow this site (%1) for print.	expressoMail	pt-br	O anti Pop-Up est√° ativado. Desative-o para este site (%1)!
+The %1 folder is not created. It is necessary to finish your request.	expressoMail	pt-br	Sua pasta \"%1\" n„o est· criada. … necess·rio cri·-la para que funcione corretamente.
+The Anti Pop-Up is enabled. Allow this site (%1) for print.	expressoMail	pt-br	O anti Pop-Up est· ativado. Desative-o para este site (%1)!
 The event was imported successfully.	expressoMail	pt-br	O compromisso foi importado com sucesso.
-The expresso imap server is currently down, expresso noticed you have offline mail module installed, would you like to use it?	expressoMail	pt-br	O servidor de caixas est√° aparentemente fora do ar. O expresso notou que voc√™ possui o m√≥dulo de e-mails offline instalado. Deseja utiliz√°-lo?
-The extension %1 is incorrect.	expressoMail	pt-br	O ramal %1 est√° incorretamente cadastrado.
-The field \"%1\" of the message it contains	expressoMail	pt-br	O campo \"%1\" da mensagem cont√©m
+The expresso imap server is currently down, expresso noticed you have offline mail module installed, would you like to use it?	expressoMail	pt-br	O servidor de caixas est· aparentemente fora do ar. O expresso notou que vocÍ possui o mÛdulo de e-mails offline instalado. Deseja utiliz·-lo?
+The extension %1 is incorrect.	expressoMail	pt-br	O ramal %1 est· incorretamente cadastrado.
+The field \"%1\" of the message it contains	expressoMail	pt-br	O campo \"%1\" da mensagem contÈm
 The folder %1 was successfully removed	expressoMail	pt-br	A pasta %1 foi removida com sucesso!
 The local folder %1 was successfully removed	expressoMail	pt-br	A pasta local %1 foi removida com sucesso!
-The folder was not deleted!	expressoMail	es-es	A pasta n√£o foi removida!
-The import was executed successfully.	expressoMail	pt-br	A importa√ß√£o foi executada com sucesso.
-The list has no participant.	expressoMail	pt-br	Essa lista n√£o possui nenhum participante.
-The message has attachment	expressoMail	pt-br	A mensagem cont√©m anexos
+The folder was not deleted!	expressoMail	es-es	A pasta n„o foi removida!
+The import was executed successfully.	expressoMail	pt-br	A importaÁ„o foi executada com sucesso.
+The list has no participant.	expressoMail	pt-br	Essa lista n„o possui nenhum participante.
+The message has attachment	expressoMail	pt-br	A mensagem contÈm anexos
 The messages were deleted.	expressoMail	pt-br	Mensagens removidas.
 The messages were moved to folder 	expressoMail	pt-br	Mensagens movidas para pasta 
 The message was deleted.	expressoMail	pt-br	Mensagem removida.
 The message was moved to %1 folder.	expressoMail	pt-br	Mensagem movida para pasta %1.
 The message was moved to folder 	expressoMail	pt-br	Mensagem movida para a pasta 
-The origin folder and the destination folder are the same.	expressoMail	pt-br	A pasta de origem e de destino s√£o as mesmas.
-The preference "%1" isn't enabled.	expressoMail	pt-br	A prefer√™ncia "%1" n√£o foi habilitada.
-There is not %1 folder, Expresso is creating it for you... Please, repeat your request later.	expressoMail	pt-br	Pasta %1 inexistente, Expresso criar√° para voc√™. Contudo por favor repita a opera√ß√£o em seguida.
-There's an action processing. Do you want abort it?	expressoMail	pt-br	Existe uma a√ß√£o que ainda est√° sendo processada. Suspender a√ß√£o?
-The filter is active for alerts	expressoMail	pt-br	O filtro est√° ativo para alertas
-The results were found in the Global Catalog	expressoMail	pt-br	Ocorr√™ncias encontradas no Cat√°logo Geral
-The selected folder is empty.	expressoMail	pt-br	A pasta selecionada est√° vazia.
-The search has% 1 messages stored locally. Want to see them ? Click here.	expressoMail	pt-br	A busca possui %1 mensagens armazenadas localmente. Deseja visualiz√°-las? Clique aqui.
-The sender:\n%1\nwaits your notification of reading. Do you want to confirm this?	expressoMail	pt-br	O remetente:\n%1\naguarda uma confirma√ß√£o de leitura. Voc√™ deseja confirmar a leitura?
+The origin folder and the destination folder are the same.	expressoMail	pt-br	A pasta de origem e de destino s„o as mesmas.
+The preference "%1" isn't enabled.	expressoMail	pt-br	A preferÍncia "%1" n„o foi habilitada.
+There is not %1 folder, Expresso is creating it for you... Please, repeat your request later.	expressoMail	pt-br	Pasta %1 inexistente, Expresso criar· para vocÍ. Contudo por favor repita a operaÁ„o em seguida.
+There's an action processing. Do you want abort it?	expressoMail	pt-br	Existe uma aÁ„o que ainda est· sendo processada. Suspender aÁ„o?
+The filter is active for alerts	expressoMail	pt-br	O filtro est· ativo para alertas
+The results were found in the Global Catalog	expressoMail	pt-br	OcorrÍncias encontradas no Cat·logo Geral
+The selected folder is empty.	expressoMail	pt-br	A pasta selecionada est· vazia.
+The search has% 1 messages stored locally. Want to see them ? Click here.	expressoMail	pt-br	A busca possui %1 mensagens armazenadas localmente. Deseja visualiz·-las? Clique aqui.
+The sender:\n%1\nwaits your notification of reading. Do you want to confirm this?	expressoMail	pt-br	O remetente:\n%1\naguarda uma confirmaÁ„o de leitura. VocÍ deseja confirmar a leitura?
 The sender was blocked	expressoMail	pt-br	O remetente foi bloqueado
 The size of the message is	expressoMail	pt-br	O tamanho da mensagem seja
 The size of this message has exceeded  the limit (%1B).	expressoMail	pt-br	O tamanho desta mensagem excedeu o limite (maior que %1B).
-The Timezone you're in.	expressoMail	pt-br	O fuso-hor√°rio em que voc√™ est√°.
-This is the number of messages shown in your mailbox per page	expressoMail	pt-br	Este √© o n√∫mero de mensagens mostradas na sua caixa de correio por p√°gina
+The Timezone you're in.	expressoMail	pt-br	O fuso-hor·rio em que vocÍ est·.
+This is the number of messages shown in your mailbox per page	expressoMail	pt-br	Este È o n˙mero de mensagens mostradas na sua caixa de correio por p·gina
 This list has no participants	expressoMail	pt-br	Esta lista nao possui nenhum participante.
-This mail box is empty	expressoMail	pt-br	Esta pasta est√° vazia
-This message is already opened!	expressoMail	pt-br	Est√° mensagem j√° est√° aberta!
-This message is already selected!	expressoMail	pt-br	Esta caixa j√° est√° na sele√ß√£o!
-This message is signed, and you can trust.	expressoMail	pt-br	Esta mensagem foi assinada e pode ser considerada leg√≠tima.
-This message is signed, but it is invalid. You should not trust on it.	expressoMail	pt-br	Esta mensagem foi assinada e foi violada. Esta mensagem n√£o deve ser considerada confi√°vel.
+This mail box is empty	expressoMail	pt-br	Esta pasta est· vazia
+This message is already opened!	expressoMail	pt-br	Est· mensagem j· est· aberta!
+This message is already selected!	expressoMail	pt-br	Esta caixa j· est· na seleÁ„o!
+This message is signed, and you can trust.	expressoMail	pt-br	Esta mensagem foi assinada e pode ser considerada legÌtima.
+This message is signed, but it is invalid. You should not trust on it.	expressoMail	pt-br	Esta mensagem foi assinada e foi violada. Esta mensagem n„o deve ser considerada confi·vel.
 Thursday	expressoMail	pt-br	Quinta-feira
 To: 	expressoMail	pt-br	Para:
 TO	expressoMail	pt-br	Para
 Tools	expressoMail	pt-br	Ferramentas
 To use local messages, install Google Gears	expressoMail	pt-br	Para utilizar mensagens locais no expresso, instale o Google Gears
-To use local messages you have to install google gears. Would you like to install it now?	expressoMail	pt-br	Para utilizar o recurso de mensagens locais, √© preciso instalar o Google Gears. Voc√™ gostaria de instala-lo agora mesmo?
-To use local messages you have to install google gears. Would you like to be redirected to gears installation page?	expressoMail	pt-br	Para utilizar o recurso de mensagens locais, √© preciso instalar o Google Gears. Voc√™ gostaria de ser encaminhado para a p√°gina de instala√ß√£o do mesmo?
+To use local messages you have to install google gears. Would you like to install it now?	expressoMail	pt-br	Para utilizar o recurso de mensagens locais, È preciso instalar o Google Gears. VocÍ gostaria de instala-lo agora mesmo?
+To use local messages you have to install google gears. Would you like to be redirected to gears installation page?	expressoMail	pt-br	Para utilizar o recurso de mensagens locais, È preciso instalar o Google Gears. VocÍ gostaria de ser encaminhado para a p·gina de instalaÁ„o do mesmo?
 Trash	expressoMail	pt-br	Lixeira
 Trash Folder name	admin	pt-br	Nome da pasta lixeira
-Tuesday	expressoMail	pt-br	Ter√ßa-feira
+Truncated message?	expressoMail	pt-br	Mensagem truncada?
+Tuesday	expressoMail	pt-br	TerÁa-feira
 Type the subject of the message for receiving a phone warning	expressoMail	pt-br	Digite o assunto da mensagem que deseja ser alertado por telefone
 Type without spaces, dots or special characters!	expressoMail	pt-br	Digite sem pontos ou caracteres especiais!
-Unanswered/Unforwarded	expressoMail	pt-br	N√£o Respondida/Encaminhada
+Unanswered/Unforwarded	expressoMail	pt-br	N„o Respondida/Encaminhada
 Unarchive	expressoMail	pt-br	Desarquivar
 underlined	expressoMail	pt-br	Sublinhado
 underline	expressoMail	pt-br	sublinhado
 undisclosed-recipient	expressoMail	pt-br	destinatarios nao divulgados
 Undo	expressoMail	pt-br	Desfazer
-Unflagged	expressoMail	pt-br	N√£o Importante
+Unflagged	expressoMail	pt-br	N„o Importante
 Uninstall Offline	expressoMail	pt-br	Desinstalar offline
 unlimited	expressoMail	pt-br	Sem limite
-Unseen	expressoMail	pt-br	N√£o lida
+Unseen	expressoMail	pt-br	N„o lida
 Upload file	expressoMail	pt-br	Anexar arquivo
-Use dynamic contacts?	expressoMail	pt-br	Usar contatos din√¢micos?
+Use dynamic contacts?	expressoMail	pt-br	Usar contatos din‚micos?
 Use F9 Key as shortcut.	expressoMail	pt-br	Use a tecla F9 como atalho.
-User connected	instant_messenger	pt-br	Est√° on-line
-User didn't accepted you yet	instant_messenger	pt-br	Ainda n√£o te aceitou
-User not connected	instant_messenger	pt-br	Est√° off-line
-User not registered	instant_messenger	pt-br	N√£o est√° registrado
-Users	expressoMail	pt-br	Usu√°rios
-Users from others organizations	expressoMail	pt-br	Usu√°rios de outras organiza√ß√µes
-Users from your organization	expressoMail	pt-br	Usu√°rios da sua organiza√ß√£o
+User connected	instant_messenger	pt-br	Est· on-line
+User didn't accepted you yet	instant_messenger	pt-br	Ainda n„o te aceitou
+User not connected	instant_messenger	pt-br	Est· off-line
+User not registered	instant_messenger	pt-br	N„o est· registrado
+Users	expressoMail	pt-br	Usu·rios
+Users from others organizations	expressoMail	pt-br	Usu·rios de outras organizaÁıes
+Users from your organization	expressoMail	pt-br	Usu·rios da sua organizaÁ„o
 Use shortcuts?	expressoMail	pt-br	Usar teclas de atalho?
-Use plain text editor as standard ?	expressoMail	pt-br	Usar editor de texto simples como padr√£o ?
+Use plain text editor as standard ?	expressoMail	pt-br	Usar editor de texto simples como padr„o ?
 Validity of certificate: 	expressoMail	pt-br	Validade do certificado:
-View HTML source	expressoMail	pt-br	Ver c√≥digo html
+View HTML source	expressoMail	pt-br	Ver cÛdigo html
 View tips	expressoMail	pt-br	Ver dicas
 Voided message	expressoMail	pt-br	Mensagem violada
-Would you like to send the read receipt?	expressoMail	pt-br	Deseja enviar a mensagem de confirma√ß√£o de leitura?
-Would you like to activate the alert for message attachment?	expressoMail	pt-br	Exibir confirma√ß√£o de envio de mensagem quando houver a palavra 'anexo' no corpo do email e n√£o houver anexos?
-Warning: Your Mailbox is almost full!	expressoMail	pt-br	Aviso: Sua caixa postal est√° quase cheia!
+Would you like to send the read receipt?	expressoMail	pt-br	Deseja enviar a mensagem de confirmaÁ„o de leitura?
+Would you like to activate the alert for message attachment?	expressoMail	pt-br	Exibir confirmaÁ„o de envio de mensagem quando houver a palavra 'anexo' no corpo do email e n„o houver anexos?
+Warning: Your Mailbox is almost full!	expressoMail	pt-br	Aviso: Sua caixa postal est· quase cheia!
 was succefully removed	expressoMail	pt-br	 foi removida com sucesso
 Wednesday	expressoMail	pt-br	Quarta-feira
 What is the height of the lines in the list of messages?	expressoMail	pt-br	Qual a altura das linhas na lista de mensagens?
-What is the maximum number of messages per page?	expressoMail	pt-br	Qual o n√∫mero m√°ximo de mensagens por p√°gina?
-What is the maximum number of results in an e-mail search?	expressoMail	pt-br	Qual o n√∫mero m√°ximo de resultados na busca de e-mails?
-What is the maximum size of embedded images?	expressoMail	pt-br	Qual o tamanho m√°ximo das imagens inseridas nos emails?
-What is the minimum number of characters in searching contacts?	expressoMail	pt-br	Qual √© o n√∫mero m√≠nimo de caracteres ao pesquisar contatos?
-What is your timezone?	expressoMail	pt-br	Qual o seu fuso-hor√°rio?
+What is the maximum number of messages per page?	expressoMail	pt-br	Qual o n˙mero m·ximo de mensagens por p·gina?
+What is the maximum number of results in an e-mail search?	expressoMail	pt-br	Qual o n˙mero m·ximo de resultados na busca de e-mails?
+What is the maximum size of embedded images?	expressoMail	pt-br	Qual o tamanho m·ximo das imagens inseridas nos emails?
+What is the minimum number of characters in searching contacts?	expressoMail	pt-br	Qual È o n˙mero mÌnimo de caracteres ao pesquisar contatos?
+What is your timezone?	expressoMail	pt-br	Qual o seu fuso-hor·rio?
 When delete message, send it automatically to trash folder	expressoMail	pt-br	Ao excluir um mensagem, mover automaticamente esta mensagem para a pasta lixeira
-When user send an email with image in body message, it changes the size	expressoMail	pt-br	Quando o usu√°rio envia um e-mail com a imagem no corpo da mensagem ela muda o tamanho
-When you are away from computer it saves automatically the message you are writing	expressoMail	pt-br	Quando voc√™ estiver longe do computador. Isto salva automaticamente a mensagem que est√° a escrever
-Where should the quick search be performed by default?	expressoMail	pt-br	Onde a pesquisa r√°pida deve atuar por padr√£o?
-It is where the keyword should be searched when the user executes a quick search.	expressoMail	pt-br	Onde a busca deve ser realizada quando o usu√°rio realizar uma pesquisa r√°pida.
+When user send an email with image in body message, it changes the size	expressoMail	pt-br	Quando o usu·rio envia um e-mail com a imagem no corpo da mensagem ela muda o tamanho
+When you are away from computer it saves automatically the message you are writing	expressoMail	pt-br	Quando vocÍ estiver longe do computador. Isto salva automaticamente a mensagem que est· a escrever
+Where should the quick search be performed by default?	expressoMail	pt-br	Onde a pesquisa r·pida deve atuar por padr„o?
+It is where the keyword should be searched when the user executes a quick search.	expressoMail	pt-br	Onde a busca deve ser realizada quando o usu·rio realizar uma pesquisa r·pida.
 Who	expressoMail	pt-br	Quem
 With all	expressoMail	pt-br	com todas
 Without Quota	expressoMail	pt-br	Sem Quota
 without save	expressoMail	pt-br	sem arquivar
-without destination	expressoMail	pt-br	Sem Destinat√°rio
-with signer different from sender	expressoMail	pt-br	com e-mail do signat√°rio diferente do remetente
+without destination	expressoMail	pt-br	Sem Destinat·rio
+with signer different from sender	expressoMail	pt-br	com e-mail do signat·rio diferente do remetente
 with some	expressoMail	pt-br	com algumas
 With the following message	expressoMail	pt-br	Com a seguinte mensagem
-Would you like to have a read receipt option to read messages?	expressoMail	pt-br	Deseja apresentar op√ß√£o de confirma√ß√£o de leitura ao ler mensagem?
-Would you like to keep archived messages?	expressoMail	pt-br	Voc√™ gostaria de manter as mensagens arquivadas?
-Would you like to use local messages?	expressoMail	pt-br	Voc√™ gostaria de usar mensagens locais?
-Write	expressoMail	pt-br	Cria√ß√£o
-Write message	expressoMail	pt-br	Comp√¥r uma mensagem
+Would you like to have a read receipt option to read messages?	expressoMail	pt-br	Deseja apresentar opÁ„o de confirmaÁ„o de leitura ao ler mensagem?
+Would you like to keep archived messages?	expressoMail	pt-br	VocÍ gostaria de manter as mensagens arquivadas?
+Would you like to use local messages?	expressoMail	pt-br	VocÍ gostaria de usar mensagens locais?
+Write	expressoMail	pt-br	CriaÁ„o
+Write message	expressoMail	pt-br	CompÙr uma mensagem
 wrote	expressoMail	pt-br	escreveu
 Write a message	expressoMail	pt-br	Digite alguma mensagem.
 Yes	expressoMail	pt-br	Sim
 Yesterday	expressoMail	pt-br	Ontem
-You can't forward e-mails to this domain: %1	admin	pt-br	N√£o √© permitido encaminhar e-mails para este dom√≠nio: %1
-You cant manipulate local messages on search	expressoMail	pt-br	Imposs√≠vel manipular mensagens locais a partir de uma busca. Isso √© permitido apenas para mensagens n√£o locais.
-you can't move mails from local to server folders	expressoMail	pt-br	N√£o √© poss√≠vel mover mensagens de uma pasta local para uma pasta no servidor.
-You can use it if your screen does not have good resolution	expressoMail	pt-br	Voc√™ pode usar isto se a sua tela n√£o tem boa resolu√ß√£o
-You didn't accepted yet	instant_messenger	pt-br	Voc√™ ainda n√£o aceitou
-You don't have permission for this operation in this shared folder!	expressoMail	pt-br	Voc√™ n√£o possui permiss√£o para esta opera√ß√£o na pasta compartilhada!
-you extension number is incorect	expressoMail	pt-br	O seu ramal est√° incorretamente cadastrado.
-You have %1 new messages	expressoMail	pt-br	Voc√™ tem %1 novas mensagens
-You have 1 new message	expressoMail	pt-br	Voc√™ tem 1 nova mensagem
-You have exceeded the number of allowed characters	expressoMail	pt-br	O n√∫mero m√°ximo de caracteres permitidos foi excedido.
-You have messages to send. Want you to send them now?	expressoMail	pt-br	Voc√™ tem mensagens na fila para enviar. Deseja envi√°-las agora?
-You have reached the maximum number of rules	expressoMail	pt-br	O n√∫mero m√°ximo de mensagens foi atingido
+You can't forward e-mails to this domain: %1	admin	pt-br	N„o È permitido encaminhar e-mails para este domÌnio: %1
+You cant manipulate local messages on search	expressoMail	pt-br	ImpossÌvel manipular mensagens locais a partir de uma busca. Isso È permitido apenas para mensagens n„o locais.
+you can't move mails from local to server folders	expressoMail	pt-br	N„o È possÌvel mover mensagens de uma pasta local para uma pasta no servidor.
+You can use it if your screen does not have good resolution	expressoMail	pt-br	VocÍ pode usar isto se a sua tela n„o tem boa resoluÁ„o
+You didn't accepted yet	instant_messenger	pt-br	VocÍ ainda n„o aceitou
+You don't have permission for this operation in this shared folder!	expressoMail	pt-br	VocÍ n„o possui permiss„o para esta operaÁ„o na pasta compartilhada!
+you extension number is incorect	expressoMail	pt-br	O seu ramal est· incorretamente cadastrado.
+You have %1 new messages	expressoMail	pt-br	VocÍ tem %1 novas mensagens
+You have 1 new message	expressoMail	pt-br	VocÍ tem 1 nova mensagem
+You have exceeded the number of allowed characters	expressoMail	pt-br	O n˙mero m·ximo de caracteres permitidos foi excedido.
+You have messages to send. Want you to send them now?	expressoMail	pt-br	VocÍ tem mensagens na fila para enviar. Deseja envi·-las agora?
+You have reached the maximum number of rules	expressoMail	pt-br	O n˙mero m·ximo de mensagens foi atingido
 you have to enter the name of the new folder	expressoMail	pt-br	Informe o nome da pasta
-You must choose a file	expressoMail	pt-br	Voc√™ deve escolher um arquivo
-You must choose a folder	expressoMail	pt-br	Voc√™ deve escolher uma pasta
-You must wait while the messages will be exported...	expressoMail	pt-br	Aguarde enquanto as mensagens ser√£o exportadas...
-You must wait while the messages will be imported...	expressoMail	pt-br	Aguarde enquanto as mensagens ser√£o importadas...
-You wrote "%1" in your message, but there are no files attached. Send it anyway?	expressoMail	pt-br	Voc√™ escreveu "%1" na sua mensagem, mas n√£o h√° arquivos anexados. Enviar assim mesmo?
-Your Mailbox is 100% full! You must free more space or will not receive messages.	expressoMail	pt-br	Sua caixa postal est√° 100% cheia! Libere espa√ßo ou n√£o ir√° receber mensagens.
-Your mailbox is shared with	expressoMail	pt-br	Sua caixa postal est√° compartilhada com
-There are still editing posts, really want to leave the page	expressoMail	pt-br	Existem mensagens ainda em edi√ß√£o, deseja realmente deixar a p√°gina
-Your changes are not saved. What to do?	expressoMail	pt-br	Suas altera√ß√µes n√£o foram salvas. O que deseja fazer?
-Your message to %1 has not been saved or sent. To %2 will be necessary open it again. Discard your message?	expressoMail	pt-br	Sua mensagem para %1 n√£o foi salva ou enviada. Para %2 ser√° preciso abrir novamente. Descartar sua mensagem?
+You must choose a file	expressoMail	pt-br	VocÍ deve escolher um arquivo
+You must choose a folder	expressoMail	pt-br	VocÍ deve escolher uma pasta
+You must wait while the messages will be exported...	expressoMail	pt-br	Aguarde enquanto as mensagens ser„o exportadas...
+You must wait while the messages will be imported...	expressoMail	pt-br	Aguarde enquanto as mensagens ser„o importadas...
+You wrote "%1" in your message, but there are no files attached. Send it anyway?	expressoMail	pt-br	VocÍ escreveu "%1" na sua mensagem, mas n„o h· arquivos anexados. Enviar assim mesmo?
+Your Mailbox is 100% full! You must free more space or will not receive messages.	expressoMail	pt-br	Sua caixa postal est· 100% cheia! Libere espaÁo ou n„o ir· receber mensagens.
+Your mailbox is shared with	expressoMail	pt-br	Sua caixa postal est· compartilhada com
+There are still editing posts, really want to leave the page	expressoMail	pt-br	Existem mensagens ainda em ediÁ„o, deseja realmente deixar a p·gina
+Your changes are not saved. What to do?	expressoMail	pt-br	Suas alteraÁıes n„o foram salvas. O que deseja fazer?
+Your message to %1 has not been saved or sent. To %2 will be necessary open it again. Discard your message?	expressoMail	pt-br	Sua mensagem para %1 n„o foi salva ou enviada. Para %2 ser· preciso abrir novamente. Descartar sua mensagem?
 Your message was rejected by antivirus. Perhaps your attachment has been infected.	expressoMail	pt-br	Sua mensagem foi rejeitada pelo anti-virus. Seu anexo pode estar infectado.
 Invalid recipients in the message	expressoMail	pt-br	Destinatario(s) invalido(s) na mensagem
 Your message was save as draft in folder %1.	expressoMail	pt-br	Sua mensagem foi salva como rascunho na pasta %1.
 Your message was sent and save.	expressoMail	pt-br	Sua mensagem foi enviada e salva.
 Your message was sent.	expressoMail	pt-br	Sua mensagem foi enviada.
 Your message was sent to queue	expressoMail	pt-br	Sua mensagem foi enviada com sucesso para a fila
-Your search argument must be longer than %1 characters.	expressoMail	pt-br	Seus argumentos para a pesquisa precisam ter mais que %1 d√≠gitos.
-Your session could not be verified.	expressoMail	pt-br	Sua sess√£o expirou. Entre novamente no Expresso.
+Your search argument must be longer than %1 characters.	expressoMail	pt-br	Seus argumentos para a pesquisa precisam ter mais que %1 dÌgitos.
+Your session could not be verified.	expressoMail	pt-br	Sua sess„o expirou. Entre novamente no Expresso.
 Your Spam folder was empty.	expressoMail	pt-br	Sua pasta Spam foi limpa.
 Your Trash folder was empty.	expressoMail	pt-br	Sua pasta Lixeira foi limpa.
 zip mails to import	expressoMail	pt-br	Arquivo .zip ou .eml:
-Show TO: in place of FROM: only in Automatic SEND folder	expressoMail	pt-br	Trocar remetente pelo destinat√°rio na coluna QUEM somente na pasta Enviado
+Show TO: in place of FROM: only in Automatic SEND folder	expressoMail	pt-br	Trocar remetente pelo destinat·rio na coluna QUEM somente na pasta Enviado
 Certificate Owner	expressoMail	en	Expedido para
 Common Name (CN)	expressoMail	en	Nome Comum (CN)
 Organization (O)	expressoMail	en	Empresa (O)
@@ -709,57 +714,57 @@ Validity	expressoMail	en	Validade
 Valid From	expressoMail	en	Expedido em
 Valid Until	expressoMail	en	Valido ate
 Serial Number	expressoMail	en	Numero de serie
-Automaticaly create Default local folders?	expressoMail	pt-br	Criar autom√°ticamente pastas locais padr√£o?
-Enable this option if you want to automaticaly create the Inbox, Draft, Trash and Sent folders	expressoMail	pt-br	Ative essa op√ß√£o para que as pastas Caixa de entrada, Lixeira, Enviada e Rascunhos sejam criadas autom√°ticamente no arquivamento local.
-View extended information about users	expressoMail	pt-br	Ver informa√ß√µes extendidas nas buscas por usu√°rios?
-Do you want to use SpellChecker in email editor?	expressoMail	pt-br	Quer usar o corretor ortogr√°fico no editor de emails?
-It allow you to check the spelling of your emails	expressoMail	pt-br	Possibilita a corre√ß√£o ortogr√°fica de emails.
-Increases th maximum size of show messages?	expressoMail	pt-br	Voc√™ quer que se aumente o limite de tamanho de emails que s√£o mostrados?
-Increases the maximum size of show emails from 100kb to 1mb'	expressoMail	pt-br	Essa op√ß√£o aumenta o tamanho m√°ximo dos emails mostrados de 100KB para 1MB.
-If you want to install a desktop shortcut for accessing the offline ExpressoMail please confirm it after pressing the Install offline button. </br> The application also can be accessed using the URL:	expressoMail	pt-br	Caso deseje instalar um √≠cone no desktop para acesso ao expressoMail offline, confirme a pergunta que aparecer√° ap√≥s clicar no bot√£o "instalar offline". <br />A aplica√ß√£o tamb√©m pode ser acessada pela URL:
-The selected folder cotain any accented character. The filter dont work with accented folders. Please, rename the folder or choose another folder.	expressoMail	pt-br	A pasta selecionada cont√©m algum caracter acentuado. O filtro n√£o funcionada com pastas acentuadas. Por favor, mude o nome da pasta ou escolha outra.
+Automaticaly create Default local folders?	expressoMail	pt-br	Criar autom·ticamente pastas locais padr„o?
+Enable this option if you want to automaticaly create the Inbox, Draft, Trash and Sent folders	expressoMail	pt-br	Ative essa opÁ„o para que as pastas Caixa de entrada, Lixeira, Enviada e Rascunhos sejam criadas autom·ticamente no arquivamento local.
+View extended information about users	expressoMail	pt-br	Ver informaÁıes extendidas nas buscas por usu·rios?
+Do you want to use SpellChecker in email editor?	expressoMail	pt-br	Quer usar o corretor ortogr·fico no editor de emails?
+It allow you to check the spelling of your emails	expressoMail	pt-br	Possibilita a correÁ„o ortogr·fica de emails.
+Increases th maximum size of show messages?	expressoMail	pt-br	VocÍ quer que se aumente o limite de tamanho de emails que s„o mostrados?
+Increases the maximum size of show emails from 100kb to 1mb'	expressoMail	pt-br	Essa opÁ„o aumenta o tamanho m·ximo dos emails mostrados de 100KB para 1MB.
+If you want to install a desktop shortcut for accessing the offline ExpressoMail please confirm it after pressing the Install offline button. </br> The application also can be accessed using the URL:	expressoMail	pt-br	Caso deseje instalar um Ìcone no desktop para acesso ao expressoMail offline, confirme a pergunta que aparecer· apÛs clicar no bot„o "instalar offline". <br />A aplicaÁ„o tambÈm pode ser acessada pela URL:
+The selected folder cotain any accented character. The filter dont work with accented folders. Please, rename the folder or choose another folder.	expressoMail	pt-br	A pasta selecionada contÈm algum caracter acentuado. O filtro n„o funcionada com pastas acentuadas. Por favor, mude o nome da pasta ou escolha outra.
 Do you want to use x origin in source menssage?	admin	pt-br	Deseja utilizar o X-Origin na fonte da mensagem?
 Send this mail as text plain	expressoMail	pt-br	Enviar este e-mail como texto simples
-The text format will be lost	expressoMail	pt-br	A formata√ß√£o do texto ser√° perdida
-The format of telephone number is invalid	expressoMail	pt-br	O formato do n√∫mero de telefone √© inv√°lido
+The text format will be lost	expressoMail	pt-br	A formataÁ„o do texto ser· perdida
+The format of telephone number is invalid	expressoMail	pt-br	O formato do n˙mero de telefone È inv·lido
 Telephone number updated with success.	expressoMail	pt-br	Telefone atualizado com sucesso.
 Click here to update your telephone	expressoMail	pt-br	Clique aqui para atualizar seu telefone
 Update my telephone	expressoMail	pt-br	Atualizar meu telefone
-You can't modify your Commercial Telephone.	expressoMail	pt-br	Voc√™ n√£o tem permiss√£o para modificar seu Telefone Comercial.
-Warning for users	expressoMail	pt-br	Aviso importante aos usu√°rios
-text_Warning	expressoMail	pt-br	Caro usu√°rio, <br>Mantenha seu Telefone Comercial sempre atualizado no Expresso. Muitas pessoas consultam o Cat√°logo do Expresso como se fosse uma lista telef√¥nica.
+You can't modify your Commercial Telephone.	expressoMail	pt-br	VocÍ n„o tem permiss„o para modificar seu Telefone Comercial.
+Warning for users	expressoMail	pt-br	Aviso importante aos usu·rios
+text_Warning	expressoMail	pt-br	Caro usu·rio, <br>Mantenha seu Telefone Comercial sempre atualizado no Expresso. Muitas pessoas consultam o Cat·logo do Expresso como se fosse uma lista telefÙnica.
 Close this warning	expressoMail	pt-br	Fechar este aviso
-Warning	expressoMail	pt-br	Aten√ß√£o
+Warning	expressoMail	pt-br	AtenÁ„o
 Discard	expressoMail	pt-br	Descartar
-Send messages with return recipient option by default	expressoMail	pt-br	Sempre enviar mensagens com solicita√ß√£o de confirma√ß√£o de leitura?
-With this option every new email will get the return recipient option marked	expressoMail	pt-br	Com essa op√ß√£o ativa todo novo e-mail ter√° marcada a op√ß√£o de confirma√ß√£o de leitura padr√£o
-You must manually close one of your tabs before opening a new one	expressoMail	pt-br	Voc√™ deve fechar uma de suas abas de edi√ß√£o manualmente para poder abrir outra
-Auto close the first tab on reaching the maximum number of tabs?	expressoMail	pt-br	Fechar automaticamente a primeira aba ao atingir o n√∫mero m√°ximo de abas?
-gears firefox windows url	expressoMail	pt-br	URL de instala√ß√£o do Gears para o Firefox - windows
-gears firefox linux url	expressoMail	pt-br	URL de instala√ß√£o do Gears para o Firefox - linux
-gears ie url	expressoMail	pt-br	URL de instala√ß√£o do Gears para o Internet explorer
-View the user name in the header of the messages printed?	expressoMail	pt-br	Exibir o meu nome no cabe√ßalho das mensagens impressas?
-Displays the user name in the header print email	expressoMail	pt-br	Exibe o nome do usu√°rio no cabe√ßalho de impress√£o do email 
+Send messages with return recipient option by default	expressoMail	pt-br	Sempre enviar mensagens com solicitaÁ„o de confirmaÁ„o de leitura?
+With this option every new email will get the return recipient option marked	expressoMail	pt-br	Com essa opÁ„o ativa todo novo e-mail ter· marcada a opÁ„o de confirmaÁ„o de leitura padr„o
+You must manually close one of your tabs before opening a new one	expressoMail	pt-br	VocÍ deve fechar uma de suas abas de ediÁ„o manualmente para poder abrir outra
+Auto close the first tab on reaching the maximum number of tabs?	expressoMail	pt-br	Fechar automaticamente a primeira aba ao atingir o n˙mero m·ximo de abas?
+gears firefox windows url	expressoMail	pt-br	URL de instalaÁ„o do Gears para o Firefox - windows
+gears firefox linux url	expressoMail	pt-br	URL de instalaÁ„o do Gears para o Firefox - linux
+gears ie url	expressoMail	pt-br	URL de instalaÁ„o do Gears para o Internet explorer
+View the user name in the header of the messages printed?	expressoMail	pt-br	Exibir o meu nome no cabeÁalho das mensagens impressas?
+Displays the user name in the header print email	expressoMail	pt-br	Exibe o nome do usu·rio no cabeÁalho de impress„o do email 
 Limit reached folders	expressoMail	pt-br	Limite de pastas atingido! 
 Send this mail as text plain	expressoMail	pt-br	Enviar este e-mail como texto simples
-The text format will be lost	expressoMail	pt-br	A formata√ß√£o do texto ser√° perdida
-Error exporting messages, try again latter	expressoMail	pt-br	N√£o foi poss√≠vel exportar as mensagens selecionadas.
+The text format will be lost	expressoMail	pt-br	A formataÁ„o do texto ser· perdida
+Error exporting messages, try again latter	expressoMail	pt-br	N„o foi possÌvel exportar as mensagens selecionadas.
 Exporting selected messages, this can take some time.	expressoMail	pt-br	Exportando mensagens, isso pode levar algum tempo.
 Report error	expressoMail	pt-br	Reportar erro
-More information about the problem (optional)	expressoMail	pt-br	Maiores informa√ß√µes sobre o problema (opcional)
-Attention! The information contained in the e-mail will be sent to the support team	expressoMail	pt-br	Aten√ß√£o! As informa√ß√µes do contidas no e-mail ser√£o enviadas para a equipe de suporte
-allow hidden copy	expressoMail	pt-br	Liberar todos os usu√°rios a enviar email com c√≥pia oculta
+More information about the problem (optional)	expressoMail	pt-br	Maiores informaÁıes sobre o problema (opcional)
+Attention! The information contained in the e-mail will be sent to the support team	expressoMail	pt-br	AtenÁ„o! As informaÁıes do contidas no e-mail ser„o enviadas para a equipe de suporte
+allow hidden copy	expressoMail	pt-br	Liberar todos os usu·rios a enviar email com cÛpia oculta
 Email report error	expressoMail	pt-br	Reportar erro de e-mail
 Results	expressoMail	pt-br	Resultados
-Please, enter a parameter to search	expressoMail	pt-br	Por favor, insira um par√¢metro para a busca
-Paramter must be at least	expressoMail	pt-br	O Par√¢metro deve ter pelo menos
+Please, enter a parameter to search	expressoMail	pt-br	Por favor, insira um par‚metro para a busca
+Paramter must be at least	expressoMail	pt-br	O Par‚metro deve ter pelo menos
 characters	expressoMail	pt-br	caracteres
 Contact Details	expressoMail	pt-br	Detalhes do contato
-page	expressoMail	pt-br	P√°gina
+page	expressoMail	pt-br	P·gina
 search	expressoMail	pt-br	Buscar
-catalog	expressoMail	pt-br	Cat√°logo
-Quick Search Contacts	expressoMail	pt-br	Busca r√°pida de contatos
-All Catalogs	expressoMail	pt-br	Todos cat√°logos
+catalog	expressoMail	pt-br	Cat·logo
+Quick Search Contacts	expressoMail	pt-br	Busca r·pida de contatos
+All Catalogs	expressoMail	pt-br	Todos cat·logos
 of	expressoMail	pt-br	de
 ERROR saving your message.	expressoMail	pt-br	Erro ao salvar mensagem.
 Messages: add+	expressoMail	pt-br	Mensagens: adicionar+
@@ -772,41 +777,41 @@ Shared folders	expressoMail	pt-br	Pastas compartilhadas
 Local folders	expressoMail	pt-br	Pastas locais
 Attach	expressoMail	pt-br	Anexar
 Your message have %1 characters, the message needs to have less then 10000 characters	expressoMail	pt-br	Sua mensagem tem %1 caracteres, a mensagem precisa ter menos de 10 mil caracteres
-Wait a moment, your image is uploading ...	expressoMail	pt-br	Espere um momento, sua imagem est√° sendo carregada ... 
-Reached maximum tab limit. Want to close this tab	expressoMail	pt-br	Limite m√°ximo de abas foi atingido. Deseja fechar esta aba?
-It's not possible rename this folder. try other folder name	expressoMail	pt-br	Erro ao renomear a pasta. Certifique-se de que n√£o tentou renomea-la com um nome que cont√©m a palavra \"local_\" ou que possui algum caractere especial.
-SMTP Error: The following recipient addresses failed: %1	expressoMail	pt-br	Erro de SMTP: Os endere√ßos de destinat√°rio a seguir falharam: %1
-The recipients addresses failed %1	expressoMail	pt_br	Os destinatarios s√£o invalidos : %1   
-Message size greater than allowed(Default rule)	expressoMail_2	pt_br	Tamanho da mensagem maior do que o permitido(Regra Padr√£o)
+Wait a moment, your image is uploading ...	expressoMail	pt-br	Espere um momento, sua imagem est· sendo carregada ... 
+Reached maximum tab limit. Want to close this tab	expressoMail	pt-br	Limite m·ximo de abas foi atingido. Deseja fechar esta aba?
+It's not possible rename this folder. try other folder name	expressoMail	pt-br	Erro ao renomear a pasta. Certifique-se de que n„o tentou renomea-la com um nome que contÈm a palavra \"local_\" ou que possui algum caractere especial.
+SMTP Error: The following recipient addresses failed: %1	expressoMail	pt-br	Erro de SMTP: Os endereÁos de destinat·rio a seguir falharam: %1
+The recipients addresses failed %1	expressoMail	pt_br	Os destinatarios s„o invalidos : %1   
+Message size greater than allowed(Default rule)	expressoMail_2	pt_br	Tamanho da mensagem maior do que o permitido(Regra Padr„o)
 (no subject)   	expressoMail	pt_br	(sem assunto)
 Message file too big.	expressoMail	pt_br	Tamanho da mensagem muito grande.
-<strong>Tip:</strong> <span>For faster save, click over the image with <em>right button</em>.</span>	expressoMail	pt-br	<strong>Dica:</strong> <span>Para salvar rapidamente, clique sobre a imagem com o <em>bot√£o direito</em> do mouse.</span>
+<strong>Tip:</strong> <span>For faster save, click over the image with <em>right button</em>.</span>	expressoMail	pt-br	<strong>Dica:</strong> <span>Para salvar rapidamente, clique sobre a imagem com o <em>bot„o direito</em> do mouse.</span>
 Shortcut: %1	expressoMail	pt-br	Atalho: %1
 Open message	expressoMail	pt-br	Abrir mensagem
 Simple text mode	expressoMail	pt-br	Modo texto simples
-Please enter a parameter to search	expressoMail	pt-br	Por favor, insira um par√¢metro para a busca
-parameter must be at least	expressoMail	pt-br	O par√¢metro de busca deve ter ao menos
-this exhibits a sample of message within the message subject column	preferences	pt-br	Exibe uma amostra da mensagem com o conte√∫do da coluna Assunto
+Please enter a parameter to search	expressoMail	pt-br	Por favor, insira um par‚metro para a busca
+parameter must be at least	expressoMail	pt-br	O par‚metro de busca deve ter ao menos
+this exhibits a sample of message within the message subject column	preferences	pt-br	Exibe uma amostra da mensagem com o conte˙do da coluna Assunto
 this exhibits a sample of message within a tool-tip box	preferences	pt-br	Exibe uma amostra da mensagem em uma caixa tool-tip
-This exhibits employeenumber and ou from LDAP in searchs	preferences	pt-br	Exibe informa√ß√µes adicionais nas buscas do LDAP
-what is the minimum number of characters in searching contacts	preferences	pt-br	Qual √© o n√∫mero m√≠nimo de caracteres ao pesquisar contatos
-Increases the maximum size of show emails from 100kb to 1mb	preferences	pt-br	Aumenta o tamanho m√°ximo de emails mostrados de 100kb para 1mb
+This exhibits employeenumber and ou from LDAP in searchs	preferences	pt-br	Exibe informaÁıes adicionais nas buscas do LDAP
+what is the minimum number of characters in searching contacts	preferences	pt-br	Qual È o n˙mero mÌnimo de caracteres ao pesquisar contatos
+Increases the maximum size of show emails from 100kb to 1mb	preferences	pt-br	Aumenta o tamanho m·ximo de emails mostrados de 100kb para 1mb
 How to show nested messages	preferences	pt-br	Como mostrar mensagens aninhadas
-ERROR saving your message over quota.	expressoMail	pt-br	Mensagem n√£o salva pois excede a quota.
-Display default fields on the quick search screen?	preferences	pt-br	Mostrar campos padr√£o na tela de busca r√°pida de contatos?
+ERROR saving your message over quota.	expressoMail	pt-br	Mensagem n„o salva pois excede a quota.
+Display default fields on the quick search screen?	preferences	pt-br	Mostrar campos padr„o na tela de busca r·pida de contatos?
 No mail	expressoMail	pt-br	Sem e-mail
-It is not possible to add this contact as a recipient because it does not have email	expressoMail	pt-br	N√£o √© poss√≠vel adicionar esse contato como destinat√°rio, porque ele n√£o tem e-mail
-Unable to remove the message (s) of shared folders which you do not have permission.	expressoMail	pt-br	N√£o foi poss√≠vel remover as mensagens da(s) pastas compartilhadas as quais voc√™ n√£o possui permiss√£o.
+It is not possible to add this contact as a recipient because it does not have email	expressoMail	pt-br	N„o È possÌvel adicionar esse contato como destinat·rio, porque ele n„o tem e-mail
+Unable to remove the message (s) of shared folders which you do not have permission.	expressoMail	pt-br	N„o foi possÌvel remover as mensagens da(s) pastas compartilhadas as quais vocÍ n„o possui permiss„o.
 Error processing some messages.	expressoMail	pt-br	Erro ao processar algumas mensagens.
-Some messages were not marked with success!	expressoMail	pt-br	Algumas mensagens n√£o foram marcadas com sucesso!
+Some messages were not marked with success!	expressoMail	pt-br	Algumas mensagens n„o foram marcadas com sucesso!
 The messages were marked with success!	expressoMail	pt-br	As mensagens foram marcadas com sucesso!
 Error marking messages.	expressoMail	pt-br	Erro ao marcar as mensagens.
 Error importing.	expressoMail	pt-br	Erro ao Importar.
 Using cache for list of messages	admin	pt-br	Usar cache para lista de mensagens
 Maximum time for the list of messages keep in cache	admin	pt-br	Tempo maximo para listagem de mensagens ficar no cache
-Title	expressoMail	pt-br	T√≠tulo
+Title	expressoMail	pt-br	TÌtulo
 Location	expressoMail	pt-br	Local
-Start	expressoMail	pt-br	In√≠cio
+Start	expressoMail	pt-br	InÌcio
 End	expressoMail	pt-br	Fim
 Organizer	expressoMail	pt-br	Organizador
 Participants	expressoMail	pt-br	Participantes
@@ -814,24 +819,24 @@ Remove CC	expressoMail	pt-br	Remover CC
 Remove CCo	expressoMail	pt-br	Remover CCo
 Encrypted email	expressoMail	pt-br	Email criptografado
 Include digital signature	expressoMail	pt-br	Incluir assinatura digital
-cannot create folder with more than 100 characters	expressoMail	pt-br	Uma pasta deve ter no m√°ximo 100 caracteres
-Do you want to cancel the folder creation?	expressoMail	pt-br	Deseja cancelar a cria√ß√£o da pasta?
-Do you want to cancel the folder edition?	expressoMail	pt-br	Deseja cancelar a edi√ß√£o da pasta?
-One or more messages from this folder are open	expressoMail	pt-br	Uma ou mais mensagens desta pasta est√£o abertas
-One or more messages from any sub-folder are open	expressoMail	pt-br	Uma ou mais mensagens de alguma sub-pasta desta pasta est√£o abertas
-Thie folder is already in this place	expressoMail	pt-br	A pasta j√° esta neste local
+cannot create folder with more than 100 characters	expressoMail	pt-br	Uma pasta deve ter no m·ximo 100 caracteres
+Do you want to cancel the folder creation?	expressoMail	pt-br	Deseja cancelar a criaÁ„o da pasta?
+Do you want to cancel the folder edition?	expressoMail	pt-br	Deseja cancelar a ediÁ„o da pasta?
+One or more messages from this folder are open	expressoMail	pt-br	Uma ou mais mensagens desta pasta est„o abertas
+One or more messages from any sub-folder are open	expressoMail	pt-br	Uma ou mais mensagens de alguma sub-pasta desta pasta est„o abertas
+Thie folder is already in this place	expressoMail	pt-br	A pasta j· esta neste local
 Delete/move subfolders first	expressoMail	pt-br	Delete/mova suas subpastas primeiro
 My Labels	expressoMail	pt-br	Meus marcadores
 No labels found.	expressoMail	pt-br	Nenhum marcador encontrado 
 Close 	expressoMail	pt-br	Fechar
-Basic	expressoMail	pt-br	B√°sico 
+Basic	expressoMail	pt-br	B·sico 
 Label name	expressoMail	pt-br	 Nome do marcador 
 Label Color	expressoMail	pt-br	Cor do marcador
 New Label	expressoMail	pt-br	Novo Marcador  
-Default	expressoMail	pt-br	Padr√£o 
+Default	expressoMail	pt-br	Padr„o 
 Coala	expressoMail	pt-br	Coala 
 Tomato	expressoMail	pt-br	Tomate 
-Lemon	expressoMail	pt-br	Lim√£o 
+Lemon	expressoMail	pt-br	Lim„o 
 high Contrast	expressoMail	pt-br	Alto contraste 
 Custom	expressoMail	pt-br	Personalizado 
 Text color	expressoMail	pt-br	Cor do texto 
@@ -843,133 +848,133 @@ Save	expressoMail	pt-br	Salvar
 Close	expressoMail	pt-br	Fechar
 Flag as	expressoMail	pt-br	Sinalizar como
 Alarm	expressoMail	pt-br	Alarme
-Conclusion	expressoMail	pt-br	Conclus√£o
+Conclusion	expressoMail	pt-br	Conclus„o
 Flag color	expressoMail	pt-br	Cor do sinalizador
 Color	expressoMail	pt-br	Cor
 Apply	expressoMail	pt-br	Aplicar
 Cancel	expressoMail	pt-br	Cancelar
 Color	expressoMail	pt-br	Cor
-Done	expressoMail	pt-br	Conclu√≠do
-This event does not exist on its agenda	expressoMail	pt-br	Este evento n√£o existe em sua agenda.
+Done	expressoMail	pt-br	ConcluÌdo
+This event does not exist on its agenda	expressoMail	pt-br	Este evento n„o existe em sua agenda.
 Follow up	expressoMail	pt-br	Acompanhar
 Read	expressoMail	pt-br	Ler
 Answer	expressoMail	pt-br	Responder
 Forward	expressoMail	pt-br	Encaminhar
-Don't forward	expressoMail	pt-br	N√£o Encaminhar
-Don't answer	expressoMail	pt-br	N√£o Responder
+Don't forward	expressoMail	pt-br	N„o Encaminhar
+Don't answer	expressoMail	pt-br	N„o Responder
 Show All Items	expressoMail	pt-br	Mostrar Todos os Itens
-You have one undone message today:	expressoMail	pt-br	Voc√™ tem uma mensagem concluindo hoje: 
-You have a follow up due for today:	expressoMail	pt-br	Voc√™ tem uma mensagem sinalizada para hoje:
-You have %1 undone messages today:	expressoMail	pt-br	Voc√™ tem %1 mensagens concluindo hoje:
-You have %1 follow ups due for today:	expressoMail	pt-br	Voc√™ tem %1 mensagens sinalizadas para hoje:
-Don't show this window anymore today.	expressoMail	pt-br	N√£o mostrar essa janela por hoje.
+You have one undone message today:	expressoMail	pt-br	VocÍ tem uma mensagem concluindo hoje: 
+You have a follow up due for today:	expressoMail	pt-br	VocÍ tem uma mensagem sinalizada para hoje:
+You have %1 undone messages today:	expressoMail	pt-br	VocÍ tem %1 mensagens concluindo hoje:
+You have %1 follow ups due for today:	expressoMail	pt-br	VocÍ tem %1 mensagens sinalizadas para hoje:
+Don't show this window anymore today.	expressoMail	pt-br	N„o mostrar essa janela por hoje.
 Apply filter	expressoMail	pt-br	Aplicar filtro
-vacation	expressoMail	pt-br	F√©rias
+vacation	expressoMail	pt-br	FÈrias
 redirect	expressoMail	pt-br	Redirecionar para
 setflag	expressoMail	pt-br	Marcar como
 fileinto	expressoMail	pt-br	Mover para
-Contains	expressoMail	pt-br	Cont√©m
-Criteria	expressoMail	pt-br	Crit√©rios
+Contains	expressoMail	pt-br	ContÈm
+Criteria	expressoMail	pt-br	CritÈrios
 Name of the rule	expressoMail	pt-br	Nome da regra
 Sender	expressoMail	pt-br	Remetente
-is equal to	expressoMail	pt-br	√© igual √†
-contains the phrase	expressoMail	pt-br	cont√©m a frase
-doesn't contain the phrase	expressoMail	pt-br	n√£o cont√©m a frase
-starting with	expressoMail	pt-br	come√ßa com
+is equal to	expressoMail	pt-br	È igual ‡
+contains the phrase	expressoMail	pt-br	contÈm a frase
+doesn't contain the phrase	expressoMail	pt-br	n„o contÈm a frase
+starting with	expressoMail	pt-br	comeÁa com
 ends with	expressoMail	pt-br	termina com
-Receiver	expressoMail	pt-br	Destinat√°rio
+Receiver	expressoMail	pt-br	Destinat·rio
 Message	expressoMail	pt-br	Mensagem
-is over than	expressoMail	pt-br	√© maior que
-is under than	expressoMail	pt-br	√© menor que
-Attend all the criteria	expressoMail	pt-br	Atender a todos os crit√©rios
-Attend any of the criteria	expressoMail	pt-br	Atender a qualquer um dos crit√©rios
+is over than	expressoMail	pt-br	È maior que
+is under than	expressoMail	pt-br	È menor que
+Attend all the criteria	expressoMail	pt-br	Atender a todos os critÈrios
+Attend any of the criteria	expressoMail	pt-br	Atender a qualquer um dos critÈrios
 Continue	expressoMail	pt-br	Prosseguir
-Actions	expressoMail	pt-br	A√ß√µes
-Actions to be performed on messages that attend the criteria specified above.	expressoMail	pt-br	A√ß√µes a serem executadas sobre as mensagens que atenderem aos crit√©rios especificados acima.
-These actions apply only to new messages arriving.	expressoMail	pt-br	Estas a√ß√µes ser√£o aplicadas somente √†s novas mensagens que chegarem.
+Actions	expressoMail	pt-br	AÁıes
+Actions to be performed on messages that attend the criteria specified above.	expressoMail	pt-br	AÁıes a serem executadas sobre as mensagens que atenderem aos critÈrios especificados acima.
+These actions apply only to new messages arriving.	expressoMail	pt-br	Estas aÁıes ser„o aplicadas somente ‡s novas mensagens que chegarem.
 Archive in folder	expressoMail	pt-br	Arquivar na pasta
 Move to Trash	expressoMail	pt-br	Mover para a Lixeira
 Reject and automatically respond with the message	expressoMail	pt-br	Rejeitar e responder automaticamente, com a mensagem
 Type a reply message	expressoMail	pt-br	Digite uma mensagem de resposta
-All messages will be answered automatically with the message indicated.	expressoMail	pt-br	Todas as mensagens ser√£o respondidas automaticamente com a mensagem indicada.
+All messages will be answered automatically with the message indicated.	expressoMail	pt-br	Todas as mensagens ser„o respondidas automaticamente com a mensagem indicada.
 Delete rule	expressoMail	pt-br	Excluir regra
 Enable rule	expressoMail	pt-br	Habilitar regra
 Disable rule	expressoMail	pt-br	Desabilitar regra
 Change rule	expressoMail	pt-br	Alterar regra
 No name filled	expressoMail	pt-br	Nenhum nome preenchido
-No criteria filled	expressoMail	pt-br	Nenhum crit√©rio preenchido
-Invalid name, 'vacation' is a reserved word	expressoMail	pt-br	Nome inv√°lido, 'vacation' √© uma palavra reservada
-There is already a filter with this name	expressoMail	pt-br	J√° existe um filtro com este nome
-Fill the action value	expressoMail	pt-br	Preencha o valor da a√ß√£o
-This user is already blocked. Would you like to unlock it?	expressoMail	pt-br	Esse usu√°rio j√° est√° bloqueado. Deseja desbloquea-lo?
-Lock User	expressoMail	pt-br	Bloqueio do usu√°rio
+No criteria filled	expressoMail	pt-br	Nenhum critÈrio preenchido
+Invalid name, 'vacation' is a reserved word	expressoMail	pt-br	Nome inv·lido, 'vacation' È uma palavra reservada
+There is already a filter with this name	expressoMail	pt-br	J· existe um filtro com este nome
+Fill the action value	expressoMail	pt-br	Preencha o valor da aÁ„o
+This user is already blocked. Would you like to unlock it?	expressoMail	pt-br	Esse usu·rio j· est· bloqueado. Deseja desbloquea-lo?
+Lock User	expressoMail	pt-br	Bloqueio do usu·rio
 removed	expressoMail	pt-br	removido
-Want to block the user	expressoMail	pt-br	Deseja bloquear o usu√°rio
+Want to block the user	expressoMail	pt-br	Deseja bloquear o usu·rio
 blocked	expressoMail	pt-br	bloqueado.
 Are you sure to delete the filter	expressoMail	pt-br	Deseja realmente excluir o filtro
-Exclusion Confirmation	expressoMail	pt-br	Confirma√ß√£o de exclus√£o
+Exclusion Confirmation	expressoMail	pt-br	ConfirmaÁ„o de exclus„o
 List	expressoMail	pt-br	Listagem
-Rules for message classification	expressoMail	pt-br	Regras de classifica√ß√£o de mensagem
+Rules for message classification	expressoMail	pt-br	Regras de classificaÁ„o de mensagem
 Add new rule	expressoMail	pt-br	Adicionar nova regra
 Add rule out of office	expressoMail	pt-br	Adicionar regra Fora do escritorio
 Out of office	expressoMail	pt-br	Fora do escritorio
-Do you want to display date in format numerical?	expressoMail	pt-br	Voc√™ deseja exibir a data no formato num√©rico?
-at	expressoMail	pt-br	√†s
+Do you want to display date in format numerical?	expressoMail	pt-br	VocÍ deseja exibir a data no formato numÈrico?
+at	expressoMail	pt-br	‡s
 Remove Label	expressoMail	pt-br	Desmarcar
 All messages flagged with the flag type 	expressoMail	pt-br	Todas as mensagens sinalizadas com o tipo de sinalizador 
- will be removed. This action cannot be undone. Want to continue?	expressoMail	pt-br	 ser√£o removidas. Essa a√ß√£o n√£o poder√° ser desfeita. Deseja continuar?
+ will be removed. This action cannot be undone. Want to continue?	expressoMail	pt-br	 ser„o removidas. Essa aÁ„o n„o poder· ser desfeita. Deseja continuar?
 Message size greateruler than allowed (Default rule)	expressoMail	pt-br	 Tamanho da mensagem excede o limite de tamanho configurado pelo administrador
-You have an archived message:	expressoMail	pt-br	Voc√™ tem uma mensagem arquivada:
-You have %1 messages archived:	expressoMail	pt-br	Voc√™ tem %1 mensagens arquivadas:
+You have an archived message:	expressoMail	pt-br	VocÍ tem uma mensagem arquivada:
+You have %1 messages archived:	expressoMail	pt-br	VocÍ tem %1 mensagens arquivadas:
 Filter by sender	expressoMail	pt-br	Filtro por Remetente
 Follow ups	expressoMail	pt-br	Sinalizadas
-Done	expressoMail	pt-br	Conclu√≠das 
-If more than one criterion for the filter, the "Meeting all the criteria" must be selected	expressoMail	pt-br	Se houver mais que um crit√©rio para o filtro, a op√ß√£o "Atender a todos os crit√©rios" deve estar selecionada
-The filter should be set as a criteria "Sender" and action "Archive folder"	expressoMail	pt-br	O filtro deve ter como crit√©rio definido "Remetente" e a√ß√£o "Arquivar na pasta"
+Done	expressoMail	pt-br	ConcluÌdas 
+If more than one criterion for the filter, the "Meeting all the criteria" must be selected	expressoMail	pt-br	Se houver mais que um critÈrio para o filtro, a opÁ„o "Atender a todos os critÈrios" deve estar selecionada
+The filter should be set as a criteria "Sender" and action "Archive folder"	expressoMail	pt-br	O filtro deve ter como critÈrio definido "Remetente" e aÁ„o "Arquivar na pasta"
 Filter with alert	expressoMail	pt-br	Filtro com alerta
 Group contacts	expressoMail	pt-br	Contatos do grupo
-Remove recipient	expressoMail	pt-br	Remover destinat√°rio
-Quick search of messages	expressoMail	pt-br	Busca r√°pida de mensagens
+Remove recipient	expressoMail	pt-br	Remover destinat·rio
+Quick search of messages	expressoMail	pt-br	Busca r·pida de mensagens
 Search messages of ...	expressoMail	pt-br	Busca mensagens de ...
 Telephone	expressoMail	pt-br	Telefone
 And more %1 contact	expressoMail	pt-br	E mais %1 contato
-Impossible editing this contact, but it's possible to remove it	expressoMail	pt-br	Imposs√≠vel editar este contato, mas √© poss√≠vel remov√™-lo
+Impossible editing this contact, but it's possible to remove it	expressoMail	pt-br	ImpossÌvel editar este contato, mas È possÌvel removÍ-lo
 The contact was moved from recent contacts to personal contacts successful.	expressoMail	pt-br	O Contato foi movido dos contatos recentes para os contatos pessoais com sucesso.
-Permission denied	expressoMail	pt-br	Permiss√£o negada
-Permission denied to folder "%1".	expressoMail	pt-br	Permiss√£o negada para pasta "%1".
-Success	expressoMail	pt-br	Conclu√≠do
+Permission denied	expressoMail	pt-br	Permiss„o negada
+Permission denied to folder "%1".	expressoMail	pt-br	Permiss„o negada para pasta "%1".
+Success	expressoMail	pt-br	ConcluÌdo
 The contact was moved from recent contacts to personal contacts successful.	expressoMail	pt-br	O Contato foi movido dos contatos recentes para os contatos pessoais com sucesso.
-You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder.	expressoMail	pt-br	N√£o √© poss√≠vel remover a mensagem com a preferencia 'Enviar para lixeira' ativada. N√£o existe permiss√£o para mover mensagens para a pasta lixeira.
-One of his messages can not be marked as read, because it contains a read confirmation.	expressoMail	pt-br	Uma de suas mensagens n√£o pode ser marcada como lida, pois cont√©m uma confirma√ß√£o de leitura.
- of its messages could not be marked as read, because it contains a read confirmation.	expressoMail	pt-br	 de suas mensagens n√£o puderam ser marcadas como lida, pois cont√©m uma confirma√ß√£o de leitura.
-Cant share with yourself.	expressoMail	pt-br	N√£o √© poss√≠vel compartilhar com voc√™ mesmo.
-You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder.	expressoMail	pt-br	N√£o √© poss√≠vel remover a mensagem com a preferencia 'Enviar para lixeira' ativada. N√£o existe permiss√£o para mover mensagens para a pasta lixeira.
+You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder.	expressoMail	pt-br	N„o È possÌvel remover a mensagem com a preferencia 'Enviar para lixeira' ativada. N„o existe permiss„o para mover mensagens para a pasta lixeira.
+One of his messages can not be marked as read, because it contains a read confirmation.	expressoMail	pt-br	Uma de suas mensagens n„o pode ser marcada como lida, pois contÈm uma confirmaÁ„o de leitura.
+ of its messages could not be marked as read, because it contains a read confirmation.	expressoMail	pt-br	 de suas mensagens n„o puderam ser marcadas como lida, pois contÈm uma confirmaÁ„o de leitura.
+Cant share with yourself.	expressoMail	pt-br	N„o È possÌvel compartilhar com vocÍ mesmo.
+You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder.	expressoMail	pt-br	N„o È possÌvel remover a mensagem com a preferencia 'Enviar para lixeira' ativada. N„o existe permiss„o para mover mensagens para a pasta lixeira.
 Moving message %1 of %2	expressoMail	pt-br	Movendo mensagem %1 de %2
-All done. Message(s) moved successfully	expressoMail	pt-br	Conclu√≠do. Mensagem(ns) movida(s) com sucesso.
-Starting to move messages	expressoMail	pt-br	Iniciando a movimenta√ß√£o de mensagens
-MailArchiver does not seems to be running or installed at this workstation, local messages are disabled. Check it out!	expressoMail	pt-br	O MailArchiver n√£o parece estar rodando ou instalado nesta esta√ß√£o de trabalho, as mensagens locais est√£o desativadas. Verifique!
+All done. Message(s) moved successfully	expressoMail	pt-br	ConcluÌdo. Mensagem(ns) movida(s) com sucesso.
+Starting to move messages	expressoMail	pt-br	Iniciando a movimentaÁ„o de mensagens
+MailArchiver does not seems to be running or installed at this workstation, local messages are disabled. Check it out!	expressoMail	pt-br	O MailArchiver n„o parece estar rodando ou instalado nesta estaÁ„o de trabalho, as mensagens locais est„o desativadas. Verifique!
 Starting to unarchive messages	expressoMail	pt-br	Iniciando o desarquivamento de mensagens
 Messages successfully unarchived	expressoMail	pt-br	Mensagens desarquivadas com sucesso
-All done. End of archive messages operation	expressoMail	pt-br	Conclu√≠do. Opera√ß√£o de arquivamento encerrada
+All done. End of archive messages operation	expressoMail	pt-br	ConcluÌdo. OperaÁ„o de arquivamento encerrada
 No messages were unarchived	expressoMail	pt-br	Nenhuma mensagem foi desarquivada
-Some messages weren't successfully unarchived	expressoMail	pt-br	Algumas mensagens n√£o puderam ser desarquivadas
-Coudn't unarchive message	expressoMail	pt-br	N√£o foi poss√≠vel desarquivar mensagem
+Some messages weren't successfully unarchived	expressoMail	pt-br	Algumas mensagens n„o puderam ser desarquivadas
+Coudn't unarchive message	expressoMail	pt-br	N„o foi possÌvel desarquivar mensagem
 Message successfully unarchived	expressoMail	pt-br	Mensagem desarquivada com sucesso
 Unarchiving message %1 of %2	expressoMail	pt-br	Desarquivando mensagem %1 de %2
 Message %1 of %2 successfully archived	expressoMail	pt-br	Mensagem %1 de %2 arquivada com sucesso
-Sorry, but Mail Archiver does not seems to be running or installed at this workstation. By now, we are turning off local messages!	expressoMail	pt-br	Desculpe, mas o Mail Archiver n√£o parece estar rodando ou instalado nesta esta√ß√£o de trabalho. De momento, estamos desativando as mensagens locais!
-Sorry, but Mail Archiver still seems to be sleeping. Check out your system services!	expressoMail	pt-br	Desculpe, mas o Mail Archiver parece continuar offline. Verifique os servi√ßos do seu sistema!
-Trying to communicate with Mail Archiver...	expressoMail	pt-br	Tentando comunica√ß√£o com o Mail Archiver...
+Sorry, but Mail Archiver does not seems to be running or installed at this workstation. By now, we are turning off local messages!	expressoMail	pt-br	Desculpe, mas o Mail Archiver n„o parece estar rodando ou instalado nesta estaÁ„o de trabalho. De momento, estamos desativando as mensagens locais!
+Sorry, but Mail Archiver still seems to be sleeping. Check out your system services!	expressoMail	pt-br	Desculpe, mas o Mail Archiver parece continuar offline. Verifique os serviÁos do seu sistema!
+Trying to communicate with Mail Archiver...	expressoMail	pt-br	Tentando comunicaÁ„o com o Mail Archiver...
 Wait: attempt %1 from %2...	expressoMail	pt-br	Aguarde: tentativa %1 de %2...
-Sorry, but you need to reload this web page. Click at reload page at web browsing top navigation	expressoMail	pt-br	Desculpe, mas voc√™ precisa recarregar esta p√°gina. Clique em recarregar na janela do seu navegador.
-There is something wrong with MailArchiver environment. Contact you support	expressoMail	pt-br	H√° algum problema com o ambiente do MailArchiver. Contate seu suporte
-Mail Archiver is not responding. There is some communicating issue hang it up. Some services may not work properly. Check it out!	expressoMail	pt-br	O Mail Archiver n√£o est√° respondendo. H√° algum problema de comunica√ß√£o. Alguns servi√ßos podem n√£o funcionar corretamente. Verifique!
-Archive operation error: getting online message flags fails. Achievement will not be done	expressoMail	pt-br	O arquivamento falhou: n√£o foi poss√≠vel obter os marcadores da mensagem. O arquivamento n√£o ser√° realizado
+Sorry, but you need to reload this web page. Click at reload page at web browsing top navigation	expressoMail	pt-br	Desculpe, mas vocÍ precisa recarregar esta p·gina. Clique em recarregar na janela do seu navegador.
+There is something wrong with MailArchiver environment. Contact you support	expressoMail	pt-br	H· algum problema com o ambiente do MailArchiver. Contate seu suporte
+Mail Archiver is not responding. There is some communicating issue hang it up. Some services may not work properly. Check it out!	expressoMail	pt-br	O Mail Archiver n„o est· respondendo. H· algum problema de comunicaÁ„o. Alguns serviÁos podem n„o funcionar corretamente. Verifique!
+Archive operation error: getting online message flags fails. Achievement will not be done	expressoMail	pt-br	O arquivamento falhou: n„o foi possÌvel obter os marcadores da mensagem. O arquivamento n„o ser· realizado
 Unarchive error	expressoMail	pt-br	Erro ao desarquivar
 Messages marked as \"%1\"	expressoMail	pt-br	Mensagens marcadas como \"%1\"
-MailArchiver search operation fails	expressoMail	pt-br	A opera√ß√£o de pesquisa do MailArchiver falhou
+MailArchiver search operation fails	expressoMail	pt-br	A operaÁ„o de pesquisa do MailArchiver falhou
 MailArchiver user login fail	expressoMail	pt-br	Login do MailArchiver falhou
-MailArchiver user logged out	expressoMail	pt-br	Usu√°rio desconectado do MailArchiver
+MailArchiver user logged out	expressoMail	pt-br	Usu·rio desconectado do MailArchiver
 Error trying to send the message. Retry in a few seconds...	expressoMail	pt-br	Erro ao tentar enviar a mensagem. Nova tentativa em alguns segundos...
 Create filter from message	expressoMail	pt-br	Criar filtro a partir da mensagem
 Sending the message...	expressoMail	pt-br	Enviando a mensagem...

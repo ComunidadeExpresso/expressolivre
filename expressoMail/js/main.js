@@ -25,7 +25,7 @@ var dynamicPersonalGroups = new Array();
 var dynamicContacts = new Array();
 var topContact = 0;
 
-//Os IE's < 9 n√£o possuem suporte a trim() introduzida no JavaScript 1.8.1
+//Os IE's < 9 n„o possuem suporte a trim() introduzida no JavaScript 1.8.1
 if(!String.prototype.trim){  
 	String.prototype.trim = function(){
 		return this.replace(/^\s+|\s+$/g,'');
@@ -154,7 +154,7 @@ function init()
     if (preferences.use_signature_digital_cripto == '1'){
         loadApplet();
     }
-    // Fim da inser√ß√£o da applet
+    // Fim da inserÁ„o da applet
 
     cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
 
@@ -222,7 +222,7 @@ function init()
 		}
 	}
 
-	// Vers√£o
+	// Vers„o
 	Element('divAppboxHeader').innerHTML = title_app;
 
 	// Get cyrus delimiter
@@ -246,7 +246,7 @@ function init_offline(){
 		'<tr>' +
 		'<td style="padding-left:17px" width=33% id="content_quota" align=left></td>' +
 		'<td width=33% height=16px align=center nowrap><font face=Verdana, Arial, Helvetica, sans-serif color=#000066 size=2>' +
-		'<b>ExpressoMail Offline</b><font size=1><b> - Vers√£o 1.0</b></font></td>' +
+		'<b>ExpressoMail Offline</b><font size=1><b> - Vers„o 1.0</b></font></td>' +
 		'<td width=33% id="div_menu_c3" align=right></td>' +
 		'</tr></table>';
 
@@ -261,7 +261,7 @@ function init_offline(){
 }
 /**
  * Carrega a applet java no objeto search_div
- * @author M√°rio C√©sar Kolling <mario.kolling@serpro.gov.br>
+ * @author M·rio CÈsar Kolling <mario.kolling@serpro.gov.br>
  */
 
 function loadApplet(){
@@ -329,7 +329,7 @@ function disable_field(field,condition) {
 	eval(comando);
 }
 /*
-	func√£o que remove todos os anexos...
+	func„o que remove todos os anexos...
 */
 function remove_all_attachments(folder,msg_num) {
 
@@ -454,7 +454,7 @@ function show_msg(msg_info){
 		// Verifica se existe o objeto applet
 		if (!Element('cert_applet'))
 		{
-			// se n√£o existir, mostra mensagem de erro.
+			// se n„o existir, mostra mensagem de erro.
 			write_msg(get_lang('The preference "%1" isn\'t enabled.', get_lang('Enable digitally sign/cipher the message?')));
 		}
 		else
@@ -484,7 +484,7 @@ function show_msg(msg_info){
 		folderName = folderName.replace(/=/gi, '');
 		var id_msg_read = ID+"_r_"+folderName;
         
-        //Evita a tentativa de cria√ß√£o de uma aba cujo ID j√° existe
+        //Evita a tentativa de criaÁ„o de uma aba cujo ID j· existe
         if (Element("border_id_"+id_msg_read) && currentTab > 0) 
 		    id_msg_read += "n";
     
@@ -542,7 +542,7 @@ function show_msg(msg_info){
 					var confNotification = confirm(get_lang("The sender:\n%1\nwaits your notification of reading. Do you want to confirm this?",Base64.decode(msg_info.DispositionNotificationTo)), "");
 
 			if (confNotification) {
-			/* Adequa√ß√£o a nova funcionalidade. Agora, a confirma√ß√£o de leitura √© uma prefer√™ncia do usu√°rio. */
+			/* AdequaÁ„o a nova funcionalidade. Agora, a confirmaÁ„o de leitura È uma preferÍncia do usu·rio. */
 				if(preferences.confirm_read_message) {
 					$.Zebra_Dialog(get_lang("Would you like to send the read receipt?"), {
 						'type':     'question',
@@ -618,7 +618,7 @@ function notificationFilter(data, notifyCriteria){
 
 function refresh(alert_new_msg, notifyPermission){
 
-    //N√£o deixa atualizar caso o usuario esteja em uma aba de nova mesnagem , reponder ou encaminhar;
+    //N„o deixa atualizar caso o usuario esteja em uma aba de nova mesnagem , reponder ou encaminhar;
     //Evita o travamento da escrita no CKEDITOR.
     if(typeof(currentTab) !== 'undefined' && currentTab.toString().indexOf("_r_") === -1 && currentTab !== 0 )
         return;
@@ -633,7 +633,7 @@ function refresh(alert_new_msg, notifyPermission){
                 alarmFollowupflagged('filtersAlarms', data);
 
             }
-            /* Busca  nas pastas indexadas para ver se h√° novas mensagens com a flag $FilteredMessage */
+            /* Busca  nas pastas indexadas para ver se h· novas mensagens com a flag $FilteredMessage */
             cExecute ("$this.imap_functions.getFlaggedAlertMessages&folders="+fromRules, handlerMessageFilter);
         }
 
@@ -894,7 +894,7 @@ function refresh(alert_new_msg, notifyPermission){
 		});
 
 	var msgs = $("#tbody_box tr");
-	//Se a classe abaixo (somente ela) n√£o existir a barra de sele√ß√£o azul deve voltar ao topo.
+	//Se a classe abaixo (somente ela) n„o existir a barra de seleÁ„o azul deve voltar ao topo.
 	if(!msgs.hasClass("current_selected_shortcut_msg"))
 	{
         if(preferences.use_shortcuts == '1')
@@ -906,7 +906,7 @@ function refresh(alert_new_msg, notifyPermission){
 
 function delete_msgs(folder, msgs_number, border_ID, show_success_msg,archive, prev_message){	
             if( preferences.use_local_messages == 1 && expresso_local_messages.isArchiving( msgs_number, folder ) ){
-			  alert( "Impossivel deletar mensagens que ainda est√£o sendo arquivadas." );
+			  alert( "Impossivel deletar mensagens que ainda est„o sendo arquivadas." );
 			  return;
 			}
 				
@@ -969,7 +969,7 @@ function delete_msgs(folder, msgs_number, border_ID, show_success_msg,archive, p
 			return false;
 		}
 
-		//Se pref. usar mensagens locais ativaada e n√£o for opera√ß√£o de arquivamento exibe mensagem de remo√ß√£o.
+		//Se pref. usar mensagens locais ativaada e n„o for operaÁ„o de arquivamento exibe mensagem de remoÁ„o.
 		if(preferences.use_local_messages == 1){
 			if(!expresso_mail_archive.isArchiveOperation){
 				if (show_success_msg){
@@ -1034,7 +1034,7 @@ function delete_msgs(folder, msgs_number, border_ID, show_success_msg,archive, p
 						removeAll(msg_to_delete.id);
 						 delete selectedPagingMsgs[data.msgs_number[i]]; 
 				}
-                // removido decremento da vari√°vel pois estava decrementando em outros lugares
+                // removido decremento da vari·vel pois estava decrementando em outros lugares
 				// totalFolderMsgs = totalFolderMsgs - data.msgs_number.length;
 		}
 		$.each(data.msgs_number, function(index, value){
@@ -1073,7 +1073,7 @@ function move_search_msgs(border_id, new_folder, new_folder_name, action){
 	var remove_currente_folder = "";
 	var id_border = currentTab.replace(/[a-zA-Z_]+/, "");
 
-	//Valida√ß√£o para n√£o poder manipular mensagens locais na busca
+	//ValidaÁ„o para n„o poder manipular mensagens locais na busca
 	if (currentTab.indexOf('search_local') != -1 || proxy_mensagens.is_local_folder(new_folder))
 	{
 		alert(get_lang("You cant manipulate local messages on search"));
@@ -1088,7 +1088,7 @@ function move_search_msgs(border_id, new_folder, new_folder_name, action){
 	selected_messages = get_selected_messages_search();
 	
 	if( preferences.use_local_messages == 1 && expresso_local_messages.isArchiving( selected_messages, folder ) ){
-	  alert( "Impossivel mover mensagens que ainda est√£o sendo arquivadas." );
+	  alert( "Impossivel mover mensagens que ainda est„o sendo arquivadas." );
 	  return;
 	}
 	var handler_move_search_msgs = function(data){
@@ -1237,7 +1237,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 	not_opem_previus = typeof(not_opem_previus) != 'undefined' ? not_opem_previus : false;
 	var folder_error = new_folder_name;
         if( preferences.use_local_messages == 1 && expresso_local_messages.isArchiving( msgs_number, folder ) ){
-	    alert( "Impossivel mover mensagens que ainda est√£o sendo arquivadas." );
+	    alert( "Impossivel mover mensagens que ainda est„o sendo arquivadas." );
 	    return;
 	}
 
@@ -1257,7 +1257,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 				return false;
 			}else{
 				write_msg(get_lang('Error moving message.')+" "+get_lang('Permission denied to folder "%1".', new_folder_name));
-				/*Verifica se a pasta destino √© a "Trash" e se a pasta origem e destino s√£o do mesma estrutura compartilhada*/
+				/*Verifica se a pasta destino È a "Trash" e se a pasta origem e destino s„o do mesma estrutura compartilhada*/
 				if(new_folder_name == "Trash" && folder.split("/")[1] == new_folder.split("/")[1]){
 					alert(get_lang("You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder."));
 				}
@@ -1273,7 +1273,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 
         var showMsg = function(){
 
-            //Se pref. usar mensagens locais ativada e n√£o for opera√ß√£o de arquivamento exibe mensagem de remo√ß√£o.
+            //Se pref. usar mensagens locais ativada e n„o for operaÁ„o de arquivamento exibe mensagem de remoÁ„o.
             if(preferences.use_local_messages == 1){
                 if(!expresso_mail_archive.isArchiveOperation){
                     if (data.msgs_number.length == 1 || typeof(data.msgs_number) == 'string' )
@@ -1324,7 +1324,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 						}
 					}
 				}
-				//se houver pagina anterior a pagina√ß√£o deve ser refeita
+				//se houver pagina anterior a paginaÁ„o deve ser refeita
 				else 
 				{
 					var border_id = $("#border_id_"+currentTab).prev().attr("id").split("_").slice(2, 3).join("")
@@ -1421,7 +1421,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 
 		if ( preferences.use_shortcuts == '1') {
 			var all_messages = Element('tbody_box').childNodes;
-			// verificar se a msg selecionada com o checkbox √© a mesma selecionada com o shortcut
+			// verificar se a msg selecionada com o checkbox È a mesma selecionada com o shortcut
 			var msg_list_shortcut = get_selected_messages_shortcut().split(',');
 			if(data.msgs_number.length > 0 && msg_list_shortcut.length > 0 && data.msgs_number.toString() == msg_list_shortcut.toString()){
 				//Last msg is selected
@@ -1459,7 +1459,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 			n_total_msg = n_total_msg >= 0 ? n_total_msg : 0;
 			draw_paging(n_total_msg);
 			Element('tot_m').innerHTML = n_total_msg;
-            // removido decremento da vari√°vel pois estava decrementando em outros lugares
+            // removido decremento da vari·vel pois estava decrementando em outros lugares
 			//totalFolderMsgs -= data.msgs_number.length;
 		}
 		refresh();
@@ -1477,7 +1477,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
                 return;
             }
 	} catch (e) {} 
-    //Valida√ß√£o para recuperar o id caso n√£o seja aba de listagem
+    //ValidaÁ„o para recuperar o id caso n„o seja aba de listagem
 	if (currentTab == 0 && msgs_number == "selected")
 		msgs_number = get_selected_messages();
 	else if (currentTab != 0 && msgs_number == "selected")
@@ -1487,7 +1487,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 		return move_search_msgs('content_id_'+currentTab,new_folder,new_folder_name);
 		}
 
-	// se a aba estiver aberta e selecionada, apenas a msg da aba √© movida
+	// se a aba estiver aberta e selecionada, apenas a msg da aba È movida
 	if(currentTab.toString().indexOf("_r") != -1 && currentTab == border_ID)
         {
                 //se a aba for aberta atraves de uma pesquisa
@@ -1506,7 +1506,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 	if (proxy_mensagens.is_local_folder(folder)){
         
 		expresso_mail_archive.update_counters = true;
-        //Folder de onde sai a mensagem √© local (armazenamento local)
+        //Folder de onde sai a mensagem È local (armazenamento local)
 
         if(msgs_number=='selected'){
             msgs_number = get_selected_messages();
@@ -1544,7 +1544,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 	}
 	else{
         if (proxy_mensagens.is_local_folder(new_folder)){
-            //esta tirando de um folder n√£o local para um folder local (arquivamento)
+            //esta tirando de um folder n„o local para um folder local (arquivamento)
             if(msgs_number=='selected'){
                 archive_msgs(folder, new_folder);
             }
@@ -1553,7 +1553,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
             }
         }
         else{
-            //esta tirando de um folder n√£o local para outro folder n√£o local (move)
+            //esta tirando de um folder n„o local para outro folder n„o local (move)
             //move_msgs(folder, msgs_number, border_ID, new_folder, new_folder_name);
 			if (parseInt(msgs_number) > 0 || msgs_number.length > 0){
 				// remove a flag $FilteredMessage da mensagem, depois move
@@ -1623,11 +1623,11 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
         }
     }	
 
-    //C√≥digo adicionado para o correto funcionamento da sele√ß√£o independente de pagina√ß√£o.
+    //CÛdigo adicionado para o correto funcionamento da seleÁ„o independente de paginaÁ„o.
     $.each(msgs_number.split(","), function(index, value){
         delete selectedPagingMsgs[value];
     });
-    // removido decremento da vari√°vel pois estava decrementando em outros lugares
+    // removido decremento da vari·vel pois estava decrementando em outros lugares
     //totalFolderMsgs = totalFolderMsgs - msgs_number.split(",").length;
     selectAllFolderMsgs(false);
     updateSelectedMsgs();
@@ -1643,7 +1643,7 @@ function normalizeMsgNumber( msgNumber ){
 	  msgNumber = get_selected_messages();
 
 
-      // se a aba estiver aberta e selecionada, apenas a msg da aba √© movida
+      // se a aba estiver aberta e selecionada, apenas a msg da aba È movida
       if(currentTab.toString().indexOf("_r") != -1)
       {
 	    //se a aba for aberta atraves de uma pesquisa
@@ -1679,7 +1679,7 @@ function archive_search_msgs(folder_dest) {
 	id_msgs = expresso_local_messages.checkArchived( id_msgs, folder_dest );
 
 	if( !id_msgs ){
-	    write_msg( "Todas as mensagens j√° foram arquivadas anteriormente." );
+	    write_msg( "Todas as mensagens j· foram arquivadas anteriormente." );
 	    return;
 	}
   
@@ -1692,7 +1692,7 @@ function archive_search_msgs(folder_dest) {
 	    for( var i = 0; i < data.length; i++ )
 		msgs_info[i] = connector.unserialize( data[i] );
 
-	    //vejo se j√° tinha mensagens locais
+	    //vejo se j· tinha mensagens locais
 	    var h = expresso_local_messages.has_local_mails();
 	    
 	    expresso_local_messages.insert_mails( msgs_info, folder_dest, function( s, f ){complete_archiving( s, f, h )} );
@@ -1732,7 +1732,7 @@ function archive_search_msgs(folder_dest) {
  function archive_msgs(folder,folder_dest,id_msgs) {
 
     if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){  
-        alert("Imposs√©vel manipular mensagens locais a partir de uma busca. Isso √© permitido apenas para mensagens n√£o locais.");
+        alert("ImpossÈvel manipular mensagens locais a partir de uma busca. Isso È permitido apenas para mensagens n„o locais.");
         return true;
     }
     write_msg(get_lang('Starting to archive messages'));
@@ -1785,7 +1785,7 @@ function archive_search_msgs(folder_dest) {
 	id_msgs = expresso_local_messages.checkArchived( id_msgs, folder_dest );
 
 	 if( !id_msgs ){
-	      write_msg( "Todas as mensagens j√° foram arquivadas anteriormente." );
+	      write_msg( "Todas as mensagens j· foram arquivadas anteriormente." );
 	      return;
 	  }
   
@@ -1798,7 +1798,7 @@ function archive_search_msgs(folder_dest) {
 	    //for( var i = 0; i < data.length; i++ )
 		//msgs_info[i] = connector.unserialize( data[i] );
 
-	    //vejo se j√° tinha mensagens locais
+	    //vejo se j· tinha mensagens locais
 	    //var h = expresso_local_messages.has_local_mails();
 	    
 	    //expresso_local_messages.insert_mails( msgs_info, folder_dest, function( s, f ){complete_archiving( s, f, h )} );
@@ -2008,11 +2008,11 @@ function get_selected_messages_shortcut(){
 	selected_messages = selected_messages.substring(0,(selected_messages.length-1));
 
  		         
- 		        /* Verifica se est√° na tela de pesquisa. */ /*
+ 		        /* Verifica se est· na tela de pesquisa. */ /*
  		        if(selected_messages.indexOf("_") != -1) 
  		        { 
  		                results_search_messages = selected_messages; 
- 		                /* Retira a informa√ß√£o da aba */ /*
+ 		                /* Retira a informaÁ„o da aba */ /*
  		                selected_messages = selected_messages.substring(0,selected_messages.indexOf("_"));
 	}
 	
@@ -2576,7 +2576,7 @@ function new_message(type, border_ID, flagged)
 
             openTab.imapBox[new_border_ID] = folder_message.value;
             document.getElementById('font_border_id_' + new_border_ID).innerHTML = data.subject;
-            title = "Edi√ß√£o: " + html_entities(data.subject);
+            title = "EdiÁ„o: " + html_entities(data.subject);
 
             data.to = Element("to_values_" + border_ID).value;
             if (data.to != get_lang("without destination"))
@@ -2665,7 +2665,7 @@ function new_message(type, border_ID, flagged)
     return new_border_ID; //Preciso retornar o ID da nova mensagem.
 }
 
-//DESENHA OS RETANGULOS PARA OS E-MAIL NA OP√á√ÉO REPLY
+//DESENHA OS RETANGULOS PARA OS E-MAIL NA OP«√O REPLY
 function draw_reply_boxes_by_field(field, value, context){
 	array = break_comma(value);
 	$.each(array, function(index, value){
@@ -2711,7 +2711,7 @@ function useOriginalAttachments(new_border_ID,old_id_border)
         var fileUploadMSG = $('#fileupload_msg'+new_border_ID);         
         var attachments = $("#attachments_" + old_id_border).find("a");	
 		if(openTab.imapBox[new_border_ID].split("local").length > 1 && attachments.length > 0){
-			alert("N√£o √© possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos");
+			alert("N„o È possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos");
 			return false;
 		}
 		
@@ -2916,7 +2916,7 @@ function addOriginalAttachments(new_border_ID,old_id_border)
     var attachments = $("#attachments_" + old_id_border).find("a");			
 
 	if(openTab.imapBox[new_border_ID].split("local").length > 1 && attachments.length > 0){
-		alert("N√£o √© possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos");
+		alert("N„o È possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos");
 		return false;
 	}
 
@@ -3045,7 +3045,7 @@ function send_message_return(data, ID){
 				operation = 'sign';
 			}
 			else { // crypt
-				//TODO: Colocar mensagem de erro, e finalizar o m√©todo.
+				//TODO: Colocar mensagem de erro, e finalizar o mÈtodo.
 				operation = 'nop';
 			}
 		}
@@ -3157,7 +3157,7 @@ function send_message_return(data, ID){
 		connector.hideProgressBar();
 }
 
-/*Fun√ß√£o que grava o destinat√°rio nos contatos din√¢micos*/
+/*FunÁ„o que grava o destinat·rio nos contatos din‚micos*/
 function save_dynamic_contacts(array){
 		
     $.each(array, function(i, value){
@@ -3193,12 +3193,12 @@ function save_dynamic_contacts(array){
 }
 
 /**
- * M√©todo chamado pela applet para retornar o resultado da assinatura/decifragem do e-mail.
+ * MÈtodo chamado pela applet para retornar o resultado da assinatura/decifragem do e-mail.
  * para posterior envio ao servidor.
- * @author M√°rio C√©sar Kolling <mario.kolling@serpro.gov.br>, Bruno Vieira da Costa <bruno.vieira-costa@serpro.gov.br>
+ * @author M·rio CÈsar Kolling <mario.kolling@serpro.gov.br>, Bruno Vieira da Costa <bruno.vieira-costa@serpro.gov.br>
  * @param smime O e-mail decifrado/assinado
- * @param ID O ID do e-mail, para saber em que aba esse e-mail ser√° mostrado.
- * @param operation A opera√ß√£o que foi realizada pela applet (assinatura ou decifragem)
+ * @param ID O ID do e-mail, para saber em que aba esse e-mail ser· mostrado.
+ * @param operation A operaÁ„o que foi realizada pela applet (assinatura ou decifragem)
  */
 function appletReturn(smime, ID, operation, folder){
 
@@ -3229,10 +3229,10 @@ function appletReturn(smime, ID, operation, folder){
 	}else
 	{
 		ID_tmp = ID;
-		// L√° a vari√°vel e chama a nova fun√ß√£o cExecuteForm
+		// L· a vari·vel e chama a nova funÁ„o cExecuteForm
 		// Processa e envia para o servidor web
 		// Faz o request do connector novamente. Talvez implementar no connector
-		// para manter coer√™ncia.
+		// para manter coerÍncia.
 
 		var handler_send_smime = function(data){
 			send_message_return(data, this.ID_tmp); // this is a hack to escape quotation form connector bug
@@ -3244,10 +3244,10 @@ function appletReturn(smime, ID, operation, folder){
 		textArea.name = "smime";
 		textArea.value += smime;
 
-		// L√° a vari√°vel e chama a nova fun√ß√£o cExecuteForm
+		// L· a vari·vel e chama a nova funÁ„o cExecuteForm
 		// Processa e envia para o servidor web
 		// Faz o request do connector novamente. Talvez implementar no connector
-		// para manter coer√™ncia.
+		// para manter coerÍncia.
 		if (is_ie){
 			var i = 0;
 			while (document.forms(i).name != "form_message_"+ID){i++}
@@ -3263,8 +3263,8 @@ function appletReturn(smime, ID, operation, folder){
 }
 
 /* 
- * M√©todo que verifica se existe algum item de 'words' em 'body'.
- * Se houver, retorna a primeira ocorr√™ncia encontrada de words, caso contr√°rio retorna false.
+ * MÈtodo que verifica se existe algum item de 'words' em 'body'.
+ * Se houver, retorna a primeira ocorrÍncia encontrada de words, caso contr·rio retorna false.
  */
 function verifyBodyWords(body, words)
 {
@@ -3305,15 +3305,15 @@ function verifyBodyWords(body, words)
 function send_message(ID, folder, folder_name){
 	var content_body  = RichTextEditor.getData('body_'+ID);     
 	/* 
-		Funcionalidade que verifica se o usu√°rio escreveu a palavra anexo no corpo da mensagem e n√£o anexou nenhum arquivo.
-		Esta funcionalidade √© ativada nas prefer√™ncias do m√≥dulo ExpressoMail.
+		Funcionalidade que verifica se o usu·rio escreveu a palavra anexo no corpo da mensagem e n„o anexou nenhum arquivo.
+		Esta funcionalidade È ativada nas preferÍncias do mÛdulo ExpressoMail.
 	*/	
-	/* Lista de palavras que v√£o ser procuradas no corpo do email, referente √†s variantes da palavra anexo em portugu√™s, ingl√™s e espanhol. */
-	if(language == "pt-br") //Portugu√™s brasileiro
+	/* Lista de palavras que v„o ser procuradas no corpo do email, referente ‡s variantes da palavra anexo em portuguÍs, inglÍs e espanhol. */
+	if(language == "pt-br") //PortuguÍs brasileiro
         var words = ['anexando', 'anexos', 'anexadas', 'anexados', 'anexei',  'anexaste', 'anexastes', 'anexamos', 'anexaram', 'anexas', 'anexado', 'anexada', 'anexo', 'anexa'];
     else if(language == "es-es") //Espanhol
 		var words = ['anexo','adjunto', 'adjuntos', 'adjuntado','adjuntamos'];
-	else //Ingl√™s ('en')
+	else //InglÍs ('en')
         var words = ['attach', 'attachment', 'attached', 'annex', 'appending', 'appendage', 'annexe', 'appendix'];
 
 	if($('#fileupload_msg'+ID).find('.att-box').length == 0 && preferences.alert_message_attachment == '1' ) {
@@ -3342,7 +3342,7 @@ function send_message(ID, folder, folder_name){
 	{
 		zebraDiscardEventDialog = true;
 		window.setTimeout(function() {
-			$.Zebra_Dialog('Existem anexos sendo enviados para o servidor. Caso envie sua mensagem agora estes arquivos ser√£o perdidos.', {
+			$.Zebra_Dialog('Existem anexos sendo enviados para o servidor. Caso envie sua mensagem agora estes arquivos ser„o perdidos.', {
 				'type':     'question',
 				'overlay_opacity': '0.5',
 				'custom_class': 'custom-zebra-filter',
@@ -3485,11 +3485,11 @@ function is_valid_email(campo){
 	
 	if((campo.replace(/^\s+|\s+$/g,"")) != ""){
 			if(invalidEmail[0] == true){
-				write_msg("Erro de SMTP: Os endere√ßos de destinat√°rio a seguir falharam: "+ invalidEmail[1]);
+				write_msg("Erro de SMTP: Os endereÁos de destinat·rio a seguir falharam: "+ invalidEmail[1]);
 				return false;
 			}else{
 				if(semicolon.length > 1){
-					var stringError = "Erro de SMTP: Os endere√ßos devem ser separados apenas por v√≠rgula: ";
+					var stringError = "Erro de SMTP: Os endereÁos devem ser separados apenas por vÌrgula: ";
 					for(var i= 0; i < semicolon.length; i++){
 						stringError = stringError + semicolon[i];
 						if(i+1 < semicolon.length)
@@ -3962,7 +3962,7 @@ function print_search_msg(){
 }
 
 
-/*PERMITE A IMPRESS√ÉO DE UMA LISTA DE MENSAGENS E SEU CONTE√öDO*/
+/*PERMITE A IMPRESS√O DE UMA LISTA DE MENSAGENS E SEU CONTE⁄DO*/
 function print_messages_bodies(){
 	var messages = {};
 	messages[get_current_folder()] = get_selected_messages().split(',');
@@ -3984,7 +3984,7 @@ function print_messages_bodies(){
 		var newRow = function(label,data){
 			return "<tr><td width=7%><font size='2'><b>"+label+" </b></font></td><td><font size='2'>"+data+"</font></td></tr>";
 		}
-		/*INSERE AS MENSAGENS NO DOCUMENTO DE IMPRESS√ÉO*/
+		/*INSERE AS MENSAGENS NO DOCUMENTO DE IMPRESS√O*/
 		$.each(data,function(index,message){
 			var html = "<table><tbody>";
 			if(message.sender)
@@ -4189,7 +4189,7 @@ function print_messages_list(){
 
 function print_all(){
     if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){  
-        alert("Imposs√©vel manipular mensagens locais a partir de uma busca. Isso √© permitido apenas para mensagens n√£o locais.");
+        alert("ImpossÈvel manipular mensagens locais a partir de uma busca. Isso È permitido apenas para mensagens n„o locais.");
         return true;
     }
 	if (openTab.type[currentTab] == 2)
@@ -4202,10 +4202,10 @@ function print_all(){
 	if (get_selected_messages() == false){
 		return print_messages_list();
 	}
-    var msg = 'Algumas mensagens foram selecionadas para impress√£o. Deseja imprimir o conte√∫do de cada uma delas? Caso contr√°rio, apenas uma lista das mensagens selecionadas ser√° impressa.';
+    var msg = 'Algumas mensagens foram selecionadas para impress„o. Deseja imprimir o conte˙do de cada uma delas? Caso contr·rio, apenas uma lista das mensagens selecionadas ser· impressa.';
     $.Zebra_Dialog(msg, {
 	    'type':     'question',
-	    'buttons': ['Sim','N√£o'],
+	    'buttons': ['Sim','N„o'],
 	    'overlay_opacity': '0.5',
 		'custom_class': 'custom-zebra-filter',
 	    'onClose':  function(caption) {
@@ -4295,17 +4295,17 @@ function print_msg(msg_folder, msg_number, border_ID){
 				html += "<tr><td width=7%><font size='2'>" + get_lang('From') + ": </font></td><td><font size='2'>"+from+"</font></td></tr>";
 			if(to) {
 				if(!printListTO)
-					to = 'Os destinat√°rios n√£o est√£o sendo exibidos para esta impress√£o';
+					to = 'Os destinat·rios n„o est„o sendo exibidos para esta impress„o';
 				html += "<tr><td width=7%><font size='2'>" + get_lang('To') + ": </font></td><td><font size='2'>"+to+"</font></td></tr>";
 			}
 			if (cc) {
 				if(!printListCC)
-					cc = 'Os destinat√°rios n√£o est√£o sendo exibidos para esta impress√£o';
+					cc = 'Os destinat·rios n„o est„o sendo exibidos para esta impress„o';
 				html += "<tr><td width=7%><font size='2'>" + get_lang('Cc') + ": </font></td><td><font size='2'>"+cc+"</font></td></tr>";
 			}
 			if (cco) {
 				if(!printListCCO)
-					cco = 'Os destinat√°rios n√£o est√£o sendo exibidos para esta impress√£o';
+					cco = 'Os destinat·rios n„o est„o sendo exibidos para esta impress„o';
 				html += "<tr><td width=7%><font size='2'>" + get_lang('Cco') + ": </font></td><td><font size='2'>"+cco+"</font></td></tr>";
 			}
 			if(date)
@@ -4607,7 +4607,7 @@ function nospam(msgs_number, border_ID, folder){
 	else if(msgs_number == 'selected')
 		msgs_number = get_selected_messages();
 
-	//TODO: REFATORAR O C√ìDIGO PARA EVITAR recodifica√ß√£o
+	//TODO: REFATORAR O C”DIGO PARA EVITAR recodificaÁ„o
 	if(currentTab == 0)
 		msgs_number = get_selected_messages();
 	if (typeof currentTab == "string" && currentTab.indexOf("search_") != "-1"){
@@ -4661,7 +4661,7 @@ function spam(folder, msgs_number, border_ID){
 	}else if(msgs_number == 'selected')
 		msgs_number = get_selected_messages();
 
-	//TODO: REFATORAR O C√ìDIGO PARA EVITAR recodifica√ß√£o
+	//TODO: REFATORAR O C”DIGO PARA EVITAR recodificaÁ„o
 	if(currentTab == 0)
 		msgs_number = get_selected_messages();
 
@@ -4674,7 +4674,7 @@ function spam(folder, msgs_number, border_ID){
 function import_window()
 {
     if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){  
-        alert("Imposs√≠vel manipular mensagens locais a partir de uma busca. Isso √© permitido apenas para mensagens n√£o locais.");
+        alert("ImpossÌvel manipular mensagens locais a partir de uma busca. Isso È permitido apenas para mensagens n„o locais.");
         return true;
     }
 	var folder = {};
@@ -4742,14 +4742,14 @@ function import_window()
 								 			write_msg(get_lang('You must wait while the messages will be imported...'));
 											
 											var local_folder = input_hidden.attr("value"); //recupera a pasta selecionada
-											if(local_folder.indexOf("local_") == 0){ //verifica se a pasta selecionada √© uma pasta local
+											if(local_folder.indexOf("local_") == 0){ //verifica se a pasta selecionada È uma pasta local
 												var fdata = local_folder.substr(15, local_folder.length); //recupera somente a estrutura da pasta ou o id
 												expresso_mail_archive.getFolderInfo(fdata); //recuperar a estrutura da pasta, 
-																							//para realizar a importa√ß√£o de mensagens
+																							//para realizar a importaÁ„o de mensagens
 												fdata = expresso_mail_archive.folder.path;
 
-												//o mailarchiver n√£o prov√™ um servi√ßo para a importa√ß√£o de mensagens nas pastas locais,
-												//mas sim uma modal, da qual s√£o extra√≠das as informa√ß√µes e as urls para submitar os dados
+												//o mailarchiver n„o provÍ um serviÁo para a importaÁ„o de mensagens nas pastas locais,
+												//mas sim uma modal, da qual s„o extraÌdas as informaÁıes e as urls para submitar os dados
 												//para o arquivamento de mensagens em pastas locais.
 												var url_src = mail_archive_protocol + '://' + mail_archive_host + ':' + mail_archive_port + '/arcserv/import?prt=' + mail_archive_protocol + '&por=' + mail_archive_port+ '&fid='+ encodeURIComponent(fdata) + '&sid=' + expresso_mail_archive.session.id;
 												var _html = DataLayer.render(url_src);
@@ -4905,7 +4905,7 @@ function return_import_msgs(data, folder)
 			var er = /^local_/;
 			if ( er.test(folder.id) )
 			{
-				alert( "Mensagens n√£o podem ser importadas em pastas locais" );
+				alert( "Mensagens n„o podem ser importadas em pastas locais" );
 				//archive_msgs('INBOX/Lixeira/tmpMoveToLocal',wfolders_tree._selected.id,data);
 				//cExecute('$this.imap_functions.delete_mailbox',function(){},'del_past=INBOX/Lixeira/tmpMoveToLocal');
 			}
@@ -4924,7 +4924,7 @@ function return_import_msgs(data, folder)
 
 }
 
-//Normaliza√ß√£o dos dados evita ter que reemplementar toda as funcionalidades do calendar
+//NormalizaÁ„o dos dados evita ter que reemplementar toda as funcionalidades do calendar
 function decodeCreateSchedulable(type, ID){
 	var startEvent = new Date();  
 	if(startEvent.toString('mm') < 30) 
@@ -5040,7 +5040,7 @@ function import_implements_calendar(){
 
 	if(typeof(Encoder) == "undefined"){
 		/*
-		* Deve-se centralizar as informa√ß√µes do usu√°rio logado afim de n√£o incluir
+		* Deve-se centralizar as informaÁıes do usu·rio logado afim de n„o incluir
 		* arquivos de modulos distintos para este fim.
 		*/
 		
@@ -5093,7 +5093,7 @@ function select_import_folder(){
 	else
 		wfolders.makeWindow('null','import');
 }
-    //Verifica o contexto de importa√ß√£o
+    //Verifica o contexto de importaÁ„o
     function decodeOwner(){
 	owner = User.me.id;
 	var imapBox = (openTab.imapBox[currentTab].indexOf( 'user' ) >= 0 ? openTab.imapBox[currentTab].split(cyrus_delimiter) : [] );
@@ -5215,7 +5215,7 @@ function select_import_folder(){
 				    return;
 				    break; 
 				case 6:
-					var acceptedSuggestion = confirm("Deseja atualizar o evento/tarefa de acordo com a sugest√£o ?");
+					var acceptedSuggestion = confirm("Deseja atualizar o evento/tarefa de acordo com a sugest„o ?");
 					$.ajax({
 					    url: "controller.php?action="+import_url+'&from_ajax=true&id_user='+User.me.id+'&selected=true&cirus_delimiter='+cyrus_delimiter+'&acceptedSuggestion='+acceptedSuggestion+"&from="+document.getElementById('from_values_'+currentTab).value+'&uidAccount='+decodeOwner(),
 					    success: function(msg){
@@ -5227,11 +5227,11 @@ function select_import_folder(){
 					break;
 					case 4:
 					case 9:
-					    alert('Seu evento/tarefa n√£o possui altera√ß√µes!');
+					    alert('Seu evento/tarefa n„o possui alteraÁıes!');
 					    return;
 					    break;
 					case 11:
-					    alert('Este evento/tarefa j√° fora importando por algum dos particpantes e j√° se encontra dispon√≠vel em sua agenda compartilhada!');
+					    alert('Este evento/tarefa j· fora importando por algum dos particpantes e j· se encontra disponÌvel em sua agenda compartilhada!');
 					    return;
 					    break;
 					default:
@@ -5323,7 +5323,7 @@ function hack_sent_queue(data,rowid_message) {
 	}
 	else {
 		expresso_local_messages.set_as_sent(rowid_message);
-		if(document.getElementById('_action')) { //N√£o posso manter esse elemento, pois o connector ir√° criar outro com o mesmo id para a pr√≥xima mensagem.
+		if(document.getElementById('_action')) { //N„o posso manter esse elemento, pois o connector ir· criar outro com o mesmo id para a prÛxima mensagem.
 			el =document.getElementById('_action');
 			father = el.parentNode;
 			father.removeChild(el);
@@ -5451,10 +5451,47 @@ function searchEmail(emailString){
 		return arrayInvalidEmails;
 }
 
-/* Fun√ß√£oo que chama a tela para o usu√°rio reportar um erro no email. */
-function reports_window(currentTab){ 
-    ID_msg = currentTab.substr(0,currentTab.indexOf("_")); 
-    report_wind.make_report_window(ID_msg); 
+/* FunÁ„oo que chama a tela para o usu·rio reportar um erro no email. */
+function reports_window(currentTab)
+{ 
+	var _window = $("#error_reporter");
+
+	_window.dialog(
+	{
+		height		: 370,
+		width		: 520,
+		resizable	: false,
+		title		: get_lang("More information about the problem (optional)"),
+		modal		: true,
+		buttons		: [
+						 {
+						 	text	: get_lang("Close"), 
+						 	click	: function()
+						 	{
+						 		$(this).dialog("destroy");
+						 	}
+						 },
+						 {
+						 	text	: get_lang('Report error'),
+						 	click	: function()
+						 	{
+						 		var msgId 		= currentTab.substr(0, currentTab.indexOf("_"));
+						 		var msgUser		= $(this).find('textarea').val();
+						 		var msgFolder	= get_current_folder();
+						 		var _this 		= $(this);
+
+						 		var handleReportsWindow = function()
+						 		{
+						 			$(_this).dialog("destroy");
+						 		}
+
+								cExecute ("$this.imap_functions.report_mail_error&params="+msgId+";;"+msgUser+";;"+msgFolder, handleReportsWindow);
+						 	}
+						 }
+					 ]	 	
+	});				 
+
+	_window.html( new EJS( {url: 'templates/default/emailTruncate.ejs'} ).render());
 } 
 
 

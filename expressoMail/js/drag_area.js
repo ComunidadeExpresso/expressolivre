@@ -26,32 +26,6 @@ function DragArea(){
 	document.body.appendChild(this.div_dd);
 	
 }
-/*
-DragArea.prototype.makeMenuBox = function(element){
-
-	element.oncontextmenu = function(e)
-	{
-		return false;
-	}
-	
-	var _this = this;
-	
-	element.onmousedown = function (e)
-	{
-		var _button = is_ie ? window.event.button : e.which;
-
-		if(_button == 2 || _button == 3)
-		{
-			var boxFolder = element.id.substr(1,element.id.indexOf('tree_folders')-1);
-			var boxName = element.firstChild.nextSibling.innerHTML;
-			ConstructBoxMenu(is_ie ? window.event : e,boxName,boxFolder);
-		}
-				
-		return true;
-	};	
-	
-}
-*/
 
 DragArea.prototype.makeDragged = function(element, msg_number, subject, from_list, folder){
 	element.oncontextmenu = function(e) {

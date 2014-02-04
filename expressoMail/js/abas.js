@@ -16,9 +16,9 @@ function setBorderAttributes(ID)
 
 function alternate_border(ID)
 {
-   
+	//Controle da seleção de mensagens   
 
-    msg_selected = false;//Controle da seleÃ§Ã£o de mensagens
+    msg_selected = false;//Controle da seleção de mensagens
     if(isNaN(ID))
         if(preferences.use_shortcuts == "1")
             select_msg((ID.split("_"))[0]);

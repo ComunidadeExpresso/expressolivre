@@ -1,5 +1,4 @@
 <!-- BEGIN list -->
-<script src="js/report_window.js"></script> 
 <input type="hidden" value="{txt_loading}" id="txt_loading">
 <input type="hidden" value="{txt_clear_trash}" id="txt_clear_trash">
 <input type="hidden" value="{upload_max_filesize}" id="upload_max_filesize">
@@ -210,4 +209,5 @@
 <div id="quickAddContact" style="display:none;"></div>
 <div id="freeow" class="freeow freeow-bottom-right"></div>
 <div id="window_InfoQuota" style="display:none"></div>
+<div id="error_reporter" style="display:none"><div>
 <!-- END list -->

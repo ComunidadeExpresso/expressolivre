@@ -52,7 +52,7 @@ if (strpos($javaVersion,"java version") !== false){
     $css->ensureFilter($filterManager->get('yui_css'));    
 }
 
-$cssCache = new AssetCache($css,new FilesystemCache('/tmp/css'));
+$cssCache = new AssetCache($css,new FilesystemCache('/tmp'));
 echo $cssCache->dump();
 
 ?>

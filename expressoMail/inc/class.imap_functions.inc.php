@@ -5057,7 +5057,7 @@ class imap_functions
  		$mail_content = $exporteml->export_msg_data($id_msg, $msg_folder); 
  		$this->open_mbox($msg_folder);  
 		$title = "Erro de email reportado"; 
-		$body  = "<body>O usuário <strong>$toname</strong> reportou um erro na tentativa de acesso ao conteúdo do email.<br><br>Segue em anexo o fonte da mensagem" .                           " reportada.<br><br><hr><strong><u>Mensagem do usuário:</strong></u><br><br><br>" . 
+		$body  = "<body>O usu&aacute;rio <strong>$toname</strong> reportou um erro na tentativa de acesso ao conte&uacute;do do email.<br><br>Segue em anexo o fonte da mensagem" .                           " reportada.<br><br><hr><strong><u>Mensagem do usu&aacute;rio:</strong></u><br><br><br>" . 
  		                "$msg_user</body><br><br><hr>"; 
 						
  		require_once dirname(__FILE__) . '/../../services/class.servicelocator.php';
