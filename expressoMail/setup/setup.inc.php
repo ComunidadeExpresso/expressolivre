@@ -12,7 +12,7 @@
 
 $setup_info['expressoMail']['name'] 		= 'expressoMail';
 $setup_info['expressoMail']['title'] 		= 'Expresso Mail';
-$setup_info['expressoMail']['version'] 		= '2.5.1';
+$setup_info['expressoMail']['version'] 		= '2.5.1.1';
 $setup_info['expressoMail']['app_order']	= 2;
 $setup_info['expressoMail']['tables'][]		= 'phpgw_certificados';
 

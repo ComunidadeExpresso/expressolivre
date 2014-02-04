@@ -350,4 +350,56 @@
         $GLOBALS['setup_info']['expressoAdmin']['currentver'] = '2.5.1';
         return $GLOBALS['setup_info']['expressoAdmin']['currentver'];
     }
+
+	$test[] = '2.5.1';
+	function expressoAdmin_upgrade2_5_1()
+	{
+		$GLOBALS['setup_info']['expressoAdmin']['currentver'] = '2.5.1.1';
+		$GLOBALS['phpgw_setup']->oProc->query(
+'DO $$
+	DECLARE
+		r record;
+		c record;
+		v varchar[];
+		vrepl varchar[] := array[
+			[\'expressoAdmin1_2\',\'expressoAdmin\'],
+			[\'expressoadmin1_2\',\'expressoadmin\']
+		];
+	BEGIN
+		FOR r IN
+			SELECT tb.tablename AS tname, att.attname AS cname
+			FROM
+				pg_catalog.pg_tables AS tb,
+				pg_catalog.pg_type AS typ,
+				pg_catalog.pg_attribute AS att,
+				pg_catalog.pg_type AS typatt
+			WHERE tb.tablename = typ.typname
+			 AND att.attrelid = typ.typrelid
+			 AND tb.schemaname = \'public\'
+			 AND att.atttypid = typatt.oid
+			 AND att.attname NOT IN (\'cmin\', \'cmax\', \'ctid\', \'oid\', \'tableoid\', \'xmin\', \'xmax\')
+			 AND typatt.typcategory = \'S\'
+		LOOP
+			FOREACH v SLICE 1 IN ARRAY vrepl
+			LOOP
+				BEGIN
+					EXECUTE \'UPDATE \'||r.tname||\' SET \'||r.cname||\' = regexp_replace(\'||r.cname||\',\'||quote_literal(v[1])||\',\'||quote_literal(v[2])||\',\'||quote_literal(\'g\')||\') WHERE \'||r.cname||\' like \'||quote_literal(\'%\'||v[1]||\'%\');
+				EXCEPTION WHEN unique_violation THEN
+					FOR c IN EXECUTE \'SELECT oid FROM \'||r.tname||\' WHERE \'||r.cname||\' like \'||quote_literal(\'%\'||v[1]||\'%\')||\' LIMIT 1\'
+					LOOP
+						BEGIN
+							EXECUTE \'UPDATE \'||r.tname||\' SET \'||r.cname||\' = regexp_replace(\'||r.cname||\',\'||quote_literal(v[1])||\',\'||quote_literal(v[2])||\',\'||quote_literal(\'g\')||\') WHERE  oid = \'||quote_literal(c.oid);
+						EXCEPTION WHEN unique_violation THEN
+							EXECUTE \'DELETE FROM \'||r.tname||\' WHERE oid = \'||quote_literal(c.oid);
+						END;
+					END LOOP;
+				END;
+			END LOOP;
+		END LOOP;
+	END;
+$$;'
+		);
+		return $GLOBALS['setup_info']['expressoAdmin']['currentver'];
+	}
+
 ?>
