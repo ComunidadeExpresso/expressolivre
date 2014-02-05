@@ -411,46 +411,6 @@
 	
 	searchE.prototype.viewLocalMessage = function()
 	{
-		/*
-		var data		  	= [2];
-		var gears			= [];
-		var local_folders	= [];
-		
-    	// Gears - local
-		if ( preferences.use_local_messages == 1 )
-		{
-			temp = expresso_local_messages.list_local_folders();
-			
-			for (var x in temp)
-			{
-				local_folders.push( temp[x][0] );
-			}
-
-			if ( local_folders.length > 0 ){
-				var currentSearch = document.getElementsByName(currentTab);
-				if(currentSearch[0].value != ''){
-					gears = expresso_local_messages.search( local_folders, "##ALL <=>"+currentSearch[0].value +"##");
-				}else{
-					if(openTab.condition[currentTab]){
-						var condit = openTab.condition[currentTab][0].split(',');
-						var filter = condit[0].split('##');
-						gears = expresso_local_messages.search( local_folders, '##'+filter[1]+'##');
-						
-					}
-				
-				}
-			}
-
-			data['data_gears']	= gears;
-			data['num_msgs']	= gears.length;
-	
-			if(data['num_msgs'] != undefined)
-				write_msg( data['num_msgs'] + " " + get_lang("results found") );
-						
-			EsearchE.mount_result( data, 'SORTDATE' );
-		}
-		*/
-
 		var data		  	= [2];
 		var gears			= [];
 		var local_folders	= [];
@@ -1946,5 +1906,4 @@
 	}
 
 // Cria o objeto
-var EsearchE = new searchE();
 var EsearchE = new searchE();

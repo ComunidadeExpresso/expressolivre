@@ -1249,7 +1249,6 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
 	var handler_move_msgs = function(data){
 		if(typeof(data) == 'string')
 			if (data.match(/^(.*)TRYCREATE(.*)$/)){
-				connector.loadScript('TreeS');
 				var move_to_folder = data.match(/^(.*)Spam(.*)$/) ? "Spam" : special_folders['Trash'];
 				alert(get_lang('There is not %1 folder, Expresso is creating it for you... Please, repeat your request later.', folder_error));
 				ttree.FOLDER = 'root';

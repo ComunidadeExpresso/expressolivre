@@ -453,7 +453,6 @@ function block_user_email(email) {
             }
         });
         if(!has_folder_spam){
-            connector.loadScript('TreeS');
             create_new_folder("Spam","INBOX");
         }
 		DataLayer.put( 'filter', idd,

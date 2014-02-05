@@ -243,28 +243,34 @@
     /*FIM*/
     loadMenu();
 
-    if (!expresso_offline) {
+    if ( !expresso_offline )
+    {
     	var menuToolsItems = {
     		"i01": {"name": get_lang("Preferences"), "icon": "preferences-mail", callback: preferences_mail },
     		"i02": {"name": get_lang("Search"), "icon": "search-mail", callback: function(key, opt){ search_emails(""); }},
     		"103": {"name": get_lang("Edit filters"), "icon": "filter", callback: filterbox },
     		"i05": {"name": get_lang("Share mailbox"), "icon": "share-mailbox", callback: sharebox } 
     	};
+        
         if ( preferences['use_followupflags_and_labels'] == "1" )
+        {
             menuToolsItems["i06"] = {"name": get_lang("Labels"), "icon": "tag", callback: configureLabels };
+        }
+        
         menuToolsItems["i08"] = {"name": get_lang("Empty trash"), "icon": "empty-trash", callback: function(key, opt){ empty_trash_imap(); }};   		
-    	if(use_local_messages==1) {
-    		//if(expresso_mail_archive.enabled == true) {
-    			//menuToolsItems["i09"] = {"name": get_lang("Send from queue"), "icon": "queue", callback: force_check_queue };
-    		//} else {
-                menuToolsItems["i09"] = {"name": "MailArchive Admin", "icon": "config", callback: function(key, opt){ window.open(mail_archive_url); }}
-            //}
+    	
+        if( use_local_messages == 1 )
+        {
+            menuToolsItems["i09"] = {"name": "MailArchive Admin", "icon": "config", callback: function(key, opt){ window.open(mail_archive_url); }}
     	}
-    } else {
+    }
+    else
+    {
     	var menuToolsItems = {
     		"i01": {"name": get_lang("Search"), "icon": "search-mail", callback: function(key, opt){ search_emails(""); }}
     	}
     }
+    
     $.contextMenu({
     	selector: "#link_tools",
     	trigger: 'hover',

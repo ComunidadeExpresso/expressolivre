@@ -61,7 +61,8 @@ $plugins = new AssetCollection(array(
 );
 
 /*Se o servidor possuir a jvm então minifique os arquivos*/
-if (strpos($javaVersion,"java version") !== false){
+if (strpos($javaVersion,"java version") !== false)
+{
     $filterManager->set('yui_js', $compressor);
     $plugins->ensureFilter($filterManager->get('yui_js'));
 }
@@ -86,10 +87,12 @@ $scripts = new AssetCollection(array(
     new FileAsset('js/rich_text_editor.js'),
     new FileAsset('../prototype/modules/filters/filters.js'),
     new FileAsset('../prototype/modules/mail/js/label.js'),
+    new FileAsset('js/searchEmails.js'),
     new FileAsset('js/init.js')
 ));
 
-if (strpos($javaVersion,"java version") !== false){
+if (strpos($javaVersion,"java version") !== false)
+{
     $filterManager->set('yui_js', $compressor);
     $scripts->ensureFilter($filterManager->get('yui_js'));
 }

@@ -826,52 +826,64 @@ function preferences_mail(){
 	location.href="../preferences/preferences.php?appname=expressoMail";
 }
 
-function search_emails(value, data){
-	var resize = false;
-        resize = resize_borders();
-        if (!resize){
-            var str_continue = '';
-            var bolContinue = true;			
-			str_continue = '\n' + get_lang('You must manually close one of your tabs before opening a new one');
-            if (preferences.auto_close_first_tab == 1){				                
-                var children = Element('border_tr').childNodes;
-                var bolDelete = true;
-                for (var i=0; i<children.length; i++) {
-                    if ((children[i].nodeName === 'TD') && (children[i].id!=='border_id_0') && (children[i].id!=='border_blank'))
+function search_emails(value, data)
+{
+	var resize = resize_borders();
+    
+    if( !resize )
+    {
+        var str_continue = '';
+        var bolContinue = true;			
+		str_continue = '\n' + get_lang('You must manually close one of your tabs before opening a new one');
+        
+        if ( preferences.auto_close_first_tab == 1 )
+        {				                
+            var children = Element('border_tr').childNodes;
+            var bolDelete = true;
+            
+            for( var i = 0 ; i < children.length ; i++ )
+            {
+                if ((children[i].nodeName === 'TD') && (children[i].id!=='border_id_0') && (children[i].id!=='border_blank'))
+                {
+                    bolDelete = true;
+                    
+                    var num_child = children[i].id.toString().substr(10);
+                    
+                    alternate_border(num_child);
+                    
+                    if( editTest(num_child) )
                     {
-                        bolDelete = true;
-                        var num_child = children[i].id.toString().substr(10);
-                        alternate_border(num_child);
-                        if (editTest(num_child)){
-                            bolDelete = false;
-                        }
-                        if (bolDelete || bolContinue){
-							str_fechar = '\n' + get_lang('Reached maximum tab limit. Want to close this tab');
-							var confirmacao = confirm(str_fechar);
-                            if(confirmacao){
-								bolContinue = false;
-								delete_border(num_child, 'false');
-								break;
-							}else{
-								return;
-							}
-						}
+                        bolDelete = false;
                     }
-				}				
-            }else{			
-                alert(get_lang('Reached maximum tab limit') + str_continue );
-                return;
-            }
+                    
+                    if( bolDelete || bolContinue )
+                    {
+						str_fechar = '\n' + get_lang('Reached maximum tab limit. Want to close this tab');
+						
+						var confirmacao = confirm(str_fechar);
+                        
+                        if( confirmacao )
+                        {
+							bolContinue = false;
+							delete_border(num_child, 'false');
+						
+						}
+					}
+                }
+			}				
         }
-	connector.loadScript("TreeS");
-	connector.loadScript("search");
-	if (typeof(EsearchE) == 'undefined' || typeof(ttree) == 'undefined'){
-		setTimeout("search_emails('"+value+"', '"+data+"')",500);
-		return false;
+        else
+        {			
+			alert( get_lang('Reached maximum tab limit') + str_continue );
+        }
+    }
+    else
+    {
+		EsearchE.showForms(value, data);
 	}
-	EsearchE.showForms(value, data);
+	
 	$("#em_message_search").val("");
-	}
+}
 
 function source_msg(id_msg,folder){
 	var num_msg = id_msg.substr(0,(id_msg.length - 2));
