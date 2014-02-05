@@ -40,3 +40,4 @@
 	$setup_info['phpgwapi']['tables'][]  = 'phpgw_vfs';
 	$setup_info['phpgwapi']['tables'][]  = 'phpgw_history_log';
 	$setup_info['phpgwapi']['tables'][]  = 'phpgw_async';
+	$setup_info['phpgwapi']['tables'][]  = 'phpgw_vfs_quota';

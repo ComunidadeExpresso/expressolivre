@@ -367,6 +367,16 @@
 			'fk' => array(),
 			'ix' => array(),
 			'uc' => array()
-		)
+		),
+		'phpgw_vfs_quota' => array(
+			'fd' => array(
+				'directory'  => array( 'type' => 'varchar', 'precision' => '100', 'nullable' => false ),
+				'quota_size' => array( 'type' => 'int', 'precision' => '4', 'nullable' => false ),
+			),
+			'pk' => array( 'directory' ),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array(),
+		),
 	);
 ?>

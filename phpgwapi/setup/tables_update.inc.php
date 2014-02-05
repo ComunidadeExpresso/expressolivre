@@ -229,6 +229,24 @@
 	function phpgwapi_upgrade2_5_1_0()
 	{
 		$GLOBALS['setup_info']['phpgwapi']['currentver'] = '2.5.1.1';
+		
+		// Fixing missing table phpgw_vfs_quota
+		$GLOBALS['phpgw_setup']->oProc->query( 'SELECT tablename FROM pg_catalog.pg_tables WHERE tablename= \'phpgw_vfs_quota\'');
+		if ( !$GLOBALS['phpgw_setup']->oProc->next_record() )
+		{
+			$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_vfs_quota', array(
+				'fd' => array(
+					'directory'  => array( 'type' => 'varchar', 'precision' => '100', 'nullable' => false ),
+					'quota_size' => array( 'type' => 'int', 'precision' => '4', 'nullable' => false ),
+				),
+				'pk' => array( 'directory' ),
+				'fk' => array(),
+				'ix' => array(),
+				'uc' => array(),
+			));
+		}
+		
+		// Set in all tables OIDS = true 
 		$GLOBALS['phpgw_setup']->oProc->query(
 'DO $$
 	DECLARE
@@ -249,6 +267,8 @@
 	END;
 $$;'
 		);
+		
+		// Rename sequences to Postgres serial format
 		$GLOBALS['phpgw_setup']->oProc->query(
 'DO $$
 	DECLARE
@@ -278,8 +298,44 @@ $$;'
 	END;
 $$;'
 		);
+		
+		// Fixing sequences ownership
+		$GLOBALS['phpgw_setup']->oProc->query(
+'DO $$
+	DECLARE
+		r record;
+	BEGIN
+		FOR r IN
+			SELECT
+				tp.typname AS tname,
+				att.attname AS cname,
+				cl.relname AS sname
+			FROM
+				pg_class AS cl,
+				pg_namespace AS ns,
+				pg_attrdef AS def,
+				pg_attribute AS att,
+				pg_type AS tp
+			WHERE cl.relkind=\'S\'
+				AND cl.relnamespace = ns.oid
+				AND NOT EXISTS (
+					SELECT * FROM pg_depend WHERE objid = cl.oid AND deptype = \'a\'
+				)
+				AND def.adsrc LIKE \'%\'||quote_literal(cl.relname)||\'%\'
+				AND def.adrelid = att.attrelid
+				AND def.adnum = att.attnum
+				AND def.adrelid = tp.typrelid
+		LOOP
+			EXECUTE \'ALTER SEQUENCE \'||r.tname||\'_\'||r.cname||\'_seq\'||\' OWNED BY \'||r.tname||\'.\'||r.cname;
+		END LOOP;
+	END;
+$$;'
+		);
+		
+		// Rename modules for update
 		$GLOBALS['phpgw_setup']->oProc->query('UPDATE phpgw_applications SET app_name = \'expressoAdmin\' WHERE app_name = \'expressoAdmin1_2\';');
 		$GLOBALS['phpgw_setup']->oProc->query('UPDATE phpgw_applications SET app_name = \'expressoMail\' WHERE app_name = \'expressoMail1_2\';');
+		
 		return $GLOBALS['setup_info']['phpgwapi']['currentver'];
 	}
 
