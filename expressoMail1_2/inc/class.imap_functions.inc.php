@@ -1508,10 +1508,6 @@ class imap_functions
                 else
                     $disposition = '';
 
-
-
-
-
                 if (($msg_subtype == "html" || $msg_subtype == 'plain') && ($disposition != 'attachment')) {
                     if (strtolower($msg_subtype) == 'plain') {
                         if (isset($structure->ctype_parameters['charset']))
@@ -1595,12 +1591,19 @@ class imap_functions
         $this->set_messages_flag($params);
         $content = $this->process_embedded_images($images, $msg_number, $content, $msg_folder);
         $content = $this->replace_special_characters($content);
-        $this->replace_links($content);
+        $content = $this->replace_email_mailto($content);
+        //$this->replace_links($content);
         $return['body'] = &$content;
 
         return $return;
     }
 
+    function replace_email_mailto($content)
+    {
+        $pattern = '/( |<|&lt;|>)([A-Za-z0-9\.~?\/_=#\-]*@[A-Za-z0-9\.~?\/_=#\-]*)( |>|&gt;|<)/im';
+        $replacement = '$1<a href="mailto:$2">$2</a>$3';
+        return preg_replace($pattern, $replacement, $content);
+    }
 
     //TODO: Descartar código após atualização do módulo de segurança da SERPRO
     function extractSignedContents($data)
@@ -1935,9 +1938,7 @@ class imap_functions
         else
             $pref = $matches[4] = 'http';
 
-        $url = isset($matches[6]) ? $matches[5] . $matches[6] : $matches[5];
-
-        $link = '<a href="' . $matches[1] . '" target="_blank">' . $matches[1] . '</a>';
+        //$url = isset($matches[6]) ? $matches[5] . $matches[6] : $matches[5];
 
         return '<a href="' . $matches[0] . '" target="_blank">' . $matches[1] . '</a>';
     }
