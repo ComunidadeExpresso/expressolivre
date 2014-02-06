@@ -1,4 +1,4 @@
 expressolivre
 =============
 
-RepositÃ³rio oficial do Projeto Expresso Livre.
+Repositório oficial do Projeto Expresso Livre.

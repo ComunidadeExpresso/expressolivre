@@ -18,7 +18,7 @@ hideBar = __hideBar;
 
 window.onresize = resizeWindow;
 
-var message = "N√£o Informado";
+var message = "N„o Informado";
 
 //MAILARCHIVER-01
 try{
@@ -103,10 +103,10 @@ window.onbeforeunload = unloadMess;
 function unloadMess(){
     if (typeof BordersArray == 'undefined') return; // We're not on expressoMail
 	var ret = null;
-	$(".conteudo .new-msg-head-buttons .save").each(function(index) { //Pega todos os bot√µes "Save" de todas as abas
-		if($(this).is(':disabled')) { //se a mensagem estiver salva (bot√£o Salvar desabilitado)
+	$(".conteudo .new-msg-head-buttons .save").each(function(index) { //Pega todos os botıes "Save" de todas as abas
+		if($(this).is(':disabled')) { //se a mensagem estiver salva (bot„o Salvar desabilitado)
 			ret = null;
-		} else { //se estiver em modo edi√ß√£o (bot√£o Salvar habilitado)
+		} else { //se estiver em modo ediÁ„o (bot„o Salvar habilitado)
 			ret = get_lang('There are still editing posts, really want to leave the page')+'?';
 		}
 	});
@@ -540,7 +540,7 @@ function make_forward_body(body, from, date, subject, to, cc){
 	var forward_body = '<div>---------- ' + get_lang('Forwarded message') + ' ----------<br type="_moz"></div><div>';
 	forward_body += get_lang('From') + ': ' + from + '<br type="_moz"></div><div>';
 
-    if(date.indexOf('(') !== -1) //Retira a string com calculo da diferen√ßa de horas exemplo: (20 minutus atras);
+    if(date.indexOf('(') !== -1) //Retira a string com calculo da diferenÁa de horas exemplo: (20 minutus atras);
         date = date.substr(0,date.indexOf('('));
 
     forward_body += get_lang('Date') + ': ' + date + '<br type="_moz"></div><div>';
@@ -676,8 +676,8 @@ function filterbox(){
 }
 
 /* 
-	Abre o di√°logo de edi√ß√£o de filtro na tela de cria√ß√£o de filtro,  
-	com os dados da mensagem (remetente e assunto) pr√©-carregados. 
+	Abre o di·logo de ediÁ„o de filtro na tela de criaÁ„o de filtro,  
+	com os dados da mensagem (remetente e assunto) prÈ-carregados. 
 */ 
  function filter_from_msg (msg) { 
 	var html = DataLayer.render( BASE_PATH + 'modules/filters/init.ejs', {}); 
@@ -707,7 +707,7 @@ function sharebox(){
 
 function configureLabels(data){
     if(get_current_folder().split("_")[0] == "local"){
-        alert("Pastas locais n√£o fornece suporte para marcadores");
+        alert("Pastas locais n„o fornece suporte para marcadores");
         return true;
     }
 
@@ -716,7 +716,7 @@ function configureLabels(data){
 	dialogElement.dialog({
 		width:825,
 		height:420,
-		title:' Configura√ß√£o do Marcador',
+		title:' ConfiguraÁ„o do Marcador',
 		resizable:false,
 		modal: true,
 		closeOnEscape:true,
@@ -739,7 +739,7 @@ function configureLabels(data){
 function configureFollowupflag(){
 
     if(get_current_folder().split("_")[0] == "local"){
-        alert("Pastas locais n√£o fornece suporte para acompanhamento.");
+        alert("Pastas locais n„o fornece suporte para acompanhamento.");
         return true;
     }
 
@@ -927,7 +927,7 @@ function url_decode(str) {
 	}
 	return strDecode;
 }
-//M√©todo que remove os hexadecimais criados no enconde
+//MÈtodo que remove os hexadecimais criados no enconde
 //e retorna string corretamente
 function url_decode_s(str) {
 	    var result = "";
@@ -1124,7 +1124,7 @@ function LTrim(value){
 //changes MENU background color.
 function set_menu_bg(menu)
 {
-	// TODO - remover esta fun√ß√£o, por hora, apenas um retrun true para preservar menor impacto
+	// TODO - remover esta funÁ„o, por hora, apenas um retrun true para preservar menor impacto
 	return true;
 	menu.style.backgroundColor = 'white';
 	menu.style.border = '1px solid black';
@@ -1133,7 +1133,7 @@ function set_menu_bg(menu)
 //changes MENU background color.
 function unset_menu_bg(menu)
 {
-	// TODO - remover esta fun√ß√£o, por hora, apenas um retrun true para preservar menor impacto
+	// TODO - remover esta funÁ„o, por hora, apenas um retrun true para preservar menor impacto
 	return true;
 	menu.style.backgroundColor = '';
 	menu.style.border = '0px';
@@ -1173,7 +1173,7 @@ function exist_className(obj, className){
 	return ( obj && obj.className.indexOf(className) != -1 )
 }
 
-//Verifica se ainda existem mensagens marcadas, se n√£o desmarca
+//Verifica se ainda existem mensagens marcadas, se n„o desmarca
 //o selecionar todas.
 function remove_chk_box_select_all_messages(){
 	var main = Element("tbody_box");
@@ -1217,7 +1217,7 @@ function select_all_messages(select)
 		if (totalSelected() == totalFolderMsgs && totalSelected() > 0){
 			allMsgsSelected = true;
 				if (total_pages > 1){
-					var link = "<a class='select-link' href='#'>Limpar sele√ß√£o?</a>";
+					var link = "<a class='select-link' href='#'>Limpar seleÁ„o?</a>";
 					var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
 					div.html("<span>"+info+"<span>");
 					//div.show();
@@ -1229,7 +1229,7 @@ function select_all_messages(select)
 		}
 		else if (!allMsgsSelected && total_pages > 1){
 			var link = "<a class='select-link' href='#'>Selecionar todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+"?</a>";
-			var info = "Todas as <b>"+$('#table_box tr').length+"</b> mensagens desta p√°gina foram selecionadas. "+link;
+			var info = "Todas as <b>"+$('#table_box tr').length+"</b> mensagens desta p·gina foram selecionadas. "+link;
 			div.html("<span>"+info+"<span>");
 			//div.show();
 			$('.select-link').bind('click',function(){
@@ -1253,7 +1253,7 @@ function select_all_messages(select)
 			updateSelectedMsgs();
 		}
 		else if (totalSelected() > 0 && total_pages > 1){
-			var link = "<a class='select-link' href='#'>Limpar sele√ß√£o?</a>";
+			var link = "<a class='select-link' href='#'>Limpar seleÁ„o?</a>";
 			var info = "Foram selecionadas <b>"+totalSelected()+"</b> mensagens "+filterFlag+" em "+folder+". "+link;
 			div.html("<span>"+info+"<span>");
 			div.show();
@@ -1286,7 +1286,7 @@ function borkb(size){
 		return (size/gbyte).toFixed(1) + ' GB';
 }
 
-//valida se a primeira data √© menor que a segunda data
+//valida se a primeira data È menor que a segunda data
 function validate_date_order(dateStart, dateEnd){
 	if ( parseInt( dateEnd.split( "/" )[2].toString() + dateEnd.split( "/" )[1].toString() + dateEnd.split( "/" )[0].toString() ) >= parseInt( dateStart.split( "/" )[2].toString() + dateStart.split( "/" )[1].toString() + dateStart.split( "/" )[0].toString() ) ){
 		return true;

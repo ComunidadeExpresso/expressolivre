@@ -14,7 +14,7 @@ namespace Assetic\Cache;
 /**
  * Uses APC to cache files
  *
- * @author AndrÃ© Roaldseth <andre@roaldseth.net>
+ * @author André Roaldseth <andre@roaldseth.net>
  */
 class ApcCache implements CacheInterface
 {

@@ -18,11 +18,11 @@
 			$oProc->query("INSERT INTO expressomail_followupflag(name) VALUES ('Don''t forward');");
 			$oProc->query("INSERT INTO expressomail_followupflag(name) VALUES ('Don''t answer');");
 						
-			/* Seta o valor padrÃ£o para a configuraÃ§Ã£o de nÃºmero mÃ¡ximo de marcadores */
+			/* Seta o valor padrão para a configuração de número máximo de marcadores */
 			$oProc->query("INSERT INTO phpgw_config(config_app, config_name, config_value) VALUES ('expressoMail', 'expressoMail_limit_labels', 20);");
 			$oProc->query("INSERT INTO phpgw_config(config_app, config_name, config_value) VALUES ('expressoMail', 'allow_hidden_copy', 'True');");
 			
-			/* Registra o hook de validaÃ§Ã£o do administrador*/
+			/* Registra o hook de validação do administrador*/
 			$oProc->query("INSERT INTO phpgw_hooks( \"hook_appname\", \"hook_location\", \"hook_filename\") VALUES ('expressoMail', 'config_validate', 'hook_config_validate.inc.php')");
 
 			/* Cria um indice unico para um owner e mail para nao ocorrer duplicidade em e-mails para um mesmo owner  */

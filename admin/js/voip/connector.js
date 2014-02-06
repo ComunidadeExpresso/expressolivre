@@ -160,37 +160,37 @@
 			"Description:\n"+
 			"\t<obj>.go(string access, [mixed handler[, mixed post]])\n\n"+
 			"Parameters:\n"+
-			"\taccess : assinatura de acesso √† camada de controle.\n"+
-			"\thandler : uma fun√ß√£o a ser executada no fim da requisi√ß√£o\n"+
-			"\t\tou um objeto que poder√° conter dois √≠ndices sendo\n"+
-			"\t\tque ambos dever√£o ser uma fun√ß√£o que ser√° executada\n"+
-			"\t\tconforme o status do objeto xhr, sendo que na posi√ß√£o\n"+
-			"\t\t'stream' ser√° a fun√ß√£o a ser executada a cada itera√ß√£o\n"+
-			"\t\tdo objeto xhr e na posi√ß√£o 'request' ser√° a fun√ß√£o\n"+
-			"\t\ta ser executada no fim da requisi√ß√£o.\n"+
-			"\tpost : se especificado dever√° ser uma query string ou um\n"+
+			"\taccess : assinatura de acesso ‡ camada de controle.\n"+
+			"\thandler : uma funÁ„o a ser executada no fim da requisiÁ„o\n"+
+			"\t\tou um objeto que poder· conter dois Ìndices sendo\n"+
+			"\t\tque ambos dever„o ser uma funÁ„o que ser· executada\n"+
+			"\t\tconforme o status do objeto xhr, sendo que na posiÁ„o\n"+
+			"\t\t'stream' ser· a funÁ„o a ser executada a cada iteraÁ„o\n"+
+			"\t\tdo objeto xhr e na posiÁ„o 'request' ser· a funÁ„o\n"+
+			"\t\ta ser executada no fim da requisiÁ„o.\n"+
+			"\tpost : se especificado dever· ser uma query string ou um\n"+
 			"\tXML bem formatado.\n\n";
 	}
 
 	// @PARAM arguments[0] string :
-	//		assinatura de acesso √† camada de controle
+	//		assinatura de acesso ‡ camada de controle
 	//
 	// @PARAM arguments[1] object :
-	//		OBS : neste caso a conex√£o assumir√° que se trata de uma stream
-	//		objeto contendo dois duas fun√ß√µes, sendo,
-	//		no √≠ndice stream dever√° conter uma fun√ß√£o que ser√° execultada
-	//		a cada mudan√ßa de status do objeto xhr
+	//		OBS : neste caso a conex„o assumir· que se trata de uma stream
+	//		objeto contendo dois duas funÁıes, sendo,
+	//		no Ìndice stream dever· conter uma funÁ„o que ser· execultada
+	//		a cada mudanÁa de status do objeto xhr
 	//	or
-	// @PARAM arguments[1] function : func√£o a ser executada no retorno da
-	//		requisi√ß√£o
-	//		OBS : neste caso a conex√£o assumir√° que se trata de uma
-	//		requisi√ß√£o fun√ß√£o que ser√° execultada no final da requisi√ß√£o
+	// @PARAM arguments[1] function : func„o a ser executada no retorno da
+	//		requisiÁ„o
+	//		OBS : neste caso a conex„o assumir· que se trata de uma
+	//		requisiÁ„o funÁ„o que ser· execultada no final da requisiÁ„o
 	//
 	// @PARAM arguments[2] string :
-	//		este par√¢metro define se a conex√£o √© via GET ou POST
-	//		caso o par√¢metro n√£o esteja presente a conex√£o ser√° execultada
-	//		via GET, por outro lado, caso ele exista dever√° ser uma query
-	//		string v√°lida ou um xml bem formatado
+	//		este par‚metro define se a conex„o È via GET ou POST
+	//		caso o par‚metro n„o esteja presente a conex„o ser· execultada
+	//		via GET, por outro lado, caso ele exista dever· ser uma query
+	//		string v·lida ou um xml bem formatado
 	//
 	function go()
 	{

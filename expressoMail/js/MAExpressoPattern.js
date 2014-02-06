@@ -1277,7 +1277,7 @@ MAPattern.prototype.toExpressoMessage = function(mheader, mbody){
 	retorno['body'] = rs.field(4);
 	//Codigo que as imagens embutidas em emails (com multipart/related ou multipart/mixed) sejam corretamente mostradas em emails arquivados. Os links do
 	//tipo "./inc/show_embedded_attach.php?msg_folder=[folder]&msg_num=[msg_num]&msg_part=[part]"
-	//s茫o substituidos pelos links dos anexos capturados pelo gears.
+	//s鉶 substituidos pelos links dos anexos capturados pelo gears.
 
 	var thumbs= retorno.thumbs;
 	var anexos= retorno.array_attach;
@@ -1313,13 +1313,13 @@ MAPattern.prototype.tagConfig = function(taglist, arcidmsg, op){
     //window.alert('no maexpressopattern.tagconfig:\n' + print_r(taglist));
     if(taglist != null){
         var tagdata = "";
-        //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+        //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
         //var flag_draft = false;
         
         //first message to tag data
         if(expresso_mail_archive.taglist == ""){
 
-            //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+            //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
             /*
             Draft folder, are "draft"
             if(expresso_mail_archive.folder_destination == 'drafts'){
@@ -1383,7 +1383,7 @@ MAPattern.prototype.tagConfig = function(taglist, arcidmsg, op){
             else
                 tagdata += '<remove value="deleted"/>';
         
-            //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+            //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
             //if(!flag_draft){
 
             var action;
@@ -1455,7 +1455,7 @@ MAPattern.prototype.tagConfig = function(taglist, arcidmsg, op){
                     tagdata += '<'+action+' value="'+taglist+'"/>';
             }
 
-            //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+            //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
             //}
 
             if(tagdata != ""){    
@@ -1472,7 +1472,7 @@ MAPattern.prototype.tagConfig = function(taglist, arcidmsg, op){
         else{
             var endpoint = expresso_mail_archive.taglist.lastIndexOf("<");
            
-            //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+            //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
             /*
             Draft folder, are "draft"
             if(expresso_mail_archive.folder_destination == 'drafts'){
@@ -1540,7 +1540,7 @@ MAPattern.prototype.tagConfig = function(taglist, arcidmsg, op){
             else
                 tagdata += '<remove value="deleted"/>';
             
-            //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+            //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
             //if(!flag_draft){
 
             var action;
@@ -1609,7 +1609,7 @@ MAPattern.prototype.tagConfig = function(taglist, arcidmsg, op){
                     tagdata += '<'+action+' value="'+taglist+'"/>';
             }
 
-            //C贸digo comentado para evitar inconsist锚ncia de flags quando mensagens passam pela pasta rascunhos
+            //C骴igo comentado para evitar inconsist阯cia de flags quando mensagens passam pela pasta rascunhos
             //}
             
             if(tagdata != ""){        

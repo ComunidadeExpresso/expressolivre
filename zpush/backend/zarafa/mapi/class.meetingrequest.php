@@ -489,7 +489,7 @@ class Meetingrequest {
 
 //TODO: Upate counter proposal number property on message
 /*
-If it is the first time this attendee has proposed a new date/time, increment the value of the PidLidAppointmentProposalNumber property on the organizer�s meeting object, by 0x00000001. If this property did not previously exist on the organizer�s meeting object, it MUST be set with a value of 0x00000001.
+If it is the first time this attendee has proposed a new date/time, increment the value of the PidLidAppointmentProposalNumber property on the organizer's meeting object, by 0x00000001. If this property did not previously exist on the organizer's meeting object, it MUST be set with a value of 0x00000001.
 */
         // If this is a counter proposal, set the counter proposal indicator boolean
         if(isset($messageprops[$this->proptags['counter_proposal']])){
