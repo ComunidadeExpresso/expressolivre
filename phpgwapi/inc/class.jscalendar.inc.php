@@ -83,7 +83,7 @@
 			return
 '<input type="text" id="'.$name.'" name="'.$name.'" size="10" value="'.$date.'"'.$options.'/>
 <script type="text/javascript">
-	document.writeln(\'<img id="'.$name.'-trigger" src="'.$GLOBALS['phpgw']->common->find_image('phpgwpai','datepopup').'" title="'.lang('Select date').'" style="cursor:pointer; cursor:hand;"/>\');
+	document.writeln(\'<img id="'.$name.'-trigger" src="'.$GLOBALS['phpgw']->common->find_image('phpgwpai','datepopup').'" title="'.lang('Select date').'" style="cursor:pointer;"/>\');
 	Calendar.setup(
 	{
 		inputField  : "'.$name.'",

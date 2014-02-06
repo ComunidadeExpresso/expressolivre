@@ -4,8 +4,23 @@
 <meta name="GENERATOR" content="PHPEclipse 1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title></title>
+<style>
+body {
+    background-color: #FFFFFF ;
+    color: #000000;
+}
+body a {
+    color: #FF9966;
+}
+body a:visited {
+    color: #FF9966;
+}
+body a:hover {
+    color: #FFCC99;
+}
+</style>
 </head>
-<body bgcolor="#FFFFFF" text="#000000" link="#FF9966" vlink="#FF9966" alink="#FFCC99">
+<body>
 <b><p align='left'>{lang_Your_user_was_add/updated_in_the_shared_account} {shared_account}</p></b>
 <br>
 <p align='left'>{lang_Your_user_has_the_following_acl}:</p>

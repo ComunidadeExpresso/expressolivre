@@ -15,25 +15,25 @@
         echo '
             <link rel="Stylesheet" type="text/css" href="../prototype/plugins/jquery/jquery-ui.css" />					
     
-            <script type="text/javascript" src="../prototype/plugins/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="../prototype/plugins/jquery/jquery.min.js"/>
         
-            <script type="text/javascript" src="../prototype/plugins/jquery/jquery-ui.min.js"></script>
-            <script type="text/javascript" src="../prototype/plugins/jquery/jquery-ui.custom.min.js"></script>
-            <script src="../prototype/plugins/json2/json2.js" language="javascript"></script>
-            <script src="../prototype/plugins/ejs/ejs.js" language="javascript"></script>
-            <script src="../prototype/plugins/store/jquery.store.js" language="javascript"></script>
+            <script type="text/javascript" src="../prototype/plugins/jquery/jquery-ui.min.js"/>
+            <script type="text/javascript" src="../prototype/plugins/jquery/jquery-ui.custom.min.js"/>
+            <script src="../prototype/plugins/json2/json2.js" language="javascript"/>
+            <script src="../prototype/plugins/ejs/ejs.js" language="javascript"/>
+            <script src="../prototype/plugins/store/jquery.store.js" language="javascript"/>
             
-            <script src="../prototype/api/datalayer.js" language="javascript"></script>	
+            <script src="../prototype/api/datalayer.js" language="javascript"/>
            
-            <link rel="stylesheet" type="text/css" href="../prototype/plugins/zebradialog/css/zebra_dialog.css"></link>
+            <link rel="stylesheet" type="text/css" href="../prototype/plugins/zebradialog/css/zebra_dialog.css" />
 
-            <script type="text/javascript" src="../prototype/plugins/zebradialog/javascript/zebra_dialog.js"></script>
+            <script type="text/javascript" src="../prototype/plugins/zebradialog/javascript/zebra_dialog.js" ></script>
             <script language="javascript">DataLayer.dispatchPath = "../prototype/";</script>
-            <script type="text/javascript" src="../prototype/plugins/datejs/date-pt-BR.js"></script>
-            <script type="text/javascript" src="../prototype/plugins/datejs/sugarpak.js"></script>
-            <script type="text/javascript" src="../prototype/plugins/datejs/parser.js"></script>
+            <script type="text/javascript" src="../prototype/plugins/datejs/date-pt-BR.js" ></script>
+            <script type="text/javascript" src="../prototype/plugins/datejs/sugarpak.js" ></script>
+            <script type="text/javascript" src="../prototype/plugins/datejs/parser.js" ></script>
 
-            <script type="text/javascript" src="../prototype/modules/calendar/js/timezone.js"></script>	
+            <script type="text/javascript" src="../prototype/modules/calendar/js/timezone.js"></script>
             
             <script type="text/javascript" src="../prototype/modules/calendar/js/calendar.codecs.js"></script>
             <script type="text/javascript" src="../prototype/modules/calendar/js/load.js"></script>

@@ -1,8 +1,7 @@
-<link rel="stylesheet" type="text/css" href="{cc_css}">
+<link rel="stylesheet" type="text/css" href="{cc_css}" />
 <style>	
 	.special{
 		cursor:pointer;
-		cursor:hand;
 		position:relative; 
 		top:0px; 
 		left:0px;

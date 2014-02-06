@@ -380,22 +380,20 @@ padding-left:17px;
 .navbar_butOver
 {
 	background-image: none !important;
-	vertical-align: center !important;
+	vertical-align: middle !important;
 	text-align: center !important;
 	padding-right:15px;
 	padding-left:10px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 
 .navbar_butOut
 {
 	background-image: none !important;
-	vertical-align: center !important;
+	vertical-align: middle !important;
 	text-align: center !important;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 

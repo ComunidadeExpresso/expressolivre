@@ -20,8 +20,8 @@ class FormularioUtil {
 <script language=\"Javascript\" type=\"text/javascript\" src=\"$addpath./includes/js/auxiliares.js\"></script>\n
 <script language=\"Javascript\" type=\"text/javascript\" src=\"$addpath./includes/js/calendar.js\"></script>\n
 <script language=\"Javascript\" type=\"text/javascript\" src=\"$addpath./includes/js/FormularioUtil.js\"></script>\n
-<link rel=\"stylesheet\" href=\"$addpath./includes/css/base_form.css\" media=\"screen\"></link>\n
-<link rel=\"stylesheet\" href=\"$addpath./includes/css/calendar.css\" media=\"screen\"></link>\n\n";
+<link rel=\"stylesheet\" href=\"$addpath./includes/css/base_form.css\" media=\"screen\" />\n
+<link rel=\"stylesheet\" href=\"$addpath./includes/css/calendar.css\" media=\"screen\" />\n\n";
     	
     }
    

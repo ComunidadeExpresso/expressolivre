@@ -79,7 +79,7 @@ class ui_monitors extends ui_ajaxinterface
 		$css = $this->get_common_css();
 		$css .= $this->get_css_link('monitors');
 		$css .= $this->get_css_link('lightbox');
-		$css .= '<link rel="stylesheet" type="text/css" media="all" href="workflow/js/jscalendar/calendar-blue.css">';
+		$css .= '<link rel="stylesheet" type="text/css" media="all" href="workflow/js/jscalendar/calendar-blue.css"/>';
 
 		$tabs = array('Processos');
 

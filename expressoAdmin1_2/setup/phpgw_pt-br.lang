@@ -521,3 +521,68 @@ Assign default calendar for user	expressoAdmin1_2	pt-br	Atribuir agenda padrão a
 freebusy	expressoAdmin1_2	pt-br	Livre/Ocupado
 write	expressoAdmin1_2	pt-br	Criar/Editar
 save sent messages in this shared account	expressoAdmin1_2	pt-br	salvar mensagens enviadas na pasta da conta compartilhada
+Created group	expressoAdmin1_2	pt-br	Grupo criado
+Added user to group on user criation	expressoAdmin1_2	pt-br	Usuário adicionado ao grupo na criação do usuário
+User added from the institutional account	expressoAdmin1_2	pt-br	Usuário adicionado a partir da conta institucional
+User removed from the institutional account	expressoAdmin1_2	pt-br	Usuário removido a partir da conta institucional
+added user on email list creation	expressoAdmin1_2	pt-br	usuário adicionado na criação da lista de email
+renamed list login	expressoAdmin1_2	pt-br	lista de login renomeada
+added user to list	expressoAdmin1_2	pt-br	usuário adicionado à lista
+turned on participantCanSendMail	expressoAdmin1_2	pt-br	participantCanSendMail ativado
+turned on mailListRestriction	expressoAdmin1_2	pt-br	mailListRestriction ativado
+turned off participantCanSendMail	expressoAdmin1_2	pt-br	participantCanSendMail desativado
+turned off mailListRestriction	expressoAdmin1_2	pt-br	mailListRestriction desativado
+added user to SCL","$dn: $mail	expressoAdmin1_2	pt-br	usuário adicionado ao SCL","$dn: $mail
+removed user from SCL","$dn: $mail	expressoAdmin1_2	pt-br	usuário removido do SCL","$dn: $mail
+write on ldap	expressoAdmin1_2	pt-br	escrever no ldap
+created sector	expressoAdmin1_2	pt-br	setor criado
+User removed from the shared account	expressoAdmin1_2	pt-br	Usuário removido a partir da conta compartilhada
+User added from the shared account	expressoAdmin1_2	pt-br	Usuário adicionado a partir da conta compartilhada
+modified first name	expressoAdmin1_2	pt-br	primeiro nome modificado
+modified last name	expressoAdmin1_2	pt-br	sobrenome modificado
+Expired user password	expressoAdmin1_2	pt-br	Senha do usuário expirada
+removed user phone	expressoAdmin1_2	pt-br	telefone do usuário removido
+added user phone	expressoAdmin1_2	pt-br	telefone do usuário adicionado
+modified user sambaacctflags	expressoAdmin1_2	pt-br	usuário sambaacctflags modificado
+modified user sambalogonscript	expressoAdmin1_2	pt-br	usuário sambalogonscript modificado
+removed user photo	expressoAdmin1_2	pt-br	foto do usuário removida
+modified user photo	expressoAdmin1_2	pt-br	foto do usuário alterada
+added user photo	expressoAdmin1_2	pt-br	foto do usuário adicionada
+expired user password	expressoAdmin1_2	pt-br	senha do usuário expirou
+removed expiry from user password	expressoAdmin1_2	pt-br	expiração removida da senha do usuário
+turn on changepassword	expressoAdmin1_2	pt-br	ativar changepassword
+turn of changepassword	expressoAdmin1_2	pt-br	desativar changepassword
+turn on user account	expressoAdmin1_2	pt-br	ativar conta de usuário
+turn off user account	expressoAdmin1_2	pt-br	desativar conta de usuário
+Reactivated blocked user by downtime	expressoAdmin1_2	pt-br	Usuário reativado do bloqueio de inatividade
+turn on phpgwaccountvisible	expressoAdmin1_2	pt-br	ativar phpgwaccountvisible
+turn off phpgwaccountvisible	expressoAdmin1_2	pt-br	desativar phpgwaccountvisible
+turn on user account email	expressoAdmin1_2	pt-br	ativar email da conta de usuário
+turn off user account email	expressoAdmin1_2	pt-br	desativar email da conta de usuário
+added mailalternateaddress	expressoAdmin1_2	pt-br	mailalternateaddress adicionado
+removed mailalternateaddress	expressoAdmin1_2	pt-br	mailalternateaddress removido
+added mailforwardingaddress	expressoAdmin1_2	pt-br	mailforwardingaddress adicionado
+removed mailforwardingaddress	expressoAdmin1_2	pt-br	mailforwardingaddress removido
+added forwardOnly	expressoAdmin1_2	pt-br	forwardOnly adicionado
+removed forwardOnly	expressoAdmin1_2	pt-br	forwardOnly removido
+removed user samba attributes	expressoAdmin1_2	pt-br	atributos do usuário samba removidos
+removed user from maillist	expressoAdmin1_2	pt-br	usuário removido da lista de email
+added application to user	expressoAdmin1_2	pt-br	aplicação adicionada ao usuário
+removed application to user	expressoAdmin1_2	pt-br	aplicação removida para o usuário
+inserted default password	expressoAdmin1_2	pt-br	senha padrão inserida
+returned user password	expressoAdmin1_2	pt-br	senha do usuário retornou
+deleted users data from ldap	expressoAdmin1_2	pt-br	dados dos usuários excluídos do ldap
+deleted users data from DB	expressoAdmin1_2	pt-br	dados dos usuários excluídos do DB
+deleted users data from IMAP	expressoAdmin1_2	pt-br	dados dos usuários excluídos do IMAP
+deleted manager data from BD	expressoAdmin1_2	pt-br	dados do gerente apagados do BD
+renamed user	expressoAdmin1_2	pt-br	usuário renomeado
+Added application	expressoAdmin1_2	pt-br	Aplicação adicionada
+Removed application from id	expressoAdmin1_2	pt-br	Aplicação removida do id
+added attribute phpgwAccountVisible to group	expressoAdmin1_2	pt-br	atributo adicionado ao grupo phpgwAccountVisible
+added attribute mail to group	expressoAdmin1_2	pt-br	adicionado atributo mail para grupo
+removed attribute phpgwAccountVisible from group	expressoAdmin1_2	pt-br	atributo removido do grupo phpgwAccountVisible
+removed attribute mail from group	expressoAdmin1_2	pt-br	atributo mail removido do grupo
+added application to group	expressoAdmin1_2	pt-br	aplicação adicionada ao grupo
+removed application from group	expressoAdmin1_2	pt-br	aplicação removida do grupo
+deleted group	expressoAdmin1_2	pt-br	grupo excluído
+modified user telephone	expressoAdmin1_2	pt-br	telefone do usuário alterado

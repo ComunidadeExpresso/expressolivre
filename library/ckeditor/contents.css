@@ -27,7 +27,7 @@ body
 
 blockquote
 {
-	font-style: italic;
+	/*font-style: italic;*/
 	font-family: Georgia, Times, "Times New Roman", serif;
 	padding: 2px 0;
 	border-style: solid;

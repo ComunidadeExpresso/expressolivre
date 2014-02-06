@@ -458,7 +458,7 @@ function check_logoutcode($code)
 	$login_dir = $template_dir . '/themes/' . $GLOBALS['phpgw_info']['user']['preferences']['common']['theme'] . '/login.css';
 	if(file_exists('./'.$login_dir))
 	{
-		$login_css .= "<link href='" . $login_dir . "' rel='stylesheet' type='text/css' />";
+		$login_css .= "<link href='" . $login_dir . "' rel='stylesheet' type='text/css'/>";
 	}
 	$tmpl->set_var('login_css',$login_css);
 

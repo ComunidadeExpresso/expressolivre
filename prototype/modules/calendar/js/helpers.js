@@ -1183,7 +1183,8 @@ UI.dialogs.addEvent.find('input.end-time').timepicker({
 //}
 
 UI.dialogs.addEvent.find('.button-add-alarms').click(function(){
-    var li_attach = DataLayer.render(path+'templates/alarms_add_itemlist.ejs', {});
+
+    var li_attach = DataLayer.render(path+'templates/alarms_add_itemlist.ejs', {type: 0});
 
     jQuery('.event-alarms-list').append(li_attach).find('.button.remove').button({
 	text:false, 

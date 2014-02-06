@@ -197,7 +197,7 @@ function smarty_function_wf_calendar($params, &$smarty)
 
 	if ($wf_calendarJS)
 		$output .= <<<EOF
-		<link rel="stylesheet" type="text/css" media="all" href="{$_css}">
+		<link rel="stylesheet" type="text/css" media="all" href="{$_css}"/>
 		<script type="text/javascript" src="{$_src}"></script>
 		<script type="text/javascript" src="{$_lang}"></script>
 		<script type="text/javascript" src="{$_setup_src}"></script>

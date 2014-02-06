@@ -120,7 +120,7 @@ class ui_ajaxinterface
 		$CSSLink = $templateServer->getWebFile($CSSName);
 		$CSSFile = $templateServer->getSystemFile($CSSName);
 
-		return '<link href="' . $CSSLink . '?' . (file_exists($CSSFile) ? filesize($CSSFile) : $this->num_version) . '" type="text/css" rel="StyleSheet" media="' . $mediaType . '">';
+		return '<link href="' . $CSSLink . '?' . (file_exists($CSSFile) ? filesize($CSSFile) : $this->num_version) . '" type="text/css" rel="StyleSheet" media="' . $mediaType . '"/>';
 	}
 
 	/**

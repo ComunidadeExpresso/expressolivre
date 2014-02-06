@@ -134,7 +134,7 @@
 		</tr>
 	</table>
 </div>
-<link href="../library/jquery/css/redmond/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="../library/jquery/css/redmond/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../library/jquery/jquery-ui.min.js"></script>
                                        
 <script type="text/javascript" src="js/QuickCatalogSearch.js"></script>

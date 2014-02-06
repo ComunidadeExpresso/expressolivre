@@ -450,12 +450,11 @@ padding-left:17px;
 	background-image: none !important; 
 	width: 37px;
 	height: 37px;
-	vertical-align: center;
+	vertical-align: middle;
 	text-align: center;
 	padding-top:5px;
 	padding-right: 0px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 
@@ -464,12 +463,11 @@ padding-left:17px;
 	background-image: none !important;
 	width: 37px;
 	height: 37px;
-	vertical-align: center !important;
+	vertical-align: middle !important;
 	text-align: center !important;
 	padding-top:5px;
 	padding-right:0px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 
@@ -478,11 +476,10 @@ padding-left:17px;
 	background-image: none !important;
 	width: 37px;
 	height: 37px;
-	vertical-align: center !important;
+	vertical-align: middle !important;
 	text-align: center !important;
 	padding-right:0px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 .toolButton {

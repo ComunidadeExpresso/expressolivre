@@ -35,7 +35,7 @@
 
 
 	//jquery and Editor 
-	echo '<link rel="stylesheet" type="text/css" href="assetic_css.php"></link>';
+	echo '<link rel="stylesheet" type="text/css" href="assetic_css.php"/>';
 	echo '
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/filters/filters.css"/>
@@ -295,7 +295,7 @@
     </script>
 
 		<script type="text/javascript" src="../prototype/plugins/store/jquery.store.js"></script>
-		<script type="text/javascript" src="../prototype/api/datalayer.js"</script>
+		<script type="text/javascript" src="../prototype/api/datalayer.js"></script>
 		
 		<script type="text/javascript" src="../prototype/modules/mail/js/label.js"></script>
 		<script type="text/javascript" src="../prototype/api/rest.js"></script>
@@ -333,9 +333,9 @@
         echo '<script type="text/javascript" src="'.$mail_archiver_protocol.'://'.$mail_archiver_host.':'.$mail_archiver_port.'/arcserv/ArchiveServices?js&nojsutils"></script>';
     
         //QueryConfig add on
-        echo '<script src="js/MAQueryConfig.js?'.$update_version.'"></script>';        
+        echo '<script src="js/MAQueryConfig.js?'.$update_version.'"></script>';
         //Expresso serialized format add on
-        echo '<script src="js/MAExpressoPattern.js?'.$update_version.'"></script>';        
+        echo '<script src="js/MAExpressoPattern.js?'.$update_version.'"></script>';
     
         //echo $obj -> getFilesJs("js/mail_archiver.js," . $GLOBALS['phpgw_info']['flags']['update_version']);
         echo '<script src="js/mail_archiver.js?'.$update_version.'"></script>';
@@ -357,8 +357,8 @@
 
     // INCLUDE these JS Files:
 	if ($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages']) 
-		echo "<script src='js/gears_init.js?".$update_version."'></script>"; 
- 	echo '<script src="../phpgwapi/js/dftree/dftree.js?'.$update_version.'"></script>'; 
+		echo "<script src='js/gears_init.js?".$update_version."'></script>";
+ 	echo '<script src="../phpgwapi/js/dftree/dftree.js?'.$update_version.'"></script>';
     
 	$scripts = "";
 	

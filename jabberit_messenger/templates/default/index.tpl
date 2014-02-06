@@ -1,7 +1,7 @@
 <!-- BEGIN index -->
 <html>
 <head>
-<link rel='stylesheet' type='text/css' href='../help/templates/{template_default}/css/index.css'>
+<link rel='stylesheet' type='text/css' href='../help/templates/{template_default}/css/index.css'/>
 </head>
 <body style="margin:0px;padding:0px">
 <table width='100%'>

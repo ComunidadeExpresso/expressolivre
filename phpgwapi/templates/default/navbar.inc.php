@@ -225,7 +225,7 @@
 				';
 
 				$var['app_extra_icons_div']= $app_extra_icons_div;				
-				$var['app_extra_icons_icon']= '<td width="26" valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#"  onMouseOver="ypSlideOutMenu.showMenu(\'menu1\')" onClick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img src="'.$var['img_root'].'/extra_icons.png" border="0" /></a></td>';
+				$var['app_extra_icons_icon']= '<td valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#"  onMouseOver="ypSlideOutMenu.showMenu(\'menu1\')" onClick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img src="'.$var['img_root'].'/extra_icons.png" border="0" /></a></td>';
 
 
 			if(isset($GLOBALS['phpgw_info']['flags']['app_header']))

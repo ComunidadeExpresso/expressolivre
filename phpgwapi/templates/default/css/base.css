@@ -61,7 +61,6 @@ input[type=image],
 input[type=submit]
 {
 	cursor: pointer;
-	cursor: hand;
 }
 
 input[type=image]
@@ -212,7 +211,6 @@ td
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	font-weight: normal;
-	overflow: none;
 	padding: 2px;
 	margin-bottom:2px;
 	width: 99.5%;
@@ -301,11 +299,9 @@ td
 {
 	background-repeat: no-repeat;
 	cursor: pointer;
-	cursor: hand;
 	height: 40px;
 	padding-right: 6px;
 	text-align: center;
-	vertical-align: center;
 	width: 40px;
 }
 

@@ -102,9 +102,9 @@ function writeMenus(container) {
         var menu = container.menus[i];
         proto = menu.prototypeStyles || this.prototypeStyles || menu;
         content += ''+
-        '<DIV ID="menuLayer'+ countMenus +'" STYLE="cursor:hand;position:absolute;left:10px;top:'+ (i * 100) +'px;visibility:hidden;">\n'+
-        '  <DIV ID="menuLite'+ countMenus +'" STYLE="cursor:hand;position:absolute;left:'+ proto.menuBorder +'px;top:'+ proto.menuBorder +'px;visibility:hide;" onMouseOut="hideMenu(event);">\n'+
-        '    <DIV ID="menuFg'+ countMenus +'" STYLE="cursor:hand;position:absolute;left:1px;top:1px;visibility:hide;">\n'+
+        '<DIV ID="menuLayer'+ countMenus +'" STYLE="position:absolute;left:10px;top:'+ (i * 100) +'px;visibility:hidden;">\n'+
+        '  <DIV ID="menuLite'+ countMenus +'" STYLE="position:absolute;left:'+ proto.menuBorder +'px;top:'+ proto.menuBorder +'px;visibility:hide;" onMouseOut="hideMenu(event);">\n'+
+        '    <DIV ID="menuFg'+ countMenus +'" STYLE="position:absolute;left:1px;top:1px;visibility:hide;">\n'+
         '';
         var x=i;
         for (var i=0; i<menu.items.length; i++) {
@@ -127,18 +127,18 @@ function writeMenus(container) {
             var itemProps = 'visibility:hide;font-Family:' + proto.fontFamily +';font-Weight:' + proto.fontWeight + ';fontSize:' + proto.fontSize + ';';
             if (document.getElementById || document.all) 
                 itemProps += 'font-size:' + proto.fontSize + ';" onMouseOver="onMenuItemOver(event,this);" onMouseOut="onMenuItemOut(event,this);" onClick="onMenuItemAction(event,this);';
-            var dTag    = '<DIV  class="menuItemText" ID="menuItem'+ countItems +'" STYLE="cursor:hand;position:absolute;left:0;top:'+ (i * proto.menuItemHeight) +';'+ itemProps +'">';
-            var dText   = '<DIV ID="menuItemText'+ countItems +'" STYLE="cursor:hand;position:absolute;left:' + proto.menuItemIndent + 'px;top:0;color:'+ proto.fontColor +';">'+ item +'</DIV>\n<DIV ID="menuItemHilite'+ countItems +'" STYLE="cursor:hand;position:absolute;left:' + proto.menuItemIndent + 'px;top:0;color:'+ proto.fontColorHilite +';visibility:hidden;">'+ item +'</DIV>';
+            var dTag    = '<DIV  class="menuItemText" ID="menuItem'+ countItems +'" STYLE="position:absolute;left:0;top:'+ (i * proto.menuItemHeight) +';'+ itemProps +'">';
+            var dText   = '<DIV ID="menuItemText'+ countItems +'" STYLE="position:absolute;left:' + proto.menuItemIndent + 'px;top:0;color:'+ proto.fontColor +';">'+ item +'</DIV>\n<DIV ID="menuItemHilite'+ countItems +'" STYLE="position:absolute;left:' + proto.menuItemIndent + 'px;top:0;color:'+ proto.fontColorHilite +';visibility:hidden;">'+ item +'</DIV>';
             if (item == "separator") {
                 content += ( dTag + '<DIV ID="menuSeparator'+ countItems +'" STYLE="position:absolute;left:1;top:2;"></DIV>\n<DIV ID="menuSeparatorLite'+ countItems +'" STYLE="position:absolute;left:1;top:2;"></DIV>\n</DIV>');
             } else if (childMenu) {
-                content += ( dTag + dText + '<DIV ID="childMenu'+ countItems +'" STYLE="cursor:hand;position:absolute;left:0;top:3;'+ itemProps +'"><IMG SRC="'+ proto.childMenuIcon +'"></DIV>\n</DIV>');
+                content += ( dTag + dText + '<DIV ID="childMenu'+ countItems +'" STYLE="position:absolute;left:0;top:3;'+ itemProps +'"><IMG SRC="'+ proto.childMenuIcon +'"></DIV>\n</DIV>');
             } else {
                 content += ( dTag + dText + '</DIV>');
             }
             countItems++;
         }
-        content += '      <DIV ID="focusItem'+ countMenus +'" STYLE="cursor:hand;position:absolute;left:0;top:0;visibility:hide;" onClick="onMenuItemAction(null,this);">&nbsp;</DIV>\n';
+        content += '      <DIV ID="focusItem'+ countMenus +'" STYLE="position:absolute;left:0;top:0;visibility:hide;" onClick="onMenuItemAction(null,this);">&nbsp;</DIV>\n';
         content += '   </DIV>\n  </DIV>\n</DIV>\n';
         i=x;
     }

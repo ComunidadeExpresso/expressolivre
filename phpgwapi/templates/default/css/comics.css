@@ -428,7 +428,6 @@ padding-left:17px;
 	text-align: center;
 	padding-right: 12px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 
@@ -441,7 +440,6 @@ padding-left:17px;
 	text-align: center !important;
 	padding-right:12px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 
@@ -454,7 +452,6 @@ padding-left:17px;
 	text-align: center !important;
 	padding-right:6px;
 	cursor:pointer;
-	cursor:hand;
 	background-repeat:no-repeat;
 }
 
@@ -511,7 +508,7 @@ table.inboxElements th,
 	background-color: white !important;
 	border: 2px solid black !important;
 	border-bottom: 0px !important;
-	color black !important;
+	color: black !important;
 }
 
 .last_menu {

@@ -121,7 +121,7 @@
 							$tdwidth = 100/($max_icons+2);
 						}
 						
-						$app_icons .= '<td nowrap width="74px" height="40" valign="center" align="center" style="padding-bottom:10px;cursor:pointer;cursor:hand;background-repeat:no-repeat;background-image:url('.$var['img_root'].'/back_app.png)">';
+						$app_icons .= '<td nowrap width="74px" height="40" valign="center" align="center" style="padding-bottom:10px;cursor:pointer;background-repeat:no-repeat;background-image:url('.$var['img_root'].'/back_app.png)">';
 	
 						if(isset($GLOBALS['phpgw_info']['flags']['navbar_target']) && $GLOBALS['phpgw_info']['flags']['navbar_target'])
 						{
@@ -178,7 +178,7 @@
 						$icon = '';
 				}			
 			
-				$app_icons .= '<td width="74px" height="40" valign="center" align="center" onclick="location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'" style="cursor:pointer;cursor:hand;background-repeat:no-repeat;padding-bottom:20px;background-image:url('.$var['img_root'].'/back_app.png)">'.$icon.'</td>';
+				$app_icons .= '<td width="74px" height="40" valign="center" align="center" onclick="location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'" style="cursor:pointer;background-repeat:no-repeat;padding-bottom:20px;background-image:url('.$var['img_root'].'/back_app.png)">'.$icon.'</td>';
 			}			//			window.location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'
 			
 			$var['app_icons'] = $app_icons;

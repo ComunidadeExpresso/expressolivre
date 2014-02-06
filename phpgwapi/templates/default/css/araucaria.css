@@ -391,7 +391,6 @@ padding-left:17px;
         text-align: center;
         padding-right: 6px;
         cursor:pointer;
-        cursor:hand;
         background-repeat:no-repeat;
 }
 
@@ -400,11 +399,9 @@ padding-left:17px;
         background-image: url(../../../../phpgwapi/templates/default/images/back_app_over_canyon.png) !important;
         width: 40px;
         height: 40px;
-        vertical-align: center !important;
         text-align: center !important;
         padding-right:6px;
         cursor:pointer;
-        cursor:hand;
         background-repeat:no-repeat;
 }
 
@@ -413,11 +410,9 @@ padding-left:17px;
         background-image: url(../../../../phpgwapi/templates/default/images/back_app_out_canyon.png) !important;
         width: 40px;
         height: 40px;
-        vertical-align: center !important;
         text-align: center !important;
         padding-right:6px;
         cursor:pointer;
-        cursor:hand;
         background-repeat:no-repeat;
 }
 
@@ -454,11 +449,10 @@ padding-left:17px;
         background-image: url(../../../../phpgwapi/templates/default/images/back_app_out_canyon.png) !important;
         width: 40px;
         height: 40px;
-        vertical-align: center !important;
+        vertical-align: middle !important;
         text-align: center !important;
         padding-right:6px;
         cursor:pointer;
-        cursor:hand;
         background-repeat:no-repeat;
 }
 

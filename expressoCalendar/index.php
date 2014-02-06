@@ -15,7 +15,7 @@
  
 	define( 'MODULESURL' , '../prototype/modules/calendar' );
 	define( 'PLUGINSURL' , '../prototype/plugins' );
-  echo '<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/assetic_css.php"></link>';
+  echo '<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/assetic_css.php" />';
   include ROOTPATH.'/modules/calendar/templates/index.ejs';
-  echo '<script type="text/javascript" src="../prototype/modules/calendar/assetic.php"></script>';      
+  echo '<script type="text/javascript" src="../prototype/modules/calendar/assetic.php" ></script>';
 ?>

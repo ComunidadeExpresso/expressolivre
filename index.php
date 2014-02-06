@@ -145,24 +145,24 @@
 			$modulo = explode('.', $_GET['menuaction']);
 			
 			if($modulo[0] == 'expressoAdmin1_2' || $modulo[0] == 'calendar'){
-				echo '<script type="text/javascript" src="prototype/plugins/jquery/jquery.min.js"></script>
-					  <script type="text/javascript" src="prototype/plugins/jquery/jquery-ui.min.js"></script>
+				echo '<script type="text/javascript" src="prototype/plugins/jquery/jquery.min.js" />
+					  <script type="text/javascript" src="prototype/plugins/jquery/jquery-ui.min.js" />
 					  <link rel="stylesheet" href="prototype/plugins/jqgrid/themes/prognusone/jquery-ui-1.8.2.custom.css" type="text/css" />
-					  <script src="prototype/plugins/json2/json2.js" language="javascript"></script>
-					  <script src="prototype/plugins/ejs/ejs.js" language="javascript"></script>
-					  <script src="prototype/plugins/store/jquery.store.js" language="javascript"></script>
-					  <script type="text/javascript" src="prototype/api/rest.js"></script>
-					  <script src="prototype/api/datalayer.js" language="javascript"></script>
+					  <script src="prototype/plugins/json2/json2.js" language="javascript" />
+					  <script src="prototype/plugins/ejs/ejs.js" language="javascript" />
+					  <script src="prototype/plugins/store/jquery.store.js" language="javascript" />
+					  <script type="text/javascript" src="prototype/api/rest.js" />
+					  <script src="prototype/api/datalayer.js" language="javascript" />
 					  <script type="text/javascript">DataLayer.dispatchPath = "/"; REST.dispatchPath = "prototype/";REST.load("")</script>
-					  <link rel="stylesheet" type="text/css" href="prototype/plugins/zebradialog/css/zebra_dialog.css"></link>
-					  <script type="text/javascript" src="prototype/plugins/zebradialog/javascript/zebra_dialog.js"></script>	
-					  <script type="text/javascript" src="calendar/templates/default/js/quickSearch.js"></script>
-					 <script src="expressoMail1_2/js/ccQuickAdd.js" type="text/javascript"></script>
+					  <link rel="stylesheet" type="text/css" href="prototype/plugins/zebradialog/css/zebra_dialog.css" />
+					  <script type="text/javascript" src="prototype/plugins/zebradialog/javascript/zebra_dialog.js" />
+					  <script type="text/javascript" src="calendar/templates/default/js/quickSearch.js" />
+					  <script src="expressoMail1_2/js/ccQuickAdd.js" type="text/javascript" />
 					';
 				if($modulo[0] == 'calendar'){
                     echo '<link rel="stylesheet" href="prototype/plugins/jquery.jrating/jRating.jquery.css" type="text/css" />
-                    <script type="text/javascript" src="prototype/plugins/jquery.jrating/jRating.jquery.js"></script>
-                    <script src="expressoMail1_2/js/common_functions.js" type="text/javascript"></script>
+                    <script type="text/javascript" src="prototype/plugins/jquery.jrating/jRating.jquery.js" />
+                    <script src="expressoMail1_2/js/common_functions.js" type="text/javascript" />
                     <script type="text/javascript">userContacts = false; currentTypeContact = ""; REST.get("/usercontacts", false, updateDynamicContact);</script>';
                 }
 

@@ -122,12 +122,19 @@
 		$tmpl->set_var('lang',$_GET['lang']?$_GET['lang']:preg_replace("/\,.*/","",$GLOBALS['_SERVER']['HTTP_ACCEPT_LANGUAGE']));
 	
 		if (count($GLOBALS['phpgw_info']['server']['login_logo_file']) > 0)
-			$tmpl->set_var('logo_config',$GLOBALS['phpgw_info']['server']['login_logo_file']);
+			$tmpl->set_var('logo_config',$GLOBALS['phpgw_info']['server']['login_logo_file'] . '<br>');
 		else
-			$tmpl->set_var('logo_config','<a title="Governo do Paran&aacute" href="http://www.pr.gov.br" target="_blank"><img src="phpgwapi/templates/'.$GLOBALS['phpgw_info']['login_template_set'].'/images/logo_governo.gif" border="0"></a></td>
-			<td><div align="center"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1">
-	<a title="Celepar Inform&aacute;tica do Paran&aacute;" target="_blank" href="http://www.celepar.pr.gov.br/">
-	<img src="phpgwapi/templates/'.$GLOBALS['phpgw_info']['login_template_set'].'/images/logo_celepar.gif" border="0"></a>');
+			$tmpl->set_var('logo_config','
+			    <div style="float:left">
+                    <a title="Governo do Paran&aacute" href="http://www.pr.gov.br" target="_blank">
+                        <img src="phpgwapi/templates/'.$GLOBALS['phpgw_info']['login_template_set'].'/images/logo_governo.gif" border="0" alt="Governo do Paraná">
+                    </a>
+                </div>
+                <div style="float: right">
+                    <a title="Celepar Inform&aacute;tica do Paran&aacute;" target="_blank" href="http://www.celepar.pr.gov.br/">
+                        <img src="phpgwapi/templates/'.$GLOBALS['phpgw_info']['login_template_set'].'/images/logo_celepar.gif" border="0" alt="Celepar - Tecnologia da Informação e Comunicação do Paraná">
+                    </a><br>
+            ');
 		// !! NOTE !!
 		// Do NOT and I repeat, do NOT touch ANYTHING to do with lang in this file.
 		// If there is a problem, tell me and I will fix it. (jengo)

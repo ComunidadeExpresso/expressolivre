@@ -8,7 +8,7 @@
 		<meta name="format-detection" content="telephone=no" />
 		<link href="templates/css/desktop.css" type="text/css" rel="StyleSheet" />
 		<!--[if lte IE 6]>
-			<link href="templates/css/ie6.css" type="text/css" rel="StyleSheet">
+			<link href="templates/css/ie6.css" type="text/css" rel="StyleSheet"/>
 		<![endif]-->
 		
 		<script type="text/javascript">

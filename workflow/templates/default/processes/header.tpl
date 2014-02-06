@@ -1,6 +1,6 @@
 {* ARQUIVOS CSS *}
-<link rel="stylesheet" type="text/css" href="{$wf_default_resources_path}/default.css">
-<link rel="stylesheet" type="text/css" href="{$wf_default_resources_path}/screen.css">
+<link rel="stylesheet" type="text/css" href="{$wf_default_resources_path}/default.css" />
+<link rel="stylesheet" type="text/css" href="{$wf_default_resources_path}/screen.css" />
 {* ARQUIVOS JS *}
 {* componente que faz a ligação entre a camada view e a camada de controle *}
 <script type="text/javascript" src="{$wf_js_path}/../scriptaculous/prototype.js"></script>

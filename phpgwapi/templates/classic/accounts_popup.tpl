@@ -20,7 +20,7 @@
 		opener.document.app_form.accountname.value = thisform.elements['accountdisplay'].value;
 	}
 </script>
-<link rel="stylesheet" type="text/css" href="{css_file}">
+<link rel="stylesheet" type="text/css" href="{css_file}"/>
 </head>
 <body>
 <center>

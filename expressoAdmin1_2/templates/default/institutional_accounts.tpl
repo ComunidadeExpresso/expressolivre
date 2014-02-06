@@ -1,5 +1,5 @@
 <!-- BEGIN body -->
-	<link rel="stylesheet" type="text/css" href="./expressoAdmin1_2/templates/default/institutional_accounts.css">
+	<link rel="stylesheet" type="text/css" href="./expressoAdmin1_2/templates/default/institutional_accounts.css" />
 	<div style="display:none" id="{modal_id}">{institutional_accounts_modal}</div>
 
 	<div align="center">
