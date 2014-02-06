@@ -80,7 +80,7 @@ $js = new AssetCollection(array(
         new FileAsset(MODULESURL.'/js/init.js'),
         new FileAsset(MODULESURL.'/js/drag_area.js'),
         new FileAsset(MODULESURL.'/js/desktop.notification.js')
-    )
+    ), null, 'calendar-js'
 );
 
 $compressor = new Yui\JsCompressorFilter('../../library/yuicompressor/yuicompressor.jar');

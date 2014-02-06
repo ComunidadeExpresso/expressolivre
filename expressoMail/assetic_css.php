@@ -44,7 +44,7 @@ $css = new AssetCollection(array(
             new FileAsset('../prototype/plugins/fullcalendar/fullcalendar.print.css'),
             new FileAsset('../prototype/plugins/icalendar/jquery.icalendar.css'),
             new FileAsset('../prototype/plugins/timepicker/jquery-ui-timepicker-addon.css')  
-    )
+    ), null, 'expressoMail-css'
 );
 
 if (strpos($javaVersion,"java version") !== false){
