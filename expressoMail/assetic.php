@@ -57,7 +57,7 @@ $plugins = new AssetCollection(array(
         new FileAsset('../prototype/plugins/alphanumeric/jquery.alphanumeric.js'),
         new FileAsset('../prototype/plugins/freeow/jquery.freeow.js'),
         new FileAsset('../prototype/plugins/widgets/combobox.js')
-    )
+    ), null, 'expressoMail-plugins-js'
 );
 
 /*Se o servidor possuir a jvm então minifique os arquivos*/
@@ -89,7 +89,7 @@ $scripts = new AssetCollection(array(
     new FileAsset('../prototype/modules/mail/js/label.js'),
     new FileAsset('js/searchEmails.js'),
     new FileAsset('js/init.js')
-));
+), null, 'expressoMail-js' );
 
 if (strpos($javaVersion,"java version") !== false)
 {

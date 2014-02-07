@@ -2,8 +2,8 @@ function modal(id, type)
 {
 	try{
 		content = Element(id).cloneNode(true);
-		//Acrescentado para eliminar bug do IE que deixa um formulario inv√°lido,
-		//se for inserido outro na mesma p√°gina com o mesmo ID, ficando ambos inv√°lidos
+		//Acrescentado para eliminar bug do IE que deixa um formulario inv·lido,
+		//se for inserido outro na mesma p·gina com o mesmo ID, ficando ambos inv·lidos
 		content_code = content.innerHTML;		
 		content.innerHTML = content_code.replace("_template","");
 		title   = Element(id + '_title').value;

@@ -128,7 +128,7 @@ function validateSignature()
 
     if( errors ){
 
-	alert( "H√° erros de html na(s) assinatura(s) \'" + errors.join("\',\'") + "\'.\\nRevise a informa√ß√£o inserida (somente no modo Texto Simples ou visuliza√ß√£o do C√≥digo-Fonte, no modo Texto Rico).\\nPossivelmente voc√™ copiou e colou sua assinatura de outro software. Para evitar erros, recomendamos utilizar apenas o editor Texto Rico do Expresso." );
+	alert( "H· erros de html na(s) assinatura(s) \'" + errors.join("\',\'") + "\'.\\nRevise a informaÁ„o inserida (somente no modo Texto Simples ou visulizaÁ„o do CÛdigo-Fonte, no modo Texto Rico).\\nPossivelmente vocÍ copiou e colou sua assinatura de outro software. Para evitar erros, recomendamos utilizar apenas o editor Texto Rico do Expresso." );
 	return( false );
     }
 
@@ -302,14 +302,14 @@ function loadSignature()
     if (document.getElementById( "signatures" ).value)
     {
         signatures = fromJSON(document.getElementById("signatures").value);
-    } else if (document.getElementById( "signature" ).value) // Caso a assinatura esteja no formato da vers√£o 2.2.10:
+    } else if (document.getElementById( "signature" ).value) // Caso a assinatura esteja no formato da vers„o 2.2.10:
     {
         // TODO: Internazionalizar a string
         signatures = {};
-        signatures["Assinatura padr√£o"] = document.getElementById( "signature" ).value;
+        signatures["Assinatura padr„o"] = document.getElementById( "signature" ).value;
         if (!document.getElementById("signature_default").value)
         {
-            document.getElementById("signature_default").value = "Assinatura padr√£o";
+            document.getElementById("signature_default").value = "Assinatura padr„o";
         }
     }
 
@@ -484,7 +484,7 @@ $default =  array(
 create_select_box('What is the maximum number of results in an e-mail search?','search_result_number',$default,'');
 
 $default =  array( 
-	// N√£o √© possivel colocar um 0 como valor, pois ele troca para 4 como padr√£o! ent√£o coloquei um x, e tratei isso la no javascriot .. ent√£o x = 0
+	// N„o È possivel colocar um 0 como valor, pois ele troca para 4 como padr„o! ent„o coloquei um x, e tratei isso la no javascriot .. ent„o x = 0
     'x'		=> lang('unlimited'),
     '1' 	=> '1',
     '2'     => '2',
@@ -541,9 +541,9 @@ $default = array(
  		    'all' => lang("All catalogs") 
 );
 
-create_select_box('The dynamic search will use the catalog','catalog_search',$default,'Seleciona o cat√°logo que ser√° usado para fazer a busca');
+create_select_box('The dynamic search will use the catalog','catalog_search',$default,'Seleciona o cat·logo que ser· usado para fazer a busca');
 $default = false;
-create_check_box('Display default fields on the quick search screen?','default_fields_quick_search', $default, 'Mostrar o nome, email e telefone do contato por padr√£o');
+create_check_box('Display default fields on the quick search screen?','default_fields_quick_search', $default, 'Mostrar o nome, email e telefone do contato por padr„o');
 
 
 if($GLOBALS['phpgw_info']['server']['use_assinar_criptografar'])

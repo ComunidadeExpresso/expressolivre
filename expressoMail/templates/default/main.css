@@ -129,7 +129,7 @@ a.message-attach-link { margin-left: 20px;}
 .context-menu-item.icon-quick-add { background-image: url(images/vcard_add.png); }
 .context-menu-item.icon-delete-box{ background-image: url(images/user_delete.png); }
 .context-menu-item.icon-quick-search-contact{ background-image: url(images/zoom.png); }
-/* Airton. Adicionando o √≠cone da op√ß√£o de arquivar do menu de contexto do expressoMail */
+/* Airton. Adicionando o Ìcone da opÁ„o de arquivar do menu de contexto do expressoMail */
 .context-menu-item.icon-archive{ background-image: url(images/archive.png); }
 
 
@@ -181,7 +181,7 @@ div.fileupload-buttonbar{padding: 0.2em 0.5em }
 .message-attach-error{color:red;}
 
 
-/* Estilos da tela de busca r√°pida de contatos */
+/* Estilos da tela de busca r·pida de contatos */
 
 .expressomail-qs-container { font-size:11px;} 
 .expressomail-qs-container legend { font-size:1.1em; font-weight: bold; } 
@@ -225,7 +225,7 @@ div.fileupload-buttonbar{padding: 0.2em 0.5em }
 .expressomail-qs-container .acc-list ul li strong {display:block;}
 .expressomail-qs-container .acc-list ul li em {display:block;}
 
-/*Espec√≠fico do selectable*/
+/*EspecÌfico do selectable*/
 .expressomail-qs-container #feedback { font-size: 1.4em; }
 .expressomail-qs-container #selectable .ui-selecting { background: #DDECF7; }
 /* #selectable .ui-selected { background: #F39814; color: white; }   Aqui eu troquei a cor de quando era selecionada a linha */
@@ -908,9 +908,9 @@ input.em_button_like_span {
 
 
 /*
- * Este arquivo limpa o estilo para a nova agenda, .new-event-win.active sobrescrevendo o c√≥digo CSS
+ * Este arquivo limpa o estilo para a nova agenda, .new-event-win.active sobrescrevendo o cÛdigo CSS
  * do Expresso.
- * Deve ser removido quando o m√≥dulo Calendar n√£o integrar mais a vers√£o 2.x
+ * Deve ser removido quando o mÛdulo Calendar n„o integrar mais a vers„o 2.x
  */
 
 /* Eric Meyer's Reset Reloaded based

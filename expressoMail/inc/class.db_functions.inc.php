@@ -235,7 +235,7 @@ function getContactsByGroupAlias($alias)
 						return array("False" => "$alias");
 					}
 				}
-//-- valida√ß√£o email --
+//-- validaÁ„o email --
 				else{
 					$array_addrs[$i] = trim($array_addrs[$i]);
 					preg_match('/<([^>]+)>/', $array_addrs[$i], $match);
@@ -459,8 +459,8 @@ function getContactsByGroupAlias($alias)
 
 	
 	/**
-     * @abstract Recupera o valor da regra padr√£o.
-     * @return retorna o valor da regra padr√£o.
+     * @abstract Recupera o valor da regra padr„o.
+     * @return retorna o valor da regra padr„o.
      */
 	function get_default_max_size_rule()
 	{
@@ -477,8 +477,8 @@ function getContactsByGroupAlias($alias)
 	}
 	
 	/**
-     * @abstract Recupera a regra de um usu√°rio.
-     * @return retorna a regra que o usu√°rio pertence. Caso o usu√°rio n√£o participe de nenhuma regra, retorna false.
+     * @abstract Recupera a regra de um usu·rio.
+     * @return retorna a regra que o usu·rio pertence. Caso o usu·rio n„o participe de nenhuma regra, retorna false.
      */
 	function get_rule_by_user($id_user) 
 	{

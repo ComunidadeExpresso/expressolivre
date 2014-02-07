@@ -19,7 +19,7 @@ use Symfony\Component\Process\ProcessBuilder;
  * UglifyJs filter.
  *
  * @link https://github.com/mishoo/UglifyJS
- * @author AndrÃ© Roaldseth <andre@roaldseth.net>
+ * @author André Roaldseth <andre@roaldseth.net>
  */
 class UglifyJsFilter implements FilterInterface
 {

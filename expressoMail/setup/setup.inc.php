@@ -1,7 +1,7 @@
 <?php
 
 /* * ********************************************************************************\
- * Expresso AdministraÃ§Ã£o                 										   *
+ * Expresso Administração                 										   *
  * by Joao Alfredo Knopik Junior (joao.alfredo@gmail.com, jakjr@celepar.pr.gov.br)  *
  * ---------------------------------------------------------------------------------*
  *  This program is free software; you can redistribute it and/or modify it         *
@@ -26,12 +26,12 @@ $setup_info['expressoMail']['tables'][] = 'expressomail_dynamic_contact';
 $setup_info['expressoMail']['enable'] = 1;
 
 $setup_info['expressoMail']['author'] 			= 'Jo&atilde;o Alfredo Knopik Junior (joao.alfredo@gmail.com / jakjr@celepar.pr.gov.br)<br>' .
-												  'Nilton EmÃ­lio BÃ¼hrer Neto (nilton.neto@gmail.com / niltonneto@celepar.pr.gov.br)';
+												  'Nilton Emílio Bührer Neto (nilton.neto@gmail.com / niltonneto@celepar.pr.gov.br)';
 
-$setup_info['expressoMail']['maintainer'] 		= 'Empresa ou InstituiÃ§Ã£o onde o seu Expresso estÃ¡ instalado.';
+$setup_info['expressoMail']['maintainer'] 		= 'Empresa ou Instituição onde o seu Expresso está instalado.';
 $setup_info['expressoMail']['maintainer_email'] = '';
 $setup_info['expressoMail']['license'] 			= 'GPL';
-$setup_info['expressoMail']['description'] 		= 'MÃ³dulo de Email, usando metodologia AJAX';
+$setup_info['expressoMail']['description'] 		= 'Módulo de Email, usando metodologia AJAX';
 
 /* The hooks this app includes, needed for hooks registration */
 $setup_info['expressoMail']['hooks'][] = 'preferences';

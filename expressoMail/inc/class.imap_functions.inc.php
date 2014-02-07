@@ -112,8 +112,8 @@ class imap_functions
 	* Move as pastas que vieram do resultado de um Drag & Drop da arvore de pastas do Expresso Mail
 	*
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-	* @sponsor    Caixa Econ√¥mica Federal
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @sponsor    Caixa EconÙmica Federal
 	* @author     Gustavo Pereira dos Santos Stabelini	
 	* @param      array $params Contem dois indices : um contem o caminho atual da pasta, e o outro contem o caminho futuro da pasta
 	* @return     boolean
@@ -209,7 +209,7 @@ class imap_functions
 
         $return = array();
         $return['folder'] = $folder;
-        //Para enviar o offset entre o timezone definido pelo usu√°rio e GMT
+        //Para enviar o offset entre o timezone definido pelo usu·rio e GMT
         $return['offsetToGMT'] = $this->functions->CalculateDateOffset();
 
 
@@ -360,9 +360,9 @@ class imap_functions
         *  Decodifica uma string no formato mime RFC2047
         *
         * @license    http://www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
         * @param      string $string string no formato mime RFC2047
         * @return     string
         * @access     public
@@ -374,13 +374,13 @@ class imap_functions
         }
       
         /**
-        *  Decodifica os tokens encontrados na fun√ß√£o decodeMimeString
+        *  Decodifica os tokens encontrados na funÁ„o decodeMimeString
         *
         * @license    http://www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
-        * @param      array $mathes array retornado pelo preg_replace_callback da fun√ß√£o decodeMimeString
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
+        * @param      array $mathes array retornado pelo preg_replace_callback da funÁ„o decodeMimeString
         * @return     string
         * @access     public
         */
@@ -394,9 +394,9 @@ class imap_functions
         *  Formata um mailObject para um array com name e email
         *
         * @license    http://www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
         * @return     bool
         * @access     public
         */
@@ -409,13 +409,13 @@ class imap_functions
         }
         
         /**
-        *   Retorna informa√ß√µes do cabe√ßario da mensagem e um preview caso appendSample = true
+        *   Retorna informaÁıes do cabeÁario da mensagem e um preview caso appendSample = true
         *   Utiliza memCache caso esta preferencia esteja ativada.
         *
         * @license    http://www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
         * @return     bool
         * @access     public
         */
@@ -427,7 +427,7 @@ class imap_functions
         {
             if( $this->cache === false )
             {
-                $this->cache = ServiceLocator::getService( 'memCache' ); //Servi√ßo Cache
+                $this->cache = ServiceLocator::getService( 'memCache' ); //ServiÁo Cache
                 $this->cache->connect( $_SESSION['phpgw_info']['expressomail']['server']['server_memcache'] , $_SESSION['phpgw_info']['expressomail']['server']['port_server_memcache'] );
             }
             
@@ -453,7 +453,7 @@ class imap_functions
         
         if( $cached === true ) //Caso a mensagem ja tenha vindo do cache da o return
         {
-            if($appendSample !== false && !isset($return['msg_sample'])) //verifica o msg_sample caso seja alterada a preferencia e n√£o esteja em cache carregar
+            if($appendSample !== false && !isset($return['msg_sample'])) //verifica o msg_sample caso seja alterada a preferencia e n„o esteja em cache carregar
             {
                 $return['msg_sample'] = $this->get_msg_sample($msg_number);
                 $this->cache->set( 'infoHead://'.$this->username.'://'.$this->mboxFolder.'://'.$msg_number , $return , $this->expirationCache);
@@ -541,8 +541,8 @@ class imap_functions
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
 	* @param      string $string String a ser decodificada
 	* @return     string
-	* @todo       Verificar a possibilidade de se utilizar a fun√ß√£o iconv_mime_decode, que √© capaz de identificar a codifica√ß√£o por si s√≥, mas que pode ser interpretada de forma diversa dependendo da implementa√ß√£o do sistema
-	* @todo       Executar testes suficientes para validar a fun√ßao iconv_mime_decode em substitui√ß√£o √† este m√©todo decode_string
+	* @todo       Verificar a possibilidade de se utilizar a funÁ„o iconv_mime_decode, que È capaz de identificar a codificaÁ„o por si sÛ, mas que pode ser interpretada de forma diversa dependendo da implementaÁ„o do sistema
+	* @todo       Executar testes suficientes para validar a funÁao iconv_mime_decode em substituiÁ„o ‡ este mÈtodo decode_string
 	*/
 	function decode_string($string)
 	{
@@ -598,8 +598,8 @@ class imap_functions
 	}
 	
 	/**
-	* Fun√ß√£o que importa arquivos .eml exportados pelo expresso para a caixa do usu√°rio. Testado apenas
-	* com .emls gerados pelo expresso, e o arquivo pode ser um zip contendo v√°rios emls ou um .eml.
+	* FunÁ„o que importa arquivos .eml exportados pelo expresso para a caixa do usu·rio. Testado apenas
+	* com .emls gerados pelo expresso, e o arquivo pode ser um zip contendo v·rios emls ou um .eml.
 	*/
 	function import_msgs($params) {		
 		if(!$this->mbox)
@@ -637,7 +637,7 @@ class imap_functions
 						$email = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
 
 						/*Caso mensagens vierem com quebras de linha diferentes do esperado, como por exemplo,
-						mensagens exportadas pelo MailArchiver, √© preciso corrigir.*/
+						mensagens exportadas pelo MailArchiver, È preciso corrigir.*/
 						$email = str_replace("\r\n", "\n", $email);
 						$email = str_replace("\n", "\r\n", $email);
 
@@ -665,7 +665,7 @@ class imap_functions
 			$email = implode("",file($params['FILES'][0]['tmp_name']));
 
 			/*Caso mensagens vierem com quebras de linha diferentes do esperado, como por exemplo,
-			mensagens exportadas pelo MailArchiver, √© preciso corrigir.*/
+			mensagens exportadas pelo MailArchiver, È preciso corrigir.*/
 			$email = str_replace("\r\n", "\n", $email);
 			$email = str_replace("\n", "\r\n", $email);
 
@@ -707,9 +707,9 @@ class imap_functions
 		}
 	}
         /*
-		Remove os anexos de uma mensagem. A estrat√©gia para isso √© criar uma mensagem nova sem os anexos, mantendo apenas
-		a primeira parte do e-mail, que √© o texto, sem anexos.
-		O m√©todo considera que o email √© multpart.
+		Remove os anexos de uma mensagem. A estratÈgia para isso È criar uma mensagem nova sem os anexos, mantendo apenas
+		a primeira parte do e-mail, que È o texto, sem anexos.
+		O mÈtodo considera que o email È multpart.
 	*/
 	function remove_attachments($params) {
 		include_once("class.message_components.inc.php");
@@ -719,7 +719,7 @@ class imap_functions
 		$header = "";
 
 		$headertemp = explode("\n",imap_fetchheader($this->mbox, imap_msgno($this->mbox, $params["msg_num"])));
-		foreach($headertemp as $head) {//Se eu colocar todo o header do email d√° pau no append, ent√£o procuro apenas o que interessa.
+		foreach($headertemp as $head) {//Se eu colocar todo o header do email d· pau no append, ent„o procuro apenas o que interessa.
 			$head1 = explode(":",$head);
 			if ( (strtoupper($head1[0]) == "TO") ||
 					(strtoupper($head1[0]) == "FROM") ||
@@ -729,9 +729,9 @@ class imap_functions
 		}
 
 		$msg = new message_components($this->mbox);
-		$msg->fetch_structure($params["msg_num"]);/* O fetchbody tava trazendo o email com problemas na acentua√ß√£o.
-							     Ent√£o uso essa classe para verificar a codifica√ß√£o e o charset,
-							     para que o m√©todo decodeBody do expresso possa trazer tudo certinho*/
+		$msg->fetch_structure($params["msg_num"]);/* O fetchbody tava trazendo o email com problemas na acentuaÁ„o.
+							     Ent„o uso essa classe para verificar a codificaÁ„o e o charset,
+							     para que o mÈtodo decodeBody do expresso possa trazer tudo certinho*/
 
 		$all_body_type = strtolower($msg->file_type[$params["msg_num"]][0]);
 		$all_body_encoding = $msg->encoding[$params["msg_num"]][0];
@@ -767,7 +767,7 @@ class imap_functions
 							imap_fetchbody($this->mbox,imap_msgno($this->mbox, $params["msg_num"]),$body_part_to_show),
 							$all_body_encoding, $all_body_charset
 							))
-					), "\\Seen"); //Append do novo email, s√≥ com header e conte√∫do sem anexos. //Remove imagens do corpo, pois estas est√£o na lista de anexo e ser√£o removidas.
+					), "\\Seen"); //Append do novo email, sÛ com header e conte˙do sem anexos. //Remove imagens do corpo, pois estas est„o na lista de anexo e ser„o removidas.
 
 		if(!$status)
 		{
@@ -858,7 +858,7 @@ class imap_functions
 					//ini_set("display_errors","1");
 					$msg_info = $this->get_info_msg($new_params);
 
-					$this->mbox = $this->open_mbox($array_names_keys[$i]); //N√£o sei porque, mas se n√£o abrir de novo a caixa d√° erro.
+					$this->mbox = $this->open_mbox($array_names_keys[$i]); //N„o sei porque, mas se n„o abrir de novo a caixa d· erro.
 					$msg_info['header'] = $this->get_info_head_msg($msg_number);
 
 					$attach_params["num_msg"] = $msg_number;
@@ -892,7 +892,7 @@ class imap_functions
 			//ini_set("display_errors","1");
 			$msg_info = $this->get_info_msg($new_params);
 
-			$this->mbox = $this->open_mbox($params['folder']); //N√£o sei porque, mas se n√£o abrir de novo a caixa d√° erro.
+			$this->mbox = $this->open_mbox($params['folder']); //N„o sei porque, mas se n„o abrir de novo a caixa d· erro.
 			$msg_info['header'] = $this->get_info_head_msg($msg_number);
 
 			$attach_params["num_msg"] = $msg_number;
@@ -917,7 +917,7 @@ class imap_functions
 
 	/**
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $msg_number numero da mensagem
 	*/
 	function getRawHeader($msg_number)
@@ -927,7 +927,7 @@ class imap_functions
 	
 	/**
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $msg_number numero da mensagem
 	*/
 	function getRawBody($msg_number)
@@ -938,7 +938,7 @@ class imap_functions
 	
 	/**
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $msg mensagem
 	*/
 	function builderMsgHeader($msg)
@@ -1106,7 +1106,7 @@ class imap_functions
 	
 	/**
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $msg_number numero da mensagem
 	*/
 	function get_msg_sample($msg_number)
@@ -1263,7 +1263,7 @@ class imap_functions
 		$msgTimesTamp = $header->udate + $this->functions->CalculateDateOffset(); //Aplica offset do usuario
 		$date_msg = gmdate("d/m/Y",$msgTimesTamp);
 
-//      Removido codigo pois a o m√©todo send_nofication precisa da data completa.
+//      Removido codigo pois a o mÈtodo send_nofication precisa da data completa.
 //		if (date("d/m/Y") == $date_msg)
 //			$return['udate'] = gmdate("H:i",$header->udate);
 //		else
@@ -1510,8 +1510,8 @@ class imap_functions
 
 	
 	/* 
-	* Converte textos utf8 para o padr√£o html.
-	 * Modificado por Cristiano Corr√™a Schmidt
+	* Converte textos utf8 para o padr„o html.
+	 * Modificado por Cristiano CorrÍa Schmidt
  	 * @link http://php.net/manual/en/function.utf8-decode.php 
 	* @author     luka8088 <luka8088@gmail.com> 
 	*/	
@@ -1533,7 +1533,7 @@ class imap_functions
 		/**
          * Decodifica uma part da mensagem para iso-8859-1
          * @param <type> $part parte do email
-         * @param <type> $encode codifica√ß√£o da parte
+         * @param <type> $encode codificaÁ„o da parte
          * @return <type> string decodificada
 		*/
         function decodeMailPart($part, $encode, $html = true)
@@ -1595,14 +1595,14 @@ class imap_functions
             //----------------------------------------------//
 
             /*
-             * Monta informa√ß√µes dos anexos para o cabecalhos
+             * Monta informaÁıes dos anexos para o cabecalhos
              */
             $attachments = $attachmentManager->getAttachmentsInfo();
             $return['attachments'] = $attachments;
             //----------------------------------------------//
 
             /*
-             * Monta informa√ß√µes das imagens
+             * Monta informaÁıes das imagens
              */
             $images = $attachmentManager->getEmbeddedImagesInfo();
             //----------------------------------------------//
@@ -1677,7 +1677,7 @@ class imap_functions
                   //  $return['body']='isCripted';
                   // return $return;
 				  
-				  //TODO: Descartar c√≥digo ap√≥s atualiza√ß√£o do m√≥dulo de seguran√ßa da SERPRO
+				  //TODO: Descartar cÛdigo apÛs atualizaÁ„o do mÛdulo de seguranÁa da SERPRO
 					$rawMessageData2 = $this->extractSignedContents($rawMessageData); 
 					if($rawMessageData2 === false){ 
 						$return['body']='isCripted'; 
@@ -1689,7 +1689,7 @@ class imap_functions
  		 
  		            $attachmentManager->setStructure($structure2); 
  		            /* 
- 		            * Monta informa√ß√µes dos anexos para o cabecarios 
+ 		            * Monta informaÁıes dos anexos para o cabecarios 
  		            */ 
  		            $attachments = $attachmentManager->getAttachmentsInfo(); 
  	                $return['attachments'] = $attachments; 
@@ -1697,7 +1697,7 @@ class imap_functions
  		            //----------------------------------------------// 
  		 
  		            /* 
-	                * Monta informa√ß√µes das imagens 
+	                * Monta informaÁıes das imagens 
  		            */ 
  		            $images = $attachmentManager->getEmbeddedImagesInfo(); 
  		            //----------------------------------------------// 
@@ -1725,7 +1725,7 @@ class imap_functions
 	}
 
 	
-	//TODO: Descartar c√≥digo ap√≥s atualiza√ß√£o do m√≥dulo de seguran√ßa da SERPRO
+	//TODO: Descartar cÛdigo apÛs atualizaÁ„o do mÛdulo de seguranÁa da SERPRO
 	function extractSignedContents( $data ) 
     { 
 		$pipes_desc = array( 
@@ -1974,7 +1974,7 @@ class imap_functions
 				
 	/**
 	* @license   http://www.gnu.org/copyleft/gpl.html GPL
-	* @author    Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author    ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $images
 	* @param     $msgno
 	* @param     $body
@@ -2042,15 +2042,15 @@ class imap_functions
             //--------------------------------------------------------------------------------------------// 	
             $body = str_ireplace('position:absolute;', '', $body);
 
-            //Remo√ß√£o de tags <span></span> para corre√ß√£o de erro no firefox
-            //Comentado pois estes replaces geram erros no html da msg, n√£o se pode garantir que o os </span></span> sejam realmente os fechamentos dos <span><span>.
+            //RemoÁ„o de tags <span></span> para correÁ„o de erro no firefox
+            //Comentado pois estes replaces geram erros no html da msg, n„o se pode garantir que o os </span></span> sejam realmente os fechamentos dos <span><span>.
             //Caso realmente haja a nescessidade de remover estes spans deve ser repensado a forma de como faze-lo.
             //		$body = mb_eregi_replace("<span><span>","",$body);
             //		$body = mb_eregi_replace("</span></span>","",$body);
-            //Corre√ß√£o para compatibiliza√ß√£o com Outlook, ao visualizar a mensagem
+            //CorreÁ„o para compatibilizaÁ„o com Outlook, ao visualizar a mensagem
             $body = mb_ereg_replace('<!--\[', '<!-- [', $body);
             $body = mb_ereg_replace('&lt;!\[endif\]--&gt;', '<![endif]-->', $body);
-            $body  = preg_replace("/<p[^\/>]*>([\s]?)*<\/p[^>]*>/", '', $body); //Remove paragrafos vazios (evita duplo espa√ßamento em emails do MSO)
+            $body  = preg_replace("/<p[^\/>]*>([\s]?)*<\/p[^>]*>/", '', $body); //Remove paragrafos vazios (evita duplo espaÁamento em emails do MSO)
            
             return  $body ;
     }
@@ -2074,7 +2074,7 @@ class imap_functions
 
 	/**
 	* @license   http://www.gnu.org/copyleft/gpl.html GPL
-	* @author    Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author    ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $body corpo da mensagem
 	*/
 	function replace_links(&$body)
@@ -2175,7 +2175,7 @@ class imap_functions
 
                             $this->db = new db_functions();
                             
-                            // TODO: testar se existe um certificado no banco e verificar qual √Ø¬ø¬Ω o mais atual.
+                            // TODO: testar se existe um certificado no banco e verificar qual ÔøΩ o mais atual.
                             if(!$certificado->dados['EXPIRADO'] && !$certificado->dados['REVOGADO'] && count($certificado->erros_ssl) < 1)
                                 $this->db->insert_certificate(strtolower($certificado->dados['EMAIL']), $certificado->cert_assinante, $certificado->dados['SERIALNUMBER'], $certificado->dados['AUTHORITYKEYIDENTIFIER']);
 			}
@@ -2194,7 +2194,7 @@ class imap_functions
 	
 	/**
 	* @license   http://www.gnu.org/copyleft/gpl.html GPL
-	* @author    Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author    ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $images
 	* @param     $msg_number
 	* @param     $msg_folder
@@ -2278,8 +2278,8 @@ class imap_functions
 			* t - delete messages (set or clear \DELETED flag via STORE, set \DELETED flag during APPEND/COPY)
 			* e - perform EXPUNGE and expunge as a part of CLOSE
 			* a - administer (perform SETACL/DELETEACL/GETACL/LISTRIGHTS)
-			* Atributos da ACL para pastas compartilhadas s√£o definidos no arquivo sharemailbox.js, na fun√ß√£o setaclfromuser
-			* Atributos da ACL para contas compartilhadas s√£o definidos no arquivo shared_accounts.js, na fun√ß√£o setaclfromuser
+			* Atributos da ACL para pastas compartilhadas s„o definidos no arquivo sharemailbox.js, na funÁ„o setaclfromuser
+			* Atributos da ACL para contas compartilhadas s„o definidos no arquivo shared_accounts.js, na funÁ„o setaclfromuser
 			*/
 			$acl_share_delete = (stripos($acl,'t') !== false && stripos($acl,'e') !== false);
 
@@ -2387,11 +2387,11 @@ class imap_functions
 	}
 
      /**
-     * M√©todo que faz a verifica√ß√£o do Content-Type do e-mail e verifica se √© um e-mail normal,
+     * MÈtodo que faz a verificaÁ„o do Content-Type do e-mail e verifica se È um e-mail normal,
      * assinado ou cifrado.
-     * @author M√°rio C√©sar Kolling <mario.kolling@serpro.gov.br>
-     * @param $headers Uma String contendo os Headers do e-mail retornados pela fun√ß√£o imap_imap_fetchheader
-     * @param $msg_number O n√∫mero da mesagem
+     * @author M·rio CÈsar Kolling <mario.kolling@serpro.gov.br>
+     * @param $headers Uma String contendo os Headers do e-mail retornados pela funÁ„o imap_imap_fetchheader
+     * @param $msg_number O n˙mero da mesagem
      * @return Retorna o tipo da mensagem (normal, signature, cipher).
      */
     function getMessageType($msg_number, $headers = false , &$body = false)
@@ -2414,12 +2414,12 @@ class imap_functions
     }
     
 		/**
-        * Retorna a posi√ß√£o que a pasta esta dentro do array de pastas
+        * Retorna a posiÁ„o que a pasta esta dentro do array de pastas
         *
         * @license    www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
         * @access     public
 		*/
 		
@@ -2432,12 +2432,12 @@ class imap_functions
 	}
 	
         /**
-        * Ordenas as pastas padr√µes do usuario na ordem INBOX > SENT > DRAFTS > SPAM > TRASH > OTHERS
+        * Ordenas as pastas padrıes do usuario na ordem INBOX > SENT > DRAFTS > SPAM > TRASH > OTHERS
         *
         * @license    http://www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
         * @access     public
         */
 	function orderDefaultFolders( &$folders , $user)
@@ -2474,12 +2474,12 @@ class imap_functions
 	}
         
         /**
-        * Retorna lista de pastas do usuario no padr√£o que a lib javascript espera.
+        * Retorna lista de pastas do usuario no padr„o que a lib javascript espera.
         *
         * @license    http://www.gnu.org/copyleft/gpl.html GPL
-        * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-        * @sponsor    Caixa Econ√¥mica Federal
-        * @author     Cristiano Corr√™a Schmidt
+        * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+        * @sponsor    Caixa EconÙmica Federal
+        * @author     Cristiano CorrÍa Schmidt
         * @access     public
         */
 	function get_folders_list($params = null)
@@ -2503,7 +2503,7 @@ class imap_functions
 		///Define Variaveis
 		$prefixShared = 'user'; //Prefixo das pastas compartilhadas
 		$uid2cn = (isset($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['uid2cn'])) ? $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['uid2cn'] : false; 
-		$mboxStream = $this->open_mbox(); //abre conex√£o imap
+		$mboxStream = $this->open_mbox(); //abre conex„o imap
 		$currentFolder = isset($params['folder']) ? $params['folder'] : 'INBOX';
 		$folders = array();
 		$return = array();
@@ -2526,7 +2526,7 @@ class imap_functions
 			if($uid2cn)
 				$this->ldap = new ldap_functions();
                 
-		foreach ($folders_list as $i => $v ) //Separando Pastas e informa√ß√µes
+		foreach ($folders_list as $i => $v ) //Separando Pastas e informaÁıes
 		{
 			$folderId = substr($v->name,(strpos($v->name , '}') + 1));
 			$nameArray = explode($this->imap_delimiter, $folderId);
@@ -2536,19 +2536,19 @@ class imap_functions
 
 			if($nameArray[0] === 'user'){
 
-				//variaveis utilizadas para defini√ß√£o das permiss√µes das pastas compartilhadas
+				//variaveis utilizadas para definiÁ„o das permissıes das pastas compartilhadas
 				$acl_share_create = 0;
 				$acl_share_rename = 0;
 				$acl_share_delete = 0;
 
-				//recuperando as permiss√µes (ACLs) aplicadas na pasta
+				//recuperando as permissıes (ACLs) aplicadas na pasta
 				$imap_getacl = imap_getacl($mboxStream, $folderId);
 
 				//Se existe ACLs aplicadas a respectiva pasta (para o usuario corrente)
 				if(isset($imap_getacl[ $this->username ])){
 					$aclImap = $imap_getacl[ $this->username ];
 
-					//A partir dos atributos da ACL definir permiss√µes para cada a√ß√£o (create, delete e rename):
+					//A partir dos atributos da ACL definir permissıes para cada aÁ„o (create, delete e rename):
 					//http://www.ietf.org/rfc/rfc4314.txt
 					$acl_share_create = (stripos($aclImap,'w') !== false && stripos($aclImap,'i') !== false && stripos($aclImap,'k') !== false) ? 1 : 0;
 					$acl_share_delete = (stripos($aclImap,'x') !== false && stripos($aclImap,'t') !== false && stripos($aclImap,'e') !== false) ? 1 : 0;
@@ -2590,16 +2590,16 @@ class imap_functions
 		
 		ksort($folders['INBOX']);
 		
-		foreach($folders as $i => $v) //Ordenando e resgatando novas informa√ß√µes
+		foreach($folders as $i => $v) //Ordenando e resgatando novas informaÁıes
 		{
-			$this->orderDefaultFolders($folders[$i] , $i);  //Ordenando Pastas Padr√µes
+			$this->orderDefaultFolders($folders[$i] , $i);  //Ordenando Pastas Padrıes
 			
 			foreach ($folders[$i] as $ii => $vv)
 			{
 				$append = array();				
 				$append['folder_id'] = $vv['id'];
 				$append['folder_name'] = (($uid2cn && isset($vv['user'])) && ($cn = $this->ldap->uid2cn($vv['user']))) ? $cn : $vv['name'];
-				$status = imap_status($mboxStream, $vv['stream'], SA_UNSEEN); //Resgata Numero de mensagens n√£o lidas
+				$status = imap_status($mboxStream, $vv['stream'], SA_UNSEEN); //Resgata Numero de mensagens n„o lidas
 				$append['folder_unseen'] = isset($status->unseen) ? $status->unseen : 0 ;
 				$append['folder_hasChildren'] = (($vv['attributes'] == 32) && ($vv['name'] != 'INBOX')) ? 1 : 0;
 				$append['folder_parent'] = $vv['parent'];
@@ -2624,7 +2624,7 @@ class imap_functions
 		$base_path = $arr['base_path'];
 		$mbox_stream = $this->open_mbox();
 		$imap_server = $_SESSION['phpgw_info']['expressomail']['email_server']['imapServer'];
-        /* Quebra nome da pasta quando houver pontos ou barras (poss√≠veis delimitadores do cyrus) */
+        /* Quebra nome da pasta quando houver pontos ou barras (possÌveis delimitadores do cyrus) */
         $test = preg_split("/\/|\./", $namebox);
 		if(count($test) < 1 || $base_path == null || $base_path == "" || $base_path == 'undefined'){
 			if($base_path != null || $base_path != "" || $base_path != 'undefined'){
@@ -2762,8 +2762,8 @@ class imap_functions
 		return $return;
 	}
 
-	/*M√©todo utilizado para retornar dados da mensagem local (desarquivada na pasta lixeira)
-	para poder ser anexada √† mensagem.*/
+	/*MÈtodo utilizado para retornar dados da mensagem local (desarquivada na pasta lixeira)
+	para poder ser anexada ‡ mensagem.*/
     function get_info_msg_archiver($params){
         $folder = "INBOX".$this->imap_delimiter.$this->folders['trash'];
         $mbox_stream = $this->open_mbox($folder);
@@ -2937,7 +2937,7 @@ class imap_functions
                 }
             }
             // Fim Valida envio de email para shared accounts
-    //	    TODO - implementar tratamento SMIME no novo servi√ßo de envio de emails e retirar o AND false abaixo
+    //	    TODO - implementar tratamento SMIME no novo serviÁo de envio de emails e retirar o AND false abaixo
             if ($params['smime'] AND false) {
                 $body = $params['smime'];
                 $mail->SMIME = true;
@@ -2970,9 +2970,9 @@ class imap_functions
                     return $erros_acumulados;
                 }
             } else {
-                //Compatibiliza√ß√£o com Outlook, ao encaminhar a mensagem
+                //CompatibilizaÁ„o com Outlook, ao encaminhar a mensagem
                 $body = mb_ereg_replace('<!--\[', '<!-- [', base64_decode($params['body']));
-				$body = str_replace("&lt;","&yzwkx;",$body); //Alterar as Entities padr√£o das tags < > para compatibilizar com o Expresso
+				$body = str_replace("&lt;","&yzwkx;",$body); //Alterar as Entities padr„o das tags < > para compatibilizar com o Expresso
 				$body = str_replace("&gt;","&xzwky;",$body);
                 $body = str_replace("%nbsp;","&nbsp;",$body);
                 //$body = preg_replace("/\n/"," ",$body);
@@ -3045,7 +3045,7 @@ class imap_functions
                 }
             }
 
-            //Implementa√ß√£o para o In-Reply-To e References				
+            //ImplementaÁ„o para o In-Reply-To e References				
             $msg_numb = $params['messageNum'];
             $msg_folder = $params['messageFolder'];
             $this->mbox = $this->open_mbox($msg_folder);
@@ -3209,18 +3209,18 @@ class imap_functions
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////	
             /**
-             * Faz a valida√ß√£o pelo tamanho m√°ximo de mensagem permitido para o usu√°rio. Se o usu√°rio n√£o estiver em nenhuma regra, usa o tamanho padr√£o.
+             * Faz a validaÁ„o pelo tamanho m·ximo de mensagem permitido para o usu·rio. Se o usu·rio n„o estiver em nenhuma regra, usa o tamanho padr„o.
              */
             $default_max_size_rule = $db->get_default_max_size_rule();
             if (!$default_max_size_rule) {
-                $default_max_size_rule = str_replace("M", "", ini_get('upload_max_filesize')) * 1024 * 1024; /* hack para n√£o bloquear o envio de email quando n√£o for configurado um tamanho padr√£o */
+                $default_max_size_rule = str_replace("M", "", ini_get('upload_max_filesize')) * 1024 * 1024; /* hack para n„o bloquear o envio de email quando n„o for configurado um tamanho padr„o */
             } else {
                 foreach ($default_max_size_rule as $i => $value) {
                     $default_max_size_rule = $value['config_value'];
                 }
             }
 
-            $default_max_size_rule = $default_max_size_rule * 1024 * 1024;    /* Tamanho da regra padr√£o, em bytes */
+            $default_max_size_rule = $default_max_size_rule * 1024 * 1024;    /* Tamanho da regra padr„o, em bytes */
             $id_user = $_SESSION['phpgw_info']['expressomail']['user']['userid'];
 
 
@@ -3247,13 +3247,13 @@ class imap_functions
             if ($default_max_size_rule) {
                 $size_rule = $db->get_rule_by_user($_SESSION['phpgw_info']['expressomail']['user']['userid']);
 
-                if (!$size_rule && $n_rule_groups == 0) /* O usu√°rio n√£o est√° em nenhuma regra por usu√°rio nem por grupo. Vai usar a regra padr√£o. */ {
+                if (!$size_rule && $n_rule_groups == 0) /* O usu·rio n„o est· em nenhuma regra por usu·rio nem por grupo. Vai usar a regra padr„o. */ {
                     if ($message_size_total > $default_max_size_rule)
                         return $this->functions->getLang("Message size greateruler than allowed (Default rule)")." (".$default_max_size_rule / 1024 / 1024 ." Mb)";
                 }
 
                 else {
-                    if (count($size_rule) > 0) /* Verifica se existe regra por usu√°rio. Se houver, ela vai se sobresair das regras por grupo. */ {
+                    if (count($size_rule) > 0) /* Verifica se existe regra por usu·rio. Se houver, ela vai se sobresair das regras por grupo. */ {
                         $regra_mais_permissiva = 0;
                         foreach ($size_rule as $i => $value) {
                             if ($regra_mais_permissiva < $value['email_max_recipient'])
@@ -3271,7 +3271,7 @@ class imap_functions
                 }
             }
             /**
-             * Fim da valida√ß√£o do tamanho da regra do tamanho de mensagem.
+             * Fim da validaÁ„o do tamanho da regra do tamanho de mensagem.
              */
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             if ($isHTML)
@@ -3393,7 +3393,7 @@ class imap_functions
         {
             include_once dirname(__FILE__).'/class.attachment.inc.php';
             $attachment = new attachment();
-            $attachment->decodeConf['rfc_822bodies'] = $rfc_822bodies; //For√ßar a n√£o decodifica√ß√£o de mensagens em anexo.
+            $attachment->decodeConf['rfc_822bodies'] = $rfc_822bodies; //ForÁar a n„o decodificaÁ„o de mensagens em anexo.
 			$folder = urldecode($folder);
     		$attachment->setStructureFromMail($folder, $uid);
             
@@ -3672,8 +3672,8 @@ class imap_functions
 			* t - delete messages (set or clear \DELETED flag via STORE, set \DELETED flag during APPEND/COPY)
 			* e - perform EXPUNGE and expunge as a part of CLOSE
 			* a - administer (perform SETACL/DELETEACL/GETACL/LISTRIGHTS)
-			* Os Atributos da ACL para pastas compartilhadas s√£o definidos no arquivo sharemailbox.js, na fun√ß√£o setaclfromuser
-			* Os Atributos da ACL para contas compartilhadas s√£o definidos no arquivo shared_accounts.js, na fun√ß√£o setaclfromuser
+			* Os Atributos da ACL para pastas compartilhadas s„o definidos no arquivo sharemailbox.js, na funÁ„o setaclfromuser
+			* Os Atributos da ACL para contas compartilhadas s„o definidos no arquivo shared_accounts.js, na funÁ„o setaclfromuser
 			*/
 			$acl_share_delete = (stripos($acl,'t') !== false && stripos($acl,'e') !== false);
 
@@ -4340,7 +4340,7 @@ class imap_functions
 // 	Fix the search problem with special characters!!!!
 	function remove_accents($string) {
 		return strtr($string,
-	 	"?√ì??√≥?√ù?√∫√Å√Ä√É√Ç√Ñ√á√â√à√ä√ã√ç√å?√é√è√ë√ï√î√ì√í√ñ√ö√ô?√õ√ú?√°√†√£√¢√§√ß√©√®√™√´√≠√¨?√Æ√Ø√±√≥√≤√µ√¥√∂√∫√π?√ª√º√Ω√ø",
+	 	"?”??Û?›?˙¡¿√¬ƒ«…» ÀÕÃ?Œœ—’‘”“÷⁄Ÿ?€‹?·‡„‚‰ÁÈËÍÎÌÏ?ÓÔÒÛÚıÙˆ˙˘?˚¸˝ˇ",
 	 	"SOZsozYYuAAAAACEEEEIIIIINOOOOOUUUUUsaaaaaceeeeiiiiinooooouuuuuyy");
 	}
 
@@ -4601,7 +4601,7 @@ class imap_functions
 			if($user == $this->username) 
 				continue;
 
-			//Compatibiliza acls no padr√£o antigo para o novo
+			//Compatibiliza acls no padr„o antigo para o novo
 			$acl = str_replace($oldAcls, $oldAcls, $acl);
 
 			$return[$user] = array(
@@ -4715,7 +4715,7 @@ class imap_functions
 	
 	/**
 	* @license   http://www.gnu.org/copyleft/gpl.html GPL
-	* @author    Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @author    ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
 	* @param     $params
 	*/
 	function spam($params)
@@ -4785,14 +4785,14 @@ class imap_functions
 	
 	
 /**
-* Descri√ß√£o do m√©todo
+* DescriÁ„o do mÈtodo
 *
 * @license    http://www.gnu.org/copyleft/gpl.html GPL
 * @author     
-* @sponsor    Caixa Econ√¥mica Federal
+* @sponsor    Caixa EconÙmica Federal
 * @author     
-* @param      <tipo> <$msg_number> <N√∫mero da mensagem>
-* @return     <cabe√ßalho da mensagem>
+* @param      <tipo> <$msg_number> <N˙mero da mensagem>
+* @return     <cabeÁalho da mensagem>
 * @access     <public>
 */	
 	function get_header($msg_number)
@@ -4812,7 +4812,7 @@ class imap_functions
 	}
 
 //Por Bruno Costa(bruno.vieira-costa@serpro.gov.br - Insere emails no imap a partir do fonte do mesmo. Se o argumento timestamp for passado ele utiliza do script python
-///expressoMail/imap.py para inserir uma msg com o hor√°rio correto pois isso n√£o √© porss√≠vel com a fun√ß√£o imap_append do php.
+///expressoMail/imap.py para inserir uma msg com o hor·rio correto pois isso n„o È porssÌvel com a funÁ„o imap_append do php.
 
 
     function insert_email($source,$folder,$timestamp,$flags){
@@ -4834,7 +4834,7 @@ class imap_functions
                 $return['append'] = imap_append($mbox_stream, "{".$imap_server.":".$imap_port."}".mb_convert_encoding($folder, "UTF7-IMAP","ISO_8859-1"), $source,'',date('d-M-Y H:i:s O',$timestamp));
             }else{
 				$pdate = date_parse(date('r')); // pega a data atual do servidor (TODO: pegar a data da mensagem local) 
-				$timestamp += $pdate['zone']*(60); //converte a data da mensagem para o fuso hor√°rio GMT 0. Isto √© feito devido ao Expresso Mail armazenar a data no fuso hor√°rio GMT 0 e para exibi-la converte ela para o fuso hor√°rio local. 
+				$timestamp += $pdate['zone']*(60); //converte a data da mensagem para o fuso hor·rio GMT 0. Isto È feito devido ao Expresso Mail armazenar a data no fuso hor·rio GMT 0 e para exibi-la converte ela para o fuso hor·rio local. 
 				/* TODO: o diretorio /tmp deve ser substituido pelo diretorio temporario configurado no setup */ 
 				$file = "/tmp/sess_".$_SESSION[ 'phpgw_session' ][ 'session_id' ]; 
 			
@@ -4900,12 +4900,12 @@ class imap_functions
             $source = str_replace(" ", "+", $source,$i); 
  		        if (version_compare(PHP_VERSION, '5.2.0', '>=')){ 
  		            if(!$source = base64_decode($source,true)) 
-                    return "error ".$source."Espa√Ø¬ø?os ".$i; 
+                    return "error ".$source."EspaÔø?os ".$i; 
  		 
  		        } 
  		        else { 
  		            if(!$source = base64_decode($source)) 
-                    return "error ".$source."Espa√Ø¬ø?os ".$i; 
+                    return "error ".$source."EspaÔø?os ".$i; 
             } 
         }
 
@@ -4942,7 +4942,7 @@ class imap_functions
     }
 
 //Por Bruno Costa(bruno.vieira-costa@serpro.gov.br - Trata fontes de emails enviados via POST para o servidor por um xmlhttprequest, as partes codificados com
-//Base64 os "+" s√£o substituidos por " " no envio e essa fun√ß√£o arruma esse efeito.
+//Base64 os "+" s„o substituidos por " " no envio e essa funÁ„o arruma esse efeito.
 
     function treat_base64_from_post($source){
     	$source = preg_replace('/(?<!\r)\n/', "\r\n", $source);
@@ -4970,7 +4970,7 @@ class imap_functions
         return $source;
     }
 
-	//Por Bruno Costa(bruno.vieira-costa@serpro.gov.br - Recebe os fontes dos emails a serem desarquivados, separa e envia cada um para fun√ß√£o insert_mail.
+	//Por Bruno Costa(bruno.vieira-costa@serpro.gov.br - Recebe os fontes dos emails a serem desarquivados, separa e envia cada um para funÁ„o insert_mail.
 
     function unarchive_mail($params)
     {	
@@ -5036,7 +5036,7 @@ class imap_functions
     }
 	
 	/** 
-	 * M√©todo que envia um email reportando um erro no email do usu√°rio 
+	 * MÈtodo que envia um email reportando um erro no email do usu·rio 
 	 * @license http://www.gnu.org/copyleft/gpl.html GPL 
 	 * @author Prognus Software Livre (http://www.prognus.com.br) 
 	 */  
@@ -5111,7 +5111,7 @@ class imap_functions
 	function quickSearchMail( $params )
 	{		
 		include '../prototype/api/controller.php';			
-		set_time_limit(270); //Aumenta o tempo limit da requisi√ß√£o, em algumas buscas o imap demora para retornar o resultado.
+		set_time_limit(270); //Aumenta o tempo limit da requisiÁ„o, em algumas buscas o imap demora para retornar o resultado.
 		$return = array();
 		$return['folder'] = $params['folder'];
 		if(!is_array($params['folder']))
@@ -5200,7 +5200,7 @@ class imap_functions
 				$return['msgs'][$i]['flag'] .= $msg->Deleted ? $msg->Deleted : '';	
 				$return['msgs'][$i]['flag'] .= ( preg_match('/((Content-Disposition:(.)*([\r\n\s]*filename))|(Content-Type:(.)*([\r\n\s]*name)))/i', $mimeBody) ) ? 'T': '';
 				
-				$header = imap_fetchheader( $imap, $v , FT_UID ); // Necessario para recuperar se a mensagem √© importante ou n√£o.
+				$header = imap_fetchheader( $imap, $v , FT_UID ); // Necessario para recuperar se a mensagem È importante ou n„o.
 				$importante = array();
 				
 				if($msg->Flagged != 'F')
@@ -5433,7 +5433,7 @@ class imap_functions
 //			$end = ( $params['rows'] * $params['page'] );	
 //			$ini = $end -  $params['rows'] ;
 //		
-//			//Pegando os do range da pagina√ß√£o			
+//			//Pegando os do range da paginaÁ„o			
 //			$k = -1;
 //			$r = array();
 //			foreach ($rrr as $v)
@@ -5457,9 +5457,9 @@ class imap_functions
 				if( $val == $crit ) return true; else return false;	break;
 			case '*' : //Existe
 				if( strpos( $val , $crit ) !== false ) return true; else return false; break;
-			case '!*' : //N√£o existe
+			case '!*' : //N„o existe
 				if( strpos( $val , $crit ) === false ) return true; else return false; break;
-			case '^' : //Come√ßa com
+			case '^' : //ComeÁa com
 				if( substr ($val , 0 , strlen($crit) ) == $crit ) return true; else return false; break;	
 			case '$' : //Termina com
 				if( substr ($val , 0 , -(strlen($crit)) ) == $crit ) return true; else return false; break;	
@@ -5473,16 +5473,16 @@ class imap_functions
 	
 	
 	/**
-	* M√©todo que aplica a a√ß√£o do filtro nas mensagens da caixa de entrada
+	* MÈtodo que aplica a aÁ„o do filtro nas mensagens da caixa de entrada
 	*
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-	* @sponsor    Caixa Econ√¥mica Federal
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @sponsor    Caixa EconÙmica Federal
 	* @author     Airton Bordin Junior <airton@prognus.com.br>
 	* @author	  Gustavo Pereira dos Santos <gustavo@prognus.com.br>	
 	* @param      <Array> <$msgs> <Mensagens da caixa de entrada>
-	* @param      <Array> <$proc> <a√ß√µes do filtro>
-	* @return     <Regras do usu√°rio em Array>
+	* @param      <Array> <$proc> <aÁıes do filtro>
+	* @return     <Regras do usu·rio em Array>
 	* @access public
 	*/
 	function apliSieveFilter($msgs , $proc)
@@ -5497,7 +5497,7 @@ class imap_functions
 						$ret[$msg][] = imap_mail_copy($imap,$msg,$proc['value'], CP_UID);
 					else
 					{
-						/* Est√° sempre copiando a mensagem para a pasta destino */
+						/* Est· sempre copiando a mensagem para a pasta destino */
 					    //$ret[$msg][] = imap_mail_move($imap,$msg,$proc['parameter'], CP_UID);
 						$ret[$msg][] = imap_mail_move($imap,$msg,$proc['parameter'], CP_UID);						
 						imap_expunge($imap);
@@ -5529,12 +5529,12 @@ class imap_functions
 	}
 
    /**
-    * M√©todo que convert imagens no formato rfc2397 para Embedded Attachment
+    * MÈtodo que convert imagens no formato rfc2397 para Embedded Attachment
     *
     * @license    http://www.gnu.org/copyleft/gpl.html GPL
-    * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-    * @sponsor     Caixa Econ√¥mica Federal
-    * @author     Cristiano Corr√™a Schmidt
+    * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+    * @sponsor     Caixa EconÙmica Federal
+    * @author     Cristiano CorrÍa Schmidt
     * @param      <MailService> <$mailService> <Referencia objeto MailService>
     * @param      <String> <$body> <Referencia Corpo do email>
     * @return     <void>
@@ -5554,14 +5554,14 @@ class imap_functions
    }
 
    /**
-    * M√©todo que retorna a extens√£o do arquivo atraves do mime type
+    * MÈtodo que retorna a extens„o do arquivo atraves do mime type
     *
     * @license    http://www.gnu.org/copyleft/gpl.html GPL
-    * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-    * @sponsor     Caixa Econ√¥mica Federal
-    * @author     Cristiano Corr√™a Schmidt
+    * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+    * @sponsor     Caixa EconÙmica Federal
+    * @author     Cristiano CorrÍa Schmidt
     * @param      <String> <$mimeType> <Mime Type do arquivo>
-    * @return     <String> <extens√£o>
+    * @return     <String> <extens„o>
     * @access     public
     */
    function mimeToExtension($mimeType)
@@ -5602,11 +5602,11 @@ class imap_functions
 	
 	
 	/**
-	* M√©todo que retorna as mensagens com a flag $FilteredMessage que representa as mensagens filtradas que devem ser alertadas para o usu√°rio
+	* MÈtodo que retorna as mensagens com a flag $FilteredMessage que representa as mensagens filtradas que devem ser alertadas para o usu·rio
 	*
 	* @license    http://www.gnu.org/copyleft/gpl.html GPL
-	* @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-	* @sponsor    Caixa Econ√¥mica Federal
+	* @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+	* @sponsor    Caixa EconÙmica Federal
 	* @author     Airton Bordin Junior <airton@prognus.com.br>
 	* @author	  Marcieli <marcieli@prognus.com.br>	
 	* @author	  Marcos <marcosw@prognus.com.br>	
@@ -5624,7 +5624,7 @@ class imap_functions
 		
 		foreach ($folders as $folder) {
 			$this->mbox = $this->open_mbox($folder);
-			/* N√£o deletadas, n√£o lidas e com a flag */
+			/* N„o deletadas, n„o lidas e com a flag */
 			$messages = imap_search($this->mbox, 'UNDELETED UNSEEN KEYWORD "$FilteredMessage"', SE_UID);
 			if(is_array($messages))
 				foreach ($messages as $k => $m) {
@@ -5649,8 +5649,8 @@ class imap_functions
 	}
 	
 	/**
-	* Esta fun√ß√£o √© chamada ao clicar sobre uma mensagem listada nos alertas de Filtro por Remetente
-	* remove a flag e chama a fun√ß√£o que recupera os dados da mensagem, para serem utilizados na abertura da aba de leitura da msg
+	* Esta funÁ„o È chamada ao clicar sobre uma mensagem listada nos alertas de Filtro por Remetente
+	* remove a flag e chama a funÁ„o que recupera os dados da mensagem, para serem utilizados na abertura da aba de leitura da msg
 	*/
 	function open_flagged_msg($params){
 		$message_number = $params['msg_number'];
@@ -5667,8 +5667,8 @@ class imap_functions
 	
 	/**
 	* Remove a flag que caracteriza uma mensagem como alertada por Filtro por Remetente.
-	* se houver o parametro msg_number, ent√£o remove a flag de uma msg especifica
-	* se n√£o houver o parametro msg_number, mas sim o from, ent√£o remove a flag de todas as msgs da pasta (parametro from), 
+	* se houver o parametro msg_number, ent„o remove a flag de uma msg especifica
+	* se n„o houver o parametro msg_number, mas sim o from, ent„o remove a flag de todas as msgs da pasta (parametro from), 
 	* e que o remetente for o from.
 	*/
 	function removeFlagMessagesFilter($params){

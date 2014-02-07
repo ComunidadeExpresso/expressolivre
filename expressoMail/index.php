@@ -75,7 +75,7 @@
 		  ';
 
 	/*
-	 * TODO: implementar o controle como preferÃªncia do usuÃ¡rio 
+	 * TODO: implementar o controle como preferência do usuário 
 	 *
 	 */
 	$jcarousel = false;
@@ -127,7 +127,7 @@
     $conf->read_repository();
     $config = $conf->config_data;   
 
-    //Carrega ConfiguraÃ§Ã£o global do expressoMail 
+    //Carrega Configuração global do expressoMail 
  	$_SESSION['phpgw_info']['expresso']['expressoMail'] =  $current_config; 
     
 	$_SESSION['phpgw_info']['expressomail']['email_server'] = $boemailadmin->getProfile($emailadmin_profile[0]['profileID']);
@@ -282,7 +282,7 @@
     echo "<script language='javascript'> var account_id = ".$GLOBALS['phpgw_info']['user']['account_id'].";var expresso_offline = false; var mail_archive_host = '127.0.0.1';</script>\n";
         
     //MAILARCHIVER-02
-    //todo: remover a linha abaixo e implementar a configuraÃ§Ã£o
+    //todo: remover a linha abaixo e implementar a configuração
     //$GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'] = true;
 	
 	if ( $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'] == true )
@@ -327,8 +327,8 @@
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['timezone'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['timezone'] : sprintf("%s", array_search("America/Sao_Paulo", $zones));
 
 	// este arquivo deve ser carregado antes que
-	// os demais pois nele contem a funÃ§Ã£o get_lang
-	// que Ã© utilizada em diversas partes
+	// os demais pois nele contem a função get_lang
+	// que é utilizada em diversas partes
 	//echo $obj -> getFilesJs("js/common_functions.js",$update_version);
 	include("inc/load_lang.php");
 
@@ -341,7 +341,8 @@
 		//echo $obj -> getFilesJs("js/shortcut.js", $update_version); 
 		$scripts .= "js/shortcut.js,";
 	}
-	echo '<script> use_local_messages = '.$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'].'</script>';		
+	$use_local_messages = isset($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'])? $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'] : 0;
+	echo '<script> use_local_messages = '.$use_local_messages.'</script>';		
 	echo '
 		<!--<script type="text/javascript" src="../prototype/modules/mail/js/followupflag.js"></script>-->
 		<script language="javascript">

@@ -17,7 +17,7 @@
   isset( $_COOKIE[ 'sessionid' ] ) ? session_id( $_COOKIE[ 'sessionid' ] ) : session_id(); 
   session_start();
   
-  //Carregando na sessÃ£o configuraÃ§Ãµes do usuario usado na nova API.  
+  //Carregando na sessão configurações do usuario usado na nova API.  
   $_SESSION['wallet']['user']['uid']            =  $accountInfo['account_lid'];
   $_SESSION['wallet']['user']['uidNumber']      =  $accountInfo['account_id'];
   $_SESSION['wallet']['user']['password']       =  $_POST['passwd'];

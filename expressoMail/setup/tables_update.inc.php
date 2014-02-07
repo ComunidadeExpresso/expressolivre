@@ -254,13 +254,13 @@
 	$test[] = '2.4.5';
 	function expressoMail_upgrade2_4_5() {
 		$oProc = $GLOBALS['phpgw_setup']->oProc;
-		/* Seta o valor padrÃ£o para a configuraÃ§Ã£o de nÃºmero mÃ­nimo de marcadores */
+		/* Seta o valor padrão para a configuração de número mínimo de marcadores */
 		$oProc->query("INSERT INTO phpgw_config(config_app, config_name, config_value) VALUES ('expressoMail', 'expressoMail_limit_labels', 20);");
 	    $GLOBALS['setup_info']['expressoMail']['currentver'] = '2.4.6';
 	    return $GLOBALS['setup_info']['expressoMail']['currentver'];
 	}
 
-	/* Registra o hook de validaÃ§Ã£o do administrador*/
+	/* Registra o hook de validação do administrador*/
 	$test[] = '2.4.6';
 	function expressoMail_upgrade2_4_6() {
 	    $GLOBALS['setup_info']['expressoMail']['currentver'] = '2.4.7';

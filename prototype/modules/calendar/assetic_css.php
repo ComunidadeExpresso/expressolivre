@@ -52,7 +52,7 @@ $css = new AssetCollection(array(
         new FileAsset(PLUGINSURL.'/jquery.spinner/jquery.spinner.css')
         //new FileAsset(MODULESURL.'/css/layout.css'),
         //new FileAsset(MODULESURL.'/css/style.css')
-    )
+    ), null, 'calendar-css'
 );
 
 if (strpos($javaVersion,"java version") !== false){
