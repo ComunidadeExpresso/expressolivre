@@ -147,17 +147,14 @@ function init()
 
     cExecute ("$this.imap_functions.get_range_msgs2&folder=INBOX&msg_range_begin=1&msg_range_end="+preferences.max_email_per_page+"&sort_box_type=SORTARRIVAL&search_box_type=ALL&sort_box_reverse=1", handler_draw_box);
 
-    if(preferences.hide_folders == "1")
-        Element('divAppboxHeader').innerHTML =  title_app_menu;
-
     // Insere a applet de criptografia
-    if (preferences.use_signature_digital_cripto == '1'){
+    if( preferences.use_signature_digital_cripto == '1' )
+    {
         loadApplet();
     }
+    
     // Fim da inserção da applet
-
     cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
-
     
     if($.cookie('collapse_folders') == "true"){
         if(!is_ie)
@@ -223,7 +220,11 @@ function init()
 	}
 
 	// Versão
-	Element('divAppboxHeader').innerHTML = title_app;
+	$('#divAppboxHeader').html('<table height="16px" border=0 width=100% cellspacing=0 cellpadding=2><tr>'+
+	'<td style="padding-left:17px" width=33% id="content_quota" align=left></td>'+
+	'<td class="divAppboxHeader" width=33% id="main_title">Expresso Mail</td>'+
+	'<td width=33% id="div_menu_c3" align=right></td>'+
+	'</tr></table>');
 
 	// Get cyrus delimiter
 	cyrus_delimiter = Element('cyrus_delimiter').value;

@@ -1176,7 +1176,6 @@ function draw_box(headers_msgs, msg_folder, alternate){
 		
 	
 	var tdFolders  =  Element("folderscol");
-	tdFolders.style.display = preferences.hide_folders == '1'  ? "none" : "";
 	if ( !currentTab )
 		alternate_border(numBox);
 	draw_footer_box(headers_msgs.num_msgs);

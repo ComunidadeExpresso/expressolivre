@@ -471,10 +471,6 @@ $default[-1] = lang('Select on send');
 create_select_box('Save sent messages in folder','save_in_folder',$default,'Save automatically sent messages in selected folder');
 create_check_box('Show TO: in place of FROM: only in Automatic SEND folder','from_to_sent','Show TO: in place of FROM: only in Automatic SEND folder');
 
-
-create_check_box('Hide menu folders?','hide_folders','You can use it if your screen does not have good resolution');
-
-
 $default =  array(
     '50'    => '50',
     '100'   => '100',
