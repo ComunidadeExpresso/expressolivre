@@ -1,13 +1,13 @@
 <?php
-	/**************************************************************************\
-	* Expresso Administração                 										                                 *
-	* by Joao Alfredo Knopik Junior (joao.alfredo@gmail.com, jakjr@celepar.pr.gov.br)  	 *
-	* -----------------------------------------------------------------------------------------------------*
-	*  This program is free software; you can redistribute it and/or modify it					 *
-	*  under the terms of the GNU General Public License as published by the				 *
-	*  Free Software Foundation; either version 2 of the License, or (at your					 *
-	*  option) any later version.																						 *
-	\**************************************************************************/
+	/***********************************************************************************\
+	* Expresso Administração                                                            *
+	* by Joao Alfredo Knopik Junior (joao.alfredo@gmail.com, jakjr@celepar.pr.gov.br)   *
+	* ----------------------------------------------------------------------------------*
+	*  This program is free software; you can redistribute it and/or modify it          *
+	*  under the terms of the GNU General Public License as published by the            *
+	*  Free Software Foundation; either version 2 of the License, or (at your           *
+	*  option) any later version.                                                       *
+	\***********************************************************************************/
 	$phpgw_baseline = array(
 		'expressomail_dynamic_contact' => array(
 			'fd' => array(
@@ -70,15 +70,15 @@
 		'expressomail_message_followupflag' => array(
 			'fd' => array(
 				'id' => array('type' => 'auto','nullable' => False),
-				'followupflag_id' => array('type' => 'int', 'precision' => '8','nullable' => False),	
-				'message_id' => array('type' => 'varchar', 'precision' => '100','nullable' => False),				
+				'followupflag_id' => array('type' => 'int', 'precision' => '8','nullable' => False),
+				'message_id' => array('type' => 'varchar', 'precision' => '100','nullable' => False, 'default' => 'unknown' ),
 				'border_color' => array('type' => 'varchar','precision' => '7','nullable' => true),
 				'background_color' => array('type' => 'varchar','precision' => '7','nullable' => true),
 				'font_color' => array('type' => 'varchar','precision' => '7','nullable' => true),
 				'alarm_deadline' => array('type' => 'timestamp', 'nullable' => true),
 				'done_deadline' => array('type' => 'timestamp', 'nullable' => true),
-				'is_done' => array('type' => 'int', 'precision' => '2','nullable' => true),
-				'sent' => array('type' => 'int', 'precision' => '2','nullable' => false, 'default' => 0)
+				'is_done' => array('type' => 'int', 'precision' => '8','nullable' => true),
+				'sent' => array('type' => 'int', 'precision' => '2','nullable' => false, 'default' => 0),
 			),
 			'pk' => array('id'),
 			'fk' => array(),

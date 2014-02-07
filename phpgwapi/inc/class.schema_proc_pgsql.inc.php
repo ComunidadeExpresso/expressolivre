@@ -34,7 +34,7 @@
 		}
 
 		/* Return a type suitable for DDL */
-		function TranslateType($sType, $iPrecision = 0, $iScale = 0)
+		function TranslateType( $sType, $iPrecision = 0, $iScale = 0 )
 		{
 			$sTranslated = $sType;
 			switch($sType)
@@ -42,46 +42,29 @@
 				case 'auto':
 					$sTranslated = 'int4';
 					break;
+				
 				case 'blob':
 					$sTranslated = 'bytea';
 					break;
+				
 				case 'char':
-					if($iPrecision > 0 && $iPrecision < 256)
-					{
-						$sTranslated =  sprintf("char(%d)", $iPrecision);
-					}
-					if($iPrecision > 255)
-					{
-						$sTranslated =  'text';
-					}
+				case 'varchar':
+					if ( $iPrecision > 0 )
+						$sTranslated = ( $iPrecision > 65535 )? 'text' : sprintf( $sType.'(%d)', $iPrecision ) ;
 					break;
-				case 'decimal':
-					$sTranslated =  sprintf("decimal(%d,%d)", $iPrecision, $iScale);
-					break;
-				case 'float':
-					if($iPrecision == 4 || $iPrecision == 8)
-					{
-						$sTranslated =  sprintf("float%d", $iPrecision);
-					}
-					break;
-				case 'int':
-					if($iPrecision == 2 || $iPrecision == 4 || $iPrecision == 8)
-					{
-						$sTranslated = sprintf("int%d", $iPrecision);
-					}
-					break;
+				
 				case 'longtext':
 					$sTranslated = 'text';
 					break;
-				case 'varchar':
-					if($iPrecision > 0 && $iPrecision < 256)
-					{
-						$sTranslated =  sprintf("varchar(%d)", $iPrecision);
-					}
-					if($iPrecision > 255)
-					{
-						$sTranslated =  'text';
-					}
+				
+				case 'decimal':
+					$sTranslated = sprintf( $sType.'(%d,%d)', $iPrecision, $iScale );
+					break;
+				
+				case 'int':
+				case 'float':
+					if ( ( $iPrecision == 2 && $sType == 'int' ) || $iPrecision == 4 || $iPrecision == 8 )
+						$sTranslated = sprintf( $sType.'%d', $iPrecision );
 					break;
 			}
 			return $sTranslated;

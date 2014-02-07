@@ -12,119 +12,83 @@
 	$phpgw_baseline = array(
 		'phpgw_expressoadmin' => array(
 			'fd' => array(
-				'manager_lid'	=> array('type' => 'varchar','precision' => 50,'nullable' => false),
-				'context'		=> array('type' => 'varchar','precision' => 255,'nullable' => false),
-				'acl'			=> array('type' => 'int','precision' => 14,'nullable' => false)
+				'manager_lid'           => array( 'type' => 'varchar', 'precision' => 50,  'nullable' => false ),
+				'context'               => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
+				'acl'                   => array( 'type' => 'int',     'precision' => 8,   'nullable' => false ),
 			),
 			'pk' => array(),
 			'fk' => array(),
 			'ix' => array(),
-			'uc' => array()
+			'uc' => array(),
 		),
-		
 		'phpgw_expressoadmin_apps' => array(
 			'fd' => array(
-				'manager_lid'	=> array('type' => 'varchar','precision' => 50,'nullable' => false),
-				'context'		=> array('type' => 'varchar','precision' => 255,'nullable' => false),
-				'app'			=> array('type' => 'varchar','precision' => 100,'nullable' => false)
+				'manager_lid'           => array( 'type' => 'varchar', 'precision' => 50, 'nullable' => false ),
+				'context'               => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
+				'app'                   => array( 'type' => 'varchar', 'precision' => 100, 'nullable' => false ),
 			),
 			'pk' => array(),
 			'fk' => array(),
 			'ix' => array(),
-			'uc' => array()
+			'uc' => array(),
 		),
-
 		'phpgw_expressoadmin_passwords' => array(
 			'fd' => array(
-				'uid'		=> array('type' => 'varchar','precision' => 100,'nullable' => false),
-				'password'	=> array('type' => 'varchar','precision' => 255,'nullable' => false)
+				'uid'                   => array( 'type' => 'varchar', 'precision' => 100, 'nullable' => false ),
+				'password'              => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
 			),
 			'pk' => array(),
 			'fk' => array(),
 			'ix' => array(),
-			'uc' => array()
+			'uc' => array(),
 		),
-		
 		'phpgw_expressoadmin_log' => array(
 			'fd' => array(
-				'date'			=> array('type' => 'timestamp','nullable' => false),
-				'manager'		=> array('type' => 'varchar','precision' => 50,'nullable' => false),
-				'action'		=> array('type' => 'varchar','precision' => 255,'nullable' => false),
-				'userinfo'		=> array('type' => 'varchar','precision' => 255,'nullable' => false)
+				'date'                  => array( 'type' => 'timestamp', 'nullable' => false ),
+				'manager'               => array( 'type' => 'varchar', 'precision' => 50, 'nullable' => false ),
+				'action'                => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
+				'userinfo'              => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
 			),
 			'pk' => array(),
 			'fk' => array(),
 			'ix' => array(),
-			'uc' => array()
+			'uc' => array(),
 		),
-		
 		'phpgw_expressoadmin_samba' => array(
 			'fd' => array(
-				'samba_domain_name' => array( 'type' => 'varchar', 'precision' => 50),
-				'samba_domain_sid' => array( 'type' => 'varchar', 'precision' => 100)
+				'samba_domain_name'     => array( 'type' => 'varchar', 'precision' => 50 ),
+				'samba_domain_sid'      => array( 'type' => 'varchar', 'precision' => 100 ),
 			),
-			'pk' => array('samba_domain_name'),
+			'pk' => array( 'samba_domain_name' ),
 			'fk' => array(),
 			'ix' => array(),
-			'uc' => array()
-                ),
-
-                'phpgw_expressoadmin_configuration' => array(
-                        'fd' => array(
-                                'id' => array( 'type' => 'int', 'precision' => 8),
-                                'email_user' => array( 'type' => 'varchar', 'precision' => 100),
-                                'configuration_type' => array( 'type' => 'varchar', 'precision' => 30),
-                                'email_max_recipient' => array( 'type' => 'int', 'precision' => 8),
-                                'email_user_type' => array( 'type' => 'varchar', 'precision' => 1),
-                                'email_quota' => array( 'type' => 'int', 'precision' => 8),
-                                'email_recipient' => array( 'type' => 'varchar', 'precision' => 50),
-
-                        ),
-                        'pk' => array('id'),
-                        'fk' => array(),
-                        'ix' => array(),
-                        'uc' => array()
-                ),
-
-                'phpgw_expressoadmin_acls' => array(
-                        'fd' => array(
-                                'manager_lid' => array( 'type' => 'varchar', 'precision' => 50),
-                                'context' => array( 'type' => 'varchar', 'precision' => 255),
-                                'acl_name' => array( 'type' => 'varchar', 'precision' => 255)
-                        ),
-                        'pk' => array(),
-                        'fk' => array(),
-                        'ix' => array(),
-                        'uc' => array()
+			'uc' => array(),
 		),
-
-                'phpgw_expressoadmin_configuration' => array(
+		'phpgw_expressoadmin_configuration' => array(
 			'fd' => array(
-				'id' => array( 'type' => 'int', 'precision' => 8),
-				'email_user' => array( 'type' => 'varchar', 'precision' => 100),
-                                'configuration_type' => array( 'type' => 'varchar', 'precision' => 30),
-                                'email_max_recipient' => array( 'type' => 'int', 'precision' => 8),
-                                'email_user_type' => array( 'type' => 'varchar', 'precision' => 1),
-                                'email_quota' => array( 'type' => 'int', 'precision' => 8),
-                                'email_recipient' => array( 'type' => 'varchar', 'precision' => 50),
-
+				'id'                    => array( 'type' => 'auto',    'precision' => 4 ),
+				'email_user'            => array( 'type' => 'varchar', 'precision' => 100 ),
+				'configuration_type'    => array( 'type' => 'varchar', 'precision' => 30, 'nullable' => false ),
+				'email_max_recipient'   => array( 'type' => 'int',     'precision' => 8, 'default' => '0' ),
+				'email_user_type'       => array( 'type' => 'varchar', 'precision' => 1 ),
+				'email_quota'           => array( 'type' => 'int',     'precision' => 8 ),
+				'email_recipient'       => array( 'type' => 'varchar', 'precision' => 50 ),
 			),
-			'pk' => array('id'),
+			'pk' => array( 'id' ),
 			'fk' => array(),
-			'ix' => array(),
-			'uc' => array()
+			'ix' => array( 'configuration_type', 'email_user' ),
+			'uc' => array(),
 		),
-
-            	'phpgw_expressoadmin_acls' => array(
+		'phpgw_expressoadmin_acls' => array(
 			'fd' => array(
-				'manager_lid' => array( 'type' => 'varchar', 'precision' => 50),
-				'context' => array( 'type' => 'varchar', 'precision' => 255),
-                                'acl_name' => array( 'type' => 'varchar', 'precision' => 255)
+				'manager_lid'           => array( 'type' => 'varchar', 'precision' => 50,  'nullable' => false ),
+				'context'               => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
+				'acl_name'              => array( 'type' => 'varchar', 'precision' => 255, 'nullable' => false ),
 			),
 			'pk' => array(),
 			'fk' => array(),
-			'ix' => array(),
-			'uc' => array()
-		)
+			'ix' => array( 'manager_lid' ),
+			'uc' => array(),
+		),
 	);
 ?>

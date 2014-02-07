@@ -336,6 +336,8 @@ $$;'
 		$GLOBALS['phpgw_setup']->oProc->query('UPDATE phpgw_applications SET app_name = \'expressoAdmin\' WHERE app_name = \'expressoAdmin1_2\';');
 		$GLOBALS['phpgw_setup']->oProc->query('UPDATE phpgw_applications SET app_name = \'expressoMail\' WHERE app_name = \'expressoMail1_2\';');
 		
+		$GLOBALS['phpgw_setup']->oProc->query('ALTER TABLE phpgw_history_log ALTER COLUMN history_timestamp SET DEFAULT (now())::timestamp without time zone;');
+		
 		return $GLOBALS['setup_info']['phpgwapi']['currentver'];
 	}
 
