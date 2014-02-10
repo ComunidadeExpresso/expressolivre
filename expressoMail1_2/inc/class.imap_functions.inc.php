@@ -1592,7 +1592,13 @@ class imap_functions
         $content = $this->process_embedded_images($images, $msg_number, $content, $msg_folder);
         $content = $this->replace_special_characters($content);
         $content = $this->replace_email_mailto($content);
+        //$content = str_replace('"', '&quot;', $content);
         //$this->replace_links($content);
+
+        /*ob_start();
+        print_r($content);
+        file_put_contents('/tmp/eduardoa.log', ob_get_clean(), FILE_APPEND);*/
+
         $return['body'] = &$content;
 
         return $return;
@@ -1868,9 +1874,28 @@ class imap_functions
         return $body;
     }
 
+    /**
+     * Exibe style inline de mensagens vindas do MSO
+     *
+     * @license    http://www.gnu.org/copyleft/gpl.html GPL
+     * @author     Consórcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+     * @sponsor    Caixa Econômica Federal
+     * @author     Eduardo Alves Pereira
+     * @access     public
+     * @param      $matches
+     * @return     Retorna aspas duplas em ASCII
+     */
+    function mso_style($matches)
+    {
+        $matches[2] = str_replace('"', '&quot;', $matches[2]);
+        return $matches[1] . $matches[2] . $matches[3];
+    }
+
     function replace_special_characters($body)
     {
-
+        //Correção para exibir style inline do MSO
+        if(preg_match('~Mso~i', $body))
+            $body = preg_replace_callback('~(style=\")(.*?)(\">)~i', array('self', 'mso_style'), $body);
 
         if (trim($body) === '') return;
 
@@ -1891,7 +1916,7 @@ class imap_functions
         $cssToInlineStyles = new CSSToInlineStyles($body);
         $cssToInlineStyles->setUseInlineStylesBlock(true);
         $cssToInlineStyles->setCleanup(TRUE);
-        $body = $cssToInlineStyles->convert(); //Converte as tag style em inline styles
+        $body = $cssToInlineStyles->convert(); //Converte as tag style em inline styles*/
 
         ///--------------------------------//
         // tags to be removed doe to security reasons
@@ -1923,6 +1948,8 @@ class imap_functions
         $body = mb_ereg_replace('<!--\[', '<!-- [', $body);
         $body = mb_ereg_replace('&lt;!\[endif\]--&gt;', '<![endif]-->', $body);
         $body = preg_replace("/<p[^\/>]*>([\s]?)*<\/p[^>]*>/", '', $body); //Remove paragrafos vazios (evita duplo espaçamento em emails do MSO)
+
+
 
         return $body;
     }
