@@ -1592,12 +1592,7 @@ class imap_functions
         $content = $this->process_embedded_images($images, $msg_number, $content, $msg_folder);
         $content = $this->replace_special_characters($content);
         $content = $this->replace_email_mailto($content);
-        //$content = str_replace('"', '&quot;', $content);
         //$this->replace_links($content);
-
-        /*ob_start();
-        print_r($content);
-        file_put_contents('/tmp/eduardoa.log', ob_get_clean(), FILE_APPEND);*/
 
         $return['body'] = &$content;
 
