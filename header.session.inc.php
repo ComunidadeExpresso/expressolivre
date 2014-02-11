@@ -55,7 +55,7 @@ if($_SESSION['connection_db_info']['user_auth']){
 	if(array_search($pconnection_id, $user_agent)  !== FALSE) { 
 		$invalidSession = false; 
 	} 
-} 
+}
 if (empty($_SESSION['phpgw_session']['session_id']) || $invalidSession) 
 {
 	if($_SESSION['connection_db_info']['user_auth'] && !strstr($_SERVER['SCRIPT_NAME'],"/controller.php")) {
@@ -70,8 +70,11 @@ if (empty($_SESSION['phpgw_session']['session_id']) || $invalidSession)
 	if(strstr($_SERVER['SCRIPT_NAME'],"/controller.php")){ 
 		echo serialize(array("nosession" => true)); 
 		exit; 
-	} 
-} 
+	}
+
+    //Caso a session do php seja inválida mata a execução do codigo para evitar vunerabilidades.
+    die('Invalid session');
+}
 else{ 
 	// From ExpressoAjax update session_dla (datetime last access).  
 	if(strstr($_SERVER['SCRIPT_NAME'],"/controller.php")) 
