@@ -818,11 +818,15 @@ var myCalendar = function(){
 		return Calendar.signatures[i].calendar.id;
 }
 
-/*Seleciona a agenda padrão para visualização/edição de um evento*/
+/**
+* Seleciona a agenda padrão para visualização/edição de um evento
+**/
 if(objEvent.id)
     UI.dialogs.addEvent.find('option[value="'+objEvent.calendar+'"]').attr('selected','selected').trigger('change');
 
-/*Adicionar alarms padrões, quando alterado a agenda do usuário*/		
+/**
+* Adicionar alarms padrões, quando alterado a agenda do usuário
+**/		
 UI.dialogs.addEvent.find('select[name="calendar"]').change(function(){
     if((typeof($('input[name = "idEvent"]').val()) == 'undefined') || (!!!$('input[name = "idEvent"]').val())) {
 	$('input[name = "isDefaultAlarm[]"]').parent().remove();
@@ -1183,8 +1187,7 @@ UI.dialogs.addEvent.find('input.end-time').timepicker({
 //}
 
 UI.dialogs.addEvent.find('.button-add-alarms').click(function(){
-
-    var li_attach = DataLayer.render(path+'templates/alarms_add_itemlist.ejs', {type: 0});
+    var li_attach = DataLayer.render(path+'templates/alarms_add_itemlist.ejs', {});
 
     jQuery('.event-alarms-list').append(li_attach).find('.button.remove').button({
 	text:false, 
@@ -1949,7 +1952,7 @@ function add_tab_configure_calendar(calendar, type)
 
 		form_content.find('.button-add-alarms').click(function(){
 		    DataLayer.render( 'templates/alarms_add_itemlist.ejs', {type: (parseInt(type) == 1 ? '4' : type) }, function( template ){
-			jQuery('.preferences-alarms-list').append(template)
+			form_content.find('.preferences-alarms-list').append(template)
 			.find('li:last label:eq(0)').remove().end()
 			.find('.number').numeric().end()
 			.find('.button.remove').button({
