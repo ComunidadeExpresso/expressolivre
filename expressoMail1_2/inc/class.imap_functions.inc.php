@@ -1592,8 +1592,7 @@ class imap_functions
         $content = $this->process_embedded_images($images, $msg_number, $content, $msg_folder);
         $content = $this->replace_special_characters($content);
         $content = $this->replace_email_mailto($content);
-        //$this->replace_links($content);
-
+        $this->replace_links($content);
         $return['body'] = &$content;
 
         return $return;
@@ -1911,7 +1910,7 @@ class imap_functions
         $cssToInlineStyles = new CSSToInlineStyles($body);
         $cssToInlineStyles->setUseInlineStylesBlock(true);
         $cssToInlineStyles->setCleanup(TRUE);
-        $body = $cssToInlineStyles->convert(); //Converte as tag style em inline styles*/
+        $body = $cssToInlineStyles->convert(); //Converte as tag style em inline styles
 
         ///--------------------------------//
         // tags to be removed doe to security reasons
