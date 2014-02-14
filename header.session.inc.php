@@ -72,6 +72,8 @@ if (empty($_SESSION['phpgw_session']['session_id']) || $invalidSession)
 		exit; 
 	}
 
+    include_once __DIR__. '/header.inc.php';
+
     //Caso a session do php seja inválida mata a execução do codigo para evitar vunerabilidades.
     die('Invalid session');
 }
