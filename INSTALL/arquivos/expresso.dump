@@ -2183,8 +2183,8 @@ SELECT pg_catalog.setval('attachment_id_seq', 1, false);
 --
 
 COPY calendar (id, name, location, description, duration, tzid, type, dtstamp) FROM stdin;
-1	Calendario	Calendario	Calendario Padrão	\N	America/Sao_Paulo	1332527174000	0
-2	Calendario	Calendario	Calendario Padrão	\N	America/Sao_Paulo	1332529079000	0
+1	Calendario	Calendario	Calendario Padrão	\N	America/Sao_Paulo	0	1332527174000
+2	Calendario	Calendario	Calendario Padrão	\N	America/Sao_Paulo	0	1332529079000
 \.
 
 
