@@ -2198,6 +2198,15 @@ class imap_functions
         }
         $return['new_msgs'] = imap_num_recent($this->mbox);
 
+        //Mensagens não lidas para sincronizar emails em diferentes clientes
+        $unseens = array();
+        $m_search = imap_search($this->mbox, 'UNSEEN');
+
+        foreach($m_search as $m)
+            $unseens[] = imap_uid($this->mbox, $m);
+
+        $return['unseens'] = $unseens;
+
         $msgs_in_the_client = explode(",", $msgs_existent);
 
         $msg_to_insert = array_diff($msgs_in_the_server, $msgs_in_the_client);

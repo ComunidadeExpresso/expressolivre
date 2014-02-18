@@ -913,6 +913,10 @@ function refresh(alert_new_msg, notifyPermission){
 		if(box.childNodes.length > 1){
 			updateBoxBgColor(box.childNodes);
 		}
+
+        //Sincroniza mensagens lidas e não lidas em clientes de emails diferentes
+        sincronize(data.unseens);
+
 		connector.purgeCache();
 		cExecute("$this.imap_functions.get_folders_list&onload=true", force_update_menu);
 		resizeMailList();
@@ -950,7 +954,6 @@ function refresh(alert_new_msg, notifyPermission){
 							      sort_box_reverse: sort_box_reverse } ),
 			  success: function( data ){
 			      data = connector.unserialize( data );
-			      
 			      if( data )
 				  handler_refresh( data );
 
@@ -975,6 +978,23 @@ function refresh(alert_new_msg, notifyPermission){
             msgs.first().addClass("current_selected_shortcut_msg selected_shortcut_msg");
         }
 	}
+}
+
+function sincronize(unseens){
+    $('.tr_msg_unread').each(function(i, v){
+        $(this).find('img').attr('src', 'templates/default/images/seen.gif');
+        $(this).removeClass('tr_msg_unread');
+    });
+    $('.tr_msg_unread').each(function(i, v){
+        if($.inArray(parseInt($(this).attr('id')), unseens) == -1){
+            $(this).find('img').attr('src', 'templates/default/images/seen.gif');
+            $(this).removeClass('tr_msg_unread');
+        }
+    });
+    $.each(unseens, function(i, v){
+        $('tr#' + v).addClass('tr_msg_unread');
+        $('tr#' + v).find('img').attr('src', 'templates/default/images/unseen.gif');
+    });
 }
 
 function delete_msgs(folder, msgs_number, border_ID, show_success_msg,archive, prev_message){	
