@@ -22,6 +22,7 @@
 	);
 	include('../header.inc.php');
 
+    $_SESSION['phpgw_info']['server']['temp_dir'] = $GLOBALS['phpgw_info']['server']['temp_dir'];
 	$_SESSION['phpgw_info']['user']['preferences']['contactcenter']['telephone_number'] = $GLOBALS['phpgw_info']['user']['telephonenumber'];
 
 	$prefs = CreateObject('contactcenter.ui_preferences');

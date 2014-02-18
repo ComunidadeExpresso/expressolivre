@@ -4321,7 +4321,7 @@
 			fputs($f,$streamBuffer);
 			fclose($f);
 
-			echo $tempDir.'/'.$file;
+			echo $file;
 		}
 
 		// Get the csv field and put into array, from php.net

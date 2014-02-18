@@ -20,15 +20,20 @@
 			$_SESSION['contactcenter']['importCSV'] = $fname;		
 	}		
 //	... or download an CSVfile to export contacts.	
-	else if($_GET['file_name']) {	
-		$file_name = $_GET['file_name'];	
+	else if($_GET['file_name']) {
+        $file_name = $_GET['file_name'];
 		$file_path = $_GET['file_path'];
+
 		header("Pragma: public");
 		header ("Content-Type: application/octet-stream");
 		header ("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 		header('Content-Length: ' . filesize($file_path)); 
 		header("Content-disposition: attachment; filename=".$file_name);
-		readfile($file_path);
-		unlink($file_path);
-	}
+
+        if(strpos($file_path , '/') !== false) //desabilita troca de diretórios aceitando apenas o nome do arquivo como parâmetro
+            die('Invalid file.');
+
+        readfile( $_SESSION['phpgw_info']['server']['temp_dir'] . '/' . $file_path );
+        unlink( $_SESSION['phpgw_info']['server']['temp_dir'] . '/' . $file_path );
+    }
 ?>
