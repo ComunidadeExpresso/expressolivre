@@ -3669,11 +3669,11 @@ function input_keydowns(input, ID){
 		//INPUT AUTO RESIZE	
 		setTimeout(function(){
 			input_search = $(input).val();
-			var char = input.val().charAt(input.val().length-1);
+			var vchar = input.val().charAt(input.val().length-1);
 			var maiusculas = RegExp("[A-Z]");
 			/*Se o ultimo caracter for ">" é porque o campo está sendo editado (a partir de duplo clique)*/
 			var tamanho = 0;
-			if(char == ">"){
+			if(vchar == ">"){
 				/*Faz um calculo prévio do tamanho do campo de acordo com o tamanho de cada caracter da string*/
 				for(i=0; i<input.val().length; i++){
 					/*Se o caracter for maiúsculo, o valor de pixel é maior*/
