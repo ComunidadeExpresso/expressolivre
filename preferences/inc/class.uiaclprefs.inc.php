@@ -216,7 +216,7 @@
 
 			$var = Array(
 				'errors'      => '',
-				'title'       => '<br>',
+				'title'       => '<br />',
 				'action_url'  => $GLOBALS['phpgw']->link('/index.php','menuaction=preferences.uiaclprefs.index&acl_app=' . $acl_app),
 				'bg_color'    => $GLOBALS['phpgw_info']['theme']['th_bg'],
 				'submit_lang' => lang('Ok'),

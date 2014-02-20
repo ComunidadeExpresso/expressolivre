@@ -47,7 +47,7 @@ for $mask (0.. (1<<@matrix)-1) {
 	$mode = $enmode = $dismode = "";
 	for $bit (0.. $#matrix) {
 		$val = ($mask >> $bit) & 1;
-		$mode = $matrix[$bit]->[$val] . "<br>" . $mode;
+		$mode = $matrix[$bit]->[$val] . "<br />" . $mode;
 		if( $val ) {
 			$enmode = $matrix[$bit]->[3] . $enmode;
 			$dismode = $dismode . $matrix[$bit]->[2];

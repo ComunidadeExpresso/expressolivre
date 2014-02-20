@@ -99,7 +99,7 @@
 	</tr>
 </table>
 {error_messages}
-<script language="Javascript">
+<script type="text/javascript">
 	function hide_element(ID)
 	{
 		element = document.getElementById('tr_computer_password');

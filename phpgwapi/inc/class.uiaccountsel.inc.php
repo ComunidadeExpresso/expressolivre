@@ -206,7 +206,7 @@
 
 			if($need_js_popup && !$GLOBALS['phpgw_info']['flags']['uiaccountsel']['addOption_installed'])
 			{
-				$html .= '<script language="JavaScript">
+				$html .= '<script type="text/javascript">
 	function addOption(id,label,value)
 	{
 		selectBox = document.getElementById(id);

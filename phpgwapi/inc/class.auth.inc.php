@@ -221,7 +221,7 @@
 			$salt = substr($hash, 16);
 
 			$new_hash = mhash(MHASH_MD5,$form_val . $salt);
-			//echo '<br>  DB: ' . base64_encode($orig_hash) . '<br>FORM: ' . base64_encode($new_hash);
+			//echo '<br />  DB: ' . base64_encode($orig_hash) . '<br />FORM: ' . base64_encode($new_hash);
 
 			if(strcmp($orig_hash,$new_hash) == 0)
 			{
@@ -242,7 +242,7 @@
 			/* Start with the first char after {SHA} */
 			$hash = base64_decode(substr($db_val,5));
 			$new_hash = mhash(MHASH_SHA1,$form_val);
-			//echo '<br>  DB: ' . base64_encode($orig_hash) . '<br>FORM: ' . base64_encode($new_hash);
+			//echo '<br />  DB: ' . base64_encode($orig_hash) . '<br />FORM: ' . base64_encode($new_hash);
 
 			if(strcmp($hash,$new_hash) == 0)
 			{

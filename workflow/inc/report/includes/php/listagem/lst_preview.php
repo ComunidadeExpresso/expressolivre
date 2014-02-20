@@ -61,7 +61,7 @@ while ($parametro = pg_fetch_object($resu_par)) {
     $addobr = "";
     if ($obrigatorio) { $addobr = " //OBRIGATÓRIO"; }
     
-    $adicionarcodigo .= "\$report->setParam('$idparametro',\$$valor_$idparametro);$addobr<br>";
+    $adicionarcodigo .= "\$report->setParam('$idparametro',\$$valor_$idparametro);$addobr<br />";
 }
 
 if ($exibeform) {
@@ -76,13 +76,13 @@ $html = "<center>
             <table class='tableMoldura'>
                <tr class='tableSubTitulo'><td><h2>CÓDIGO FONTE:</h2></td></tr>
                <tr><td>
-                <br>
+                <br />
                 <div style='margin: 10px;'>
-                \$report = Factory::newInstance('wf_report');<br>
-                \$report->loadReport('$lstidlistagem');<br>$adicionarcodigo
-                \$html_report = \$report->getHTML();<br>
+                \$report = Factory::newInstance('wf_report');<br />
+                \$report->loadReport('$lstidlistagem');<br />$adicionarcodigo
+                \$html_report = \$report->getHTML();<br />
                 \$this->addViewVar('report_result', \$html_report);
-                <br><br>
+                <br /><br />
                 </div>
                 </td></tr>
             </table>
@@ -122,11 +122,11 @@ if (pg_num_rows($res)) {
 echo "<center><table class='tableMoldura'>
                    <tr class='tableSubTitulo'><td><h2>CONSULTA EXECUTADA:</h2></td></tr>
                    <tr><td>
-                    <br>
+                    <br />
                     <div style='margin: 10px;'>
                     $consulta
                     </div>
-    <br><center>$tr</center>
+    <br /><center>$tr</center>
                     </td></tr>
                 </table></center>";
 

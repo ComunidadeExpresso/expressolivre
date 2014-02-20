@@ -319,7 +319,7 @@
 						//"<tr><td colspan='2'><input type='checkBox' id='checkBox2' onclick='filter.disable_radio3();' name='checkb'>"+get_lang('Keep a copy of the message at your Inbox')+ "</td><tr>"+
 						"<tr><td colspan='2'><hr size='1' width='100%'></td></tr><tr>"+
 					 "<tr><td colspan='2'><b>"+get_lang("Criteria")+":</b></td></tr><tr>"+
-					 "<td rowspan='4' width='20%'>"+get_lang('Find items')+":<br><select id='select_rules' name='select_rules'>"+
+					 "<td rowspan='4' width='20%'>"+get_lang('Find items')+":<br /><select id='select_rules' name='select_rules'>"+
 					 "<option value='1'>"+get_lang("If any criterion is met")+"</option><option value='0'>"+get_lang("If all criteria is met")+"</option>"+
 					 "</select></td><td>"+get_lang('The field \"%1\" of the message it contains',get_lang('From'))+".: <input type='text' id='field1' name='field1' size='35' maxlength='200'></td>"+
 						"</tr><tr><td>"+get_lang('The field \"%1\" of the message it contains', get_lang('To'))+".: <input type='text' id='field2' name='field2' size='35' maxlength='200'></td>"+
@@ -340,9 +340,9 @@
                                                 "</tr><tr id='tr_radio5'><td colspan='2'><input type='radio' id='radio5' name='radio' value='important'>"+get_lang('Flag as important')+"</td>"+
 						"</tr></table></div><div id='div_vacation' style='display:none'>"+
 						"<table id='table_vacation' border='0' cellpading='0' cellspacing='0' width='100%'>"+
- 						"<tr><td colspan='3'><br><b>"+get_lang('out office')+"</b></td></tr>"+
-						//"<tr><td colspan='3'><br>"+get_lang('Subject')+".: <input type='text' id='field7' name='field7' size='35' maxlength='200'/></td></tr>"+
-						"<tr><td colspan='3'><br>"+get_lang('With the following message')+".:</td>"+
+ 						"<tr><td colspan='3'><br /><b>"+get_lang('out office')+"</b></td></tr>"+
+						//"<tr><td colspan='3'><br />"+get_lang('Subject')+".: <input type='text' id='field7' name='field7' size='35' maxlength='200'/></td></tr>"+
+						"<tr><td colspan='3'><br />"+get_lang('With the following message')+".:</td>"+
 	 					"</tr><tr><td colspan='3'><textarea id='field8' rows='8' cols='50'></textarea></td></tr></table></div>" +
 						"<div id='div_voipFilter' style='display:none'>" +
 						"<br/><table id='table_voipFilter'>" +

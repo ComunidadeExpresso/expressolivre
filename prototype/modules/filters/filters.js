@@ -160,14 +160,14 @@ valid_save = function(){
 				}
 			});
 			if(hasValue){
-				$.Zebra_Dialog('<strong>'+get_lang('Filter with alert')+'</strong><br>'+get_lang('If more than one criterion for the filter, the "Meeting all the criteria" must be selected'),{
+				$.Zebra_Dialog('<strong>'+get_lang('Filter with alert')+'</strong><br />'+get_lang('If more than one criterion for the filter, the "Meeting all the criteria" must be selected'),{
                     'overlay_opacity': '0.5',
                     'custom_class': 'custom-zebra-filter'
                 });
 				return false;
 			} 
 		}else{
-			$.Zebra_Dialog('<strong>'+get_lang('Filter with alert')+'</strong><br>'+get_lang('The filter should be set as a criteria "Sender" and action "Archive folder"'),{
+			$.Zebra_Dialog('<strong>'+get_lang('Filter with alert')+'</strong><br />'+get_lang('The filter should be set as a criteria "Sender" and action "Archive folder"'),{
                 'overlay_opacity': '0.5',
                 'custom_class': 'custom-zebra-filter'
             });

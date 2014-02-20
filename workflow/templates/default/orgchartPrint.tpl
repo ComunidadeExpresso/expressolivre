@@ -31,6 +31,6 @@
 {$footer}
 </body>
 </html>
-<script language="javascript">
+<script type="text/javascript">
 var areas = {$areasJson};
 </script>

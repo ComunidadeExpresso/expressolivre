@@ -13,7 +13,7 @@ function check_all()
   }
 }
 </script>
-<p><center>{title}<br>
+<p><center>{title}<br />
   <table border="0" width="70%">
     <tr>
       <td width="40%">
@@ -58,7 +58,7 @@ function check_all()
       <td>&nbsp;</td>
       <td align="center"><input type="submit" name="submit" value="{lang_update}"></td>
       <td align=center>
-        <a href="javascript:check_all()"><img src="{checkmark}" border="0" height="16" width="21"></a>
+        <a href="javascript:check_all()"><img src="{checkmark}" border="0" height="16" width="21"/></a>
       </td>
     </tr>
   </table>

@@ -1,24 +1,25 @@
 <!-- BEGIN navbar_header -->
-<div id="hiddenButton" style="position:absolute">
-</div>
+<div id="hiddenButton" style="position:absolute"></div>
 <div id="extraButton" style="position:absolute">
-<table><tr>{app_extra_icons_icon}</tr></table>
+    <table>
+        <tr>{app_extra_icons_icon}</tr>
+    </table>
 </div>
 {app_extra_icons_div}
-<script language="Javascript">	 
+<script type="text/javascript">
 	function showBar(){
-		bar = document.getElementById("toolbar");	
+		bar = document.getElementById("toolbar");
 		bar.style.visibility = "";
 		bar.style.position ="static";
-		but = document.getElementById("hiddenButton");		
+		but = document.getElementById("hiddenButton");
 		but.style.visibility = "";
-		but.style.position = "absolute";		
-		but.style.top = "55px";		
-		but.style.left = "2px";		
+		but.style.position = "absolute";
+		but.style.top = "55px";
+		but.style.left = "2px";
 		title = "{hide_bar_txt}";
 		extra = document.getElementById("extraButton");
-		extra.style.visibility = "hidden";		
-		but.innerHTML="<a title='"+title+"' onClick='javascript:changeBar()'><img src='{img_root}/up.button.png'></a>";
+		extra.style.visibility = "hidden";
+		but.innerHTML='<a title="{hide_bar_txt}" href="#" onclick="javascript:changeBar()"><img src="{img_root}/up.button.png" alt="{hide_bar_txt}" /></a>';
 		var neverExpires = new Date("January 01, 2100 00:00:00");
  		document.cookie = "showHeader=true"+
  						  ";expires=" + neverExpires.toGMTString()+
@@ -26,34 +27,34 @@
 	}
 
 	function hideBar(){
-		bar = document.getElementById("toolbar");	
+		bar = document.getElementById("toolbar");
 		bar.style.position ="absolute";
 		bar.style.visibility = "hidden";
-		but = document.getElementById("hiddenButton");		
+		but = document.getElementById("hiddenButton");
 		but.style.visibility = "hidden";
 		title = "{show_bar_txt}";
 		extra = document.getElementById("extraButton");
 		extra.style.visibility = ""
-		extra.style.top = "-11px";		
-		extra.style.left = "-10px";		
+		extra.style.top = "-11px";
+		extra.style.left = "-10px";
 		var neverExpires = new Date("January 01, 2100 00:00:00");
  		document.cookie = "showHeader=false"+
  						  ";expires=" + neverExpires.toGMTString()+
  						  ";path=/";
 	}
 	function changeBar(){
-		bar = document.getElementById("toolbar");			
+		bar = document.getElementById("toolbar");
 		if(bar.style.visibility == "hidden")
-			showBar();		
+			showBar();
 		else
 			hideBar();
 	}
 	function initBar(val){
 
 		if(val == 'true')
-			showBar();		
+			showBar();
 		else
-			hideBar();		
+			hideBar();
 	}
 var zoominTimer = new Array();
 var zoomoutTimer = new Array();
@@ -65,20 +66,20 @@ function zoom_in(id)
 	{
 		clearTimeout(zoominTimer[id]);
 		return false;
-	}	
+	}
 	elem.height += 4;
 	elem.width += 4;
 	zoominTimer[id] = setTimeout('zoom_in("'+id+'");',30);
 }
 function zoom_out(id)
 {
-	clearTimeout(zoominTimer[id]);		
+	clearTimeout(zoominTimer[id]);
 	var elem = document.getElementById(id);
 	if (elem.height < 24)
 	{
 		clearTimeout(zoomoutTimer[id]);
 		return false;
-	}	
+	}
 	elem.height -= 2;
 	elem.width -= 2;
 	zoomoutTimer[id] = setTimeout('zoom_out("'+id+'");',30);
@@ -86,21 +87,26 @@ function zoom_out(id)
 </script>
 
 <div class="toolbar" id="toolbar" style="visibility:hidden">
-<table border="0" height="50px" width="93%" cellpadding=0 cellspacing=0><tr>
-	<td class="logo_expresso">&nbsp;<br></td>
+<table border="0" cellpadding="0" cellspacing="0" style="height:50px; width:93%"><tr>
+	<td class="logo_expresso">&nbsp;<br /></td>
 	<td align="center">
-	<table width="auto" border="0" cellpadding="0" cellspacing="0">{app_icons}</table>
-	</td><td style="padding-left:0px;padding-right:25px" align="right" nowrap>
+        <table border="0" cellpadding="0" cellspacing="0" style="width:auto">
+            <tr>
+            {app_icons}
+            </tr>
+        </table>
+	</td>
+    <td style="padding-left:0px;padding-right:25px" align="right" >
 </td></tr></table>
 <div id ="divStatusBar">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%">
  <tr>
-  <td width="30%" align="left" id="user_info" nowrap>{user_info}{frontend_name}</td>
-  <td width="30%" id="admin_info" nowrap>{current_users}</td>
-  <td style="padding-right:10px" width="*" align="right" valign="center" nowrap="true">
-    <a href="{dir_root}/preferences/" title="{title_my_preferences}" alt="{title_my_preferences}" onmouseover="javascript:self.status='{title_my_preferences}'" onmouseout="javascript:self.status=''"><img height="15px" src="{dir_root}/phpgwapi/templates/{template}/images/preferences.png"><font id="links_bar">{my_preferences}</font></a>
+  <td align="left" id="user_info" style="width:30%; white-space:nowrap">{user_info}{frontend_name}</td>
+  <td id="admin_info" style="width:30%" >{current_users}</td>
+  <td id="links_bar" style="white-space:nowrap; padding-right:10px; width: *; vertical-align: middle;" align="right" >
+    <a href="{dir_root}/preferences/" title="{title_my_preferences}" onmouseover="javascript:self.status='{title_my_preferences}'" onmouseout="javascript:self.status=''"><img height="15px" src="{dir_root}/phpgwapi/templates/{template}/images/preferences.png" alt="{my_preferences}" />{my_preferences}</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <a href="#" title="{title_suggestions}" alt="{title_suggestions}" onmouseover="javascript:self.status='{title_suggestions}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(400,550,'{dir_root}/help/enviasugestao.php')"><img src="{dir_root}/phpgwapi/templates/{template}/images/critic.png"><font id="links_bar">{suggestions}</font></a>
+    <a href="#" title="{title_suggestions}" onmouseover="javascript:self.status='{title_suggestions}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(400,550,'{dir_root}/help/enviasugestao.php')"><img src="{dir_root}/phpgwapi/templates/{template}/images/critic.png" alt="{suggestions}" />{suggestions}</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     {help_link}
   </td>
@@ -109,60 +115,58 @@ function zoom_out(id)
 </div>
 </div>
 
-<script language="Javascript">
+<script type="text/javascript">
  function openWindow(newWidth,newHeight,link)
-  {			
-		
-	newScreenX  = screen.width - newWidth;	
-	newScreenY  = 0;		
+  {
+
+	newScreenX  = screen.width - newWidth;
+	newScreenY  = 0;
 	Window1=window.open(link,'',"width="+newWidth+",height="+newHeight+",screenX="+newScreenX+",left="+newScreenX+",screenY="+newScreenY+",top="+newScreenY+",toolbar=no,scrollbars=yes,resizable=no");
-				
-  }	
+
+  }
 </script>
 <!-- END navbar_header -->
 
 <!-- BEGIN help_link_block -->
-    <a href="#" title="{title_help}" alt="{title_help}" onmouseover="javascript:self.status='{title_help}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(480,510,'{dir_root}/help/')"><img src="{dir_root}/phpgwapi/templates/{template}/images/help.png" width="16px"><font id="links_bar">{help}</font></a>
+<a href="#" title="{title_help}" onmouseover="javascript:self.status='{title_help}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(480,510,'{dir_root}/help/')"><img src="{dir_root}/phpgwapi/templates/{template}/images/help.png" width="16px" alt="{help}" />{help}</a>
 <!-- END help_link_block -->
 
 <!-- BEGIN appbox -->	
 	<div id="divSubContainer">
-		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<table cellspacing="0" cellpadding="0" border="0" style="width:100%">
 		<tr>
 		{sideboxcolstart}
 <!-- END appbox -->
 <!-- BEGIN sidebox_hide_header -->
-	<script language="javascript">
+	<script type="text/javascript">
 		new ypSlideOutMenu("menu2", "right", 0, 165, 160, 200)
 	</script>
 
 	<div id="sideboxdragarea" style="position:absolute;left:0px;top:175px">
-	<a href="#" {show_menu_event}="ypSlideOutMenu.showMenu('menu2')" onmouseover="//ypSlideOutMenu.showMenu('menu2')" title="{lang_show_menu}"><img src="{img_root}/dragarea_right.png" /></a>
+	    <a href="#" {show_menu_event}="ypSlideOutMenu.showMenu('menu2')" onmouseover="//ypSlideOutMenu.showMenu('menu2')" title="{lang_show_menu}"><img src="{img_root}/dragarea_right.png" alt="{lang_show_menu}" /></a>
 	</div>
 	<div id="menu2Container">
-	<div id="menu2Content" style="position: relative; left: 0; text-align: left;">
-		<table cellspacing="0" cellpadding="0" border="0">
-		 <tr><td>
-		  
-		<div style="background-color:#ffffff;border: #9c9c9c 1px solid;padding:5px;">
-<!-- END sidebox_hide_header -->
-<!-- BEGIN sidebox_hide_footer -->
-</div>
-</td><td style="padding-top:10px" valign="top">
-<a href="#" onClick="ypSlideOutMenu.hide('menu2')" ><img src="{img_root}/dragarea_left.png" align="right" /></a>
-</td></tr></table>
-</div>
-</div>
-<script language="Javascript">
+        <div id="menu2Content" style="position: relative; left: 0; text-align: left;">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td>
+                        <div style="background-color:#ffffff;border: #9c9c9c 1px solid;padding:5px;">
+                        <!-- END sidebox_hide_header -->
+                        <!-- BEGIN sidebox_hide_footer -->
+                        </div>
+                    </td>
+                    <td style="padding-top:10px" valign="top">
+                        <a href="#" onclick="ypSlideOutMenu.hide('menu2')" ><img src="{img_root}/dragarea_left.png" alt="Area" /></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<script type="text/javascript">
 	initBar(GetCookie("showHeader"));
 </script>
 <!-- END sidebox_hide_footer -->
-
-
-
-
-
-<!-- BEGIN navbar_footer -->	
+<!-- BEGIN navbar_footer -->
 		{sideboxcolend}
 		<!-- End Sidebox Column -->
 		<!-- Applicationbox Column -->
@@ -175,18 +179,18 @@ function zoom_out(id)
 <!-- BEGIN extra_blocks_header -->
 <div class="divSidebox">
 	<div class="divSideboxHeader"><span>{lang_title}</span></div>
-	<div>
-		<table width="100%" cellspacing="0" cellpadding="0" border=0>
-<!-- END extra_blocks_header -->
-<!-- BEGIN extra_blocks_footer -->
-	</table>	
-		</div>
-		</div>
-		<div class="sideboxSpace"></div>
+    <div>
+        <table width="100%" cellspacing="0" cellpadding="0" >
+            <!-- END extra_blocks_header -->
+            <!-- BEGIN extra_blocks_footer -->
+        </table>
+    </div>
+</div>
+    <div class="sideboxSpace"></div>
 <!-- END extra_blocks_footer -->
 <!-- BEGIN extra_block_row -->
 <tr class="divSideboxEntry">
-<td width="15" align="center" valign="middle" class="textSidebox">{icon_or_star}</td><td class="textSidebox"><a class="textSidebox" href="{item_link}"{target}>{lang_item}</a></td></tr>
+<td align="center" class="textSidebox" style="vertical-align: middle ">{icon_or_star}</td><td class="textSidebox"><a class="textSidebox" href="{item_link}"{target}>{lang_item}</a></td></tr>
 <!-- END extra_block_row -->
 <!-- BEGIN extra_block_spacer -->
 <tr class="divSideboxEntry"> 

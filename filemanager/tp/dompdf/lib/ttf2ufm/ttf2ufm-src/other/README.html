@@ -85,17 +85,17 @@ in PostScript. It works only with un-encoded font files generated
 by <tt>ttf2pt1</tt>. The intended use is like:
 <p>
 
-&nbsp;&nbsp;<tt>showg [-c <i>&lt;fontfile.t1a&gt;</i>]...  <i>&lt;fontfile.t1a&gt; &lt;glyph-to-draw&gt;</i>... &gt;file.ps</tt><br>
+&nbsp;&nbsp;<tt>showg [-c <i>&lt;fontfile.t1a&gt;</i>]...  <i>&lt;fontfile.t1a&gt; &lt;glyph-to-draw&gt;</i>... &gt;file.ps</tt><br />
 &nbsp;&nbsp;<tt>gv file.ps # start the Ghostscript viewer</tt>
 <p>
 
 As you can see, multiple glyphs may be specified. The glyphs may be
 specified in one of three ways:
-<br>
+<br />
 &nbsp;&nbsp;- as a decimal code (for example, <tt>43</tt> )
-<br>
+<br />
 &nbsp;&nbsp;- as a glyph name preceded by a slash (for example, <tt>/plus</tt> )
-<br>
+<br />
 &nbsp;&nbsp;- as a literal character preceded by a dot (for example, <tt>.+</tt> )
 <p>
 
@@ -153,7 +153,7 @@ with different options given to ttf2pt1) and feed this list into the <tt>showg</
 program for display.  The intended use is like:
 <p>
 
-&nbsp;&nbsp;<tt>showdf <i>&lt;showg-location&gt;</i> <i>&lt;fontfile1.t1a&gt;</i> <i>&lt;fontfile2.t1a&gt;</i> &gt;file.ps</tt><br>
+&nbsp;&nbsp;<tt>showdf <i>&lt;showg-location&gt;</i> <i>&lt;fontfile1.t1a&gt;</i> <i>&lt;fontfile2.t1a&gt;</i> &gt;file.ps</tt><br />
 &nbsp;&nbsp;<tt>gv file.ps # start the Ghostscript viewer</tt>
 <p>
 
@@ -161,7 +161,7 @@ If both <tt>showdf</tt> and <tt>showg</tt> scripts are located in the
 same directory, the command would look like:
 <p>
 
-&nbsp;&nbsp;<tt>./showdf ./showg font1.t1a font2.t1a &gt;file.ps</tt><br>
+&nbsp;&nbsp;<tt>./showdf ./showg font1.t1a font2.t1a &gt;file.ps</tt><br />
 <p>
 
 For decent results both font files should be converted from the same original

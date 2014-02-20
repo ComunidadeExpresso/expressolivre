@@ -1,43 +1,42 @@
 <!-- BEGIN header -->
-<form method="POST" action="{action_url}">
-<table align="center" width="85%" callspacing="0">
+<form method="post" action="{action_url}">
+<table cellspacing="0" style="width: 85%; margin-left: auto;">
    <tr class="th">
     <td colspan="2">&nbsp;<b>{title}</b></td>
    </tr>
 <!-- END header -->
 <!-- BEGIN body -->
-	<tr class="row_off">
-    <td>{lang_Time_for_expire_inatives_accounts(0 for never expires)}:</td>
-    <td><input size="8" name="newsettings[time_to_account_expires]" value="{value_time_to_account_expires}"></td>
-   </tr>
-   <tr class="row_on">
-    <td>{lang_Timeout_for_sessions_in_seconds_(default_14400_=_4_hours)}:</td>
-    <td><input size="8" name="newsettings[sessions_timeout]" value="{value_sessions_timeout}"></td>
-   </tr>
-
-   <tr class="row_off">
-    <td>{lang_Timeout_for_application_session_data_in_seconds_(default_86400_=_1_day)}:</td>
-    <td><input size="8" name="newsettings[sessions_app_timeout]" value="{value_sessions_app_timeout}"></td>
-   </tr>
-
-   <tr class="row_on">
-    <td>{lang_Would_you_like_to_show_each_application's_upgrade_status_?}:</td><td>
-     <select name="newsettings[checkappversions]">
-      <option value="">{lang_No}</option>
-      <option value="Admin"{selected_checkappversions_Admin}>{lang_Admins}</option>
-      <option value="All"{selected_checkappversions_All}>{lang_All_Users}</option>
-     </select>
-    </td>
-   </tr>
-   <tr class="row_off">
-    <td>{lang_Would_you_like_to_automaticaly_load_new_langfiles_(at_login-time)_?}:</td>
-    <td>
-     <select name="newsettings[disable_autoload_langfiles]">
-      <option value="">{lang_Yes}</option>
-      <option value="True"{selected_disable_autoload_langfiles_True}>{lang_No}</option>
-     </select>
-    </td>
-   </tr>
+    <tr class="row_off">
+        <td>{lang_Time_for_expire_inatives_accounts(0 for never expires)}:</td>
+        <td><input size="8" name="newsettings[time_to_account_expires]" value="{value_time_to_account_expires}"/></td>
+    </tr>
+    <tr class="row_on">
+        <td>{lang_Timeout_for_sessions_in_seconds_(default_14400_=_4_hours)}:</td>
+        <td><input size="8" name="newsettings[sessions_timeout]" value="{value_sessions_timeout}"/></td>
+    </tr>
+    <tr class="row_off">
+        <td>{lang_Timeout_for_application_session_data_in_seconds_(default_86400_=_1_day)}:</td>
+        <td><input size="8" name="newsettings[sessions_app_timeout]" value="{value_sessions_app_timeout}"/></td>
+    </tr>
+    <tr class="row_on">
+        <td>{lang_Would_you_like_to_show_each_application's_upgrade_status_?}:</td>
+        <td>
+             <select name="newsettings[checkappversions]">
+                  <option value="">{lang_No}</option>
+                  <option value="Admin"{selected_checkappversions_Admin}>{lang_Admins}</option>
+                  <option value="All"{selected_checkappversions_All}>{lang_All_Users}</option>
+             </select>
+        </td>
+    </tr>
+    <tr class="row_off">
+        <td>{lang_Would_you_like_to_automaticaly_load_new_langfiles_(at_login-time)_?}:</td>
+        <td>
+            <select name="newsettings[disable_autoload_langfiles]">
+                <option value="">{lang_Yes}</option>
+                <option value="True" {selected_disable_autoload_langfiles_True}>{lang_No}</option>
+            </select>
+        </td>
+    </tr>
    <tr class="row_on"> 
   <td>{lang_enable_stylesheet_packer_?}:</td><td> 
   <select name="newsettings[csspacker]"> 
@@ -244,7 +243,7 @@ que ser&atilde;o suportados (At&eacute; 10):<br/>
     <td colspan="2" align="center">
       <input type="submit" name="submit" value="{lang_submit}">
       <input type="submit" name="cancel" value="{lang_cancel}">
-		  <br>
+		  <br />
     </td>
   </tr>
 </table>

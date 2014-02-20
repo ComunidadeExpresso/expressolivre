@@ -1,4 +1,4 @@
-<br>
+<br />
    <center>{messages}</center>
    <form method="POST" action="{form_action}">
     <table border="0">
@@ -39,5 +39,5 @@
      </tr>
     </table>
    </form>
-   <br>
+   <br />
    <pre>{sql_message}</pre>

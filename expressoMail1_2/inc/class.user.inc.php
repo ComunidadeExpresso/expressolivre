@@ -13,9 +13,9 @@ class user{
 		
 		function get_user(){
 			
-			return "<br><font color='blue'>GET USER</font>".			
-						"<br>usuario =".$_SESSION['phpgw_info']['expressomail']['user']['userid'].
-						"<br>senha =".$_SESSION['phpgw_info']['expressomail']['user']['passwd'];			
+			return "<br /><font color='blue'>GET USER</font>".
+						"<br />usuario =".$_SESSION['phpgw_info']['expressomail']['user']['userid'].
+						"<br />senha =".$_SESSION['phpgw_info']['expressomail']['user']['passwd'];
 		}
 							
 		function verify_user($params){
@@ -29,9 +29,9 @@ class user{
 			$result = '';					
 			
 			if($userId == $_SESSION['phpgw_info']['expressomail']['user']['userid'])				
-				$result =  '<br><font color="green">VERIFY USER ... VERIFIED</font>';			
+				$result =  '<br /><font color="green">VERIFY USER ... VERIFIED</font>';
 			else			
-				$result =  '<br><font color="red">VERIFY USER ... NOT VERIFIED</font>';
+				$result =  '<br /><font color="red">VERIFY USER ... NOT VERIFIED</font>';
 			
 			return $result;											
 		}

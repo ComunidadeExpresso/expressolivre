@@ -614,7 +614,7 @@
 						break;
 						
 					default:
-						exit('Error in '.__FILE__.' on '.__LINE__.'<br>The restriction type passed was: '.$restrict_data['type']);					
+						exit('Error in '.__FILE__.' on '.__LINE__.'<br />The restriction type passed was: '.$restrict_data['type']);
 				}
 			}
 			
@@ -653,7 +653,7 @@
 				}
 				else 
 				{
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			
@@ -995,7 +995,7 @@
 				}
 				else
 				{
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 
@@ -1313,7 +1313,7 @@
 					$GLOBALS['phpgw']->log->commit();
 				}
 				else {
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			 

@@ -134,7 +134,7 @@
 			$entry['account_status']            = $this->data['status'];
 			$entry['account_expires']           = $this->data['expires'];
 
-			if($this->debug) { echo '<br>Updating entry:<br>' . var_dump($entry); }
+			if($this->debug) { echo '<br />Updating entry:<br />' . var_dump($entry); }
 			$this->contacts->update($entry['id'],0,$entry,'public','',$entry['tid']);
 		}
 
@@ -147,7 +147,7 @@
 		{
 			$this->makeobj();
 
-			if($this->debug) { echo '<br>Deleting entry:<br>' . $account_id; }
+			if($this->debug) { echo '<br />Deleting entry:<br />' . $account_id; }
 			$account_id = get_account_id($accountid);
 			$this->contacts->delete($account_id);
 		}
@@ -209,7 +209,7 @@
 			$this->makeobj();
 
 			$allValues = $this->contacts->read_single_entry($account_id);
-			if($this->debug) { echo '<br>id2name: '.$allValues[0]['lid']; }
+			if($this->debug) { echo '<br />id2name: '.$allValues[0]['lid']; }
 
 			if($allValues[0]['lid'])
 			{
@@ -277,7 +277,7 @@
 			$entry['account_status']   = $account_info['account_status'];
 			$entry['account_expires']  = $account_info['account_expires'];
 
-			if($this->debug) { echo '<br>Adding entry:<br>' . var_dump($entry); }
+			if($this->debug) { echo '<br />Adding entry:<br />' . var_dump($entry); }
 			/* 'public' access, no category id, tid set to account_type */
 			$this->contacts->add(0,$entry,'public','',$account_info['account_type']);
 			return;

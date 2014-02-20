@@ -79,7 +79,7 @@ while ($parametro = pg_fetch_object($resu_par)) {
     $addobr = "";
     if ($obrigatorio) { $addobr = " //OBRIGATÓRIO"; }
     
-    $adicionarcodigo .= "\$report->setParam('$idparametro',\$$valor_$idparametro);$addobr<br>";
+    $adicionarcodigo .= "\$report->setParam('$idparametro',\$$valor_$idparametro);$addobr<br />";
 }
 
 if ($exibeform) {

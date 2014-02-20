@@ -1,7 +1,7 @@
 
 <!-- BEGIN form -->
 
-<center><br>
+<center><br />
 <form method="POST" action="{action_url}">
 <table border="0" width="65%" cellpadding="2" cellspacing="2">
 	<tr>

@@ -184,7 +184,7 @@
 		// we check for the existens of 'dl', as multithreaded webservers dont have it !!!
 		$availible = extension_loaded($name) || function_exists('dl') && @dl(PHP_SHLIB_PREFIX.$name.'.'.PHP_SHLIB_SUFFIX);
 
-		echo ($availible ? $passed_icon : $warning_icon).' '.lang('Checking extension %1 is loaded or loadable',$name).': '.($availible ? lang('True') : lang('False'))."</span><br>\n";
+		echo ($availible ? $passed_icon : $warning_icon).' '.lang('Checking extension %1 is loaded or loadable',$name).': '.($availible ? lang('True') : lang('False'))."</span><br />\n";
 
 		if (!$availible)
 		{
@@ -282,7 +282,7 @@
 		$checks = implode(', ',$checks);
 
 		$icon = $passed_icon;
-		$msg = lang('Checking file-permissions of %1 for %2: %3',$rel_name,$checks,$perms)."<br>\n";
+		$msg = lang('Checking file-permissions of %1 for %2: %3',$rel_name,$checks,$perms)."<br />\n";
 
 		if (!file_exists($name))
 		{
@@ -413,7 +413,7 @@
 					echo $error_icon.$msg."<br/></span>";
 				}
 				echo "<div id='setup_error'>\n";
-				echo '*** '.lang('Please make the following change in your php.ini').' ('.get_php_ini().'): '.(@$args['safe_mode']?$args['safe_mode']:$args['change'])."<br>\n";
+				echo '*** '.lang('Please make the following change in your php.ini').' ('.get_php_ini().'): '.(@$args['safe_mode']?$args['safe_mode']:$args['change'])."<br />\n";
 				echo '*** '.lang('AND reload your webserver, so the above changes take effect !!!')."</div>\n";
 			}
 		}
@@ -515,7 +515,7 @@
 			{
 				echo lang('Please fix the above errors (%1) and warnings(%2)',$error_icon,$warning_icon).'. ';
 			}
-			echo '<br><a href="'.str_replace('check_install.php','',$_SERVER['HTTP_REFERER']).'">'.lang('Return to Setup')."</a></h3>\n";
+			echo '<br /><a href="'.str_replace('check_install.php','',$_SERVER['HTTP_REFERER']).'">'.lang('Return to Setup')."</a></h3>\n";
 		}
 		$setup_tpl->pparse('out','T_footer');
 		//echo "</body>\n</html>\n";

@@ -100,7 +100,7 @@ $pocetb+=2;
 
 $echoit=false;
 
-if($echoit)echo "Prefix: $prefix Suffix: $suffix<BR>";
+if($echoit)echo "Prefix: $prefix Suffix: $suffix<br />";
 if(($prefix==0)and($suffix==1)) break;
 if(feof($f)) break;
 
@@ -122,7 +122,7 @@ while(!(($prefix==0)and($suffix==0)))
  $prefix=freadbyte($f);
  $suffix=freadbyte($f);
  $pocetb+=2;
- if($echoit) echo "Prefix: $prefix Suffix: $suffix<BR>";
+ if($echoit) echo "Prefix: $prefix Suffix: $suffix<br />";
 };
 
 for($x=0;$x<strlen($Data);++$x)
@@ -142,7 +142,7 @@ $y=$Height;
 $pocetb=0;
 
 /*while(!feof($f))
- echo freadbyte($f)."_".freadbyte($f)."<BR>";*/
+ echo freadbyte($f)."_".freadbyte($f)."<br />";*/
 while(true)
 {
 //break;
@@ -153,7 +153,7 @@ $pocetb+=2;
 
 $echoit=false;
 
-if($echoit)echo "Prefix: $prefix Suffix: $suffix<BR>";
+if($echoit)echo "Prefix: $prefix Suffix: $suffix<br />";
 if(($prefix==0)and($suffix==1)) break;
 if(feof($f)) break;
 
@@ -190,7 +190,7 @@ while(!(($prefix==0)and($suffix==0)))
  $prefix=freadbyte($f);
  $suffix=freadbyte($f);
  $pocetb+=2;
- if($echoit) echo "Prefix: $prefix Suffix: $suffix<BR>";
+ if($echoit) echo "Prefix: $prefix Suffix: $suffix<br />";
 };
 
 for($x=0;$x<strlen($Data);++$x)

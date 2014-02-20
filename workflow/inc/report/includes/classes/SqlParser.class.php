@@ -172,7 +172,7 @@ class SqlParser {
             if ($condeval != "") {
                 $fcondicao = ' if (' . trim($condeval) . ') { $ret = true; } else { $ret = false; }';
                 
-              //  echo $fcondicao . "<br>";
+              //  echo $fcondicao . "<br />";
             
                 if ($this->verificaSintaxe($fcondicao) === false) {
                     throw new Exception("Impossível validar condição: ( $condeval )");

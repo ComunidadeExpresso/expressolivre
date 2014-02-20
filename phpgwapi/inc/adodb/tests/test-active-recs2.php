@@ -37,7 +37,7 @@ $rec = new ADODB_Active_Record('products');
 
 adodb_pr($rec->getAttributeNames());
 
-echo "<hr>";
+echo "<hr />";
 
 
 $rec->load('productid=2');

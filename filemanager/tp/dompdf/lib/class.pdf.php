@@ -5016,7 +5016,7 @@ class  Cpdf {
 
         $chunkType =  mb_substr($data, $p+4, 4, '8bit');
 
-        //      echo $chunkType.' - '.$chunkLen.'<br>';
+        //      echo $chunkType.' - '.$chunkLen.'<br />';
 
         switch ($chunkType) {
 

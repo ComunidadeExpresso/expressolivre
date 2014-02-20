@@ -501,7 +501,7 @@
 			{
 				$group_name = $GLOBALS['phpgw']->accounts->id2name($_GET['account_id']);
 
-				$p->set_var('message_display','<br>');
+				$p->set_var('message_display','<br />');
 				$p->parse('messages','message_row',True);
 
 				$user_list = '';
@@ -512,13 +512,13 @@
 							'menuaction' => 'admin.uiaccounts.edit_user',
 							'account_id' => $id
 						)
-					) . '">' . $GLOBALS['phpgw']->common->grab_owner_name($id) . '</a><br>';
+					) . '">' . $GLOBALS['phpgw']->common->grab_owner_name($id) . '</a><br />';
 				}
 				$p->set_var('message_display',$user_list);
 				$p->parse('messages','message_row',True);
 
 				$p->set_var('message_display',lang("Sorry, the above users are still a member of the group %1",$group_name)
-					. '.<br>' . lang('They must be removed before you can continue'). '.<br>' . lang('Remove all users from this group').'?');
+					. '.<br />' . lang('They must be removed before you can continue'). '.<br />' . lang('Remove all users from this group').'?');
 				$p->parse('messages','message_row',True);
 			}
 
@@ -969,7 +969,7 @@
 					. $perm_display[$i][0] . ']" value="True"'.($group_info['account_apps'][$app]?' checked':'').'> '
 					. ($this->apps_with_acl[$app] && $group_info['account_id']?'<a href="'.$GLOBALS['phpgw']->link('/index.php','menuaction=preferences.uiaclprefs.index&acl_app='.$app.'&owner='.$group_info['account_id'])
 					. '"><img src="'.$GLOBALS['phpgw']->common->image('phpgwapi','edit').'" border="0" hspace="3" align="absmiddle" title="'
-					. lang('Grant Access').': '.lang("edit group ACL's").'"></a>':'&nbsp;').'</td>'.($i & 1?'</tr>':'')."\n";
+					. lang('Grant Access').': '.lang("edit group ACL's").'" /></a>':'&nbsp;').'</td>'.($i & 1?'</tr>':'')."\n";
 			}
 			if($i & 1)
 			{
@@ -1021,7 +1021,7 @@
 			$t->set_block('account','form_buttons_','form_buttons_');
 			$t->set_block('account','link_row','link_row');
 
-			print_debug('Type : '.gettype($_userData).'<br>_userData(size) = "'.$_userData.'"('.strlen($_userData).')');
+			print_debug('Type : '.gettype($_userData).'<br />_userData(size) = "'.$_userData.'"('.strlen($_userData).')');
 			if (is_array($_userData))
 			{
 				$userData = Array();
@@ -1186,7 +1186,7 @@
                 $userGroups_count = count($userGroups);
 				for ($i=0; $i<$userGroups_count; ++$i)
 				{
-					/* print "Los1:".$userData["account_id"].$userGroups[$i]['account_id']." : ".$value['account_id']."<br>"; */
+					/* print "Los1:".$userData["account_id"].$userGroups[$i]['account_id']." : ".$value['account_id']."<br />"; */
 					if (@$userGroups[$i]['account_id'] == $value['account_id'])
 					{
 						$groups_select .= ' selected';
@@ -1201,7 +1201,7 @@
 			}
 			foreach($allGroups as $key => $value)
 			{
-#				print "<br>$key =>";
+#				print "<br />$key =>";
 #				_debug_array($userGroups);
 				$primary_group_select .= '<option value="' . $value['account_id'] . '"';
 				#print $value['account_id'].''.$value['account_primary_group']
@@ -1232,7 +1232,7 @@
 					$data['title'],$app,$checked).	
 					($this->apps_with_acl[$app] && $_account_id?'<a href="'.$GLOBALS['phpgw']->link('/index.php','menuaction=preferences.uiaclprefs.index&acl_app='.$app.'&owner='.$_account_id)
 					. '"><img src="'.$GLOBALS['phpgw']->common->image('phpgwapi','edit').'" border="0" hspace="3" align="absmiddle" title="'
-					. lang('Grant Access').'"></a>':'&nbsp;').'</td>';
+					. lang('Grant Access').'" /></a>':'&nbsp;').'</td>';
 
 				if ($i & 1)
 				{

@@ -84,7 +84,7 @@
 				<input type="hidden" name="name_serverLdap" value="{value_serverLdap}" />
 				<input type="submit" name="save" value="{lang_save}" onclick="groups_ldap.selectAll('groups_added_jabberit');" />
 				<input type="submit" name="cancel" value="{lang_cancel}" />
-				<br>
+				<br />
 			</td>
 		</tr>
 	</table>

@@ -114,7 +114,7 @@ function grava_senha_criptografada_com_certificado_no_ldap($aux_uid,$aux_senha)
 	{
 		$lang1 = lang('Your password has expired');
 		$lang2 = lang('You must register a new password');
-		$GLOBALS['phpgw']->template->set_var('messages',"<font color=red><h1>$lang1.<br>$lang2.</h1></font>");
+		$GLOBALS['phpgw']->template->set_var('messages',"<font color=red><h1>$lang1.<br />$lang2.</h1></font>");
 	}
 
 	if ($GLOBALS['phpgw_info']['server']['auth_type'] != 'ldap')

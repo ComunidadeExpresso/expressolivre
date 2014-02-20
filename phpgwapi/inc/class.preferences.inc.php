@@ -844,7 +844,7 @@
 		*/
 		function create_email_preferences($accountid='', $acctnum=0)
 		{
-			print_debug('class.preferences: create_email_preferences: ENTERING<br>', 'messageonly','api');
+			print_debug('class.preferences: create_email_preferences: ENTERING<br />', 'messageonly','api');
 			// we may need function "html_quotes_decode" from the mail_msg class
 			$email_base = CreateObject("email.mail_msg");
 
@@ -1083,7 +1083,7 @@
 					else
 					{
 						// error, no instructions on how to handle this element's default value creation
-						echo 'class.preferences: create_email_preferences: set_proc ERROR: '.serialize($set_proc).'<br>';
+						echo 'class.preferences: create_email_preferences: set_proc ERROR: '.serialize($set_proc).'<br />';
 					}
 				}
 				else
@@ -1266,8 +1266,8 @@
 			//$prefs['email']['font_size_offset'] = (-1);
 
 			// DEBUG
-			//echo "<br>prefs['email']: <br>"
-			//	.'<pre>'.serialize($prefs['email']) .'</pre><br>';
+			//echo "<br />prefs['email']: <br />"
+			//	.'<pre>'.serialize($prefs['email']) .'</pre><br />';
 			return $prefs;
 			*/
 	} /* end of preferences class */

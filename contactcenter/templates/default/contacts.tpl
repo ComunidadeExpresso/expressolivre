@@ -7,7 +7,7 @@
 			<td align="left" valign="top" width="99%">{cc_email_win_title}</td>
 			<td align="center" valign="top" width="1%">
 				<img id="cc_email_win_close" alt="{cc_search_close}" src="{phpgw_img_dir}/winclose.gif" width="16px" height="16px" onclick="dd.elements.cc_email_win_title.hide();" 
-				style="cursor: pointer; cursor: hand;">
+				style="cursor: pointer; cursor: hand;"/>
 			</td>
 		</tr>
 	</table>																					

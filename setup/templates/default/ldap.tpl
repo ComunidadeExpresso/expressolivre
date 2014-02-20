@@ -2,7 +2,7 @@
  <form action="{action_url}" method="POST">
   <table border="0" align="center" width="70%">
    <tr bgcolor="#486591">
-     <td colspan="2">&nbsp;<font color="#fefefe">{description}<br>&nbsp;</font></td>
+     <td colspan="2">&nbsp;<font color="#fefefe">{description}<br />&nbsp;</font></td>
    </tr>
 <!-- END header -->
 
@@ -65,7 +65,7 @@
    <tr bgcolor="#e6e6e6">
     <td align="left" style="width: 40%">
      &nbsp;{select_apps}
-     <br>&nbsp;{note}
+     <br />&nbsp;{note}
     </td>
     <td>
      <select name="s_apps[]" multiple size="10" style="width: 100%">

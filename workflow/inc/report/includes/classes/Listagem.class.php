@@ -836,7 +836,7 @@ class Listagem {
         $erro = false;
         if ($this->isColuna($idcoluna)) {
         	$erro = true;
-        	$this->adicionarErro("addColuna()<br>$idcoluna j� foi adicionada na Listagem.");
+        	$this->adicionarErro("addColuna()<br />$idcoluna j� foi adicionada na Listagem.");
         }
         if (!$erro) {
 	        $coluna = new ListagemColuna($idcoluna,$tipo,$titulo,$html,$width,$nowrap,$align);
@@ -850,7 +850,7 @@ class Listagem {
     	$erro = false;
         if ($this->isColuna($idcoluna)) {
         	$erro = true;
-        	$this->adicionarErro("addColuna()<br>$idcoluna j� foi adicionada na Listagem.");
+        	$this->adicionarErro("addColuna()<br />$idcoluna j� foi adicionada na Listagem.");
         }
         if (!$erro) {
     		$this->adicionarColuna($idcoluna,$tipo,$idcoluna,$html,"",true,"",false);
@@ -916,7 +916,7 @@ class Listagem {
         foreach ($colunas as $idcoluna) {
             $erro = false;
             if (!$this->isColuna($idcoluna)) {
-                $this->adicionarErro("addLink()<br>$idcoluna n�o � uma coluna adicionada na Listagem.",false);
+                $this->adicionarErro("addLink()<br />$idcoluna n�o � uma coluna adicionada na Listagem.",false);
                 $erro = true;
             }
             if (!$erro) {
@@ -934,7 +934,7 @@ class Listagem {
         foreach ($colunas as $idcoluna) {
             $erro = false;
             if (!$this->isColuna($idcoluna)) {
-                $this->adicionarErro("addColunaCor()<br>$idcoluna n�o � uma coluna adicionada na Listagem.",false);
+                $this->adicionarErro("addColunaCor()<br />$idcoluna n�o � uma coluna adicionada na Listagem.",false);
                 $erro = true;
             }
             if (!$erro) {
@@ -954,7 +954,7 @@ class Listagem {
         foreach ($colunas as $idcoluna) {
             $erro = false;
             if (!$this->isColuna($idcoluna)) {
-                $this->adicionarErro("addColunaCor()<br>$idcoluna n�o � uma coluna adicionada na Listagem.",false);
+                $this->adicionarErro("addColunaCor()<br />$idcoluna n�o � uma coluna adicionada na Listagem.",false);
                 $erro = true;
             }
             if (!$erro) {
@@ -1038,7 +1038,7 @@ class Listagem {
                          }
                     }
                     if ($exibelinha) {
-                        echo "<br>&nbsp;&nbsp;";
+                        echo "<br />&nbsp;&nbsp;";
                         $addlegenda = "";
                         foreach ($indicadores as $indicador) {
                             if ($indicador->getLegenda() != "") {
@@ -1047,10 +1047,10 @@ class Listagem {
                         }
                         $addlegenda = substr($addlegenda,0,strlen($addlegenda) - 3);
                         echo $addlegenda;
-                        echo "<br>";
+                        echo "<br />";
                     }
                 }
-                echo "<br></td></tr></table>";
+                echo "<br /></td></tr></table>";
             }
         }
     }
@@ -1094,7 +1094,7 @@ class Listagem {
                     $adddisabled = "";
                     if ($cnt == 0) { $adddisabled = " disabled"; $cnt = $cnt + 1; }
 
-                    $htmlchecks .= '<input type="checkbox" class="checkbox" name="' . $idlistagem . '_ck_visivel_' . $idcoluna . '" id="' . $idlistagem . '_ck_visivel_' . $idcoluna . '" OnClick=" document.getElementById(\'' . $idlistagem . '_div_visivel\').style.display = \'none\'; document.getElementById(\'' . $idlistagem . '_div_visivel_load\').style.display = \'\'; alinhaDivDir(\'' .$idlistagem. '_div_visivel_load\'); setTimeout(\'ListagemExibeOcultaColuna(\\\'' . $idlistagem. '\\\',\\\'' .$idcoluna . '\\\');\')" value="' .$idcoluna . '" ' . $addvisivel .$adddisabled . '> ' . $titulo . '<br>';
+                    $htmlchecks .= '<input type="checkbox" class="checkbox" name="' . $idlistagem . '_ck_visivel_' . $idcoluna . '" id="' . $idlistagem . '_ck_visivel_' . $idcoluna . '" OnClick=" document.getElementById(\'' . $idlistagem . '_div_visivel\').style.display = \'none\'; document.getElementById(\'' . $idlistagem . '_div_visivel_load\').style.display = \'\'; alinhaDivDir(\'' .$idlistagem. '_div_visivel_load\'); setTimeout(\'ListagemExibeOcultaColuna(\\\'' . $idlistagem. '\\\',\\\'' .$idcoluna . '\\\');\')" value="' .$idcoluna . '" ' . $addvisivel .$adddisabled . '> ' . $titulo . '<br />';
 
                 }
 
@@ -1286,7 +1286,7 @@ class Listagem {
         foreach ($colunas as $idcoluna) {
             $erro = false;
             if (!$this->isColuna($idcoluna)) {
-                $this->adicionarErro("adicionarTotalizador()<br>$idcoluna n�o � uma coluna adicionada na Listagem.",false);
+                $this->adicionarErro("adicionarTotalizador()<br />$idcoluna n�o � uma coluna adicionada na Listagem.",false);
                 $erro = true;
             }
             if (!$erro) {

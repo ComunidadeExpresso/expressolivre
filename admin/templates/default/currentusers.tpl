@@ -1,5 +1,5 @@
 <!-- BEGIN list -->
-<br>
+<br />
 <table border="0" width="95%" align="center">
  <tr>
    {left_next_matchs}
@@ -22,7 +22,7 @@
  {rows}
 
 </table>
-<br>
+<br />
 <!-- END list -->
 
 <!-- BEGIN row -->

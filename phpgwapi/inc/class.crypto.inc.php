@@ -68,8 +68,8 @@
 
 				if($this->debug)
 				{
-					echo '<br>crypto: algorithm=' . $this->algo;
-					echo '<br>crypto: mode     =' . $this->mode;
+					echo '<br />crypto: algorithm=' . $this->algo;
+					echo '<br />crypto: mode     =' . $this->mode;
 				}
 
 				$this->enabled = True;
@@ -118,7 +118,7 @@
 				/* If mcrypt isn't loaded, key and iv are not needed. */
 				if($this->debug)
 				{
-					echo '<br>crypto: mycrypt unavailable or disabled';
+					echo '<br />crypto: mycrypt unavailable or disabled';
 				}
 			}
 		}
@@ -151,14 +151,14 @@
 		{
 			if($this->debug)
 			{
-				echo '<br>' . time() . ' crypto->encrypt() unencrypted data: ---->>>>' . $data . "\n";
+				echo '<br />' . time() . ' crypto->encrypt() unencrypted data: ---->>>>' . $data . "\n";
 			}
 
 			if(is_array($data) || is_object($data))
 			{
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->encrypt() found an "' . gettype($data) . '".  Serializing...' . "\n";
+					echo '<br />' . time() . ' crypto->encrypt() found an "' . gettype($data) . '".  Serializing...' . "\n";
 				}
 				$data = serialize($data);
 				$_obj = True;
@@ -167,7 +167,7 @@
 			{
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->encrypt() found "' . gettype($data) . '". No serialization...' . "\n";
+					echo '<br />' . time() . ' crypto->encrypt() found "' . gettype($data) . '". No serialization...' . "\n";
 				}
 			}
 
@@ -178,14 +178,14 @@
 				{
 					if($this->debug)
 					{
-						echo '<br>' . time() . ' crypto->encrypt() adding slashes' . "\n";
+						echo '<br />' . time() . ' crypto->encrypt() adding slashes' . "\n";
 					}
 					$data = addslashes($data);
 				}
 
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->encrypt() data: ---->>>>' . $data;
+					echo '<br />' . time() . ' crypto->encrypt() data: ---->>>>' . $data;
 				}
 
 				switch($this->mcrypt_version)
@@ -203,7 +203,7 @@
 				$encrypteddata = bin2hex($encrypteddata);
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->encrypt() crypted data: ---->>>>' . $encrypteddata;
+					echo '<br />' . time() . ' crypto->encrypt() crypted data: ---->>>>' . $encrypteddata;
 				}
 				return $encrypteddata;
 			}
@@ -212,7 +212,7 @@
 				/* No mcrypt == insecure ! */
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->encrypt() crypted data: ---->>>>' . $data;
+					echo '<br />' . time() . ' crypto->encrypt() crypted data: ---->>>>' . $data;
 				}
 				return $data;
 			}
@@ -222,7 +222,7 @@
 		{
 			if($this->debug)
 			{
-				echo '<br>' . time() . ' crypto->decrypt() crypted data: ---->>>>' . $encrypteddata;
+				echo '<br />' . time() . ' crypto->decrypt() crypted data: ---->>>>' . $encrypteddata;
 			}
 			/* Disable all encryption if the admin didn't set it up */
 			if($this->enabled)
@@ -243,14 +243,14 @@
 
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->decrypt() decrypted data: ---->>>>' . $data;
+					echo '<br />' . time() . ' crypto->decrypt() decrypted data: ---->>>>' . $data;
 				}
 				$test = stripslashes($data);
 				if(@unserialize($test))
 				{
 					if($this->debug)
 					{
-						echo '<br>' . time() . ' crypto->decrypt() stripping slashes' . "\n";
+						echo '<br />' . time() . ' crypto->decrypt() stripping slashes' . "\n";
 					}
 					$data = $test;
 				}
@@ -258,7 +258,7 @@
 
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->decrypt() data: ---->>>>' . $data . "\n";
+					echo '<br />' . time() . ' crypto->decrypt() data: ---->>>>' . $data . "\n";
 				}
 			}
 			else
@@ -276,8 +276,8 @@
 			{
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->decrypt() found serialized "' . gettype($newdata) . '".  Unserializing...' . "\n";
-					echo '<br>' . time() . ' crypto->decrypt() returning: '; _debug_array($newdata);
+					echo '<br />' . time() . ' crypto->decrypt() found serialized "' . gettype($newdata) . '".  Unserializing...' . "\n";
+					echo '<br />' . time() . ' crypto->decrypt() returning: '; _debug_array($newdata);
 				}
 				return $newdata;
 			}
@@ -285,8 +285,8 @@
 			{
 				if($this->debug)
 				{
-					echo '<br>' . time() . ' crypto->decrypt() found UNserialized "' . gettype($data) . '".  No unserialization...' . "\n";
-					echo '<br>' . time() . ' crypto->decrypt() returning: ' . $data;
+					echo '<br />' . time() . ' crypto->decrypt() found UNserialized "' . gettype($data) . '".  No unserialization...' . "\n";
+					echo '<br />' . time() . ' crypto->decrypt() returning: ' . $data;
 				}
 				return $data;
 			}

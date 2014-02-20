@@ -82,7 +82,7 @@
 			this.el.innerHTML = 
 			'<div align="left" id="divAppbox" width="90%" ><table width="100%" border=0>'+
 			'<tr><td style="border-bottom:1px solid black"><input onclick="javascript:ccIEContacts.changeOptions(this.value)" id="type" type="radio" name="type" value="i" style="border:0" checked>'+lang_import_contacts+
-			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input onclick="javascript:ccIEContacts.changeOptions(this.value)" id="type" type="radio" name="type" style="border:0" value="e"/>'+lang_export_contacts+' <br></td></tr>'+
+			'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input onclick="javascript:ccIEContacts.changeOptions(this.value)" id="type" type="radio" name="type" style="border:0" value="e"/>'+lang_export_contacts+' <br /></td></tr>'+
 			'</table>'+
 			'<table border=0 height="100%"  width="100%" id="import_span">'+
 			'<tr><td>'+
@@ -94,9 +94,9 @@
 			'<option value="outlook2000">'+("Outlook 2000")+'</option>'+
 			'<option value="outlook2003">'+("Outlook 2003")+'</option>'+
 			'<option value="thunderbird">'+("Mozilla Thunderbird")+'</option>'+
-			'<option value="expresso" selected>'+lang_expresso_default+'</option></select><br>'+
-			'<br> Selecione um grupo:&nbsp;' + Element('cc_select_groups').value + '<br>' +
-			'<br>'+lang_choose_contacts_file+'<br><br>'+		
+			'<option value="expresso" selected>'+lang_expresso_default+'</option></select><br />'+
+			'<br /> Selecione um grupo:&nbsp;' + Element('cc_select_groups').value + '<br />' +
+			'<br />'+lang_choose_contacts_file+'<br /><br />'+
 			'<input id="import_file" type="file" name="import_file">'+
 			'</form></td></tr>'+
 			'<tr><td height="10px" align="center" nowrap><span style="visibility:hidden" id="s_info"></span></td></tr>'+
@@ -107,7 +107,7 @@
 			'<table border=0  height="100%"  width="100%" style="display:none" id="export_span">'+
 			'<tr><td>'+						
 			'<font color="DARKBLUE" size="2">'+ lang_msg_expresso_info_csv+'</font></td></tr>'+
-			'<tr><td height="85px" valign="top">'+lang_msg_export_csv+'<br><br>'+
+			'<tr><td height="85px" valign="top">'+lang_msg_export_csv+'<br /><br />'+
 			'<select id="typeExport">'+
 			'<option value="expresso" selected>'+lang_expresso_default_csv+'</option>'+
 			'<option value="outlook_pt-BR">'+lang_outl_pt+'</option>'+
@@ -172,7 +172,7 @@
 		var l_2 	= '<font face="Verdana" size="1" color="RED">['+args[2]+lang_failure+']</font>';
 		var l_3		= '<font face="Verdana" size="1" color="DARKBLUE">['+args[3]+lang_exists+']</font>';
 		if(args[2])
-		var l_4 	= '<br><a font face="Verdana" size="1" href="javascript:ccIEContacts.showFailures(\''+args[4]+'\')">'+lang_show_more_info+'</a>';
+		var l_4 	= '<br /><a font face="Verdana" size="1" href="javascript:ccIEContacts.showFailures(\''+args[4]+'\')">'+lang_show_more_info+'</a>';
 		var l_error	= '<span style="height:15px;background:#cc4444">&nbsp;&nbsp;<font face="Verdana" size="1" color="WHITE">'+lang_import_fail+ '&nbsp;</font></span>';
 		var l_importing = '<span style="height:15px;background:rgb(250, 209, 99)">&nbsp;&nbsp;<font face="Verdana" size="1" color="DARKBLUE">'+lang_importing + '&nbsp;</font></span>';
 
@@ -184,7 +184,7 @@
 			if(args[2]){
 				status += "&nbsp;"+eval('l_4');
 			}
-			Element('s_info').innerHTML = '&nbsp;&nbsp;<font face="Verdana" size="1" color="BLACK"><b>'+lang_import_finish+'</b></font><br>&nbsp;'+status;
+			Element('s_info').innerHTML = '&nbsp;&nbsp;<font face="Verdana" size="1" color="BLACK"><b>'+lang_import_finish+'</b></font><br />&nbsp;'+status;
 		}
 		else 
 			Element('s_info').innerHTML = eval('l_'+args[0]);

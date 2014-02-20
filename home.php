@@ -123,8 +123,8 @@
         $done = array();
         // Display elements, within appropriate table cells     
         @reset($sorted_apps);
-        $idx = 1;
-        echo "<table width='100%' cellpadding=5>";
+        $idx = 0;
+        echo "<table width='100%' cellpadding='5'>";
         foreach($sorted_apps as $appname)
         {
                 if((int)$done[$appname] == 1 || empty($appname)){
@@ -169,7 +169,7 @@
                         if($idx == 0) {
                                 print '<tr>';
                         }
-                        print '<td style="vertical-align:top;" width="45%">';
+                        print '<td style="vertical-align:top; width: 45%">';
                         $GLOBALS['phpgw']->hooks->single('home',$appname);
                         print '</td>';
 

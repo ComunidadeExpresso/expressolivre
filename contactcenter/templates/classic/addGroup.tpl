@@ -16,14 +16,14 @@
 	<input id="ccAGWinHeightIE" type="hidden" value="{ccAGWinHeightIE}" />
 	<input id="ccAGWinHeightMO" type="hidden" value="{ccAGWinHeightMO}" />
 	<input id="group_id" type="hidden">
-	<br>
+	<br />
 	<table border="0"  cellpadding="0" cellspacing="0" width="100%">
 		<tr height="30">
 			<td  width="17%" valign="center" align="right" nowrap>{txt_name}:</td>
 			<td  colspan="2" valign="center" align="left">&nbsp;&nbsp;{title}</td>
 		</tr>
 
-            <br><br>
+            <br /><br />
 
             <tr height="30">
                 <td  width="17%" valign="center" align="right" nowrap>Fonte:</td>
@@ -54,9 +54,9 @@
 				</table>
 			</td>
 			<td id="buttons" width="95" align="center">
-				<button type="button" onClick="ccAddGroup.addUser()"><img src="../phpgwapi/templates/classic/images/add.png" style="vertical-align: middle;" >&nbsp;{txt_add}</button>
-				<br><br>
-				<button type="button" onClick="ccAddGroup.remUser()"><img src="../phpgwapi/templates/classic/images/rem.png" style="vertical-align: middle;" >&nbsp;{txt_rem}</button>
+				<button type="button" onClick="ccAddGroup.addUser()"><img src="../phpgwapi/templates/classic/images/add.png" style="vertical-align: middle;" />&nbsp;{txt_add}</button>
+				<br /><br />
+				<button type="button" onClick="ccAddGroup.remUser()"><img src="../phpgwapi/templates/classic/images/rem.png" style="vertical-align: middle;" />&nbsp;{txt_rem}</button>
 			</td>
 			<td  align="left">
 				<table border="0" cellpadding="0" cellspacing="0">
@@ -71,7 +71,7 @@
 		</tr>
 		<tr>
 			<td align="center" colspan="3">
-					<br>						
+					<br />
 					<input title="{ccAGSave}" type="button" onclick="ccAddGroup.send();" value="{ccAGSave}" />
 					<input title="{ccAGClear}" type="button" onclick="ccAddGroup.clear();" value="{ccAGClear}" />
 					<input title="{ccAGCancel}" type="button" onclick="ccAddGroup.clear(); ccAddGroup.window.close();" value="{ccAGCancel}"/>						

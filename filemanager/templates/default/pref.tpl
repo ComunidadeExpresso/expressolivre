@@ -1,4 +1,4 @@
-<p><b>{title}:</b><hr><p>
+<p><b>{title}:</b><hr /><p>
 <form action="{action_url}" method="POST">
  <table border="0" align="center">
   {row}

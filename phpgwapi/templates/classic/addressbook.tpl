@@ -10,7 +10,7 @@
 </script>
 <div id="divMain">
 <p align="center">{message}</p>
-<p align="center">{lang_showing}<br>
+<p align="center">{lang_showing}<br />
 <table border="0" width="100%">
 	<tr valign="top">
 		{left}
@@ -39,13 +39,13 @@
 		</td>
 <form action="{form_action}" name="form" method="POST">
 		<td width="30%" align="center" rowspan="2">
-			{lang_email}<br>
+			{lang_email}<br />
 			<input type="submit" name="all[wto]" value="{to}" title="{title_work_to}">
 			<input type="submit" name="all[wcc]" value="{cc}" title="{title_work_cc}">
 			<input type="submit" name="all[wbcc]" value="{bcc}" title="{title_work_bcc}">
 		</td>
 		<td width="30%" align="center" rowspan="2">
-			{lang_hemail}<br>
+			{lang_hemail}<br />
 			<input type="submit" name="all[hto]" value="{to}" title="{title_home_to}">
 			<input type="submit" name="all[hcc]" value="{cc}" title="{title_home_cc}">
 			<input type="submit" name="all[hbcc]" value="{bcc}" title="{title_home_bcc}">
@@ -62,7 +62,7 @@
 		<td colspan="2">{company}</td>
 <form>
 		<td align="center" rowspan="2">
-			<input type="text" style="width: 100%" name="email" value="{email}"><br>
+			<input type="text" style="width: 100%" name="email" value="{email}"><br />
 			<input type="button" name="to" value="{to}" onClick="Exchange(this.form,'to');">
 			<input type="button" name="cc" value="{cc}" onClick="Exchange(this.form,'cc');">
 			<input type="button" name="bcc" value="{bcc}" onClick="Exchange(this.form,'bcc');">
@@ -70,7 +70,7 @@
 </form>
 <form>
 		<td align="center" rowspan="2">
-			<input type="text" style="width: 100%" name="email" value="{hemail}"><br>
+			<input type="text" style="width: 100%" name="email" value="{hemail}"><br />
 			<input type="button" name="to" value="{to}" onClick="Exchange(this.form,'to');">
 			<input type="button" name="cc" value="{cc}" onClick="Exchange(this.form,'cc');">
 			<input type="button" name="bcc" value="{bcc}" onClick="Exchange(this.form,'bcc');">
@@ -85,7 +85,7 @@
 
 	<tr>
 		<td colspan="4" align="center" valign="bottom">
-			<br><form><input type="button" name="done" value="{lang_done}" onClick="window.close()"></form>
+			<br /><form><input type="button" name="done" value="{lang_done}" onClick="window.close()"></form>
 		</td>
 	</tr>
 </table>

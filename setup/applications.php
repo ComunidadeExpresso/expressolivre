@@ -136,24 +136,24 @@
 				if ($setup_info[$appname]['tables'])
 				{
 					$GLOBALS['phpgw_setup']->process->droptables($terror,$DEBUG);
-					echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('tables dropped') . '.';
+					echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('tables dropped') . '.';
 				}
 
 				$GLOBALS['phpgw_setup']->deregister_app($setup_info[$appname]['name']);
-				echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('deregistered') . '.';
+				echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('deregistered') . '.';
 
 				if ($setup_info[$appname]['hooks'])
 				{
 					$GLOBALS['phpgw_setup']->deregister_hooks($setup_info[$appname]['name']);
-					echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('hooks deregistered') . '.';
+					echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('hooks deregistered') . '.';
 				}
 
 				$terror = $GLOBALS['phpgw_setup']->process->drop_langs($terror,$DEBUG);
-				echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('Translations removed') . '.';
+				echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('Translations removed') . '.';
 
 				if ($historylog->delete($appname))
 				{
-					echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('Historylog removed') . '.';
+					echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('Historylog removed') . '.';
 				}
 
 				// delete all application categories and ACL
@@ -175,7 +175,7 @@
 				{
 					$terror = $GLOBALS['phpgw_setup']->process->current($terror,$DEBUG);
 					$terror = $GLOBALS['phpgw_setup']->process->default_records($terror,$DEBUG);
-					echo '<br>' . $setup_info[$appname]['title'] . ' '
+					echo '<br />' . $setup_info[$appname]['title'] . ' '
 						. lang('tables installed, unless there are errors printed above') . '.';
 				}
 				else
@@ -188,12 +188,12 @@
 					{
 						$GLOBALS['phpgw_setup']->register_app($setup_info[$appname]['name']);
 					}
-					echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('registered') . '.';
+					echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('registered') . '.';
 
 					if ($setup_info[$appname]['hooks'])
 					{
 						$GLOBALS['phpgw_setup']->register_hooks($setup_info[$appname]['name']);
-						echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('hooks registered') . '.';
+						echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('hooks registered') . '.';
 					}
 				}
 				$force_en = False;
@@ -202,7 +202,7 @@
 					$force_en = True;
 				}
 				$terror = $GLOBALS['phpgw_setup']->process->add_langs($terror,$DEBUG,$force_en);
-				echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('Translations added') . '.';
+				echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('Translations added') . '.';
 			}
 		}
 
@@ -216,21 +216,21 @@
 				$GLOBALS['phpgw_setup']->process->upgrade($terror,$DEBUG);
 				if ($setup_info[$appname]['tables'])
 				{
-					echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('tables upgraded') . '.';
+					echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('tables upgraded') . '.';
 					// The process_upgrade() function also handles registration
 				}
 				else
 				{
-					echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('upgraded') . '.';
+					echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('upgraded') . '.';
 				}
 
 				$terror = $GLOBALS['phpgw_setup']->process->upgrade_langs($terror,$DEBUG);
-				echo '<br>' . $setup_info[$appname]['title'] . ' ' . lang('Translations upgraded') . '.';
+				echo '<br />' . $setup_info[$appname]['title'] . ' ' . lang('Translations upgraded') . '.';
 			}
 		}
 
 		//$setup_tpl->set_var('goback',
-		echo '<br><a href="applications.php?debug='.$DEBUG.'">' . lang('Go back') . '</a>';
+		echo '<br /><a href="applications.php?debug='.$DEBUG.'">' . lang('Go back') . '</a>';
 		//$setup_tpl->pparse('out','submit');
 		$setup_tpl->pparse('out','footer');
 		exit;
@@ -279,7 +279,7 @@
 			}
 		}
 
-		echo '<br><a href="applications.php?debug='.$DEBUG.'">' . lang('Go back') . '</a>';
+		echo '<br /><a href="applications.php?debug='.$DEBUG.'">' . lang('Go back') . '</a>';
 		$setup_tpl->pparse('out','footer');
 		exit;
 	}
@@ -294,18 +294,18 @@
 		{
 			echo '"' . $setup_info[$resolve]['title'] . '" ' . lang('may be broken') . ' ';
 			echo lang('because an application it depends upon was upgraded');
-			echo '<br>';
+			echo '<br />';
 			echo lang('to a version it does not know about') . '.';
-			echo '<br>';
+			echo '<br />';
 			echo lang('However, the application may still work') . '.';
 		}
 		elseif(get_var('badinstall',Array('GET')))
 		{
 			echo '"' . $setup_info[$resolve]['title'] . '" ' . lang('is broken') . ' ';
 			echo lang('because of a failed upgrade or install') . '.';
-			echo '<br>';
+			echo '<br />';
 			echo lang('Some or all of its tables are missing') . '.';
-			echo '<br>';
+			echo '<br />';
 			echo lang('You should either uninstall and then reinstall it, or attempt manual repairs') . '.';
 		}
 		elseif (!$version)
@@ -323,12 +323,12 @@
 			{
 				if($setup_info[$resolve]['status'] == 'D')
 				{
-					echo lang('because it depends upon') . ':<br>' . "\n";
+					echo lang('because it depends upon') . ':<br />' . "\n";
 					list($depapp,$depver) = parsedep($setup_info[$resolve]['depends'],False);
                                 $depapp_count = count($depapp);
 					for ($i=0; $i<$depapp_count; ++$i)
 					{
-						echo '<br>' . $depapp[$i] . ': ';
+						echo '<br />' . $depapp[$i] . ': ';
 						$list = '';
 						foreach($depver[$i] as $x => $y)
 						{
@@ -337,7 +337,7 @@
 						$list = substr($list,0,-2);
 						echo "$list\n";
 					}
-					echo '<br><br>' . lang('The table definition was correct, and the tables were installed') . '.';
+					echo '<br /><br />' . lang('The table definition was correct, and the tables were installed') . '.';
 				}
 				else
 				{
@@ -354,21 +354,21 @@
 			}
 			else
 			{
-				echo lang('because it requires manual table installation, <br>or the table definition was incorrect') . ".\n"
+				echo lang('because it requires manual table installation, <br />or the table definition was incorrect') . ".\n"
 					. lang("Please check for sql scripts within the application's directory") . '.';
 			}
-			echo '<br>' . lang('However, the application is otherwise installed') . '.';
+			echo '<br />' . lang('However, the application is otherwise installed') . '.';
 		}
 		else
 		{
 			echo $setup_info[$resolve]['title'] . ' ' . lang('has a version mismatch') . ' ';
 			echo lang('because of a failed upgrade, or the database is newer than the installed version of this app') . '.';
-			echo '<br>';
+			echo '<br />';
 			echo lang('If the application has no defined tables, selecting upgrade should remedy the problem') . '.';
-			echo '<br>' . lang('However, the application is otherwise installed') . '.';
+			echo '<br />' . lang('However, the application is otherwise installed') . '.';
 		}
 
-		echo '<br><a href="applications.php?debug='.$DEBUG.'">' . lang('Go back') . '</a>';
+		echo '<br /><a href="applications.php?debug='.$DEBUG.'">' . lang('Go back') . '</a>';
 		$setup_tpl->pparse('out','footer');
 		exit;
 	}

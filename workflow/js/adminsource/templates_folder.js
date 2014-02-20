@@ -23,7 +23,7 @@ function show_template_window()
 			tr = document.createElement("TR");
 			td = document.createElement("TD");
 
-			td.innerHTML = '<b>Selecione o modelo desejado:</b><br>';
+			td.innerHTML = '<b>Selecione o modelo desejado:</b><br />';
 			se = document.createElement("SELECT");
 			se.setAttribute('name','tplfile');
 			se.setAttribute('size','10');
@@ -48,7 +48,7 @@ function show_template_window()
 			tr = document.createElement("TR");
 			td = document.createElement("TD");
 		
-			td.innerHTML = '<b>Nome do arquivo a ser criado:</b><br>';
+			td.innerHTML = '<b>Nome do arquivo a ser criado:</b><br />';
 
 			it = document.createElement("INPUT");
 			it.setAttribute('type','text');

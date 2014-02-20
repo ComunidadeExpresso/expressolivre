@@ -41,7 +41,7 @@
 # below). The pod directives which occur outside of man sections are ignored,
 # just like the common text. The translation of HTML tags is:
 #
-# <br> - to paragraph break
+# <br /> - to paragraph break
 # <b> - to B<>
 # <i> - to I<>
 # <tt> - to C<>

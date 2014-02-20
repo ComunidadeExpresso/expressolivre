@@ -46,7 +46,7 @@
 	exit;*/
 	$update_version = $GLOBALS['phpgw_info']['flags']['update_version'];
 	//Info do usuário
-	echo "<script language='javascript'> 
+	echo "<script type='text/javascript'>
 				var account_id = null;
 				var expresso_offline = true;
 				var template = 'default';
@@ -54,7 +54,7 @@
 	echo "<script src='js/globals.js?".$update_version."' type='text/javascript'></script>";
 	echo "<script src='js/sniff_browser.js?".$update_version."' type='text/javascript'></script>";
 	echo '<script type="text/javascript" src="../phpgwapi/js/wz_dragdrop/wz_dragdrop.js?'.$update_version.'"></script>
-		<script type="text/javascript" src="../phpgwapi/js/dJSWin/dJSWin.js?'.$update_version.'"></script>';
+		  <script type="text/javascript" src="../phpgwapi/js/dJSWin/dJSWin.js?'.$update_version.'"></script>';
 	
 	//Configurações do módulo
     $c = CreateObject('phpgwapi.config','expressoMail1_2');
@@ -215,7 +215,7 @@
 	$offline_language = "pt-br";
 	include("inc/load_lang.php");
 ?>
-<script language="Javascript">
+<script type="text/javascript">
 	expresso_offline_access.has_permition();
 	preferences = {
 			'voip_enabled'						: "0",

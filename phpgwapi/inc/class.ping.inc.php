@@ -94,14 +94,14 @@
 
 		function debug_output()
 		{
-			echo '<br><b>Debug output</b><hr width="20%" align="left">';
+			echo '<br /><b>Debug output</b><hr width="20%" align="left">';
 			echo '<b>hostname:</b> ' . $this->hostname;
-			echo '<br><b>tx:</b> ' . $this->packet_tx;
-			echo '<br><b>rx:</b> ' . $this->packet_rx;
-			echo '<br><b>loss:</b> ' . $this->packet_loss;
-			echo '<br><b>min:</b> ' . $this->response_min;
-			echo '<br><b>max:</b> ' . $this->response_max;
-			echo '<br><b>avg:</b> ' . $this->response_avg;
-			echo '<br><b>mdev:</b> ' . $this->response_mdev;
+			echo '<br /><b>tx:</b> ' . $this->packet_tx;
+			echo '<br /><b>rx:</b> ' . $this->packet_rx;
+			echo '<br /><b>loss:</b> ' . $this->packet_loss;
+			echo '<br /><b>min:</b> ' . $this->response_min;
+			echo '<br /><b>max:</b> ' . $this->response_max;
+			echo '<br /><b>avg:</b> ' . $this->response_avg;
+			echo '<br /><b>mdev:</b> ' . $this->response_mdev;
 		}
 	}

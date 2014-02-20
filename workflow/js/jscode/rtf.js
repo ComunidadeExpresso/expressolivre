@@ -7,19 +7,16 @@ _editor_url = "workflow/js/htmlarea";
 _editor_lang = "pt_br";
 
 document.write('<script');
-document.write(' language="javascript"');
 document.write(' type="text/javascript"');
 document.write(' src="' + _editor_url + '/htmlarea.js">');
 document.write('</script>');
 
 document.write('<script');
-document.write(' language="javascript"');
 document.write(' type="text/javascript"');
 document.write(' src="' + _editor_url + '/plugins/CharacterMap/character-map.js">');
 document.write('</script>');
 
 document.write('<script');
-document.write(' language="javascript"');
 document.write(' type="text/javascript"');
 document.write(' src="' + _editor_url + '/plugins/CharacterMap/lang/en.js">');
 document.write('</script>');

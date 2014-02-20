@@ -89,10 +89,10 @@ parameters and automated tuning hints.</p>
 <em>oci8</em>, <em>mssql</em>, <i>informix</i> and <em>db2</em> are
 supported. To create a new performance monitor, call NewPerfMonitor( )
 as demonstrated below: </p>
-<pre>&lt;?php<br>include_once('adodb.inc.php');<br>session_start(); <font
- color="#006600"># session variables required for monitoring</font><br>$conn = ADONewConnection($driver);<br>$conn-&gt;Connect($server,$user,$pwd,$db);<br>$perf =&amp; NewPerfMonitor($conn);<br>$perf-&gt;UI($pollsecs=5);<br>?&gt;<br></pre>
+<pre>&lt;?php<br />include_once('adodb.inc.php');<br />session_start(); <font
+ color="#006600"># session variables required for monitoring</font><br />$conn = ADONewConnection($driver);<br />$conn-&gt;Connect($server,$user,$pwd,$db);<br />$perf =&amp; NewPerfMonitor($conn);<br />$perf-&gt;UI($pollsecs=5);<br />?&gt;<br /></pre>
 <p>It is also possible to retrieve a single database parameter:</p>
-<pre>$size = $perf-&gt;DBParameter('data cache size');<br></pre>
+<pre>$size = $perf-&gt;DBParameter('data cache size');<br /></pre>
 <p>
 Thx to Fernando Ortiz for the informix module. </p>
 <h3>Methods</h3>
@@ -111,7 +111,7 @@ constant before calling $perf-&gt;UI(). </p>
   <tbody>
     <tr>
       <td> <b><a href="http://php.weblogs.com/adodb?perf=1">ADOdb</a>
-Performance Monitor</b> for localhost, db=test<br>
+Performance Monitor</b> for localhost, db=test<br />
       <font size="-1">PostgreSQL 7.3.2 on i686-pc-cygwin, compiled by
 GCC gcc (GCC) 3.2 20020927 (prerelease)</font></td>
     </tr>
@@ -229,14 +229,14 @@ need to echo or print the output of this function,</p>
 <p>Returns database health check parameters formatted for a command
 line interface. You will need to echo or print the output of this
 function. Sample output for mysql:</p>
-<pre>-- Ratios -- <br>          MyISAM cache hit ratio =&gt; 56.5635738832 <br>          InnoDB cache hit ratio =&gt; 0 <br>             sql cache hit ratio =&gt; 0 <br> -- IO -- <br>                      data reads =&gt; 2622 <br>                     data writes =&gt; 2415.5 <br> -- Data Cache -- <br>          MyISAM data cache size =&gt; 512K <br>             BDB data cache size =&gt; 8388600<br>          InnoDB data cache size =&gt; 8M<br> -- Memory Pools -- <br>                read buffer size =&gt; 131072 <br>                sort buffer size =&gt; 65528 <br>                     table cache =&gt; 4 <br> -- Connections -- <br>             current connections =&gt; 3<br>                 max connections =&gt; 100</pre>
+<pre>-- Ratios -- <br />          MyISAM cache hit ratio =&gt; 56.5635738832 <br />          InnoDB cache hit ratio =&gt; 0 <br />             sql cache hit ratio =&gt; 0 <br /> -- IO -- <br />                      data reads =&gt; 2622 <br />                     data writes =&gt; 2415.5 <br /> -- Data Cache -- <br />          MyISAM data cache size =&gt; 512K <br />             BDB data cache size =&gt; 8388600<br />          InnoDB data cache size =&gt; 8M<br /> -- Memory Pools -- <br />                read buffer size =&gt; 131072 <br />                sort buffer size =&gt; 65528 <br />                     table cache =&gt; 4 <br /> -- Connections -- <br />             current connections =&gt; 3<br />                 max connections =&gt; 100</pre>
 <p><font face="Courier New, Courier, mono">function <b>Poll</b>($pollSecs=5)
 </font> </p>
 <p> Run in infinite loop, displaying the following information every
 $pollSecs. This will not work properly if output buffering is enabled.
 In the example below, $pollSecs=3:
 </p>
-<pre>Accumulating statistics...<br> Time   WS-CPU%   Hit%   Sess        Reads/s          Writes/s<br>11:08:30    0.7  56.56      1         0.0000            0.0000<br>11:08:33    1.8  56.56      2         0.0000            0.0000<br>11:08:36   11.1  56.55      3         2.5000            0.0000<br>11:08:39    9.8  56.55      2         3.1121            0.0000<br>11:08:42    2.8  56.55      1         0.0000            0.0000<br>11:08:45    7.4  56.55      2         0.0000            1.5000<br></pre>
+<pre>Accumulating statistics...<br /> Time   WS-CPU%   Hit%   Sess        Reads/s          Writes/s<br />11:08:30    0.7  56.56      1         0.0000            0.0000<br />11:08:33    1.8  56.56      2         0.0000            0.0000<br />11:08:36   11.1  56.55      3         2.5000            0.0000<br />11:08:39    9.8  56.55      2         3.1121            0.0000<br />11:08:42    2.8  56.55      1         0.0000            0.0000<br />11:08:45    7.4  56.55      2         0.0000            1.5000<br /></pre>
 <p><b>WS-CPU%</b> is the Web Server CPU load of the server that PHP is
 running from (eg. the database client), and not the database. The <b>Hit%</b>
 is the data cache hit ratio. <b>Sess</b> is the current number of
@@ -310,7 +310,7 @@ following elements:</p>
 <ol start="0">
   <li> Category code, used to group related db parameters. If the
 category code is 'HIDE', then
-the database parameter is not shown when HTML() is called. <br>
+the database parameter is not shown when HTML() is called. <br />
   </li>
   <li> either
     <ol type="a">
@@ -323,7 +323,7 @@ parameter is a constant to multiply the result with (typically 100 for
 percentage calculations),</li>
       <li>a string prefixed by =, then a PHP method of the class is
 invoked, e.g. to invoke $this-&gt;GetIndexValue(), set this array
-element to '=GetIndexValue', <br>
+element to '=GetIndexValue', <br />
       </li>
     </ol>
   </li>
@@ -334,7 +334,7 @@ will invoke $this-&gt;GetIndexDescription($val). This is useful for
 generating tuning suggestions. For an example, see WarnCacheRatio().</li>
 </ol>
 <p>Example from MySQL, table_cache database parameter:</p>
-<pre>'table cache' =&gt; array('CACHE',            # category code<br>   array("show variables", 'table_cache'), # array (type 1b)<br>   'Number of tables to keep open'),       # description</pre>
+<pre>'table cache' =&gt; array('CACHE',            # category code<br />   array("show variables", 'table_cache'), # array (type 1b)<br />   'Number of tables to keep open'),       # description</pre>
 <h3>Example Health Check Output</h3>
 <p><a href="#db2">db2</a> <a href="#informix">informix</a> <a
  href="#mysql">mysql</a> <a href="#mssql">mssql</a> <a href="#oci8">oci8</a>

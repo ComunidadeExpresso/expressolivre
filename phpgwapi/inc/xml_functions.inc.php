@@ -109,10 +109,10 @@
 	/*!
 	@function xmlrpcfault
 	@abstract Error reporting for XML-RPC
-	@discussion Author: jengo <br>
-	Returns XML-RPC fault and stops this execution of the application. <br>
-	Syntax: void xmlrpcfault(string) <br>
-	Example1: xmlrpcfault('Session could not be verifed'); <br>
+	@discussion Author: jengo <br />
+	Returns XML-RPC fault and stops this execution of the application. <br />
+	Syntax: void xmlrpcfault(string) <br />
+	Example1: xmlrpcfault('Session could not be verifed'); <br />
 	@param $string Error message to be returned.
 	*/
 	function xmlrpcfault($string)

@@ -61,7 +61,7 @@ function wf_warn_deprecated_method($new_class = null, $new_method = null)
 		$new_class = !empty($new_class) ? " of <strong>" . $new_class . "</strong> object" : "";
 		$deprecated_msg .= sprintf(' <strong>%s</strong>%s', $new_method, $new_class);
 	}
-	$error_msg = $deprecated_msg . ".\n<br>Error handler";
+	$error_msg = $deprecated_msg . ".\n<br />Error handler";
 	return trigger_error("[WORKFLOW WARNING]: " . $error_msg, E_USER_WARNING);
 }
 

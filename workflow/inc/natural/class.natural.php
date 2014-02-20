@@ -201,7 +201,7 @@ class Natural
 				$url = $this->protocol . ($this->acronym . $this->application) . $this->system . $this->logon . $this->strSubProgram . $this->key . $this->password . $this->rc . $this->msg . $this->strInputParameter . $this->endOfProtocol;
 
 				$link = "http://" . $this->IPAddress . ":". $this->serverPort . $url;
-				// echo $link . "<br><br>";
+				// echo $link . "<br /><br />";
 
 				$fp = @fsockopen($this->IPAddress, $this->serverPort, $errnum, $errstr);
 				$line = "";

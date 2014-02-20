@@ -48,9 +48,9 @@ cListParticipants.prototype.showList = function(id, contact, email, title, accou
 		var names = contact.split(",");
 		var email = email.split(",");
 		el.innerHTML = "";								
-		el.innerHTML = "<br>&nbsp;&nbsp;<b><font color='BLUE'>"+title+"</font></b>"+
-		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<u>"+
-		Element('cc_participants').value+"</u>&nbsp;&nbsp;&nbsp;<br><br>";
+		el.innerHTML = "<br />&nbsp;&nbsp;<b><font color='BLUE'>"+title+"</font></b>"+
+		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;<u>"+
+		Element('cc_participants').value+"</u>&nbsp;&nbsp;&nbsp;<br /><br />";
 							
 		if(names.length) {
 			for (var d = 0; d < (names.length-1); d++) {																																					
@@ -59,15 +59,15 @@ cListParticipants.prototype.showList = function(id, contact, email, title, accou
 				"<font color='DARKBLUE'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 					"\"" + names[d]+ "\"" +
 					" &lt;"+email_valido+
-					"&gt;</font>&nbsp;&nbsp;&nbsp;<br>";																	
+					"&gt;</font>&nbsp;&nbsp;&nbsp;<br />";
 			}
 		}
 		else {
 			el.innerHTML +=	"<font color='DARKBLUE'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-				"&lt;"+Element('cc_empty').value+"&gt;&nbsp;&nbsp;</font><br>";		
+				"&lt;"+Element('cc_empty').value+"&gt;&nbsp;&nbsp;</font><br />";
 		}
 			
-		el.innerHTML +=	"<br>";
+		el.innerHTML +=	"<br />";
 		
 		if(div)
 			this.showWindow(div);
@@ -79,17 +79,17 @@ cListParticipants.prototype.showList = function(id, contact, email, title, accou
 				var title = contacts.names_ordered;	
 				document.body.appendChild(el);				
 				el.innerHTML = "";	
-				el.innerHTML = "<br>&nbsp;&nbsp;<b><font color='BLUE' nowrap>"+title+"</font></b>"+
-				"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<u>"+
-				Element('cc_participants').value+"</u>&nbsp;&nbsp;&nbsp;<br><br>";				
+				el.innerHTML = "<br />&nbsp;&nbsp;<b><font color='BLUE' nowrap>"+title+"</font></b>"+
+				"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;<u>"+
+				Element('cc_participants').value+"</u>&nbsp;&nbsp;&nbsp;<br /><br />";
 				if(contacts.size > 0) {
 						el.innerHTML +=	contacts.inner_html;
 				}
 				else {
 					el.innerHTML +=	"<font color='DARKBLUE'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-					"&lt;"+Element('cc_empty').value+"&gt;&nbsp;&nbsp;</font><br>";		
+					"&lt;"+Element('cc_empty').value+"&gt;&nbsp;&nbsp;</font><br />";
 				}
-				el.innerHTML +=	"<br>";
+				el.innerHTML +=	"<br />";
 								
 				_this.showWindow(el);
 			}		

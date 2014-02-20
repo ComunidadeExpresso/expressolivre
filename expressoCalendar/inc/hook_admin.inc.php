@@ -12,8 +12,8 @@
 	// Only Modify the $file and $title variables.....
 	$title = $appname;
 	$file = Array(
-		'ExpressoCalendar migration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname. '&config=migra'),
-        'Global Settings' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname)
+		'ExpressoCalendar migration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname. '&amp;config=migra'),
+        'Global Settings' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname)
 	);
 	//Do not modify below this line
 	display_section($appname,$title,$file);

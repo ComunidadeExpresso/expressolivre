@@ -108,7 +108,7 @@ class WfSecurity extends Base {
     $result= $this->getOne($query ,array($activity_id, $user, 'u'));
     if ($result)
     {
-      //echo "<br>Access granted for ".$user;
+      //echo "<br />Access granted for ".$user;
       return true;
     }
     else
@@ -250,7 +250,7 @@ class WfSecurity extends Base {
       {
         //we need to make a row lock now, before any read action
         $where = 'wf_instance_id='.(int)$instanceId;
-        //$this->error[]= '<br> Debug:locking instances '.$where;
+        //$this->error[]= '<br /> Debug:locking instances '.$where;
         if (!($this->db->RowLock(GALAXIA_TABLE_PREFIX.'instances', $where)))
         {
           $this->error[] = tra('failed to obtain lock on %1 table', 'instances');
@@ -293,7 +293,7 @@ class WfSecurity extends Base {
       {
         //we need to lock this row now, before any read action
         $where = 'wf_instance_id='.(int)$instanceId.' and wf_activity_id='.(int)$activityId;
-        //$this->error[] = '<br> Debug:locking instance_activities '.$where;
+        //$this->error[] = '<br /> Debug:locking instance_activities '.$where;
         if (!($this->db->RowLock(GALAXIA_TABLE_PREFIX.'instance_activities', $where)))
         {
           if ($this->db->getOne('SELECT 1 FROM ' . GALAXIA_TABLE_PREFIX . 'instance_activities WHERE ' . $where))

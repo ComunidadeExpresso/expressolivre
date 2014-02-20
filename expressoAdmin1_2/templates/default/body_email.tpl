@@ -22,11 +22,11 @@ body a:hover {
 </head>
 <body>
 <b><p align='left'>{lang_Your_user_was_add/updated_in_the_shared_account} {shared_account}</p></b>
-<br>
+<br />
 <p align='left'>{lang_Your_user_has_the_following_acl}:</p>
 <table border='0' cellpadding='0' cellspacing='0' width='100%'>
 <tr><td valign='top'><b>{acl}</b></tr>
 </table>
-<br>
+<br />
 </body>
 </html>

@@ -187,7 +187,7 @@
 				{
 					echo $info;
 				}
-				echo '</em></b><br>';
+				echo '</em></b><br />';
 			}
 		}
 
@@ -642,15 +642,15 @@
 			}
 
 /*
-			echo "<br>fake_full_path: {$rarray['fake_full_path']}
-				<br>fake_leading_dirs: {$rarray['fake_leading_dirs']}
-				<br>fake_extra_path: {$rarray['fake_extra_path']}
-				<br>fake_name: {$rarray['fake_name']}
-				<br>real_full_path: {$rarray['real_full_path']}
-				<br>real_full_url: {$rarray['real_full_url']}
-				<br>real_leading_dirs: {$rarray['real_leading_dirs']}
-				<br>real_extra_path: {$rarray['real_extra_path']}
-				<br>real_name: {$rarray['real_name']}";
+			echo "<br />fake_full_path: {$rarray['fake_full_path']}
+				<br />fake_leading_dirs: {$rarray['fake_leading_dirs']}
+				<br />fake_extra_path: {$rarray['fake_extra_path']}
+				<br />fake_name: {$rarray['fake_name']}
+				<br />real_full_path: {$rarray['real_full_path']}
+				<br />real_full_url: {$rarray['real_full_url']}
+				<br />real_leading_dirs: {$rarray['real_leading_dirs']}
+				<br />real_extra_path: {$rarray['real_extra_path']}
+				<br />real_name: {$rarray['real_name']}";
 */
 
 			if ($data['object'])

@@ -62,8 +62,8 @@
    </tr>
   </table>
  </form>
- <br>
-	<script language="Javascript">
+ <br />
+	<script type="text/javascript">
 	// <!-- start Javascript	
 	function toggle()
 	{

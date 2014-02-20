@@ -26,7 +26,7 @@ $setup_info['expressoMail1_2']['tables'][] = 'expressomail_dynamic_contact';
 $setup_info['expressoMail1_2']['enable'] = 1;
 
 $setup_info['expressoMail1_2']['author'] = 'João Alfredo Knopik Junior' .
-	' (joao.alfredo@gmail.com / jakjr@celepar.pr.gov.br)<br>' .
+	' (joao.alfredo@gmail.com / jakjr@celepar.pr.gov.br)<br />' .
 	'Nilton Emílio Bührer Neto' .
 	' (nilton.neto@gmail.com / niltonneto@celepar.pr.gov.br)';
 $setup_info['expressoMail1_2']['maintainer'] = 'Empresa ou Instituição onde o seu Expresso está instalado.';

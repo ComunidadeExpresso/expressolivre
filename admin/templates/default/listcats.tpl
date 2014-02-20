@@ -5,14 +5,14 @@
 				<td colspan="5" align="left" valign="top"><form name="form1" method="post" onSubmit="return on_submit()" action="{action_nurl}">&nbsp;					
 					<input type="radio" onclick="javascript:changeElement();" name="typesearch" value="g" {type_search_g_checked}/>{lang_group_name}&nbsp;
 					<input type="radio" onclick="javascript:changeElement();" name="typesearch" value="c" {type_search_c_checked}/>{lang_cat_name}&nbsp;
-					<input type="radio" onclick="javascript:changeElement();" name="typesearch" value="a" {type_search_a_checked}/>{lang_cat_all}<br>
-					<div id="filterByGroup" style="display:none"><br>
-				    	{lang_Search_for}&nbsp;<input type="text" id="search_group" size=30 autocomplete="off" onkeyup="javascript:search_object(this,'cal_span_searching','groupsfound','g')"/><br>
+					<input type="radio" onclick="javascript:changeElement();" name="typesearch" value="a" {type_search_a_checked}/>{lang_cat_all}<br />
+					<div id="filterByGroup" style="display:none"><br />
+				    	{lang_Search_for}&nbsp;<input type="text" id="search_group" size=30 autocomplete="off" onkeyup="javascript:search_object(this,'cal_span_searching','groupsfound','g')"/><br />
 			            &nbsp;<font color="red"><span id="cal_span_searching">&nbsp;</span></font><br/>
 			            <input type="hidden" id="group" name="group"/>
 			            <select id="groupsfound" style="width: 300px" size="4"></select>&nbsp;<input type="submit" value="{lang_search}">
 					</div>
-					<div id="filterByName" style="display:none"><br>
+					<div id="filterByName" style="display:none"><br />
 					<input id="query" type="text" name="query" value="">&nbsp;<input type="submit" value="{lang_search}">
 					</form>
 				</td>
@@ -69,7 +69,7 @@
 <input type="hidden" id="txt_loading" value="{lang_Loading}">
 <input type="hidden" id="txt_searching" value="{lang_Searching}">
 <input type="hidden" id="txt_typemoreletters" value="{lang_typemoreletters}">
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript">
 	function on_submit(){
 		var select_group = document.getElementById("groupsfound");
 		if(document.getElementById("query").value == "" && select_group.value == ""){

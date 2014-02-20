@@ -169,7 +169,7 @@
                                 include_once(dirname( __FILE__ ) . '/../../infodist/ultima-revisao-svn.php');
                                 if(isset($ultima_revisao))
                                     {
-                                        $aux =  '<br>' . $ultima_revisao;
+                                        $aux =  '<br />' . $ultima_revisao;
                                     }
                                 $GLOBALS['setup_tpl']->set_var('pgw_ver',@$GLOBALS['phpgw_info']['server']['versions']['phpgwapi'] . $aux);
                             }

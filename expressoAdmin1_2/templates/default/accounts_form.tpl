@@ -23,7 +23,7 @@ function initAll()
 <input type="hidden" name="ldap_context"		value="{ldap_context}">
 <input type="hidden" name="associated_domain" 	value="{associated_domain}"> 
 
-<br>
+<br />
 <table width="90%" border="0" cellspacing="0" cellpading="0">
 	<tr>
 		<th id="tab1" class="activetab" onclick="javascript:tab.display(1);"><a href="#" tabindex="0" accesskey="1" onfocus="tab.display(1);" onclick="tab.display(1); return(false);">{lang_general_information}</a></th>
@@ -35,7 +35,7 @@ function initAll()
 		<th id="tab7" class="activetab" style="display:{display_samba_suport}"	onclick="javascript:tab.display(7);"><a href="#" tabindex="0" accesskey="7" onfocus="tab.display(7);" onclick="tab.display(7); return(false);">{lang_samba_config}</a></th>
 	</tr>
 </table>
-<br>
+<br />
 
 <!-- The code for General Information Tab -->
 <div id="tabcontent1" class="inactivetab">
@@ -90,7 +90,7 @@ function initAll()
 			<td>&nbsp;</td>
 			<td rowspan="4" width="35%" style="display:{display_picture}">
 				<img align="center" src="{photo_bin}" id="ea_img_photo" border="0">
-				<input type="file" id="ea_input_photo" name="photo" {disabled_edit_photo} size=20><br>
+				<input type="file" id="ea_input_photo" name="photo" {disabled_edit_photo} size=20><br />
 				<input type="checkbox" {disabled_delete_photo} {disabled_edit_photo} name="delete_photo" value="1">{lang_delete_photo}
 			</td>
 		</tr>
@@ -214,7 +214,7 @@ function initAll()
 				<table width="100%" border="0">
 					<tr>
 						<td width="40%">
-							<br>{lang_user_groups}<br>
+							<br />{lang_user_groups}<br />
 							<select id="ea_select_user_groups" size="13" style="width: 400px" multiple name="groups[]">{ea_select_user_groups_options}</select>
 						</td>
 					</tr>
@@ -223,7 +223,7 @@ function initAll()
 
 			<td width="20%" align="center">
 				<button type="button" {disable_group} onClick="javascript:add_user2group();"><img src="expressoAdmin1_2/templates/default/images/add.png" style="vertical-align: middle;" >&nbsp;{lang_add}</button>
-				<br><br>
+				<br /><br />
 				<button type="button" {disable_group} onClick="javascript:remove_user2group();"><img src="expressoAdmin1_2/templates/default/images/rem.png" style="vertical-align: middle;" >&nbsp;{lang_remove}</button>
 			</td>
 
@@ -232,27 +232,27 @@ function initAll()
 					<tr>
 						<td>
 							{lang_search_organization}:
-							<br>
+							<br />
 							<input type="text" id="organization_search" autocomplete="off" size=20 onKeyUp="javascript:search_organization(this.value, 'ea_combo_org_groups');" onblur="javascript:get_available_groups(ea_combo_org_groups.value);">
-							<br>
+							<br />
 							{lang_organizations}:
-							<br>
+							<br />
 							<select {disable_group} id="ea_combo_org_groups" name="ea_combo_org_groups" onchange="javascript:get_available_groups(this.value);">{combo_organizations}</select>
 						</td>
 					</tr>
 
 					<tr>
 						<td>
-							{lang_search_for_group}:<br>
-							<input {disable_group} id="ea_input_searchGroup" size="35" autocomplete="off" onkeyup="javascript:optionFinderTimeout_group(this, event)"><br>
+							{lang_search_for_group}:<br />
+							<input {disable_group} id="ea_input_searchGroup" size="35" autocomplete="off" onkeyup="javascript:optionFinderTimeout_group(this, event)"><br />
 							<font color="red"><span id="ea_span_searching_group">&nbsp;<span></font>
-							<br>
+							<br />
 						</td>
 					</tr>
 					
 					<tr>
 						<td width="40%">
-							{lang_available_groups}<br>
+							{lang_available_groups}<br />
 							<select {disable_group} id="ea_select_available_groups" size="13" style="width:400px" multiple></select>
 						</td>
 					</tr>
@@ -278,7 +278,7 @@ function initAll()
 				<table width="100%" border="0">
 					<tr>
 						<td width="40%">
-							<br>{lang_the_user_is_part_of_this_email_lists}:
+							<br />{lang_the_user_is_part_of_this_email_lists}:
 							<select id="ea_select_user_maillists" size="13" style="width: 400px" multiple name="maillists[]">{ea_select_user_maillists_options}</select>
 						</td>
 					</tr>
@@ -287,7 +287,7 @@ function initAll()
 			
 			<td width="20%" align="center">
 				<button type="button" {disabled} onClick="javascript:add_user2maillist();"><img src="expressoAdmin1_2/templates/default/images/add.png" style="vertical-align: middle;" >&nbsp;{lang_add}</button>
-				<br><br>
+				<br /><br />
 				<button type="button" {disabled} onClick="javascript:remove_user2maillist();"><img src="expressoAdmin1_2/templates/default/images/rem.png" style="vertical-align: middle;" >&nbsp;{lang_remove}</button>
 			</td>
 			
@@ -296,25 +296,25 @@ function initAll()
 					<tr>
 						<td>
 							{lang_search_organization}:
-							<br>
+							<br />
 							<input type="text" id="organization_search" autocomplete="off" size=20 onKeyUp="javascript:search_organization(this.value, 'ea_combo_org_maillists');" onblur="javascript:get_available_maillists(ea_combo_org_maillists.value);">
-							<br>
+							<br />
 							{lang_organizations}:
-							<br>
+							<br />
 							<select {disabled} id="ea_combo_org_maillists" name="ea_combo_org_maillists" onchange="javascript:get_available_maillists(this.value);">{combo_all_orgs}</select>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							{lang_search_email_list}:<br>
-							<input {disabled} id="ea_input_searchMailList" size="35" autocomplete="off" onkeyup="javascript:optionFinderTimeout_maillist(this, event)"><br>
+							{lang_search_email_list}:<br />
+							<input {disabled} id="ea_input_searchMailList" size="35" autocomplete="off" onkeyup="javascript:optionFinderTimeout_maillist(this, event)"><br />
 							<font color="red"><span id="ea_span_searching_maillist">&nbsp;<span></font>
-							<br>							
+							<br />
 						</td>
 					</tr>
 					<tr>
 						<td width="40%">
-							{lang_available_mail_lists}:<br>
+							{lang_available_mail_lists}:<br />
 							<select id="ea_select_available_maillists" size="13" style="width: 400px" multiple {disabled}>{account_lists}</select>
 						</td>
 					</tr>
@@ -371,7 +371,7 @@ function initAll()
 </div>
 <!-- End Tabs -->
 
-<br><br>
+<br /><br />
 <table width="90%" border="0" cellspacing="0" cellpading="1">
 	<tr>	
 		<td width="90%" align="left"  class="td_left" bgcolor="{color_bg1}">

@@ -39,7 +39,7 @@
 
 // User-configurable list of allowed HTML tags and attributes.
 // Thanks to Jake Olefsky for this little addition
-//$allowed_html = '<strong><small><p><br><a><b><u><i><img><code><ul><ol><li>';  //Removed. Accept alll HTML tags.
+//$allowed_html = '<strong><small><p><br /><a><b><u><i><img><code><ul><ol><li>';  //Removed. Accept alll HTML tags.
 
 // Set the max number of suggestions to return at a time.
 define('MAX_SUGGESTIONS', 50);
@@ -442,7 +442,7 @@ function remove_word_junk($t)
  * box from the div.  The comments are removed and breaks are
  * converted back into \n's.  All the html tags that the user
  * might have entered that aren't on the approved list:
- * <p><br><a><b><strong><i><small><ul><li> are stripped out.
+ * <p><br /><a><b><strong><i><small><ul><li> are stripped out.
  * The user-entered returns have already been replaced with
  * $u2026 so that they can be preserved.  I replace all the
  * \n's that might have been added by the browser (Firefox does

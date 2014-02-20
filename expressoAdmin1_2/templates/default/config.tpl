@@ -139,7 +139,7 @@ function test_db_connection()
 	</tr>
 	
 	<tr class="th">
-		<td colspan="2" align="center"><b>{lang_Configurations_to_get_nextID_from_another_DB}<br>{lang_Leave_the_host_field_empty_to_use_the_same_DB_of_the_ExpressoLivre}</b></td>
+		<td colspan="2" align="center"><b>{lang_Configurations_to_get_nextID_from_another_DB}<br />{lang_Leave_the_host_field_empty_to_use_the_same_DB_of_the_ExpressoLivre}</b></td>
 	</tr>
 	<tr class="row_on">
 		<td>{lang_db_host}:</td>

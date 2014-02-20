@@ -63,18 +63,18 @@
 				$value = $$var;
 			}
 			$this->$var = $value;
-			// echo $var." = ".$this->$var."<br>\n";
+			// echo $var." = ".$this->$var."<br />\n";
 		}
 
 		function getvar($var='')
 		{
 			if ($var=='' || !isset($this->$var))
 			{
-				echo 'Programming Error: '.$this->getvar('classname').'->getvar('.$var.')!<br>'."\n";
+				echo 'Programming Error: '.$this->getvar('classname').'->getvar('.$var.')!<br />'."\n";
 				$GLOBALS['phpgw']->common->phpgw_exit();
 			}
-			//echo "Var = ".$var."<br>\n";
-			//echo $var." = ".$this->$var."<br>\n";
+			//echo "Var = ".$var."<br />\n";
+			//echo $var." = ".$this->$var."<br />\n";
 			return $this->$var;
 		}
 
@@ -84,7 +84,7 @@
 		function portalbox($title='', $primary='', $secondary='', $tertiary='')
 		{
 			$this->setvar('title',$title);
-			// echo 'After SetVar Title = '.$this->getvar('title')."<br>\n";
+			// echo 'After SetVar Title = '.$this->getvar('title')."<br />\n";
 			$this->setvar('titlebgcolor',$primary);
 			$this->setvar('innerbgcolor',$secondary);
 			$this->setvar('outerbordercolor',$tertiary);

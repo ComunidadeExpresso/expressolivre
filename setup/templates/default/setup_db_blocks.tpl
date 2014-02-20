@@ -8,18 +8,18 @@
 		<img src="{img_incomplete}" alt="{notcomplete}" border="0">
 	</td>
 	<td>
-    {dbnotexist}<br>
-		{makesure}.<br>
-		<br>
+    {dbnotexist}<br />
+		{makesure}.<br />
+		<br />
 		{instr}<p>
 		<form action="index.php" method="post">
-		{createdb}<br>
-		    DB root username: <input type="text" name="db_root" value="{db_root}"><br>
-		    DB root password: <input type="password" name="db_pass" value="{db_pass}"><br>
+		{createdb}<br />
+		    DB root username: <input type="text" name="db_root" value="{db_root}"><br />
+		    DB root password: <input type="password" name="db_pass" value="{db_pass}"><br />
 		    <input type="hidden" name="action" value="Create Database">
 		    <input type="submit" name="label" value="{create_database}">
 		</form>
-		<form method="POST" action="index.php"> <br>
+		<form method="POST" action="index.php"> <br />
 		<input type="submit" value="Re-Check my database">
 		</form>
 	</td>
@@ -51,10 +51,10 @@
 		<form action="index.php" method="post">
 		<input type="hidden" name="oldversion" value="new">
 
-		{dbexists}<br>
+		{dbexists}<br />
         <input type="hidden" name="action" value="Install">
 		<input type="submit" name="label" value="{install}"> {coreapps}
-		<br><input type="checkbox" name="debug" value="1"> {lang_debug}
+		<br /><input type="checkbox" name="debug" value="1"> {lang_debug}
 		</form>
 	</td>
 </tr>
@@ -68,24 +68,24 @@
 		<img src="{img_incomplete}" alt="not complete" border="0">
 	</td>
 	<td>
-		{oldver}.<br>
+		{oldver}.<br />
 		{automatic}
-		{backupwarn}<br>
+		{backupwarn}<br />
 		<form method="POST" action="index.php">
 		<input type="hidden" name="oldversion" value="{oldver}">
 		<input type="hidden" name="useglobalconfigsettings">
 		<input type="hidden" name="action" value="Upgrade">
-		<input type="submit" name="label" value="{upgrade}"><br>
-		<input type="checkbox" name="debug" value="1"> {lang_debug}<br>
+		<input type="submit" name="label" value="{upgrade}"><br />
+		<input type="checkbox" name="debug" value="1"> {lang_debug}<br />
 		</form>
 
 		<form method="POST" action="index.php">
 		<input type="hidden" name="oldversion" value="{oldver}">
 		<input type="hidden" name="useglobalconfigsettings">
 		<input type="hidden" name="action" value="Uninstall all applications">
-		<input type="submit" name="label" value="{uninstall_all_applications}"><br>({dropwarn})
+		<input type="submit" name="label" value="{uninstall_all_applications}"><br />({dropwarn})
 		</form>
-		<hr>
+		<hr />
 {dont_touch_my_data}.&nbsp;&nbsp;{goto}:
 		<form method="POST" action="config.php">
         <input type="hidden" name="action" value="Dont touch my data">
@@ -167,7 +167,7 @@
 		</tr>
 		</table>
 
-		<form method="POST" action="index.php"> <br>
+		<form method="POST" action="index.php"> <br />
 		<input type="submit" value="{re-check_my_installation}">
 		</form>
 	</td>
@@ -184,10 +184,10 @@
 	<td>
 		{tablescurrent}
 		<form method="POST" action="index.php">
-		<input type="hidden" name="oldversion" value="new"> <br>
+		<input type="hidden" name="oldversion" value="new"> <br />
 		{insanity}: 
         <input type="hidden" name="action" value="Uninstall all applications">
-		<input type="submit" name="label" value="{uninstall_all_applications}"><br>({dropwarn})
+		<input type="submit" name="label" value="{uninstall_all_applications}"><br />({dropwarn})
 		</form>
 	</td>
 </tr>
@@ -202,7 +202,7 @@
 	</td>
 	<td>
 		<form action="index.php" method="post">
-		{dbnotexist}.<br>
+		{dbnotexist}.<br />
 		<input type="submit" value="{create_one_now}">
 		</form>
 	</td>

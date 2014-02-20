@@ -24,7 +24,7 @@ require_once '../header.inc.php';
 // Only Modify the $file and $title variables.....
 	$title = $appname;
 	$file = Array(
-		'Site Configuration' 	=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+		'Site Configuration' 	=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname),
 		'Folders management' 	=> $GLOBALS['phpgw']->link('/index.php','menuaction='.$appname.'.uiconfig.folders'),
 		'Quota management' 		=> $GLOBALS['phpgw']->link('/index.php','menuaction='.$appname.'.uiconfig.quota'),
 		'Permissions of groups and users' => $GLOBALS['phpgw']->link('/index.php','menuaction='.$appname.'.uiconfig.groups_users'),

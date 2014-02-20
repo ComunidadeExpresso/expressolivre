@@ -1257,7 +1257,7 @@ toolbar : [["Source","Preview","-","Cut","Copy","Paste","-","Print",
 
 		if ($img) {
 			return '<td class="" align="center" valign="middle" height="28" width="70">
-			<input title="' . $description . '" name="' . $name . '" type="image" alt="' . $name . '" src="' . $image . '" value="clicked" /><br><small>' . $description . '</small>
+			<input title="' . $description . '" name="' . $name . '" type="image" alt="' . $name . '" src="' . $image . '" value="clicked" /><br /><small>' . $description . '</small>
 			</td>';
 		}
 	}

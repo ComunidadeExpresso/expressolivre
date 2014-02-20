@@ -86,8 +86,8 @@ $compressor = new Yui\JsCompressorFilter('../../library/yuicompressor/yuicompres
 $compressor->setCharset("ISO-8859-1");
 
 if (strpos($javaVersion,"java version") !== false){
-    $filterManager->set('yui_js', $compressor);
-    $js->ensureFilter($filterManager->get('yui_js'));
+   $filterManager->set('yui_js', $compressor);
+   $js->ensureFilter($filterManager->get('yui_js'));
 }
 
 $jsCache = new AssetCache($js,new FilesystemCache('/tmp'));

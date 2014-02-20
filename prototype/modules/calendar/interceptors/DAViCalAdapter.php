@@ -182,7 +182,7 @@ class DAViCalAdapter {
     }
     
     static function import($data , $params = false)
-    {
+    {                  
         $user =  Controller::find(array('concept' => 'user' , 'service' => 'OpenLDAP' ),false,array('filter' => array('=','uid',$params['owner']) , 'notExternal' => true));  
         $params['owner'] = $user[0]['id'];
         
@@ -296,11 +296,11 @@ class DAViCalAdapter {
     }
     
     static function putIcal($data , $params = false)
-    {
+    {  
       ob_start();
       require_once ROOTPATH.'/plugins/davicalCliente/caldav-client-v2.php';
       $cal = new CalDAVClient( Config::service( 'CalDAV' , 'url' ).'/'.$params['location'].'/', Config::me( 'uid' ), Config::me( 'password' ) );
-      $cal->DoPUTRequest( Config::service( 'CalDAV' , 'url' ).'/'.$params['location'].'/'.$params['uid'].'.ics', utf8_encode($data)  );
+      $cal->DoPUTRequest( Config::service( 'CalDAV' , 'url' ).'/'.$params['location'].'/'.$params['uid'].'.ics', $data  );  
       ob_end_clean();
     }
     

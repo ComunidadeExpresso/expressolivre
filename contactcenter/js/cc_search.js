@@ -227,7 +227,7 @@
 
 			for( var i = 0, counter = 2; i < config.length; i++ )
 			    for( attr in config[i] )
-				items[counter++] = "<tr><td style='padding: 3px'>"+config[i][attr]+"</td><td style='padding: 5px;'><input type='text' name='advanced_search' label='"+attr+"'><br></td></tr>";
+				items[counter++] = "<tr><td style='padding: 3px'>"+config[i][attr]+"</td><td style='padding: 5px;'><input type='text' name='advanced_search' label='"+attr+"'><br /></td></tr>";
 
 			var itemH = document.createElement('DIV');
 

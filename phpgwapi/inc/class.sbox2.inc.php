@@ -59,7 +59,7 @@
 		{
 			// echo "<p>getId('$name','$lang_name','$prompt',$id_name,'$content') =";
 			$ret['doSearchFkt'] =
-'<script language="JavaScript">'."\n".
+'<script type="text/javascript">'."\n".
 " function doSearch(field,ask) {\n".
 "  field.value = prompt(ask,'');\n".
 "  if (field.value != 'null') {\n".
@@ -72,7 +72,7 @@
 '</script>';
 
 			$ret[$name.'_title'] = is_array($content) && count($content) ? $lang_name :
-'<script language="JavaScript">'."\n".
+'<script type="text/javascript">'."\n".
 " document.writeln('<input type=\"hidden\" name=\"query_$name\" value=\"\">');\n".
 " document.writeln('<input type=\"button\" onClick=\"doSearch(this.form.query_$name,\'$prompt\')\" value=\"$lang_name\">');\n".
 "</script>\n".

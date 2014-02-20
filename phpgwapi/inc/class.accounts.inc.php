@@ -499,7 +499,7 @@
 			while (!$free)
 			{
 				$account_lid = '';
-				//echo '<br>calling search for id: '.$nextid;
+				//echo '<br />calling search for id: '.$nextid;
 				if ($this->exists($nextid))
 				{
 					$nextid = (int)$GLOBALS['phpgw']->common->next_id($type,$min,$max);
@@ -507,7 +507,7 @@
 				else
 				{
 					$account_lid = $this->id2name($nextid);
-					/* echo '<br>calling search for lid: '.$account_lid . '(from account_id=' . $nextid . ')'; */
+					/* echo '<br />calling search for lid: '.$account_lid . '(from account_id=' . $nextid . ')'; */
 					if ($this->exists($account_lid))
 					{
 						$nextid = (int)$GLOBALS['phpgw']->common->next_id($type,$min,$max);
@@ -523,7 +523,7 @@
 			{
 				return False;
 			}
-			/* echo '<br>using'.$nextid;exit; */
+			/* echo '<br />using'.$nextid;exit; */
 			return $nextid;
 		}
 

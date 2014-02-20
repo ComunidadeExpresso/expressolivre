@@ -572,7 +572,7 @@
 				}
 			}
 
-			//echo 'Query in Find: "'.$query.'"<br>';
+			//echo 'Query in Find: "'.$query.'"<br />';
 			if (!$this->db->query($query))
 			{
 				exit ('Query failed! File: '.__FILE__.' on line'.__LINE__);
@@ -611,7 +611,7 @@
 				
 				if (!isset($apptables[$this->tables[$actual]['table']]))
 				{
-					exit('Some unrecognized parameter in '.__FILE__.' on line '.__LINE__.'<br>'.
+					exit('Some unrecognized parameter in '.__FILE__.' on line '.__LINE__.'<br />'.
 					     'Couldn\'t find '.$this->tables[$actual]['table']);
 				}
 				
@@ -645,7 +645,7 @@
 					continue;
 				}
 
-				exit('Invalid field in '.__FILE__.' on line '.__LINE__.'<br>Actual: '.$actual.'<br>Next: '.$next);
+				exit('Invalid field in '.__FILE__.' on line '.__LINE__.'<br />Actual: '.$actual.'<br />Next: '.$next);
 			}
 			
 			return $return;
@@ -697,7 +697,7 @@
 						break;
 						
 					default:
-						exit('Error in '.__FILE__.' on '.__LINE__.'<br>The restriction type passed was: '.$restrict_data['type']);					
+						exit('Error in '.__FILE__.' on '.__LINE__.'<br />The restriction type passed was: '.$restrict_data['type']);
 				}
 			}
 			
@@ -801,7 +801,7 @@
 					$GLOBALS['phpgw']->log->commit();
 				}
 				else {
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			

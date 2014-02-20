@@ -109,7 +109,7 @@ var rules_limit = 20000;
 			
 			for(var i= 0; i < filter.rulest.length; i++)
 			{
-				list += "<input id=rule_"+i+" type='checkBox'>&nbsp;<img src='"+this.filter_img.src+"' width='16' height='16' border='0' />&nbsp;" + get_lang("Rule")+" : " + parseInt(i+1) + " -- " + this.vl_rule(filter.rulest[i],i,'') + "<br>";
+				list += "<input id=rule_"+i+" type='checkBox'>&nbsp;<img src='"+this.filter_img.src+"' width='16' height='16' border='0' />&nbsp;" + get_lang("Rule")+" : " + parseInt(i+1) + " -- " + this.vl_rule(filter.rulest[i],i,'') + "<br />";
 			}
 			list += "</div>";			
 		}
@@ -147,7 +147,7 @@ var rules_limit = 20000;
 				list += "<div id='voip_rule'>";
 				for(var i= 0; i < filter.rulesVoip.length; i++)
 				{
-					list += "<input id='voip_rule_"+i+"' type='checkBox'>&nbsp;<img src='"+this.telephone_voip.src+"' width='16' height='16' border='0'/>&nbsp;" + get_lang("Rule")+" : " + parseInt(i+1) + " -- " + this.vl_rule(filter.rulesVoip[i],i,'voip') + "<br>";
+					list += "<input id='voip_rule_"+i+"' type='checkBox'>&nbsp;<img src='"+this.telephone_voip.src+"' width='16' height='16' border='0'/>&nbsp;" + get_lang("Rule")+" : " + parseInt(i+1) + " -- " + this.vl_rule(filter.rulesVoip[i],i,'voip') + "<br />";
 				}
 				list += "</div>";
 			}

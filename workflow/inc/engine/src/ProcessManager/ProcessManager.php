@@ -398,7 +398,7 @@ class ProcessManager extends BaseManager {
 															//$name is agent_data $val is 'name' or 'value'
 															$name = trim($this->tree[$z7]['name']);
 															$content = trim($this->tree[$z7]['data']);
-															//echo "<br>z7 name $name content: $content";
+															//echo "<br />z7 name $name content: $content";
 															if ($name=='name')
 															{
 																$agent_data_name = $content;
@@ -408,7 +408,7 @@ class ProcessManager extends BaseManager {
 																$agent_data_value =& $content;
 															}
 														}
-														//echo "<br>associate $agent_data_name to $agent_data_value <hr>";
+														//echo "<br />associate $agent_data_name to $agent_data_value <hr />";
 														$agent[$agent_data_name] = $agent_data_value;
 													}
 												}

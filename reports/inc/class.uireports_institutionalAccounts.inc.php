@@ -513,7 +513,7 @@
 						}
                                                 else
                                                 {
-							$row_participants = $row_participants . '<br>' . $accountr['account_mailForwardingAddress'][$i];
+							$row_participants = $row_participants . '<br />' . $accountr['account_mailForwardingAddress'][$i];
                                                 }
                                         }
 

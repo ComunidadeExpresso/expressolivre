@@ -29,7 +29,7 @@
 			msg_title.style.top = "-8px"		
 			msg_title.style.width = "240px";
 			msg_title.style.height = "350px";
-			msg_title.innerHTML = "<br><b><font color='BLACK' nowrap>"+title+"</font></b>";
+			msg_title.innerHTML = "<br /><b><font color='BLACK' nowrap>"+title+"</font></b>";
 				tree.appendChild(msg_title);
 		
 		var text_area_div = document.createElement("DIV");
@@ -52,7 +52,7 @@
 			msg_confirmation.style.width = "240px";
 			msg_confirmation.style.height = "350px";
 			msg_confirm = get_lang("Attention! The information contained in the e-mail will be sent to the support team");
-			msg_confirmation.innerHTML = "<br><b><font color='BLACK' nowrap>"+msg_confirm+"</font></b>";
+			msg_confirmation.innerHTML = "<br /><b><font color='BLACK' nowrap>"+msg_confirm+"</font></b>";
 				tree.appendChild(msg_confirmation);
 		
 		
@@ -64,7 +64,7 @@
 			div_buttons.style.width = "130px";
 			div_buttons.style.height = "190px";
 			div_buttons.innerHTML = "<table border='0' cellpading='0' cellspacing='0'>"+
-									"<tr><td><br><br><br><br><br></td></tr>"+
+									"<tr><td><br /><br /><br /><br /><br /></td></tr>"+
 									"<tr>" + 
 									"<td><input type='button' value='"+get_lang('Report error')+"' onclick='report_error()'></td>" +
 									"<td><input type='button' value='"+get_lang('Cancel')+"' onclick='report_wind.close_win()'></td>" +

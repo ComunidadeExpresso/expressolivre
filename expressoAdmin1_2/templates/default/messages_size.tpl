@@ -11,7 +11,7 @@
 				<td align="left" width="25%">
 					{lang_default_size_value}
 					<input type="text" id="max_size" name="max_size" value="{default_value}" size="4"> MB 
-					<input type="button" value="{lang_save}" onClick="javascript:save_default_max_size(document.getElementById('max_size').value)"> <br><br>
+					<input type="button" value="{lang_save}" onClick="javascript:save_default_max_size(document.getElementById('max_size').value)"> <br /><br />
 					
 					<input type="button" value="{lang_create_new_rule}" "{create_share:_account_disabled}" onClick='{onclick_create_messages_size}'>
 					<input type="button" value="{lang_back}" onClick="document.location.href='{back_url}'">

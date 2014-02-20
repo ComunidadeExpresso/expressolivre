@@ -19,7 +19,7 @@
 	</td>
 </tr>
 </table>
-<br>
+<br />
 </center>
 <!-- END main -->
 

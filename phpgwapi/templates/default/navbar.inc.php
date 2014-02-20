@@ -41,11 +41,11 @@
 		$var['dir_root'] = $GLOBALS['phpgw_info']['server']['webserver_url'];
 		$var['table_bg_color'] = $GLOBALS['phpgw_info']['theme']['navbar_bg'];
 
-		$show_menu_event = 'onClick';
+		$show_menu_event = 'onclick';
 	
 
 		$applications = '';
-
+        $app_icons = '';
 		//	== 'icons_and_text')
 
 		$max_icons=$GLOBALS['phpgw_info']['user']['preferences']['common']['max_icons'];
@@ -88,11 +88,11 @@
 					if($app == 'home') $title = lang('Home');
 					if ($GLOBALS['phpgw_info']['flags']['currentapp'] == $app)
 					{
-						$icon .= '<img id="'.str_replace('_','',$app).'id" src="' . $app_data['icon'] . '" alt="' . $title . '" title="'. $title . '" border="0" width="35" height="35" nowrap="nowrap"/></a>';
+						$icon .= '<img id="'.str_replace('_','',$app).'id" src="' . $app_data['icon'] . '" alt="' . $title . '" title="'. $title . '" width="35" height="35" /></a>';
 						$current_app = True;
 					}
 					else
-						$icon .= '<img id="'.str_replace('_','',$app).'id" src="' . $app_data['icon'] . '" alt="' . $title . '" title="'. $title . '" border="0" width="24" height="24" nowrap="nowrap"/></a>';
+						$icon .= '<img id="'.str_replace('_','',$app).'id" src="' . $app_data['icon'] . '" alt="' . $title . '" title="'. $title . '" width="24" height="24" /></a>';
 
 					if($app=='home')
 					{
@@ -102,7 +102,7 @@
 						}
 					}
 				
-					// Verifica qual o formato da Barra de navegação: 
+					// Verifica qual o formato da Barra de navegaÃ§Ã£o:
 					// Icone ou Texto, ou Icone e Texto
 					
 
@@ -124,8 +124,10 @@
 						{
 							$tdwidth = 100/($max_icons+2);
 						}
-						
-						$app_icons .= '<td nowrap '.
+                        if($app_icons != '')
+                            $app_icons .= '</td>' . "\n";
+
+						$app_icons .= '<td '.
 						'onmouseover="javascript:'.($current_app?'return true;':'').'this.className=\'navbar_butOver\'; zoom_in(this.firstChild.firstChild.id)" '.
 						'onmouseout="javascript:'.($current_app?'return true;':'').'this.className=\'navbar_but\'; '.($current_app?'':'zoom_out(this.firstChild.firstChild.id)').'" '.
 						'class="'.($current_app?'navbar_butOut':'navbar_but').'">';
@@ -138,8 +140,8 @@
 					}
 					
 										
-					$icon = '<img align="center" src="' . $app_data['icon'] . '" alt="' . $title . '" width="16" title="'. $title . '" border="0" />';
-				
+					$icon = '<img src="' . $app_data['icon'] . '" alt="' . $title . '" width="16" title="'. $title . '" />';
+
 					$app_extra_icons .= '<tr>';
 
 					if($GLOBALS['phpgw_info']['user']['preferences']['common']['navbar_format']!='text')
@@ -155,15 +157,18 @@
 					}
 
 
-						$app_extra_icons .= '<td align="left" class="extraIconsRow" style=""><a href="'.$app_data['url'] . '"';
+                    $app_extra_icons .= '<td align="left" class="extraIconsRow" style="">
+                                                <a href="'.$app_data['url'] . '"';
 
-						if(isset($GLOBALS['phpgw_info']['flags']['navbar_target']) && $GLOBALS['phpgw_info']['flags']['navbar_target'])
-						{
-							$app_extra_icons .= ' target="' . $GLOBALS['phpgw_info']['flags']['navbar_target'] . '"';
-						}
+                    if(isset($GLOBALS['phpgw_info']['flags']['navbar_target']) && $GLOBALS['phpgw_info']['flags']['navbar_target'])
+                    {
+                        $app_extra_icons .= ' target="' . $GLOBALS['phpgw_info']['flags']['navbar_target'] . '"';
+                    }
 
-						$app_extra_icons .= '>' . $title_extra . '</a></td></tr>';
-
+                    $app_extra_icons .= '>' . $title_extra . '</a>
+                                            </td>
+                                        ';
+                    $app_extra_icons .= '</tr>';
 					unset($icon);
 					unset($title);
 					++$i;
@@ -172,9 +177,8 @@
 			
 			if($GLOBALS['phpgw_info']['user']['preferences']['common']['start_and_logout_icons']!='no')	
 			{
-			
-				$hint = $GLOBALS['phpgw_info']['navbar']['logout']['title'];
-				$icon = '<img id="logout_id" width="24" height="24" src="'.$GLOBALS['phpgw_info']['navbar']['logout']['icon'].'"  alt="'.$hint.'" title="'.$hint.'">';
+ 				$hint = $GLOBALS['phpgw_info']['navbar']['logout']['title'];
+				$icon = '<img id="logout_id" width="24" height="24" src="'.$GLOBALS['phpgw_info']['navbar']['logout']['icon'].'"  alt="'.$hint.'" title="'.$hint.'"/>';
 				
 				if($GLOBALS['phpgw_info']['user']['preferences']['common']['navbar_format']=='icons') {
 					
@@ -184,27 +188,31 @@
 					
 						$icon = '';
 				}			
-				$app_icons .= '<td nowrap '.
+				$app_icons .= '</td>' . "\n" . '<td '.
 				'onmouseover="javascript:this.className=\'navbar_butOver\'; zoom_in(this.firstChild.firstChild.id)" '.
 				'onmouseout="javascript:this.className=\'navbar_but\'; zoom_out(this.firstChild.firstChild.id)" '.
-				'class="navbar_but"><a onclick="location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'">'.$icon.'</td>';
-			}			//			window.location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'
-			
+				'class="navbar_but"><a onclick="location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'">'.$icon.'</a></td>';
+                //$app_icons .= '</tr>';
+            }			//			window.location.href=\''.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'\'
+
+
 			$var['app_icons'] = $app_icons;
 			
 			$hint = $GLOBALS['phpgw_info']['navbar']['logout']['title'];
-			$icon = '<img src="'.$GLOBALS['phpgw_info']['navbar']['logout']['icon'].'"  alt="'.$hint.'" title="'.$hint.'">';
+			$icon = '<img src="'.$GLOBALS['phpgw_info']['navbar']['logout']['icon'].'"  alt="'.$hint.'" title="'.$hint.'"/>';
 			$title = $GLOBALS['phpgw_info']['navbar']['logout']['title'];
-			
+            $app_extra_icons .= '<tr>';
 			$app_extra_icons .= '<td  class="extraIconsRow">
-				<a href="'.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'">'.$icon.'</a></td>';
+				                    <a href="'.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'">'.$icon.'</a>
+				                 </td>';
 
 			$app_extra_icons .= '<td class="extraIconsRow">
-				<a href="'.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'">'.$title.'</a></td>';
+                                    <a href="'.$GLOBALS['phpgw_info']['navbar']['logout']['url'].'">'.$title.'</a>
+                                 </td>';
+            $app_extra_icons .= '</tr>';
 
-				
 				$app_extra_icons_div = '
-				<script language="javascript">
+				<script type="text/javascript">
 				new ypSlideOutMenu("menu1", "down", 5, 24, 160, 200,\'left\')
 				</script>
 				<div id="menu1Container">
@@ -212,11 +220,14 @@
 
 				<div id="extraIcons">
 
-				<table cellspacing="0" cellpadding="0" border="0" width="100%">
+				<table cellspacing="0" cellpadding="0" width="100%">
 				<tr>
-				<td colspan="2" nowrap="nowrap" align="right" style="background-color:#dddddd;padding:1px;">
-				<a href="#" '.$show_menu_event.'="ypSlideOutMenu.hide(\'menu1\')" title="'.lang('close').'">
-				<img style="" border="0" src="'.$var['img_root'].'/close.png"/></a></span></td></tr>				
+                    <td colspan="2" align="right" style="background-color:#dddddd;padding:1px;">
+                        <a href="#" '.$show_menu_event.'="ypSlideOutMenu.hide(\'menu1\')" title="'.lang('close').'">
+                            <img style="" src="'.$var['img_root'].'/close.png" alt="Fechar" />
+                        </a>
+                    </td>
+                </tr>
 				'.$app_extra_icons.'</table>
 				</div>
 
@@ -225,7 +236,7 @@
 				';
 
 				$var['app_extra_icons_div']= $app_extra_icons_div;				
-				$var['app_extra_icons_icon']= '<td valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#"  onMouseOver="ypSlideOutMenu.showMenu(\'menu1\')" onClick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img src="'.$var['img_root'].'/extra_icons.png" border="0" /></a></td>';
+				$var['app_extra_icons_icon']= '<td valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#" onmouseover="ypSlideOutMenu.showMenu(\'menu1\')" onclick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img alt="Exibir mais aplicativos" src="'.$var['img_root'].'/extra_icons.png"/></a></td>';
 
 
 			if(isset($GLOBALS['phpgw_info']['flags']['app_header']))
@@ -252,10 +263,10 @@
 				$var['frontend_name'] = " - ".$GLOBALS['phpgw_info']['server']['use_frontend_name'];
 
 			/*
-			 *	Forçar termo de aceite por parte do usuário
+			 *	For?ar termo de aceite por parte do usu?rio
 			 */
 
-			if(($GLOBALS['phpgw_info']['user']['agree_terms'] != 1) && ($GLOBALS['phpgw_info']['server']['use_agree_term']=='True')) //Ele deverá confirmar o termo de aceite.
+			if(($GLOBALS['phpgw_info']['user']['agree_terms'] != 1) && ($GLOBALS['phpgw_info']['server']['use_agree_term']=='True')) //Ele deverÃ¡ confirmar o termo de aceite.
 			{
 				$agreeterm_url = $_SERVER['HTTP_HOST'] . $GLOBALS['phpgw_info']['server']['webserver_url'] . '/preferences/termo_aceite.php';
 				
@@ -264,7 +275,7 @@
 				else
 					$agreeterm_url = 'http://' . $agreeterm_url;
 				
-				echo '<script>' .
+				echo '<script type="text/javascript>' .
 						'if(location.href.indexOf("termo_aceite.php") == -1){' .
 							'location.href = "' . $agreeterm_url . '"' .
 						'}' .
@@ -290,7 +301,7 @@
 				else
 					$changepasswd_url = 'http://' . $changepasswd_url;
 				
-				echo '<script>' .
+				echo '<script type="text/javascript>' .
 						'if(location.href.indexOf("changepassword.php") == -1){' .
 							'location.href = "' . $changepasswd_url . '"' .
 						'}' .
@@ -298,7 +309,7 @@
 				
 				/*
 				$api_messages = lang('You are required to change your password during your first login')
-				. '<br> Click this image on the navbar: <img src="'
+				. '<br /> Click this image on the navbar: <img src="'
 				. $GLOBALS['phpgw']->common->image('preferences','navbar.gif').'">';
 				*/
 			}
@@ -312,7 +323,7 @@
 			// This is gonna change
 			if(isset($cd))
 			{
-				$var['messages'] = $api_messages . '<br>' . checkcode($cd);
+				$var['messages'] = $api_messages . '<br />' . checkcode($cd);
 			}*/
 
 			$var['logo_file'] = $GLOBALS['phpgw']->common->image('phpgwapi',$GLOBALS['phpgw_info']['server']['login_logo_file']?$GLOBALS['phpgw_info']['server']['login_logo_file']:'logo');

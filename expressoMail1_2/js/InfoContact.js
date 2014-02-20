@@ -105,7 +105,7 @@ emInfoContact.prototype.show = function (data){
 		if(data.telefone)
 			phoneUser = "<a title=\""+get_lang("Call to Comercial Number")+"\" href=\"#\" onclick=\"InfoContact.connectVoip('"+ data.telefone+"', 'com')\">"+ data.telefone+"</a>";
 		if(data.mobile){
-			phoneUser += "<br>&nbsp;<a title=\""+get_lang("Call to Mobile Number")+"\" href=\"#\" onclick=\"InfoContact.connectVoip('"+data.mobile+"', 'mob')\">"+data.mobile+"</a>";
+			phoneUser += "<br />&nbsp;<a title=\""+get_lang("Call to Mobile Number")+"\" href=\"#\" onclick=\"InfoContact.connectVoip('"+data.mobile+"', 'mob')\">"+data.mobile+"</a>";
 		}
 	}
 
@@ -116,8 +116,8 @@ emInfoContact.prototype.show = function (data){
 						"<tr><td align='center' style='width:70px;height:93px;padding-left:6px' align='center' valign='center'>"+
 						"<img style='float:left' src='./inc/show_img.php?email="+data.email+"'></td>"+
 						"<td style='padding-left:2px' width='70%' align='left' valign='top'>"+
-						"<br><img style='float:left'align='center' src='templates/"+template+"/images/phone.gif' />&nbsp;<font  size=1  color=BLACK>"+(phoneUser ? phoneUser : get_lang("None") )+"</font><br />"+
-						"<br><font size=1 color=BLACK>"+cn+"</font><br><b>"+employeeNumber+"</b>"+
+						"<br /><img style='float:left'align='center' src='templates/"+template+"/images/phone.gif' />&nbsp;<font  size=1  color=BLACK>"+(phoneUser ? phoneUser : get_lang("None") )+"</font><br />"+
+						"<br /><font size=1 color=BLACK>"+cn+"</font><br /><b>"+employeeNumber+"</b>"+
 						"<br/>"+ou+"</td></tr>"+
 						"<tr><td  style='padding-bottom:4px' align='center' valign='center' colspan ='2' nowrap><span title='"+get_lang("Write message")+"' style='cursor:pointer' onclick='InfoContact.sendMail(\""+cn+"\",\""+data.email+"\")'><font size=1 color=DARKBLUE><u>"+data.email+"</u></font></span>"+
 										"</td></tr></table>";

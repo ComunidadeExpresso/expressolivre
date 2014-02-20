@@ -1,9 +1,8 @@
-<script language="javascript">
+<script type="text/javascript">
 	var account_id = {account_id};
 </script>
 {libs}
 
-<center>
 <form name="formu" method="POST" action="{save_action}" id="form_auto_arch">
 <input type="hidden" name="save" value="save">
 <table width="500" border="0" cellspacing="2" cellpadding="2">
@@ -20,7 +19,7 @@
 		
 		<td valign="middle" align="center" bgcolor="#DDDDDD">
 			<button type="button" onClick="javascript:expresso_mail_sync.add_folder(document.getElementById('combo_sync_folders'),document.getElementById('combo_all_folders'));"><img src="templates/default/images/add.png" style="vertical-align: middle;" >&nbsp;{lang_add}</button>
-			<br><br>
+			<br /><br />
 			<button type="button" onClick="javascript:expresso_mail_sync.remove_folder(document.getElementById('combo_sync_folders'));"><img src="templates/default/images/rem.png" style="vertical-align: middle;" >&nbsp;{lang_rem}</button>
 		</td>
 		
@@ -57,7 +56,6 @@
 	
 </table>
 </form>
-<script language="javascript">
+<script type="text/javascript">
 	expresso_mail_sync.fill_combos_of_folders(document.getElementById('combo_sync_folders'));
 </script>
-</center>

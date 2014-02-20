@@ -547,7 +547,7 @@ class ZPush {
         if ($message)
             $message = "<h3>". $message . "</h3>";
         if ($additionalMessage)
-            $additionalMessage .= "<br>";
+            $additionalMessage .= "<br />";
 
         header("Content-type: text/html");
         print <<<END
@@ -558,16 +558,16 @@ class ZPush {
         <body>
         <font face="verdana">
         <h2>Z-Push - Open Source ActiveSync</h2>
-        <b>Version $zpush_version</b><br>
+        <b>Version $zpush_version</b><br />
         $message $additionalMessage
-        <br><br>
-        More information about Z-Push can be found at:<br>
-        <a href="http://z-push.sf.net/">Z-Push homepage</a><br>
-        <a href="http://z-push.sf.net/download">Z-Push download page at BerliOS</a><br>
-        <a href="http://z-push.sf.net/tracker">Z-Push Bugtracker and Roadmap</a><br>
-        <br>
-        All modifications to this sourcecode must be published and returned to the community.<br>
-        Please see <a href="http://www.gnu.org/licenses/agpl-3.0.html">AGPLv3 License</a> for details.<br>
+        <br /><br />
+        More information about Z-Push can be found at:<br />
+        <a href="http://z-push.sf.net/">Z-Push homepage</a><br />
+        <a href="http://z-push.sf.net/download">Z-Push download page at BerliOS</a><br />
+        <a href="http://z-push.sf.net/tracker">Z-Push Bugtracker and Roadmap</a><br />
+        <br />
+        All modifications to this sourcecode must be published and returned to the community.<br />
+        Please see <a href="http://www.gnu.org/licenses/agpl-3.0.html">AGPLv3 License</a> for details.<br />
         </font face="verdana">
         </body>
         </html>

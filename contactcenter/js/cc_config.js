@@ -129,7 +129,7 @@
 		
 		//TD IMG 		
 		var tudoBody5 = document.createElement("TD");
-		tudoBody5.innerHTML = "<img src=\"contactcenter/templates/default/images/cc_x.png\" title=\""+ stringDelete +"\" alt=\""+ stringDelete +"\" style=\"width: 15px; height: 14px; cursor: pointer; position: relative; top: 3px;\" onclick=\"javascript:cc_attribute_delete(this)\">"
+		tudoBody5.innerHTML = "<img src=\"contactcenter/templates/default/images/cc_x.png\" title=\""+ stringDelete +"\" alt=\""+ stringDelete +"\" style=\"width: 15px; height: 14px; cursor: pointer; position: relative; top: 3px;\" onclick=\"javascript:cc_attribute_delete(this)\" />"
 		tudo.appendChild(tudoBody5);
 
 		pool.appendChild(tudo);

@@ -85,7 +85,7 @@
 			while($pass_string != $passing_string)
 			{
 				$passing = array();
-				if($DEBUG) { echo '<br>process->pass(): #' . $i . ' for ' . $method . ' processing' . "\n"; }
+				if($DEBUG) { echo '<br />process->pass(): #' . $i . ' for ' . $method . ' processing' . "\n"; }
 				/* Check current versions and dependencies */
 				$setup_info = $GLOBALS['phpgw_setup']->detection->get_db_versions($setup_info);
 				$setup_info = $GLOBALS['phpgw_setup']->detection->compare_versions($setup_info);
@@ -140,32 +140,32 @@
 					if($value['status'] == 'C')
 					{
 						$passed[$value['name']] = $passing[$value['name']];
-						if($DEBUG) { echo '<br>process->pass(): '.$passed[$value['name']]['name'] . ' install completed'."\n"; }
+						if($DEBUG) { echo '<br />process->pass(): '.$passed[$value['name']]['name'] . ' install completed'."\n"; }
 					}
 					elseif($value['status'] == 'F')
 					{
 						$setup_info[$value['name']] = $passing[$value['name']];
-						if($DEBUG) { echo '<br>process->pass(): '.$setup_info[$value['name']]['name'] . ' install failed'."\n"; }
+						if($DEBUG) { echo '<br />process->pass(): '.$setup_info[$value['name']]['name'] . ' install failed'."\n"; }
 					}
 					elseif($value['status'] == 'D')
 					{
 						$pass[$value['name']] = $setup_info[$value['name']];
-						if($DEBUG) { echo '<br>process->pass(): '.$pass[$value['name']]['name'] . ' fails dependency check on this pass'."\n"; }
+						if($DEBUG) { echo '<br />process->pass(): '.$pass[$value['name']]['name'] . ' fails dependency check on this pass'."\n"; }
 					}
 					else
 					{
 						$tmp = $passing[$value['name']]['name'];
-						if($DEBUG) { echo '<br>process->pass(): '.$tmp . ' skipped on this pass'."\n"; }
+						if($DEBUG) { echo '<br />process->pass(): '.$tmp . ' skipped on this pass'."\n"; }
 					}
 				}
 
 				++$i;
 				if($i == 20) /* Then oops it broke */
 				{
-					echo '<br>Setup failure: excess looping in process->pass():'."\n";
-					echo '<br>Pass:<br>'."\n";
+					echo '<br />Setup failure: excess looping in process->pass():'."\n";
+					echo '<br />Pass:<br />'."\n";
 					_debug_array($pass);
-					echo '<br>Passed:<br>'."\n";
+					echo '<br />Passed:<br />'."\n";
 					_debug_array($passed);
 					exit;
 				}
@@ -266,7 +266,7 @@
 						//echo $table;
 						if(in_array($table,$tables))
 						{
-							if($DEBUG){ echo '<br>process->droptables(): Dropping :'. $app_name . ' table: ' . $table; }
+							if($DEBUG){ echo '<br />process->droptables(): Dropping :'. $app_name . ' table: ' . $table; }
 							$GLOBALS['phpgw_setup']->oProc->DropTable($table);
 							// Update the array values for return below
 							$setup_info[$app_name]['status'] = 'U';
@@ -300,13 +300,13 @@
 				$appname  = $setup_info[$key]['name'];
 				$apptitle = $setup_info[$key]['title'];
 
-				if($DEBUG) { echo '<br>process->current(): Incoming status: ' . $appname . ',status: '. $setup_info[$key]['status']; }
+				if($DEBUG) { echo '<br />process->current(): Incoming status: ' . $appname . ',status: '. $setup_info[$key]['status']; }
 
 				$appdir  = PHPGW_SERVER_ROOT . SEP . $appname . SEP . 'setup' . SEP;
 
 				if($setup_info[$key]['tables'] && file_exists($appdir.'tables_current.inc.php'))
 				{
-					if($DEBUG) { echo '<br>process->current(): Including: ' . $appdir.'tables_current.inc.php'; }
+					if($DEBUG) { echo '<br />process->current(): Including: ' . $appdir.'tables_current.inc.php'; }
 					include ($appdir.'tables_current.inc.php');
 					$ret = $this->post_process($phpgw_baseline,$DEBUG);
 					if($ret)
@@ -327,13 +327,13 @@
 					else
 					{
 						/* script processing failed */
-						if($DEBUG) { echo '<br>process->current(): Failed for ' . $appname . ',status: '. $setup_info[$key]['status']; }
+						if($DEBUG) { echo '<br />process->current(): Failed for ' . $appname . ',status: '. $setup_info[$key]['status']; }
 						$setup_info[$key]['status'] = 'F';
 					}
 				}
 				else
 				{
-					if($DEBUG) { echo '<br>process->current(): No current tables for ' . $apptitle . "\n"; }
+					if($DEBUG) { echo '<br />process->current(): No current tables for ' . $apptitle . "\n"; }
 					/*
 					 Add the app, but disable it if it has tables defined.
 					 A manual sql script install is needed, but we do add the hooks
@@ -355,7 +355,7 @@
 					}
 					$setup_info[$key]['status'] = 'C';
 				}
-				if($DEBUG) { echo '<br>process->current(): Outgoing status: ' . $appname . ',status: '. $setup_info[$key]['status']; }
+				if($DEBUG) { echo '<br />process->current(): Outgoing status: ' . $appname . ',status: '. $setup_info[$key]['status']; }
 			}
 
 			/* Done, return current status */
@@ -386,7 +386,7 @@
 				{
 					if($DEBUG)
 					{
-						echo '<br>process->default_records(): Including default records for ' . $appname . "\n";
+						echo '<br />process->default_records(): Including default records for ' . $appname . "\n";
 					}
 					$GLOBALS['phpgw_setup']->oProc->m_odb->transaction_begin();
 					$oProc = &$GLOBALS['phpgw_setup']->oProc;	// to be compatible with old apps
@@ -414,7 +414,7 @@
 				$this->translation->add_langs($appname,$DEBUG,$force_langs);
 				if($DEBUG)
 				{
-					echo '<br>process->add_langs(): Translations added for ' . $appname . "\n";
+					echo '<br />process->add_langs(): Translations added for ' . $appname . "\n";
 				}
 			}
 			/* Done, return current status */
@@ -435,7 +435,7 @@
 				$this->translation->drop_langs($appname,$DEBUG);
 				if($DEBUG)
 				{
-					echo '<br>process->drop_langs():  Translations removed for ' . $appname . "\n";
+					echo '<br />process->drop_langs():  Translations removed for ' . $appname . "\n";
 				}
 			}
 			/* Done, return current status */
@@ -462,7 +462,7 @@
 				$this->translation->add_langs($appname,$DEBUG);
 				if($DEBUG)
 				{
-					echo '<br>process->upgrade_langs(): Translations reinstalled for ' . $appname . "\n";
+					echo '<br />process->upgrade_langs(): Translations reinstalled for ' . $appname . "\n";
 				}
 			}
 			/* Done, return current status */
@@ -494,7 +494,7 @@
 				{
 					if($DEBUG)
 					{
-						echo '<br>process->test_data(): Including baseline test data for ' . $appname . "\n";
+						echo '<br />process->test_data(): Including baseline test data for ' . $appname . "\n";
 					}
 					$GLOBALS['phpgw_setup']->oProc->m_odb->transaction_begin();
 					include ($appdir.'test_data.inc.php');
@@ -528,7 +528,7 @@
 				{
 					if($DEBUG)
 					{
-						echo '<br>process->baseline(): Including baseline tables for ' . $appname . "\n";
+						echo '<br />process->baseline(): Including baseline tables for ' . $appname . "\n";
 					}
 					include ($appdir.'tables_baseline.inc.php');
 					$GLOBALS['phpgw_setup']->oProc->GenerateScripts($phpgw_baseline, $DEBUG);
@@ -541,7 +541,7 @@
 				{
 					if($DEBUG)
 					{
-						echo '<br>process->baseline(): No baseline tables for ' . $appname . "\n";
+						echo '<br />process->baseline(): No baseline tables for ' . $appname . "\n";
 					}
 					//$setup_info[$key]['status'] = 'C';
 				}
@@ -573,14 +573,14 @@
 				{
 					if($DEBUG)
 					{
-						echo '<br>process->upgrade(): Application not installed: ' . $appname . "\n";
+						echo '<br />process->upgrade(): Application not installed: ' . $appname . "\n";
 					}
 					unset($setup_info[$key]);
 					continue;
 				}
 
 				/* if upgrade required, or if we are running again after an upgrade or dependency failure */
-				if($DEBUG) { echo '<br>process->upgrade(): Incoming : appname: '.$setup_info[$key]['name'] . ' status: ' . $setup_info[$key]['status']; }
+				if($DEBUG) { echo '<br />process->upgrade(): Incoming : appname: '.$setup_info[$key]['name'] . ' status: ' . $setup_info[$key]['status']; }
 				if($setup_info[$key]['status'] == 'U' ||
 					$setup_info[$key]['status'] == 'D' ||
 					$setup_info[$key]['status'] == 'V' ||
@@ -611,7 +611,7 @@
 					{
 						if($DEBUG)
 						{
-							echo '<br>process->baseline(): Including baseline tables for ' . $appname . "\n";
+							echo '<br />process->baseline(): Including baseline tables for ' . $appname . "\n";
 						}
 						include ($appdir.'tables_baseline.inc.php');
 						$GLOBALS['phpgw_setup']->oProc->m_aTables = $phpgw_baseline;
@@ -621,7 +621,7 @@
 					{
 						if($DEBUG)
 						{
-							echo '<br>process->baseline(): No baseline tables for ' . $appname . "\n";
+							echo '<br />process->baseline(): No baseline tables for ' . $appname . "\n";
 						}
 						/* This should be a break with a status setting, or not at all
 						break;
@@ -644,12 +644,12 @@
 							
 							if($DEBUG)
 							{
-								echo '<br>process->upgrade(): appname:    ' . $appname;
-								echo '<br>process->upgrade(): currentver: ' . $currentver;
-								echo '<br>process->upgrade(): targetver:  ' . $targetver;
-								echo '<br>process->upgrade(): status:     ' . $setup_info[$key]['status'];
-								echo '<br>process->upgrade(): checking:   ' . $value;
-								echo '<br>process->upgrade(): function:   ' . $function;
+								echo '<br />process->upgrade(): appname:    ' . $appname;
+								echo '<br />process->upgrade(): currentver: ' . $currentver;
+								echo '<br />process->upgrade(): targetver:  ' . $targetver;
+								echo '<br />process->upgrade(): status:     ' . $setup_info[$key]['status'];
+								echo '<br />process->upgrade(): checking:   ' . $value;
+								echo '<br />process->upgrade(): function:   ' . $function;
 							}
 
 							if($value == $targetver)
@@ -658,7 +658,7 @@
 								/* Done upgrading */
 								if($DEBUG)
 								{
-									echo '<br>process->upgrade(): Upgrade of ' . $appname . ' to ' . $targetver . ' is completed.' . "\n";
+									echo '<br />process->upgrade(): Upgrade of ' . $appname . ' to ' . $targetver . ' is completed.' . "\n";
 								}
 								$appstatus = 'C';
 								$setup_info[$key]['status']     = $appstatus;
@@ -679,7 +679,7 @@
 							{
 								/* start upgrading db in addition to baseline */
 								$GLOBALS['phpgw_setup']->oProc->m_bDeltaOnly = False;
-								if($DEBUG) { echo '<br>process->upgrade(): running ' . $function; }
+								if($DEBUG) { echo '<br />process->upgrade(): running ' . $function; }
 								/* run upgrade function */
 								$success = $function();
 								if($success != False)
@@ -687,7 +687,7 @@
 									$setup_info[$key]['currentver'] = $success;
 									if($DEBUG)
 									{
-										echo '<br>process->upgrade(): Upgrade of ' . $appname
+										echo '<br />process->upgrade(): Upgrade of ' . $appname
 											. ' from ' . $value
 											. ' to ' . $setup_info[$key]['currentver']
 											. ' is completed.' . "\n";
@@ -698,7 +698,7 @@
 									{
 										if($DEBUG)
 										{
-											echo '<br>process->upgrade(): Updating registration of ' . $appname . ', new version: ' . $setup_info[$key]['currentver'];
+											echo '<br />process->upgrade(): Updating registration of ' . $appname . ', new version: ' . $setup_info[$key]['currentver'];
 										}
 										$GLOBALS['phpgw_setup']->update_app($appname);
 										$GLOBALS['phpgw_setup']->update_hooks($appname);
@@ -707,7 +707,7 @@
 									{
 										if($DEBUG)
 										{
-											echo '<br>process->upgrade(): Registering ' . $appname . ', version: ' . $setup_info[$key]['currentver'];
+											echo '<br />process->upgrade(): Registering ' . $appname . ', version: ' . $setup_info[$key]['currentver'];
 										}
 										$GLOBALS['phpgw_setup']->register_app($appname);
 										$GLOBALS['phpgw_setup']->register_hooks($appname);
@@ -727,7 +727,7 @@
 								{
 									if($DEBUG)
 									{
-										echo '<br>process->upgrade(): Upgrade of ' . $appname
+										echo '<br />process->upgrade(): Upgrade of ' . $appname
 											. ' from ' . $currentver
 											. ' to ' . $value
 											. ' failed!!!' . "\n";
@@ -738,7 +738,7 @@
 							}
 							// elseif ($GLOBALS['phpgw_setup']->alessthanb($value,$currentver))
 							// {
-							// 	if($DEBUG) { echo '<br>process->upgrade(): running baseline delta only: ' . $function . '...'; }
+							// 	if($DEBUG) { echo '<br />process->upgrade(): running baseline delta only: ' . $function . '...'; }
 							// 	$GLOBALS['phpgw_setup']->oProc->m_bDeltaOnly = True;
 							// 	$success = $function();
 								
@@ -767,7 +767,7 @@
 
 							if($DEBUG)
 							{
-								echo '<br>process->upgrade(): No table upgrade available for ' . $appname . "\n";
+								echo '<br />process->upgrade(): No table upgrade available for ' . $appname . "\n";
 							}
 						}
 						else
@@ -787,7 +787,7 @@
 
 							if($DEBUG)
 							{
-								echo '<br>process->upgrade(): No table upgrade required for ' . $appname . "\n";
+								echo '<br />process->upgrade(): No table upgrade required for ' . $appname . "\n";
 							}
 						}
 					}
@@ -797,7 +797,7 @@
 					$appstatus  = 'C';
 					if($DEBUG)
 					{
-						echo '<br>process->upgrade(): No upgrade required for ' . $appname . "\n";
+						echo '<br />process->upgrade(): No upgrade required for ' . $appname . "\n";
 					}
 				}
 
@@ -805,7 +805,7 @@
 				$setup_info[$key]['status'] = $appstatus;
 				if($DEBUG)
 				{
-					echo '<br>process->upgrade(): Outgoing : appname: '.$setup_info[$key]['name'] . ' status: ' . $setup_info[$key]['status'];
+					echo '<br />process->upgrade(): Outgoing : appname: '.$setup_info[$key]['name'] . ' status: ' . $setup_info[$key]['status'];
 				}
 			}
 

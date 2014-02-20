@@ -1,7 +1,7 @@
 <!-- BEGIN form -->
 {error_messages}
 
- <form method="POST" action="{form_action}">
+ <form method="post" action="{form_action}">
  	<div align="center">
 	<table border="0" width="95%">
 		<tr>

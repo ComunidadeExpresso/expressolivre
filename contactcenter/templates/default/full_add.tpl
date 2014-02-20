@@ -32,7 +32,7 @@
 				<input id="cc_pd_select_photo_t" type="text" name="cc_pd_select_photo_t" readonly>
 				<input id="cc_pd_select_photo_b" type="button" style="width: 60px" value="{cc_pd_select_photo_b}" onclick="Element('cc_photo_frame').contentWindow.document.all['cc_photo_input'].click();">
 			</td>
-			<td align="center" colspan="2" rowspan="3"><img id="cc_pd_photo" src="templates/default/images/photo.png" border="0" width="60px" height="80px"></td>
+			<td align="center" colspan="2" rowspan="3"><img id="cc_pd_photo" src="templates/default/images/photo.png" border="0" width="60px" height="80px"/></td>
 		</tr>
 		<tr class="row_on">
 			<td align="right">{cc_pd_alias}:</td>
@@ -179,9 +179,9 @@
 				</table>
 			</td>
 			<td id="buttons" width="95" align="center">
-				<button type="button" onClick="javascript:selectGroup()"><img src="../phpgwapi/templates/celepar/images/add.png" style="vertical-align: middle;" >&nbsp;{txt_add}</button>
-				<br><br>
-				<button type="button" onClick="javascript:deselectGroup()"><img src="../phpgwapi/templates/celepar/images/rem.png" style="vertical-align: middle;" >&nbsp;{txt_rem}</button> 
+				<button type="button" onClick="javascript:selectGroup()"><img src="../phpgwapi/templates/celepar/images/add.png" style="vertical-align: middle;" />&nbsp;{txt_add}</button>
+				<br /><br />
+				<button type="button" onClick="javascript:deselectGroup()"><img src="../phpgwapi/templates/celepar/images/rem.png" style="vertical-align: middle;" />&nbsp;{txt_rem}</button>
 			</td>
 			<td  align="left">
 				<table border="0" cellpadding="0" cellspacing="0">

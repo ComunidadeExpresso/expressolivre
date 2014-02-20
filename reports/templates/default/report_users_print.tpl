@@ -58,7 +58,7 @@ margin-top: 300px;
 			<tr>
 			  <td colspan="2" align="left">
 				<div align="left" class="style1">{lang_reports title1}:&nbsp;{context_display}</div>
-				<br>
+				<br />
 		      </td>
 			  <td width="28%" align="left">
 			  	<div align="right">
@@ -82,7 +82,7 @@ margin-top: 300px;
 					<tr>
 				  		<td width="50%">&nbsp;
 						</td>
-				  	    <td width="50%"><div align="right">{lang_page_now}:&nbsp;<strong>{page_now}</strong>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;{lang_total_pages}:&nbsp;<strong>{cont_page}</strong>&nbsp;&nbsp;<br></div></td>
+				  	    <td width="50%"><div align="right">{lang_page_now}:&nbsp;<strong>{page_now}</strong>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;{lang_total_pages}:&nbsp;<strong>{cont_page}</strong>&nbsp;&nbsp;<br /></div></td>
 					</tr>
 					<tr>
 						<td colspan="2"></td>

@@ -5,7 +5,7 @@
   </tr>
  </table>
 
-<br>
+<br />
 
 <!-- END nextmatchs -->
 

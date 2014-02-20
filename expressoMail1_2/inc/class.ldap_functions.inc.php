@@ -579,12 +579,12 @@ class ldap_functions
 					'</a>' .
 				'</td>' .
 				'<td class="cc">' .
-					'<span name="cn">' . ($empNumber != "" ? $empNumber : $uid) . $contacts_result['cn'] . '</span>' . '<br>' .
+					'<span name="cn">' . ($empNumber != "" ? $empNumber : $uid) . $contacts_result['cn'] . '</span>' . '<br />' .
 					'<a title="'.$functions->getLang("Write message").'" onClick="javascript:QuickSearchUser.create_new_message(\''.$contacts_result["cn"].'\', \''.$contacts_result["mail"].'\', \''.$contacts_result["uid"].'\')">' .
 						'<font color=blue>' .
 						'<span name="mail">' . $contacts_result['mail'] . '</span></a></font>'.
 						'<img src="templates/default/images/user_card.png" style="cursor: pointer;" title="'.$this->functions->getLang("Add Contact").'" onclick="javascript:connector.loadScript(\'ccQuickAdd\');ccQuickAddOne.showList(\''.$fn.','.$fn.','.$sn.','.$contacts_result["mail"].'\')">'.
-					'<br>' .
+					'<br />' .
 					$phoneUser .
 					$ou .
 				'</td>' .

@@ -255,7 +255,7 @@
 </tr>
 </table>
 </div>
-<script language="javascript">
+<script type="text/javascript">
 if ({p_id} == 0)
 	toggleTableVisibility('processesPropertiesTable');
 </script>

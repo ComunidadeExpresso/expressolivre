@@ -15,7 +15,7 @@
 	// Only Modify the $file and $title variables.....
 	$title = $appname;
 	$file = Array(
-		'Global Configuration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+		'Global Configuration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname),
 		//'Edit custom fields' => $GLOBALS['phpgw']->link('/index.php','menuaction=addressbook.uifields.index'),
 		//'Global Categories' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=addressbook')
 	);

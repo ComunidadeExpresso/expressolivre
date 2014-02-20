@@ -45,7 +45,7 @@
 			$acl = $this->functions->read_acl($account_lid);
 			$contexts = $acl['contexts'];
 			foreach ($acl['contexts_display'] as $index=>$tmp_context) {
-				$context_display .= '<br>'.$tmp_context;
+				$context_display .= '<br />'.$tmp_context;
 			}
 			
 			if (!$this->functions->check_acl($account_lid,'list_institutional_accounts')) {

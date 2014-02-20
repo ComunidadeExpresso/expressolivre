@@ -12,7 +12,7 @@
 	{
 		$file = Array
 		(
-			'Global Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
+			'Global Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&amp;appname=' . $appname),
 			'Configure Access Permissions' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
 			'Configure RSS exports' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiexport.exportlist'),
 		);

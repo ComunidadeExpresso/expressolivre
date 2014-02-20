@@ -466,7 +466,7 @@
 			}
 			$code .= '['.$path[$i].'];';
 
-			//echo 'Codigo: '.$code.'<br>';
+			//echo 'Codigo: '.$code.'<br />';
 			eval($code);
 			
 			return $branch;
@@ -508,22 +508,22 @@
 		*/
 		function get_level_by_branch($catalog, &$branch, $branch_level = '0')
 		{
-//			echo '<br>';
+//			echo '<br />';
 			reset($branch);
 			while(list($level, $bcatalog) = each($branch))
 			{
-//				echo 'Parent Level:    '.$branch_level.'<br>';
-//				echo 'This node Level: '.$level.'<br>';
-//				echo 'Catalog:         '.$bcatalog['name'].'<br>';
+//				echo 'Parent Level:    '.$branch_level.'<br />';
+//				echo 'This node Level: '.$level.'<br />';
+//				echo 'Catalog:         '.$bcatalog['name'].'<br />';
 
 				$found = true;
 				foreach ($catalog as $property => $value)
 				{
 					if ($property !== 'sub_branch' and $bcatalog[$property] !== $value)
 					{
-//						echo 'Property <b>'.$property.'</b> differs.<br>';
-//						echo 'Expected: '.$value.'<br>';
-//						echo 'Found: '.$bcatalog[$property].'<br>';
+//						echo 'Property <b>'.$property.'</b> differs.<br />';
+//						echo 'Expected: '.$value.'<br />';
+//						echo 'Found: '.$bcatalog[$property].'<br />';
 						$found = false;
 					}
 
@@ -535,26 +535,26 @@
 
 				if ($found)
 				{
-//					echo '<b>FOUND</b><br>';
+//					echo '<b>FOUND</b><br />';
 					return $branch_level.'.'.((string) $level);
 				}
 				else if ($bcatalog['sub_branch'])
 				{
-//					echo 'Not Found<br>';
+//					echo 'Not Found<br />';
 
 					$search = $this->get_level_by_branch($catalog, $bcatalog['sub_branch'], (string) $level);
 					
 					if ($search !== false)
 					{
-//						echo 'Returning level: '.$branch_level.'.'.$search.'<br>';
-//						echo 'Sholud it be '.$branch_level.'.'.$nlevel.' ?<br>';
-//						echo 'Or '.$branch_level.'.'.((string)$search).' ?<br>';
+//						echo 'Returning level: '.$branch_level.'.'.$search.'<br />';
+//						echo 'Sholud it be '.$branch_level.'.'.$nlevel.' ?<br />';
+//						echo 'Or '.$branch_level.'.'.((string)$search).' ?<br />';
 						return $branch_level.'.'.$search;
 					}
 				}
 			}
 
-//			echo 'Not Found in this Branch<br>';
+//			echo 'Not Found in this Branch<br />';
 			return false;
 		}
 		
@@ -634,7 +634,7 @@
 					$call .= ');';
 					
 //					print_r($catalog);
-//					echo '<br><br><b>Setando Catalogo '.$catalog['name'].': </b>'.$call.'<br>';
+//					echo '<br /><br /><b>Setando Catalogo '.$catalog['name'].': </b>'.$call.'<br />';
 
 					eval($call);
 								

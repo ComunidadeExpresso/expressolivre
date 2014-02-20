@@ -105,7 +105,7 @@
 
 					foreach ($a_managers_context as $context)
 					{
-						$managers_context .= "$context<br>";
+						$managers_context .= "$context<br />";
 					}
 					
 					$filter="(&(phpgwAccountType=u)(uid=".$array_managers['manager_lid']."))";
@@ -157,10 +157,10 @@
 			{
 				$contexts = preg_split('/%/', $_POST['context']);
 				foreach ($contexts as $manager_context)
-					$input_context_fields .= "<input type='text' size=60 value=$manager_context></input><br>";
+					$input_context_fields .= "<input type='text' size=60 value=$manager_context></input><br />";
 			}
 			else
-				$input_context_fields = '<input type="text" size=60></input><br>';
+				$input_context_fields = '<input type="text" size=60></input><br />';
 			*/
 			
 			$options_context = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], '', false, true, false);
@@ -177,7 +177,7 @@
 				'color_font1'			=> "#DDDDDD",
 				'color_font2'			=> "#EEEEEE",
 				'input_context_fields'	=> $input_context_fields,
-				'error_messages'		=> $_POST['error_messages'] == '' ? '' : '<script language="JavaScript">alert("'.$_POST['error_messages'].'");</script>', 
+				'error_messages'		=> $_POST['error_messages'] == '' ? '' : '<script type="text/javascript">alert("'.$_POST['error_messages'].'");</script>',
 				'manager_lid'			=> $_POST['manager_lid'],
 				'context'				=> $_POST['context'],
 				'app_list'				=> $applications_list,

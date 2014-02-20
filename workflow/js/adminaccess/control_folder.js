@@ -326,7 +326,7 @@ function draw_organogram_control()
 	tr = document.createElement("TR");
 	td = document.createElement("TD");
 
-	td.innerHTML = 'Organização:<br>';
+	td.innerHTML = 'Organização:<br />';
 	se = document.createElement("SELECT");
 	se.setAttribute('name','sel_org');
 	se.setAttribute('id','sel_org');
@@ -352,7 +352,7 @@ function draw_organogram_control()
 	tr = document.createElement("TR");
 	td = document.createElement("TD");
 
-	td.innerHTML = 'Administradores do organograma:<br>';
+	td.innerHTML = 'Administradores do organograma:<br />';
 	se = document.createElement("SELECT");
 	se.setAttribute('size','10');
 	se.setAttribute('id','sel_org_admin');
@@ -380,7 +380,7 @@ function draw_organogram_control()
 	tr.appendChild(td);
 	
 	td = document.createElement("TD");
-	td.innerHTML = 'Usuários para adicionar:<br>';
+	td.innerHTML = 'Usuários para adicionar:<br />';
 	td.setAttribute('valign','top');
 	se = document.createElement("SELECT");
 	se.setAttribute('name','file');
@@ -486,7 +486,7 @@ function draw_process_control()
 	tr = document.createElement("TR");
 	td = document.createElement("TD");
 
-	td.innerHTML = 'Processo:<br>';
+	td.innerHTML = 'Processo:<br />';
 	se = document.createElement("SELECT");
 	se.setAttribute('name','sel_proc');
 	se.setAttribute('id','sel_proc');
@@ -512,7 +512,7 @@ function draw_process_control()
 	tr = document.createElement("TR");
 	td = document.createElement("TD");
 
-	td.innerHTML = 'Administradores do processo:<br>';
+	td.innerHTML = 'Administradores do processo:<br />';
 	se = document.createElement("SELECT");
 	se.setAttribute('size','10');
 	se.setAttribute('id','sel_proc_admin');
@@ -539,7 +539,7 @@ function draw_process_control()
 	tr.appendChild(td);
 	
 	td = document.createElement("TD");
-	td.innerHTML = 'Usuários para adicionar:<br>';
+	td.innerHTML = 'Usuários para adicionar:<br />';
 	td.setAttribute('valign','top');
 	se = document.createElement("SELECT");
 	se.setAttribute('name','file');
@@ -636,7 +636,7 @@ function draw_monitor_control()
 	tr = document.createElement("TR");
 	td = document.createElement("TD");
 
-	td.innerHTML = 'Processo:<br>';
+	td.innerHTML = 'Processo:<br />';
 	se = document.createElement("SELECT");
 	se.setAttribute('name','sel_mon');
 	se.setAttribute('id','sel_mon');
@@ -662,7 +662,7 @@ function draw_monitor_control()
 	tr = document.createElement("TR");
 	td = document.createElement("TD");
 
-	td.innerHTML = 'Usuários monitores:<br>';
+	td.innerHTML = 'Usuários monitores:<br />';
 	se = document.createElement("SELECT");
 	se.setAttribute('size','10');
 	se.setAttribute('id','sel_mon_admin');
@@ -690,7 +690,7 @@ function draw_monitor_control()
 	tr.appendChild(td);
 	
 	td = document.createElement("TD");
-	td.innerHTML = 'Usuários para adicionar:<br>';
+	td.innerHTML = 'Usuários para adicionar:<br />';
 	td.setAttribute('valign','top');
 	se = document.createElement("SELECT");
 	se.setAttribute('name','file');

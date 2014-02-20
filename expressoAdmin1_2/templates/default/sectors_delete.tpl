@@ -18,7 +18,7 @@
 			<font size="5" color="red">
 				({sector_name})
 			<font size="5">
-			<br>
+			<br />
 		</td>
 	</tr>
 	<tr>
@@ -33,9 +33,9 @@
 			<font size="3">
 				{lang_users_from_the_sector}:
 			</font>
-				<br>
+				<br />
 				{users_list}
-				<br>	
+				<br />
 		</td>
 	</tr>
 	
@@ -44,9 +44,9 @@
 			<font size="3">
 				{lang_groups_from_the_sector}:
 			</font>
-				<br>
+				<br />
 				{groups_list}
-				<br>	
+				<br />
 		</td>
 	</tr>
 
@@ -55,9 +55,9 @@
 			<font size="3">
 				{lang_subsectors_from_the_sector}:
 			</font>
-				<br>
+				<br />
 				{sectors_list}
-				<br>
+				<br />
 		</td>
 	</tr>
 

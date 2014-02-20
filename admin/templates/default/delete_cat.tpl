@@ -1,6 +1,6 @@
 
 <!-- BEGIN form -->
-<br>
+<br />
 	<form method="POST" action="{action_url}">
 		{hidden_vars}
 		<table border="0" with="65%" cellpadding="2" cellspacing="2" align="center">

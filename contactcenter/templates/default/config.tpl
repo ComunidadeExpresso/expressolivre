@@ -122,7 +122,7 @@
       	</select>
   </tr>
 	<tr class="row_off">
-		<td>{lang_Custom_objectClass_name}:<br>
+		<td>{lang_Custom_objectClass_name}:<br />
 			<span style="font-size: 10px;">{lang_(if_your_LDAP_contact_has_multiple_objectClass_attributes,_enter_just_one!)}</span></td>
 		<td><input name="newsettings[cc_ldap_custom_objectclass0]" type="text" value="{value_cc_ldap_custom_objectclass0}" size="40"></td>
 	</tr>

@@ -32,9 +32,9 @@ class FormularioUtil {
      */
     function escreveMensagem($msg) {
         if ($msg) {
-          echo "<div class='msg'>$msg<br><br></div>";
+          echo "<div class='msg'>$msg<br /><br /></div>";
         } else {
-            echo "<br>";
+            echo "<br />";
         }
     }
    
@@ -47,12 +47,12 @@ class FormularioUtil {
      * @return void
      */
    function abreQuadro($titulo) {
-   	 $html = '<br><div align=center><table width="98%" class="tableMoldura">
+   	 $html = '<br /><div align=center><table width="98%" class="tableMoldura">
 <tr class="tableTitulo">
     <td><h1>' . $titulo . '</h1></td>
 </tr>
 <tr>
-    <td align="center"><br>
+    <td align="center"><br />
     
     <table width="98%">';
     
@@ -148,7 +148,7 @@ class FormularioUtil {
         }
         $fcondicao = ' if (' . $condicao . ') { $ret = true; } else { $ret = false; }';
         if ($condicao != "") {
-          if ($debug) { echo "<br>" . $fcondicao ; } 
+          if ($debug) { echo "<br />" . $fcondicao ; }
           eval($fcondicao);
         } else {
             $ret = false;

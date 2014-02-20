@@ -13,7 +13,7 @@
 			<table border="0" cellpadding="0" cellspacing="0" width="300px">
           		<tbody>
           			<tr> 
-            			<td><div align="center"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1"><br><a title="Projeto ExpressoLivre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre </a> {lang_version} {pgw_ver}<br><a title="eGroupWare" style="text-decoration:none" target="_blank" href="http://www.egroupware.org/"> Powered by eGroupWare </a></font></div></td>
+            			<td><div align="center"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1"><br /><a title="Projeto ExpressoLivre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre </a> {lang_version} {pgw_ver}<br /><a title="eGroupWare" style="text-decoration:none" target="_blank" href="http://www.egroupware.org/"> Powered by eGroupWare </a></font></div></td>
           			</tr>
         		</tbody>
         	</table>

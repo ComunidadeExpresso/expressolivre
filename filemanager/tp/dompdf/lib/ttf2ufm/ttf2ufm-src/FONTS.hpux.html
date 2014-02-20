@@ -6,7 +6,7 @@ How to install new Type1 fonts on an HP-UX 10.20 machine
 </HEAD>
 <BODY>
 Sergey A. Babkin
-<br>
+<br />
 <A HREF="mailto:babkin@bellatlantic.net">
 &lt;babkin@bellatlantic.net&gt;</A> or <A HREF="mailto:sab123@hotmail.com">&lt;sab123@hotmail.com&gt;</A>
 <p>
@@ -99,35 +99,35 @@ is:
 <!
 --------------8&lt;----------- cut here -----------------------------
 >
-<hr>
+<hr />
 <tt>
 # font server configuration file                                    
-<br>
+<br />
 # $XConsortium: config.cpp,v 1.7 91/08/22 11:39:59 rws Exp $        
-<br>
+<br />
                                                                     
-<br>
+<br />
 rasterizers = /usr/lib/X11/fs/ufstrast.sl,/usr/lib/X11/fs/iforast.sl
-<br>
+<br />
                                                                     
-<br>
+<br />
 clone-self = off                                                    
-<br>
+<br />
 use-syslog = off                                                    
-<br>
+<br />
 catalogue = /home/babkin/fs/type1.st              
-<br>
+<br />
 # in decipoints                                                     
-<br>
+<br />
 default-point-size = 120                                            
-<br>
+<br />
 default-resolutions = 100,100,75,75
-<br>
+<br />
 port=9000                                                           
-<br>
+<br />
 error-file=/home/babkin/fs/fs.err                 
 </tt>
-<hr>
+<hr />
 <!
 --------------8&lt;----------- cut here -----------------------------
 >
@@ -139,17 +139,17 @@ Then create the script to start your font server, say, <tt>$HOME/fs/runme</tt>:
 <!
 --------------8&lt;----------- cut here -----------------------------
 >
-<hr>
+<hr />
 <tt>
 TYPE1_CODEPAGE_DIR=$HOME/fs/charsets                                         
-<br>
+<br />
 export TYPE1_CODEPAGE_DIR                                                 
-<br>
+<br />
 kill `ps -ef | grep $HOME/\[f\]s/xfs.cfg | awk '{print $2}'`; 
-<br>
+<br />
 nohup xfs -config $HOME/fs/xfs.cfg &
 </tt>
-<hr>
+<hr />
 <!
 --------------8&lt;----------- cut here -----------------------------
 >
@@ -176,19 +176,19 @@ to do that would be like:
 <!
 --------------8&lt;----------- cut here -----------------------------
 >
-<hr>
+<hr />
 <tt>
 ...
-<br>
+<br />
 $HOME/fs/runme
-<br>
+<br />
 sleep 2 # give it some time to start
-<br>
+<br />
 xset fp+ tcp/somehost:9000
-<br>
+<br />
 ...
 </tt>
-<hr>
+<hr />
 <!
 --------------8&lt;----------- cut here -----------------------------
 >

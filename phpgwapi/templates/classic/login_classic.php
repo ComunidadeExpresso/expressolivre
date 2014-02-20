@@ -213,7 +213,7 @@
 			*/
 			$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $lang;
 		}
-		#print 'LANG:' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] . '<br>';
+		#print 'LANG:' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] . '<br />';
 
 		$GLOBALS['phpgw']->translation->init();	// this will set the language according to the (new) set prefs
 		$GLOBALS['phpgw']->translation->add_app('login');

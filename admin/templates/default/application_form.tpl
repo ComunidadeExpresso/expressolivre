@@ -1,6 +1,6 @@
 <!-- BEGIN form -->
 {error}
-<br>
+<br />
 <form action="{form_action}" method="POST">
  {hidden_vars}
  <div align="center">

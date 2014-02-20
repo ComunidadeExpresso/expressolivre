@@ -159,7 +159,7 @@ class ui_ajaxinterface
 	*/
 	function run_init_script($param)
 	{
-		return '<script language="javascript">' . $param . '</script>';
+		return '<script type="text/javascript">' . $param . '</script>';
 		}
 	
 	}

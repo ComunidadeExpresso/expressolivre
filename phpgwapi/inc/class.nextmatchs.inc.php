@@ -746,7 +746,7 @@
 		/*!
 		@function nav_left_right_imap
 		@abstract same code as left and right (as of Dec 07, 2001) except all combined into one function
-		@param feed_vars : array with these elements: <br>
+		@param feed_vars : array with these elements: <br />
 			start
 			total
 			cmd_prefix

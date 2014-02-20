@@ -5,7 +5,7 @@
 <table><tr>{app_extra_icons_icon}</tr></table>
 </div>
 {app_extra_icons_div}
-<script language="Javascript">	 
+<script type="text/javascript">
 	function showBar(){
 		bar = document.getElementById("toolbar");	
 		bar.style.visibility = "";
@@ -18,7 +18,7 @@
 		title = "{hide_bar_txt}";
 		extra = document.getElementById("extraButton");
 		extra.style.visibility = "hidden";		
-		but.innerHTML="<a title='"+title+"' onClick='javascript:changeBar()'><img src='{img_root}/up.button.png'></a>";
+		but.innerHTML="<a title='"+title+"' onclick='javascript:changeBar()'><img src='{img_root}/up.button.png'></a>";
 		var neverExpires = new Date("January 01, 2100 00:00:00");
  		document.cookie = "showHeader=true"+
  						  ";expires=" + neverExpires.toGMTString()+
@@ -58,10 +58,10 @@
 </script>
 
 <div  id="toolbar" style="visibility:hidden;position:absolute">
-<table border="0" width="100%" cellpadding=0 cellspacing=0><tr>
+<table border="0" cellpadding=0 cellspacing=0 style="width:100%"><tr>
 	<td background="{img_root}/fundo_topo.gif"></td>
 	<td align="center" background="{img_root}/fundo_topo.gif">
-	<table width="auto" border="0" cellpadding="0" cellspacing="0">{app_icons}</table>
+	<table width="auto" border="0" cellpadding="0" cellspacing="0" >{app_icons}</table>
 	</td><td style="padding-left:0px;padding-right:25px" align="right" background="{img_root}/fundo_topo.gif" nowrap>
 <a name="0"><img src="{img_root}/logo_expresso.png?1"></a></td></tr></table>
 
@@ -69,9 +69,9 @@
 <div id ="divStatusBar">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
-  <td width="30%" align="left" id="user_info" nowrap>{user_info}{frontend_name}</td>
-  <td width="30%" id="admin_info" nowrap>{current_users}</td>
-  <td style="padding-right:10px" width="*" align="right" valign="center" nowrap="true">
+  <td width="30%" align="left" id="user_info" >{user_info}{frontend_name}</td>
+  <td width="30%" id="admin_info" >{current_users}</td>
+  <td style="padding-right:10px" width="*" align="right" valign="center" >
     <a href="{dir_root}/preferences" title="{title_my_preferences}" alt="{title_my_preferences}" onmouseover="javascript:self.status='{title_my_preferences}'" onmouseout="javascript:self.status=''"><img height="15px" src="{dir_root}/phpgwapi/templates/celepar/images/preferences.png"><font size="-1">{my_preferences}</font></a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
     <a href="#" title="{title_suggestions}" alt="{title_suggestions}" onmouseover="javascript:self.status='{title_suggestions}'" onmouseout="javascript:self.status=''" onclick="javascript:openWindow(400,550,'{dir_root}/help/enviasugestao.php')"><img src="{dir_root}/phpgwapi/templates/celepar/images/criticas.jpg"><font size="-1">{suggestions}</font></a>
@@ -81,7 +81,7 @@
  </tr>
 </table>
 </div>
-<script language="Javascript">
+<script type="text/javascript">
  function openWindow(newWidth,newHeight,link)
   {			
 		
@@ -104,7 +104,7 @@
 		{sideboxcolstart}
 <!-- END appbox -->
 <!-- BEGIN sidebox_hide_header -->
-	<script language="javascript">
+	<script type="text/javascript">
 		new ypSlideOutMenu("menu2", "right", 0, 165, 160, 200)
 	</script>
 
@@ -125,7 +125,7 @@
 </td></tr></table>
 </div>
 </div>
-<script language="Javascript">
+<script type="text/javascript">
 	initBar(GetCookie("showHeader"));
 </script>
 <!-- END sidebox_hide_footer -->

@@ -99,7 +99,7 @@ function PutLink($URL,$txt)
 
 $html='You can now easily print text mixing different
 styles : <B>bold</B>, <I>italic</I>, <U>underlined</U>, or
-<B><I><U>all at once</U></I></B>!<BR>You can also insert links
+<B><I><U>all at once</U></I></B>!<br />You can also insert links
 on text, such as <A HREF="http://www.fpdf.org">www.fpdf.org</A>,
 or on an image: click on the logo.';
 

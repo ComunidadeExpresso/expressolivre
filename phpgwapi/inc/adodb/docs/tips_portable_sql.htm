@@ -33,10 +33,10 @@
 <h3><b>Selects</b></h3>
 <p>The SELECT statement has been standardized to a great degree. Nearly every 
   database supports the following:</p>
-<p>SELECT [cols] FROM [tables]<br>
-  &nbsp;&nbsp;[WHERE conditions]<br>
-  &nbsp; [GROUP BY cols]<br>
-  &nbsp; [HAVING conditions] <br>
+<p>SELECT [cols] FROM [tables]<br />
+  &nbsp;&nbsp;[WHERE conditions]<br />
+  &nbsp; [GROUP BY cols]<br />
+  &nbsp; [HAVING conditions] <br />
   &nbsp; [ORDER BY cols]</p>
 <p>But so many useful techniques can only be implemented by using proprietary 
   extensions. For example, when writing SQL to retrieve the first 10 rows for 
@@ -117,21 +117,21 @@ else $connection-&gt;RollbackTrans( );
   method of implementing outer joins is using UNION.</p>
 <p>For example, an ANSI-92 left outer join between two tables t1 and t2 could 
   look like:</p>
-<pre>SELECT t1.col1, t1.col2, t2.cola <br>  FROM t1 <i>LEFT JOIN</i> t2 ON t1.col = t2.col</pre>
+<pre>SELECT t1.col1, t1.col2, t2.cola <br />  FROM t1 <i>LEFT JOIN</i> t2 ON t1.col = t2.col</pre>
 <p>This can be emulated using:</p>
-<pre>SELECT t1.col1, t1.col2, t2.cola FROM t1, t2 <br>	   WHERE t1.col = t2.col 
+<pre>SELECT t1.col1, t1.col2, t2.cola FROM t1, t2 <br />	   WHERE t1.col = t2.col
    UNION ALL
-SELECT col1, col2, null FROM t1 <br>	   WHERE t1.col not in (select distinct col from t2)
+SELECT col1, col2, null FROM t1 <br />	   WHERE t1.col not in (select distinct col from t2)
 </pre>
 <p>Since ADOdb 2.13, we provide some hints in the connection object as to legal 
   join variations. This is still incomplete and sometimes depends on the database 
   version you are using, but is useful as a general guideline:</p>
 <p><font face="Courier New, Courier, mono">$conn-&gt;leftOuter</font>: holds the 
   operator used for left outer joins (eg. '*='), or false if not known or not 
-  available.<br>
+  available.<br />
   <font face="Courier New, Courier, mono">$conn-&gt;rightOuter</font>: holds the 
   operator used for right outer joins (eg '=*'), or false if not known or not 
-  available.<br>
+  available.<br />
   <font face="Courier New, Courier, mono">$conn-&gt;ansiOuter</font>: boolean 
   that if true means that ANSI-92 style outer joins are supported, or false if 
   not known.</p>
@@ -146,7 +146,7 @@ SELECT col1, col2, null FROM t1 <br>	   WHERE t1.col not in (select distinct col
   it, suitable to be used as database keys. In ADOdb, we use the GenID( ) function. 
   It has takes a parameter, the sequence name. Different tables can have different 
   sequences. </p>
-<pre>$id = $connection-&gt;GenID('sequence_name');<br>$connection-&gt;Execute(&quot;insert into table (id, firstname, lastname) <br>			   values ($id, $firstname, $lastname)&quot;);</pre>
+<pre>$id = $connection-&gt;GenID('sequence_name');<br />$connection-&gt;Execute(&quot;insert into table (id, firstname, lastname) <br />			   values ($id, $firstname, $lastname)&quot;);</pre>
 <p>For databases that do not support sequences natively, ADOdb emulates sequences 
   by creating a table for every sequence.</p>
 <h3><b>Binding</b></h3>
@@ -267,7 +267,7 @@ $sql2 = $datadict-><strong>CreateIndexSQL</strong>('idx_name_age', 'tabname', 'N
   DBDate( ) and DBTimeStamp( ) to convert dates to formats that are acceptable 
   to that database. Both functions accept Unix integer timestamps and date strings 
   in ISO format.</p>
-<pre>$date1 = $connection-&gt;DBDate(time( ));<br>$date2 = $connection-&gt;DBTimeStamp('2002-02-23 13:03:33');</pre>
+<pre>$date1 = $connection-&gt;DBDate(time( ));<br />$date2 = $connection-&gt;DBTimeStamp('2002-02-23 13:03:33');</pre>
 <p>We also provide functions to convert database dates to Unix timestamps:</p>
 <pre>$unixts = $recordset-&gt;UnixDate('#2002-02-30#'); <font color="green"># MS Access date =&gt; unix timestamp</font></pre>
 <p>For date calculations, we have OffsetDate which allows you to calculate dates such as <i>yesterday</i> and <i>next week</i> in a RDBMS independant fashion. For example, if we want to set a field to 6 hour from now, use:
@@ -321,9 +321,9 @@ $conn->UpdateBlob('blobtable','blobcol',$blobvalue,'id=1');
 	  die('<font color="#993300">Unsupported feature</font>');
 	}
 <font color="#000000"><font color="green">	# @RETVAL = SP_RUNSOMETHING @myid,@group</font>
-	$stmt = $db-&gt;PrepareSP($sql);	<br>	$db-&gt;Parameter($stmt,$id,'<font color="#993300">myid</font>'); 
+	$stmt = $db-&gt;PrepareSP($sql);	<br />	$db-&gt;Parameter($stmt,$id,'<font color="#993300">myid</font>');
 	$db-&gt;Parameter($stmt,$group,'<font color="#993300">group</font>');
-	<font color="green"># true indicates output parameter<br>	</font>$db-&gt;Parameter($stmt,$ret,'<font color="#993300">RETVAL</font>',true); 
+	<font color="green"># true indicates output parameter<br />	</font>$db-&gt;Parameter($stmt,$ret,'<font color="#993300">RETVAL</font>',true);
 	$db-&gt;Execute($stmt); </font></pre>
 <p>As you can see, the ADOdb API is the same for both databases. But the stored 
   procedure SQL syntax is quite different between databases and is not portable, 

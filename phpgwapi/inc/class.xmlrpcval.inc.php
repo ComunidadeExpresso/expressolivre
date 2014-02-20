@@ -63,13 +63,13 @@
 		{
 			if ($this->mytype==1)
 			{
-				echo '<B>xmlrpcval</B>: scalar can have only one value<BR>';
+				echo '<B>xmlrpcval</B>: scalar can have only one value<br />';
 				return 0;
 			}
 			$typeof=$GLOBALS['xmlrpcTypes'][$type];
 			if ($typeof!=1)
 			{
-				echo '<B>xmlrpcval</B>: not a scalar type ('.$typeof.')<BR>';
+				echo '<B>xmlrpcval</B>: not a scalar type ('.$typeof.')<br />';
 				return 0;
 			}
 		
@@ -107,7 +107,7 @@
 		{
 			if ($this->mytype!=0)
 			{
-				echo '<B>xmlrpcval</B>: already initialized as a [' . $this->kindOf() . ']<BR>';
+				echo '<B>xmlrpcval</B>: already initialized as a [' . $this->kindOf() . ']<br />';
 				return 0;
 			}
 
@@ -121,7 +121,7 @@
 //			global $xmlrpcTypes;
 			if ($this->mytype!=0)
 			{
-				echo '<B>xmlrpcval</B>: already initialized as a [' . $this->kindOf() . ']<BR>';
+				echo '<B>xmlrpcval</B>: already initialized as a [' . $this->kindOf() . ']<br />';
 				return 0;
 			}
 			$this->mytype=$GLOBALS['xmlrpcTypes']['struct'];
@@ -134,12 +134,12 @@
 			reset($ar);
 			while (list($key,$val) = each($ar))
 			{
-				echo $key.' => '.$val.'<br>';
+				echo $key.' => '.$val.'<br />';
 				if ($key == 'array')
 				{
 					while (list($key2,$val2) = each($val))
 					{
-						echo '-- '.$key2.' => '.$val2.'<br>';
+						echo '-- '.$key2.' => '.$val2.'<br />';
 					}
 				}
 			}

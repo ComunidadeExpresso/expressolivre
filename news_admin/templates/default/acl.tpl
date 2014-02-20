@@ -26,7 +26,7 @@
    <tr bgcolor="{th_bg}" valign="middle" align="center">
     <td>{sort_cat}</td>
 	<td>{lang_read}</td>
-	<td>{lang_write}<br>({lang_implies})</td>
+	<td>{lang_write}<br />({lang_implies})</td>
    </tr>
    <!-- BEGIN cat_list -->
    <tr bgcolor="{tr_color}">

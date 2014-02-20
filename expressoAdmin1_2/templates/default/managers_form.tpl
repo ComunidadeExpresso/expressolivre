@@ -42,7 +42,7 @@
 						<td id="td_input_context">
 							<select id="ea_select_contexts">{options_contexts}</select>
 							<span style="cursor:pointer" onclick="javascript:add_input_context();">+</span>
-							<br>
+							<br />
 							<span id="ea_spam_warn" style="color:red">&nbsp;</span>
 							{input_context_fields}
 						</td>

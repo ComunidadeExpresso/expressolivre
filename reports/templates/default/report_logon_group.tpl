@@ -43,7 +43,7 @@ function valida(theForm){
    <table border="0" width="90%">
     <tr>
 	 	<td align="left">
-			<div align="center" class="style2">{lang_reports_title5}:<br><br>&nbsp;<font color="blue">{context_display}</font><br><br>
+			<div align="center" class="style2">{lang_reports_title5}:<br /><br />&nbsp;<font color="blue">{context_display}</font><br /><br />
 	 	    </div></td>
  	 </tr>
     <tr>
@@ -71,8 +71,8 @@ function valida(theForm){
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Números de dias sem acesso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./phpgwapi/images/winclose.gif" style="" onClick="document.getElementById('div_nacesso1').style.display = 'none';">
 			</span>
 			<span style="position: absolute; top: 25px; left: 5px; text-align: left; border: 0px solid rgb(153, 153, 153); width: 252px; height: 125px;" id="texto1">
-				<font color="#FF0000"><strong>Atenção:<br>
-			<br> (0) - Zero ou Nulo Mostra todos os usuários.<br><br> (999) - Mostra todos os usuários que nunca acessaram.</strong></font>			</span>
+				<font color="#FF0000"><strong>Atenção:<br />
+			<br /> (0) - Zero ou Nulo Mostra todos os usuários.<br /><br /> (999) - Mostra todos os usuários que nunca acessaram.</strong></font>			</span>
 			<span style="position: absolute; top: 140px; left: 15px; text-align: left; border: 0px solid rgb(153, 153, 153);" id="texto1">
 				<font color="#000000"><strong>Número de dias:</strong></font>
 				<input name="nacesso" type="text" id="nacesso" style="position: absolute; top: -3px; left: 119px; width: 50px;" value="0" maxlength="3">				
@@ -135,8 +135,8 @@ function valida(theForm){
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Números de dias sem acesso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./phpgwapi/images/winclose.gif" style="" onClick="document.getElementById('{div_nacesso}').style.display = 'none';">
 			</span>
 			<span style="position: absolute; top: 25px; left: 5px; text-align: left; border: 0px solid rgb(153, 153, 153); width: 252px; height: 125px;" id="texto1">
-				<font color="#FF0000"><strong>Atenção:<br>
-			<br> (0) - Zero ou Nulo Mostra todos os usuários.<br><br> (999) - Mostra todos os usuários que nunca acessaram.</strong></font>			</span>
+				<font color="#FF0000"><strong>Atenção:<br />
+			<br /> (0) - Zero ou Nulo Mostra todos os usuários.<br /><br /> (999) - Mostra todos os usuários que nunca acessaram.</strong></font>			</span>
 			<span style="position: absolute; top: 140px; left: 15px; text-align: left; border: 0px solid rgb(153, 153, 153);" id="texto1">
 				<font color="#000000"><strong>Número de dias:</strong></font>
 				<input name="nacesso" type="text" id="nacesso" style="position: absolute; top: -3px; left: 119px; width: 50px;" value="0" maxlength="3">				

@@ -87,12 +87,18 @@ a:hover,a:active
 }
 
 #rodape {
-        text-align:right;
-        width: 200px;
+        text-align: right;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #9A9A9A;
+        font-variant: normal;
+        font-style: normal;
+        white-space: normal;
+        line-height: normal;
+        font-weight: normal;
+        width: 210px;
         position: relative;
         margin:0;
-        font: 12px "Verdana, Arial, Helvetica, sans-serif";
-        color: #9A9A9A;
 }
 
 #rodape img {

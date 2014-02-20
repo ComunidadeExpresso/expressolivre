@@ -18,7 +18,7 @@
 	$title = $appname;
 	$file = array
 	(
-		'Default Config Values' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname)
+		'Default Config Values' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname)
 	);
 
 	/* do not modify below this line */

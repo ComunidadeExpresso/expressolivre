@@ -1146,7 +1146,7 @@ class GUI extends Base {
       // get process_id, type, interactivity, autorouting and act status and others for this instance
       // we retrieve info even if ended or in exception or aborted instances
       // and if $instanceId is 0 we get all standalone and start activities
-      //echo '<br> call gui_get_user_instance_status:'.$pId.':'.$actType.':'.$actInteractive.':'.$actAutorouted.':'.$actStatus.':'.$instanceOwner.':'.$currentUser.':'.$instanceStatus;
+      //echo '<br /> call gui_get_user_instance_status:'.$pId.':'.$actType.':'.$actInteractive.':'.$actAutorouted.':'.$actStatus.':'.$instanceOwner.':'.$currentUser.':'.$instanceStatus;
       $array_info = $this->gui_get_user_instance_status($user,$instanceId,0,true,true,true);
       
       //now set our needed values
@@ -1170,7 +1170,7 @@ class GUI extends Base {
         foreach ($array_info['activities'] as $activity)
         {
           //_debug_array($activity);
-          //echo "<br> ==>".$activity['id']." : ".$activityId;
+          //echo "<br /> ==>".$activity['id']." : ".$activityId;
           if ((int)$activity['id']==(int)$activityId)
           {
             $actType = $activity['type'];

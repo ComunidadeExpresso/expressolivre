@@ -3,7 +3,7 @@
 %1 not found or not executable !!!	admin	en	%1 not found or not executable !!!
 (default no, leave it off if you dont use it)	admin	en	(default No, leave it off if you dont use it)
 (stored password will not be shown here)	admin	en	(Stored password will not be shown here)
-(to install new applications use<br><a href="setup/" target="setup">setup</a> [manage applications] !!!)	admin	en	(To install new applications use<br><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)
+(to install new applications use<br /><a href="setup/" target="setup">setup</a> [manage applications] !!!)	admin	en	(To install new applications use<br /><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)
 accesslog and bruteforce defense	admin	en	AccessLog and BruteForce defense
 account active	admin	en	Account active
 account has been created	common	en	Account has been created
@@ -87,7 +87,7 @@ create group	admin	en	Create Group
 crontab only (recomended)	admin	en	crontab only (recomended)
 data	admin	en	Data
 day	admin	en	Day
-day of week<br>(0-6, 0=sun)	admin	en	Day of week<br>(0-6, 0=Sun)
+day of week<br />(0-6, 0=sun)	admin	en	Day of week<br />(0-6, 0=Sun)
 default	admin	en	Default
 default file system space per user	admin	en	Default file system space per user
 default file system space per user/group ?	admin	en	Default file system space per user/group ?
@@ -147,13 +147,13 @@ enable the xmlrpc service	admin	en	Enable the xmlrpc service
 enabled - hidden from navbar	admin	en	Enabled - Hidden from navbar
 enabled - popup window	admin	en	Enabled - Popup Window
 enter a description for the category	admin	en	enter a description for the category
-enter some random text for app_session <br>encryption (requires mcrypt)	admin	en	Enter some random text for app_session <br>encryption (requires mcrypt)
+enter some random text for app_session <br />encryption (requires mcrypt)	admin	en	Enter some random text for app_session <br />encryption (requires mcrypt)
 enter the background color for the login page	admin	en	Enter the background color for the login page
 enter the background color for the site title	admin	en	Enter the background color for the site title
-enter the full path for temporary files.<br>examples: /tmp, c:\temp	admin	en	Enter the full path for temporary files.<br>Examples: /tmp, C:\TEMP
-enter the full path for users and group files.<br>examples: /files, e:\files	admin	en	Enter the full path for users and group files.<br>Examples: /files, E:\FILES
+enter the full path for temporary files.<br />examples: /tmp, c:\temp	admin	en	Enter the full path for temporary files.<br />Examples: /tmp, C:\TEMP
+enter the full path for users and group files.<br />examples: /files, e:\files	admin	en	Enter the full path for users and group files.<br />Examples: /files, E:\FILES
 enter the hostname of the machine on which this server is running	admin	en	Enter the hostname of the machine on which this server is running
-enter the location of egroupware's url.<br>example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>no trailing slash</b>	admin	en	Enter the location of eGroupWare's URL.<br>Example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>No trailing slash</b>
+enter the location of egroupware's url.<br />example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>no trailing slash</b>	admin	en	Enter the location of eGroupWare's URL.<br />Example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>No trailing slash</b>
 enter the search string. to show all entries, empty this field and press the submit button again	admin	en	Enter the search string. To show all entries, empty this field and press the SUBMIT button again
 enter the site password for peer servers	admin	en	Enter the site password for peer servers
 enter the site username for peer servers	admin	en	Enter the site username for peer servers
@@ -189,7 +189,7 @@ group name	admin	en	Group Name
 hide php information	admin	en	hide php information
 home directory	admin	en	Home directory
 host information	admin	en	Host information
-hour<br>(0-23)	admin	en	Hour<br>(0-23)
+hour<br />(0-23)	admin	en	Hour<br />(0-23)
 how many days should entries stay in the access log, before they get deleted (default 90) ?	admin	en	How many days should entries stay in the access log, before they get deleted (default 90) ?
 how many minutes should an account or ip be blocked (default 30) ?	admin	en	How many minutes should an account or IP be blocked (default 30) ?
 icon	admin	en	Icon
@@ -365,7 +365,7 @@ view this user	admin	en	view this user
 view user account	admin	en	View user account
 who would you like to transfer all records owned by the deleted user to?	admin	en	Who would you like to transfer ALL records owned by the deleted user to?
 would you like egroupware to cache the egw info array ?	admin	en	Would you like eGroupWare to cache the egw info array ?
-would you like egroupware to check for a new version<br>when admins login ?	admin	en	Would you like eGroupWare to check for a new version<br>when admins login ?
+would you like egroupware to check for a new version<br />when admins login ?	admin	en	Would you like eGroupWare to check for a new version<br />when admins login ?
 would you like egroupware to check for new application versions when admins login ?	admin	en	Would you like eGroupWare to check for new application versions when admins login ?
 would you like to automaticaly load new langfiles (at login-time) ?	admin	en	Would you like to automatically load new langfiles (at login-time) ?
 would you like to show each application's upgrade status ?	admin	en	Would you like to show each application's upgrade status ?

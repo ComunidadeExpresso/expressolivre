@@ -41,7 +41,7 @@ if (!(isset($_GET["cpaint_function"]) || isset($_POST["cpaint_function"]))) {
 		<tr><td height="10" bgcolor="#9999CC" class="style3"></td></tr>
 		<tr><td height="10" bgcolor="#9999CC" class="style3"></td></tr>
 		<tr><td bgcolor="#FFFFFF" class="style3"><blockquote>';
-	$debug_html_end = "</blockquote></td></tr></table><br><iframe name=\"results\" class=\"style3\" width=\"100%\" height=\"100%\" scrolling=\"yes\" allowtransparency=\"false\" style=\"background-color:  #FFFFFF\"></iframe></body></html>";
+	$debug_html_end = "</blockquote></td></tr></table><br /><iframe name=\"results\" class=\"style3\" width=\"100%\" height=\"100%\" scrolling=\"yes\" allowtransparency=\"false\" style=\"background-color:  #FFFFFF\"></iframe></body></html>";
 	
 	// get function names and function variables/values
 	$functionArray = getCallableCode();

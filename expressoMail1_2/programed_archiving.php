@@ -71,7 +71,7 @@
 		
 		//Bibliotecas JS.
 		$obj = createobject("expressoMail1_2.functions");
-		echo "<script src='js/gears_init.js'></script>";
+		echo "<script type='text/javascript' src='js/gears_init.js'></script>";
 		$libs =  $obj -> getFilesJs("js/main.js," .
 								"js/local_messages.js," .
 								"js/offline_access.js," .
@@ -80,7 +80,7 @@
 								$GLOBALS['phpgw_info']['flags']['update_version']);
 		
 		$GLOBALS['phpgw']->template->set_var('libs',$libs);
-		$GLOBALS['phpgw']->template->set_var('lib_modal',"<script src='js/modal/modal.js'></script>");
+		$GLOBALS['phpgw']->template->set_var('lib_modal',"<script type='text/javascript' src='js/modal/modal.js'></script>");
 	
 	
 		//combo folders
@@ -101,7 +101,7 @@
 				
 		}
 		$GLOBALS['phpgw']->template->set_var('all_folders',$options);
-		echo '<script language="javascript">var array_lang = new Array();</script>';
+		echo '<script type="text/javascript">var array_lang = new Array();</script>';
 		include("inc/load_lang.php");	
 	
 		$GLOBALS['phpgw']->template->set_var('lang_Would_you_like_to_keep_messages_on_server_?',lang("Would you like to keep archived messages?"));

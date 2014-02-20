@@ -13,7 +13,7 @@
 <script src="js/offline_access.js?1.222" type='text/javascript'></script>
 <script src="js/gears_init.js?1.222" type='text/javascript'></script>
 <script src="js/md5.js?1.222" type='text/javascript'></script>
-<script language="Javascript">
+<script type="text/javascript">
 <!--
 
 	function setLogin(){
@@ -65,7 +65,7 @@
 <div id="caixa_login">
           <div id="reflexo">
            <div class="titulo_login">Expresso.Ba</div>
-           <div id="div_error" class="msgInicial" >{cd}<br>{lang_message}</div>
+           <div id="div_error" class="msgInicial" >{cd}<br />{lang_message}</div>
 	   {action}
             <div id="conteudo_login" style="display:{show};">{select_organization}
               <div class="login_label">
@@ -103,8 +103,8 @@
           		<tbody>
           			<tr> 
             			<td>{logo_config}
-				<br><a title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre</a> {version}
-				<br><a title="eGroupWare" target="_blank" href="http://www.egroupware.org/"> Powered by eGroupWare </a></div></td>
+				<br /><a title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre</a> {version}
+				<br /><a title="eGroupWare" target="_blank" href="http://www.egroupware.org/"> Powered by eGroupWare </a></div></td>
           			</tr>
         		</tbody>
         	</table>

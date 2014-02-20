@@ -243,7 +243,7 @@ class Instance extends Base {
   function _synchronize_member(&$changed,&$init,&$actual,$name,$fieldname,&$namearray,&$vararray)
   {
     //if we work with arrays then it's more complex
-    //echo "<br>$name is_array?".(is_array($changed)); _debug_array($changed);
+    //echo "<br />$name is_array?".(is_array($changed)); _debug_array($changed);
     if (!(is_array($changed)))
     {
       if (isset($changed))
@@ -302,10 +302,10 @@ class Instance extends Base {
   {
     if ( (!($this->instanceId)) || (!($this->unsynch)) )
     {
-      //echo "<br>nothing to do ".$this->unsynch;
+      //echo "<br />nothing to do ".$this->unsynch;
       return true;
     }
-    //echo "<br> synch!";_debug_array($this->changed);
+    //echo "<br /> synch!";_debug_array($this->changed);
     //do it in a transaction, can have several activities running
     $this->db->StartTrans();
     //we need to make a row lock now,
@@ -365,7 +365,7 @@ class Instance extends Base {
         $query = 'update '.GALAXIA_TABLE_PREFIX.'instances set '.$queryset
               .' where wf_instance_id=?';
         $bindvars[] = $this->instanceId;
-        //echo "<br> query $query"; _debug_array($bindvars);
+        //echo "<br /> query $query"; _debug_array($bindvars);
         $this->query($query,$bindvars);
       }
     }

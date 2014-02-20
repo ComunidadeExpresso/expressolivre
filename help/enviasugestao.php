@@ -37,8 +37,8 @@ if($_POST){
 	$expressoMail = CreateObject('expressoMail1_2.imap_functions');			
 	$returncode = $expressoMail->send_mail($params);
 	if (!$returncode) {
-		echo "$to<Br>$subject<br>$tmpbody<br>$sender<br>\n";
-		echo '<i>'.$send->err['desc']."</i><br>\n";
+		echo "$to<br />$subject<br />$tmpbody<br />$sender<br />\n";
+		echo '<i>'.$send->err['desc']."</i><br />\n";
 		exit;		
 	}
 	else{

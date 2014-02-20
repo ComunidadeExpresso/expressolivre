@@ -332,9 +332,9 @@
 			
 			#while(list($key, $value) = each($this->userSessionData))
 			#{
-			#	print "++ $key: $value<br>";
+			#	print "++ $key: $value<br />";
 			#}
-			#print "restored Session<br>";
+			#print "restored Session<br />";
 		}
 		
 		function saveProfile($_globalSettings, $_smtpSettings, $_imapSettings)
@@ -391,11 +391,11 @@
 					
 					while(list($key, $value) = @each($this->userSessionData[$_accountID]['mailAlternateAddress']))
 					{
-						#print ".. $key: $value<br>";
+						#print ".. $key: $value<br />";
 						if ($key != $_formData['remove_mailAlternateAddress'])
 						{
 							$newMailAlternateAddress[$i]=$value;
-							#print "!! $i: $value<br>";
+							#print "!! $i: $value<br />";
 							++$i;
 						}
 					}

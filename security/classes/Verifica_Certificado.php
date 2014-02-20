@@ -75,7 +75,7 @@ class Verifica_Certificado
 		$w = exec('openssl verify -CAfile '.$GLOBALS['CAs'].' '.$arq,$saida);
 		deleta_arquivos_temporarios(&$this->arquivos_para_deletar);
 		$this->arquivos_para_deletar = array();
-		//echo 'w= '.$w.'<br>';
+		//echo 'w= '.$w.'<br />';
 		//echo '<pre>';
 		//print_r($saida);
 		//echo '</pre>';

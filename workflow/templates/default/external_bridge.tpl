@@ -1,6 +1,6 @@
 <html>
 <head>
-<script language="JavaScript">
+<script type="text/javascript">
 {literal}
 function enviarPost()
 {
@@ -13,7 +13,7 @@ function enviarPost()
 <form name="formBridge" id="formBridge" method="POST" action="{$siteAddress}">
 {$encodedForm}
 </form>
-<script language="JavaScript">
+<script type="text/javascript">
 enviarPost();
 document.write('<p>Se a página não for atualizada em alguns instantes, <a href="#" onClick="enviarPost();">clique aqui</a></p>');
 </script>

@@ -110,7 +110,7 @@
 
 		while(list($setting,$value) = @each($newsettings))
 		{
-			/* echo '<br>Updating: ' . $setting . '=' . $value; */
+			/* echo '<br />Updating: ' . $setting . '=' . $value; */
 			/* Don't erase passwords, since we also do not print them below */
 			if($value || (!preg_match('/passwd/',$setting) && !preg_match('/password/',$setting) && !preg_match('/root_pw/',$setting)))
 			{
@@ -176,7 +176,7 @@
 	{
 		/* Please check the number and dial again :) */
 		$GLOBALS['phpgw_setup']->html->show_alert_msg('Error',
-			lang('There was a problem trying to connect to your LDAP server. <br>'
+			lang('There was a problem trying to connect to your LDAP server. <br />'
 				.'please check your LDAP server configuration') . '.');
 	}
 

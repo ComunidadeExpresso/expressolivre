@@ -4,7 +4,7 @@
 <title>{title}</title>
 <meta http-equiv="content-type" content="text/html"; charset="{charset}">
 
-<script LANGUAGE="JavaScript">
+<script type="text/javascript">
 	var userSelectBox = opener.document.forms["app_form"].elements['{select_name};
 
 	function ExchangeAccountSelect(thisform)
@@ -13,7 +13,7 @@
  		userSelectBox.options[userSelectBox.length] = NewEntry;
 	}
 </script>
-<script LANGUAGE="JavaScript">
+<script type="text/javascript">
 	function ExchangeAccountText(thisform)
 	{
 		opener.document.app_form.accountid.value = thisform.elements['accountid'].value;
@@ -23,7 +23,6 @@
 <link rel="stylesheet" type="text/css" href="{css_file}"/>
 </head>
 <body>
-<center>
 <table border="0" width="100%">
 	<tr>
 		<td colspan="4">
@@ -151,6 +150,5 @@
 		</form>
 	</tr>
 </table>
-</center>
 </body>
 </html>

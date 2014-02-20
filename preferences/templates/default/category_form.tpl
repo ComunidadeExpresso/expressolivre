@@ -1,8 +1,8 @@
 
 <!-- BEGIN form -->
-<br>
+<br />
 <center>
-{message}<br>
+{message}<br />
 <table border="0" width="80%" cellspacing="2" cellpadding="2"> 
 <form name="form" action="{actionurl}" method="POST">
 	<tr bgcolor="{th_bg}">

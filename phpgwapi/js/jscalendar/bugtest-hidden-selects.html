@@ -79,13 +79,13 @@ function isDisabled(date) {
 <body>
 <form>
 <b>Date:</b>
-<br>
+<br />
 <input type="text" name="date1" id="sel1" size="30">
 <input type="button" value="..." onclick="return showCalendar('sel1', 'y-m-d');">
 <p>
-<br>
-<br><b>Visible &lt;select&gt;, hides and unhides as expected</b>
-<br>
+<br />
+<br /><b>Visible &lt;select&gt;, hides and unhides as expected</b>
+<br />
 <select name="foo" multiple>
 <option value="1">can use the functions date.getFullYear() -- returns</option>
 <option value="2">4 digit number, date.getMonth() -- returns the month</option>
@@ -93,16 +93,16 @@ function isDisabled(date) {
 </select>
 
 <p>
-<br><b>Hidden &lt;select&gt;, it should stay hidden (but doesn't)</b>
-<br>
+<br /><b>Hidden &lt;select&gt;, it should stay hidden (but doesn't)</b>
+<br />
 <select name="foo2" multiple style="visibility: hidden">
 <option value="1">this should</option>
 <option value="2">remain hidden right?</option>
 </select>
 
 <p>
-<br><b>Hidden textbox below, it stays hidden as expected</b>
-<br>
+<br /><b>Hidden textbox below, it stays hidden as expected</b>
+<br />
 <input type="text" name="foo3" value="this stays hidden just fine" style="visibility: hidden">
 </form>
 </body></html>

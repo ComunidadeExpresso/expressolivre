@@ -198,7 +198,7 @@
 				if($buffer[$fname])
 				{
 					$entry[$fname] = $buffer[$fname];
-					/* echo '<br>'.$fname.' = "'.$entry[$fname].'"'."\n"; */
+					/* echo '<br />'.$fname.' = "'.$entry[$fname].'"'."\n"; */
 				}
 			}
 			return $entry;

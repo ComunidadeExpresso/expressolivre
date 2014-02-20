@@ -199,12 +199,12 @@
 			$v = $r->value();
 			if (!$r->faultCode())
 			{
-				$this->debug('<hr>I got this value back<br><pre>' . htmlentities($r->serialize()) . '</pre><hr>',$debug);
+				$this->debug('<hr />I got this value back<br /><pre>' . htmlentities($r->serialize()) . '</pre><hr />',$debug);
 				$this->result = phpgw_xmlrpc_decode($v);
 			}
 			else
 			{
-				$this->debug('Fault Code: ' . $r->faultCode() . ' Reason "' . $r->faultString() . '"<br>',$debug);
+				$this->debug('Fault Code: ' . $r->faultCode() . ' Reason "' . $r->faultString() . '"<br />',$debug);
 				$this->result = htmlentities($r->serialize());
 			}
 			return $this->result;
@@ -252,12 +252,12 @@
 			$v = $r->value();
 			if (!$r->faultCode())
 			{
-				$this->debug('<hr>I got this value back<br><pre>' . htmlentities($r->serialize()) . '</pre><hr>',$debug);
+				$this->debug('<hr />I got this value back<br /><pre>' . htmlentities($r->serialize()) . '</pre><hr />',$debug);
 				$this->result = phpgw_xmlrpc_decode($v);
 			}
 			else
 			{
-				$this->debug('Fault Code: ' . $r->faultCode() . ' Reason "' . $r->faultString() . '"<br>',$debug);
+				$this->debug('Fault Code: ' . $r->faultCode() . ' Reason "' . $r->faultString() . '"<br />',$debug);
 				$this->result = htmlentities($r->serialize());
 			}
 			return $this->result;
@@ -298,13 +298,13 @@
 			/* _debug_array($soap);exit; */
 			if($r = $soap->send($soap_message,$method_name))
 			{
-				$this->debug('<hr>I got this value back<br><pre>' . htmlentities($r->serialize()) . '</pre><hr>',$debug);
+				$this->debug('<hr />I got this value back<br /><pre>' . htmlentities($r->serialize()) . '</pre><hr />',$debug);
 				$this->result = $r->decode();
 				return $this->result;
 			}
 			else
 			{
-				$this->debug('Fault Code: ' . $r->ernno . ' Reason "' . $r->errstring . '"<br>',$debug);
+				$this->debug('Fault Code: ' . $r->ernno . ' Reason "' . $r->errstring . '"<br />',$debug);
 			}
 		}
 
@@ -351,14 +351,14 @@
 			{
 				_debug_array(htmlentities($soap->outgoing_payload));
 				_debug_array(htmlentities($soap->incoming_payload));
-				$this->debug('<hr>I got this value back<br><pre>' . htmlentities($r->serialize()) . '</pre><hr>',$debug);
+				$this->debug('<hr />I got this value back<br /><pre>' . htmlentities($r->serialize()) . '</pre><hr />',$debug);
 				$this->result = $r->decode();
 				return $this->result;
 			}
 			else
 			{
 				_debug_array($soap->outgoing_payload);
-				$this->debug('Fault Code: ' . $r->ernno . ' Reason "' . $r->errstring . '"<br>',$debug);
+				$this->debug('Fault Code: ' . $r->ernno . ' Reason "' . $r->errstring . '"<br />',$debug);
 			}
 		}
 

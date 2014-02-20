@@ -12,17 +12,17 @@
    
    </tr>
    <tr bgcolor="{row_off}">
-    <td>{lang_Enter_the_full_path_for_temporary_files.<br>Examples:_/tmp,_C:\TEMP}:</td>
+    <td>{lang_Enter_the_full_path_for_temporary_files.<br />Examples:_/tmp,_C:\TEMP}:</td>
     <td><input name="newsettings[temp_dir]" value="{value_temp_dir}" size="40"></td>
    </tr>
 
    <tr bgcolor="{row_off}">
-    <td>{lang_Enter_the_full_path_for_users_and_group_files.<br>Examples:_/files,_E:\FILES}:</td>
+    <td>{lang_Enter_the_full_path_for_users_and_group_files.<br />Examples:_/files,_E:\FILES}:</td>
     <td><input name="newsettings[files_dir]" value="{value_files_dir}" size="40"></td>
    </tr>
    
    <tr bgcolor="{row_off}">
-    <td>{lang_Enter_the_location_of_eGroupWare's_URL.<br>Example:_http://www.domain.com/egroupware_&nbsp;_or_&nbsp;_/egroupware<br><b>No_trailing_slash</b>}:</td>
+    <td>{lang_Enter_the_location_of_eGroupWare's_URL.<br />Example:_http://www.domain.com/egroupware_&nbsp;_or_&nbsp;_/egroupware<br /><b>No_trailing_slash</b>}:</td>
     <td><input name="newsettings[webserver_url]" value="{value_webserver_url}" size="40"></td>
    </tr>
 
@@ -55,7 +55,7 @@
    </tr>
 
    <tr bgcolor="{row_off}">
-    <td>{lang_Datetime_port.<br>If_using_port_13,_please_set_firewall_rules_appropriately_before_submitting_this_page.<br>(Port:_13_/_Host:_129.6.15.28)}</td>
+    <td>{lang_Datetime_port.<br />If_using_port_13,_please_set_firewall_rules_appropriately_before_submitting_this_page.<br />(Port:_13_/_Host:_129.6.15.28)}</td>
     <td>
       <select name="newsettings[daytime_port]">
        <option value="00"{selected_daytime_port_00}>{lang_00_(disable)}</option>

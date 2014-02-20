@@ -123,7 +123,7 @@ class Log_win extends Log
             }
 
             echo <<< EOT
-<script language="JavaScript">
+<script type="text/javascript">
 $win = window.open('', '{$this->_name}', 'toolbar=no,scrollbars,width=600,height=400');
 $win.document.writeln('<html>');
 $win.document.writeln('<head>');

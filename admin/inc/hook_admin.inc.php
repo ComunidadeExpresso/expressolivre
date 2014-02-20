@@ -12,7 +12,7 @@
 
 	if (! $GLOBALS['phpgw']->acl->check('site_config_access',1,'admin'))
 	{
-		$file['Site Configuration']         = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=admin');
+		$file['Site Configuration']         = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=admin');
 	}
 
 /* disabled it, til it does something useful

@@ -50,7 +50,7 @@
 				'<input title="' + Element('cc_qa_save').value + '"  type="button" onclick="ccQuickAddContact.send(\'' + id + '\');" value="' + Element('cc_qa_save').value + '" style="position: absolute; top: ' + (fieldsTop+i*fieldsSpace) + 'px; left: 75px; width: 60px" />' +
 				'<input title="' + Element('cc_qa_close').value + '" type="button" onclick="ccQuickAddContact.fechar(\'' + id + '\');" value="' + Element('cc_qa_close').value + '" style="position: absolute; top: ' + (fieldsTop+i*fieldsSpace) + 'px; left: 140px; width: 60px" />' +
 				'</div>';
-			el.innerHTML +=	"<br>";
+			el.innerHTML +=	"<br />";
 								
 			_this.showWindow(el);
 		}

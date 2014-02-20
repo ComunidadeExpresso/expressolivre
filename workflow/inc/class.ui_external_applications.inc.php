@@ -94,7 +94,7 @@ class ui_external_applications extends ui_ajaxinterface
 				'contents' => file_get_contents($_FILES['image_tmp']['tmp_name']));
 			$data = base64_encode(serialize($data));
 			$output = '<html><head><title>-</title ></head><body>';
-			$output .= '<script language="JavaScript" type="text/javascript">' . "\n";
+			$output .= '<script type="text/javascript">' . "\n";
 			$output .= 'window.parent.document.getElementById(\'image\').value = \'' . $data . '\';' . "\n";
 			$output .= 'window.parent.document.getElementById(\'buttonSave\').onclick();' . "\n";
 			$output .= '</script></body></html >';

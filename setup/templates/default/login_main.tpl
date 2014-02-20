@@ -33,5 +33,5 @@
 	</tr>
 </tbody>
 </table>
-<br>
+<br />
 <!-- end login_main.tpl -->

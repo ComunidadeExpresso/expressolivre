@@ -15,32 +15,32 @@
 	<tr>
 		<td width="35%" bgcolor="#DDDDDD">
 			<div style="line-height: 220%">{lang_search_organization}:
-			<input type="text" id="organization_search" autocomplete="off" size=20 onKeyUp="javascript:search_organization(this.value, 'ea_combo_org');" onBlur="javascript:sinc_combos_org(context.value);"><br>
+			<input type="text" id="organization_search" autocomplete="off" size=20 onKeyUp="javascript:search_organization(this.value, 'ea_combo_org');" onBlur="javascript:sinc_combos_org(context.value);"><br />
 			
 			{lang_organization}:
-			<select id="ea_combo_org" name="context" onchange="javascript:sinc_combos_org(this.value);javascript:get_associated_domain(this.value);">{manager_organizations}</select><br>
+			<select id="ea_combo_org" name="context" onchange="javascript:sinc_combos_org(this.value);javascript:get_associated_domain(this.value);">{manager_organizations}</select><br />
 			
 			<input type="hidden" id="associated_domain" name="associated_domain">
 			{lang_full_name}: 
-			<input id="cn" name="cn" size="36" autocomplete="off"><br>
+			<input id="cn" name="cn" size="36" autocomplete="off"><br />
 			{lang_mail}: 
-			<input id="mail" name="mail" onKeyUp='javascript:emailSugestion_expressoadmin2(this)' size="45" autocomplete="off"><br>
+			<input id="mail" name="mail" onKeyUp='javascript:emailSugestion_expressoadmin2(this)' size="45" autocomplete="off"><br />
 			<input type="button" value="{lang_add_alternative_mail}" onclick="addTextbox( 'mailalternateaddress[]', 'mailalternateaddress' );">
 			<div style="overflow: auto; height: 40px; line-height: 100%;" id="mailalternateaddress">
 <!-- 			<input id="mailalternateaddress" name="mailalternateaddress[]" size="45" autocomplete="off"><span onclick="appendClone('mailalternateaddress');" style="cursor: pointer;"> +</span> -->
 			</div>
 			{lang_description}:
-			<input id="desc" name="desc" size="42" autocomplete="off"><br>
+			<input id="desc" name="desc" size="42" autocomplete="off"><br />
                         {lang_Email_quota_in_MB}:
-                        <input type="text" id="mailquota" name="mailquota" autocomplete="off" value="{mailquota}" {changequote_disabled} {disabled} size=16><br>
+                        <input type="text" id="mailquota" name="mailquota" autocomplete="off" value="{mailquota}" {changequote_disabled} {disabled} size=16><br />
                         <div  id='quota_used_field' name='quota_used_field' style="display:{display_quota_used}">{lang_quota_used_in_mb}:
                         <input type="text" name="mailquota_used" id="mailquota_used" value="{mailquota_used}" disabled size=10></div>
                         <div id='display_empty_inbox' name='display_empty_inbox' style="display:none"><input type='button' {disabled} {disabled_empty_inbox} value='{lang_empty_inbox}' onclick="javascript:empty_inbox(anchor.value);"></div>
 							
-			{lang_is_account_active}: <input type="checkbox" id="accountStatus" name="accountStatus" checked><!--<br>-->
+			{lang_is_account_active}: <input type="checkbox" id="accountStatus" name="accountStatus" checked><!--<br />-->
 			{lang_omit_account_from_the_catalog}: <input type="checkbox" id="phpgwAccountVisible" name="phpgwAccountVisible"></div>
 							
-			<b>{lang_owners}:</b><br>
+			<b>{lang_owners}:</b><br />
 			<select style="width:350px; height:170px" id="ea_select_owners" onchange="sharemailbox.getaclfromuser(this.value);" name="owners[]" multiple size="13"></select>
                       
 		</td>
@@ -144,25 +144,25 @@
                 <br />
 			<button id="bt_add_user" type="button" onClick="javascript:add_user();"><img src="expressoAdmin1_2/templates/default/images/add.png" style="vertical-align: middle;">&nbsp;{lang_add_owner}</button>
 			<br /><br />
-			<button id="bt_remove_user" type="button" onClick="javascript:remove_user();"><img src="expressoAdmin1_2/templates/default/images/rem.png" style="vertical-align: middle;">&nbsp;{lang_remove_owner}</button><br><br>
+			<button id="bt_remove_user" type="button" onClick="javascript:remove_user();"><img src="expressoAdmin1_2/templates/default/images/rem.png" style="vertical-align: middle;">&nbsp;{lang_remove_owner}</button><br /><br />
 		</td>
 						
 		<td width="25%" valign="bottom" bgcolor="#DDDDDD">
-			{lang_search_organization}:<br>
+			{lang_search_organization}:<br />
 			<input type="text" id="organization_search" autocomplete="off" size=20 onKeyUp="javascript:search_organization(this.value, 'ea_combo_org_available_users');" >
-			<br>
+			<br />
 							
-			{lang_organizations}:<br>
+			{lang_organizations}:<br />
 			<select name="org_context" id="ea_combo_org_available_users" >{all_organizations}</select>
-			<br>
-			<br><br>
+			<br />
+			<br /><br />
 							
-			{lang_search_user}:<br>
-			<input id="ea_input_searchUser" size="35" autocomplete="off" onkeyup="javascript:optionFinderTimeout(this, event)"><br>
+			{lang_search_user}:<br />
+			<input id="ea_input_searchUser" size="35" autocomplete="off" onkeyup="javascript:optionFinderTimeout(this, event)"><br />
 							
 			<font color="red"><span id="ea_span_searching">&nbsp;</span></font>
-			<br>
-			<b>{lang_users}:</b><br>
+			<br />
+			<b>{lang_users}:</b><br />
 <!-- 			<div style="overflow: scroll; width:350px; height:160px" > -->
 			<select id="ea_select_available_users" style="overflow: scroll; width:350px; height:160px" multiple size="13" ></select>
 <!-- 			</div> -->

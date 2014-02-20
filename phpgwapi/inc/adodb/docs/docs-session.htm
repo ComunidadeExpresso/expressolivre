@@ -89,7 +89,7 @@ ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false
 session_start();
 
 <font
- color="#004040">#<br># Test session vars, the following should increment on refresh<br>#<br>$_SESSION['AVAR'] += 1;<br>print "&lt;p&gt;\$_SESSION['AVAR']={$_SESSION['AVAR']}&lt;/p&gt;";</font>
+ color="#004040">#<br /># Test session vars, the following should increment on refresh<br />#<br />$_SESSION['AVAR'] += 1;<br />print "&lt;p&gt;\$_SESSION['AVAR']={$_SESSION['AVAR']}&lt;/p&gt;";</font>
 </pre>
 
 <p>When the session is created in session_start( ), the global variable $<b>ADODB_SESS_CONN</b> holds
@@ -122,7 +122,7 @@ including adodb-cryptsession2.php instead of adodb-session2.php. </li>
 <h3>Session Handler Files </h3>
 <p>There are 3 session management files that you can use:
 </p>
-<pre>adodb-session2.php        : The default<br>adodb-cryptsession2.php   : Use this if you want to store encrypted session data in the database<br>adodb-session-clob2.php   : Use this if you are storing DATA in clobs and you are NOT using oci8 driver</pre>
+<pre>adodb-session2.php        : The default<br />adodb-cryptsession2.php   : Use this if you want to store encrypted session data in the database<br />adodb-session-clob2.php   : Use this if you are storing DATA in clobs and you are NOT using oci8 driver</pre>
 <h2><strong>Usage Examples</strong></h2>
 <p>To force non-persistent connections, call <font color="#004040"><b>Persist</b></font>() first before session_start():
 
@@ -131,8 +131,8 @@ including adodb-cryptsession2.php instead of adodb-session2.php. </li>
  <font color="#004040">
 include_once("adodb/session/adodb-session2.php");
 $driver = 'mysql'; $host = 'localhost'; $user = 'auser'; $pwd = 'secret'; $database = 'sessiondb';
-ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false);<b><br>ADOdb_session::Persist($connectMode=false);</b>
-session_start();<br> </font>
+ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false);<b><br />ADOdb_session::Persist($connectMode=false);</b>
+session_start();<br /> </font>
 </pre>
 <p> The parameter to the Persist( ) method sets the connection mode. You can
   pass the following:</p>
@@ -164,13 +164,13 @@ session_start();<br> </font>
 </table>
 <p>To use a encrypted sessions, simply replace the file adodb-session2.php:</p>
  <pre> <font
- color="#004040"><b><br>include('adodb/session/adodb-cryptsession2.php');</b><br>$driver = 'mysql'; $host = 'localhost'; $user = 'auser'; $pwd = 'secret'; $database = 'sessiondb';
-ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false);<b><br>adodb_sess_open(false,false,$connectMode=false);</b>
-session_start();<br></font></pre>
+ color="#004040"><b><br />include('adodb/session/adodb-cryptsession2.php');</b><br />$driver = 'mysql'; $host = 'localhost'; $user = 'auser'; $pwd = 'secret'; $database = 'sessiondb';
+ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false);<b><br />adodb_sess_open(false,false,$connectMode=false);</b>
+session_start();<br /></font></pre>
  <p>And the same technique for adodb-session-clob2.php:</p>
  <pre>  <font
- color="#004040"><br><b>include('adodb/session/adodb-session2-clob2.php');</b><br>$driver = 'oci8'; $host = 'localhost'; $user = 'auser'; $pwd = 'secret'; $database = 'sessiondb';
-ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false);<b><br>adodb_sess_open(false,false,$connectMode=false);</b>
+ color="#004040"><br /><b>include('adodb/session/adodb-session2-clob2.php');</b><br />$driver = 'oci8'; $host = 'localhost'; $user = 'auser'; $pwd = 'secret'; $database = 'sessiondb';
+ADOdb_Session::config($driver, $host, $user, $password, $database,$options=false);<b><br />adodb_sess_open(false,false,$connectMode=false);</b>
 session_start();</font></pre>
  <h2>Installation</h2>
 <p>1. Create this table in your database. Here is the MySQL version:
@@ -204,13 +204,13 @@ create INDEX sess2_expireref on sessions2 ( expireref );</pre>
  <p>Here is the Oracle definition, which uses a CLOB for the SESSDATA field:
  <pre>
   <font
- color="#004040">CREATE TABLE SESSIONS2<br>(<br>   SESSKEY    VARCHAR2(48 BYTE)                  NOT NULL,<br>   EXPIRY     DATE                               NOT NULL,<br>   EXPIREREF  VARCHAR2(200 BYTE),<br>   CREATED    DATE                               NOT NULL,<br>   MODIFIED   DATE                               NOT NULL,<br>   SESSDATA   CLOB,<br>  PRIMARY KEY(SESSKEY)<br>);
-<br>CREATE INDEX SESS2_EXPIRY ON SESSIONS2(EXPIRY);
+ color="#004040">CREATE TABLE SESSIONS2<br />(<br />   SESSKEY    VARCHAR2(48 BYTE)                  NOT NULL,<br />   EXPIRY     DATE                               NOT NULL,<br />   EXPIREREF  VARCHAR2(200 BYTE),<br />   CREATED    DATE                               NOT NULL,<br />   MODIFIED   DATE                               NOT NULL,<br />   SESSDATA   CLOB,<br />  PRIMARY KEY(SESSKEY)<br />);
+<br />CREATE INDEX SESS2_EXPIRY ON SESSIONS2(EXPIRY);
 CREATE INDEX SESS2_EXPIREREF ON SESSIONS2(EXPIREREF);</font></pre>
 <p> We need to use a CLOB here because for text greater than 4000 bytes long,
   Oracle requires you to use the CLOB data type. If you are using the oci8 driver,
   ADOdb will automatically enable CLOB handling. So you can use either adodb-session2.php
-  or adodb-session-clob2.php - in this case it doesn't matter. <br>    
+  or adodb-session-clob2.php - in this case it doesn't matter. <br />
 <h2>Notifications</h2>
 <p>You can receive notification when your session is cleaned up by the session garbage collector or
 when you call session_destroy().
@@ -275,7 +275,7 @@ who is currently logged on.
 </p>
 <p>2. If you delete the sessions record for a specific user, eg.
 </p>
-<pre>delete from sessions where expireref = '$USER'<br></pre>
+<pre>delete from sessions where expireref = '$USER'<br /></pre>
 then the user is logged out. Useful for ejecting someone from a
 site.
 <p>3. You can scan the sessions table to ensure no user
@@ -285,9 +285,9 @@ can be logged in twice. Useful for security reasons.
 Since ADOdb 4.05, thanks to Ross Smith, multiple encryption and
 compression schemes are supported. Currently, supported are:
 <p>
-<pre>  MD5Crypt (crypt.inc.php)<br>  MCrypt<br>  Secure (Horde's emulation of MCrypt, if MCrypt module is not available.)<br>  GZip<br>  BZip2<br></pre>
+<pre>  MD5Crypt (crypt.inc.php)<br />  MCrypt<br />  Secure (Horde's emulation of MCrypt, if MCrypt module is not available.)<br />  GZip<br />  BZip2<br /></pre>
 <p>These are stackable. E.g.
-<pre>ADODB_Session::filter(new ADODB_Compress_Bzip2());<br>ADODB_Session::filter(new ADODB_Encrypt_MD5());<br></pre>
+<pre>ADODB_Session::filter(new ADODB_Compress_Bzip2());<br />ADODB_Session::filter(new ADODB_Encrypt_MD5());<br /></pre>
 will compress and then encrypt the record in the database.
 <h2>Session Cookie Regeneration: adodb_session_regenerate_id()</h2>
 <p>Dynamically change the current session id with a newly generated one and update

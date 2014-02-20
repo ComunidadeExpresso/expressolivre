@@ -136,13 +136,13 @@
 				while(list($table,$null) = @each($phpgw_baseline))
 				{
 					$terror[$appname]['tables'][] = $table;
-					echo '<br>Adding app table: ' . $table;
+					echo '<br />Adding app table: ' . $table;
 				}
 			}
 
 			if($version[$appname])
 			{
-				echo '<br>Processing ' . $terror[$appname]['name'] . ' to ' . $version[$appname];
+				echo '<br />Processing ' . $terror[$appname]['name'] . ' to ' . $version[$appname];
 
 				$terror = $GLOBALS['phpgw_setup']->process->droptables($terror,$GLOBALS['DEBUG']);
 				$GLOBALS['phpgw_setup']->deregister_app($terror[$appname]['name']);
@@ -155,17 +155,17 @@
 			}
 			else
 			{
-				echo '<br>Baseline-only completed for ' . $terror[$appname]['name'];
+				echo '<br />Baseline-only completed for ' . $terror[$appname]['name'];
 			}
-			echo '<br>' . $GLOBALS['setup_info'][$appname]['title'] . ' '
+			echo '<br />' . $GLOBALS['setup_info'][$appname]['title'] . ' '
 				. lang('tables installed, unless there are errors printed above') . '.';
 
 			$GLOBALS['setup_info'][$appname]['version'] = $terror[$appname]['version'];
 			$GLOBALS['phpgw_setup']->register_app($appname);
-			echo '<br>' . $terror[$appname]['title'] . ' ' . lang('registered') . '.';
+			echo '<br />' . $terror[$appname]['title'] . ' ' . lang('registered') . '.';
 		}
 
-		echo '<br><a href="schematoy.php">' . lang('Go back') . '</a>';
+		echo '<br /><a href="schematoy.php">' . lang('Go back') . '</a>';
 		$GLOBALS['setup_tpl']->pparse('out','footer');
 		exit;
 	}
@@ -202,13 +202,13 @@
 			$GLOBALS['setup_tpl']->pparse('out','detail');
 		}
 
-		echo '<br><a href="schematoy.php">' . lang('Go back') . '</a>';
+		echo '<br /><a href="schematoy.php">' . lang('Go back') . '</a>';
 		$GLOBALS['setup_tpl']->pparse('out','footer');
 		exit;
 	}
 	else
 	{
-		$GLOBALS['setup_tpl']->set_var('description',lang("Select an app, enter a target version, then submit to process to that version.<br>If you do not enter a version, only the baseline tables will be installed for the app.<br><blink>THIS WILL DROP ALL OF THE APPS' TABLES FIRST!</blink>"));
+		$GLOBALS['setup_tpl']->set_var('description',lang("Select an app, enter a target version, then submit to process to that version.<br />If you do not enter a version, only the baseline tables will be installed for the app.<br /><blink>THIS WILL DROP ALL OF THE APPS' TABLES FIRST!</blink>"));
 		$GLOBALS['setup_tpl']->pparse('out','header');
 
 		$GLOBALS['setup_tpl']->set_var('appdata',lang('Application Data'));

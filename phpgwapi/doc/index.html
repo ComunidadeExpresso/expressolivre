@@ -253,7 +253,7 @@ blockquote {text-align: center; font-style: italic;}
     <h4>Include files</h4>
 
     <p>Each PHP page you write will need to include the
-    header.inc.php along with a few variables.<br>
+    header.inc.php along with a few variables.<br />
     This is done by putting this at the top of each PHP page.</p>
 <pre>
 &lt;?php
@@ -263,7 +263,7 @@ include('../header.inc.php');
 
 
 </pre>
-    Of course change application name to fit.<br>
+    Of course change application name to fit.<br />
     This include will provide the following things: 
 
     <ul>
@@ -276,19 +276,19 @@ include('../header.inc.php');
       after the phpgwAPI and before any HTML code is generated.
       This file should include all your application specific
       functions.. You are welcome to include any additional files
-      you need from within this file.<br>
+      you need from within this file.<br />
       <b>Note:</b> Depricated and not used for OOP
       (/index.php?menuaction=app.obj.method) calls.</li>
 
       <li>appname/inc/header.inc.php - This file is loaded just
       after the system header/navbar, and allows developers to use
-      it for whatever they need to load.<br>
+      it for whatever they need to load.<br />
       <b>Note:</b> Depricated and not used for OOP
       (/index.php?menuaction=app.obj.method) calls.</li>
 
       <li>appname/inc/footer.inc.php - This file is loaded just
       before the system footer, allowing developers to close
-      connections and whatever else they need.<br>
+      connections and whatever else they need.<br />
       <b>Note:</b> Depricated and not used for OOP
       (/index.php?menuaction=app.obj.method) calls.</li>
 
@@ -312,21 +312,21 @@ include('../header.inc.php');
 
     <ul>
       <li>appname/inc/functions.inc.php - This file should include
-      all your application specific functions.<br>
+      all your application specific functions.<br />
       <b>Note:</b> Depricated and not used for OOP
       (/index.php?menuaction=app.obj.method) calls.</li>
 
       <li>appname/inc/header.inc.php - This file is loaded by
       $phpgw-&gt;common-&gt;header just after the system
       header/navbar, and allows developers to use it for whatever
-      they need to load.<br>
+      they need to load.<br />
       <b>Note:</b> Depricated and not used for OOP
       (/index.php?menuaction=app.obj.method) calls.</li>
 
       <li>appname/inc/footer.inc.php - This file is loaded by
       $phpgw-&gt;common-&gt;footer just before the system footer,
       allowing developers to close connections and whatever else
-      they need.<br>
+      they need.<br />
       <b>Note:</b> Depricated and not used for OOP
       (/index.php?menuaction=app.obj.method) calls.</li>
     </ul>
@@ -335,8 +335,8 @@ include('../header.inc.php');
     directories and icons.</h3>
 
     <p>You will need to create the following directories for your
-    code<br>
-    (replace 'appname' with your application name)<br>
+    code<br />
+    (replace 'appname' with your application name)<br />
     </p>
 <pre>
 --appname
@@ -436,7 +436,7 @@ display_section('myapp',$file);
     <h3><a name="tth_sEc4.1">4.1</a>&nbsp;&nbsp;Overview</h3>
 
     <p>eGroupWare attempts to provide developers with a sound
-    directory structure to work from.<br>
+    directory structure to work from.<br />
     The directory layout may seem complex at first, but after some
     use, you will see that it is designed to accommodate a large
     number of applications and functions.</p>
@@ -558,7 +558,7 @@ english phrase in lower case    appname **      Translated phrase in desired cas
 
     <h4>$GLOBALS['phpgw']-&gt;link</h4>
 
-    <p>$GLOBALS['phpgw']-&gt;link($url, $args)<br>
+    <p>$GLOBALS['phpgw']-&gt;link($url, $args)<br />
     Add support for session management. ALL links must use this,
     that includes href's form actions and header location's.</p>
 
@@ -580,26 +580,26 @@ english phrase in lower case    appname **      Translated phrase in desired cas
 
     <h4>$GLOBALS['phpgw']-&gt;common-&gt;phpgw_header</h4>
 
-    <p>$GLOBALS['phpgw']-&gt;phpgw_header()<br>
+    <p>$GLOBALS['phpgw']-&gt;phpgw_header()<br />
     Print out the start of the HTML page, including the navigation
     bar and includes appname/inc/header.php, if using deprecated
     linear scripts style.</p>
 
     <h4>$GLOBALS['phpgw']-&gt;common-&gt;phpgw_footer</h4>
 
-    <p>$GLOBALS['phpgw']-&gt;phpgw_footer()<br>
+    <p>$GLOBALS['phpgw']-&gt;phpgw_footer()<br />
     Prints the system footer, and includes
     appname/inc/footer.php</p>
 
     <h4>$GLOBALS['phpgw']-&gt;common-&gt;appsession</h4>
 
-    <p>$GLOBALS['phpgw']-&gt;common-&gt;appsession($data)<br>
+    <p>$GLOBALS['phpgw']-&gt;common-&gt;appsession($data)<br />
     Store important information session information that your
-    application needs.<br>
+    application needs.<br />
     $GLOBALS['phpgw']-&gt;appsession will return the value of your
     session data is you leave the parameter empty [i.e.
     $GLOBALS['phpgw']-&gt;appsession()], otherwise it will store
-    whatever data you send to it.<br>
+    whatever data you send to it.<br />
     You can also store a comma delimited string and use explode()
     to turn it back into an array when you receive the value
     back.</p>
@@ -621,9 +621,9 @@ echo "Dir: " . $GLOBALS['phpgw']-&gt;common-&gt;appsession();
     <h4>$phpgw-&gt;send-&gt;msg</h4>
 
     <p>$phpgw-&gt;msg-&gt;send($service, $to, $subject, $body,
-    $msgtype, $cc, $bcc)<br>
+    $msgtype, $cc, $bcc)<br />
     Send a message via email or NNTP and returns any error
-    codes.<br>
+    codes.<br />
     Example:</p>
 <pre>
 $to = 'someuser@domain.com';
@@ -670,37 +670,37 @@ echo 'IMAP Server is named: ' . $GLOBALS['phpgw_info']['server']['imap_server'];
     <h3><a name="tth_sEc6.2">6.2</a>&nbsp;&nbsp;User
     information</h3>
     <tt><font size="-1">$GLOBALS['phpgw_info']['user']['userid'] =
-    The user ID.<br>
+    The user ID.<br />
      $GLOBALS['phpgw_info']['user']['sessionid'] = The session
-    ID<br>
-     $GLOBALS['phpgw_info']['user']['theme'] = Selected theme<br>
+    ID<br />
+     $GLOBALS['phpgw_info']['user']['theme'] = Selected theme<br />
      $GLOBALS['phpgw_info']['user']['private_dir'] = Users private
-    dir. Use eGroupWare core functions for access to the files.<br>
+    dir. Use eGroupWare core functions for access to the files.<br />
      $GLOBALS['phpgw_info']['user']['firstname'] = Users first
-    name<br>
+    name<br />
      $GLOBALS['phpgw_info']['user']['lastname'] = Users last
-    name<br>
+    name<br />
      $GLOBALS['phpgw_info']['user']['fullname'] = Users Full
-    Name<br>
+    Name<br />
      $GLOBALS['phpgw_info']['user']['groups'] = Groups the user is
-    a member of<br>
+    a member of<br />
      $GLOBALS['phpgw_info']['user']['app_perms'] = If the user has
-    access to the current application<br>
+    access to the current application<br />
      $GLOBALS['phpgw_info']['user']['lastlogin'] = Last time the
-    user logged in.<br>
+    user logged in.<br />
      $GLOBALS['phpgw_info']['user']['lastloginfrom'] = Where they
-    logged in from the last time.<br>
+    logged in from the last time.<br />
     $GLOBALS['phpgw_info']['user']['lastpasswd_change'] = Last time
-    they changed their password.<br>
-    $GLOBALS['phpgw_info']['user']['passwd'] = Hashed password.<br>
+    they changed their password.<br />
+    $GLOBALS['phpgw_info']['user']['passwd'] = Hashed password.<br />
     $GLOBALS['phpgw_info']['user']['status'] = If the user is
-    enabled.<br>
+    enabled.<br />
     $GLOBALS['phpgw_info']['user']['logintime'] = Time they logged
-    into their current session.<br>
+    into their current session.<br />
     $GLOBALS['phpgw_info']['user']['session_dla'] = Last time they
-    did anything in their current session<br>
+    did anything in their current session<br />
     $GLOBALS['phpgw_info']['user']['session_ip'] = Current IP
-    address<br>
+    address<br />
     </font></tt> 
 
     <h3><tt><a name="tth_sEc6.3">6.3</a>&nbsp;&nbsp;Group
@@ -901,7 +901,7 @@ lang($key, $m1="", $m2="", $m3="", $m4="", $m5="",
         [$key&nbsp;]&nbsp; 
 
         <p>is the string to translate and may contain replacement
-        directives of the form %n.<br>
+        directives of the form %n.<br />
         </p>
       </dd>
 
@@ -1070,10 +1070,10 @@ Your message has been sent
 
     <p>Thanks to Joesph Engo for starting eGroupWare (at the time
     called webdistro). Thanks to all the developers and users who
-    contribute to making eGroupWare such a success.<br>
-    <br>
+    contribute to making eGroupWare such a success.<br />
+    <br />
     </p>
-    <hr>
+    <hr />
 
     <p>$Id: index.html,v 1.5 2004/02/23 00:24:21 ralfbecker Exp
     $</p>

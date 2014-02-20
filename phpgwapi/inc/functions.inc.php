@@ -97,7 +97,7 @@
 	/*	$GLOBALS['phpgw']->log->write(array('text'=>'W-MissingFlags, currentapp flag not set'));*/
 
 		echo '<b>!!! YOU DO NOT HAVE YOUR $GLOBALS[\'phpgw_info\'][\'flags\'][\'currentapp\'] SET !!!';
-		echo '<br>!!! PLEASE CORRECT THIS SITUATION !!!</b>';
+		echo '<br />!!! PLEASE CORRECT THIS SITUATION !!!</b>';
 	}
 
 	print_debug('sane environment','messageonly','api');
@@ -191,7 +191,7 @@
 		/* $setup_dir = str_replace($_SERVER['PHP_SELF'],'index.php','setup/'); */
 		/*echo '<center><b>Fatal Error:</b> It appears that you have not created the database tables for '
 			.'eGroupWare.  Click <a href="' . $setup_dir . '">here</a> to run setup.</center>';*/
-		echo '<center><b>'.lang("ExpressoLivre is unavailable at this moment. Code %1<br>Please, try later.","001").'</b></center>';
+		echo '<center><b>'.lang("ExpressoLivre is unavailable at this moment. Code %1<br />Please, try later.","001").'</b></center>';
 		/* END - CELEPAR - jakjr - 05/06/2006 */
 		exit;
 	}

@@ -187,7 +187,7 @@
     <td colspan="2" align="center">
       <input type="submit" name="submit" value="{lang_submit}">
       <input type="submit" name="cancel" value="{lang_cancel}">
-		  <br>
+		  <br />
     </td>
   </tr>
 </table>

@@ -20,11 +20,11 @@ TTF2PT1 - A True Type to PostScript Type 1 Font Converter
 <blockquote>
 <!-- =section t1 HISTORY -->
   Based on ttf2pfa by Andrew Weeks, and help from Frank Siegert.
-<BR>
+<br />
   Modification by Mark Heath.
-<BR>
+<br />
   Further modification by Sergey Babkin.
-<BR>
+<br />
   The Type1 assembler by I. Lee Hetherington with modifications by 
   Kai-Uwe Herbing.
 <!-- =stop -->
@@ -204,32 +204,32 @@ The <B>options</B> are:
 <p>
 
    As of now the following languages are supported:
-<br>
+<br />
    &nbsp;&nbsp;<TT>latin1</TT> - for all the languages using the Latin-1 encoding
-<br>
+<br />
    &nbsp;&nbsp;<TT>latin2</TT> - for the Central European languages
-<br>
+<br />
    &nbsp;&nbsp;<TT>latin4</TT> - for the Baltic languages
-<br>
+<br />
    &nbsp;&nbsp;<TT>latin5</TT> - for the Turkish language
-<br>
+<br />
    &nbsp;&nbsp;<TT>cyrillic</TT> - for the languages with Cyrillic alphabet
-<br>
+<br />
    &nbsp;&nbsp;<TT>russian</TT> - historic synonym for cyrillic
-<br>
+<br />
    &nbsp;&nbsp;<TT>bulgarian</TT> - historic synonym for cyrillic
-<br>
+<br />
    &nbsp;&nbsp;<TT>adobestd</TT> - for the AdobeStandard encoding used by TeX
-<br>
+<br />
    &nbsp;&nbsp;<TT>plane+<i>argument</i></TT> - to select one plane from a multi-byte encoding
 <p>
 
    The argument of the "<tt>plane</tt>" language may be in one of three forms:
 <p>
    &nbsp;&nbsp;<tt>plane+<b>pid=</b><i>&lt;pid&gt;</i><b>,eid=</b><i>&lt;eid&gt;</i></tt>
-<br>
+<br />
    &nbsp;&nbsp;<tt>plane+<b>pid=</b><i>&lt;pid&gt;</i><b>,eid=</b><i>&lt;eid&gt;</i><b>,</b><i>&lt;plane_number&gt;</i></tt>
-<br>
+<br />
    &nbsp;&nbsp;<tt>plane+<i>&lt;plane_number&gt;</i></tt>
 <p>
 
@@ -464,9 +464,9 @@ The <B>options</B> are:
 <p>
 
    &nbsp;&nbsp;<TT>ttf</TT> - built-in parser for the ttf files (suffix <tt>.ttf</tt>)
-<br>
+<br />
    &nbsp;&nbsp;<TT>bdf</TT> - built-in parser for the BDF files (suffix <tt>.bdf</tt>)
-<br>
+<br />
    &nbsp;&nbsp;<TT>ft</TT> - parser based on the FreeType-2 library (suffixes <tt>.ttf</tt>,
        <tt>.otf</tt>, <tt>.pfa</tt>, <tt>.pfb</tt>)
 <p>
@@ -548,12 +548,12 @@ The <B>options</B> are:
 
 <!-- ==item * -->
 <B>Very obsolete option:</B>
-<br>
+<br />
    The algorithm that implemented the forced fixed width had major
    flaws, so it was disabled. The code is still in the program and
    some day it will be refined and returned back. Meanwhile the 
    option name '<b>-f</b>' was reused for another option. The old version was:
-<br>
+<br />
 <TT><B>-f</TT></B> - Don't try to force the fixed width of font. Normally the converter
    considers the fonts in which the glyph width deviates by not more
    than 5% as buggy fixed width fonts and forces them to have really
@@ -597,7 +597,7 @@ So, the following command lines:
 
 <blockquote>
 	<tt>ttf2pt1 -e ttffont.ttf t1font</tt>
-<br>
+<br />
 	<tt>ttf2pt1 ttffont.ttf - | t1asm &gt;t1font.pfa</tt>
 </blockquote>
 <p>
@@ -803,7 +803,7 @@ CONTACTS
 <!-- ==item * -->
 <A HREF="http://lists.sourceforge.net/mailman/listinfo/ttf2pt1-announce">
 ttf2pt1-announce@lists.sourceforge.net
-</A><br>
+</A><br />
   The mailing list with announcements about ttf2pt1. It is a moderated mailing
   with extremely low traffic. Everyone is encouraged to subscribe to keep in 
   touch with the current status of project. To subscribe use the Web interface
@@ -816,10 +816,10 @@ ttf2pt1-announce@lists.sourceforge.net
 <!-- ==item * -->
 <A HREF="mailto:ttf2pt1-devel@lists.sourceforge.net">
 ttf2pt1-devel@lists.sourceforge.net
-</A><br>
+</A><br />
 <A HREF="mailto:ttf2pt1-users@lists.sourceforge.net">
 ttf2pt1-users@lists.sourceforge.net
-</A><br>
+</A><br />
   The ttf2pt1 mailing lists for development and users issues. They have not
   that much traffic either. To subscribe use the Web interface at
   <A HREF="http://lists.sourceforge.net/mailman/listinfo/ttf2pt1-devel">http://lists.sourceforge.net/mailman/listinfo/ttf2pt1-devel</A>
@@ -832,24 +832,24 @@ ttf2pt1-users@lists.sourceforge.net
 <!-- =stop -->
 <A HREF="mailto:mheath@netspace.net.au">
 mheath@netspace.net.au
-</A><br>
+</A><br />
   Mark Heath
 <p>
 
 <A HREF="mailto:A.Weeks@mcc.ac.uk">
 A.Weeks@mcc.ac.uk
-</A><br>
+</A><br />
   Andrew Weeks
 <p>
 
 <A HREF="mailto:babkin@users.sourceforge.net">
-babkin@users.sourceforge.net</A> (preferred)<br>
+babkin@users.sourceforge.net</A> (preferred)<br />
 <A HREF="mailto:sab123@hotmail.com">
 sab123@hotmail.com
-</A><br>
+</A><br />
 <A HREF="http://members.bellatlantic.net/~babkin">
 http://members.bellatlantic.net/~babkin
-</A><br>
+</A><br />
   Sergey Babkin
 <p>
 
@@ -864,13 +864,13 @@ SEE ALSO
 <!-- ==item * -->
 <A HREF="http://ttf2pt1.sourceforge.net">
 http://ttf2pt1.sourceforge.net
-</A><br>
+</A><br />
   The main page of the project.
 <p>
 
 <A HREF="http://www.netspace.net.au/~mheath/ttf2pt1/">
 http://www.netspace.net.au/~mheath/ttf2pt1/
-</A><br>
+</A><br />
   The old main page of the project.
 <p>
 <!-- ==back -->
@@ -878,89 +878,89 @@ http://www.netspace.net.au/~mheath/ttf2pt1/
 
 <A HREF="http://sourceforge.net/projects/gnuwin32">
 http://sourceforge.net/projects/gnuwin32
-</A><br>
+</A><br />
   Precompiled binaries for Windows.
 <p>
 
 <A HREF="http://www.lcdf.org/~eddietwo/type/">
 http://www.lcdf.org/~eddietwo/type/
-</a><br>
+</a><br />
   The home page of the Type 1 utilities package.
 <p>
 
 <A HREF="http://www.rightbrain.com/pages/books.html">
 http://www.rightbrain.com/pages/books.html
-</a><br>
+</a><br />
   The first book about PostScript on the Web, "Thinking in PostScript".
 <p>
 
 <A HREF="http://fonts.apple.com/TTRefMan/index.html">
 http://fonts.apple.com/TTRefMan/index.html
-</a><br>
+</a><br />
   The True Type reference manual.
 <p>
 
 <A HREF="http://partners.adobe.com/asn/developer/PDFS/TN/PLRM.pdf">
 http://partners.adobe.com/asn/developer/PDFS/TN/PLRM.pdf
-</a><br>
+</a><br />
   Adobe PostScript reference manual.
 <p>
 
 <A HREF="http://partners.adobe.com/asn/developer/PDFS/TN/T1_SPEC.PDF">
 http://partners.adobe.com/asn/developer/PDFS/TN/T1_SPEC.PDF
-</a><br>
+</a><br />
   Specification of the Type 1 font format.
 <p>
 
 <A HREF="http://partners.adobe.com/asn/developer/PDFS/TN/5015.Type1_Supp.pdf">
 http://partners.adobe.com/asn/developer/PDFS/TN/5015.Type1_Supp.pdf
-</a><br>
+</a><br />
   The Type 1 font format supplement.
 <p>
 
 <A HREF="http://partners.adobe.com/asn/developer/PDFS/TN/5004.AFM_Spec.pdf">
 http://partners.adobe.com/asn/developer/PDFS/TN/5004.AFM_Spec.pdf
-</A><BR>
+</A><br />
   Specification of the Adobe font metrics file format.
 <p>
 
 <A HREF="http://www.cs.wpi.edu/~matt/courses/cs563/talks/surface/bez_surf.html">
 http://www.cs.wpi.edu/~matt/courses/cs563/talks/surface/bez_surf.html
-</A><BR>
+</A><br />
 <A HREF="http://www.cs.wpi.edu/~matt/courses/cs563/talks/curves.html">
 http://www.cs.wpi.edu/~matt/courses/cs563/talks/curves.html
-</A><BR>
+</A><br />
   Information about the Bezier curves.
 <p>
 
 <A HREF="http://www.neuroinformatik.ruhr-uni-bochum.de/ini/PEOPLE/rmz/t1lib/t1lib.html">
 http://www.neuroinformatik.ruhr-uni-bochum.de/ini/PEOPLE/rmz/t1lib/t1lib.html
-</A><br>
+</A><br />
   A stand-alone library supporting the Type1 fonts. Is neccessary
   to compile the programs <tt>other/cmpf</tt> and <tt>other/dmpf</tt>.
 <p>
 
 <A HREF="http://www.freetype.org">
 http://www.freetype.org
-</A><br>
+</A><br />
   A library supporting the TTF fonts. Also many useful TTF programs
   are included with it.
 <p>
 
 <A HREF="http://heliotrope.homestead.com/files/printsoft.html">
 http://heliotrope.homestead.com/files/printsoft.html
-</A><br>
+</A><br />
   Moses Gold's collection of links to printing software.
 <p>
 
 <A HREF="http://linuxartist.org/fonts/">
 http://linuxartist.org/fonts/
-</A><br>
+</A><br />
   Collection of font-related links.
 <p>
 
-<HR>
-<HR>
+<hr />
+<hr />
 <!
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -979,7 +979,7 @@ development moved to <tt>ttf2pt1</tt>, including Andrew Weeks, the author of
 <tt>ttf2pfa</tt>. <tt>Ttf2pfa</tt> is provided for historical reasons only. Please use
 <tt>ttf2pt1</tt> instead.
 
-<HR>
+<hr />
 <!
 ----------------------------------------------------------------------
 >
@@ -1141,7 +1141,7 @@ the glyph array into a set of Postscript character names. The problems
 are:
 <p>
 	1)	Microsoft uses Unicode, a 16-bit system, to encode the font.
-<br>
+<br />
 	2)	that more than one glyph is given the same Postscript name.
 <p>
 

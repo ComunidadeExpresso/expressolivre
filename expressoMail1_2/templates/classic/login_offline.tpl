@@ -13,7 +13,7 @@
 <script src="js/offline_access.js?1.222" type='text/javascript'></script>
 <script src="js/gears_init.js?1.222" type='text/javascript'></script>
 <script src="js/md5.js?1.222" type='text/javascript'></script>
-<script language="Javascript">
+<script type="text/javascript">
 <!--
 	
 	function submitIt(event){
@@ -64,7 +64,7 @@
 	<tbody><tr>			
     <td bgcolor="#E8EEF7"  height="100%">
     <table cellpadding="0" height="100%" cellspacing="0" width="100%" border="0"><tr><td width="60%">&nbsp;</td><td>
-	<div align="center" id='div_error' class="msgInicial">{cd}<br>{lang_message}<br>{website_title} - 01<br><br></div>
+	<div align="center" id='div_error' class="msgInicial">{cd}<br />{lang_message}<br />{website_title} - 01<br /><br /></div>
         <table border="0" bordercolor="#cfcfcf" cellpadding="0" cellspacing="0" width="300">
           <tbody><tr>
 				<FORM name="login" method="post" action="{login_url}" {autocomplete} onsubmit="expresso_offline_access.do_login(document.getElementById('users_combo').value,MD5(document.getElementById('passwd').value));return false;">
@@ -118,9 +118,9 @@
         <table border="0" cellpadding="0" cellspacing="0" width="300px">
           <tbody><tr> 
             <td><a title="Governo do Paran&aacute;" href="http://www.pr.gov.br" target="_blank"><img border=0 src="../phpgwapi/templates/celepar/images/logo_governo.gif"/></a></td>
-            <td><div align="center"><a title="Celepar Inform&aacute;tica do Paran&aacute;" target="_blank" href="http://www.celepar.pr.gov.br/"><img border=0 src="../phpgwapi/templates/celepar/images/logo_celepar.gif"></a><a title="eGroupWare" style="text-decoration:none" target="_blank" href="http://www.egroupware.org/"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1"><br>Powered by eGroupWare {version}</a></font></div></td>
+            <td><div align="center"><a title="Celepar Inform&aacute;tica do Paran&aacute;" target="_blank" href="http://www.celepar.pr.gov.br/"><img border=0 src="../phpgwapi/templates/celepar/images/logo_celepar.gif"></a><a title="eGroupWare" style="text-decoration:none" target="_blank" href="http://www.egroupware.org/"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1"><br />Powered by eGroupWare {version}</a></font></div></td>
           </tr>
-        </tbody></table><br>
+        </tbody></table><br />
       </div></td>
 	 <td bgcolor="#f7f7f7" height="100%"></td>
 	</tr>	

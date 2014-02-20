@@ -304,7 +304,7 @@
 			foreach($vars as $var => $var_help)
 			{
 				$lname = ($lname = lang($var)) == $var.'*' ? $var : $lname;
-				$help .= "<br>\n".'<b>$$'.$lname.'$$</b>: '.$var_help;
+				$help .= "<br />\n".'<b>$$'.$lname.'$$</b>: '.$var_help;
 			}
 			$help .= "</p>\n";
 		}
@@ -343,7 +343,7 @@
 			{
 				$def_text = $GLOBALS['phpgw']->preferences->lang_notify($def_text,$notifys[$name]);
 			}
-			$def_text = $def_text != '' ? '<br><i><font size="-1"><b>'.lang('default').'</b>:<br>'.nl2br($def_text).'</font></i>' : '';
+			$def_text = $def_text != '' ? '<br /><i><font size="-1"><b>'.lang('default').'</b>:<br />'.nl2br($def_text).'</font></i>' : '';
 		}
         $t->set_var('row_id', "${GLOBALS[type]}[$name]");
 		$t->set_var('row_value',"<textarea rows=\"$rows\" cols=\"$cols\" name=\"${GLOBALS[type]}[$name]\">".

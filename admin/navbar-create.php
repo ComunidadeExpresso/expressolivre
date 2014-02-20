@@ -35,7 +35,7 @@ The instructions are as follows:
 <?php
   while (list($key, $val) = each($phpgw_info["apps"])) {
     echo "\n<A HREF=\"".$phpgw->link("/admin/navbar-sel.php","filename=".$phpgw_info["server"]["server_root"]."/".$key."/images/navbar.gif")."\">";
-    echo $phpgw_info["apps"][$key]["title"]."</A><BR>";
+    echo $phpgw_info["apps"][$key]["title"]."</A><br />";
   }
 
   $phpgw->common->phpgw_footer();

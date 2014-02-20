@@ -1,5 +1,5 @@
 <!-- BEGIN appheader -->
-<p><b>{lang_applist}:</b><hr><p>
+<p><b>{lang_applist}:</b><hr /><p>
 <table width="60%" border="0" align="center" cellspacing="1" cellpadding="1">
   <tr>
     <td align="center">Select an application/module, or click 'Show all' to convert all tables.</td>

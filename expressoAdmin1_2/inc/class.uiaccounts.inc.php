@@ -120,7 +120,7 @@
 			$contexts = $acl['contexts'];
 			foreach ($acl['contexts_display'] as $index=>$tmp_context)
 			{
-				$context_display .= '<br>'.$tmp_context;
+				$context_display .= '<br />'.$tmp_context;
 			}
 			// Verifica se o administrador tem acesso.
 			if (!$this->functions->check_acl($account_lid,'list_users'))
@@ -587,7 +587,7 @@
 				for ($i = 0; $i < $user_info['mailalternateaddress']['count']; ++$i)
 				{
 					if ($i > 0)
-						$input_mailalternateaddress_fields .= '<br>';
+						$input_mailalternateaddress_fields .= '<br />';
 					$input_mailalternateaddress_fields .= '<input type="text" name="mailalternateaddress[]" id="mailalternateaddress" autocomplete="off" value="'.$user_info['mailalternateaddress'][$i].'" {disabled} size=30>';
 				}
 			}
@@ -601,7 +601,7 @@
 				for ($i = 0; $i < $user_info['mailforwardingaddress']['count']; ++$i)
 				{
 					if ($i > 0)
-						$input_mailforwardingaddress_fields .= '<br>';
+						$input_mailforwardingaddress_fields .= '<br />';
 					$input_mailforwardingaddress_fields .= '<input type="text" name="mailforwardingaddress[]" id="mailforwardingaddress" autocomplete="off" value="'.$user_info['mailforwardingaddress'][$i].'" {disabled} size=30>';
 				}
 			}

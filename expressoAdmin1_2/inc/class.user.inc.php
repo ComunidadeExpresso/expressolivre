@@ -310,9 +310,9 @@
 			echo '<pre>';
 			echo '--- OLD: ';
 			print_r($old_values);
-			echo '<br>--- NEW: ';
+			echo '<br />--- NEW: ';
 			print_r($new_values);
-			echo '<br>';
+			echo '<br />';
 			exit;
 			*/
 

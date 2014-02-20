@@ -173,7 +173,7 @@
 	<fieldset id="fieldset2">
         <legend>{lang_help} Busca rápida de contatos</legend>
 		<div>
-			<strong>Para a utilização dessa funcionalidade, podem ser usados os seguintes atalhos:</strong><br><br><br>
+			<strong>Para a utilização dessa funcionalidade, podem ser usados os seguintes atalhos:</strong><br /><br /><br />
 			<ul>
 				<li>Ir para a página anterior - Seta para esquerda</li>
 				<li>Mover para contato acima - Seta para cima</li>

@@ -247,14 +247,14 @@ class Formulario {
                      
                     /*	if ($achouprimeiro) {
                      if (in_array($idcampo,$this->desenhou)) {
-                     $this->adicionarErro("agruparCampos()<br>ID: " . $idcampo . " achou.",false);
+                     $this->adicionarErro("agruparCampos()<br />ID: " . $idcampo . " achou.",false);
                      }
                      }
                      if ($idcampo == $arrcampos[0]) {
                      $achouprimeiro = true;
                      } */
                     if ((!$this->isInput($idcampo)) && ($idcampo != "")) {
-                        $this->adicionarErro("agruparCampos()<br>ID: " . $idcampo . " n�o � um campo no formul�rio.",false);
+                        $this->adicionarErro("agruparCampos()<br />ID: " . $idcampo . " n�o � um campo no formul�rio.",false);
                     }
                 }
             }
@@ -277,14 +277,14 @@ class Formulario {
         $arrcampos = explode(",",$campos);
         if ($this->_debug) {
             if (is_array($this->_arrquadros[$idquadro])) {
-                $this->adicionarErro("adicionarQuadro()<br>ID: $idquadro j� foi adicionado no formul�rio.");
+                $this->adicionarErro("adicionarQuadro()<br />ID: $idquadro j� foi adicionado no formul�rio.");
             }
             foreach ($arrcampos as $campo) {
                 if ($this->isInputInQuadro($campo)) {
-                    $this->adicionarErro("adicionarQuadro()<br>ID: $campo j� foi adicionado a outro quadro neste formul�rio.");
+                    $this->adicionarErro("adicionarQuadro()<br />ID: $campo j� foi adicionado a outro quadro neste formul�rio.");
                 }
                 if (!$this->isInput($campo)) {
-                    $this->adicionarErro("adicionarQuadro()<br>ID: $campo N�O est� adicionado no formul�rio.");
+                    $this->adicionarErro("adicionarQuadro()<br />ID: $campo N�O est� adicionado no formul�rio.");
                 }
             }
         }
@@ -327,13 +327,13 @@ class Formulario {
         if (!is_array($this->_arrquadros[$idquadro])) {
             $erro = true;
             if ($this->_debug) {
-                $this->adicionarErro("adicionarQuadroButton()<br>ID: $idquadro N�O est� adicionado no formul�rio.");
+                $this->adicionarErro("adicionarQuadroButton()<br />ID: $idquadro N�O est� adicionado no formul�rio.");
             }
         }
         if (!$this->isInput($idbutton)) {
             $erro = true;
             if ($this->_debug) {
-                $this->adicionarErro("adicionarQuadroButton()<br>ID: $idbutton N�O � um campo no formul�rio.");
+                $this->adicionarErro("adicionarQuadroButton()<br />ID: $idbutton N�O � um campo no formul�rio.");
             }
         }
         if (!$erro) {
@@ -378,7 +378,7 @@ class Formulario {
         $iface->setInfoRight($inforight);
         if ($this->isInput($name)) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarCampo()<br>ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
+                $this->adicionarErro("adicionarCampo()<br />ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
             }
         } else {
             array_push($this->_arrinputs,$iface);
@@ -453,7 +453,7 @@ class Formulario {
         
         if ($this->isInput($name)) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarSelect()<br>ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
+                $this->adicionarErro("adicionarSelect()<br />ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
             }
         } else {
             array_push($this->_arrinputs,$iface);
@@ -482,7 +482,7 @@ class Formulario {
         $iface->setTipo("checkbox");
         if ($this->isInput($name)) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarCheckBox()<br>ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
+                $this->adicionarErro("adicionarCheckBox()<br />ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
             }
         } else {
             array_push($this->_arrinputs,$iface);
@@ -511,7 +511,7 @@ class Formulario {
         $iface->setTipo("radio");
         if ($this->isInput($name)) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarRadio()<br>ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
+                $this->adicionarErro("adicionarRadio()<br />ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
             }
         } else {
             array_push($this->_arrinputs,$iface);
@@ -542,7 +542,7 @@ class Formulario {
         $iface->setTipo("textarea");
         if ($this->isInput($name)) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarTextarea()<br>ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
+                $this->adicionarErro("adicionarTextarea()<br />ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
             }
         } else {
             array_push($this->_arrinputs,$iface);
@@ -567,7 +567,7 @@ class Formulario {
         $iface->setTipo("button");
         if ($this->isInput($name)) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarButton()<br>ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
+                $this->adicionarErro("adicionarButton()<br />ID: $name foi adicionado duas vezes ao formul�rio. Remova um campo ou altere seu ID.");
             }
         } else {
             array_push($this->_arrinputs,$iface);
@@ -590,7 +590,7 @@ class Formulario {
         $erro = false;
         if (!is_array($this->_arrquadros[$idquadro])) {
             if ($this->_debug) {
-                $this->adicionarErro("adicionarSubmit()<br>Quadro: $idquadro n�o est� adicionado no formul�rio.");
+                $this->adicionarErro("adicionarSubmit()<br />Quadro: $idquadro n�o est� adicionado no formul�rio.");
             }
             $erro = true;
         }
@@ -713,7 +713,7 @@ class Formulario {
     public function escreveAbreQuadro($idquadro) {
         if ($this->_arrquadros[$idquadro]["titulo"] != "") {
             echo "\n<div align='center'>\n<table class='tableMoldura' width='98%'  id='quadro_$idquadro'>";
-            echo "\n\t<tr class='tableSubTitulo'>\n\t\t<td colspan='4'><h2>" . $this->_arrquadros[$idquadro]["titulo"] . "</h2></td>\n\t</tr>\n\t<tr>\n\t<td>\n\t<table width='100%' border='0'><br>";
+            echo "\n\t<tr class='tableSubTitulo'>\n\t\t<td colspan='4'><h2>" . $this->_arrquadros[$idquadro]["titulo"] . "</h2></td>\n\t</tr>\n\t<tr>\n\t<td>\n\t<table width='100%' border='0'><br />";
         } else {
             echo "\n<div align='center'>\n<table width='100%'  id='quadro_$idquadro' cellpadicionaring=0 cellspacing=0><tr><td>\n\t<table width='100%' border='0' cellpadicionaring=0 cellspacing=0>";
         }
@@ -768,7 +768,7 @@ class Formulario {
     public function adicionarCampoAcao($name,$tipo,$javascript) {
         $i = 0;
         if (!$this->isInput($name)) {
-            $this->adicionarErro("adicionarCampoAcao()<br>ID: " . $name . " n�o � um campo no formul�rio.",false);
+            $this->adicionarErro("adicionarCampoAcao()<br />ID: " . $name . " n�o � um campo no formul�rio.",false);
         }
         foreach ($this->_arrinputs as $input) {
             $i = $i + 1;
@@ -822,7 +822,7 @@ class Formulario {
                     }
                 }
             } else {
-                $this->adicionarErro("desenhaCampo()<br>N�o � poss�vel desenhar o ID: $name j� foi desenhado no formul�rio.");
+                $this->adicionarErro("desenhaCampo()<br />N�o � poss�vel desenhar o ID: $name j� foi desenhado no formul�rio.");
             }
         } else {
             $input = $name;
@@ -832,7 +832,7 @@ class Formulario {
                     array_push($this->_desenhou,$input->getName());
                 }
             } else {
-                //$this->adicionarErro("desenhaCampo()<br>N�o � poss�vel desenhar o ID: " . $input->getName() . " j� foi desenhado no formul�rio.");
+                //$this->adicionarErro("desenhaCampo()<br />N�o � poss�vel desenhar o ID: " . $input->getName() . " j� foi desenhado no formul�rio.");
             }
 
         }
@@ -865,7 +865,7 @@ class Formulario {
 
                             if ($this->_debug) {
                                 if (in_array($input->getName(),$this->_desenhou)) {
-                                    $this->adicionarErro("Fun��o Interna desenhaAgrupados()<br>N�o � poss�vel desenhar o ID: " . $input->getName() . " na posi��o correta.<br> O ID foi adicionado ao formul�rio antes da chave do agrupamento. Verifique a ordem de cria��o dos campos agrupados, ou se o ID n�o foi adicionado a outro quadro.",true);
+                                    $this->adicionarErro("Fun��o Interna desenhaAgrupados()<br />N�o � poss�vel desenhar o ID: " . $input->getName() . " na posi��o correta.<br /> O ID foi adicionado ao formul�rio antes da chave do agrupamento. Verifique a ordem de cria��o dos campos agrupados, ou se o ID n�o foi adicionado a outro quadro.",true);
                                 }
                             }
                             echo $this->desenhaCampo($input,$displaygroups);
@@ -886,7 +886,7 @@ class Formulario {
         $arrcampos = array();
         foreach ($this->_arrinputs as $input) {
             if (!$this->isInputInQuadro($input->getName())) {
-                //echo $input->getName() . "<br>";
+                //echo $input->getName() . "<br />";
                 array_push($arrcampos,$input->getName());
             }
         }
@@ -968,7 +968,7 @@ class Formulario {
             $this->html = $html;
             echo $html;
         } else {
-            $this->adicionarErro("desenhar()<br>Formul�rio j� foi Desenhado anteriormente.",true);
+            $this->adicionarErro("desenhar()<br />Formul�rio j� foi Desenhado anteriormente.",true);
         }
     }
 
@@ -1006,7 +1006,7 @@ class Formulario {
 	        $ret = true;
 	        
 	        if ($this->_desenhado) {
-	            $this->adicionarErro("isSubmit()<br>Ordem da fun��o isSubmit deve estar antes do formul�rio ser desenhado.",true);
+	            $this->adicionarErro("isSubmit()<br />Ordem da fun��o isSubmit deve estar antes do formul�rio ser desenhado.",true);
 	        }
 	        
 	        
@@ -1017,7 +1017,7 @@ class Formulario {
 		        $postpkey = $_POST[$this->_nomeform . '_pkey'];
 		        if ($postpkey != "") {
 		            if ($postpkey != $sesspkey) {
-		                 //$this->adicionarErro("isSubmit()<br>Imposs�vel fazer a��o, F5 pressionado.",false);
+		                 //$this->adicionarErro("isSubmit()<br />Imposs�vel fazer a��o, F5 pressionado.",false);
 		                 //$ret = false;
 		            }
 		        }

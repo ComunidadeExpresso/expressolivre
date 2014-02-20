@@ -104,7 +104,7 @@
 			_debug_array($badline);
 			$_f_buffer = preg_split('/[\/\\]/', $badline['appfile']);
 			$str .= lang('Application: %1, File: %2, Line: "%3"','<b>'.$_f_buffer[count($_f_buffer)-3].'</b>',
-				'<b>'.$_f_buffer[count($_f_buffer)-1].'</b>',$badline['line'])."<br>\n";
+				'<b>'.$_f_buffer[count($_f_buffer)-1].'</b>',$badline['line'])."<br />\n";
 		}
 		$setup_tpl->set_var('V_alert_word', lang('Rejected lines'));
 		$setup_tpl->set_var('V_alert_msg', $str);

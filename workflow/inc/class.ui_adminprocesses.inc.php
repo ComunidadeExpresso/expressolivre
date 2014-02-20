@@ -377,7 +377,7 @@ class ui_adminprocesses extends bo_workflow_forms
 	function show_process_config(&$known_config_items)
 	{
 
-		$siteconfiglink = '<a href="'.$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=workflow')
+		$siteconfiglink = '<a href="'.$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=workflow')
 			.'">'.lang('Workflow Site Configuration').'</a>';
 		$this->t->set_var(array(
 			'txt_consult_site_config_with_link' => lang ('Consult %1 to get the default values:',$siteconfiglink),

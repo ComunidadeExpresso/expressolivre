@@ -466,7 +466,7 @@ var handlerExecuteForm = null;
 								}
 								if(debug_controller) {
 									document.getElementById("debug_controller").innerHTML += oxmlhttp.responseText;
-									document.getElementById("debug_controller").innerHTML += "<br>-------------------------------------------------------------------------------------<br>";
+									document.getElementById("debug_controller").innerHTML += "<br />-------------------------------------------------------------------------------------<br />";
 								}
 
 								_thisObject.addToCache(params?id+"&"+params:id,data);

@@ -208,7 +208,7 @@
 			if($table_main!='') { //Quando faço checkout e não incluo a tabela principal, a função precisa funcionar...
 				$query = $query_main_select . $query_main_from . $query_main_where;
 	
-//			echo 'Query in SO_Main CheckOut: "'.$query.'"<br>';
+//			echo 'Query in SO_Main CheckOut: "'.$query.'"<br />';
 				
 				if ($this->db->query($query,__LINE__, __FILE__)) {
 					if ($this->db->next_record()) {
@@ -228,7 +228,7 @@
 				
 				$query = $query_multi_select[$table] . $query_multi_from[$table] . $query_multi_where[$table];
 
-				//echo 'Query in SO_Main CheckOut: "'.$query.'"<br>';
+				//echo 'Query in SO_Main CheckOut: "'.$query.'"<br />';
 				if ($this->db->query($query, __LINE__, __FILE__)) {
 					$pos = 0;
 					while($this->db->next_record())
@@ -448,7 +448,7 @@
 					
 					$query_id = 'SELECT MAX('.$main_pkey.') AS new_id FROM '.$table_main;
 					
-					//echo 'Query MAX: '.$query_id.'<br>';
+					//echo 'Query MAX: '.$query_id.'<br />';
 					if (!$this->db->query($query_id, __LINE__, __FILE__) or !$this->db->next_record())
 					{
 						exit('Error in '.__FILE__.' line: '.__LINE__);
@@ -520,7 +520,7 @@
 			list(,$t_field) = each($table_info['fields']);
 			$n_values = count($t_field['values']);
 			
-			//echo 'Table: '.$table.'<br>n_values => '.$n_values.'<br>';
+			//echo 'Table: '.$table.'<br />n_values => '.$n_values.'<br />';
 			
 			reset($table_info['fields']);
 			for ($i = 0; $i < $n_values; ++$i)

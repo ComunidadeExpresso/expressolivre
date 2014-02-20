@@ -20,7 +20,7 @@
 	
 	$current_app = 'expressoMail1_2';
 	$current_name	 = 'Expresso Mail';
-	if(!$_SESSION['phpgw_info']['user']['preferences']['expressoMail']) { 
+	if(!$_SESSION['phpgw_info']['user']['preferences']['expressoMail']) {
 		$preferences = $GLOBALS['phpgw']->preferences->read(); 
 		$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['expressoMail'];
 	}
@@ -83,7 +83,7 @@
                                     $text = substr($text,0,55).' ...';
                                     $text = htmlentities($text);                                      
                                 }
-                                $text = "<div style='overflow:hidden;white-space:nowrap'>".$text."</div>";
+                                $text = "<div style='overflow:hidden;white-space:nowrap; float: left;'>".$text."</div>";
                                 
 				$link_msg = $GLOBALS['phpgw']->link(
 						'/'.$current_app.'/index.php',
@@ -124,8 +124,10 @@
 	
 			while(list($key,$value) = each($var))		
 				$portalbox->set_controls($key,$value);
-	
+
 			$portalbox->data = $data;
-		}			
+
+
+		}
 		echo "\n".'<!-- BEGIN Mailbox info -->'."\n".$portalbox->draw($extra_data).'<!-- END Mailbox info -->'."\n";
 	}

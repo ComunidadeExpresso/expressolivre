@@ -132,13 +132,13 @@ class sieve {
                 $this->err_len = substr($this->mtoken, 1, $this->x);
                 $this->x++;    
             }
-            //print "<br>Trying to receive $this->err_len bytes for result<br>";
+            //print "<br />Trying to receive $this->err_len bytes for result<br />";
             $this->line = fgets($this->fp,$this->err_len);
             $this->error_raw[]=substr($this->line, 0, strlen($this->line) -2);    //we want to be nice and strip crlf's
             $this->err_recv = strlen($this->line);
 
             while($this->err_recv < $this->err_len){
-                //print "<br>Trying to receive ".($this->err_len-$this->err_recv)." bytes for result<br>";
+                //print "<br />Trying to receive ".($this->err_len-$this->err_recv)." bytes for result<br />";
                 $this->line = fgets($this->fp, ($this->err_len-$this->err_recv));
                 $this->error_raw[]=substr($this->line, 0, strlen($this->line) -2);    //we want to be nice and strip crlf's
                 $this->err_recv += strlen($this->line);
@@ -213,7 +213,7 @@ class sieve {
 	    print '<b><i>UNKNOWN ERROR (Please report this line to <a
 	    href="mailto:sieve-php-devel@lists.sourceforge.net">sieve-php-devel
 	    Mailing List</a> to include in future releases):
-	    '.$this->line.'</i></b><br>';
+	    '.$this->line.'</i></b><br />';
 
             return false;
     } /* end else */   

@@ -6,7 +6,7 @@
  </tr>
  <tr>
   <td style='background: #f4f8fb;border-top:0px solid #adc9d8'>
-   <table border="0" cellpadding="0" height="100%" cellspacing="0" width="{inner_width}">
+   <table border="0" cellpadding="0" height="100%" cellspacing="0" style="width: {inner_width};">
     {row}
    </table>
   </td>
@@ -24,10 +24,10 @@
 <!-- BEGIN portal_listbox_header -->
 	<tr>
 	 <td>
-	  <ul>
+	  <ul style="display: inherit; padding-top: 10px; padding-bottom: 10px;">
 <!-- END portal_listbox_header -->
 <!-- BEGIN portal_listbox_link -->
-<li><a href="{link}">{text}</a></li>
+<li style="display: -webkit-box;"><a href="{link}">{text}</a></li>
 <!-- END portal_listbox_link -->
 <!-- BEGIN portal_listbox_footer -->
 	  </ul>

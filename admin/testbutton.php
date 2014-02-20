@@ -20,11 +20,11 @@
 	$button->parseHTTPPostVars();
 	$button->createInputButton(lang('save'), 'save');
 
-	if (isset($submit)) print "is worked $submit<br>";
+	if (isset($submit)) print "is worked $submit<br />";
 
 	print "<form method=post>";
 	print $button->createInputButton("Lars is the best ;)",'submit');
-	print "<br>the same as ascii<br>";
+	print "<br />the same as ascii<br />";
 	print $button->createInputButton("Lars is the best ;)",'submit','ascii');
 	print "</form>";
 	

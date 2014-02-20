@@ -93,7 +93,7 @@
 					/* Bit 1 means to output to screen */
 					if (!!(DEBUG_OUTPUT & 1))
 					{
-						echo "$output<br>\n";
+						echo "$output<br />\n";
 					}
 					/* Bit 2 means to output to sql */
 					if (!!(DEBUG_OUTPUT & 2))
@@ -148,7 +148,7 @@
 						/* So the SQL statement will go here*/
 						if (!!(DEBUG_OUTPUT & 1))
 						{
-							echo "$output<br>\n";
+							echo "$output<br />\n";
 						}
 					}
 				}
@@ -170,9 +170,9 @@
 			$expected_args[2] = Array('name'=>'lname','default'=>'bob', 'type'=>'string');
 			$recieved_args = func_get_args();
 			$args = safe_args($expected_args, $recieved_args,__LINE__,__FILE__);
-			echo 'Full name: '.$args['fname'].' '.$args['fname'].' '.$args['lname'].'<br>';
+			echo 'Full name: '.$args['fname'].' '.$args['fname'].' '.$args['lname'].'<br />';
 			//default result would be:
-			// Full name: joe hick bob<br>
+			// Full name: joe hick bob<br />
 		}
 		
 		Using this it is possible to use the function in any of the following ways
@@ -183,7 +183,7 @@
 		somefunc(array('lname'=>'brown','fname'=>'jack','mname'=>'city'));
 		
 		For the last one, when using named params in an array you dont have to follow any order
-		All three would result in - Full name: jack city brown<br>
+		All three would result in - Full name: jack city brown<br />
 		
 		When you use this method of handling params you can secure your functions as well offer
 		flexibility needed for both normal use and web services use.
@@ -191,7 +191,7 @@
 		Users of your functions can also use ##DEFAULT## to use your default value for a param 
 		when using the standard format like this:
 		somefunc('jack','##DEFAULT##','brown');
-		This would result in - Full name: jack hick brown<br>
+		This would result in - Full name: jack hick brown<br />
 		Its using the default value for the second param.
 		Of course if you have the second param as a required field it will fail to work.
 	*/
@@ -234,7 +234,7 @@
 						}
 						else
 						{
-							echo 'Fatal Error: Invalid paramater type for '.$expected[$i]['name'].' on line '.$line.' of '.$file.'<br>';
+							echo 'Fatal Error: Invalid paramater type for '.$expected[$i]['name'].' on line '.$line.' of '.$file.'<br />';
 							exit;
 						}
 					}
@@ -258,7 +258,7 @@
 						}
 						else
 						{
-							echo 'Fatal Error: Invalid paramater type for '.$key.' on line '.$line.' of '.$file.'<br>';
+							echo 'Fatal Error: Invalid paramater type for '.$key.' on line '.$line.' of '.$file.'<br />';
 							exit;
 						}
 					}
@@ -269,7 +269,7 @@
 		{
 			while (list($key) = each($required))
 			{
-				echo 'Fatal Error: Missing required paramater '.$key.' on line '.$line.' of '.$file.'<br>';
+				echo 'Fatal Error: Missing required paramater '.$key.' on line '.$line.' of '.$file.'<br />';
 			}
 			exit;
 		}
@@ -1058,7 +1058,7 @@
 
 		if ($DEBUG)
 		{
-			echo'<br>Input values: ' . 'A="'.$a.'", B="'.$b.'"';
+			echo'<br />Input values: ' . 'A="'.$a.'", B="'.$b.'"';
 		}
 		$newa = str_replace('-','',str_replace('pre','.',$a));
 		$newb = str_replace('-','',str_replace('pre','.',$b));
@@ -1085,7 +1085,7 @@
         $testa_count = count($testa);
 		for ($i=0;$i<$testa_count;++$i)
 		{
-			if ($DEBUG) { echo'<br>Checking if '. (int)$testa[$i] . ' is less than ' . (int)$testb[$i] . ' ...'; }
+			if ($DEBUG) { echo'<br />Checking if '. (int)$testa[$i] . ' is less than ' . (int)$testb[$i] . ' ...'; }
 			if ((int)$testa[$i] < (int)$testb[$i])
 			{
 				if ($DEBUG) { echo ' yes.'; }
@@ -1116,20 +1116,20 @@
 				$less = 0;
 			}
 		}
-		if ($DEBUG) { echo '<br>Check value is: "'.$less.'"'; }
+		if ($DEBUG) { echo '<br />Check value is: "'.$less.'"'; }
 		if ($less>0)
 		{
-			if ($DEBUG) { echo '<br>A is less than B'; }
+			if ($DEBUG) { echo '<br />A is less than B'; }
 			return True;
 		}
 		elseif($less<0)
 		{
-			if ($DEBUG) { echo '<br>A is greater than B'; }
+			if ($DEBUG) { echo '<br />A is greater than B'; }
 			return False;
 		}
 		else
 		{
-			if ($DEBUG) { echo '<br>A is equal to B'; }
+			if ($DEBUG) { echo '<br />A is equal to B'; }
 			return False;
 		}
 	}
@@ -1147,7 +1147,7 @@
 
 		if ($DEBUG)
 		{
-			echo'<br>Input values: ' . 'A="'.$a.'", B="'.$b.'"';
+			echo'<br />Input values: ' . 'A="'.$a.'", B="'.$b.'"';
 		}
 		$newa = str_replace('-','',str_replace('pre','.',$a));
 		$newb = str_replace('-','',str_replace('pre','.',$b));
@@ -1166,7 +1166,7 @@
         $testa_count = count($testa);
 		for ($i=0;$i<$testa_count;++$i)
 		{
-			if ($DEBUG) { echo'<br>Checking if '. (int)$testa[$i] . ' is more than ' . (int)$testb[$i] . ' ...'; }
+			if ($DEBUG) { echo'<br />Checking if '. (int)$testa[$i] . ' is more than ' . (int)$testb[$i] . ' ...'; }
 			if ((int)$testa[$i] > (int)$testb[$i])
 			{
 				if ($DEBUG) { echo ' yes.'; }
@@ -1197,20 +1197,20 @@
 				$less = 0;
 			}
 		}
-		if ($DEBUG) { echo '<br>Check value is: "'.$less.'"'; }
+		if ($DEBUG) { echo '<br />Check value is: "'.$less.'"'; }
 		if ($less>0)
 		{
-			if ($DEBUG) { echo '<br>A is greater than B'; }
+			if ($DEBUG) { echo '<br />A is greater than B'; }
 			return True;
 		}
 		elseif($less<0)
 		{
-			if ($DEBUG) { echo '<br>A is less than B'; }
+			if ($DEBUG) { echo '<br />A is less than B'; }
 			return False;
 		}
 		else
 		{
-			if ($DEBUG) { echo '<br>A is equal to B'; }
+			if ($DEBUG) { echo '<br />A is equal to B'; }
 			return False;
 		}
 	}

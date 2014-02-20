@@ -100,7 +100,7 @@
 					var textareaContent = $textarea.val().replace(/&/g,'&amp;').replace(/ {2}/g, '&nbsp;').replace(/<|>/g, '&gt;').replace(/\n/g, '<br />');
 					
 					// Compare curated content with curated twin.
-					var twinContent = $twin.html().replace(/<br>/ig,'<br />');
+					var twinContent = $twin.html().replace(/<br />/ig,'<br />');
 					
 					if(forced || textareaContent+'&nbsp;' !== twinContent){
 					

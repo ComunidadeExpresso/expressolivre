@@ -529,7 +529,7 @@ class DOMPDF {
     
     if ( $GLOBALS['_dompdf_show_warnings'] ) {
       global $_dompdf_warnings;
-        echo '<b>DOMPDF Warnings</b><br><pre>';
+        echo '<b>DOMPDF Warnings</b><br /><pre>';
       foreach ($_dompdf_warnings as $msg)
         echo $msg . "\n";
       echo $this->get_canvas()->get_cpdf()->messages;

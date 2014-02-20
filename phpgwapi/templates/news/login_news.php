@@ -425,7 +425,7 @@
 	$tmpl->set_var('dir_root', 'http://' . nearest_to_me() . '/');
 	if(is_file(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php'))
 	include_once(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php');
-	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br>' . $ultima_revisao);
+	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br />' . $ultima_revisao);
 
 	// Adiciona código personalizado de outro template
 	// que esteja utilizando o login_default.php

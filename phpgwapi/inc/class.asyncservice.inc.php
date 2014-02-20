@@ -265,7 +265,7 @@
 					if (isset($found[$u]))
 					{
 						$future = $future || $found[$u] > $unit_now;
-						if ($this->debug) echo "--> already have a $u = ".$found[$u].", future='$future'<br>\n";
+						if ($this->debug) echo "--> already have a $u = ".$found[$u].", future='$future'<br />\n";
 						continue;	// already set
 					}
 					foreach($times[$u] as $unit_value => $nul)
@@ -632,7 +632,7 @@
 			{
 				while ($line = fgets($crontab,256))
 				{
-					if ($this->debug) echo 'line '.++$n.": $line<br>\n";
+					if ($this->debug) echo 'line '.++$n.": $line<br />\n";
 					$parts = preg_split('/ /',$line,6);
 					
 					// Foi customizado para a Celepar.

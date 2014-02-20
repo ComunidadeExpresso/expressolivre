@@ -63,7 +63,7 @@
 				'sort'  => $this->sort,
 				'order' => $this->order
 			);
-			echo '<br>UI:';
+			echo '<br />UI:';
 			_debug_array($data);
 		}
 
@@ -313,7 +313,7 @@
 			$GLOBALS['phpgw']->template->set_var('server_mode',$this->formatted_list('server_mode',$is->server_modes,$server['server_mode']));
 			$GLOBALS['phpgw']->template->set_var('server_security',$this->formatted_list('server_security',$is->security_types,$server['server_security']));
 			$GLOBALS['phpgw']->template->set_var('ssl_note', function_exists('curl_init') ? '&nbsp;' : lang('Note: SSL available only if PHP is compiled with curl support'));
-			$GLOBALS['phpgw']->template->set_var('pass_note',$server_id ? '<br>'.lang('(Stored password will not be shown here)') : '');
+			$GLOBALS['phpgw']->template->set_var('pass_note',$server_id ? '<br />'.lang('(Stored password will not be shown here)') : '');
 			$GLOBALS['phpgw']->template->set_var('trust_level',$this->formatted_list('trust_level',$is->trust_levels,$server['trust_level']));
 			$GLOBALS['phpgw']->template->set_var('trust_relationship',$this->formatted_list('trust_rel',$is->trust_relationships,$server['trust_rel'],True));
 			$GLOBALS['phpgw']->template->set_var('admin_name',$GLOBALS['phpgw']->strip_html($server['admin_name']));

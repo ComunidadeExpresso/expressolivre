@@ -34,7 +34,7 @@
 	$d3 = strtolower(@substr(PHPGW_APP_INC,0,3));
 	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
 	{
-		echo 'Failed attempt to break in via an old Security Hole!<br>'."\n";
+		echo 'Failed attempt to break in via an old Security Hole!<br />'."\n";
 		exit;
 	}
 	unset($d1);unset($d2);unset($d3);
@@ -59,11 +59,11 @@
 		{
 			preg_match('/([0-9]+)\.([0-9]+)\.([0-9]+)[a-zA-Z]*([0-9]*)/',$str1,$regs);
 			preg_match('/([0-9]+)\.([0-9]+)\.([0-9]+)[a-zA-Z]*([0-9]*)/',$str2,$regs2);
-			if($debug) { echo "<br>$regs[0] - $regs2[0]"; }
+			if($debug) { echo "<br />$regs[0] - $regs2[0]"; }
 
 			for($i=1;$i<5;++$i)
 			{
-				if($debug) { echo "<br>$i: $regs[$i] - $regs2[$i]"; }
+				if($debug) { echo "<br />$i: $regs[$i] - $regs2[$i]"; }
 				if($regs2[$i] == $regs[$i])
 				{
 					continue;
@@ -90,11 +90,11 @@
 		{
 			preg_match('/([0-9]+)\.([0-9]+)\.([0-9]+)[a-zA-Z]*([0-9]*)\.([0-9]*)/',$str1,$regs);
 			preg_match('/([0-9]+)\.([0-9]+)\.([0-9]+)[a-zA-Z]*([0-9]*)\.([0-9]*)/',$str2,$regs2);
-			if($debug) { echo "<br>$regs[0] - $regs2[0]"; }
+			if($debug) { echo "<br />$regs[0] - $regs2[0]"; }
 
 			for($i=1;$i<6;++$i)
 			{
-				if($debug) { echo "<br>$i: $regs[$i] - $regs2[$i]"; }
+				if($debug) { echo "<br />$i: $regs[$i] - $regs2[$i]"; }
 
 				if($regs2[$i] == $regs[$i])
 				{
@@ -193,7 +193,7 @@
 		/*!
 		@function getPreferredLanguage
 		@abstract return the preferred langugae of the users
-		@discussion it uses HTTP_ACCEPT_LANGUAGE (from the users browser) <br>
+		@discussion it uses HTTP_ACCEPT_LANGUAGE (from the users browser) <br />
 		and .... to find out which languages are installed
 		*/
 		function getPreferredLanguage()
@@ -210,7 +210,7 @@
 				$value = trim($value);
 				$pieces = explode('-', $value);
 				$value = $pieces[0];
-				# print 'current lang $value<br>';
+				# print 'current lang $value<br />';
 				if ($supportedLanguages[$value])
 				{
 					$retValue=$value;
@@ -271,7 +271,7 @@
 					$GLOBALS['phpgw']->log->commit();
 				}
 
-				printf('<b>Error: LDAP support unavailable</b><br>',$host);
+				printf('<b>Error: LDAP support unavailable</b><br />',$host);
 				return False;
 			}
 
@@ -285,7 +285,7 @@
 					$GLOBALS['phpgw']->log->commit();
 				}
 
-				printf("<b>Error: Can't connect to LDAP server %s!</b><br>",$host);
+				printf("<b>Error: Can't connect to LDAP server %s!</b><br />",$host);
 				return False;
 			}
 
@@ -316,7 +316,7 @@
 
 					if(function_exists("lang"))
 						echo '<div style="border: 2px dashed red; top: 0px; left: 0px; position: absolute; background-color: #EEE; width: 260px;">'.
-							'<center><img src="../admin/templates/default/images/navbar.png"><br>'.
+							'<center><img src="../admin/templates/default/images/navbar.png"><br />'.
 							lang("Catalog is out of service, you will not able to do some operations").'</center></div>';
 					else
 						printf("Error: Can't bind to LDAP server (invalid credentials): %s",$dn);
@@ -333,7 +333,7 @@
 				}
 				if(function_exists("lang"))
 						echo '<div style="border: 2px dashed red; top: 0px; left: 0px; position: absolute; background-color: #EEE; width: 260px;">'.
-							'<center><img src="../admin/templates/default/images/navbar.png"><br>'.
+							'<center><img src="../admin/templates/default/images/navbar.png"><br />'.
 							lang("Catalog is out of service, you will not able to do some operations").'</center></div>';
 				else
 					printf("Error: Can't bind to LDAP server (anonymous bind): %s",$dn);
@@ -347,7 +347,7 @@
 		/*!
 		@function phpgw_exit
 		@abstract function to stop running an app
-		@discussion used to stop running an app in the middle of execution <br>
+		@discussion used to stop running an app in the middle of execution <br />
 		There may need to be some cleanup before hand
 		@param $call_footer boolean value to if true then call footer else exit
 		*/
@@ -1447,7 +1447,7 @@ function get_css( )
 		*/
 		function hook($location, $appname = '', $no_permission_check = False)
 		{
-			echo '$'."GLOBALS['phpgw']common->hook()".' has been replaced. Please change to the new $'."GLOBALS['phpgw']hooks->process()".'. For now this will act as a wrapper<br>';
+			echo '$'."GLOBALS['phpgw']common->hook()".' has been replaced. Please change to the new $'."GLOBALS['phpgw']hooks->process()".'. For now this will act as a wrapper<br />';
 			return $GLOBALS['phpgw']->hooks->process($location, $order, $no_permission_check);
 		}
 
@@ -1458,7 +1458,7 @@ function get_css( )
 		// Note: $no_permission_check should *ONLY* be used when it *HAS* to be. (jengo)
 		function hook_single($location, $appname = '', $no_permission_check = False)
 		{
-			echo '$'."GLOBALS['phpgw']common->hook_single()".' has been replaced. Please change to the new $'."GLOBALS['phpgw']hooks->single()".'. For now this will act as a wrapper<br>';
+			echo '$'."GLOBALS['phpgw']common->hook_single()".' has been replaced. Please change to the new $'."GLOBALS['phpgw']hooks->single()".'. For now this will act as a wrapper<br />';
 			return $GLOBALS['phpgw']->hooks->single($location, $order, $no_permission_check);
 		}
 
@@ -1468,7 +1468,7 @@ function get_css( )
 		*/
 		function hook_count($location)
 		{
-			echo '$'."GLOBALS['phpgw']common->hook_count()".' has been replaced. Please change to the new $'."GLOBALS['phpgw']hooks->count()".'. For now this will act as a wrapper<br>';
+			echo '$'."GLOBALS['phpgw']common->hook_count()".' has been replaced. Please change to the new $'."GLOBALS['phpgw']hooks->count()".'. For now this will act as a wrapper<br />';
 			return $GLOBALS['phpgw']->hooks->count($location);
 		}
 
@@ -1744,7 +1744,7 @@ function get_css( )
 				$prefs['email']['mail_server_type'] = 'nntp';
 			}
 			// DEBUG
-			//echo "<br>prefs['email']['passwd']: " .$prefs['email']['passwd'] .'<br>';
+			//echo "<br />prefs['email']['passwd']: " .$prefs['email']['passwd'] .'<br />';
 			return $prefs;
 		}
 		*/
@@ -1757,7 +1757,7 @@ function get_css( )
 		*/
 		function check_code($code)
 		{
-			$s = '<br>';
+			$s = '<br />';
 			switch ($code)
 			{
 				case 13:	$s .= lang('Your message has been sent');break;
@@ -1776,57 +1776,57 @@ function get_css( )
 				case 33:	$s .= lang('Group has been updated');	break;
 				case 34:	$s .= lang('Account has been deleted') . '<p>'
 						. lang('Error deleting %1 %2 directory',lang('users'),' '.lang('private').' ')
-						. ',<br>' . lang('Please %1 by hand',lang('delete')) . '<br><br>'
+						. ',<br />' . lang('Please %1 by hand',lang('delete')) . '<br /><br />'
 						. lang('To correct this error for the future you will need to properly set the')
-						. '<br>' . lang('permissions to the files/users directory')
-						. '<br>' . lang('On *nix systems please type: %1','chmod 770 '
+						. '<br />' . lang('permissions to the files/users directory')
+						. '<br />' . lang('On *nix systems please type: %1','chmod 770 '
 						. $GLOBALS['phpgw_info']['server']['files_dir'] . '/users/');
 					break;
 				case 35:	$s .= lang('Account has been updated') . '<p>'
 						. lang('Error renaming %1 %2 directory',lang('users'),
 						' '.lang('private').' ')
-						. ',<br>' . lang('Please %1 by hand',
-						lang('rename')) . '<br><br>'
+						. ',<br />' . lang('Please %1 by hand',
+						lang('rename')) . '<br /><br />'
 						. lang('To correct this error for the future you will need to properly set the')
-						. '<br>' . lang('permissions to the files/users directory')
-						. '<br>' . lang('On *nix systems please type: %1','chmod 770 '
+						. '<br />' . lang('permissions to the files/users directory')
+						. '<br />' . lang('On *nix systems please type: %1','chmod 770 '
 						. $GLOBALS['phpgw_info']['server']['files_dir'] . '/users/');
 					break;
 				case 36:	$s .= lang('Account has been created') . '<p>'
 						. lang('Error creating %1 %2 directory',lang('users'),
 						' '.lang('private').' ')
-						. ',<br>' . lang('Please %1 by hand',
-						lang('create')) . '<br><br>'
+						. ',<br />' . lang('Please %1 by hand',
+						lang('create')) . '<br /><br />'
 						. lang('To correct this error for the future you will need to properly set the')
-						. '<br>' . lang('permissions to the files/users directory')
-						. '<br>' . lang('On *nix systems please type: %1','chmod 770 '
+						. '<br />' . lang('permissions to the files/users directory')
+						. '<br />' . lang('On *nix systems please type: %1','chmod 770 '
 						. $GLOBALS['phpgw_info']['server']['files_dir'] . '/users/');
 					break;
 				case 37:	$s .= lang('Group has been added') . '<p>'
 						. lang('Error creating %1 %2 directory',lang('groups'),' ')
-						. ',<br>' . lang('Please %1 by hand',
-						lang('create')) . '<br><br>'
+						. ',<br />' . lang('Please %1 by hand',
+						lang('create')) . '<br /><br />'
 						. lang('To correct this error for the future you will need to properly set the')
-						. '<br>' . lang('permissions to the files/users directory')
-						. '<br>' . lang('On *nix systems please type: %1','chmod 770 '
+						. '<br />' . lang('permissions to the files/users directory')
+						. '<br />' . lang('On *nix systems please type: %1','chmod 770 '
 						. $GLOBALS['phpgw_info']['server']['files_dir'] . '/groups/');
 					break;
 				case 38:	$s .= lang('Group has been deleted') . '<p>'
 						. lang('Error deleting %1 %2 directory',lang('groups'),' ')
-						. ',<br>' . lang('Please %1 by hand',
-						lang('delete')) . '<br><br>'
+						. ',<br />' . lang('Please %1 by hand',
+						lang('delete')) . '<br /><br />'
 						. lang('To correct this error for the future you will need to properly set the')
-						. '<br>' . lang('permissions to the files/users directory')
-						. '<br>' . lang('On *nix systems please type: %1','chmod 770 '
+						. '<br />' . lang('permissions to the files/users directory')
+						. '<br />' . lang('On *nix systems please type: %1','chmod 770 '
 						. $GLOBALS['phpgw_info']['server']['files_dir'] . '/groups/');
 					break;
 				case 39:	$s .= lang('Group has been updated') . '<p>'
 						. lang('Error renaming %1 %2 directory',lang('groups'),' ')
-						. ',<br>' . lang('Please %1 by hand',
-						lang('rename')) . '<br><br>'
+						. ',<br />' . lang('Please %1 by hand',
+						lang('rename')) . '<br /><br />'
 						. lang('To correct this error for the future you will need to properly set the')
-						. '<br>' . lang('permissions to the files/users directory')
-						. '<br>' . lang('On *nix systems please type: %1','chmod 770 '
+						. '<br />' . lang('permissions to the files/users directory')
+						. '<br />' . lang('On *nix systems please type: %1','chmod 770 '
 						. $GLOBALS['phpgw_info']['server']['files_dir'] . '/groups/');
 					break;
 				case 40: $s .= lang('You have not entered a title').'.';
@@ -1943,24 +1943,24 @@ function get_css( )
 								{
 									while (list($key4, $val4) = each ($val3))
 									{
-										echo $$array . "[$key][$key2][$key3][$key4]=$val4<br>";
+										echo $$array . "[$key][$key2][$key3][$key4]=$val4<br />";
 									}
 								}
 								else
 								{
-									echo $$array . "[$key][$key2][$key3]=$val3<br>";
+									echo $$array . "[$key][$key2][$key3]=$val3<br />";
 								}
 							}
 						}
 						else
 						{
-							echo $$array . "[$key][$key2]=$val2<br>";
+							echo $$array . "[$key][$key2]=$val2<br />";
 						}
 					}
 				}
 				else
 				{
-					echo $$array . "[$key]=$val<br>";
+					echo $$array . "[$key]=$val<br />";
 				}
 			}
 		}
@@ -1972,7 +1972,7 @@ function get_css( )
 		*/
 		function debug_list_core_functions()
 		{
-			echo '<br><b>core functions</b><br>';
+			echo '<br /><b>core functions</b><br />';
 			echo '<pre>';
 			chdir(PHPGW_INCLUDE_ROOT . '/phpgwapi');
 			system("grep -r '^[ \t]*function' *");

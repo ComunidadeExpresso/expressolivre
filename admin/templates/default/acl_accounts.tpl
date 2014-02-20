@@ -1,6 +1,6 @@
 <!-- BEGIN list -->
 <b>{lang_header}</b>
-<hr><p>
+<hr /><p>
 
  <div align="center">
  <table border="0" width="70%">

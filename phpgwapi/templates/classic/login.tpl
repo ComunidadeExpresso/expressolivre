@@ -9,7 +9,7 @@
 <META NAME="keywords" CONTENT="{website_title} login screen, eGroupWare, groupware, groupware suite">
 <link href="phpgwapi/templates/{template}/login.css" rel="stylesheet" type="text/css"/>
 <TITLE>{website_title} - {lang_login}</TITLE>
-<script language="Javascript">
+<script type="text/javascript">
 <!--
 
 	function setLogin(){
@@ -54,7 +54,7 @@
 	<tbody><tr>			
     <td bgcolor="#e8eef7"  height="100%">
     <table cellpadding="0" height="100%" cellspacing="0" width="100%" border="0"><tr><td width="60%">&nbsp;</td><td>
-	<div align="center" class="msgInicial">{cd}<br>{lang_message}<br>{website_title}{frontend_name}<br><br></div>
+	<div align="center" class="msgInicial">{cd}<br />{lang_message}<br />{website_title}{frontend_name}<br /><br /></div>
         <table border="0" bordercolor="#cfcfcf" cellpadding="0" cellspacing="0" width="300">
           <tbody><tr>
 				<FORM name="form_login" method="post" action="{login_url}" {autocomplete}>
@@ -116,8 +116,8 @@
 			<tbody>
           		<tr> 
             		<td>{logo_config}
-						<br><a style="text-decoration:none" title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1">Expresso Livre</font></a> {version}
-						<br><a style="text-decoration:none" title="eGroupWare" target="_blank" href="http://www.egroupware.org/"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1">Powered by eGroupWare</font></a>
+						<br /><a style="text-decoration:none" title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1">Expresso Livre</font></a> {version}
+						<br /><a style="text-decoration:none" title="eGroupWare" target="_blank" href="http://www.egroupware.org/"><font color="#9a9a9a" face="Verdana, Arial, Helvetica, sans-serif" size="1">Powered by eGroupWare</font></a>
 					</td>
           		</tr>
         	</tbody>

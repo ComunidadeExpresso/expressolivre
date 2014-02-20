@@ -511,7 +511,7 @@
                                                 }
                                                 else
                                                 {
-                                                        $row_participants = $row_participants . '<br>' . $owner_user_share[$i];
+                                                        $row_participants = $row_participants . '<br />' . $owner_user_share[$i];
                                                 }
                                          }
 

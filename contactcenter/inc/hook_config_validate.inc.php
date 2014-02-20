@@ -27,22 +27,22 @@
 		{
 			if (!$value['cc_ldap_host0'])
 			{
-				$error[] = '<br>LDAP host must be set!';
+				$error[] = '<br />LDAP host must be set!';
 			}
 			
 			if(!$value['cc_ldap_context0'])
 			{
-				$error[] = '<br>There must be a Context';
+				$error[] = '<br />There must be a Context';
 			}
 		
 			if(!$value['cc_ldap_browse_dn0'])
 			{
-				$error[] = '<br>The Browse Account must be set';
+				$error[] = '<br />The Browse Account must be set';
 			}	
 
 			if ($value['cc_ldap_pw0'] != $_POST['cc_ldap_pw0']) 
 			{
-				$error[] = '<br>Invalid LDAP Password!';
+				$error[] = '<br />Invalid LDAP Password!';
 			}
 
 		} */		

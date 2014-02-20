@@ -424,28 +424,28 @@
 			{
 				// dont delete the custom main- & loginscreen messages every time
 				$this->db->query("DELETE FROM phpgw_lang WHERE app_name != 'mainscreen' AND app_name != 'loginscreen'",__LINE__,__FILE__);
-				//echo '<br>Test: dumpold';
+				//echo '<br />Test: dumpold';
 				$GLOBALS['phpgw_info']['server']['lang_ctimes'] = array();
 			}
 			foreach($langs as $lang)
 			{
-				//echo '<br>Working on: ' . $lang;
+				//echo '<br />Working on: ' . $lang;
 				$addlang = False;
 				if ($upgrademethod == 'addonlynew')
 				{
-					//echo "<br>Test: addonlynew - select count(*) from phpgw_lang where lang='".$lang."'";
+					//echo "<br />Test: addonlynew - select count(*) from phpgw_lang where lang='".$lang."'";
 					$this->db->query("SELECT COUNT(*) FROM phpgw_lang WHERE lang='".$lang."'",__LINE__,__FILE__);
 					$this->db->next_record();
 
 					if ($this->db->f(0) == 0)
 					{
-						//echo '<br>Test: addonlynew - True';
+						//echo '<br />Test: addonlynew - True';
 						$addlang = True;
 					}
 				}
 				if ($addlang && $upgrademethod == 'addonlynew' || $upgrademethod != 'addonlynew')
 				{
-					//echo '<br>Test: loop above file()';
+					//echo '<br />Test: loop above file()';
 					if (!is_object($GLOBALS['phpgw_setup']))
 					{
 						$GLOBALS['phpgw_setup'] = CreateObject('phpgwapi.setup');
@@ -459,10 +459,10 @@
 					foreach($apps as $app)
 					{
 						$appfile = PHPGW_SERVER_ROOT . SEP . $app . SEP . 'setup' . SEP . 'phpgw_' . strtolower($lang) . '.lang';
-						//echo '<br>Checking in: ' . $app['name'];
+						//echo '<br />Checking in: ' . $app['name'];
 						if($GLOBALS['phpgw_setup']->app_registered($app) && file_exists($appfile))
 						{
-							//echo '<br>Including: ' . $appfile;
+							//echo '<br />Including: ' . $appfile;
 							$lines = file($appfile);
 							foreach($lines as $line)
 							{
@@ -503,10 +503,10 @@
 							$content = $this->db->db_addslashes($content);
 
 							$addit = False;
-							//echo '<br>APPNAME:' . $app_name . ' PHRASE:' . $message_id;
+							//echo '<br />APPNAME:' . $app_name . ' PHRASE:' . $message_id;
 							if ($upgrademethod == 'addmissing')
 							{
-								//echo '<br>Test: addmissing';
+								//echo '<br />Test: addmissing';
 								$this->db->query("SELECT content,CASE WHEN app_name IN ('common') then 1 else 0 END AS in_api FROM phpgw_lang WHERE message_id='$message_id' AND lang='$lang' AND (app_name='$app_name' OR app_name='common') ORDER BY in_api DESC",__LINE__,__FILE__);
 
 								if (!($row = $this->db->row(True)))
@@ -535,11 +535,11 @@
 							{
 								if($message_id && $content)
 								{
-									//echo "<br>adding - insert into phpgw_lang values ('$message_id','$app_name','$lang','$content')";
+									//echo "<br />adding - insert into phpgw_lang values ('$message_id','$app_name','$lang','$content')";
 									$result = $this->db->query("INSERT INTO phpgw_lang (message_id,app_name,lang,content) VALUES('$message_id','$app_name','$lang','$content')",__LINE__,__FILE__);
 									if ((int)$result <= 0)
 									{
-										echo "<br>Error inserting record: phpgw_lang values ('$message_id','$app_name','$lang','$content')";
+										echo "<br />Error inserting record: phpgw_lang values ('$message_id','$app_name','$lang','$content')";
 									}
 								}
 							}
@@ -582,7 +582,7 @@
 					$tmp = $GLOBALS['phpgw_info']['server']['lang_ctimes'][$lang];
 					$ltime = (int)$tmp[$app];
 					unset($tmp);
-					//echo "checking lang='$lang', app='$app', ctime='$ctime', ltime='$ltime'<br>\n";
+					//echo "checking lang='$lang', app='$app', ctime='$ctime', ltime='$ltime'<br />\n";
 
 					if ($ctime != $ltime)
 					{
@@ -606,7 +606,7 @@
 		{
 			if($DEBUG)
 			{
-				echo '<br>get_langs(): checking db...' . "\n";
+				echo '<br />get_langs(): checking db...' . "\n";
 			}
 			if (!$this->langs)
 			{
@@ -624,7 +624,7 @@
 		{
 			if($DEBUG)
 			{
-				echo '<br>drop_langs(): Working on: ' . $appname;
+				echo '<br />drop_langs(): Working on: ' . $appname;
 			}
 			$this->db->query("SELECT COUNT(message_id) FROM phpgw_lang WHERE app_name='$appname'",__LINE__,__FILE__);
 			$this->db->next_record();
@@ -657,7 +657,7 @@
 
 			if($DEBUG)
 			{
-				echo '<br>add_langs(): chose these langs: ';
+				echo '<br />add_langs(): chose these langs: ';
 				_debug_array($langs);
 			}
 

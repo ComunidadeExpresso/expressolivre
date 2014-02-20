@@ -267,12 +267,12 @@ And the array will be returned with the entries sorted by their numbers.
 	);
 
 	$mail_send_doc = 'mail.send(recipient, subject, text, sender, cc, bcc, mimetype)
-<BR>recipient, cc, and bcc are strings, comma-separated lists of email addresses, as described above.
-<BR>subject is a string, the subject of the message.
-<BR>sender is a string, it\'s the email address of the person sending the message. This string can not be
+<br />recipient, cc, and bcc are strings, comma-separated lists of email addresses, as described above.
+<br />subject is a string, the subject of the message.
+<br />sender is a string, it\'s the email address of the person sending the message. This string can not be
 a comma-separated list, it must contain a single email address only.
 text is a string, it contains the body of the message.
-<BR>mimetype, a string, is a standard MIME type, for example, text/plain.
+<br />mimetype, a string, is a standard MIME type, for example, text/plain.
 ';
 
 	// WARNING; this functionality depends on the sendmail -t option
@@ -449,7 +449,7 @@ text is a string, it contains the body of the message.
 	}
 
 	$v1_countTheEntities_sig=array(array(xmlrpcStruct, xmlrpcString));
-	$v1_countTheEntities_doc='This handler takes a single parameter, a string, that contains any number of predefined entities, namely &lt;, &gt;, &amp; \' and ".<BR>Your handler must return a struct that contains five fields, all numbers:  ctLeftAngleBrackets, ctRightAngleBrackets, ctAmpersands, ctApostrophes, ctQuotes.';
+	$v1_countTheEntities_doc='This handler takes a single parameter, a string, that contains any number of predefined entities, namely &lt;, &gt;, &amp; \' and ".<br />Your handler must return a struct that contains five fields, all numbers:  ctLeftAngleBrackets, ctRightAngleBrackets, ctAmpersands, ctApostrophes, ctQuotes.';
 
 	function v1_countTheEntities($m)
 	{

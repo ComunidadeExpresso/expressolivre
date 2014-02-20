@@ -1,5 +1,5 @@
 <!-- BEGIN list -->
-<br>
+<br />
 <div align="center">
  <table border="0" width="45%">
   <tr>

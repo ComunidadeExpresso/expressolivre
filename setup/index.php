@@ -143,7 +143,7 @@
 	{
 		$GLOBALS['phpgw_setup']->html->show_header($GLOBALS['phpgw_info']['setup']['header_msg'],True);
 		$GLOBALS['phpgw_setup']->html->show_alert_msg('Error',
-			 lang('You appear to be running an old version of PHP <br>It its recommend that you upgrade to a new version. <br>Older version of PHP might not run eGroupWare correctly, if at all. <br><br>Please upgrade to at least version %1','4.1'));
+			 lang('You appear to be running an old version of PHP <br />It its recommend that you upgrade to a new version. <br />Older version of PHP might not run eGroupWare correctly, if at all. <br /><br />Please upgrade to at least version %1','4.1'));
 		$GLOBALS['phpgw_setup']->html->show_footer();
 		exit;
 	}
@@ -180,20 +180,20 @@
 				case 'mysql':
 					$setup_tpl->set_var('instr',
 						lang("Instructions for creating the database in %1:",'MySql')
-						. '<br>'.lang('Login to mysql -')
-						. '<br><i>[user@server user]# mysql -u root -p</i><br>'
+						. '<br />'.lang('Login to mysql -')
+						. '<br /><i>[user@server user]# mysql -u root -p</i><br />'
 						. lang('Create the empty database and grant user permissions -')
-						. "<br><i>mysql> create database {$info['db_name']};</i>"
-						. "<br><i>mysql> grant all on " . $info['db_name']
+						. "<br /><i>mysql> create database {$info['db_name']};</i>"
+						. "<br /><i>mysql> grant all on " . $info['db_name']
 						. ".* to " . $info['db_user'] . "@localhost identified by '" . $info['db_pass'] . "';</i>");
 					break;
 				case 'pgsql':
 					$setup_tpl->set_var('instr',
 						lang('Instructions for creating the database in %1:','PostgreSQL')
-						. '<br>'.lang('Start the postmaster')
-						. "<br><i>[user@server user]# postmaster -i -D /home/[username]/[dataDir]</i><br>"
+						. '<br />'.lang('Start the postmaster')
+						. "<br /><i>[user@server user]# postmaster -i -D /home/[username]/[dataDir]</i><br />"
 						. lang('Create the empty database -')
-						. "<br><i>[user@server user]# createdb " . $info['db_name'] . "</i>");
+						. "<br /><i>[user@server user]# createdb " . $info['db_name'] . "</i>");
 					break;
 				default:
 					$setup_tpl->set_var('instr','');
@@ -203,7 +203,7 @@
 			$setup_tpl->set_var('V_db_filled_block',$db_filled_block);
 			break;
 		case 2:
-			$setup_tpl->set_var('prebeta',lang('You appear to be running a pre-beta version of eGroupWare.<br>These versions are no longer supported, and there is no upgrade path for them in setup.<br> You may wish to first upgrade to 0.9.10 (the last version to support pre-beta upgrades) <br>and then upgrade from there with the current version.'));
+			$setup_tpl->set_var('prebeta',lang('You appear to be running a pre-beta version of eGroupWare.<br />These versions are no longer supported, and there is no upgrade path for them in setup.<br /> You may wish to first upgrade to 0.9.10 (the last version to support pre-beta upgrades) <br />and then upgrade from there with the current version.'));
 			$setup_tpl->set_var('notcomplete',lang('not complete'));
 			$setup_tpl->parse('V_db_stage_2','B_db_stage_2');
 			$db_filled_block = $setup_tpl->get_var('V_db_stage_2');
@@ -369,7 +369,7 @@
 				if ($GLOBALS['phpgw_setup']->db->f(0))
 				{
 					$link_make_accts = $GLOBALS['phpgw_setup']->html->make_href_link_simple(
-						'<br>',
+						'<br />',
 						'setup_demo.php',
 						lang('Click Here'),
 						'<b>'.lang('to setup 1 admin account and 3 demo accounts.').'</b>'
@@ -384,7 +384,7 @@
 			{
 				$btn_config_ldap = '';
 				$link_make_accts = $GLOBALS['phpgw_setup']->html->make_href_link_simple(
-					'<br>',
+					'<br />',
 					'setup_demo.php',
 					lang('Click Here'),
 					'<b>'.lang('to setup 1 admin account and 3 demo accounts.').'</b>'
@@ -476,7 +476,7 @@
 			$setup_tpl->set_var('lang_status_img',$incomplete);
 			$setup_tpl->set_var('lang_status_alt','not completed');
 			$btn_install_lang = $GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
-				lang('You do not have any languages installed. Please install one now <br>'),
+				lang('You do not have any languages installed. Please install one now <br />'),
 				'POST','lang.php',
 				'submit',lang('Install Language'),
 				'');
@@ -492,7 +492,7 @@
 			$setup_tpl->set_var('lang_status_img',$completed);
 			$setup_tpl->set_var('lang_status_alt','completed');
 			$btn_manage_lang = $GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
-				lang('This stage is completed<br>') . lang('Currently installed languages: %1 <br>',implode(', ',$langs_list)),
+				lang('This stage is completed<br />') . lang('Currently installed languages: %1 <br />',implode(', ',$langs_list)),
 				'POST','lang.php',
 				'submit',lang('Manage Languages'),
 				'');
@@ -529,7 +529,7 @@
 			}
 			$btn_manage_apps = $GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
 				count($to_upgrade) ? '<b>'.lang('The following applications need to be upgraded:').'</b> '.implode(', ',$to_upgrade) :
-				lang('This stage is completed<br>'),
+				lang('This stage is completed<br />'),
 				'','applications.php',
 				'submit',lang('Manage Applications'),
 				'');

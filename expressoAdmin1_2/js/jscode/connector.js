@@ -344,7 +344,7 @@ var progressBar;
 								if(debug_controller) {
 									try{
 										document.getElementById("debug_controller").innerHTML += oxmlhttp.responseText;
-										document.getElementById("debug_controller").innerHTML += "<br>-------------------------------------------------------------------------------------<br>";
+										document.getElementById("debug_controller").innerHTML += "<br />-------------------------------------------------------------------------------------<br />";
 									}
 									catch(e){}
 								}									

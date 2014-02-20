@@ -94,7 +94,7 @@
 			}
 			foreach($table_definitions as $table => $definition)
 			{
-				if ($diagnostics) { echo "<br>start converting table '$table' ... "; }
+				if ($diagnostics) { echo "<br />start converting table '$table' ... "; }
 				$db2->set_column_definitions($definitions['fd']);
 				$updates = 0;
 				$GLOBALS['phpgw_setup']->db->query("SELECT * FROM $table",__LINE__,__FILE__);
@@ -127,7 +127,7 @@
 						{
 							// if we have no primary key, we need to delete and re-write the row
 							$db2->query($query="DELETE FROM $table  WHERE ".$db2->column_data_implode(' AND ',$columns),__LINE__,__FILE__);
-							if ($diagnostics > 1) echo " &nbsp; $query<br>\n";
+							if ($diagnostics > 1) echo " &nbsp; $query<br />\n";
 							$db2->query($query="INSERT INTO $table (".implode(',',array_keys($columns)).") VALUES (".$db2->column_data_implode(',',array_merge($columns,$update),False).")",__LINE__,__FILE__);
 						}
 						if ($diagnostics > 1) echo " &nbsp; $query<p>\n";
@@ -149,13 +149,13 @@
 
 	$setup_tpl->set_var('stage_title',$stage_title);
 	$setup_tpl->set_var('stage_desc',$stage_desc);
-	$setup_tpl->set_var('error_msg',is_array($errors) ? implode('<br>',$errors) : '&nbsp');
+	$setup_tpl->set_var('error_msg',is_array($errors) ? implode('<br />',$errors) : '&nbsp');
 
 	$setup_tpl->set_var('lang_convert',lang('Convert'));
 	$setup_tpl->set_var('lang_cancel',lang('Cancel'));
 	$setup_tpl->set_var('lang_current',lang('Current system-charset'));
 	$setup_tpl->set_var('lang_convert_to',lang('Charset to convert to'));
-	$setup_tpl->set_var('lang_warning','<b>'.lang('Setting the system-charset to UTF-8 (unicode) allows the coexistens of data from languages of different charsets.').'</b><br>'.
+	$setup_tpl->set_var('lang_warning','<b>'.lang('Setting the system-charset to UTF-8 (unicode) allows the coexistens of data from languages of different charsets.').'</b><br />'.
 		lang('If you use only languages of the same charset (eg. western european ones) you dont need to set a system-charset!'));
 
 	$installed_charsets = $translation->get_installed_charsets();

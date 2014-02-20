@@ -65,7 +65,7 @@
 				{
 					if($bOutputHTML)
 					{
-						print('<br>Failed generating script for <b>' . $sTableName . '</b><br>');
+						print('<br />Failed generating script for <b>' . $sTableName . '</b><br />');
 						echo '<pre style="text-align: left;">'.$sTableName.' = '; print_r($aTableDef); echo "</pre>\n";
 					}
 
@@ -75,7 +75,7 @@
 
 			if($bOutputHTML)
 			{
-				print('<pre>' . $sAllTableSQL . '</pre><br><br>');
+				print('<pre>' . $sAllTableSQL . '</pre><br /><br />');
 			}
 
 			return True;
@@ -97,14 +97,14 @@
 				{
 					if($bOutputHTML)
 					{
-						echo '<br>Create Table <b>' . $sTableName . '</b>';
+						echo '<br />Create Table <b>' . $sTableName . '</b>';
 					}
 				}
 				else
 				{
 					if($bOutputHTML)
 					{
-						echo '<br>Create Table Failed For <b>' . $sTableName . '</b>';
+						echo '<br />Create Table Failed For <b>' . $sTableName . '</b>';
 					}
 
 					return False;
@@ -130,7 +130,7 @@
 				{
 					if($bOutputHTML)
 					{
-						echo '<br>Drop Table <b>' . $sTableSQL . '</b>';
+						echo '<br />Drop Table <b>' . $sTableSQL . '</b>';
 					}
 				}
 				else
@@ -390,7 +390,7 @@
 				{
 					if($bOutputHTML)
 					{
-						print('<br>Failed getting primary key<br>');
+						print('<br />Failed getting primary key<br />');
 					}
 
 					return False;
@@ -403,7 +403,7 @@
 				{
 					if($bOutputHTML)
 					{
-						print('<br>Failed getting unique constraint<br>');
+						print('<br />Failed getting unique constraint<br />');
 					}
 
 					return False;
@@ -417,12 +417,12 @@
 				{
 					if($bOutputHTML)
 					{
-						print('<br>Failed getting index<br>');
+						print('<br />Failed getting index<br />');
 					}
 
 					return False;
 				}
-//				print('<br>HELLO!: ' .  $sIXSQL);
+//				print('<br />HELLO!: ' .  $sIXSQL);
 			}
 
 			if($sPKSQL != '')
@@ -454,7 +454,7 @@
 		// Get field DDL
 		function _GetFieldSQL($aField, &$sFieldSQL)
 		{
-			if($GLOBALS['DEBUG']) { echo'<br>_GetFieldSQL(): Incoming ARRAY: '; var_dump($aField); }
+			if($GLOBALS['DEBUG']) { echo'<br />_GetFieldSQL(): Incoming ARRAY: '; var_dump($aField); }
 			if(!is_array($aField))
 			{
 				return false;
@@ -503,17 +503,17 @@
 				}
 				if(isset($aField['default']))
 				{
-					if($GLOBALS['DEBUG']) { echo'<br>_GetFieldSQL(): Calling TranslateDefault for "' . $aField['default'] . '"'; }
+					if($GLOBALS['DEBUG']) { echo'<br />_GetFieldSQL(): Calling TranslateDefault for "' . $aField['default'] . '"'; }
 					// Get default DDL - useful for differences in date defaults (eg, now() vs. getdate())
 
 					$sFieldSQL .= ' DEFAULT ' . (is_numeric($aField['default']) ? $aField['default'] :
 						$this->m_oTranslator->TranslateDefault($aField['default']));
 				}
-				if($GLOBALS['DEBUG']) { echo'<br>_GetFieldSQL(): Outgoing SQL:   ' . $sFieldSQL; }
+				if($GLOBALS['DEBUG']) { echo'<br />_GetFieldSQL(): Outgoing SQL:   ' . $sFieldSQL; }
 				return true;
 			}
 
-			if($GLOBALS['DEBUG']) { echo '<br>Failed to translate field: type[' . $sType . '] precision[' . $iPrecision . '] scale[' . $iScale . ']<br>'; }
+			if($GLOBALS['DEBUG']) { echo '<br />Failed to translate field: type[' . $sType . '] precision[' . $iPrecision . '] scale[' . $iScale . ']<br />'; }
 
 			return False;
 		}
