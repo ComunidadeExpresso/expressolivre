@@ -535,6 +535,8 @@ class iCal implements Formatter {
     }
 
     public function parse($data, $params = false) {
+
+
 	Config::regSet('noAlarm', TRUE); //Evita o envio de notificação
 	$vcalendar = new icalCreatorVcalendar( );
 
@@ -553,10 +555,10 @@ class iCal implements Formatter {
 	    switch (strtoupper($component->objName)) {
 		case 'VEVENT':
 
-
 		    switch ($method) {
 			case 'PUBLISH':
-			    //Caso o evento não exista o mesmo cria um novo evento, se já existir o mesmo referencia o evento com agenda
+
+                //Caso o evento não exista o mesmo cria um novo evento, se já existir o mesmo referencia o evento com agenda
                 if (!$schedulable = self::_getSchedulable($uid))
 				    $interation = self::_makeVEVENT($schedulable, $component, $params);
                 else{
@@ -573,7 +575,7 @@ class iCal implements Formatter {
 			    break;
 
 			case 'REQUEST':
-			    $schedulable = self::_getSchedulable($uid);
+                $schedulable = self::_getSchedulable($uid);
                 $calendar = false;
                 $accpeted = true;
 			    if ($schedulable) {
@@ -874,6 +876,7 @@ class iCal implements Formatter {
 			default:
 
 			    $schedulable = self::_getSchedulable($uid);
+
 
 			    if ($schedulable && ( self::_getTime($component, 'dtstamp') > $schedulable['dtstamp'] || $component->getProperty('sequence', false, false) > $schedulable['sequence'])) { //Caso o evento exista
 				$interation = self::_makeVEVENT($schedulable, $component, $params);
@@ -1181,21 +1184,20 @@ class iCal implements Formatter {
                 break;
 
             default:
-
                 $schedulable = self::_getSchedulable($uid);
 
                 if ($schedulable && ( self::_getTime($component, 'dtstamp') > $schedulable['dtstamp'] || $component->getProperty('sequence', false, false) > $schedulable['sequence'])) { //Caso o evento exista
-		    $interation = self::_makeVEVENT($schedulable, $component, $params);
+                    $interation = self::_makeVEVENT($schedulable, $component, $params);
 
-		    if (!self::_existInMyCalendars($schedulable['id'], $params['owner'])) {
-			$calendarToSchedulable = array();
-			$calendarToSchedulable['calendar'] = $params['calendar'];
-			$calendarToSchedulable['schedulable'] = $schedulable['id'];
-			$interation['calendarToSchedulable://' . mt_rand() . '(Formatter)'] = $calendarToSchedulable;
-		    }
+                    if (!self::_existInMyCalendars($schedulable['id'], $params['owner'])) {
+                        $calendarToSchedulable = array();
+                        $calendarToSchedulable['calendar'] = $params['calendar'];
+                        $calendarToSchedulable['schedulable'] = $schedulable['id'];
+                        $interation['calendarToSchedulable://' . mt_rand() . '(Formatter)'] = $calendarToSchedulable;
+                    }
                 }
                 else // Importar evento
-                $interation = self::_makeVEVENT(array(), $component, $params);
+                    $interation = self::_makeVEVENT(array(), $component, $params);
 
                 break;
             }
@@ -1597,7 +1599,6 @@ class iCal implements Formatter {
 
     static private function _makeVEVENT($schedulable, $component, $params) {
 
-
     	$interation = array();
     	$eventID = isset($schedulable['id']) ? $schedulable['id'] : mt_rand() . '(Formatter)';
 
@@ -1606,12 +1607,13 @@ class iCal implements Formatter {
 
     	$tzid = (isset($startTime['params']['TZID']) ? $startTime['params']['TZID'] : $params['X-WR-TIMEZONE']);
 
+
     	/* Tiem zone do evento */
     	if ($tzid){
     	    $tzid = self::nomalizeTZID($tzid);
     	    $schedulable['timezone'] = $tzid;
     	}else
-    	    $schedulable['timezone'] = isset($params['calendar_timezone']) ? $params['calendar_timezone'] : 'America/Sao_Paulo';
+            $schedulable['timezone'] = isset($params['calendar_timezone']) ? $params['calendar_timezone'] : 'America/Sao_Paulo';
 
     	$objTimezone = new DateTimeZone($schedulable['timezone']);
 
@@ -1622,7 +1624,10 @@ class iCal implements Formatter {
     	    $schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $tzid, '@' . self::date2timestamp($startTime['value'])) . '000';
     	    $schedulable['allDay'] = 0;
     	} else {
-    	    $schedulable['startTime'] = self::date2timestamp($startTime['value']) . '000';
+
+            //Fixing bug in mozilla
+            $schedulable['startTime'] =  self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($startTime['value'])) . '000';
+
     	    if (strpos($params['prodid'], 'Outlook') !== false) {
     		//Se o ics veio em utc não aplicar horario de verão
     		$sTime = new DateTime('@' . (int) ($schedulable['startTime'] / 1000), new DateTimeZone('UTC'));
@@ -1645,8 +1650,11 @@ class iCal implements Formatter {
     	else if ($tzid && !isset($endTime['value']['tz'])) /* Caso não tenha um tz na data mais exista um parametro TZID deve ser aplicado o timezone do TZID a data */
     	    $schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $tzid, '@' . self::date2timestamp($endTime['value'])) . '000';
     	else {
-    	    $schedulable['endTime'] = self::date2timestamp($endTime['value']) . '000';
-    	    if (strpos($params['prodid'], 'Outlook') !== false) {
+
+            //Fixing bug in mozilla
+            $schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($endTime['value'])) . '000';
+
+            if (strpos($params['prodid'], 'Outlook') !== false) {
     		//Se o ics veio em utc não aplicar horario de verão
     		$eTime = new DateTime('@' . (int) ($schedulable['endTime'] / 1000), new DateTimeZone('UTC'));
     		$eTime->setTimezone($objTimezone);
@@ -1654,9 +1662,6 @@ class iCal implements Formatter {
     		    $schedulable['endTime'] = $schedulable['endTime'] - 3600000;
     	    }
     	}
-
-
-
     	$schedulable['summary'] = mb_convert_encoding($component->getProperty('summary', false, false), 'ISO-8859-1', 'UTF-8,ISO-8859-1');
 
     	/* Definindo Description */
@@ -1666,8 +1671,6 @@ class iCal implements Formatter {
     	/* Definindo location */
     	if ($location = $component->getProperty('location', false, false))
     	    $schedulable['location'] = mb_convert_encoding($location, 'ISO-8859-1', 'UTF-8,ISO-8859-1');
-
-
 
     	/* Definindo Class */
     	$class = $component->getProperty('class', false, false);
@@ -1701,6 +1704,8 @@ class iCal implements Formatter {
     	$schedulable['calendar'] = $params['calendar'];
 
     	$participantsInEvent = array();
+
+
 
     	//TODO: Participants com delegated nao estao sendo levados em conta
     	while ($property = $component->getProperty('attendee', FALSE, TRUE)) {
@@ -1801,9 +1806,9 @@ class iCal implements Formatter {
         		$schedulable['participants'][] = $participantID;
     	    }
     	}
-    	
+
     	$alarms = array();
-    	
+
     	/* Definindo ALARMES */
     	while ($alarmComp = $component->getComponent('valarm'))
     	{
