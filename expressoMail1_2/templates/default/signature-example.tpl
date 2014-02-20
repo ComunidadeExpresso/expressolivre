@@ -1,5 +1,5 @@
-<br>
-<br>
+<br />
+<br />
 <div width="100%" style="padding-left: 10px;"><font size="3">{full_name} . <em><strong>{first_name}</strong></em></font><br />
 Seu Cargo<br />
 Sua Empresa<br />

@@ -136,7 +136,7 @@
 			{
 				if ( ! array_key_exists( $groupid, $group_info ) )
 				{
-					echo "Has occurred some problem in the group : {$groupid}<br>\n";
+					echo "Has occurred some problem in the group : {$groupid}<br />\n";
 					continue;
 				}
 
@@ -148,7 +148,7 @@
 				$thismembers   = $group_info[ $groupid ][ 'memberuid' ];
 				$thisdn        = $group_info[ $groupid ][ 'dn' ];
 
-				echo "Updating GROUPID : {$thisacctlid} ({$groupid})<br>\n";
+				echo "Updating GROUPID : {$thisacctlid} ({$groupid})<br />\n";
 
 				// Do some checks before we try to import the data.
 				if ( ! empty( $thisacctid ) && ! empty( $thisacctlid ) )
@@ -182,7 +182,7 @@
 
 						foreach ( $thismembers as $key => $members )
 						{
-							echo "members: {$members}<br>\n";
+							echo "members: {$members}<br />\n";
 
 							$tmpid = NULL;
 							foreach ( $account_info as $info )
@@ -197,7 +197,7 @@
 							// these rights. Instead, we maintain group membership here.
 							if ( $tmpid )
 							{
-								echo "inserindo user_id: {$tmpid} em {$thisacctid}<br>\n";
+								echo "inserindo user_id: {$tmpid} em {$thisacctid}<br />\n";
 
 								$acl -> account_id = ( int ) $tmpid;
 								$acl -> read_repository( );
@@ -229,7 +229,7 @@
 					$acl -> save_repository();
 					$defaultgroupid = $thisacctid;
 				}
-				echo "----------------------------------------------<br>\n";
+				echo "----------------------------------------------<br />\n";
 			}
 		}
 
@@ -263,7 +263,7 @@
 						$thisacctlid = $account_info[ $user_id ][ 'uid' ][ 0 ];
 						$thisdn      = $account_info[ $user_id ][ 'dn'];
 
-						echo "{$thisdn}<br>\nUpdating ({$type}) USERID : {$thisacctlid}<br>\n";
+						echo "{$thisdn}<br />\nUpdating ({$type}) USERID : {$thisacctlid}<br />\n";
 
 						// Do some checks before we try to import the data.
 						if ( !empty($thisacctid) && !empty($thisacctlid))
@@ -304,7 +304,7 @@
 							// Add user to a default group, previous created
 							//$acl -> add( 'phpgw_group', '12007', 1 );
 
-							echo "Adding in ACL BD: {$thisacctid}<br><br>\n";
+							echo "Adding in ACL BD: {$thisacctid}<br /><br />\n";
 
 							// Save these new acls.
 							$acl -> save_repository( );
@@ -323,7 +323,7 @@
 				}
 		}
 
-		printf( "<br><center>%s %s<br></center>",
+		printf( "<br /><center>%s %s<br /></center>",
 			lang( 'Modifications have been completed!' ),
 			lang( 'Click <a href="index.php">here</a> to return to setup.' )
 		);

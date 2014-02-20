@@ -89,11 +89,11 @@
 			{
 				$element = $this->tree;
 			}
-			echo $prefix.$element['namespace'].':'.$element['name'].' '.$element['start'].'->'.$element['end'].'<br>';
+			echo $prefix.$element['namespace'].':'.$element['name'].' '.$element['start'].'->'.$element['end'].'<br />';
 			$prefix .= '-->';
 			if ($element['data'])
 			{
-				echo $prefix.$element['data'].'<br>';
+				echo $prefix.$element['data'].'<br />';
 			}
 
 			foreach ($element['children'] as $id=>$child)
@@ -416,7 +416,7 @@
 				{
 					echo $info;
 				}
-				echo '</em></b><br>';
+				echo '</em></b><br />';
 			}
 		}
 		/*!
@@ -688,7 +688,7 @@ if (DEBUG_CACHE)
 					$newitem['mime_type']='Directory';
 				}
 				
-				$this->debug('<br><br>properties:<br>');
+				$this->debug('<br /><br />properties:<br />');
 				$this->debug($newitem);
 				$newitem['name'] = $this->decodeurl($newitem['name']);
 				$result[$fixed_name]=$newitem;

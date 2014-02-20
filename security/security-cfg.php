@@ -31,7 +31,7 @@
     echo '</tr>';
     echo '<tr>';
     $aux = explode($GLOBALS['BASE'] . '/',$GLOBALS['CRLs']);
-    echo '<td valign="top"><b>' . lang('Folder with CRLs') . ':<br>
+    echo '<td valign="top"><b>' . lang('Folder with CRLs') . ':<br />
            ' . lang('Empty to disable revogation test') . '.</b></td>';
     echo '<td valign="top">';
     echo '<input type="text" name="CRLs" value="'. $aux[1]. '" size="60" READONLY />';

@@ -44,7 +44,7 @@
 		var $current_folder; // Pasta corrente
 		var $current_page; // Página corrente da lista de e-mails da pasta corrente
 		var $imap_functions; // Variável que recebe um objeto do tipo class.imap_functions.inc.php
-		var $allowed_tags = '<p><a><br><em><strong><ol><li><ul><div><font>'; // Tags html que não serão removidas
+		var $allowed_tags = '<p><a><br /><em><strong><ol><li><ul><div><font>'; // Tags html que não serão removidas
 			// ao mostrar corpo do e-mail
 
 
@@ -260,14 +260,14 @@
 
 			if (!empty($msg['attachments']))
 			{
-				$attachs = "<br>".lang("This message has the follow attachments:")."<br>";
+				$attachs = "<br />".lang("This message has the follow attachments:")."<br />";
 				foreach($msg['attachments'] as $key => $attach) {
 					if(is_array($attach)) {
 						//$attachs.=$attach['name']."&nbsp;&nbsp;&nbsp;&nbsp;";
 						$attachs.="<a href='../expressoMail1_2/inc/gotodownload.php?msg_folder=".$msg_folder.
 								  "&msg_number=".$msg_number."&idx_file=".$key."&msg_part=".$attach['pid'].
 								  "&newfilename=".$attach['name']."&encoding=".$attach['encoding']."'>".
-									  lang('Download').":&nbsp;".$attach['name']."</a><br>";
+									  lang('Download').":&nbsp;".$attach['name']."</a><br />";
 					}
 				}
 
@@ -860,7 +860,7 @@
 			$params['forwarding_attachments'] = $params["forward_attachments"];
 			$return = $this->imap_functions->save_msg($params);
 			if($return["has_error"]) {
-				$params["error_message"] = lang("draft not save")."<br>".lang("error") . $return["append"];
+				$params["error_message"] = lang("draft not save")."<br />".lang("error") . $return["append"];
 				$this->new_msg( $params );
 			}else {
 				header('Location: index.php?menuaction=menuaction=mobile.ui_home.index&success_message='.lang("draft saved").'&ignore_trace_url=true');
@@ -979,7 +979,7 @@
 			}
 
 			if(!$mail->Send()) {
-				$params["error_message"] = lang("Message not sent")."<br>".lang("error") . $mail->ErrorInfo;
+				$params["error_message"] = lang("Message not sent")."<br />".lang("error") . $mail->ErrorInfo;
 				$this->new_msg( $params );
 			}else {
 				if($GLOBALS['phpgw']->session->appsession('mobile.layout','mobile')=="mini_desktop") {
@@ -1105,7 +1105,7 @@
 				if(($folder_id != $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['save_in_folder']) && ($folder['id'] != 0)){
 					$folder_name = str_replace('*','',lang($folder['folder_name']));
 					$folder_link = "index.php?menuaction=mobile.ui_mobilemail.mail_list&folder=".$folder['id'];
-					$folders_list .= "<br>:: <a href=".$folder_link.">".$folder_name."</a>";
+					$folders_list .= "<br />:: <a href=".$folder_link.">".$folder_name."</a>";
 				}
 			}
 			$this->template->set_var('folders_list', $folders_list);

@@ -113,7 +113,7 @@ var Main_load = function ()
 			menu = document.getElementById("Layer1");
 				
 			for (i=0; i< textmenu[0].length; i++) {
-				textmenu[0][i] = "<span onclick= 'menu.onmouseout();'>" + document.getElementById(textmenu[0][i]).value + "</span><br>";
+				textmenu[0][i] = "<span onclick= 'menu.onmouseout();'>" + document.getElementById(textmenu[0][i]).value + "</span><br />";
 				submenu[i] = document.createElement("DIV");				
 				submenu[i].innerHTML = textmenu[0][i];
 				submenu[i].id = textmenu[1][i];
@@ -225,7 +225,7 @@ function buildWarningMsg(_version) {
 	_div.innerHTML += "<DIV id='warning_msg' style='background:LIGHTYELLOW;position:absolute;"+
 	"border:1px solid black;left:"+(screenWidth - 330)+";top:10px;width:300px;padding:10px;"+
 	(document.body.clientWidth ? "-moz-border-radius: 9px 9px 9px 9px;'>" : "")+
-	    "<font color='RED' size='2'>"+lang_warn_firefox +  "("+_version+")</font><BR>"+
+	    "<font color='RED' size='2'>"+lang_warn_firefox +  "("+_version+")</font><br />"+
 	    "<font color='black' size='2'><p style='text-align:justify'>&nbsp;"+lang_firefox_msg1+
 	    lang_firefox_msg2 + ".</p></font><div style='width:100%' align='center'>"+
 	    "<a title='"+lang_install_now+"' href='http://br.mozdev.org/firefox/download.html' target='_blank'>"+lang_install_new_firefox+ "</a>"+	

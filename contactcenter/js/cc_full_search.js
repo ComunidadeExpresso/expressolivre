@@ -38,7 +38,7 @@ ccFullSearch.prototype.showForm = function() {
 			'<input title="' + Element('cc_msg_clean').value + '" type="button" onclick="ccFullSearchVar.clean();" value="' + Element('cc_msg_clean').value + '" style="position: absolute; top: ' + (fieldsTop+i*fieldsSpace) + 'px; left: 100px; width: 60px" />' +
 			'<input title="' + Element('cc_qa_close').value + '" type="button" onclick="ccFullSearchVar.close();" value="' + Element('cc_qa_close').value + '" style="position: absolute; top: ' + (fieldsTop+i*fieldsSpace) + 'px; left: 165px; width: 60px" />' +
 			'</div>';
-		el.innerHTML +=	"<br>";
+		el.innerHTML +=	"<br />";
 
 		this.showWindow(el);
 	}

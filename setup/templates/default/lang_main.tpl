@@ -24,13 +24,13 @@
 	<!-- BEGIN B_choose_method -->
 	<td valign="top">
 		{meth_desc}
-		<br><br>
+		<br /><br />
 		<input type="radio" name="upgrademethod" value="dumpold" checked>
 		&nbsp;{blurb_dumpold}
-		<br>
+		<br />
 		<input type="radio" name="upgrademethod" value="addonlynew">
 		&nbsp;{blurb_addonlynew}
-		<br>
+		<br />
 		<input type="radio" name="upgrademethod" value="addmissing">
 		&nbsp;{blurb_addmissing}
 	</td>

@@ -78,7 +78,7 @@ class uiconfig
 													'action_url_back' => "./admin",
 													'label_config1' => lang("Site Configuration Jabber"),
 													'label_config2' => lang("Map organization for realm jabber"),
-													'value_config1' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=jabberit_messenger'),												
+													'value_config1' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=jabberit_messenger'),
 													'value_config2' => $GLOBALS['phpgw']->link('/index.php','menuaction=jabberit_messenger.uihostsjabber.edit_conf'),
 													'value_image1' 	=> "jabberit_messenger/templates/default/images/navbar.png",
 													'value_image2' 	=> "jabberit_messenger/templates/default/images/gear.png",

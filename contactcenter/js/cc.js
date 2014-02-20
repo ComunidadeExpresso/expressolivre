@@ -1674,7 +1674,7 @@ function connGetHTMLLine ()
 			//'<td style="width: 30px;" align="right"><input name="cc_conn_is_default" id="cc_conn_is_default_'+ CC_conn_count +'" type="radio"></td>'+
 			'<td style="width: 10px;" align="right"><input id="cc_conn_name_'+CC_conn_count+'" type="hidden"><td style="width: 100px; padding-left: 55px;" align="left"><span style="width: 150px;" id="cc_conn_label_'+CC_conn_count+'">'+_label+':'+'</span></td>' +
 			'<td align="left"><input id="cc_conn_value_'+ CC_conn_count +'" style="width: 150px; text-transform:lowercase;" maxlength="100" type="text">&nbsp;' +
-			'<img align="top" alt="X" title="X" src="templates/default/images/x.png" style="width:18px; height:18px; cursor:pointer;" onclick="javascript:removeConnField(\'cc_conn_tr_' + CC_conn_count + '\')"></td>';
+			'<img align="top" alt="X" title="X" src="templates/default/images/x.png" style="width:18px; height:18px; cursor:pointer;" onclick="javascript:removeConnField(\'cc_conn_tr_' + CC_conn_count + '\')"/></td>';
 		}
 		else if (Element("cc_conn_type_2").checked)
 		{
@@ -1682,7 +1682,7 @@ function connGetHTMLLine ()
 			//'<td style="width: 30px;" align="right"><input name="cc_conn_is_default" id="cc_conn_is_default_'+ CC_conn_count +'" type="radio"></td>'+
 			'<td style="width: 10px;" align="right"><input id="cc_conn_name_'+CC_conn_count+'" type="hidden"><td style="width: 100px; padding-left: 55px;" align="left"><span style="width: 150px;" id="cc_conn_label_'+CC_conn_count+'">'+_label+':'+'</span></td>' +
 			'<td align="left"><input id="cc_conn_value_'+ CC_conn_count +'" style="width: 150px; text-transform:lowercase;" maxlength="30" type="text" onkeyup="formatPhone(this);">&nbsp;' +
-			'<img align="top" alt="X" title="X" src="templates/default/images/x.png" style="width:18px; height:18px; cursor:pointer;" onclick="javascript:removeConnField(\'cc_conn_tr_' + CC_conn_count + '\')"></td>';
+			'<img align="top" alt="X" title="X" src="templates/default/images/x.png" style="width:18px; height:18px; cursor:pointer;" onclick="javascript:removeConnField(\'cc_conn_tr_' + CC_conn_count + '\')"/></td>';
 		}
 	}
 	else
@@ -2388,7 +2388,7 @@ function populateCards(data, type)
 									Element(id+':'+data[2][k]).innerHTML = data[3][pos][k];
 								}
 								if(data[3][pos][12])
-									Element(id+':'+data[2][k]).innerHTML += "<br><span style='margin-left:30px'><font size='-2' color='#808080'><i>"+data[3][pos][12]+"</i></font></span>";	
+									Element(id+':'+data[2][k]).innerHTML += "<br /><span style='margin-left:30px'><font size='-2' color='#808080'><i>"+data[3][pos][12]+"</i></font></span>";
 								break;
 
 							case 'cc_mail':
@@ -2417,7 +2417,7 @@ function populateCards(data, type)
 									Element(id+':'+data[2][k]).innerHTML = adjustString(data[3][pos][k], 20);
 								}
 								if(data[3][pos][k] != " ")
-								Element(id+':cc_phone').innerHTML = (data[3][pos][k].length < 23) ? data[3][pos][k]:data[3][pos][k].substr(0,22)+"<br>"+data[3][pos][k].substr(22,data[3][pos][k].length);
+								Element(id+':cc_phone').innerHTML = (data[3][pos][k].length < 23) ? data[3][pos][k]:data[3][pos][k].substr(0,22)+"<br />"+data[3][pos][k].substr(22,data[3][pos][k].length);
 								else
 									Element(id+':cc_phone').innerHTML = not_informed_text;
 								break;
@@ -2446,9 +2446,9 @@ function populateCards(data, type)
 								Element(id+':cc_photo').src = '../index.php?menuaction=contactcenter.ui_data.data_manager&method=get_photo' + (data[4][pos] != 0 ? '&id='+data[3][pos][k] : '');
 								if(ccTree.catalog_perms == 1)
 								{
-									Element(id+':cc_icon_data').innerHTML =  '<span title="'+Element('cc_msg_copy_to_catalog').value+'" id="' + id + ':ccQuickAdd" onmouseout="window.status=\'\';" onclick="ccQuickAddContact.showList(\''+ Element(id+':cc_id').value + '\');return true;" style="cursor: pointer; cursor: hand; z-index: 1"><img src="templates/default/images/address-conduit-16.png" align="center"></span>';
+									Element(id+':cc_icon_data').innerHTML =  '<span title="'+Element('cc_msg_copy_to_catalog').value+'" id="' + id + ':ccQuickAdd" onmouseout="window.status=\'\';" onclick="ccQuickAddContact.showList(\''+ Element(id+':cc_id').value + '\');return true;" style="cursor: pointer; cursor: hand; z-index: 1"><img src="templates/default/images/address-conduit-16.png" align="center" /></span>';
 									if (data[12] == true || data[12] == 'true')
-										Element(id+':cc_icon_data').innerHTML += "  |  " + '<span title="'+ Element('cc_msg_show_extra_detail').value+'" id="' + id + ':ccContactDetails" onclick="javascript:openContactDetails(\'' + Element(id+':cc_id').value + '\');" style="cursor: pointer; cursor: hand; z-index: 1"><img src="templates/default/images/addressbook-mini.png" align="center"></span>';
+										Element(id+':cc_icon_data').innerHTML += "  |  " + '<span title="'+ Element('cc_msg_show_extra_detail').value+'" id="' + id + ':ccContactDetails" onclick="javascript:openContactDetails(\'' + Element(id+':cc_id').value + '\');" style="cursor: pointer; cursor: hand; z-index: 1"><img src="templates/default/images/addressbook-mini.png" align="center" /></span>';
 								}
 								break;
 
@@ -2459,7 +2459,7 @@ function populateCards(data, type)
 									break;
 								else
 									if (account_type == 'list' || account_type == 'group')
-										icon = '<img src="templates/default/images/people-mini.png" align="center">';
+										icon = '<img src="templates/default/images/people-mini.png" align="center" />';
                                     else
 										icon = '';
                                                                             
@@ -2649,7 +2649,7 @@ function populateGroupsInCards(data,type)
 									Element(id+':'+data[2][k]).innerHTML = data[3][pos][k];
 								}
 								if(data[3][pos][5])
-									Element(id+':'+data[2][k]).innerHTML += "<br><span style='margin-left:30px'><font size='-2' color='#808080'><i>"+data[3][pos][5]+"</i></font></span>";
+									Element(id+':'+data[2][k]).innerHTML += "<br /><span style='margin-left:30px'><font size='-2' color='#808080'><i>"+data[3][pos][5]+"</i></font></span>";
 								break;
 
 							case 'cc_short_name':
@@ -2677,7 +2677,7 @@ function populateGroupsInCards(data,type)
 									email += contacts[d]['connection_value']+",";
 								}
 
-								Element(id+':cc_participantes').innerHTML = '<span title="Ver Participantes" id="' + id + ':ccQuickAdd" onmouseout="window.status=\'\';" onclick="ccListParticipants.showList(\''+ Element(id+':cc_id').value+'value\', \''+contact+'\', \''+email+'\', \''+title+'\', \''+id_group+'\');return true;" style="cursor: pointer; cursor: hand; z-index: 1"><img title="Ver participantes" align="center" src="templates/default/images/people-mini.png">&nbsp;&nbsp</span>';
+								Element(id+':cc_participantes').innerHTML = '<span title="Ver Participantes" id="' + id + ':ccQuickAdd" onmouseout="window.status=\'\';" onclick="ccListParticipants.showList(\''+ Element(id+':cc_id').value+'value\', \''+contact+'\', \''+email+'\', \''+title+'\', \''+id_group+'\');return true;" style="cursor: pointer; cursor: hand; z-index: 1"><img title="Ver participantes" align="center" src="templates/default/images/people-mini.png" />&nbsp;&nbsp</span>';
 
 								break;
 
@@ -2767,9 +2767,9 @@ function getCardHTML (id, type)
 		if(type == 'groups' || type == 'shared_groups') {
 			html_card = '<td id="' + id + '" style="width: ' + CC_card_image_width + 'px; height: ' + CC_card_image_height + '">' +
             '<div style="border: 0px solid #999; position: relative;">' +
-				'<img src="templates/default/images/card.png" border="0" width="' + CC_card_image_width +'" height="' + CC_card_image_height + '"i ondblclick="editContact(Element(\'' + id + ':cc_id\').value);">' +
-				'<img title="'+Element('cc_msg_group_edit').value+'" id="' + id + ':cc_card_edit" style="position: absolute; top: 35px; left: 222px; width: 18px; height: 18px; cursor: pointer; cursor: hand; z-index: 1" onclick="editGroup(Element(\'' + id + ':cc_id\').value);" onmouseover="resizeIcon(\''+id+':cc_card_edit\',0)" onmouseout="resizeIcon(\''+id+':cc_card_edit\',1)" src="templates/default/images/cc_card_edit.png">' +
-				'<img title="'+Element('cc_msg_group_remove').value+'" id="' + id + ':cc_card_remove" style="position: absolute; top: 78px; left: 223px; width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value,\'groups\');" onmouseover="resizeIcon(\''+id+':cc_card_remove\',0)" onmouseout="resizeIcon(\''+id+':cc_card_remove\',1)" src="templates/default/images/cc_x.png">' +
+				'<img src="templates/default/images/card.png" border="0" width="' + CC_card_image_width +'" height="' + CC_card_image_height + '"i ondblclick="editContact(Element(\'' + id + ':cc_id\').value);" />' +
+				'<img title="'+Element('cc_msg_group_edit').value+'" id="' + id + ':cc_card_edit" style="position: absolute; top: 35px; left: 222px; width: 18px; height: 18px; cursor: pointer; cursor: hand; z-index: 1" onclick="editGroup(Element(\'' + id + ':cc_id\').value);" onmouseover="resizeIcon(\''+id+':cc_card_edit\',0)" onmouseout="resizeIcon(\''+id+':cc_card_edit\',1)" src="templates/default/images/cc_card_edit.png" />' +
+				'<img title="'+Element('cc_msg_group_remove').value+'" id="' + id + ':cc_card_remove" style="position: absolute; top: 78px; left: 223px; width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value,\'groups\');" onmouseover="resizeIcon(\''+id+':cc_card_remove\',0)" onmouseout="resizeIcon(\''+id+':cc_card_remove\',1)" src="templates/default/images/cc_x.png" />' +
 				'<span id="' + id + ':cc_title" style="position: absolute; top: 30px; left: 75px; width: 135px; border: 0px solid #999; font-weight: bold; font-size: 10px; text-align: center; height: 10px;" onmouseover="//Element(\''+id+':cc_name_full\').style.visibility=\'visible\'" onmouseout="//Element(\''+id+':cc_name_full\').style.visibility=\'hidden\'"></span>' +
 				'<span id="' + id + ':cc_participantes" style="cursor: pointer; cursor: hand; z-index: 1;position: absolute; top: 15px; left: 15px"></span>' +
 				'<span onMouseOver="this.title = \''+Element('cc_send_mail').value+'\'" id="' + id + ':cc_short_name" style="position: absolute; top: 105px; left: 75px; width: 135px; border: 0px solid #999; font-weight: normal; font-size: 10px; text-align: center; height: 10px;"></span>' +
@@ -2780,13 +2780,13 @@ function getCardHTML (id, type)
 		else {
 			html_card = '<td id="' + id + '" style="width: ' + CC_card_image_width + 'px; height: ' + CC_card_image_height + '">' +
 				'<div style="border: 0px solid #999; position: relative;">' +
-					'<img src="templates/default/images/card.png" border="0" width="' + CC_card_image_width +'" height="' + CC_card_image_height + '"i ondblclick="editContact(Element(\'' + id + ':cc_id\').value);">' +
+					'<img src="templates/default/images/card.png" border="0" width="' + CC_card_image_width +'" height="' + CC_card_image_height + '"i ondblclick="editContact(Element(\'' + id + ':cc_id\').value);" />' +
 						( ccTree.catalog_perms == 1 ?
 						'<span id="' + id + ':cc_icon_data" style="position: absolute; top: 35px; left: 222px; width: 18px; height: 18px; cursor: pointer; cursor: hand; z-index: 1"></span>':'') +
 						(ccTree.catalog_perms & 2 ?
-						'<img title="'+Element('cc_msg_card_edit').value+'" id="' + id + ':cc_card_edit" style="position: absolute; top: 35px; left: 222px; width: 18px; height: 18px; cursor: pointer; cursor: hand; z-index: 1" onclick="editContact(Element(\'' + id + ':cc_id\').value);" onmouseover="resizeIcon(\''+id+':cc_card_edit\',0)" onmouseout="resizeIcon(\''+id+':cc_card_edit\',1)" src="templates/default/images/cc_card_edit.png">' +
-						'<img title="'+Element('cc_msg_card_remove').value+'" id="' + id + ':cc_card_remove" style="position: absolute; top: 78px; left: 223px; width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value);" onmouseover="resizeIcon(\''+id+':cc_card_remove\',0)" onmouseout="resizeIcon(\''+id+':cc_card_remove\',1)" src="templates/default/images/cc_x.png">' : '') +
-						'<img id="' + id + ':cc_photo" style="position: absolute; top: 15px; left: 7px;" src="" border="0" ondblclick="editContact(Element(\'' + id + ':cc_id\').value);">' +
+						'<img title="'+Element('cc_msg_card_edit').value+'" id="' + id + ':cc_card_edit" style="position: absolute; top: 35px; left: 222px; width: 18px; height: 18px; cursor: pointer; cursor: hand; z-index: 1" onclick="editContact(Element(\'' + id + ':cc_id\').value);" onmouseover="resizeIcon(\''+id+':cc_card_edit\',0)" onmouseout="resizeIcon(\''+id+':cc_card_edit\',1)" src="templates/default/images/cc_card_edit.png" />' +
+						'<img title="'+Element('cc_msg_card_remove').value+'" id="' + id + ':cc_card_remove" style="position: absolute; top: 78px; left: 223px; width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value);" onmouseover="resizeIcon(\''+id+':cc_card_remove\',0)" onmouseout="resizeIcon(\''+id+':cc_card_remove\',1)" src="templates/default/images/cc_x.png" />' : '') +
+						'<img id="' + id + ':cc_photo" style="position: absolute; top: 15px; left: 7px;" src="" border="0" ondblclick="editContact(Element(\'' + id + ':cc_id\').value);" />' +
 						'<span id="' + id + ':cc_company" style="position: absolute; top: 5px; left: 75px; width: 135px; border: 0px solid #999; font-weight: bold; font-size: 10px; text-align: center; height: 10px;" onmouseover="//Element(\''+id+':cc_company_full\').style.visibility=\'visible\'" onmouseout="//Element(\''+id+':cc_company_full\').style.visibility=\'hidden\'"></span>' +
 						'<span style="cursor: pointer; cursor: hand; z-index: 1;position: absolute; top: 100px; left: 35px"  valign="bottom" id="' + id + ':cc_icon_group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>'+
 						//Para exibir a matricula do empregado nos cartoes
@@ -2820,9 +2820,9 @@ function getTableHTML (id, type)
 					'<span id="' + id + ':cc_title"></span></td>' +
 					'<td width="40%" style="solid #999; font-weight: normal; font-size: 10px; text-align: left; height: 10px"><span id="' + id + ':cc_short_name"></span></td>' +
 					'<td align="center" width="10%">'+
-					'<img  title="'+Element('cc_msg_group_edit').value+'" id="' + id + ':cc_card_edit" style=" cursor: pointer; cursor: hand; z-index: 1;width: 18px; height: 18px;"  onclick="editGroup(Element(\'' + id + ':cc_id\').value);" src="templates/default/images/cc_card_edit.png">' +
+					'<img  title="'+Element('cc_msg_group_edit').value+'" id="' + id + ':cc_card_edit" style=" cursor: pointer; cursor: hand; z-index: 1;width: 18px; height: 18px;"  onclick="editGroup(Element(\'' + id + ':cc_id\').value);" src="templates/default/images/cc_card_edit.png" />' +
 					'&nbsp;&nbsp;|&nbsp;&nbsp;'+
-					'<img  title="'+Element('cc_msg_group_remove').value+'" id="' + id + ':cc_card_remove" style="width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value,\'groups\');" src="templates/default/images/cc_x.png">'  +
+					'<img  title="'+Element('cc_msg_group_remove').value+'" id="' + id + ':cc_card_remove" style="width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value,\'groups\');" src="templates/default/images/cc_x.png" />'  +
 					'<input id="' + id + ':cc_id" type="hidden">'+
 					'</td></tr>';
             }
@@ -2841,9 +2841,9 @@ function getTableHTML (id, type)
 					'<td align="center" width="10%"><span valign="bottom" id="' + id + ':cc_icon_data"></span></td>':'') +					
 					(ccTree.catalog_perms & 2 ?
 					'<td align="center" width="10%" >'+
-					'<img  title="'+Element('cc_msg_card_edit').value+'" id="' + id + ':cc_card_edit" style=" cursor: pointer; cursor: hand; z-index: 1;width: 18px; height: 18px;"  onclick="editContact(Element(\'' + id + ':cc_id\').value);" src="templates/default/images/cc_card_edit.png">' +
+					'<img  title="'+Element('cc_msg_card_edit').value+'" id="' + id + ':cc_card_edit" style=" cursor: pointer; cursor: hand; z-index: 1;width: 18px; height: 18px;"  onclick="editContact(Element(\'' + id + ':cc_id\').value);" src="templates/default/images/cc_card_edit.png" />' +
 					'&nbsp;&nbsp;|&nbsp;&nbsp;'+
-					'<img title="'+Element('cc_msg_card_remove').value+'" id="' + id + ':cc_card_remove" style="width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value);" src="templates/default/images/cc_x.png">' : '') +
+					'<img title="'+Element('cc_msg_card_remove').value+'" id="' + id + ':cc_card_remove" style="width: 15px; height: 14px; cursor: pointer; cursor: hand; z-index: 1" onclick="removeEntry(Element(\'' + id + ':cc_id\').value);" src="templates/default/images/cc_x.png" />' : '') +
 					'<input id="' + id + ':cc_id" type="hidden">'+
 					'<input type="hidden" id="' + id + ':cc_photo">' +
 					//'<span id="' + id + ':cc_mobile" style="display:none"></span>' +

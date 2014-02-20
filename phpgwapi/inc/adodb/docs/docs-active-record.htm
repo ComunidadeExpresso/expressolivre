@@ -17,7 +17,7 @@ font-family: Arial, Helvetica, sans-serif ;
 <p> (c) 2000-2007 John Lim (jlim#natsoft.com)</p>
 <p><font size="1">This software is dual licensed using BSD-Style and LGPL. This 
   means you can use it in compiled proprietary and commercial products.</font></p>
-<p><hr>
+<p><hr />
 <ol>
 
 <h3><li>Introduction</h3>
@@ -513,29 +513,29 @@ echo "&lt;p>Name first (should be John): ",$person->name_first, "&lt;br>Class = 
 <p>If inserting a record and the value of a primary key field is null, then we do not insert that field in as
 we assume it is an auto-increment field. Needed by mssql.
 
-<p>0.04 5 June 2006 <br>
+<p>0.04 5 June 2006 <br />
 <p>Added support for declaring table name in $_table in class declaration. Thx Bill Dueber for idea.
 <p>Added find($where,$bindarr=false) method to retrieve an array of active record objects.
 
-<p>0.03 <br>
-- Now we only update fields that have changed, using $this->_original.<br>
-- We do not include auto_increment fields in replace(). Thx Travis Cline<br>
-- Added ADODB_ACTIVE_CACHESECS.<br>
+<p>0.03 <br />
+- Now we only update fields that have changed, using $this->_original.<br />
+- We do not include auto_increment fields in replace(). Thx Travis Cline<br />
+- Added ADODB_ACTIVE_CACHESECS.<br />
 
-<p>0.02 <br>
-- Much better error handling. ErrorMsg() implemented. Throw implemented if adodb-exceptions.inc.php detected.<br>
-- You can now define the primary keys of the view or table you are accessing manually.<br>
+<p>0.02 <br />
+- Much better error handling. ErrorMsg() implemented. Throw implemented if adodb-exceptions.inc.php detected.<br />
+- You can now define the primary keys of the view or table you are accessing manually.<br />
 - The Active Record allows you to create an object which does not have a primary key. You can INSERT but not UPDATE in this case.
-- Set() documented.<br>
+- Set() documented.<br />
 - Fixed _pluralize bug with y suffix.
 
 <p>
- 0.01 6 Mar 2006<br>
-- Fixed handling of nulls when saving (it didn't save nulls, saved them as '').<br>
-- Better error handling messages.<br>
-- Factored out a new method GetPrimaryKeys().<br>
+ 0.01 6 Mar 2006<br />
+- Fixed handling of nulls when saving (it didn't save nulls, saved them as '').<br />
+- Better error handling messages.<br />
+- Factored out a new method GetPrimaryKeys().<br />
  <p>
- 0.00 5 Mar 2006<br>
+ 0.00 5 Mar 2006<br />
  1st release
 </body>
 </html>

@@ -21,7 +21,7 @@
 	$d3 = strtolower(substr(@$GLOBALS['phpgw_info']['server']['app_inc'],0,3));
 	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
 	{
-		echo 'Failed attempt to break in via an old Security Hole!<br>';
+		echo 'Failed attempt to break in via an old Security Hole!<br />';
 		exit;
 	}
 	unset($d1);unset($d2);unset($d3);
@@ -36,7 +36,7 @@
 
 	if (!function_exists('version_compare'))//version_compare() is only available in PHP4.1+
 	{
-		echo 'eGroupWare now requires PHP 4.1 or greater.<br>';
+		echo 'eGroupWare now requires PHP 4.1 or greater.<br />';
 		echo 'Please contact your System Administrator';
 		exit;
 	}

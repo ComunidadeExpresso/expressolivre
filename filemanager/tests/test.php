@@ -34,7 +34,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd - $i - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd - $i - $o - $ao";
 	}
 }
 
@@ -52,7 +52,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd - $i - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd - $i - $o - $ao";
 	}
 }
 
@@ -70,7 +70,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd - $i - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd - $i - $o - $ao";
 	}
 }
 
@@ -88,8 +88,8 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives))) != $o)
 	{
-		echo '<br><b>HERE</b>';
-		echo "<br>$sequence_num - getabsolutepath - $cd - $i - $relatives[0] - $o - $ao";
+		echo '<br /><b>HERE</b>';
+		echo "<br />$sequence_num - getabsolutepath - $cd - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -109,7 +109,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -129,7 +129,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -149,7 +149,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -169,7 +169,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives, 'fake' =>False))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -188,7 +188,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives, 'fake' => False))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -208,7 +208,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives, 'fake' => False))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -227,7 +227,7 @@ while (list ($i, $o) = each ($io))
 {
 	if (($ao = $phpgw->vfs->getabsolutepath (array ('string' => $i, 'mask' => $relatives, 'fake' => False))) != $o)
 	{
-		echo "<br>$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
+		echo "<br />$sequence_num - getabsolutepath - $cd (shouldn't matter) - $i - $relatives[0] - $o - $ao";
 	}
 }
 
@@ -261,7 +261,7 @@ while (list ($i, $o) = each ($io))
 	{
 		if ($ao->$key != $o[$key])
 		{
-			echo "<br>$sequence_num - path_parts - $cd - $i - $relatives[0] - $key - $o[$key] - $ao[$key]";
+			echo "<br />$sequence_num - path_parts - $cd - $i - $relatives[0] - $key - $o[$key] - $ao[$key]";
 		}
 	}
 }

@@ -47,12 +47,12 @@
 
 			if(!empty($start) || $start == '0' || $start == 0)
 			{
-				if($this->debug) { echo '<br>overriding start: "' . $this->start . '" now "' . $start . '"'; }
+				if($this->debug) { echo '<br />overriding start: "' . $this->start . '" now "' . $start . '"'; }
 				$this->start = $start;
 			}
 			if((empty($query) && !empty($this->query)) || !empty($query))
 			{
-				if($this->debug) { echo '<br>setting query to: "' . $query . '"'; }
+				if($this->debug) { echo '<br />setting query to: "' . $query . '"'; }
 				$this->query = $query;
 			}
 
@@ -76,14 +76,14 @@
 
 		function save_sessiondata($data)
 		{
-			if($this->debug) { echo '<br>Save:'; _debug_array($data); }
+			if($this->debug) { echo '<br />Save:'; _debug_array($data); }
 			$GLOBALS['phpgw']->session->appsession('session_data','admin_cats',$data);
 		}
 
 		function read_sessiondata()
 		{
 			$data = $GLOBALS['phpgw']->session->appsession('session_data','admin_cats');
-			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
+			if($this->debug) { echo '<br />Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];
 			$this->query  = $data['query'];
@@ -97,7 +97,7 @@
 
 		function get_list($id_group)
 		{
-			if($this->debug) { echo '<br>querying: "' . $this->query . '"'; }			
+			if($this->debug) { echo '<br />querying: "' . $this->query . '"'; }
 			return $this->cats->return_sorted_array($this->start,True,$this->query,$this->sort,$this->order,True,'',$id_group);
 		}
 

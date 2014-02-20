@@ -104,7 +104,7 @@ class FormularioHtml extends FormularioInput {
     	return $this->makeDisplayHTML($options,"button");
     }
     function formSubTitulo() {
-    	echo "\n\t\t</td>\n\t</tr>\n\t</table>\n\t<table width='100%'>\n\t<tr>\n\t\t<td>\n\t\t\t&nbsp;<br><br>\n\t\t</td>\n\t</tr>\n\t<tr class='tableSubTitulo'>\n\t\t<td colspan='1000'><h2>" . $this->value . "</h2></td>\n\t</tr>\n\t<tr><td>&nbsp;</td></tr>";
+    	echo "\n\t\t</td>\n\t</tr>\n\t</table>\n\t<table width='100%'>\n\t<tr>\n\t\t<td>\n\t\t\t&nbsp;<br /><br />\n\t\t</td>\n\t</tr>\n\t<tr class='tableSubTitulo'>\n\t\t<td colspan='1000'><h2>" . $this->value . "</h2></td>\n\t</tr>\n\t<tr><td>&nbsp;</td></tr>";
     }
     function formDiv() {
         echo "\n\t\t</td>\n\t</tr>\n\t</table>\n\t<table width='100%'>\n\t\n\t<div id='" . $this->value . "'></div>\n\t";

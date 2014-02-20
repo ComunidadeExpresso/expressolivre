@@ -33,14 +33,14 @@
 				if(file_exists($_versionfile))
 				{
 					include($_versionfile);
-					/* echo '<br>' . $_versionfile . ','; */
+					/* echo '<br />' . $_versionfile . ','; */
 					$_file_version = $setup_info[$app_name]['version'];
 					$_app_title    = $setup_info[$app_name]['title'];
 					unset($setup_info);
 
 					if($app_name == 'phpgwapi')
 					{
-						$api_str = '<br>' . lang('The API requires an upgrade');
+						$api_str = '<br />' . lang('The API requires an upgrade');
 					}
 					/* echo $app_name . ',' . $_db_version . ',' . $_file_version; */
 					if(!$GLOBALS['phpgw']->common->cmp_version_long($_db_version,$_file_version))
@@ -48,7 +48,7 @@
 						$_current = True;
 						if($app_name == 'phpgwapi')
 						{
-							$api_str = '<br>' . lang('The API is current');
+							$api_str = '<br />' . lang('The API is current');
 						}
 					}
 					unset($_file_version);
@@ -61,15 +61,15 @@
 			{
 				echo '<center>';
 				echo $api_str;
-				echo '<br>' . lang('This application requires an upgrade') . ':' . "\n";
-				echo '<br>' . lang('Please run setup to become current') . '.' . "\n";
+				echo '<br />' . lang('This application requires an upgrade') . ':' . "\n";
+				echo '<br />' . lang('Please run setup to become current') . '.' . "\n";
 				echo '</center>';
 			}
 			else
 			{
 				echo '<center>';
 				echo $api_str;
-				echo '<br>' . lang('This application is current') . "\n";
+				echo '<br />' . lang('This application is current') . "\n";
 				echo '</center>';
 			}
 		}

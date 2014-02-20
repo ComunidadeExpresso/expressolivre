@@ -16,7 +16,7 @@ $resposta = new SimpleXMLElement($retorno);
 
     
 foreach ($resposta->listagem as $listagem) {
-        //echo $listagem->lstidlistagem . ":" . $listagem->sincronizado . "<br>";
+        //echo $listagem->lstidlistagem . ":" . $listagem->sincronizado . "<br />";
         //print_r($listagem->dependencias);
         
         $versao_desenvolvimento = $listagem->versaoTESTES;
@@ -48,9 +48,9 @@ foreach ($resposta->listagem as $listagem) {
         } 
         
         if ($listagem->sincronizado == "1") {
-        	$html_botoes = "<div id='botoes_sincronizacao' style='margin: 10px; width: 60px; float: left;'><br><br><br><img src='./images/icones/v.gif'></div>";
+        	$html_botoes = "<div id='botoes_sincronizacao' style='margin: 10px; width: 60px; float: left;'><br /><br /><br /><img src='./images/icones/v.gif'></div>";
         } else {
-        	$html_botoes = "<div id='botoes_sincronizacao' style='margin: 10px; width: 60px; float: left;'><br><br><img src='./images/icones/t3/cetaDireita.jpg' style='cursor: pointer;' onclick=\"if (confirm('Deseja Realmente Sincronizar?')) { xajax_sincronizar('$idlistagem','1'); } \"><br><br><img src='./images/icones/t3/cetaEsquerda.jpg' style='cursor: pointer;' onclick=\"if (confirm('Deseja Realmente Sincronizar?')) { xajax_sincronizar('$idlistagem','2'); } \"></div>";
+        	$html_botoes = "<div id='botoes_sincronizacao' style='margin: 10px; width: 60px; float: left;'><br /><br /><img src='./images/icones/t3/cetaDireita.jpg' style='cursor: pointer;' onclick=\"if (confirm('Deseja Realmente Sincronizar?')) { xajax_sincronizar('$idlistagem','1'); } \"><br /><br /><img src='./images/icones/t3/cetaEsquerda.jpg' style='cursor: pointer;' onclick=\"if (confirm('Deseja Realmente Sincronizar?')) { xajax_sincronizar('$idlistagem','2'); } \"></div>";
         }
 }
 
@@ -63,20 +63,20 @@ $html = "<center>
                 <div style='text-align: center; width: 100%;'>
                 <div style='margin: 10px; width: 300px; border: 1px solid #E0E0E0; float: left;'>
                     <img src='./images/icones/databaseGrande.gif' style='float: left;'>
-                    <br><br><br>
+                    <br /><br /><br />
                     <h2>DESENVOLVIMENTO</h2>
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     <h2>VERSÃO:<span id='versao_desenvolvimento'>$versao_desenvolvimento</span></h2> 
                     <div style='clear: both;'></div>
                 </div>
                 $html_botoes
                 <div style='margin: 10px; width: 300px; border: 1px solid #E0E0E0; float: left;'>
                     <img src='./images/icones/databaseGrande.gif' style='float: left;'>
-                    <br><br><br>
+                    <br /><br /><br />
                     <h2>PRODUCAO</h2>
-                    <br>
-                    <br>
+                    <br />
+                    <br />
                     <h2>VERSÃO:<span id='versao_producao'>$versao_producao</span></h2> 
                     <div style='clear: both;'></div>
                 </div>

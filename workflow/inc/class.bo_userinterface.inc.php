@@ -563,7 +563,7 @@ class bo_userinterface extends bo_ajaxinterface
 			foreach ($instance->properties as $key => $value)
 			{
     			$result['wf_properties']['keys'][] = $key;
-    			$result['wf_properties']['values'][] = wordwrap(htmlspecialchars($value), 80, "<br>", 1);
+    			$result['wf_properties']['values'][] = wordwrap(htmlspecialchars($value), 80, "<br />", 1);
     		}
     	}
 

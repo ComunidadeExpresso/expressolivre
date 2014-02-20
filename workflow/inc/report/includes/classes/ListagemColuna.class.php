@@ -117,7 +117,7 @@ class ListagemColuna {
         $condicao = html_entity_decode($condicao, ENT_QUOTES);
         $fcondicao = ' if (' . $condicao . ') { $ret = true; } else { $ret = false; }';
         if ($condicao != "") {
-          if ($debug) { echo "<br>" . $fcondicao ; } 
+          if ($debug) { echo "<br />" . $fcondicao ; }
           eval($fcondicao);
         } else {
             $ret = false;

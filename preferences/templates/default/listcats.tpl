@@ -1,4 +1,4 @@
-<br>
+<br />
 <center>
 <table border="0" cellspacing="2" cellpadding="2" width="80%">
 		<tr>

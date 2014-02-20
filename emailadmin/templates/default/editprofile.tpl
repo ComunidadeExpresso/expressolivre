@@ -1,7 +1,7 @@
 <!-- BEGIN main -->
 <center>
 <form action="{action_url}" name="mailsettings" method="post">
-<br>
+<br />
 <table width="88%" border="0" cellspacing="0" cellpading="0">
 	<tr>
 		<th id="tab1" class="activetab"  style="width: 29%;" onclick="javascript:tab.display(1);"><a href="#" tabindex="0" accesskey="1" onfocus="tab.display(1);" onclick="tab.display(1); return(false);">Global</a></th>
@@ -10,7 +10,7 @@
 		<!-- <th id="tab4" class="activetab" onclick="javascript:tab.display(4);"><a href="#" tabindex="0" accesskey="4" onfocus="tab.display(4);" onclick="tab.display(4); return(false);">extern</a></th> -->
 	</tr>
 </table>
-<br><br>
+<br /><br />
 
 
 <!-- The code for Global Tab -->
@@ -474,7 +474,7 @@
 </div> -->
 
 
-<br><br>
+<br /><br />
 <table width="90%" border="0" cellspacing="0" cellpading="1">
 	<tr>
 		<td width="90%" align="left"  class="td_left">

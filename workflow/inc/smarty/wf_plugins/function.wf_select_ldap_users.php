@@ -87,7 +87,7 @@ function smarty_function_wf_select_ldap_users($params, &$smarty)
 			onclick="search_ldap_users_by_cn(document.getElementById('$name_input').value, '$name', '$opt_id', '$opt_name', 
 					$handleExpiredSessions, '$opt_complement', $useCCParams)" />
 		&nbsp;<img id="$name_img" border="0" src="$imagesPath/loading.gif" style="display:none">
-		<span id="$name_span" style="display:none"><br><br><b>Selecione um nome abaixo: </b><br><br>
+		<span id="$name_span" style="display:none"><br /><br /><b>Selecione um nome abaixo: </b><br /><br />
 EOF;
 
 	$output .= smarty_function_html_boxoptions(array_merge(array(

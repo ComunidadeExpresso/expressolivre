@@ -163,7 +163,7 @@
 			}
 			else
 			{
-				$this->br = '<br>';
+				$this->br = '<br />';
 				$this->p = '<p>';
 			}
 		}

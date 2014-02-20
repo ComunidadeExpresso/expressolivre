@@ -299,10 +299,10 @@ class Net_Socket extends PEAR
      * Currently returns four entries in the result array:
      *
      * <p>
-     * timed_out (bool) - The socket timed out waiting for data<br>
-     * blocked (bool) - The socket was blocked<br>
-     * eof (bool) - Indicates EOF event<br>
-     * unread_bytes (int) - Number of bytes left in the socket buffer<br>
+     * timed_out (bool) - The socket timed out waiting for data<br />
+     * blocked (bool) - The socket was blocked<br />
+     * eof (bool) - Indicates EOF event<br />
+     * unread_bytes (int) - Number of bytes left in the socket buffer<br />
      * </p>
      *
      * @access public

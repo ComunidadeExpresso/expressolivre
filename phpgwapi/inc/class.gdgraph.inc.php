@@ -209,7 +209,7 @@
 				{
 					if($this->debug)
 					{
-						echo 'PRO sdate <= x sdate | PRO edate > x sdate<br>';
+						echo 'PRO sdate <= x sdate | PRO edate > x sdate<br />';
 					}
 					$x1 = $this->margin_left;
 				}
@@ -217,9 +217,9 @@
 				{
 					if($this->debug)
 					{
-						echo 'PRO sdate >= date! pro_sdate = ' . $line['sdate'] . ', pro_edate = ' . $line['edate'] . '<br>';
-						echo 'PRO sdate >= date! pro_sdate_formatted = ' . $GLOBALS['phpgw']->common->show_date($line['sdate'],$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']) . ', pro_edate_formatted = ' . $GLOBALS['phpgw']->common->show_date($line['edate'],$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']) . '<br>';
-						echo 'x sdate: ' . $this->line_captions_x[0]['date'] . ', x edate: ' . $this->line_captions_x[$largest]['date'] . '<br><br>';
+						echo 'PRO sdate >= date! pro_sdate = ' . $line['sdate'] . ', pro_edate = ' . $line['edate'] . '<br />';
+						echo 'PRO sdate >= date! pro_sdate_formatted = ' . $GLOBALS['phpgw']->common->show_date($line['sdate'],$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']) . ', pro_edate_formatted = ' . $GLOBALS['phpgw']->common->show_date($line['edate'],$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']) . '<br />';
+						echo 'x sdate: ' . $this->line_captions_x[0]['date'] . ', x edate: ' . $this->line_captions_x[$largest]['date'] . '<br /><br />';
 					}
 
 					for($y=0;$y<$largest;++$y)
@@ -239,9 +239,9 @@
 				{
 					if($this->debug)
 					{
-						echo 'PRO edate >= x edate! pro_edate = ' . $line['edate'] . '<br>';
-						echo 'PRO edate >= x edate! pro_edate_formatted = ' . $GLOBALS['phpgw']->common->show_date($line['edate'],$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']) . '<br>';
-						echo 'x edate: ' . $this->line_captions_x[$largest]['date'] . '<br>';
+						echo 'PRO edate >= x edate! pro_edate = ' . $line['edate'] . '<br />';
+						echo 'PRO edate >= x edate! pro_edate_formatted = ' . $GLOBALS['phpgw']->common->show_date($line['edate'],$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']) . '<br />';
+						echo 'x edate: ' . $this->line_captions_x[$largest]['date'] . '<br />';
 					}
 
 					$x2 = $this->graph_width - $this->margin_right;
@@ -288,7 +288,7 @@
 
 		function Open()
 		{
-			print('<script language="JavaScript">');
+			print('<script type="text/javascript">');
 			print('window.open(\'main.php3?menuAction=boGraph.Show&');
 			if(strstr($GLOBALS['HTTP_USER_AGENT'],'MSIE'))
 			{

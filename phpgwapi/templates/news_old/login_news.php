@@ -266,7 +266,7 @@
 			*/
 			$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $lang;
 		}
-		#print 'LANG:' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] . '<br>';
+		#print 'LANG:' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] . '<br />';
 
 		$GLOBALS['phpgw']->translation->init();	// this will set the language according to the (new) set prefs
 		$GLOBALS['phpgw']->translation->add_app('login');
@@ -307,7 +307,7 @@
 			$organization_select .= '>' . $organization_vars . "</option>\n";
 		}
 		$organization_select =  '<div class="login_label"><label>'.lang("organization")
-							.'</label><br><select name="organization">'
+							.'</label><br /><select name="organization">'
 							.$organization_select.'</select></div>';
 		$tmpl->set_var('select_organization',$organization_select);
 	}
@@ -591,7 +591,7 @@
 	$tmpl->set_var('dir_root', 'http://' . nearest_to_me() . '/');
 	if(is_file(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php'))
 	include_once(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php');
-	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br>' . $ultima_revisao);
+	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br />' . $ultima_revisao);
 
 	// Adiciona código personalizado de outro template
 	// que esteja utilizando o login_default.php

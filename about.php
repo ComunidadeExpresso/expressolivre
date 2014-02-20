@@ -65,8 +65,8 @@
 							  }
 							  if (is_array($infos))
 							  {
-								 $names = explode('<br>',$infos['name']);
-								 $emails = preg_split('/@|<br>/',$infos['email']);
+								 $names = explode('<br />',$infos['name']);
+								 $emails = preg_split('/@|<br />/',$infos['email']);
 								 if (count($names) < count($emails)/2)
 								 {
 									$names = '';
@@ -74,13 +74,13 @@
 								 $infos = '';
 								 while (list($user,$domain) = $emails)
 								 {
-									if ($infos) $infos .= '<br>';
+									if ($infos) $infos .= '<br />';
 									$name = $names ? array_shift($names) : $user;
 									$infos .= "<a href='mailto:$user at $domain'><span onClick=\"document.location='mailto:$user'+'@'+'$domain'; return false;\">$name</span></a>";
 									array_shift($emails); array_shift($emails);
 								 }
 							  }
-							  $s .= ($n ? '<br>' : '') . $infos;
+							  $s .= ($n ? '<br />' : '') . $infos;
 						   }
 						   $s .= "</td></tr>\n";
 				  }

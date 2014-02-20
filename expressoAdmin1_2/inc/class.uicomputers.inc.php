@@ -54,7 +54,7 @@
 			$manager_contexts = $manager_acl['contexts'];
 			foreach ($manager_acl['contexts_display'] as $index=>$tmp_context)
 			{
-				$context_display .= '<br>'.$tmp_context;
+				$context_display .= '<br />'.$tmp_context;
 			}
 	
 			// Verifica se tem acesso a este modulo

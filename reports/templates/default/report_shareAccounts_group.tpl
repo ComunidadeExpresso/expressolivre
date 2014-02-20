@@ -14,7 +14,7 @@
    <table border="0" width="90%">
     <tr>
 	 	<td align="left">
-			<div align="center" class="style2">{lang_Report_of_shared_accounts_of_the_Organization}:<br><br>&nbsp;<font color="blue">{context_display}</font><br><br>
+			<div align="center" class="style2">{lang_Report_of_shared_accounts_of_the_Organization}:<br /><br />&nbsp;<font color="blue">{context_display}</font><br /><br />
 	 	    </div></td>
  	 </tr>
     <tr>

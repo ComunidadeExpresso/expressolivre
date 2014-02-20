@@ -52,7 +52,7 @@
 
 			if(!empty($start) || ($start == '0') || ($start == 0))
 			{
-				if($this->debug) { echo '<br>overriding start: "' . $this->start . '" now "' . $start . '"'; }
+				if($this->debug) { echo '<br />overriding start: "' . $this->start . '" now "' . $start . '"'; }
 				$this->start = $start;
 			}
 
@@ -70,7 +70,7 @@
 		{
 			if ($this->use_session)
 			{
-				if($this->debug) { echo '<br>Save:'; _debug_array($data); }
+				if($this->debug) { echo '<br />Save:'; _debug_array($data); }
 				$GLOBALS['phpgw']->session->appsession('session_data','admin_servers',$data);
 			}
 		}
@@ -78,7 +78,7 @@
 		function read_sessiondata()
 		{
 			$data = $GLOBALS['phpgw']->session->appsession('session_data','admin_servers');
-			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
+			if($this->debug) { echo '<br />Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];
 			$this->limit  = $data['limit'];

@@ -110,7 +110,7 @@
 		{
 			foreach($setup_info as $key => $value)
 			{
-				//echo '<br>'.$value['name'].'STATUS: '.$value['status'];
+				//echo '<br />'.$value['name'].'STATUS: '.$value['status'];
 				/* Only set this if it has not already failed to upgrade - Milosch */
 				if(!( (@$value['status'] == 'F') || (@$value['status'] == 'C') ))
 				{
@@ -412,13 +412,13 @@
 				{
 					if($GLOBALS['DEBUG'])
 					{
-						echo '<br>check_app_tables(): Checking: ' . $appname . ',table: ' . $val;
+						echo '<br />check_app_tables(): Checking: ' . $appname . ',table: ' . $val;
 					}
 					if(!in_array($val,$tables))
 					{
 						if($GLOBALS['DEBUG'])
 						{
-							echo '<br>check_app_tables(): ' . $val . ' missing!';
+							echo '<br />check_app_tables(): ' . $val . ' missing!';
 						}
 						if(!$any)
 						{
@@ -435,7 +435,7 @@
 						{
 							if($GLOBALS['DEBUG'])
 							{
-								echo '<br>check_app_tables(): Some tables installed';
+								echo '<br />check_app_tables(): Some tables installed';
 							}
 							return True;
 						}
@@ -446,7 +446,7 @@
 			{
 				if($GLOBALS['DEBUG'])
 				{
-					echo '<br>check_app_tables(): No tables installed';
+					echo '<br />check_app_tables(): No tables installed';
 				}
 				return False;
 			}
@@ -454,7 +454,7 @@
 			{
 				if($GLOBALS['DEBUG'])
 				{
-					echo '<br>check_app_tables(): All tables installed';
+					echo '<br />check_app_tables(): All tables installed';
 				}
 				return True;
 			}

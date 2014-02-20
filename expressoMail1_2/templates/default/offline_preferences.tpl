@@ -13,13 +13,13 @@
 <input type="hidden" id="lang_only_spaces_not_allowed" value="{lang_only_spaces_not_allowed}"/>
 
 
-<script src="js/main.js"></script>
-<script src="js/gears_init.js"></script>
-<script src="js/local_messages.js"></script>
-<script src="js/modal/modal.js"></script>
-<script src="js/md5.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/gears_init.js"></script>
+<script type="text/javascript" src="js/local_messages.js"></script>
+<script type="text/javascript" src="js/modal/modal.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
 
-<script language="javascript">
+<script type="text/javascript">
 	var close_lightbox_div = true;
 
 </script>

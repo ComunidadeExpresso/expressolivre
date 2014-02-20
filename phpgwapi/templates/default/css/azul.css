@@ -97,7 +97,7 @@ select
 	border-color: #7e7e7e;
 }
 
-#links_bar,
+.links_bar,
 #user_info
 {
 	color: #fff;

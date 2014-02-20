@@ -72,7 +72,7 @@
 <!-- END list -->
 <!-- BEGIN row -->
 	<tr bgcolor="{tr_color}">
-		<td width="10%" align="center" NOWRAP>{row_date}</td>
+		<td width="10%" align="center">{row_date}</td>
 		<td width="10%" align="center">{row_manager_lid}</td>
 		<td width="35%" align="left">{row_action}</td>
 		<td width="5%" align="center">{row_about}</td>
@@ -81,7 +81,7 @@
 
 <!-- BEGIN row_empty -->
 	<tr>
-		<td colspan="5" align="center"><font color="red"><b>{message}</b></font></td>
+		<td colspan="5" align="center"><b style="color: red">{message}</b></td>
 	</tr>
 	<tr>
 		<td><input type="button" value="{lang_back}" onClick="document.location.href='{back_url}'"></td>

@@ -95,13 +95,13 @@
 				
 				if(substr($response_inbox,strpos($response_inbox,"$this->tag ")+strlen($this->tag)+1,2)!="OK")
 				{
-					$this->error= "Error : $response !<br>";
+					$this->error= "Error : $response !<br />";
 					return false;
 				}
 			}
 			else
 			{
-				$this->error= "Error : Could not send User request. <br>";
+				$this->error= "Error : Could not send User request. <br />";
 				return false;
 			}
 			$response_inbox_array =  preg_split('/\r\n/', $response_inbox);
@@ -115,13 +115,13 @@
 				
 				if(substr($response_sub,strpos($response_sub,"$this->tag ")+strlen($this->tag)+1,2)!="OK")
 				{
-					$this->error= "Error : $response !<br>";
+					$this->error= "Error : $response !<br />";
 					return false;
 				}
 			}
 			else
 			{
-				$this->error= "Error : Could not send User request. <br>";
+				$this->error= "Error : Could not send User request. <br />";
 				return false;
 			}
 			
@@ -176,18 +176,18 @@
 		{
 			if($this->state!="DISCONNECTED")
 			{
-				$this->error= "Error : Already Connected!<br>";
+				$this->error= "Error : Already Connected!<br />";
 				return false;
 			}
 			if(empty($this->host) || empty($this->port))			
 			{
-				$this->error= "Error : Either HOST or PORT is undifined!<br>";
+				$this->error= "Error : Either HOST or PORT is undifined!<br />";
 				return false;
 			}
 			$this->connection= fsockopen($this->host, $this->port, $errno, $errstr, 5);
 			if(!$this->connection)
 			{
-				$this->error= "Could not make a connection to server , Error : $errstr ($errno)<br>";
+				$this->error= "Could not make a connection to server , Error : $errstr ($errno)<br />";
 				return false;
 			}
 			$respone=$this->get_line();
@@ -201,7 +201,7 @@
 			//jakjr
 			if(($this->state!="AUTHORIZATION") && ($this->state!="AUTHENTICATED"))
 			{
-				$this->error= "Error : No Connection Found!<br>";
+				$this->error= "Error : No Connection Found!<br />";
 				return false;
 			}
 			if($this->put_line($this->tag." LOGOUT"))
@@ -209,13 +209,13 @@
 				$response=$this->get_server_responce();
 				if(substr($response,strpos($response,"$this->tag ")+strlen($this->tag)+1,2)!="OK")
 				{
-					$this->error= "Error : $response !<br>";
+					$this->error= "Error : $response !<br />";
 					return false;
 				}
 			}
 			else
 			{
-				$this->error= "Error : Could not send User request. <br>";
+				$this->error= "Error : Could not send User request. <br />";
 				return false;
 			}
 			return true;
@@ -228,12 +228,12 @@
 			
 			if($this->state=="DISCONNECTED")
 			{
-				$this->error= "Error : No Connection Found!<br>";
+				$this->error= "Error : No Connection Found!<br />";
 				return false;
 			}
 			if($this->state=="AUTHENTICATED")
 			{
-				$this->error= "Error : Already Authenticated!<br>";
+				$this->error= "Error : Already Authenticated!<br />";
 				return false;
 			}
 			if($this->put_line($this->tag." LOGIN $user $pwd"))
@@ -242,13 +242,13 @@
 				
 				if(substr($response,strpos($response,"$this->tag ")+strlen($this->tag)+1,2)!="OK")
 				{
-					$this->error= "Error : $response !<br>";
+					$this->error= "Error : $response !<br />";
 					return false;
 				}
 			}
 			else
 			{
-				$this->error= "Error : Could not send User request. <br>";
+				$this->error= "Error : Could not send User request. <br />";
 				return false;
 			}
 			$this->state="AUTHENTICATED";

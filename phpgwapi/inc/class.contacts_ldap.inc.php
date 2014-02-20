@@ -24,12 +24,12 @@
 	/*!
 	 @class contacts
 	 @abstract Contact List System
-	 @discussion Author: jengo/Milosch <br>
-	 This class provides a contact database scheme. <br>
-	 It attempts to be based on the vcard 2.1 standard, with mods as needed to make for more reasonable sql storage. <br>
+	 @discussion Author: jengo/Milosch <br />
+	 This class provides a contact database scheme. <br />
+	 It attempts to be based on the vcard 2.1 standard, with mods as needed to make for more reasonable sql storage. <br />
 	 The LDAP schema used here may require installation of schema files available in the phpgwapi/doc/ldap dir.
 	 Please see the README file there.
-	 Syntax: CreateObject('phpgwapi.contacts'); <br>
+	 Syntax: CreateObject('phpgwapi.contacts'); <br />
 	 Example1: $contacts = CreateObject('phpgwapi.contacts');
 	*/
 	class contacts_
@@ -333,7 +333,7 @@
 						list($name,$value) = preg_split('/=/',$filterarray[$i]);
 						if($name)
 						{
-							if($DEBUG) { echo '<br>DEBUG - Filter strings: #'.$this->non_contact_fields[$name].'# => #'.$value.'#'; }
+							if($DEBUG) { echo '<br />DEBUG - Filter strings: #'.$this->non_contact_fields[$name].'# => #'.$value.'#'; }
 							$filterfields[$this->non_contact_fields[$name]] = $value;
 						}
 					}
@@ -343,7 +343,7 @@
 					list($name,$value) = preg_split('/=/',$filter);
 					if($DEBUG)
 					{
-						echo '<br>DEBUG - Filter strings: #'.$this->non_contact_fields[$name].'# => #'.$value.'#';
+						echo '<br />DEBUG - Filter strings: #'.$this->non_contact_fields[$name].'# => #'.$value.'#';
 					}
 					$filterfields = array($this->non_contact_fields[$name] => $value);
 				}
@@ -351,7 +351,7 @@
 			else
 			{
 				$filterfields += array('phpgwcontacttypeid' => 'n');
-				if($DEBUG) { echo "<br>DEBUG - Filter strings: #phpgwcontacttypeid=n#"; }
+				if($DEBUG) { echo "<br />DEBUG - Filter strings: #phpgwcontacttypeid=n#"; }
 			}
 
 			/*
@@ -368,10 +368,10 @@
 				$filterfields['phpgwcontactowner'] = array();
 				/* this was not listing private entries when show all was selected */
 				/* $filterfields += array('phpgwcontactaccess' => 'public'); */
-				if($DEBUG) { echo '<br>DEBUG - My user id is: ' . $this->account_id; }
+				if($DEBUG) { echo '<br />DEBUG - My user id is: ' . $this->account_id; }
 				foreach($this->grants as $user => $right)
 				{
-					if($DEBUG) { echo '<br>DEBUG - Grant from owner: ' . $user; }
+					if($DEBUG) { echo '<br />DEBUG - Grant from owner: ' . $user; }
 					$filterfields['phpgwcontactowner'][] = array('phpgwcontactowner' => $user);
 				}
 			}
@@ -380,7 +380,7 @@
 			{
 				while(list($name,$value) = each($filterfields))
 				{
-					echo '<br>DEBUG - Filter strings: #' . $name . ',' . $value . '#';
+					echo '<br />DEBUG - Filter strings: #' . $name . ',' . $value . '#';
 				}
 			}
 			*/
@@ -390,7 +390,7 @@
 
 			if($DEBUG && $order)
 			{
-				echo "<br>DEBUG - ORDER by $order";
+				echo "<br />DEBUG - ORDER by $order";
 			}
 
 			$ldap_fields = array();
@@ -442,8 +442,8 @@
 			/* _debug_array($ldap_fields);exit; */
 
 			$this->total_records = ldap_count_entries($this->ldap, $sri);
-			/* echo '<br>total="'.$this->total_records.'"'; */
-			if($DEBUG) { echo '<br>Query returned "'.$this->total_records.'" records.'; }
+			/* echo '<br />total="'.$this->total_records.'"'; */
+			if($DEBUG) { echo '<br />Query returned "'.$this->total_records.'" records.'; }
 
 			/* Use shared sorting routines, based on sort and order */
 			@set_time_limit(0); /* Try not to die, this can take some time on slow machines... */
@@ -539,7 +539,7 @@
 
 			if(@is_array($extra))
 			{
-				if($DEBUG) { echo '<br>Searching...'; }
+				if($DEBUG) { echo '<br />Searching...'; }
 				foreach($extra as $name => $value)
 				{
 					$qarray[] = array($value => $query);
@@ -640,10 +640,10 @@
 
 			if($DEBUG)
 			{
-				echo '<br>AND query:  "' . $aquery . '"';
-				echo '<br>OR query:   "' . $oquery . '"';
-				echo '<br>Full query: "' . $fquery . '"';
-				echo '<br>Will search in "' . $GLOBALS['phpgw_info']['server']['ldap_contact_context'] . '"';
+				echo '<br />AND query:  "' . $aquery . '"';
+				echo '<br />OR query:   "' . $oquery . '"';
+				echo '<br />Full query: "' . $fquery . '"';
+				echo '<br />Will search in "' . $GLOBALS['phpgw_info']['server']['ldap_contact_context'] . '"';
 			}
 
 //			echo $fquery;
@@ -944,17 +944,17 @@
 					{
 						if($ldap_fields[0][$fvalue] && $stock_fields[$fname] && $ldap_fields[0][$fvalue][0] != $stock_fields[$fname] )
 						{
-							//echo "<br>".$fname." => ".$fvalue." was there";
+							//echo "<br />".$fname." => ".$fvalue." was there";
 							$err = ldap_modify($this->ldap,$dn,array($fvalue => utf8_encode($stock_fields[$fname])));
 						}
 						elseif(!$ldap_fields[0][$fvalue] && $stock_fields[$fname])
 						{
-							//echo "<br>".$fname." not there - '".$fvalue."'";
+							//echo "<br />".$fname." not there - '".$fvalue."'";
 							$err = ldap_mod_add($this->ldap,$dn,array($fvalue => utf8_encode($stock_fields[$fname])));
 						}
 						elseif($ldap_fields[0][$fvalue] && !$stock_fields[$fname])
 						{
-							//echo "<br>".$fname." gone...  deleting - '".$fvalue."'";
+							//echo "<br />".$fname." gone...  deleting - '".$fvalue."'";
 							/*
 							NOTE: we use the ldap_fields because we need to send the
 							_ORIGINAL_ contents as the value. see:

@@ -22,12 +22,12 @@ $habilitasincronizacao = $_SESSION['funcao']['webservice_listagem_sincronizacao'
 <head>
   <link type="text/css" rel="stylesheet" href="./workflow/inc/report/includes/css/base_form.css" />
   <link type="text/css" rel="stylesheet" href="./workflow/inc/report/includes/css/calendar.css" />
-  <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/jquery-1.3.2.js"></script>
-  <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/calendar.js"></script>
-  <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/mascaras.js"></script>
-  <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/auxiliares.js"></script>  
-  <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/validacoes.js"></script>
-  <script language="Javascript" type="text/javascript" src="./workflow/inc/report/includes/js/FormularioUtil.js"></script>
+  <script type="text/javascript" src="./workflow/inc/report/includes/js/jquery-1.3.2.js"></script>
+  <script type="text/javascript" src="./workflow/inc/report/includes/js/calendar.js"></script>
+  <script type="text/javascript" src="./workflow/inc/report/includes/js/mascaras.js"></script>
+  <script type="text/javascript" src="./workflow/inc/report/includes/js/auxiliares.js"></script>
+  <script type="text/javascript" src="./workflow/inc/report/includes/js/validacoes.js"></script>
+  <script type="text/javascript" src="./workflow/inc/report/includes/js/FormularioUtil.js"></script>
   <script>
   function mudaAba(aba){
     $id('hidden_id_abaMenu').value = aba;
@@ -120,12 +120,12 @@ function nowrapCheck(checked) {
 <br />
 
 <table width="98%" class="tableMoldura">
-<br>
+<br />
 <tr class="tableTitulo">
     <td><h1>Cadastro de Relatórios</h1></td>
 </tr>
 <tr>
-        <td><br><span id="div_msg" class="msg"><?=$msg?></span></td>
+        <td><br /><span id="div_msg" class="msg"><?=$msg?></span></td>
 </tr>
 <tr>
     <td align="center">

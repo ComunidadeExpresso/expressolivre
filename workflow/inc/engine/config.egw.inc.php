@@ -37,7 +37,7 @@ if (!function_exists('galaxia_show_error')) {
 		}
 		else
 		{
-			echo("<br>$final_message");
+			echo("<br />$final_message");
 		}
 	}
 }

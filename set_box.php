@@ -32,7 +32,7 @@
 
 	function move_boxes($curr_position,$new_order,$offset,$value_to_check,$max_num)
 	{
-		//echo "MOVE: $curr_position,$new_order,$offset,$value_to_check,$max_num<br>";
+		//echo "MOVE: $curr_position,$new_order,$offset,$value_to_check,$max_num<br />";
 		if(isset($GLOBALS['phpgw_info']['user']['preferences']['portal_order'][$new_order]))
 		{
 			if($new_order == $max_num)

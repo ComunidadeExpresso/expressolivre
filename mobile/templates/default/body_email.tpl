@@ -8,7 +8,7 @@
 <body bgcolor="#FFFFFF" text="#000000" link="#FF9966" vlink="#FF9966" alink="#FFCC99">
 <!-- BEGIN list -->
 <b><p align='left'>{subject}</p></b>
-<br>
+<br />
 <table border='0' cellpadding='0' cellspacing='0' width='100%'>
 <tr><td width='30%' valign='top'><b>{var1} ::</b></td><td>{vardata1}</td></tr>	
 <tr><td width='30%' valign='top'><b>{var2} ::</b></td><td>{vardata2}</td></tr>
@@ -17,7 +17,7 @@
 <tr><td width='25%' valign='top'><b>{var8} ::</b></td><td>{vardata8}</td></tr>
 <tr><td width='25%' valign='top'><b>{var5} ::</b></td><td>{vardata6}</td></tr>
 </table>
-<br>
+<br />
 <hr size='1' width='100%'>
 <table border='0' cellpadding='4' cellspacing='4' width='100%'>
 <tr>

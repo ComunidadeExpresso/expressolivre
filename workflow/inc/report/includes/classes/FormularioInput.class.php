@@ -140,7 +140,7 @@ class FormularioInput {
                  $i = $i + 1;
                  echo "\n\t\t\t\t";
                  echo '<input type="checkbox" class="checkbox" id="' . $this->name . '[' . $i . ']" name="' . $this->name . '[' . $i . ']" value="' . $valores[0] . '" ' . $addeventos . ' ' . $selected . ' >' . $valores[1] ;
-                 echo "<br>";
+                 echo "<br />";
                 
             }
             echo "\n\t\t\t</div>";
@@ -163,7 +163,7 @@ class FormularioInput {
                 $selected = ($valores[2] == true) ? ' checked ' : '';
                 echo "\n\t\t\t\t";
                 echo '<input type="radio" id="'. $this->name .'" class="radio" name="' . $this->name . '" value="' . $valores[0] . '" ' . $addeventos . " " . $selected . " >" . $valores[1] ;
-                echo "<br>\n";
+                echo "<br />\n";
             }
             
 		    echo "\n\t\t</td><td valign='top' id='imgAjax_" . $this->name . "' style='display: none;'><img src='images/progress4.gif'></td></tr>";
@@ -198,7 +198,7 @@ class FormularioInput {
     }
     function setValue($value){
         $this->value = "$value";
-        //echo $this->name . ": " . $this->value . "<br>";
+        //echo $this->name . ": " . $this->value . "<br />";
     }
     function setValueAux($valueAux){
         $this->valueAux = $valueAux;

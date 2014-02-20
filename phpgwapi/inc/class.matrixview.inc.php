@@ -113,7 +113,7 @@
 			while($go == 1)
 			{
 				// calculates fromdate
-				// echo date("d/m/Y", mktime(0,0,0, $fmonth, $fday+$i, $fyear)); echo "<br>";
+				// echo date("d/m/Y", mktime(0,0,0, $fmonth, $fday+$i, $fyear)); echo "<br />";
 
 				$datinfo = getdate(mktime(0,0,0, $fmonth, $fday+$i, $fyear));
 			

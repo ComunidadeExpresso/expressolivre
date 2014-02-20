@@ -52,11 +52,11 @@
 		/*!
 		@function acl
 		@abstract ACL constructor for setting account id
-		@discussion Author: Seek3r <br>
-		Sets the ID for $acl->account_id. Can be used to change a current instances id as well. <br>
-		Some functions are specific to this account, and others are generic. <br>
-		@syntax int acl(int account_id) <br>
-		@example1 acl->acl(5); // 5 is the user id  <br>
+		@discussion Author: Seek3r <br />
+		Sets the ID for $acl->account_id. Can be used to change a current instances id as well. <br />
+		Some functions are specific to this account, and others are generic. <br />
+		@syntax int acl(int account_id) <br />
+		@example1 acl->acl(5); // 5 is the user id  <br />
 		@param account_id int-the user id
 		*/
 		function acl($account_id = '')
@@ -122,10 +122,10 @@
 		/*!
 		@function read_repository
 		@abstract Read acl records from reposity
-		@discussion Author: Seek3r <br>
-		Reads ACL records for $acl->account_id and returns array along with storing it in $acl->data.  <br>
-		Syntax: array read_repository() <br>
-		Example1: acl->read_repository(); <br>
+		@discussion Author: Seek3r <br />
+		Reads ACL records for $acl->account_id and returns array along with storing it in $acl->data.  <br />
+		Syntax: array read_repository() <br />
+		Example1: acl->read_repository(); <br />
 		Should only be called within this class
 		*/
 		function read_repository()
@@ -156,10 +156,10 @@
 		/*!
 		@function read
 		@abstract Read acl records from $acl->data
-		@discussion Author: Seek3r <br>
-		Returns ACL records from $acl->data. <br>
-		Syntax: array read() <br>
-		Example1: acl->read(); <br>
+		@discussion Author: Seek3r <br />
+		Returns ACL records from $acl->data. <br />
+		Syntax: array read() <br />
+		Example1: acl->read(); <br />
 		*/
 		function read()
 		{
@@ -173,8 +173,8 @@
 		/*!
 		@function add
 		@abstract Adds ACL record to $acl->data
-		@discussion Adds ACL record to $acl->data. <br>
-		Syntax: array add() <br>
+		@discussion Adds ACL record to $acl->data. <br />
+		Syntax: array add() <br />
 		Example1: acl->add();
 		@param $appname default False derives value from $phpgw_info['flags']['currentapp']
 		@param $location location
@@ -203,8 +203,8 @@
 		@function delete
 		@abstract Delete ACL record
 		@discussion 
-		Syntax <br>
-		Example: <br>
+		Syntax <br />
+		Example: <br />
 		@param $appname optional defaults to $phpgw_info['flags']['currentapp']
 		@param $location app location
 		*/
@@ -225,8 +225,8 @@
 		/*!
 		@function save_repostiory
 		@abstract save repository
-		@discussion save the repository <br>
-		Syntax: save_repository() <br>
+		@discussion save the repository <br />
+		Syntax: save_repository() <br />
 		example: acl->save_repository()
 		*/
 		

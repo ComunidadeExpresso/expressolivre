@@ -432,7 +432,7 @@ class JUpload {
 				//If it's a specific key, let's display it:
 				if ($key != 'name' && $key != 'size' && $key != 'relativePath' && $key != 'fullName' && $key != 'md5sum') {
 					if ($addBR) {
-						$flist .= "<br>";
+						$flist .= "<br />";
 					} else {
 						// First line. We must add a new 'official' list separator.
 						$flist .= $this->classparams['http_flist_file_between'];
@@ -613,7 +613,7 @@ class JUpload {
 					} else {
 						$files_data['size'] = filesize($tmpname);
 					}
-					$files_data['fullName'] = 'Demo mode<BR>No file storing';
+					$files_data['fullName'] = 'Demo mode<br />No file storing';
 					array_push($this->files, $files_data);
 				}
 				unlink($tmpname);

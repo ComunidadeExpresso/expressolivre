@@ -26,7 +26,7 @@ include("../../header.inc.php");
    		$error = $std/sqrt(count($array));
    		echo "mean time: $mean error: +-$error";
 	}
-    echo '<b>Benchmarking vfs::ls</b><br>';
+    echo '<b>Benchmarking vfs::ls</b><br />';
     $times = array(); 
 	$phpgw->vfs->cd();
 	for ($i=0;$i<20; ++$i)
@@ -36,13 +36,13 @@ include("../../header.inc.php");
 		$result = $phpgw->vfs->ls (array ('string' => ''));
 		$time = getmicrotime() - $time1;
 		$times[] = $time;
-		echo "run $i: $time<br>";
+		echo "run $i: $time<br />";
 		//sleep(1);
 		flush();
 	}
 	stats($times);
 	
-	echo '<br><b>Benchmarking dav_client::get_properties</b><br>';
+	echo '<br /><b>Benchmarking dav_client::get_properties</b><br />';
     $times = array(); 
 	$phpgw->vfs->cd();
 	for ($i=0;$i<20; ++$i)
@@ -52,7 +52,7 @@ include("../../header.inc.php");
 		$result = $phpgw->vfs->dav_client->get_properties('/home/sim');
 		$time = getmicrotime() - $time1;
 		$times[] = $time;
-		echo "run $i: $time<br>";
+		echo "run $i: $time<br />";
 		flush();
 	}
 	stats($times);

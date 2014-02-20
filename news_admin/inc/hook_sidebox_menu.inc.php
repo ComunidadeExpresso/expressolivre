@@ -61,7 +61,7 @@
         $title = lang('Administration');
         $file = Array(
                 'News Administration'  => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uinews.write_news'),
-                'global categories' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
+                'global categories' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&amp;appname=' . $appname),
                 'configure access permissions' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiacl.acllist'),
                 'configure rss exports' => $GLOBALS['phpgw']->link('/index.php','menuaction=news_admin.uiexport.exportlist')
         );

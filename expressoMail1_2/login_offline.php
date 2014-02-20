@@ -170,7 +170,7 @@ ini_set("display_errors","1");
 			*/
 			/*$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $lang;
 		}*/
-		#print 'LANG:' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] . '<br>';
+		#print 'LANG:' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] . '<br />';
 
 		$GLOBALS['phpgw']->translation->init();	// this will set the language according to the (new) set prefs
 		$GLOBALS['phpgw']->translation->add_app('login');
@@ -349,7 +349,7 @@ ini_set("display_errors","1");
 	<img src="../phpgwapi/templates/'.$GLOBALS['phpgw_info']['login_template_set'].'/images/logo_celepar.gif" border="0"></a>');
 	
 /*foreach ($GLOBALS['phpgw_info']['user'] as $indice => $valor)
-					echo "$indice > $valor <br>";
+					echo "$indice > $valor <br />";
 					exit(0);*/
 	$tmpl->set_var('autocomplete', ($GLOBALS['phpgw_info']['server']['autocomplete_login'] ? 'autocomplete="off"' : ''));
 

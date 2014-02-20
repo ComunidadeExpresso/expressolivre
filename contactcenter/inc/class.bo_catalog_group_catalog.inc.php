@@ -84,10 +84,10 @@
 			while(list(, $new_catalog) = each($this->catalog['sub_branch']))
 			{
 				//print_r($new_catalog);
-				//echo 'Setting catalog: <b>'.$new_catalog['name'].'</b><br>';
+				//echo 'Setting catalog: <b>'.$new_catalog['name'].'</b><br />';
 				$new_catalog = $this->bo_contactcenter->set_catalog($new_catalog);
 				
-				//if($new_catalog) echo 'Setado corretamente!<br><br>'; else echo 'Erro ao setar<br><br>';
+				//if($new_catalog) echo 'Setado corretamente!<br /><br />'; else echo 'Erro ao setar<br /><br />';
 				
 				if ($new_catalog['type'] === 'empty')
 				{
@@ -134,7 +134,7 @@
 				}
 				else 
 				{
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			
@@ -189,7 +189,7 @@
 					$GLOBALS['phpgw']->log->commit();
 				}
 				else {
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			

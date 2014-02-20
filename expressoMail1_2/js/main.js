@@ -4038,7 +4038,7 @@ function print_search_msg(){
 			window_print.document.open(); 
 	 	    var html = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>' 
 	 	    + '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"/></head>'
-	 	    + cabecalho + '</h4><hr>' 
+	 	    + cabecalho + '</h4><hr />'
 	 	    + '<h2>'+folder+'</h2><hr/><blockquote><font size="2">' 
 	 	    + '<table width="100%" cellpadding="0" cellspacing="0">' 
 	 	    + '<thead>' + thead + '</thead><tbody>' + tbody + '</tbody>' 
@@ -4073,7 +4073,7 @@ function print_messages_bodies(){
 		var header = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>'
 		+ '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"/></head>';
 		window_print.document.write(header);
-		var printData ='<body style="overflow:auto">' + cabecalho + '</h4><hr>';
+		var printData ='<body style="overflow:auto">' + cabecalho + '</h4><hr />';
 		window_print.document.write(printData);
 		var newRow = function(label,data){
 			return "<tr><td width=7%><font size='2'><b>"+label+" </b></font></td><td><font size='2'>"+data+"</font></td></tr>";
@@ -4145,12 +4145,12 @@ function print_messages_bodies(){
 	 	    }
 			html += '</tbody></table>';
 			if (message.body){
-				html += "<hr>" + message.body;
+				html += "<hr />" + message.body;
 	 	    }
 	 	    else if (message._return){
-	 	    	html += "<hr>" + message._return;
+	 	    	html += "<hr />" + message._return;
 	 	    }
-	 	    html += "<hr>";
+	 	    html += "<hr />";
 			window_print.document.write(html);
 		});
 		window_print.document.close();
@@ -4224,7 +4224,7 @@ function print_messages_list(){
 				window_print.document.open();
 				var html = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>'
 				+ '<head><link rel="stylesheet" type="text/css" href="templates/'+template+'/print.css"/></head>'
-		 	    + cabecalho + '</h4><hr>' 
+		 	    + cabecalho + '</h4><hr />'
 				+ '<h2>'+$('#border_id_0').html()+'</h2><hr/><blockquote><font size="2">'
 				+ '<table width="100%" cellpadding="0" cellspacing="0">'
 				+ '<thead>' + thead + '</thead><tbody>' + tbody + '</tbody>'
@@ -4381,7 +4381,7 @@ function print_msg(msg_folder, msg_number, border_ID){
 	while (1){
 		try{
 			var html ='<body style="overflow:auto">';
-			html += cabecalho + '</h4><hr>';
+			html += cabecalho + '</h4><hr />';
 			html += '<table><tbody>';
 			if(sender)
 				html += "<tr><td width=7% noWrap><font size='2'>" + get_lang('Sent by') + ": </font></td><td><font size='2'>"+sender+"</font></td></tr>";
@@ -4410,7 +4410,7 @@ function print_msg(msg_folder, msg_number, border_ID){
 			if (countAtt > 0) { 
  	            html += "<tr><td width=7%><font size='2'>" + get_lang('Attachments: ') + "</font></td><td><font size='2'>"+att+"</font></td></tr>";       
  	        }
-			html += "</tbody></table><hr>";
+			html += "</tbody></table><hr />";
 			window_print.document.write(html + body.innerHTML);
 
 				var tab_tags = window_print.document.getElementsByTagName("IMG");

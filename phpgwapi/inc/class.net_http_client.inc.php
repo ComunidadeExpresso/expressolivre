@@ -816,13 +816,13 @@ class net_http_client
 
 					sleep(0.1);
 					++$failureCount;
-					//print "elapsed ".(time()-$ts)."<br>";
+					//print "elapsed ".(time()-$ts)."<br />";
 				}
 				$data .= $buffer;
 
 
 			} while(  $status['unread_bytes'] > 0 || $counter++ < 10 );
-			//print "total ".(time()-$ts1)."<br>";
+			//print "total ".(time()-$ts1)."<br />";
 
 			if( $this->debug & DBGSOCK ) {
 				echo "DBG.SOCK Counter:$counter\nRead failure #: $failureCount\n";

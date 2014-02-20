@@ -42,7 +42,7 @@
 			$contexts = $acl['contexts'];
 			foreach ($acl['contexts_display'] as $index=>$tmp_context)
 			{
-				$context_display .= '<br>'.$tmp_context;
+				$context_display .= '<br />'.$tmp_context;
 			}
 
 			// Verifica se o administrador tem acesso.
@@ -414,20 +414,20 @@
 			$users_list = '';
 			foreach ($sector_users as $user)
 			{
-				$users_list .= $user['cn'][0] . '<br>';	
+				$users_list .= $user['cn'][0] . '<br />';
 			}
 			
 			$groups_list = '';
 			foreach ($sector_groups as $group)
 			{
-				$groups_list .= $group['cn'][0] . '<br>';	
+				$groups_list .= $group['cn'][0] . '<br />';
 			}
 
 			$subsectors_list = '';
 			foreach ($sector_subsectors as $subsector)
 			{
 				if ($subsector['dn'] != $_GET['context'])
-					$subsectors_list .= utf8_decode($subsector['ou'][0] . '<br>');
+					$subsectors_list .= utf8_decode($subsector['ou'][0] . '<br />');
 			}
 
 			// Seta variaveis utilizadas pelo tpl.

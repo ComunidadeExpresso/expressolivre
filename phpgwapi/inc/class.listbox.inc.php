@@ -53,7 +53,7 @@
 			{
 				if($key != 'title' && $key != 'primary' && $key != 'secondary' && $key != 'tertiary')
 				{
-//echo 'Setting '.$key.':'.$value."<br>\n";
+//echo 'Setting '.$key.':'.$value."<br />\n";
 					$this->setvar($key,$value);
 				}
 			}
@@ -69,8 +69,7 @@
 		{
 			if(count($this->data))
 			{
-				$this->p->parse('row','portal_listbox_header',True);
-
+                $this->p->parse('row','portal_listbox_header',True);
                 $data_count = count($this->data);
 				for ($x = 0; $x < $data_count; ++$x)
 				{

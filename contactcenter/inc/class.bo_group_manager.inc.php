@@ -175,7 +175,7 @@
 				}
 				else 
 				{
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 

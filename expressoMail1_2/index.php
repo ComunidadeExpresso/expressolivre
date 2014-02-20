@@ -51,14 +51,14 @@
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/attach_message/attach_message.css"/>
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery.jrating/jRating.jquery.css"/>
 		
-		<script src="../prototype/plugins/jquery/jquery.min.js" language="javascript" charset="utf-8"></script>
-		<script src="../library/ckeditor/ckeditor.js" language="javascript" charset="utf-8"></script>
-		<script src="../library/ckeditor/adapters/jquery.js" language="javascript" charset="utf-8"></script>
-		<script src="../prototype/plugins/jquery/jquery-ui.min.js" language="javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../prototype/plugins/jquery/jquery.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../library/ckeditor/ckeditor.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../library/ckeditor/adapters/jquery.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../prototype/plugins/jquery/jquery-ui.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="../prototype/plugins/farbtastic/farbtastic.js"></script>
-		<script src="../prototype/plugins/countdown/jquery.countdown.min.js" language="javascript" charset="utf-8"></script>
-		<script src="../prototype/plugins/countdown/jquery.countdown-pt-BR.js" language="javascript" charset="utf-8"></script>
-		<script src="../prototype/plugins/fileupload/jquery.fileupload.js" language="javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../prototype/plugins/countdown/jquery.countdown.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../prototype/plugins/countdown/jquery.countdown-pt-BR.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../prototype/plugins/fileupload/jquery.fileupload.js" charset="utf-8"></script>
 		<script type="text/javascript" src="../prototype/plugins/contextmenu/jquery.contextMenu.js"></script>
 		<script type="text/javascript" src="../prototype/plugins/mask/jquery.maskedinput.js"></script>
 		<script type="text/javascript" src="../prototype/plugins/lazy/jquery.lazy.js"></script>
@@ -304,7 +304,7 @@
 	';
     // End Set Imap Folder names options
 	//User info
-    echo "<script language='javascript'> var account_id = ".$GLOBALS['phpgw_info']['user']['account_id'].";var expresso_offline = false; var mail_archive_host = '127.0.0.1';</script>\n";
+    echo "<script type='text/javascript'> var account_id = ".$GLOBALS['phpgw_info']['user']['account_id'].";var expresso_offline = false; var mail_archive_host = '127.0.0.1';</script>\n";
         
     //MAILARCHIVER-02
     //todo: remover a linha abaixo e implementar a configuração
@@ -333,12 +333,12 @@
         echo '<script type="text/javascript" src="'.$mail_archiver_protocol.'://'.$mail_archiver_host.':'.$mail_archiver_port.'/arcserv/ArchiveServices?js&nojsutils"></script>';
     
         //QueryConfig add on
-        echo '<script src="js/MAQueryConfig.js?'.$update_version.'"></script>';
+        echo '<script type="text/javascript" src="js/MAQueryConfig.js?'.$update_version.'"></script>';
         //Expresso serialized format add on
-        echo '<script src="js/MAExpressoPattern.js?'.$update_version.'"></script>';
+        echo '<script type="text/javascript" src="js/MAExpressoPattern.js?'.$update_version.'"></script>';
     
         //echo $obj -> getFilesJs("js/mail_archiver.js," . $GLOBALS['phpgw_info']['flags']['update_version']);
-        echo '<script src="js/mail_archiver.js?'.$update_version.'"></script>';
+        echo '<script type="text/javascript" src="js/mail_archiver.js?'.$update_version.'"></script>';
     
     }
 	//echo "<script language='javascript'> var account_id = ".$GLOBALS['phpgw_info']['user']['account_id'].";var expresso_offline = false;</script>";
@@ -357,8 +357,8 @@
 
     // INCLUDE these JS Files:
 	if ($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages']) 
-		echo "<script src='js/gears_init.js?".$update_version."'></script>";
- 	echo '<script src="../phpgwapi/js/dftree/dftree.js?'.$update_version.'"></script>';
+		echo '<script type="text/javascript" src="js/gears_init.js?'.$update_version.'"></script>';
+ 	    echo '<script type="text/javascript" src="../phpgwapi/js/dftree/dftree.js?'.$update_version.'"></script>';
     
 	$scripts = "";
 	
@@ -367,13 +367,13 @@
 		//echo $obj -> getFilesJs("js/shortcut.js", $update_version); 
 		$scripts .= "js/shortcut.js,";
 	}
-	echo "<script> use_local_messages = ".$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages']."</script>";		
+	echo "<script type='text/javascript'> use_local_messages = ".$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages']."</script>";
 	if($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_local_messages'])
 		$scripts .= "js/local_messages.js";
 
 	echo '
 		<!--<script type="text/javascript" src="../prototype/modules/mail/js/followupflag.js"></script>-->
-		<script language="javascript">
+		<script type="text/javascript">
 			DataLayer.dispatchPath = "../prototype/";
 			REST.dispatchPath = "../prototype/";
 			REST.load("");
@@ -399,12 +399,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	echo
-	    '<script src="../prototype/plugins/datejs/date-pt-BR.js" language="javascript" ></script>
-		<script src="../prototype/plugins/dateFormat/dateFormat.js" language="javascript" ></script>
-		<script src="../prototype/modules/calendar/js/calendar.date.js" language="javascript" ></script>
-		<script src="../prototype/modules/calendar/js/calendar.codecs.js" language="javascript" ></script>
-		<script src="../prototype/modules/calendar/js/calendar.alarms.js" language="javascript" ></script>
-		<script src="../prototype/modules/calendar/js/helpers.js" language="javascript" ></script>';
+	    '<script type="text/javascript" src="../prototype/plugins/datejs/date-pt-BR.js"></script>
+		<script  type="text/javascript" src="../prototype/plugins/dateFormat/dateFormat.js"></script>
+		<script  type="text/javascript" src="../prototype/modules/calendar/js/calendar.date.js"></script>
+		<script  type="text/javascript" src="../prototype/modules/calendar/js/calendar.codecs.js"></script>
+		<script  type="text/javascript" src="../prototype/modules/calendar/js/calendar.alarms.js"></script>
+		<script  type="text/javascript" src="../prototype/modules/calendar/js/helpers.js"></script>';
 
 	echo $obj -> getFilesJs($scripts, $update_version);
 	echo '<script type="text/javascript">connector.updateVersion = "'.$update_version.'";</script>';
@@ -428,7 +428,7 @@
             $inVacation = true;
 
     if($inVacation)
-        echo '<script language="javascript"> write_msg(get_lang("Attention, you are in out of office mode."), true);   </script>';
+        echo '<script type="text/javascript"> write_msg(get_lang("Attention, you are in out of office mode."), true);   </script>';
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

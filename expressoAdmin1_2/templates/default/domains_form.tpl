@@ -1,6 +1,6 @@
 <!-- BEGIN list -->
 <p>
-<br>
+<br />
   <form method="POST" action="{action}">
     <table border="0" align="center">
   		

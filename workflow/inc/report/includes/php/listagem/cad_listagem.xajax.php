@@ -58,7 +58,7 @@ function sincronizar($idlistagem,$conexao = "1") {
 
         $save_result = $client->sincronizar($xml_params);
         
-        $objResponse->addAssign("botoes_sincronizacao","innerHTML","<br><br><br><img src='./images/icones/v.gif'>");
+        $objResponse->addAssign("botoes_sincronizacao","innerHTML","<br /><br /><br /><img src='./images/icones/v.gif'>");
         
         if ($conexao == "1") {
             $objResponse->addScript("document.getElementById('versao_producao').innerHTML = document.getElementById('versao_labirinto').innerHTML;");
@@ -105,7 +105,7 @@ function atualizaStatus($listagems,$status,$debug = false) {
         
 
         if ($debug) { 
-            echo "<hr>";
+            echo "<hr />";
             echo "<pre>\n\n";
             echo "Request Cabe�alho:\n";
             echo htmlspecialchars($client->__getLastRequestHeaders())."\n";
@@ -115,7 +115,7 @@ function atualizaStatus($listagems,$status,$debug = false) {
             echo "Request:\n";
             echo htmlspecialchars($client->__getLastRequest())."\n";
             echo "</pre>";
-            echo "<hr>";
+            echo "<hr />";
             
             echo "<pre>\n\n";
             echo "Retorno Cabe�alho:\n";
@@ -127,13 +127,13 @@ function atualizaStatus($listagems,$status,$debug = false) {
             echo htmlspecialchars($client->__getLastResponse())."\n";
             echo "</pre>";
             
-            echo "<br>ENVIO FINALIZADO!<br>";
+            echo "<br />ENVIO FINALIZADO!<br />";
         }
         
         return $save_result;
         
     } catch (SoapFault $e){
-        echo "<br>FALHOU! SOAP Fault: ".$e->getMessage()."<br>";        
+        echo "<br />FALHOU! SOAP Fault: ".$e->getMessage()."<br />";
     } 
 }
 
@@ -165,7 +165,7 @@ function verificaVersao($listagems,$debug = false) {
         
 
         if ($debug) { 
-            echo "<hr>";
+            echo "<hr />";
             echo "<pre>\n\n";
             echo "Request Cabecalho:\n";
             echo htmlspecialchars($client->__getLastRequestHeaders())."\n";
@@ -175,7 +175,7 @@ function verificaVersao($listagems,$debug = false) {
             echo "Request:\n";
             echo htmlspecialchars($client->__getLastRequest())."\n";
             echo "</pre>";
-            echo "<hr>";
+            echo "<hr />";
             
             echo "<pre>\n\n";
             echo "Retorno Cabecalho:\n";
@@ -187,13 +187,13 @@ function verificaVersao($listagems,$debug = false) {
             echo htmlspecialchars($client->__getLastResponse())."\n";
             echo "</pre>";
             
-            echo "<br>ENVIO FINALIZADO!<br>";
+            echo "<br />ENVIO FINALIZADO!<br />";
         }
         
         return $save_result;
         
     } catch (SoapFault $e){
-        echo "<br>FALHOU! SOAP Fault: ".$e->getMessage()."<br>";        
+        echo "<br />FALHOU! SOAP Fault: ".$e->getMessage()."<br />";
     } 
 }
 

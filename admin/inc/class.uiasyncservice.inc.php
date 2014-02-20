@@ -57,8 +57,8 @@
 				'year'  => lang('Year'),
 				'month' => lang('Month'),
 				'day'   => lang('Day'),
-				'dow'   => lang('Day of week<br>(0-6, 0=Sun)'),
-				'hour'  => lang('Hour<br>(0-23)'),
+				'dow'   => lang('Day of week<br />(0-6, 0=Sun)'),
+				'hour'  => lang('Hour<br />(0-23)'),
 				'min'   => lang('Minute')
 			);
 
@@ -107,7 +107,7 @@
 
 			$last_run = $async->last_check_run();
 			$lr_date = $last_run['end'] ? $GLOBALS['phpgw']->common->show_date($last_run['end']) : lang('never');
-			echo '<p><b>'.lang('Async services last executed').'</b>: '.$lr_date.' ('.$last_run['run_by'].")</p>\n<hr>\n";
+			echo '<p><b>'.lang('Async services last executed').'</b>: '.$lr_date.' ('.$last_run['run_by'].")</p>\n<hr />\n";
 
 			if (isset($_POST['asyncservice']) && $_POST['asyncservice'] != $GLOBALS['phpgw_info']['server']['asyncservice'])
 			{
@@ -166,7 +166,7 @@
 					lang("for the times below (empty values count as '*', all empty = every minute)")."</p>\n";
 			}
 
-			echo "<hr><table border=0><tr>\n";
+			echo "<hr /><table border=0><tr>\n";
 			foreach ($units as $u => $ulabel)
 			{
 				echo " <td>$ulabel</td><td><input name=\"$u\" value=\"$times[$u]\" size=5> &nbsp; </td>\n";
@@ -182,12 +182,12 @@
 
 				echo "<p>asyncservice::next_run(";print_r($times);echo")=".($next === False ? 'False':"'$next'=".$GLOBALS['phpgw']->common->show_date($next))."</p>\n";
 			}
-			echo '<hr><p><input type="submit" name="cancel" value="'.lang('Cancel TestJob!')."\"> &nbsp;\n";
+			echo '<hr /><p><input type="submit" name="cancel" value="'.lang('Cancel TestJob!')."\"> &nbsp;\n";
 			echo '<input type="submit" name="test" value="'.lang('Start TestJob!')."\">\n";
 			echo lang('for the times above')."</p>\n";
 			echo '<p>'.lang('The TestJob sends you a mail everytime it is called.')."</p>\n";
 
-			echo '<hr><p><b>'.lang('Jobs').":</b>\n";
+			echo '<hr /><p><b>'.lang('Jobs').":</b>\n";
 			if ($jobs = $async->read('%'))
 			{
 				echo "<table border=1>\n<tr>\n<th>Id</th><th>".lang('Next run').'</th><th>'.lang('Times').'</th><th>'.lang('Method').'</th><th>'.lang('Data')."</th><th>".lang('LoginID')."</th></tr>\n";
@@ -222,7 +222,7 @@
 
 			if (!$returncode)	// not nice, but better than failing silently
 			{
-				echo "<p>bocalendar::send_update: sending message to '$to' subject='$subject' failed !!!<br>\n"; 
+				echo "<p>bocalendar::send_update: sending message to '$to' subject='$subject' failed !!!<br />\n";
 				echo $GLOBALS['phpgw']->send->err['desc']."</p>\n";
 			}
 			//print_r($GLOBALS['phpgw_info']['user']);

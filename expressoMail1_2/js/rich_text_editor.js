@@ -137,7 +137,7 @@ cRichTextEditor.prototype.getSignaturesOptions = function() {
 
     for( key in signatures )
         if( !signature_types[key] )
-            signatures[key] = signatures[key].replace( /\n/g, "<br>" );
+            signatures[key] = signatures[key].replace( /\n/g, "<br />" );
 
     RichTextEditor.signatures = signatures;
     return signatures;
@@ -260,7 +260,7 @@ cRichTextEditor.prototype.setPlain = function (active,id){
     else{
         RichTextEditor.active('body_'+id, id);
         /*Insere somente quebras de linha para que o texto convertido não fique todo em uma linha só*/
-        var text_body = $('#body_'+id).val().replace(/[\n]+/g, '<br>');
+        var text_body = $('#body_'+id).val().replace(/[\n]+/g, '<br />');
         $('#body_'+id).val(text_body);
     }
 }

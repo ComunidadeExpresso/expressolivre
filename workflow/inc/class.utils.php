@@ -42,7 +42,7 @@ class Utils
 	 * @access public
 	 * @return void
 	 */
-	function println($str, $nl='<br>') {
+	function println($str, $nl='<br />') {
 		echo $str . $nl;
 	}	
 	

@@ -1,6 +1,6 @@
 <!-- BEGIN manageheader -->
 
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript">
 <!--
   {js_default_db_ports}
   function setDefaultDBPort(selectBox,portField)
@@ -107,23 +107,23 @@ function soNumero(myfield, e)
     <input type="hidden" name="setting[write_config]" value="true">
   <tr>
     <td colspan="2"><b>{lang_serverroot}</b>
-      <br><input type="text" name="setting[server_root]" size="80" value="{server_root}">
+      <br /><input type="text" name="setting[server_root]" size="80" value="{server_root}">
     </td>
   </tr>
   <tr>
-    <td colspan="2"><b>{lang_includeroot}</b><br><input type="text" name="setting[include_root]" size="80" value="{include_root}"></td>
+    <td colspan="2"><b>{lang_includeroot}</b><br /><input type="text" name="setting[include_root]" size="80" value="{include_root}"></td>
   </tr>
   <tr>
-    <td colspan="2"><b>{lang_adminuser}</b><br><input type="text" name="setting[HEADER_ADMIN_USER]" size="30" value="{header_admin_user}"></td>
+    <td colspan="2"><b>{lang_adminuser}</b><br /><input type="text" name="setting[HEADER_ADMIN_USER]" size="30" value="{header_admin_user}"></td>
   </tr>
   <tr>
-    <td colspan="2"><b>{lang_adminpass}</b><br><input type="password" name="setting[HEADER_ADMIN_PASSWORD]" size="30" value="{header_admin_password}"><input type="hidden" name="setting[HEADER_ADMIN_PASS]" value="{header_admin_pass}"></td>
+    <td colspan="2"><b>{lang_adminpass}</b><br /><input type="password" name="setting[HEADER_ADMIN_PASSWORD]" size="30" value="{header_admin_password}"><input type="hidden" name="setting[HEADER_ADMIN_PASS]" value="{header_admin_pass}"></td>
   </tr>
   <tr>
-    <td colspan="2"><b>{lang_setup_acl}</b><br><input type="text" name="setting[setup_acl]" size="30" value="{setup_acl}"></td>
+    <td colspan="2"><b>{lang_setup_acl}</b><br /><input type="text" name="setting[setup_acl]" size="30" value="{setup_acl}"></td>
   </tr>
   <tr>
-    <td><b>{lang_persist}</b><br>
+    <td><b>{lang_persist}</b><br />
       <select type="checkbox" name="setting[db_persistent]">
         <option value="True"{db_persistent_yes}>{lang_Yes}</option>
         <option value="False"{db_persistent_no}>{lang_No}</option>
@@ -132,7 +132,7 @@ function soNumero(myfield, e)
     <td>{lang_persistdescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_sesstype}</b><br>
+    <td><b>{lang_sesstype}</b><br />
       <select name="setting[sessions_type]">
 {session_options}
       </select>
@@ -140,7 +140,7 @@ function soNumero(myfield, e)
     <td>{lang_sesstypedescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_enablemcrypt}</b><br>
+    <td><b>{lang_enablemcrypt}</b><br />
       <select name="setting[enable_mcrypt]">
         <option value="True"{mcrypt_enabled_yes}>{lang_Yes}</option>
         <option value="False"{mcrypt_enabled_no}>{lang_No}</option>
@@ -149,15 +149,15 @@ function soNumero(myfield, e)
     <td>{lang_mcrypt_warning}</td>
   </tr>
   <tr>
-    <td><b>{lang_mcryptversion}</b><br><input type="text" name="setting[mcrypt_version]" value="{mcrypt}"></td>
+    <td><b>{lang_mcryptversion}</b><br /><input type="text" name="setting[mcrypt_version]" value="{mcrypt}"></td>
     <td>{lang_mcryptversiondescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_mcryptiv}</b><br><input type="text" name="setting[mcrypt_iv]" value="{mcrypt_iv}" size="30"></td>
+    <td><b>{lang_mcryptiv}</b><br /><input type="text" name="setting[mcrypt_iv]" value="{mcrypt_iv}" size="30"></td>
     <td>{lang_mcryptivdescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_domselect}</b><br>
+    <td><b>{lang_domselect}</b><br />
       <select name="setting[domain_selectbox]">
         <option value="True"{domain_selectbox_yes}>{lang_Yes}</option>
         <option value="False"{domain_selectbox_no}>{lang_No}</option>
@@ -170,7 +170,7 @@ function soNumero(myfield, e)
   </tr>{comment_r}
   
 	<!-- INICIO configuracoes exclusivas para o ExpressoLivre -->
-	<tr><td><br></td></tr>
+	<tr><td><br /></td></tr>
 	<th colspan="2" class="th">ExpressoLivre</th>
 	</td></tr>
 	
@@ -179,23 +179,23 @@ function soNumero(myfield, e)
 	<table>
 	<tr><td colspan="2"><b>Usar HTTPS?</b></td></tr>
   	<tr><td colspan="2">
-	  	<font color='red'>Obs.: Apenas use https no site, caso o apache esteja configurado para isto. A porta 443 DEVE estar liberada.</font><br>
-		<INPUT type="radio"{use_https_0} name="setting[use_https]" value="0" onclick="javascript:ocultar('certificado')">N&Atilde;O usar HTTPS no site.<BR>
-		<INPUT type="radio"{use_https_1} name="setting[use_https]" value="1" onclick="javascript:exibir('certificado')" >Usar HTTPS apenas no Login.<BR>
-		<INPUT type="radio"{use_https_2} name="setting[use_https]" value="2" onclick="javascript:exibir('certificado')" >Usar HTTPS no Site inteiro.<BR>	
+	  	<font color='red'>Obs.: Apenas use https no site, caso o apache esteja configurado para isto. A porta 443 DEVE estar liberada.</font><br />
+		<INPUT type="radio"{use_https_0} name="setting[use_https]" value="0" onclick="javascript:ocultar('certificado')">N&Atilde;O usar HTTPS no site.<br />
+		<INPUT type="radio"{use_https_1} name="setting[use_https]" value="1" onclick="javascript:exibir('certificado')" >Usar HTTPS apenas no Login.<br />
+		<INPUT type="radio"{use_https_2} name="setting[use_https]" value="2" onclick="javascript:exibir('certificado')" >Usar HTTPS no Site inteiro.<br />
   	</td></tr>
 	<tr><td colspan="2">
            <div id="certificado" {div_cert}>
 	<table>
 	<tr><td colspan="2"><b>Usar Certificado Digital (para identificar o usuario no processo de login)?</b></td></tr>
   	<tr><td colspan="2">
-	        <font color='red'>Obs.: Para habilitar este item o uso do HTTPS deve ter sido habilitado.</font><br>
-		<INPUT id="cert_0" type="radio" {certificado_0} name="setting[certificado]" onclick="javascript:ocultar('criptografiax')" value="0" >N&Atilde;O Usar Certificado Digital.<BR>
+	        <font color='red'>Obs.: Para habilitar este item o uso do HTTPS deve ter sido habilitado.</font><br />
+		<INPUT id="cert_0" type="radio" {certificado_0} name="setting[certificado]" onclick="javascript:ocultar('criptografiax')" value="0" >N&Atilde;O Usar Certificado Digital.<br />
 		
-		<INPUT id="cert_1" type="radio" {certificado_1} name="setting[certificado]" onclick="javascript:exibir('criptografiax')" value="1">Usar Certificado Digital.<BR>
+		<INPUT id="cert_1" type="radio" {certificado_1} name="setting[certificado]" onclick="javascript:exibir('criptografiax')" value="1">Usar Certificado Digital.<br />
                <div id="atributo_cpf" {div_atributo_cpf}>
-                <b>Nome do atributo , no ldap, para identificar CPF do proprietario do certificado digital</b><BR>
-                <INPUT type="text" maxlength="50" size="40" name="setting[certificado_atributo_cpf]" id="certificado_atributo_cpf" value="{certificado_atributo_cpf}" ><BR>
+                <b>Nome do atributo , no ldap, para identificar CPF do proprietario do certificado digital</b><br />
+                <INPUT type="text" maxlength="50" size="40" name="setting[certificado_atributo_cpf]" id="certificado_atributo_cpf" value="{certificado_atributo_cpf}" ><br />
                </div>
   	</td></tr>
 	</table>
@@ -210,17 +210,17 @@ function soNumero(myfield, e)
 	<table>
 	<tr><td colspan="2">
 	<b>Habilitar Assinar/Criptografar digitalmente?</b>
-	 <br><font color='red'>Obs.: Para habilitar este item o uso de HTTPS e Certificado Digital devem ter sido habilitados.</font>
+	 <br /><font color='red'>Obs.: Para habilitar este item o uso de HTTPS e Certificado Digital devem ter sido habilitados.</font>
 	</td></tr>
 	<tr><td colspan="2">       
-		<INPUT id='cripto_0' onclick="javascript:ocultar('cripto_options')" type="radio" {use_assinar_criptografar_0} name="setting[use_assinar_criptografar]" value="0"  />N&Atilde;O habilitar.<BR>
-		<div id="criptografia" ><INPUT id='cripto_1' onclick="javascript:exibir('cripto_options')" type="radio" {use_assinar_criptografar_1} name="setting[use_assinar_criptografar]" value="1" />Habilitar.</div><BR>
+		<INPUT id='cripto_0' onclick="javascript:ocultar('cripto_options')" type="radio" {use_assinar_criptografar_0} name="setting[use_assinar_criptografar]" value="0"  />N&Atilde;O habilitar.<br />
+		<div id="criptografia" ><INPUT id='cripto_1' onclick="javascript:exibir('cripto_options')" type="radio" {use_assinar_criptografar_1} name="setting[use_assinar_criptografar]" value="1" />Habilitar.</div><br />
 	</td></tr>
 	<tr><td colspan="2">
 	<div id="cripto_options" {cripto_options}>
 		<table>
 			<tr><td colspan="2">
-				<b>Numero maximo de destinatarios para uma mensagem cifrada<br><INPUT type="text" maxlength="2" size="3" name="setting[num_max_certs_to_cipher]" id="maxcerttxt" value="{num_max_certs_to_cipher}" onkeypress="return soNumero(this, event);"></td></tr>
+				<b>Numero maximo de destinatarios para uma mensagem cifrada<br /><INPUT type="text" maxlength="2" size="3" name="setting[num_max_certs_to_cipher]" id="maxcerttxt" value="{num_max_certs_to_cipher}" onkeypress="return soNumero(this, event);"></td></tr>
 		</table>		
   	</div>
         </td></tr>
@@ -250,8 +250,8 @@ function soNumero(myfield, e)
 	<table>
 	<tr><td colspan="2"><b>Usar Anti-Robo(CAPTCHA) ?</b></td></tr>
   	<tr><td colspan="2">
-		<INPUT type="radio" {captcha_0} name="setting[captcha]" value="0" onclick="javascript:ocultar('badlogin')">N&Atilde;O Usar Anti-Robo.<BR>
-		<INPUT type="radio" {captcha_1} name="setting[captcha]" value="1" onclick="javascript:exibir('badlogin')" >Usar Anti-Robo.<BR>
+		<INPUT type="radio" {captcha_0} name="setting[captcha]" value="0" onclick="javascript:ocultar('badlogin')">N&Atilde;O Usar Anti-Robo.<br />
+		<INPUT type="radio" {captcha_1} name="setting[captcha]" value="1" onclick="javascript:exibir('badlogin')" >Usar Anti-Robo.<br />
   	</td></tr>		
 	<tr><td colspan="2">
 	<div id="badlogin" {div_badlogin}>
@@ -283,7 +283,7 @@ function soNumero(myfield, e)
   <tr>
     <td colspan="3">
  <form action="index.php" method="post">
-  <br>{lang_finaldescr}<br>
+  <br />{lang_finaldescr}<br />
   <input type="hidden" name="FormLogout"  value="header">
   <input type="hidden" name="ConfigLogin" value="Login">
   <input type="hidden" name="FormUser"    value="{FormUser}">
@@ -306,7 +306,7 @@ function soNumero(myfield, e)
     <td>{lang_domain}:</td>&nbsp;<td><input name="domains[{db_domain}]" value="{db_domain}">&nbsp;&nbsp;<input type="checkbox" name="deletedomain[{db_domain}]">&nbsp;<font color="fefefe">{lang_delete}</font></td>
   </tr>
   <tr>
-    <td><b>{lang_dbtype}</b><br>
+    <td><b>{lang_dbtype}</b><br />
       <select name="setting_{db_domain}[db_type]" onchange="setDefaultDBPort(this,this.form['setting_{db_domain}[db_port]']);">
 {dbtype_options}
       </select>
@@ -314,26 +314,26 @@ function soNumero(myfield, e)
     <td>{lang_whichdb}</td>
   </tr>
   <tr>
-    <td><b>{lang_dbhost}</b><br><input type="text" name="setting_{db_domain}[db_host]" value="{db_host}"></td><td>{lang_dbhostdescr}</td>
+    <td><b>{lang_dbhost}</b><br /><input type="text" name="setting_{db_domain}[db_host]" value="{db_host}"></td><td>{lang_dbhostdescr}</td>
   </tr>
   <tr>
   <tr>
-    <td><b>{lang_dbport}</b><br><input type="text" name="setting_{db_domain}[db_port]" value="{db_port}"></td><td>{lang_dbportdescr}</td>
+    <td><b>{lang_dbport}</b><br /><input type="text" name="setting_{db_domain}[db_port]" value="{db_port}"></td><td>{lang_dbportdescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_dbname}</b><br><input type="text" name="setting_{db_domain}[db_name]" value="{db_name}"></td><td>{lang_dbnamedescr}</td>
+    <td><b>{lang_dbname}</b><br /><input type="text" name="setting_{db_domain}[db_name]" value="{db_name}"></td><td>{lang_dbnamedescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_dbuser}</b><br><input type="text" name="setting_{db_domain}[db_user]" value="{db_user}"></td><td>{lang_dbuserdescr}</td>
+    <td><b>{lang_dbuser}</b><br /><input type="text" name="setting_{db_domain}[db_user]" value="{db_user}"></td><td>{lang_dbuserdescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_dbpass}</b><br><input type="password" name="setting_{db_domain}[db_pass]" value="{db_pass}"></td><td>{lang_dbpassdescr}</td>
+    <td><b>{lang_dbpass}</b><br /><input type="password" name="setting_{db_domain}[db_pass]" value="{db_pass}"></td><td>{lang_dbpassdescr}</td>
   </tr>
   <tr>
-    <td><b>{lang_configuser}</b><br><input type="text" name="setting_{db_domain}[config_user]" value="{config_user}"></td>
+    <td><b>{lang_configuser}</b><br /><input type="text" name="setting_{db_domain}[config_user]" value="{config_user}"></td>
   </tr>
   <tr>
-    <td><b>{lang_configpass}</b><br><input type="password" name="setting_{db_domain}[config_pass]" value="{config_pass}"><input type="hidden" name="setting_{db_domain}[config_password]" value="{config_password}"></td>
+    <td><b>{lang_configpass}</b><br /><input type="password" name="setting_{db_domain}[config_pass]" value="{config_pass}"><input type="hidden" name="setting_{db_domain}[config_password]" value="{config_password}"></td>
     <td>{lang_passforconfig}</td>
   </tr>
 <!-- END domain -->

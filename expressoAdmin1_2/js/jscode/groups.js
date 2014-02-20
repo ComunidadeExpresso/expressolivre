@@ -362,7 +362,7 @@ function popup_group_info()
 	for (i = 0 ; i < count_usersInGroup ; i++)
 	{
 		if(parseInt(select_usersInGroup.options[i].value) > 0)
-			html += select_usersInGroup.options[i].text + '<br>';
+			html += select_usersInGroup.options[i].text + '<br />';
 	}
 
 	var window_group = window.open('','','width=300,height=400,resizable=yes,scrollbars=yes,left=100,top=100');

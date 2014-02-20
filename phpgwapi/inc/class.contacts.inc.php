@@ -92,7 +92,7 @@
 		* @param string $orderby The field which you want order
 		* @param string $sort ASC | DESC depending what you want
 		* @param mixed $criteria All criterias what you want
-		* @param mixed $criteria_token same like $criteria but builded<br>with sql_criteria class, more powerfull
+		* @param mixed $criteria_token same like $criteria but builded<br />with sql_criteria class, more powerfull
 		* @return array with records
 		*/
 		function get_persons($_fields, $start='', $limit='', $orderby='', $sort='', $_criteria='', $token_criteria='')
@@ -213,7 +213,7 @@
 
 		function asc_sort($a,$b)
 		{
-			echo "<br>A:'".$a."' B:'".$b;
+			echo "<br />A:'".$a."' B:'".$b;
 			if($a[1] == $b[1])
 			{
 				return 0;
@@ -223,7 +223,7 @@
 
 		function desc_sort($a,$b)
 		{
-			echo "<br>A:'".$a."' B:'".$b;
+			echo "<br />A:'".$a."' B:'".$b;
 			if($a[1]==$b[1])
 			{
 				return 0;

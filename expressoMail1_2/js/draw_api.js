@@ -5852,7 +5852,7 @@ function show_div_address_full(id, type) {
 		}
 
 		for(var idx = 1 ; idx  < _address.length;idx++) {
-			div_address_full.innerHTML += isOverLimit ?  '<br>'+_address[idx] : ','+draw_plugin_cc(id,_address[idx]);
+			div_address_full.innerHTML += isOverLimit ?  '<br />'+_address[idx] : ','+draw_plugin_cc(id,_address[idx]);
 		}
 		div_address_full.innerHTML += " (<a STYLE='color: RED;' onclick=document.getElementById('div_"+type+"address_full_"+id+"').style.display='none';document.getElementById('div_"+type+"address_"+id+"').style.display='';>"+get_lang('less')+"</a>)";
 		Element(type+"_"+id).appendChild(div_address_full);

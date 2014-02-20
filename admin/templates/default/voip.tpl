@@ -62,7 +62,7 @@
 		<td colspan="2" align="center">
 		  <input type="submit" name="save" value="{lang_save}" onclick="javascript:voip.select_();">
 		  <input type="submit" name="cancel" value="{lang_cancel}">
-		  <br>
+		  <br />
 		</td>
 	</tr>
 </table>

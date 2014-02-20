@@ -134,7 +134,7 @@ EOF;
 	$output .= $nameBottomLabel;
 
 	$output .= <<<EOF
-				<br>
+				<br />
 EOF;
 
 	$output .= smarty_function_html_options(array_merge(array(

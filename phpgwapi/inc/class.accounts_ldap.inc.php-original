@@ -482,7 +482,7 @@
 
 		function get_list($_type='both', $start = '',$sort = '', $order = '', $query = '', $offset = '')
 		{
-			//print "\$_type=$_type, \$start=$start , \$sort=$sort, \$order=$order, \$query=$query, \$offset=$offset<br>";
+			//print "\$_type=$_type, \$start=$start , \$sort=$sort, \$order=$order, \$query=$query, \$offset=$offset<br />";
 			$query = strtolower($query);
 			if($offset)
 			{
@@ -767,11 +767,11 @@
 
 		function create($account_info,$default_prefs=True)
 		{
-			/* echo '<br>in create for account_lid: "'.$account_lid.'"'; */
+			/* echo '<br />in create for account_lid: "'.$account_lid.'"'; */
 			if (empty($account_info['account_id']) || !$account_info['account_id'])
 			{
 				$account_id = $this->get_nextid($account_info['account_type']);
-				/* echo '<br>using'.$account_id;exit; */
+				/* echo '<br />using'.$account_id;exit; */
 			}
 			else
 			{
@@ -813,7 +813,7 @@
 				{
 					$tmpentry = '';
 					$tmpentry[$key] = trim($val); /* must trim! */
-					/* echo '<br>'.$key.' '.$val; */
+					/* echo '<br />'.$key.' '.$val; */
 					if ($tmpentry[$key])
 					{
 						if (!$allValues[0][$key][0])
@@ -953,7 +953,7 @@
 								$newData['memberuid'][]	= $account_info['account_lid'];
 								$newData['memberuid'] = array_unique($newData['memberuid']);
 								ldap_mod_replace($this->ds, $dn, $newData);
-								#print ldap_error($this->ds)."<br>";
+								#print ldap_error($this->ds)."<br />";
 							}
 						}
 						else

@@ -22,7 +22,7 @@
 <!-- END form -->
 
 <!-- BEGIN script -->
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript">
 {script_code}
 </script>
 <!-- END script -->

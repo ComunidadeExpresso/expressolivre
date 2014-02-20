@@ -63,14 +63,14 @@
 				'order' => $this->order,
 				'limit' => $this->limit,
 			);
-			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
+			if($this->debug) { echo '<br />Read:'; _debug_array($data); }
 			$GLOBALS['phpgw']->session->appsession('session_data','news_admin_acl',$data);
 		}
 
 		function read_sessiondata()
 		{
 			$data = $GLOBALS['phpgw']->session->appsession('session_data','news_admin_acl');
-			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
+			if($this->debug) { echo '<br />Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];
 			$this->query  = $data['query'];

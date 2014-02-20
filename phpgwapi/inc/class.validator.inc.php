@@ -122,7 +122,7 @@
 
 		function is_url ($url='')
 		{
-			//echo "Checking $url<br>";
+			//echo "Checking $url<br />";
 			$uris = array(
 				'ftp'	=> True,
 				'https'	=> True,
@@ -142,21 +142,21 @@
 			//echo 'Scheme ' . $url_elements['scheme'];
 			if(@$uris[$url_elements['scheme']])
 			{
-				//echo ' is valid<br>host ' . $url_elements['host'];
+				//echo ' is valid<br />host ' . $url_elements['host'];
 				if( preg_match('/[a-z]/i', $url_elements['host']) )
 				{
-					//echo ' is name<br>';
+					//echo ' is name<br />';
 					return $this->is_hostname($url_elements['host']);
 				}
 				else
 				{
-					//echo ' is ip<br>';
+					//echo ' is ip<br />';
 					return $this->is_ipaddress($url_elements['host']);
 				}
 			}
 			else
 			{
-				//echo ' is invalid<br>';
+				//echo ' is invalid<br />';
 				return $false;
 			}
 			
@@ -189,13 +189,13 @@
 
 		function is_hostname ($hostname='')
 		{
-			//echo "Checking $hostname<br>";
+			//echo "Checking $hostname<br />";
 			$segs = explode('.', $hostname);
 			if(is_array($segs))
 			{
 				foreach($segs as $seg)
 				{
-					//echo "Checking $seg<br>";
+					//echo "Checking $seg<br />";
 					if(preg_match('/[a-z0-9\-]{0,62}/i',$seg))
 					{
 						$return = True;	
@@ -289,16 +289,16 @@
 		{
 			echo 'class.validator.inc.php used to contain code that was not Free ';
 			echo 'Software (<a href="(http://www.gnu.org/philosophy/free-sw.html">see ';
-			echo 'definition</a> , therefore it has been removed. <br><br>';
+			echo 'definition</a> , therefore it has been removed. <br /><br />';
 			echo 'If you are a application maintainer, please update your app. ';
 			echo 'If you are a user, please file a bug report on ';
 			echo '<a href="http://sourceforge.net/projects/egroupwaregroup">';
 			echo 'our project page at sourceforge.net</a>. Please copy and paste ';
-			echo 'the following information into the bug report:<br>';
+			echo 'the following information into the bug report:<br />';
 			echo '<b>Summary<b>: ' . $GLOBALS['phpgw_info']['flags']['currentapp'];
 			echo 'calls class.validator.inc.php';
-			echo 'Information:<br> The call was found when calling: ' . $_SERVER['QUERY_STRING'];
-			echo '<br><br>This application will now halt!<br><br>';
+			echo 'Information:<br /> The call was found when calling: ' . $_SERVER['QUERY_STRING'];
+			echo '<br /><br />This application will now halt!<br /><br />';
 			echo '<a href="'. $GLOBALS['phpgw']->link('/home.php') .'">Return to Home Screen</a>';
 			exit;
 		}

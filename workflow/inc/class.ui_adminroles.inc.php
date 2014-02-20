@@ -163,7 +163,7 @@ class ui_adminroles extends WorkflowUtils
 
 		// fill the general varibles of the template
 		$this->t->set_var(array(
-			'message'				=> implode('<br>', array_filter($this->message)),
+			'message'				=> implode('<br />', array_filter($this->message)),
 			'errors'				=> $error_str,
 			'form_action_adminroles'	=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=workflow.ui_adminroles.form'),
 			'role_info_role_id'		=> $role_info['wf_role_id'],

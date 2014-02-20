@@ -14,7 +14,7 @@
    <table border="0" width="90%">
     <tr>
 	 	<td align="left">
-			<div align="center" class="style2">{lang_reports_title7}:<br><br>&nbsp;<font color="blue">{context_display}</font><br><br>
+			<div align="center" class="style2">{lang_reports_title7}:<br /><br />&nbsp;<font color="blue">{context_display}</font><br /><br />
 	 	    </div></td>
  	 </tr>
     <tr>

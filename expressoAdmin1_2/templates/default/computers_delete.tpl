@@ -17,11 +17,11 @@
 			<font size="5" color="red">
 				({computer_cn})
 			</font>
-			<br>
+			<br />
 			<font size="3" color="black">
 				{computer_dn}
 			</font>
-			<br>
+			<br />
 			<font size="3" color="black">
 				{computer_description}
 			</font>

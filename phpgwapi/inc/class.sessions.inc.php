@@ -34,8 +34,8 @@
 	* @package phpgwapi
 	* @subpackage sessions
 	* @abstract
-	* @author NetUSE AG Boris Erdmann, Kristian Koehntopp <br> hacked on by phpGW
-	* @copyright &copy; 1998-2000 NetUSE AG Boris Erdmann, Kristian Koehntopp <br> &copy; 2003 FreeSoftware Foundation
+	* @author NetUSE AG Boris Erdmann, Kristian Koehntopp <br /> hacked on by phpGW
+	* @copyright &copy; 1998-2000 NetUSE AG Boris Erdmann, Kristian Koehntopp <br /> &copy; 2003 FreeSoftware Foundation
 	* @license LGPL
 	* @link http://www.sanisoft.com/phplib/manual/DB_sql.php
 	* @uses db
@@ -366,7 +366,7 @@
 					));
 					$GLOBALS['phpgw']->log->commit();
 				}
-				//echo 'DEBUG: Sessions: account_id is empty!<br>'."\n";
+				//echo 'DEBUG: Sessions: account_id is empty!<br />'."\n";
 				return False;
 			}
 			return True;
@@ -998,7 +998,7 @@
 					global $$key;
 					$$key = $value;
 					$this->variableNames[$key] = 'registered';
-					// echo 'restored: '.$key.', ' . $value . '<br>';
+					// echo 'restored: '.$key.', ' . $value . '<br />';
 				}
 			}
 		}
@@ -1031,7 +1031,7 @@
 		function register($_variableName)
 		{
 			$this->variableNames[$_variableName]='registered';
-			#print 'registered '.$_variableName.'<br>';
+			#print 'registered '.$_variableName.'<br />';
 		}
 
 		/**
@@ -1042,7 +1042,7 @@
 		function unregister($_variableName)
 		{
 			$this->variableNames[$_variableName]='unregistered';
-			#print 'unregistered '.$_variableName.'<br>';
+			#print 'unregistered '.$_variableName.'<br />';
 		}
 
 		/**
@@ -1181,7 +1181,7 @@
 					// Check if this value doesn't already exist in new_extravars
 					if(array_key_exists($b[0], $new_extravars))
 					{
-						// print "Debug::Error !!! " . $b[0] . " ($i) already exists<br>";
+						// print "Debug::Error !!! " . $b[0] . " ($i) already exists<br />";
 						if( preg_match('/\[\]/i', $b[0]) )
 						{
 							$b[0] = preg_replace('/\[\]/i', "[$i]", $b[0]);

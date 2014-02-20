@@ -8,8 +8,8 @@
 * @author  gazoot (gazoot care of gmail dot com)
 * @author  Sidnei Augusto Drovetto Jr. - drovetto@gmail.com (revision)
 * @param object &$smarty Instância do objeto smarty em uso 
-* @param array $params Parameters array. (Default values for optional parameters are taken from fckeditor.js)<br>
-*  All other parameters used in the function will be put into the<br>
+* @param array $params Parameters array. (Default values for optional parameters are taken from fckeditor.js)<br />
+*  All other parameters used in the function will be put into the<br />
 *  configuration section,CustomConfigurationsPath is useful for example.
 * - name Editor instance name (form field name)
 * - value optional data that control will start with, default is taken from the javascript file

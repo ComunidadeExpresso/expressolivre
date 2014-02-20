@@ -34,7 +34,7 @@ function emInfoQuota ()
 		
 		var handler_buildQuota = function(data){			
 			el.appendChild(InfoQuota.buildQuota(data));			
-			el.innerHTML += '<br><input style="margin-bottom:10px" type="button" value=' + get_lang("Close")+ 
+			el.innerHTML += '<br /><input style="margin-bottom:10px" type="button" value=' + get_lang("Close")+
 			' id="InfoQuota_button_close" onClick="InfoQuota.close_window();">';			
 			_this.showWindow(el);
 		}

@@ -137,7 +137,7 @@
 <div id="logList" style="display: none;"></div>
 </div>
 {literal}
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 window.onload = function(){ addEventWatchers(); loadJobList(); };
 </script>
 {/literal}

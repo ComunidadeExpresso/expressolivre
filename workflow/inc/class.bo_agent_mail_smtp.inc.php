@@ -213,7 +213,7 @@ class bo_agent_mail_smtp extends bo_agent
 				if (isset($this->fields[$key]))
 				{
 					$this->fields[$key]['value'] = $value;
-					//echo "<br> DEBUG loading value $value for $key";
+					//echo "<br /> DEBUG loading value $value for $key";
 				}
 			}
 		}
@@ -707,7 +707,7 @@ class bo_agent_mail_smtp extends bo_agent
 				default:
 					//Now we need to handle role_foo or property_bar or user_foobar
 					$matches2 = Array();
-					//echo "<br>2nd analysis on ".$value;
+					//echo "<br />2nd analysis on ".$value;
 					preg_match_all("/([^_]+)([_])([A-z0-9\|:\/\.\?\=\'\&\; ]*)/",$value, $matches2);
 					$first_part = $matches2[1][0];
 					$second_part = $matches2[3][0];
@@ -758,7 +758,7 @@ class bo_agent_mail_smtp extends bo_agent
 							//and we now some usefull links:
 							//$second_part should be in this form link adress|text
 							$matches3 = Array();
-							//echo "<br>3rd analysis on ".$second_part;
+							//echo "<br />3rd analysis on ".$second_part;
 							preg_match_all("/([^\|]+)([\|])([A-z0-9 \'\&\;]*)/",$second_part, $matches3);
 							$link_part = $matches3[1][0];
 							$text_part = $matches3[3][0];

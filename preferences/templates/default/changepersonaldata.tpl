@@ -1,4 +1,4 @@
-<br>
+<br />
 
    <center>{messages}</center>
 
@@ -46,7 +46,7 @@
      
      <tr>
        <td colspan="3">
-        <table cellspacing="0"><tr><br>
+        <table cellspacing="0"><tr><br />
          <td><input type="submit" name="change" value="{lang_change}"></td>
 		 <td>&nbsp;&nbsp;</td>
          <td><input type="submit" name="cancel" value="{lang_cancel}"></td>
@@ -55,5 +55,5 @@
      </tr>
     </table>
    </form>
-   <br>
+   <br />
    <pre>{sql_message}</pre>

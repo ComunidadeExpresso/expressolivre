@@ -499,7 +499,7 @@ you don't have to call Connect( ) or PConnect( ).
 <h3>10. Error Checking</h3>
 <p>The examples in this article are easy to read but a bit simplistic because we ignore error-handling. Execute( ) and Connect( ) will return false on error. So a more realistic way to call Connect( ) and Execute( ) is:
 <pre>function InvokeErrorHandler()
-{<br>global $db; ## assume global
+{<br />global $db; ## assume global
     MyLogFunction($db-&gt;ErrorNo(), $db-&gt;ErrorMsg());
 }
 if (!$db-&gt;Connect($tns, $usr, $pwd)) InvokeErrorHandler();

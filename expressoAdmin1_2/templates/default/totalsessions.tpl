@@ -1,5 +1,5 @@
 <!-- BEGIN list -->
-<br>
+<br />
 <center>
 	<Font size="4">
 		{lang_total}:
@@ -7,7 +7,7 @@
 	<Font color="red" size="5"> 
 		{total}
 	</Font>
-	<br>
+	<br />
 	<input type="button" value="{lang_back}" onClick="document.location.href='{back_url}'">
 </center>
 <!-- END list -->

@@ -91,7 +91,7 @@
 				'order'  => $this->order,
 				'cat_id' => $this->cat_id
 			);
-			echo '<br>UI:<br>';
+			echo '<br />UI:<br />';
 			_debug_array($data);
 		}
 
@@ -329,7 +329,7 @@
 				$permission = ($cat['owner'] == '-1' ? lang("all"): $cat['owner']);
 				$this->template->set_var('permission', $permission);
 				$dir_img = $GLOBALS['phpgw_info']['server']['webserver_url'] . SEP . 'phpgwapi' . SEP . 'images' . SEP;
-				$this->template->set_var('icon', !$icon ? lang("None") : "<img src='". $dir_img . $icon  ."'>");
+				$this->template->set_var('icon', !$icon ? lang("None") : "<img src='". $dir_img . $icon  ."'/>");
 
 				$this->template->fp('list','cat_list',True);
 			}
@@ -512,7 +512,7 @@
 					ucfirst(preg_replace('/\\.(png|gif|jpe?g)$/i','',$icon == 'aanone.gif' ? lang('none') : $icon))."</option>\n";
 			}
 			$this->template->set_var('select_icon', '<select name="cat_data[icon]" onchange="document.images[\'icon\'].src=\''.$this->img_url.'\' + this.value;">'.$options."</select>\n");
-			$this->template->set_var('icon',  '<img id="icon" src="'. $this->img_url.$cat['data']['icon'] .'">');
+			$this->template->set_var('icon',  '<img id="icon" src="'. $this->img_url.$cat['data']['icon'] .'"/>');
 
 			$already_done = array('icon','color');
 
@@ -611,7 +611,7 @@
 			if ($apps_cats)
 			{
 				$this->template->set_block('category_delete','delete','deletehandle');
-				$this->template->set_var('messages',lang('This category is currently being used by applications as a parent category') . '<br>'
+				$this->template->set_var('messages',lang('This category is currently being used by applications as a parent category') . '<br />'
 					. lang('You will need to remove the subcategories before you can delete this category'));
 
 				$this->template->set_var('lang_subs','');

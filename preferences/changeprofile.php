@@ -95,7 +95,7 @@
 
     <tr>
      <td>Picture:</td>
-     <td><input type="file" name="picture"><br>Note: Pictures will be resized to 100x120.</td>
+     <td><input type="file" name="picture"><br />Note: Pictures will be resized to 100x120.</td>
     </tr>
 
     <tr>

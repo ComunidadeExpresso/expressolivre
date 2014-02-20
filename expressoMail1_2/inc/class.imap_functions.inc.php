@@ -1103,7 +1103,7 @@ class imap_functions
                     }
 		}
 
-		$tags_replace = array("<br>","<br/>","<br />");
+		$tags_replace = array("<br />","<br/>","<br />");
 		$content = str_replace($tags_replace," ", nl2br($content));
 		$content = $this->html2txt($content);
 		$content != "" ? $return['body'] = " - " . $content: $return['body'] = "";
@@ -2049,7 +2049,7 @@ class imap_functions
 		// Trata urls do tipo aaaa.bbb.empresa
 		// Usadas na intranet.
 
-		$pattern = '/[^(background-image\:url\()?](?<=[\s|(<br>)|\n|\r|;])(((http|https|ftp|ftps)?:\/\/((?:[\w]\.?)+(?::[\d]+)?[:\/.\-~&=?%;@#,+\w]*))|((?:www?\.)(?:\w\.?)*(?::\d+)?[\:\/\w.\-~&=?%;@+]*))/i';
+		$pattern = '/[^(background-image\:url\()?](?<=[\s|(<br />)|\n|\r|;])(((http|https|ftp|ftps)?:\/\/((?:[\w]\.?)+(?::[\d]+)?[:\/.\-~&=?%;@#,+\w]*))|((?:www?\.)(?:\w\.?)*(?::\d+)?[\:\/\w.\-~&=?%;@+]*))/i';
 
 		$body = preg_replace_callback($pattern,array( &$this, 'replace_links_callback'), $body);
 
@@ -4097,8 +4097,8 @@ class imap_functions
 	function send_notification($params)
 	{
 		$mailService = ServiceLocator::getService('mail');
-		$body = lang("Your message: %1",$params['subject']) . '<br>';
-		$body .= lang("Received in: %1",date("d/m/Y H:i",$params['date'])) . '<br>';
+		$body = lang("Your message: %1",$params['subject']) . '<br />';
+		$body .= lang("Received in: %1",date("d/m/Y H:i",$params['date'])) . '<br />';
 		$body .= lang("Has been read by: %1 &lt; %2 &gt; at %3", $_SESSION['phpgw_info']['expressomail']['user']['fullname'], $_SESSION['phpgw_info']['expressomail']['user']['email'], date("d/m/Y H:i"));
 		return $mailService->sendMail(base64_decode($params['notificationto']),
  							   $_SESSION['phpgw_info']['expressomail']['user']['email'],
@@ -5023,8 +5023,8 @@ class imap_functions
  		$mail_content = $exporteml->export_msg_data($id_msg, $msg_folder);
  		$this->open_mbox($msg_folder);
 		$title = "Erro de email reportado";
-		$body  = "<body>O usuário <strong>$toname</strong> reportou um erro na tentativa de acesso ao conteúdo do email.<br><br>Segue em anexo o fonte da mensagem" .                           " reportada.<br><br><hr><strong><u>Mensagem do usuário:</strong></u><br><br><br>" .
- 		                "$msg_user</body><br><br><hr>";
+		$body  = "<body>O usuário <strong>$toname</strong> reportou um erro na tentativa de acesso ao conteúdo do email.<br /><br />Segue em anexo o fonte da mensagem" .                           " reportada.<br /><br /><hr /><strong><u>Mensagem do usuário:</strong></u><br /><br /><br />" .
+ 		                "$msg_user</body><br /><br /><hr />";
 
  		require_once dirname(__FILE__) . '/../../services/class.servicelocator.php';
  		$mailService = ServiceLocator::getService('mail');

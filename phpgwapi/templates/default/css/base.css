@@ -183,7 +183,11 @@ td
 	border: 1px solid;
 }
 
-#links_bar,
+#links_bar a, #links_bar a:visited
+{
+    color: #FFF;
+}
+
 #user_info
 {
 }

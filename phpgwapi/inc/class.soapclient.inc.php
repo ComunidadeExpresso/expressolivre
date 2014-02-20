@@ -131,7 +131,7 @@
 			{
 				//$soap_client->debug_flag = true;
 				$this->debug($dbg.'instantiated client successfully');
-				$this->debug("client data:<br>server: $soap_client->server<br>path: $soap_client->path<br>port: $soap_client->port");
+				$this->debug("client data:<br />server: $soap_client->server<br />path: $soap_client->path<br />port: $soap_client->port");
 				// send
 				$dbg = "sending msg w/ soapaction '$soapAction'...";
 				if($return = $soap_client->send($soapmsg,$soapAction))
@@ -151,7 +151,7 @@
 							while(list($k,$v) = @each($faultArray))
 							/* foreach($faultArray as $k => $v) */
 							{
-								print "$k = $v<br>";
+								print "$k = $v<br />";
 							}
 							return false;
 						}
@@ -187,7 +187,7 @@
 		{
 			if($this->debug_flag)
 			{
-				print $string . '<br>';
+				print $string . '<br />';
 			}
 		}
 	}

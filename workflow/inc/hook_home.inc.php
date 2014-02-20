@@ -32,7 +32,7 @@ foreach($externals as $idx => $external){
 	if($next_br == 0){
 		$extra_data .= "<tr>";
 	}
-	$extra_data .=  "<td align=center style='valign:top;width:10em;padding:2px'><a target='_blank' href='".$external["wf_ext_link"]."' nowrap><img width='32px' height='32px' align='center' src='".$external["image"]."'/><br>".$external["name"]."</a></td>";
+	$extra_data .=  "<td align=center style='valign:top;width:10em;padding:2px'><a target='_blank' href='".$external["wf_ext_link"]."' nowrap><img width='32px' height='32px' align='center' src='".$external["image"]."'/><br />".$external["name"]."</a></td>";
 	++$next_br;
 	if($next_br == 3){
 		$extra_data .= "</tr>";

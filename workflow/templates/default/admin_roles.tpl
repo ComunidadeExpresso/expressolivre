@@ -123,13 +123,13 @@
 				</select>
 			</td><td valign=center align=center>
 				<a href='javascript:void(0)' onclick="openParticipantsWindow('user_list', 'entities=ug&usePreffix=1');"><img border=0 src={src_img_add_users}></a>
-				<br>
+				<br />
 				<a href='javascript:void(0)' onclick="openParticipantsWindow('user_list', 'entities=ug&usePreffix=1');">{lang_Add}</a>
-				<br><br>
+				<br /><br />
 				<a href="javascript:void(0)" onclick="participantsRemoveUser(document.getElementById('user_list'));"><img border=0 src={src_img_del_users}></a>
-				<br>
+				<br />
 				<a href='javascript:void(0)' onclick="participantsRemoveUser(document.getElementById('user_list'));">{lang_Remove}</a>
-				<br><br>
+				<br /><br />
 			</td></tr>
 			</table>
 		</td>

@@ -9,7 +9,7 @@
 <META NAME="keywords" CONTENT="{website_title} login screen, eGroupWare, groupware, groupware suite">
 {login_css}
 <TITLE>{website_title} - {lang_login}</TITLE>
-<script language="Javascript" type="text/javascript">
+<script type="text/javascript">
 <!--
 
 	function setLogin(){
@@ -147,18 +147,18 @@
                             <input type="hidden" name="login">
                             <div id="reflexo">
                             <div class="titulo_login">Expresso Livre</div>
-                            <div id="mensagem" class="msgInicial" >{cd}<br>{lang_message}</div>
+                            <div id="mensagem" class="msgInicial" >{cd}<br />{lang_message}</div>
                             {action}
                             <div id="conteudo_login" style="display:{show};">{select_organization}
                               <div class="login_label">
                                 <label for="user">{lang_username}</label>
-                                <br>
+                                <br />
                                 <input class="input" type="text" maxlength="70" size="20" name="user" id="user" value="">
                             </div>
 
                             <div class="login_label">
                                 <label for="passwd">{lang_password}</label>
-                                <br>
+                                <br />
                                 <input class="input" type="password" maxlength="50" size="20" name="passwd" id="passwd" value="">
                                 <div id="keyboard"></div>
                             </div>
@@ -182,10 +182,10 @@
                 </div>
             </div>
         </div>
-    <div id="inferior"><br>
+    <div id="inferior"><br />
         <div id="rodape">
                 {logo_config}
-                <a title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre</a> {version}{ultima_rev}<br>
+                <a title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre</a> {version}{ultima_rev}<br />
                 <a title="eGroupWare" target="_blank" href="http://www.egroupware.org/" style="clear: both"> Powered by eGroupWare </a>
             </div>
         </div>

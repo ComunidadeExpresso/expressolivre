@@ -371,7 +371,7 @@
 			 TODO: This really needs testing - it can affect primary keys, and other table-related objects
 			 like sequences and such
 			*/
-			if($GLOBALS['DEBUG']) { echo '<br>RenameColumn: calling _GetFieldSQL for ' . $sNewColumnName; }
+			if($GLOBALS['DEBUG']) { echo '<br />RenameColumn: calling _GetFieldSQL for ' . $sNewColumnName; }
 			if($oProc->_GetFieldSQL($aTables[$sTableName]["fd"][$sNewColumnName], $sNewColumnSQL))
 			{
 				return !!($oProc->m_odb->query("ALTER TABLE $sTableName CHANGE $sOldColumnName $sNewColumnName " . $sNewColumnSQL));
@@ -381,7 +381,7 @@
 
 		function AlterColumn($oProc, &$aTables, $sTableName, $sColumnName, &$aColumnDef, $bCopyData = true)
 		{
-			if($GLOBALS['DEBUG']) { echo '<br>AlterColumn: calling _GetFieldSQL for ' . $sNewColumnName; }
+			if($GLOBALS['DEBUG']) { echo '<br />AlterColumn: calling _GetFieldSQL for ' . $sNewColumnName; }
 			if($oProc->_GetFieldSQL($aTables[$sTableName]["fd"][$sColumnName], $sNewColumnSQL))
 			{
 				return !!($oProc->m_odb->query("ALTER TABLE $sTableName MODIFY $sColumnName " . $sNewColumnSQL));

@@ -686,13 +686,13 @@
 
 			if ($file)
 			{
-				printf("<br><b>File:</b> %s",$file);
+				printf("<br /><b>File:</b> %s",$file);
 			}
 			if ($line)
 			{
-				printf("<br><b>Line:</b> %s",$line);
+				printf("<br /><b>Line:</b> %s",$line);
 			}
-			printf("<br><b>Function:</b> %s\n",function_backtrace(2));
+			printf("<br /><b>Function:</b> %s\n",function_backtrace(2));
 
 			if ($this->Halt_On_Error != "report")
 			{
@@ -710,10 +710,10 @@
 
 		function haltmsg($msg)
 		{
-			printf("<p><b>Database error:</b> %s<br>\n", $msg);
+			printf("<p><b>Database error:</b> %s<br />\n", $msg);
 			if (($this->Errno || $this->Error) && $this->Error != "()")
 			{
-				printf("<b>$this->Type Error</b>: %s (%s)<br>\n",$this->Errno,$this->Error);
+				printf("<b>$this->Type Error</b>: %s (%s)<br />\n",$this->Errno,$this->Error);
 			}
 		}
 

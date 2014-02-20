@@ -39,7 +39,7 @@
 			</td>
 		</tr>
 	</table>
-	<br>
+	<br />
 	<p align="center" style="font-weight: bold; font-size: medium; border: 0px solid black">{lang_Connector_Setup}</p>
 	<table align="center" style="width: 400px">
 		<tr class="th">
@@ -60,7 +60,7 @@
 			</td>
 		</tr>
 	</table>
-	<br>
+	<br />
 	<p align="center" style="font-weight: bold; font-size: medium; border: 0px solid black">Preferências de Visualização</p>
 	<table align="center" style="width: 400px">
 		<tr class="th">

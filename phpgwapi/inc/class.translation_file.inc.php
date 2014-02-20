@@ -138,7 +138,7 @@
 			if(!$this->isin_array($GLOBALS['phpgw_info']['flags']['currentapp'],$this->loaded_apps) &&
 				$GLOBALS['phpgw_info']['flags']['currentapp'] != 'home')
 			{
-				//echo '<br>loading app "' . $GLOBALS['phpgw_info']['flags']['currentapp'] . '" for the first time.';
+				//echo '<br />loading app "' . $GLOBALS['phpgw_info']['flags']['currentapp'] . '" for the first time.';
 				$this->add_app($GLOBALS['phpgw_info']['flags']['currentapp'],$GLOBALS['lang']);
 			}
 			elseif($GLOBALS['phpgw_info']['flags']['currentapp'] == 'admin' ||
@@ -152,7 +152,7 @@
 				{
 					if(!$this->isin_array($app['name'],$this->loaded_apps))
 					{
-						//echo '<br>loading app "' . $app['name'] . '" for the first time.';
+						//echo '<br />loading app "' . $app['name'] . '" for the first time.';
 						$this->add_app($app['name'],$GLOBALS['lang']);
 					}
 				}
@@ -190,8 +190,8 @@
 		{
 			if($DEBUG)
 			{
-				echo '<br>drop_langs(): Working on: ' . $appname;
-				echo '<br>drop_langs(): Not needed with file-based lang class.';
+				echo '<br />drop_langs(): Working on: ' . $appname;
+				echo '<br />drop_langs(): Not needed with file-based lang class.';
 			}
 		}
 
@@ -199,8 +199,8 @@
 		{
 			if($DEBUG)
 			{
-				echo '<br>add_langs(): Working on: ' . $appname;
-				echo '<br>add_langs(): Not needed with file-based lang class.';
+				echo '<br />add_langs(): Working on: ' . $appname;
+				echo '<br />add_langs(): Not needed with file-based lang class.';
 			}
 		}
 
@@ -213,7 +213,7 @@
 		{
 			define('SEP',filesystem_separator());
 
-			//echo '<br>add_app(): called with app="' . $app . '", lang="' . $userlang . '"';
+			//echo '<br />add_app(): called with app="' . $app . '", lang="' . $userlang . '"';
 			if(!isset($lang) || !$lang)
 			{
 				if(isset($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']) &&
@@ -243,7 +243,7 @@
 				while($data = fgets($fp,8000))
 				{
 					list($message_id,$app_name,$null,$content) = explode("\t",$data);
-					//echo '<br>add_app(): adding phrase: $this->langarray["'.$message_id.'"]=' . trim($content);
+					//echo '<br />add_app(): adding phrase: $this->langarray["'.$message_id.'"]=' . trim($content);
 					$this->langarray[$message_id] = trim($content);
 				}
 				fclose($fp);

@@ -479,7 +479,7 @@
 					$win = $api->get_email_win();
 					$win .= $api->get_quick_add_plugin();
 					$win .= '<input id="QAbutton" type="button" value="QuickAdd" />'
-						.'<br><input type="button" value="EmailWin" onclick="ccEmailWin.open()" />'
+						.'<br /><input type="button" value="EmailWin" onclick="ccEmailWin.open()" />'
 						.'<script type="text/javascript">'
 						.'	ccQuickAdd.associateAsButton(Element("QAbutton"));'
 						.'</script>';
@@ -1283,7 +1283,7 @@
 
 				if ($n_entries)
 				{
-					//echo 'N_entries: '.$n_entries.'<br>';
+					//echo 'N_entries: '.$n_entries.'<br />';
 					$this->page_info['n_pages'] = $dontPaginate ? 1 : ceil($n_entries/$this->page_info['n_cards']);
 				}
 				else
@@ -1391,14 +1391,14 @@
 				$objconfig = CreateObject('phpgwapi.config', 'contactcenter');
 				$config = $objconfig->read_repository();
 				
-				//echo 'Page: '.$page.'<br>';
+				//echo 'Page: '.$page.'<br />';
 				$n_entries = count($this->page_info['actual_entries']);
                                 $n_cards = $dontPaginate? $n_entries : $this->page_info['n_cards'];
 				$id_i = (($page-1)*$n_cards);
 				$id_f = $id_i + $n_cards;
 
-				//echo 'ID_I: '.$id_i.'<br>';
-				//echo 'ID_F: '.$id_f.'<br>';
+				//echo 'ID_I: '.$id_i.'<br />';
+				//echo 'ID_F: '.$id_f.'<br />';
 				///---------------- Correção Temporária PHP5 -----------------------///
 				$ids = array();
 /**rev 104**/
@@ -2314,16 +2314,16 @@
 			if (!is_array($data))
 			{
 				echo serialize(array(
-					'msg' => lang('<p>Some problem receiving data from browser. This is probably a bug in ContactCenter<br>'.
-				                  'Please go to eGroupWare Bug Reporting page and report this bug.<br>'.
-						          'Sorry for the inconvenient!<br><br>'.
+					'msg' => lang('<p>Some problem receiving data from browser. This is probably a bug in ContactCenter<br />'.
+				                  'Please go to eGroupWare Bug Reporting page and report this bug.<br />'.
+						          'Sorry for the inconvenient!<br /><br />'.
 						          '<b><i>ContactCenter Developer Team</i></b></p>'),
 					'status' => 'fatal'
 				));
 				return;
 			}
 //			print_r($data);
-//			echo '<br><br>';
+//			echo '<br /><br />';
 
 			$replacer = $data['commercialAnd'];
 			unset($data['commercialAnd']);
@@ -2590,7 +2590,7 @@
 			if (!($id))
 			{
 				$result = array(
-					'msg' => lang('Some problem occured when trying to insert/update contact information.<br>'.
+					'msg' => lang('Some problem occured when trying to insert/update contact information.<br />'.
 				                   'Report the problem to the Administrator.'),
 					'status' => 'fail'
 				);
@@ -2618,16 +2618,16 @@
 			if (!is_array($data))
 			{
 				echo serialize(array(
-					'msg' => lang('<p>Some problem receiving data from browser. This is probably a bug in ContactCenter<br>'.
-				                  'Please go to eGroupWare Bug Reporting page and report this bug.<br>'.
-						          'Sorry for the inconvenient!<br><br>'.
+					'msg' => lang('<p>Some problem receiving data from browser. This is probably a bug in ContactCenter<br />'.
+				                  'Please go to eGroupWare Bug Reporting page and report this bug.<br />'.
+						          'Sorry for the inconvenient!<br /><br />'.
 						          '<b><i>ContactCenter Developer Team</i></b></p>'),
 					'status' => 'fatal'
 				));
 				return;
 			}
 //			print_r($data);
-//			echo '<br><br>';
+//			echo '<br /><br />';
 
 			$replacer = $data['commercialAnd'];
 			unset($data['commercialAnd']);
@@ -2880,7 +2880,7 @@
 				$id = $this->bo->catalog->update_single_info($id, $data);
 				if(!$id){
 				$result = array(
-						'msg' => lang('Some problem occured when trying to insert/update contact information.<br>'.
+						'msg' => lang('Some problem occured when trying to insert/update contact information.<br />'.
 				        'Report the problem to the Administrator.'),
 						'status' => 'fail'
 				);
@@ -2898,7 +2898,7 @@
 				$id = $this->bo->catalog->add_single_entry($data,$owner);
 				if(!$id){
 				$result = array(
-					'msg' => lang('Some problem occured when trying to insert/update contact information.<br>'.
+					'msg' => lang('Some problem occured when trying to insert/update contact information.<br />'.
 				                   'Report the problem to the Administrator.'),
 					'status' => 'fail'
 				);
@@ -3705,12 +3705,12 @@
 
 		function convert_tree($tree, &$iconDir, $parent='0')
 		{
-//			echo "Entrou<br>\tPai: $parent <br>";
+//			echo "Entrou<br />\tPai: $parent <br />";
 			$rtree = array();
 
 			if ($parent === '0')
 			{
-//				echo 'Root!<br>';
+//				echo 'Root!<br />';
 				$rtree['0'] = array(
 					'type'       => 'catalog_group',
 					'id'         => '0',
@@ -3723,7 +3723,7 @@
 
 			foreach($tree as $id => $value)
 			{
-//				echo 'ID: '.$id.'<br>';
+//				echo 'ID: '.$id.'<br />';
 				$rtree[$parent.'.'.$id] = array(
 					'type'    => $value['type'],
 					'id'      => $parent.'.'.$id,
@@ -3804,7 +3804,7 @@
 				$sr = ldap_search($ds,$dn, $filter,$justThese);
 				$info = ldap_get_entries($ds, $sr);
 				for($z = 0; $z < $info['count']; ++$z) {
-					$participant =  '<font color=\'DARKBLUE\'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;'.$info[$z]['cn'][0].'&quot; &lt;'.$info[$z]['mail'][0].'&gt;</font><br>';
+					$participant =  '<font color=\'DARKBLUE\'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;'.$info[$z]['cn'][0].'&quot; &lt;'.$info[$z]['mail'][0].'&gt;</font><br />';
 				    $array_emails[$info[$z]['mail'][0]] = null;
 					array_push($array_participants, $participant);
 				}
@@ -3852,14 +3852,14 @@
 				$sr = ldap_search($ds,$dn, $filter,$justThese);
 				$info = ldap_get_entries($ds, $sr);
 				for($z = 0; $z < $info['count']; ++$z) {
-					$participant =  '<font color=\'DARKBLUE\'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;'.$info[$z]['cn'][0].'&quot; &lt;'.$info[$z]['mail'][0].'&gt;</font><br>';
+					$participant =  '<font color=\'DARKBLUE\'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;'.$info[$z]['cn'][0].'&quot; &lt;'.$info[$z]['mail'][0].'&gt;</font><br />';
 					$array_emails[$info[$z]['mail'][0]] = null;
 					array_push($array_participants, $participant);
 				}
 
 				foreach($array_emails as $index => $email)
 					if($email)
-						array_push($array_participants, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$email."<br>");
+						array_push($array_participants, "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$email."<br />");
 
 				ldap_close($ds);
 			}
@@ -4750,11 +4750,11 @@
 					}
 					else if((!preg_match('/^[a-zA-Z0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]{1,})*$/i', $email)) && $email) {
 						$return['_failure']++;
-						$return['_failure_status'] .= "Line: " . ($line_iteration + 2) . ", Invalid E-Mail address: " . $email ."<br>";
+						$return['_failure_status'] .= "Line: " . ($line_iteration + 2) . ", Invalid E-Mail address: " . $email ."<br />";
 					}
 					else if (!$sdata['given_names'] || !$boPeople ->quick_add($sdata)){
 						$return['_failure']++;
-						$return['_failure_status'] .= "Line: " . ($line_iteration + 2) . ", Invalid Name: " . $sdata['given_names'] ."<br>";
+						$return['_failure_status'] .= "Line: " . ($line_iteration + 2) . ", Invalid Name: " . $sdata['given_names'] ."<br />";
 					}
 					else{
 							if($id_group != 0){

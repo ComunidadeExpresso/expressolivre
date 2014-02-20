@@ -1,5 +1,5 @@
 <!-- $Id: preferences.tpl 5681 2001-08-28 23:09:02Z zone $ -->
-<br><br>
+<br /><br />
 <center>
 	<form method="POST" name="prefs_form" action="{actionurl}">
 	<table width="70%" border="0" cellspacing="2" cellpadding="2">

@@ -147,7 +147,7 @@ function validateSignature()
     {
 	document.getElementById( "signature_default" ).value =  default_signature;
 	document.getElementById( "signature" ).value = types[key] ? signatures[default_signature] :
-								    signatures[default_signature].replace( /\\n/g, "<br>" );
+								    signatures[default_signature].replace( /\\n/g, "<br />" );
     }
     if (document.getElementById( "signature" ).value != "")
     	document.getElementById( "signature" ).value = encode64(document.getElementById( "signature" ).value);
@@ -509,7 +509,7 @@ create_select_box('What is the minimum number of characters in searching contact
 create_select_box('What is the height of the lines in the list of messages?','line_height',$default,'');
 create_check_box('Increases th maximum size of show messages?','max_msg_size','Increases the maximum size of show emails from 100kb to 1mb');
 create_check_box('Use dynamic contacts?','use_dynamic_contacts','Store your\'s most used contacts');
-create_check_box('Use shortcuts?','use_shortcuts','n key (Open new message)<br>ESC key (Close tab)<br>i key (print)<br>e key (forward)<br>r key (reply)<br>DELETE key (delete the current message)<br>Ctrl + up (go to previous message)<br>Ctrl + down (go to next message)<br>Shift + up or down (select multiple messages)<br>F9  key (search at catalog)<br>');
+create_check_box('Use shortcuts?','use_shortcuts','n key (Open new message)<br />ESC key (Close tab)<br />i key (print)<br />e key (forward)<br />r key (reply)<br />DELETE key (delete the current message)<br />Ctrl + up (go to previous message)<br />Ctrl + down (go to next message)<br />Shift + up or down (select multiple messages)<br />F9  key (search at catalog)<br />');
 create_check_box('Auto save draft','auto_save_draft','When you are away from computer it saves automatically the message you are writing');
 create_check_box('Send messages with return recipient option by default','return_recipient_deafault','With this option every new email will get the return recipient option marked');
 

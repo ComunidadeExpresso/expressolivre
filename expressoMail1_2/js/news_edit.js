@@ -99,7 +99,7 @@ cnews_edit.prototype.read_item = function(item_number){
 	'<span>&nbsp;</span>'+
 	(this.rssXml.getElementsByTagName('item')[parseInt(item_number)] == undefined ? '<img style="cursor: default;" src="./templates/default/images/down.gray.button.png">' :
 	'<img onclick="news_edit.read_item('+(parseInt(item_number)+1)+')" style="cursor: pointer;" src="./templates/default/images/down.button.png">')+
-	"</td></tr></table><h2>"+title+"</h2><br>"+description+"</div>";
+	"</td></tr></table><h2>"+title+"</h2><br />"+description+"</div>";
 	Element('content_id_'+border_id).innerHTML = toolbarCode;
 	resizeWindow();
 }
@@ -121,10 +121,10 @@ cnews_edit.prototype.makeWindow = function(options)
 	el.innerHTML = "<table border=0><tbody><tr>"+
 		'<td valign="bottom"><input type="text" id="rssEnter" size="40"><input value="'+get_lang('subscribe')+
 		'" onclick="news_edit.subscribe();" type="button">'+
-		'<br>Enter de url of RSS service<br>'+
+		'<br />Enter de url of RSS service<br />'+
 		'</td></tr>'+
 		'<tr><td id="serv_table"></td></tr>'+
-		"</tbody></table><br>";
+		"</tbody></table><br />";
 
 
 	var butt = Element('dJSWin_wfolders_bok')

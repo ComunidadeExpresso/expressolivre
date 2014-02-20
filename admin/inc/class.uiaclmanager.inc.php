@@ -155,7 +155,7 @@
 			$total = 0;
 			foreach($acl_manager['rights'] as $name => $value)
 			{
-				$cb .= '<input type="checkbox" name="acl_rights[]" value="'.$value.'"'.($grants & $value ? ' checked' : '').'>&nbsp;'.lang($name)."<br>\n";
+				$cb .= '<input type="checkbox" name="acl_rights[]" value="'.$value.'"'.($grants & $value ? ' checked' : '').'>&nbsp;'.lang($name)."<br />\n";
 			}
 			$this->template->set_var('select_values',$cb);
 			$this->template->set_var('lang_submit',lang('Save'));

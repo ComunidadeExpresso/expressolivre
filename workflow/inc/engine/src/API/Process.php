@@ -250,13 +250,13 @@ class Process extends Base {
 		{
 		  if (isset($this->config[$config_var]))
 		  {// we already know this config value
-		    //echo "<br>ok we had one for ".$config_var;
+		    //echo "<br />ok we had one for ".$config_var;
 		    $local_array[$config_var] = $this->config[$config_var];
 		  }
 		  else
 		  {
 		    // we have no value for it here, we'll ask it in the global conf
-		    //echo "<br>we had nothing for ".$config_var;
+		    //echo "<br />we had nothing for ".$config_var;
 		    $global_default_array[$config_var] = $default_value;
 		  }
 		}

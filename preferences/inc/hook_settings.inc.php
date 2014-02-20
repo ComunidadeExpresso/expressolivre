@@ -23,7 +23,7 @@
 	}
 
 	create_input_box('Max matches per page','maxmatchs',
-		'Any listing in phpGW will show you this number of entries or lines per page.<br>To many slow down the page display, to less will cost you the overview.','',3);
+		'Any listing in phpGW will show you this number of entries or lines per page.<br />To many slow down the page display, to less will cost you the overview.','',3);
 	create_select_box('Interface/Template Selection','template_set',$_templates,
 		'A template defines the layout of phpGroupWare and it contains icons for each application.');
 	create_select_box('Theme (colors/fonts) Selection','theme',$_themes,
@@ -53,7 +53,7 @@
 		$tz_offset[$i] = $i . ' ' . lang('hours').': ' . date($format,$t);
 	}
 	create_select_box('Time zone offset','tz_offset',$tz_offset,
-		'How many hours are you in front or after the timezone of the server.<br>If you are in the same time zone as the server select 0 hours, else select your locale date and time.');
+		'How many hours are you in front or after the timezone of the server.<br />If you are in the same time zone as the server select 0 hours, else select your locale date and time.');
 
 	$date_formats = array(
 		'm/d/Y' => 'm/d/Y',
@@ -86,7 +86,7 @@
 	
 	$langs = $GLOBALS['phpgw']->translation->get_installed_langs();
 	create_select_box('Language','lang',$langs,
-		'Select the language of texts and messages within phpGroupWare.<br>Some languages may not contain all messages, in that case you will see an english message.');
+		'Select the language of texts and messages within phpGroupWare.<br />Some languages may not contain all messages, in that case you will see an english message.');
 
 	// preference.php handles this function
 	if (is_admin())
@@ -105,7 +105,7 @@
 		}
 	}
 	create_select_box('Default application','default_app',$user_apps,
-		"The default application will be started when you enter phpGroupWare or click on the homepage icon.<br>You can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to be configured in the preferences of each application).");
+		"The default application will be started when you enter phpGroupWare or click on the homepage icon.<br />You can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to be configured in the preferences of each application).");
 
 	create_input_box('Currency','currency',
 		'Which currency symbol or name should be used in phpGroupWare.');

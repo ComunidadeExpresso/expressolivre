@@ -8,7 +8,7 @@ div#tipDiv {
   cursor: default;
 }
 </style>
-<script language="JavaScript">
+<script type="text/javascript">
 	self.name="first_Window";
 	function accounts_popup()
 	{

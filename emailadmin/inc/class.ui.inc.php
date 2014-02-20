@@ -221,7 +221,7 @@
 			
 			foreach($profileData as $key => $value)
 			{
-				//print "$key $value<br>";
+				//print "$key $value<br />";
 				switch($key)
 				{
 					case 'imapEnableCyrusAdmin':

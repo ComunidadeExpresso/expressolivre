@@ -166,9 +166,9 @@
 					}
 					$id_exist = $groups->exists((int)$thisacctid);
 					
-					echo '<br>accountid: ' . $thisacctid;
-					echo '<br>accountlid: ' . $thisacctlid;
-					echo '<br>exists: ' . $id_exist;
+					echo '<br />accountid: ' . $thisacctid;
+					echo '<br />accountlid: ' . $thisacctlid;
+					echo '<br />exists: ' . $id_exist;
 					
 					/* If not, create it now. */
 					if(!$id_exist)
@@ -216,7 +216,7 @@
 					// If not, create it now.
 					if(!$id_exist)
 					{
-						echo '<br>Adding' . $thisacctid;
+						echo '<br />Adding' . $thisacctid;
 						$thisaccount_info = array(
 							'account_type'      => 'u',
 							'account_id'        => $thisacctid,
@@ -241,14 +241,14 @@
 
 	if($error)
 	{
-		//echo '<br><center><b>Error:</b> '.$error.'</center>';
+		//echo '<br /><center><b>Error:</b> '.$error.'</center>';
 		$GLOBALS['phpgw_setup']->html->show_alert_msg('Error',$error);
 	}
 
 	if($setup_complete)
 	{
-		echo '<br><center>'.lang('Export has been completed!  You will need to set the user passwords manually.').'</center>';
-		echo '<br><center>'.lang('Click <a href="index.php">here</a> to return to setup.').'</center>';
+		echo '<br /><center>'.lang('Export has been completed!  You will need to set the user passwords manually.').'</center>';
+		echo '<br /><center>'.lang('Click <a href="index.php">here</a> to return to setup.').'</center>';
 		$GLOBALS['phpgw_setup']->html->show_footer();
 		exit;
 	}

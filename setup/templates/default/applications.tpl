@@ -19,7 +19,7 @@ function check_all(which)
 }
 </script>
 
-<br>
+<br />
 <div align="center">
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
   <tr>
@@ -138,7 +138,7 @@ function check_all(which)
 <!-- BEGIN footer -->
   </tr>
 </table>
-<br>
+<br />
 <table width="100%" cellspacing="0">
   <tr class="banner">
     <td>&nbsp;</td>

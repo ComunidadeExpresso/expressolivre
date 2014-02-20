@@ -6,3 +6,4 @@
   </table>
 </div>
 <!-- END footer.tpl -->
+</body></html>

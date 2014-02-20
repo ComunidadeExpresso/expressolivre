@@ -77,11 +77,11 @@
 			$dom = get_var('setting_'.$variableName,Array('POST'));
 			if(!$dom['config_pass'] && !$dom['config_password'])
 			{
-				$errors .= '<br>' . lang("You didn't enter a config password for domain %1",$v);
+				$errors .= '<br />' . lang("You didn't enter a config password for domain %1",$v);
 			}
 			if(!$dom['config_user'])
 			{
-				$errors .= '<br>' . lang("You didn't enter a config username for domain %1",$v);
+				$errors .= '<br />' . lang("You didn't enter a config username for domain %1",$v);
 			}
 		}
 
@@ -89,11 +89,11 @@
 		
 		if(!$setting['HEADER_ADMIN_PASSWORD'] && !$setting['HEADER_ADMIN_PASS'])
 		{
-			$errors .= '<br>' . lang("You didn't enter a header admin password");
+			$errors .= '<br />' . lang("You didn't enter a header admin password");
 		}
 		if(!$setting['HEADER_ADMIN_USER'])
 		{
-			$errors .= '<br>' . lang("You didn't enter a header admin username");
+			$errors .= '<br />' . lang("You didn't enter a header admin username");
 		}
 
 		if($errors)
@@ -129,7 +129,7 @@
 	{
 		case '1':
 			$GLOBALS['phpgw_info']['setup']['HeaderFormMSG'] = lang('Create your header.inc.php');
-			$GLOBALS['phpgw_info']['setup']['PageMSG'] = lang('You have not created your header.inc.php yet!<br> You can create it now.');
+			$GLOBALS['phpgw_info']['setup']['PageMSG'] = lang('You have not created your header.inc.php yet!<br /> You can create it now.');
 			break;
 		case '2':
 			$GLOBALS['phpgw_info']['setup']['HeaderFormMSG'] = lang('Your header admin password is NOT set. Please set it now!');
@@ -149,7 +149,7 @@
 			break;
 		case '4':
 			$GLOBALS['phpgw_info']['setup']['HeaderFormMSG'] = lang('Your header.inc.php needs upgrading.');
-			$GLOBALS['phpgw_info']['setup']['PageMSG'] = lang('Your header.inc.php needs upgrading.<br><blink><b class="msg">WARNING!</b></blink><br><b>MAKE BACKUPS!</b>');
+			$GLOBALS['phpgw_info']['setup']['PageMSG'] = lang('Your header.inc.php needs upgrading.<br /><blink><b class="msg">WARNING!</b></blink><br /><b>MAKE BACKUPS!</b>');
 			$GLOBALS['phpgw_info']['setup']['HeaderLoginMSG'] = lang('Your header.inc.php needs upgrading.');
 			if(!$GLOBALS['phpgw_setup']->auth('Header'))
 			{
@@ -196,13 +196,13 @@
 			$header_template = CreateObject('setup.Template','../');
 			$GLOBALS['phpgw_setup']->html->show_header('Generated header.inc.php', False, 'header');
 			echo '<table width="90%"><tr><td>';
-			echo '<br>' . lang('Save this text as contents of your header.inc.php') . '<br><hr>';
+			echo '<br />' . lang('Save this text as contents of your header.inc.php') . '<br /><hr />';
 			$newheader = $GLOBALS['phpgw_setup']->html->generate_header();
 			echo '<pre>';
 			echo htmlentities($newheader);
-			echo '</pre><hr>';
+			echo '</pre><hr />';
 			echo '<form action="index.php" method="post">';
-			echo '<br>' . lang('After retrieving the file, put it into place as the header.inc.php.  Then, click "continue".') . '<br>';
+			echo '<br />' . lang('After retrieving the file, put it into place as the header.inc.php.  Then, click "continue".') . '<br />';
 			echo '<input type="hidden" name="FormLogout" value="header">';
 			echo '<input type="submit" name="junk" value="'.lang('Continue').'">';
 			echo '</form>';
@@ -221,8 +221,8 @@
 				$GLOBALS['phpgw_setup']->html->show_header('Saved header.inc.php', False, 'header');
 				echo '<div align="center"><form action="index.php" method="post">';
  				echo '' . lang('Created header.inc.php!');
-				echo '<br><br><input type="hidden" name="FormLogout" value="header">';
-				echo '<input type="submit" name="junk" value="'.lang('Continue').'"><br><br></div>';
+				echo '<br /><br /><input type="hidden" name="FormLogout" value="header">';
+				echo '<input type="submit" name="junk" value="'.lang('Continue').'"><br /><br /></div>';
 				echo '</form>';
 				echo '</body></html>';
 				break;
@@ -230,8 +230,8 @@
 			else
 			{
 				$GLOBALS['phpgw_setup']->html->show_header('Error generating header.inc.php', False, 'header');
-				echo lang('Could not open header.inc.php for writing!') . '<br>' . "\n";
-				echo lang('Please check read/write permissions on directories, or back up and use another option.') . '<br>';
+				echo lang('Could not open header.inc.php for writing!') . '<br />' . "\n";
+				echo lang('Please check read/write permissions on directories, or back up and use another option.') . '<br />';
 				echo '</td></tr></table></body></html>';
 				break;
 			}
@@ -243,7 +243,7 @@
 
 			if(!get_var('ConfigLang',array('POST','COOKIE')))
 			{
-				$detected .= '<br><form action="manageheader.php" method="Post">Please Select your language '.lang_select(True,'en')."</form>\n";
+				$detected .= '<br /><form action="manageheader.php" method="Post">Please Select your language '.lang_select(True,'en')."</form>\n";
 			}
 
 			$detected .= '<table border="0" width="100%" cellspacing="0" cellpadding="0">' . "\n";
@@ -255,47 +255,47 @@
 			$supported_db = array();
 			if(extension_loaded('pgsql') || function_exists('pg_connect'))
 			{
-				$detected .= lang('You appear to have PostgreSQL support enabled') . '<br>' . "\n";
+				$detected .= lang('You appear to have PostgreSQL support enabled') . '<br />' . "\n";
 				$supported_db[]  = 'pgsql';
 			}
 			else
 			{
-				$detected .= lang('No PostgreSQL support found. Disabling') . '<br>' . "\n";
+				$detected .= lang('No PostgreSQL support found. Disabling') . '<br />' . "\n";
 			}
 			if(extension_loaded('mysql') || function_exists('mysql_connect'))
 			{
-				$detected .= lang('You appear to have MySQL support enabled') . '<br>' . "\n";
+				$detected .= lang('You appear to have MySQL support enabled') . '<br />' . "\n";
 				$supported_db[] = 'mysql';
 			}
 			else
 			{
-				$detected .= lang('No MySQL support found. Disabling') . '<br>' . "\n";
+				$detected .= lang('No MySQL support found. Disabling') . '<br />' . "\n";
 			}
 			if(extension_loaded('mssql') || function_exists('mssql_connect'))
 			{
-				$detected .= lang('You appear to have Microsoft SQL Server support enabled') . '<br>' . "\n";
+				$detected .= lang('You appear to have Microsoft SQL Server support enabled') . '<br />' . "\n";
 				$supported_db[] = 'mssql';
 			}
 			else
 			{
-				$detected .= lang('No Microsoft SQL Server support found. Disabling') . '<br>' . "\n";
+				$detected .= lang('No Microsoft SQL Server support found. Disabling') . '<br />' . "\n";
 			}
 /*
 			if(extension_loaded('oci8'))
 			{
-				$detected .= lang('You appear to have Oracle V8 (OCI) support enabled') . '<br>' . "\n";
+				$detected .= lang('You appear to have Oracle V8 (OCI) support enabled') . '<br />' . "\n";
 				$supported_db[] = 'oracle';
 			}
 			else
 			{
 				if(extension_loaded('oracle'))
 				{
-					$detected .= lang('You appear to have Oracle support enabled') . '<br>' . "\n";
+					$detected .= lang('You appear to have Oracle support enabled') . '<br />' . "\n";
 					$supported_db[] = 'oracle';
 				}
 				else
 				{
-					$detected .= lang('No Oracle-DB support found. Disabling') . '<br>' . "\n";
+					$detected .= lang('No Oracle-DB support found. Disabling') . '<br />' . "\n";
 				}
 			}
 */
@@ -303,7 +303,7 @@
 			{
 				$detected .= '<b><p align="center" class="msg">'
 					. lang('Did not find any valid DB support!')
-					. "<br>\n"
+					. "<br />\n"
 					. lang('Try to configure your php to support one of the above mentioned DBMS, or install eGroupWare by hand.')
 					. '</p></b><td></tr></table></body></html>';
 				echo $detected;
@@ -320,7 +320,7 @@
 			}
 			else
 			{
-				$detected .= lang('You appear to be using PHP4. Enabling PHP4 sessions support') . '<br>' . "\n";
+				$detected .= lang('You appear to be using PHP4. Enabling PHP4 sessions support') . '<br />' . "\n";
 				$supported_sessions_type[] = 'php4';	// makeing php4 sessions the default
 				$supported_sessions_type[] = 'db';
 			}
@@ -336,25 +336,25 @@
 			/*
 			if(extension_loaded('xml') || function_exists('xml_parser_create'))
 			{
-				$detected .= lang('You appear to have XML support enabled') . '<br>' . "\n";
+				$detected .= lang('You appear to have XML support enabled') . '<br />' . "\n";
 				$xml_enabled = 'True';
 			}
 			else
 			{
-				$detected .= lang('No XML support found. Disabling') . '<br>' . "\n";
+				$detected .= lang('No XML support found. Disabling') . '<br />' . "\n";
 			}
 			*/
 
 			$no_guess = False;
 			if(file_exists('../header.inc.php') && is_file('../header.inc.php') && is_readable('../header.inc.php'))
 			{
-				$detected .= lang('Found existing configuration file. Loading settings from the file...') . '<br>' . "\n";
+				$detected .= lang('Found existing configuration file. Loading settings from the file...') . '<br />' . "\n";
 				$GLOBALS['phpgw_info']['flags']['noapi'] = True;
 				$no_guess = true;
 				/* This code makes sure the newer multi-domain supporting header.inc.php is being used */
 				if(!isset($GLOBALS['phpgw_domain']))
 				{
-					$detected .= lang('You need to add some domains to your header.inc.php.') . '<br>' . "\n";
+					$detected .= lang('You need to add some domains to your header.inc.php.') . '<br />' . "\n";
 					$GLOBALS['phpgw_domain']['default'] = array();
 					$setup_tpl->set_var('lang_domain',lang('Domain'));
 					$setup_tpl->set_var('lang_delete',lang('Delete'));
@@ -379,8 +379,8 @@
 				{
 					if(@$GLOBALS['phpgw_info']['server']['header_version'] != @$GLOBALS['phpgw_info']['server']['current_header_version'])
 					{
-						$detected .= lang("You're using an old header.inc.php version...") . '<br>' . "\n";
-						$detected .= lang('Importing old settings into the new format....') . '<br>' . "\n";
+						$detected .= lang("You're using an old header.inc.php version...") . '<br />' . "\n";
+						$detected .= lang('Importing old settings into the new format....') . '<br />' . "\n";
 					}
 					reset($GLOBALS['phpgw_domain']);
 					$default_domain = each($GLOBALS['phpgw_domain']);
@@ -460,7 +460,7 @@
 			}
 			else
 			{
-				$detected .= lang('Sample configuration not found. using built in defaults') . '<br>' . "\n";
+				$detected .= lang('Sample configuration not found. using built in defaults') . '<br />' . "\n";
 				$GLOBALS['phpgw_info']['server']['server_root']  = $realpath;
 				$GLOBALS['phpgw_info']['server']['include_root'] = $realpath;
 				/* This is the basic include needed on each page for eGroupWare application compliance */
@@ -515,7 +515,7 @@
 			// now guessing better settings then the default ones 
 			if(!$no_guess)
 			{
-				$detected .= lang('Now guessing better values for defaults...') . '<br>' . "\n";
+				$detected .= lang('Now guessing better values for defaults...') . '<br />' . "\n";
 				$this_dir = dirname($_SERVER['SCRIPT_FILENAME']);
 				$updir    = str_replace('/setup','',$this_dir);
 				$GLOBALS['phpgw_info']['server']['server_root'] = $updir; 
@@ -705,7 +705,7 @@
 			if(!$found_dbtype)
 			{
 				/*
-				$errors .= '<br><font color="red">' . lang('Warning!') . '<br>'
+				$errors .= '<br /><font color="red">' . lang('Warning!') . '<br />'
 					. lang('The db_type in defaults (%1) is not supported on this server. using first supported type.',$GLOBALS['phpgw_info']['server']['db_type'])
 					. '</font>';
 				*/
@@ -714,14 +714,14 @@
 			if(is_writeable('../header.inc.php') ||
 				(!file_exists('../header.inc.php') && is_writeable('../')))
 			{
-				$errors .= '<br><input type="submit" name="action[write]" value="'.lang('Write config').'">&nbsp;'
+				$errors .= '<br /><input type="submit" name="action[write]" value="'.lang('Write config').'">&nbsp;'
 					. lang('or') . '&nbsp;<input type="submit" name="action[download]" value="'.lang('Download').'">&nbsp;'
 					. lang('or') . '&nbsp;<input type=submit name="action[view]" value="'.lang('View').'"> '.lang('the file').'.</form>';
 			}
 			else
 			{
-				$errors .= '<br>'
-					. lang('Cannot create the header.inc.php due to file permission restrictions.<br> Instead you can %1 the file.',
+				$errors .= '<br />'
+					. lang('Cannot create the header.inc.php due to file permission restrictions.<br /> Instead you can %1 the file.',
 					'<input type="submit" name="action[download]" value="'.lang('Download').'">' . lang('or') . '&nbsp;<input type="submit" name="action[view]" value="'.lang('View').'">')
 					. '</form>';
 			}
@@ -765,7 +765,7 @@
 			$setup_tpl->set_var('lang_mcryptversion',lang('MCrypt version'));
 			$setup_tpl->set_var('lang_mcryptversiondescr',lang('Set this to "old" for versions &lt; 2.4, otherwise the exact mcrypt version you use.'));
 			$setup_tpl->set_var('lang_mcryptiv',lang('MCrypt initialization vector'));
-			$setup_tpl->set_var('lang_mcryptivdescr',lang('This should be around 30 bytes in length.<br>Note: The default has been randomly generated.'));
+			$setup_tpl->set_var('lang_mcryptivdescr',lang('This should be around 30 bytes in length.<br />Note: The default has been randomly generated.'));
 			$setup_tpl->set_var('lang_domselect',lang('Domain select box on login'));
 			$setup_tpl->set_var('lang_finaldescr',lang('After retrieving the file, put it into place as the header.inc.php.  Then, click "continue".'));
 			$setup_tpl->set_var('lang_continue',lang('Continue'));

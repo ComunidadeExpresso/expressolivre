@@ -68,7 +68,7 @@ EOF;
 	$output .= $nameLeftLabel;
 
 	$output .= <<<EOF
-				<br>
+				<br />
 EOF;
 
 	$output .= smarty_function_html_options(array_merge(array(
@@ -87,7 +87,7 @@ EOF;
 	$output .= <<<EOF
 			<input type="hidden" name="$name" id="$name" value="$id_value"/>
 			<input class="form_botao" type="button" value=">>" onclick="moveOptions('$nameLeft','$nameRight')">
-			<br>
+			<br />
 			<input class="form_botao" type="button" value="<<" onclick="moveOptions('$nameRight','$nameLeft')">
 EOF;
 
@@ -100,7 +100,7 @@ EOF;
 	$output .= $nameRightLabel;
 
 	$output .= <<<EOF
-				<br>
+				<br />
 EOF;
 
 	$output .= smarty_function_html_options(array_merge(array(

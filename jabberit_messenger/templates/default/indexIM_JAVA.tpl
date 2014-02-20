@@ -22,8 +22,8 @@
 		    
 		    O Expresso Messenger é uma aplicação que permite o envio e recebimento de mensagens instantaneamente. Através da sua lista de contatos, você pode trocar mensagens e arquivos com seus contatos. Através da lista também é possível saber se seus contatos estão Online ou Offline. Para a troca de mensagens basta clicar em cima do nome do seu contato, se o mesmo estiver online ( verifique a sessão <a href="#status">Indicador de Status</a> ) abrirá uma janela onde você poderá enviar/receber as mensagens. O Expresso Messenger está associado
 		    a um serviço de mensagens instantâneas Jabber e este serviço é responsável pelo armazenamento dos seus contatos, preferências e mensagens.
-			<br>
-			<br>
+			<br />
+			<br />
 			<img src="{url}templates/default/images/tela_inicial.png" style="width:239px; height:436px;" alt="Im Screenshot" title="Im Screenshot" align="left" style="padding-right:4px;"> 
 		    <br clear="all">
 			( figura 1 )
@@ -55,7 +55,7 @@
 			( figura 2 )    
 		    <h2><a name="conf_status">4. Mensagens de Status</a></h2>
 		    <br/>
-		    É possível configurar as mensagens para cada status escolhido (figura 3) clicando no item Personalizar.<br><br>
+		    É possível configurar as mensagens para cada status escolhido (figura 3) clicando no item Personalizar.<br /><br />
 			<img src="{url}templates/default/images/conf_status.png" style="width:345px; height:270px; margin-top:5px;" alt="Mensagens de Status" title="Mensagens de Status" align="left"/>
 			<br clear="all"/>
 			( Figura 3 )

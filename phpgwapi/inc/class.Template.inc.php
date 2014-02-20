@@ -477,8 +477,8 @@
 		 */
 		function haltmsg($msg)
 		{
-			printf("<b>Template Error:</b> %s<br>\n", $msg);
-			echo "<b>Backtrace</b>: ".function_backtrace(2)."<br>\n";
+			printf("<b>Template Error:</b> %s<br />\n", $msg);
+			echo "<b>Backtrace</b>: ".function_backtrace(2)."<br />\n";
 		}
 
 		function check_debug($str)

@@ -51,7 +51,7 @@ class Download {
     
     function Download($path, $base) {
         
-        $this->sysDebug .= '<b>Download</b><br>';
+        $this->sysDebug .= '<b>Download</b><br />';
         
         try{
             //pastas que s�o permitidas fazer download
@@ -61,9 +61,9 @@ class Download {
             
             if(trim($path) != '' && in_array(trim($path), $arrFolders)){
                 $this->_pathFolder = trim($path);
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasta: </b> ' . $this->_pathFolder . '<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasta: </b> ' . $this->_pathFolder . '<br />';
             }/* else {
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasta Invalida: </b> [' . $path . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasta Invalida: </b> [' . $path . ']<br />';
                 throw new exception(' caminho [' . $path . '] � invalido.');
             }
             */
@@ -73,21 +73,21 @@ class Download {
                 } else {
                     $this->_pathBase = _SITEDIR_;
                 }
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base: </b> ' . $this->_pathBase . '<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base: </b> ' . $this->_pathBase . '<br />';
             } else {
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base Invalida: </b> [' . $base . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base Invalida: </b> [' . $base . ']<br />';
                 throw new exception('Base [' . $base . '] � invalido.');
             }
             
             /*if(!is_dir($this->_pathBase . $this->_pathFolder)){
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caminho n�o corresponde a uma pasta valida: </b> [' . $this->_pathBase . $this->_pathFolder . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caminho n�o corresponde a uma pasta valida: </b> [' . $this->_pathBase . $this->_pathFolder . ']<br />';
                 throw new exception(' Caminho n�o corresponde a uma pasta valida: </b> [' . $this->_pathBase . $this->_pathFolder . '].');
             } */
             
         } catch (exception $e) {
             
-            $this->sysError = '<b>Erro: </b>' . $e->getMessage() . '<br>';
-            $this->sysDebug .= '<b>Thows Construtor Exit</b> <br>';
+            $this->sysError = '<b>Erro: </b>' . $e->getMessage() . '<br />';
+            $this->sysDebug .= '<b>Thows Construtor Exit</b> <br />';
 
             $fp = fopen ("/tmp/logDownloadsIndevidos","a+");
             $writeDebug = "Data : " . date('d/m/Y H:m:s') . 
@@ -95,7 +95,7 @@ class Download {
                           " \nIP : " . $_SERVER['REMOTE_ADDR'] . 
                           " \nUsuoid : " . $_SESSION['usuario']['oid'] .
                           "\n" . $this->sysDebug . " \n\n";
-            $writeDebug = strip_tags(html_entity_decode(str_ireplace('<br>', "\n", $writeDebug), ENT_NOQUOTES, 'ISO8859-1'));
+            $writeDebug = strip_tags(html_entity_decode(str_ireplace('<br />', "\n", $writeDebug), ENT_NOQUOTES, 'ISO8859-1'));
             fwrite($fp, $writeDebug );
             fclose($fp);
 
@@ -118,9 +118,9 @@ class Download {
             
             if(trim($file) != ''){
                 $this->_file = trim($file);
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File Name: </b> [' . $this->_file . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File Name: </b> [' . $this->_file . ']<br />';
             } else {
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base Invalida: </b> [' . $file . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Base Invalida: </b> [' . $file . ']<br />';
                 throw new exception(' Arquivo [' . $file . '] � invalido.');
             }
             
@@ -128,29 +128,29 @@ class Download {
             
             preg_match('/\.([^\.]*$)/', $this->_file, $extension);
             $this->_fileExtension = strtolower(substr($extension[0], 1, strlen($extension[0])));
-            $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formato do Arquivo: </b> [' . $this->_fileExtension . ']<br>';
+            $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formato do Arquivo: </b> [' . $this->_fileExtension . ']<br />';
             
             if($this->_fileExtension == 'php'){
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formato de Arquivo invalido: </b> [' . $this->_fileExtension . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formato de Arquivo invalido: </b> [' . $this->_fileExtension . ']<br />';
                 throw new exception('Arquivo invalido.');
             }
             
             if(strstr( $this->_pathBase . $this->_pathFolder . $this->_file, '../' )){
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasta contem caracteres invalidos: </b> [' . $this->_pathBase . $this->_pathFolder . $this->_file . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pasta contem caracteres invalidos: </b> [' . $this->_pathBase . $this->_pathFolder . $this->_file . ']<br />';
                 throw new exception(' caminho [' . $this->_pathBase . $this->_pathFolder . $this->_file . '] � invalido.');
             }
             
             if(!file_exists($this->_pathBase . $this->_pathFolder . $this->_file)){
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo n�o encontrado: </b> [' . $this->_pathBase . $this->_pathFolder . $this->_file . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo n�o encontrado: </b> [' . $this->_pathBase . $this->_pathFolder . $this->_file . ']<br />';
                 throw new exception('Arquivo n�o encontrado.');
             }
             
             $sizeFile = filesize($this->_pathBase . $this->_pathFolder . $this->_file);
             if($sizeFile > 0 ){
                 $this->_fileSize = $sizeFile;   
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo com tamanho </b> [' . $this->_fileSize . '] bytes<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo com tamanho </b> [' . $this->_fileSize . '] bytes<br />';
             } else {
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo com tamanho 0 bytes: </b><br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo com tamanho 0 bytes: </b><br />';
                 throw new exception('Arquivo truncado.');
             }
             
@@ -188,7 +188,7 @@ class Download {
             $arrExtensions[] = 'eml';
             
             if(! in_array($this->_fileExtension, $arrExtensions) ){
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extens�o de arquivo n�o permitida</b><br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extens�o de arquivo n�o permitida</b><br />';
                 throw new exception('Extens�o invalida [' . $this->_fileExtension . '].');
             }
            
@@ -249,17 +249,17 @@ class Download {
                     $this->_fileMime = 'application/octet-stream'; 
             }
             if ($this->_fileMime == 'application/octet-stream') {
-               $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mime Type Default: </b> [' . $this->_fileMime . ']<br>';
+               $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mime Type Default: </b> [' . $this->_fileMime . ']<br />';
             } else {
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mime Type Identificado: </b> [' . $this->_fileMime . ']<br>';;
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mime Type Identificado: </b> [' . $this->_fileMime . ']<br />';;
             }
             
             if($forceDownload === true){
                 $this->_forceDownload = "Content-Disposition: attachment; filename=" . $this->_file;
-                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download: </b> [' . $this->_forceDownload . ']<br>';
+                $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download: </b> [' . $this->_forceDownload . ']<br />';
             } else {
                  $this->_forceDownload = "Content-Disposition: inline; filename=" . $this->_file;
-                 $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download: </b> [' . $this->_forceDownload . ']<br>';
+                 $this->sysDebug .= '<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download: </b> [' . $this->_forceDownload . ']<br />';
             }
 
             header("Expires: " . gmdate("D, d M Y H:i:s") . " GMT;");
@@ -290,8 +290,8 @@ class Download {
             //header('Content-Description: ' . $this->_file . ';');
             */
         } catch (exception $e) {
-            $this->sysError = '<b>Erro: </b>' . $e->getMessage() . '<br>';
-            $this->sysDebug .= '<b>Thows UPLOAD Exit</b> <br>';
+            $this->sysError = '<b>Erro: </b>' . $e->getMessage() . '<br />';
+            $this->sysDebug .= '<b>Thows UPLOAD Exit</b> <br />';
  
             $fp = fopen ("/tmp/logDownloadsIndevidos","a+");
             $writeDebug = "Data : " . date('d/m/Y H:m:s') . 
@@ -299,7 +299,7 @@ class Download {
                           " \nIP : " . $_SERVER['REMOTE_ADDR'] . 
                           " \nUsuoid : " . $_SESSION['usuario']['oid'] .
                           "\n" . $this->sysDebug . " \n\n";
-            $writeDebug = strip_tags(html_entity_decode(str_ireplace('<br>', "\n", $writeDebug), ENT_NOQUOTES, 'ISO8859-1'));
+            $writeDebug = strip_tags(html_entity_decode(str_ireplace('<br />', "\n", $writeDebug), ENT_NOQUOTES, 'ISO8859-1'));
             fwrite($fp, $writeDebug );
             fclose($fp);
             

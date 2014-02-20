@@ -845,8 +845,8 @@
 			reset($allGroups);
 			while (list($key,$groupData) = each($allGroups)) 
 			{
-				/* print "$key,". $groupData['account_id'] ."<br>";*/
-				/* print "$key,". $_userData['account_groups'][1] ."<br>"; */
+				/* print "$key,". $groupData['account_id'] ."<br />";*/
+				/* print "$key,". $_userData['account_groups'][1] ."<br />"; */
 
 				if ($newGroups[$groupData['account_id']]) 
 				{

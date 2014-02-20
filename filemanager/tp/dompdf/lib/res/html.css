@@ -300,7 +300,7 @@ ol {
 }
 
 li {
-  display: list-item;
+  /*display: list-item;*/
 }
 
 /* nested lists have no top/bottom margins */

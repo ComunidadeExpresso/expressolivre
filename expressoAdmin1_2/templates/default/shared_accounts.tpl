@@ -8,12 +8,12 @@
 
         <script type="text/javascript" src="prototype/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="prototype/plugins/jquery/jquery-ui.custom.min.js"></script>
-        <script src="prototype/plugins/json2/json2.js" language="javascript"></script>
-        <script src="prototype/plugins/store/jquery.store.js" language="javascript"></script>
+        <script type="text/javascript" src="prototype/plugins/json2/json2.js"></script>
+        <script type="text/javascript" src="prototype/plugins/store/jquery.store.js"></script>
 
-        <script src="prototype/api/datalayer.js" language="javascript"></script>	
+        <script type="text/javascript" src="prototype/api/datalayer.js"></script>
 
-        <script language="javascript">DataLayer.dispatchPath = "prototype/";</script>
+        <script type="text/javascript">DataLayer.dispatchPath = "prototype/";</script>
         <script type="text/javascript" src="prototype/plugins/datejs/date-pt-BR.js"></script>
         <script type="text/javascript" src="prototype/plugins/datejs/sugarpak.js"></script>
         <script type="text/javascript" src="prototype/plugins/datejs/parser.js"></script>

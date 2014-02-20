@@ -169,10 +169,10 @@
 							{
 								$short_name = substr($long_name,0,(int) lang('3 number of chars for month-shortcut'));
 							}
-							//echo "<br>checking '".$fields[$n]."' against '$long_name' or '$short_name'";
+							//echo "<br />checking '".$fields[$n]."' against '$long_name' or '$short_name'";
 							if ($fields[$n] == $long_name || $fields[$n] == $short_name)
 							{
-								//echo " ==> OK<br>";
+								//echo " ==> OK<br />";
 								$fields[$n] = $i;
 								break;
 							}

@@ -179,7 +179,7 @@
 				<input type="input" name="default_user_desc" id="default_user_desc" value="{wf_default_user_desc}" readonly="true" size="40" />
 				<a href="javascript:void(0)" onclick="openParticipantsWindow('default_user', 'uid=1&hidegroups=1');"><img border="0" src="workflow/templateFile.php?file=images/add_user.png" /></a>
 				<button onclick="document.getElementById('default_user_desc').value=''; document.getElementById('default_user').value='*'; return false">{lang_without_default_user}</button>
-				<br>
+				<br />
 				<span style="color: gray">
 					{lang_the_default_user_will_only_be_set_if_he_is_mapped_to_a_role_on_the_activity} ({lang_setNextUser_directives_can_override_it}).
 				</span>
@@ -192,7 +192,7 @@
 					<option value="{proc_roleId}" {proc_role_selected}>{proc_roleName}</option>
 		 	    <!-- END block_default_roles -->
 			    </select>
-				<br>
+				<br />
 				<span style="color: gray">
 					{lang_default_role_will_be_set_only_if_it_is_mapped_on_the_activity} ({lang_setNextUser_directives_can_override_it}).
 				</span>
@@ -425,7 +425,7 @@
 		</td>
 	</tr>
 </table>	
-<script language="javascript">
+<script type="text/javascript">
 if (!{expandTable})
 	toggleTableVisibility('activitiesPropertiesTable');
 

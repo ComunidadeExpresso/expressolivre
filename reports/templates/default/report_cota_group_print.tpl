@@ -84,10 +84,10 @@ margin-top: 300px;
         </table>
 		<table border="0" width="90%">
 			<tr>
-			  <td colspan="5" align="center"><div align="center" class="style1">{subtitulo}</div><br></td>
+			  <td colspan="5" align="center"><div align="center" class="style1">{subtitulo}</div><br /></td>
 	      </tr>
 			<tr>
-			  <td colspan="5" align="center"><div align="center" class="style6">{subtitulo1}</div><br></td>
+			  <td colspan="5" align="center"><div align="center" class="style6">{subtitulo1}</div><br /></td>
 	      </tr>
 			<tr>
 			  <td width="25%" align="left"><div align="left" class="style2">{lang_report date}:{data_atual}</div></td>
@@ -104,7 +104,7 @@ margin-top: 300px;
 					<tr>
 				  		<td width="50%">&nbsp;
 						</td>
-				  	    <td width="50%"><div align="right">{lang_page_now}:&nbsp;<strong>{page_now}</strong>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;{lang_total_pages}:&nbsp;<strong>{cont_page}</strong>&nbsp;&nbsp;<br></div></td>
+				  	    <td width="50%"><div align="right">{lang_page_now}:&nbsp;<strong>{page_now}</strong>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;{lang_total_pages}:&nbsp;<strong>{cont_page}</strong>&nbsp;&nbsp;<br /></div></td>
 					</tr>
 			  </table>
 			</td>

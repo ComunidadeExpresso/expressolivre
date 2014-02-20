@@ -53,9 +53,9 @@
 				</table>
 			</td>
 			<td id="buttons" width="140" align="center">
-				<button type="button" onClick="ccAddGroup.addUser()" ><img src="../phpgwapi/templates/default/images/add.png" style="vertical-align: middle;" >&nbsp;{txt_add}</button>
-				<br><br>
-				<button type="button" onClick="ccAddGroup.remUser()"><img src="../phpgwapi/templates/default/images/rem.png" style="vertical-align: middle;" >&nbsp;{txt_rem}</button>
+				<button type="button" onclick="ccAddGroup.addUser()" ><img src="../phpgwapi/templates/default/images/add.png" style="vertical-align: middle;" />&nbsp;{txt_add}</button>
+				<br /><br />
+				<button type="button" onclick="ccAddGroup.remUser()"><img src="../phpgwapi/templates/default/images/rem.png" style="vertical-align: middle;" />&nbsp;{txt_rem}</button>
 			</td>
 			<td  align="left">
 				<table border="0" cellpadding="0" cellspacing="0">
@@ -70,7 +70,7 @@
 		</tr>
 		<tr>
 			<td align="center" colspan="3">
-					<br>						
+					<br />
 					<input title="{ccAGSave}" type="button" onclick="ccAddGroup.send();" value="{ccAGSave}" />
 					<input title="{ccAGClear}" type="button" onclick="ccAddGroup.clear();" value="{ccAGClear}" />
 					<input title="{ccAGCancel}" type="button" onclick="ccAddGroup.clear(); ccAddGroup.window.close();" value="{ccAGCancel}"/>						

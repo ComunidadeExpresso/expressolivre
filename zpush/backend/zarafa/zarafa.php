@@ -506,7 +506,7 @@ class BackendZarafa implements IBackend, ISearchProvider {
                     if (strlen($bodyHtml) > 0) {
                         $fwbodyHtml = MAPIUtils::readPropStream($fwmessage, PR_HTML);
                         $fwbodyHtml = (isset($cpid[$sendMailProps["internetcpid"]])) ? Utils::ConvertCodepageStringToUtf8($cpid[$sendMailProps["internetcpid"]], $fwbodyHtml) : w2u($fwbodyHtml);
-                        $mapiprops[$sendMailProps["html"]] = $bodyHtml."<br><br>".$fwbodyHtml;
+                        $mapiprops[$sendMailProps["html"]] = $bodyHtml."<br /><br />".$fwbodyHtml;
                     }
                 }
             }
@@ -653,7 +653,7 @@ class BackendZarafa implements IBackend, ISearchProvider {
                     // add fwheader to body and body_html
                     $body .= $fwheader;
                     if (strlen($body_html) > 0)
-                        $body_html .= str_ireplace("\r\n", "<br>", $fwheader);
+                        $body_html .= str_ireplace("\r\n", "<br />", $fwheader);
 
                     // attach the original attachments to the outgoing message
                     $this->copyAttachments($mapimessage, $fwmessage);

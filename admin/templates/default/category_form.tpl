@@ -3,9 +3,9 @@
 <input type="hidden" id="txt_searching" value="{lang_Searching}">
 <input type="hidden" id="txt_multipleGroup" value="{lang_Groups}">
 <input type="hidden" id="txt_typemoreletters" value="{lang_typemoreletters}">
-<br>
+<br />
 <center>
-{message}<br>
+{message}<br />
 <table border="0" width="80%" cellspacing="2" cellpadding="2"> 
 <form name="edit_cat" action="{actionurl}" method="POST">
 {hidden_vars}
@@ -34,7 +34,7 @@
 			<div>
 			<label id="{cat_id_group}" style="font-weight:bold">{category_namegroup}</label>
 			<button valign="top" type="button" onClick="javascript:remove({cat_id_group});">
-			<img src="{template_set}/images/delete.png" style="vertical-align: middle;">
+			<img src="{template_set}/images/delete.png" style="vertical-align: middle;"/>
 			</button>
 			</div>
 		</td>
@@ -66,7 +66,7 @@
 </form>
 </center>
 <!-- END form -->
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript">
 function remove(to){
 	var to_el = document.getElementById(to);
 	var gId = to_el.id;
@@ -88,7 +88,7 @@ function add(from, to){
 			el_name.id = sel_from[i].value;
 			document.getElementById('idgroup').value += ","+sel_from[i].value;
 			el_name.style.fontWeight = "bold";
-			el_name.innerHTML += '<button valign="top" type="button" onClick="javascript:remove('+sel_from[i].value+');"><img src="{template_set}/images/delete.png" style="vertical-align: middle;"></button>';
+			el_name.innerHTML += '<button valign="top" type="button" onClick="javascript:remove('+sel_from[i].value+');"><img src="{template_set}/images/delete.png" style="vertical-align: middle;"/></button>';
 			div_el.appendChild(el_name);
 			to_el.appendChild(div_el);
 		}

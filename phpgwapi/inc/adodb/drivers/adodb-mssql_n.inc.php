@@ -149,7 +149,7 @@ class ADODB_mssql_n extends ADODB_mssql {
 
     /// Print transformation if debug = on
         if ($result != $sql && $this->debug) {
-            ADOConnection::outp("{$this->databaseType} internal transformation:<br>{$sql}<br>to<br>{$result}");
+            ADOConnection::outp("{$this->databaseType} internal transformation:<br />{$sql}<br />to<br />{$result}");
         }
 
         return $result;

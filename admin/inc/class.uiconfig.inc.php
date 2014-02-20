@@ -76,7 +76,7 @@ use prototype\api\Config as Config;
 
             if($config_appname == 'expressoCalendar' )
             {
-                $t->set_var('action_url',$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname));
+                $t->set_var('action_url',$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname));
 
             };
 
@@ -265,7 +265,7 @@ use prototype\api\Config as Config;
 											<option value=\"true\" $selectedYes>" . lang('Yes') . "</option>
 											<option value=\"false\" $selectedNo>" . lang('No') . "</option>
 									</select></td>
-									<td><img src=\"contactcenter/templates/default/images/cc_x.png\" alt=\"". lang('Delete') . "\" title=\"". lang('Delete') ."\" style=\"width: 15px; height: 14px; cursor: pointer; position: relative; top: 3px;\" onclick=\"javascript:cc_attribute_delete(this)\"></img></td>  
+									<td><img src=\"contactcenter/templates/default/images/cc_x.png\" alt=\"". lang('Delete') . "\" title=\"". lang('Delete') ."\" style=\"width: 15px; height: 14px; cursor: pointer; position: relative; top: 3px;\" onclick=\"javascript:cc_attribute_delete(this)\"/></td>
 								</tr>";
                 	}
         		} 
@@ -349,7 +349,7 @@ use prototype\api\Config as Config;
 				$t->set_var('agree_term_input',$ckeditor);
 			}
 			$t->set_var('title',lang('Site Configuration'));
-			$t->set_var('action_url',$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname));
+			$t->set_var('action_url',$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname));
 			$t->set_var('th_bg',     $GLOBALS['phpgw_info']['theme']['th_bg']);
 			$t->set_var('th_text',   $GLOBALS['phpgw_info']['theme']['th_text']);
 			$t->set_var('row_on',    $GLOBALS['phpgw_info']['theme']['row_on']);
@@ -439,7 +439,7 @@ use prototype\api\Config as Config;
 						/* echo $config . '=' . $current_config[$config]; */
 						if ($current_config[$config] == $setting)
 						{
-							$t->set_var($value,' selected');
+							$t->set_var($value,' selected="selected"');
 						}
 						else
 						{
@@ -450,7 +450,7 @@ use prototype\api\Config as Config;
 						$newval = str_replace(' ','_',$newval);
 						if(function_exists($newval))
 						{
-							$t->set_var($value,$newval($current_config));
+							$t->set_var($value,$newval[$current_config]);
 						}
 						else
 						{

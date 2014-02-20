@@ -150,7 +150,7 @@
 				$allValues = ldap_get_entries($ldap, $sri);
 				if ($allValues['count'] > 0)
 				{
-					#print "found something<br>";
+					#print "found something<br />";
 					$userData["mailLocalAddress"]		= $allValues[0]["mail"][0];
 					$userData["mailAlternateAddress"]	= $allValues[0]["mailalternateaddress"];
 					$userData["accountStatus"]		= $allValues[0]["accountstatus"][0];
@@ -268,7 +268,7 @@
 				$newData['mailForwardingAddress'] = array();
 			}
 			
-			#print "DN: $accountDN<br>";
+			#print "DN: $accountDN<br />";
 			ldap_mod_replace ($ldap, $accountDN, $newData);
 			#print ldap_error($ldap);
 			

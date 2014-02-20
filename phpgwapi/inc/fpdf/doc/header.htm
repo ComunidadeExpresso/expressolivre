@@ -16,26 +16,26 @@ you have to subclass it and override the method if you want a specific processin
 <H4 CLASS='st'>Example</H4>
 <TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
 <TT>
-class PDF extends FPDF<BR>
-{<BR>
-function Header()<BR>
-{<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;//Select Arial bold 15<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;SetFont('Arial','B',15);<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;//Move to the right<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Cell(80);<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;//Framed title<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Cell(30,10,'Title',1,0,'C');<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;//Line break<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Ln(20);<BR>
-}<BR>
+class PDF extends FPDF<br />
+{<br />
+function Header()<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//Select Arial bold 15<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;SetFont('Arial','B',15);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//Move to the right<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Cell(80);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//Framed title<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Cell(30,10,'Title',1,0,'C');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//Line break<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Ln(20);<br />
+}<br />
 }
 </TT>
-</TD></TR></TABLE><BR>
+</TD></TR></TABLE><br />
 <H4 CLASS='st'>See also</H4>
 <A HREF="footer.htm">Footer()</A>.
 <H6></H6>
-<HR>
+<hr />
 <DIV ALIGN="CENTER"><A HREF="index.htm">Index</A></DIV>
 </BODY>
 </HTML>

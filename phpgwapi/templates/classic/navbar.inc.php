@@ -195,7 +195,7 @@
 
 				
 				$app_extra_icons_div = '
-				<script language="javascript">
+				<script type="text/javascript">
 				new ypSlideOutMenu("menu1", "down", 5, 24, 160, 200,\'left\')
 				</script>
 				<div id="menu1Container">
@@ -263,7 +263,7 @@
 				else
 					$agreeterm_url = 'http://' . $agreeterm_url;
 				
-				echo '<script>' .
+				echo '<script type="text/javascript">' .
 						'if(location.href.indexOf("termo_aceite.php") == -1){' .
 							'location.href = "' . $agreeterm_url . '"' .
 						'}' .
@@ -280,7 +280,7 @@
 				else
 					$changepasswd_url = 'http://' . $changepasswd_url;
 				
-				echo '<script>' .
+				echo '<script type="text/javascript">' .
 						'if(location.href.indexOf("changepassword.php") == -1){' .
 							'location.href = "' . $changepasswd_url . '"' .
 						'}' .
@@ -288,7 +288,7 @@
 				
 				/*
 				$api_messages = lang('You are required to change your password during your first login')
-				. '<br> Click this image on the navbar: <img src="'
+				. '<br /> Click this image on the navbar: <img src="'
 				. $GLOBALS['phpgw']->common->image('preferences','navbar.gif').'">';
 				*/
 			}
@@ -302,7 +302,7 @@
 			// This is gonna change
 			if(isset($cd))
 			{
-				$var['messages'] = $api_messages . '<br>' . checkcode($cd);
+				$var['messages'] = $api_messages . '<br />' . checkcode($cd);
 			}*/
 
 			$var['logo_file'] = $GLOBALS['phpgw']->common->image('phpgwapi',$GLOBALS['phpgw_info']['server']['login_logo_file']?$GLOBALS['phpgw_info']['server']['login_logo_file']:'logo');

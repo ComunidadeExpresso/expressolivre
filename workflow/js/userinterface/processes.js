@@ -136,7 +136,7 @@ function draw_processes_grid(data, page)
 			div_proc_txt.style.textAlign = 'center';
 			div_proc_txt.style.paddingTop = '5px';
 			div_proc_txt.innerHTML = '<span style="font-size: 11px !important;">'+proc_name_dsp+'</span>';
-			div_proc_txt.innerHTML += '<br><span class="version_dsp"> (v' + proc.wf_version + ')</span></p>';
+			div_proc_txt.innerHTML += '<br /><span class="version_dsp"> (v' + proc.wf_version + ')</span></p>';
 			div_element.appendChild(div_proc_img);
 			div_element.appendChild(div_proc_txt);
 

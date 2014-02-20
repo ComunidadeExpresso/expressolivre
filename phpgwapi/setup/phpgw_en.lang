@@ -170,7 +170,7 @@ czech republic	common	en	CZECH REPUBLIC
 date	common	en	Date
 date due	common	en	Date Due
 date selection:	jscalendar	en	Date selection:
-datetime port.<br>if using port 13, please set firewall rules appropriately before submitting this page.<br>(port: 13 / host: 129.6.15.28)	admin	en	Datetime port.<br>If using port 13, please set firewall rules appropriately before submitting this page.<br>(Port: 13 / Host: 129.6.15.28)
+datetime port.<br />if using port 13, please set firewall rules appropriately before submitting this page.<br />(port: 13 / host: 129.6.15.28)	admin	en	Datetime port.<br />If using port 13, please set firewall rules appropriately before submitting this page.<br />(Port: 13 / Host: 129.6.15.28)
 de_lete column	htmlarea-ContextMenu	en	De_lete Column
 december	common	en	December
 decimal numbers	htmlarea-ListType	en	Decimal numbers
@@ -223,7 +223,7 @@ enabled	common	en	Enabled
 end date	common	en	End date
 end time	common	en	End time
 enlarge editor	htmlarea	en	Enlarge Editor
-enter the location of egroupware's url.<br>example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>no trailing slash</b>	admin	en	Enter the location of eGroupWare's URL.<br>Example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>No trailing slash</b>
+enter the location of egroupware's url.<br />example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>no trailing slash</b>	admin	en	Enter the location of eGroupWare's URL.<br />Example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>No trailing slash</b>
 entry has been deleted sucessfully	common	en	Entry has been deleted sucessfully
 entry updated sucessfully	common	en	Entry updated sucessfully
 equatorial guinea	common	en	EQUATORIAL GUINEA
@@ -777,7 +777,7 @@ you have selected an invalid date	common	en	You have selected an invalid date !
 you have selected an invalid main category	common	en	You have selected an invalid main category !
 you have successfully logged out	common	en	You have successfully logged out
 you need to add the webserver user '%1' to the group '%2'.	common	en	You need to add the webserver user '%1' to the group '%2'.
-your message could <b>not</b> be sent!<br>	common	en	Your message could <b>not</b> be sent!<br>
+your message could <b>not</b> be sent!<br />	common	en	Your message could <b>not</b> be sent!<br />
 your message has been sent	common	en	Your message has been sent
 your search returned %1 matchs	common	en	your search returned %1 matches
 your search returned 1 match	common	en	your search returned 1 match

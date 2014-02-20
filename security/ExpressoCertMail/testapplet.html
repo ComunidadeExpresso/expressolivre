@@ -5,7 +5,7 @@
 	<body>
 
 		<form id="form1">
-		<script language="Javascript">
+		<script type="text/javascript">
 			if (navigator.userAgent.match('MSIE')){
 				document.write('<object style="display:yes" id="cert_applet"' +
 					'classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="300" height="125">' +
@@ -25,7 +25,7 @@
 		</script>
 		<input type="button" id="botao" value="Mostra" onclick="buttonClick();"/>
 		</form>
-		<script language="javascript">
+		<script type="text/javascript">
 			function buttonClick(){
 				var applet = document.getElementById('cert_applet');
 				applet.doButtonClickAction();

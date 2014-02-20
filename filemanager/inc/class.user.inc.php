@@ -114,7 +114,7 @@
 			header("Pragma: public");
 			header("Expires: ".gmdate('D, d M Y H:i:s', time()+$expires));
 			$account_info = $GLOBALS['phpgw']->accounts->get_list('accounts',0,1,1,base64_decode($this->lid),1,'exact');
-			echo $account_info[0]['account_firstname'].' '.$account_info[0]['account_lastname']."<br>";
+			echo $account_info[0]['account_firstname'].' '.$account_info[0]['account_lastname']."<br />";
 			echo '<a target="_blank" href="../expressoMail1_2/index.php?to='
 				.$account_info[0]['account_email'].'">'.$account_info[0]['account_email'];
 			/*

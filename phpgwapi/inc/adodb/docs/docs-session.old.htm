@@ -78,17 +78,17 @@ including adodb-cryptsession.php instead of adodb-session.php. </li>
 <h3>Setup</h3>
 <p>There are 3 session management files that you can use:
 </p>
-<pre>adodb-session.php        : The default<br>adodb-session-clob.php   : Use this if you are storing DATA in clobs<br>adodb-cryptsession.php   : Use this if you want to store encrypted session data in the database<br><br>
+<pre>adodb-session.php        : The default<br />adodb-session-clob.php   : Use this if you are storing DATA in clobs<br />adodb-cryptsession.php   : Use this if you want to store encrypted session data in the database<br /><br />
 </pre>
 <p><strong>Examples</strong>
 <p><pre>
  <font
- color="#004040">    include('adodb/adodb.inc.php');<br>    <br><b>    $ADODB_SESSION_DRIVER='mysql';<br>    $ADODB_SESSION_CONNECT='localhost';<br>    $ADODB_SESSION_USER ='scott';<br>    $ADODB_SESSION_PWD ='tiger';<br>    $ADODB_SESSION_DB ='sessiondb';</b><br>    <br>    <b>include('adodb/session/adodb-session.php');</b><br>    session_start();<br>    <br>    #<br>    # Test session vars, the following should increment on refresh<br>    #<br>    $_SESSION['AVAR'] += 1;<br>    print "&lt;p&gt;\$_SESSION['AVAR']={$_SESSION['AVAR']}&lt;/p&gt;";<br></font></pre>
+ color="#004040">    include('adodb/adodb.inc.php');<br />    <br /><b>    $ADODB_SESSION_DRIVER='mysql';<br />    $ADODB_SESSION_CONNECT='localhost';<br />    $ADODB_SESSION_USER ='scott';<br />    $ADODB_SESSION_PWD ='tiger';<br />    $ADODB_SESSION_DB ='sessiondb';</b><br />    <br />    <b>include('adodb/session/adodb-session.php');</b><br />    session_start();<br />    <br />    #<br />    # Test session vars, the following should increment on refresh<br />    #<br />    $_SESSION['AVAR'] += 1;<br />    print "&lt;p&gt;\$_SESSION['AVAR']={$_SESSION['AVAR']}&lt;/p&gt;";<br /></font></pre>
  
 <p>To force non-persistent connections, call adodb_session_open() first before session_start():
 <p>
  <pre>
- <font color="#004040"><br>    include('adodb/adodb.inc.php');<br>    <br><b>    $ADODB_SESSION_DRIVER='mysql';<br>    $ADODB_SESSION_CONNECT='localhost';<br>    $ADODB_SESSION_USER ='scott';<br>    $ADODB_SESSION_PWD ='tiger';<br>    $ADODB_SESSION_DB ='sessiondb';</b><br>    <br>    <b>include('adodb/session/adodb-session.php');<br>    adodb_sess_open(false,false,false);</b><br>    session_start();<br> </font>
+ <font color="#004040"><br />    include('adodb/adodb.inc.php');<br />    <br /><b>    $ADODB_SESSION_DRIVER='mysql';<br />    $ADODB_SESSION_CONNECT='localhost';<br />    $ADODB_SESSION_USER ='scott';<br />    $ADODB_SESSION_PWD ='tiger';<br />    $ADODB_SESSION_DB ='sessiondb';</b><br />    <br />    <b>include('adodb/session/adodb-session.php');<br />    adodb_sess_open(false,false,false);</b><br />    session_start();<br /> </font>
  </pre>
 <p> The 3rd parameter to adodb_sess_open($path, $sessname, $connectMode)  sets the connection method. You can pass in the following:</p>
 <table width="50%" border="1">
@@ -119,11 +119,11 @@ including adodb-cryptsession.php instead of adodb-session.php. </li>
 </table>
 <p>To use a encrypted sessions, simply replace the file adodb-session.php:</p>
  <pre> <font
- color="#004040"><br>    include('adodb/adodb.inc.php');<br>    <br><b>    $ADODB_SESSION_DRIVER='mysql';<br>    $ADODB_SESSION_CONNECT='localhost';<br>    $ADODB_SESSION_USER ='scott';<br>    $ADODB_SESSION_PWD ='tiger';<br>    $ADODB_SESSION_DB ='sessiondb';<br>    <br>    include('adodb/session/adodb-cryptsession.php');</b><br>    session_start();</font><br>
+ color="#004040"><br />    include('adodb/adodb.inc.php');<br />    <br /><b>    $ADODB_SESSION_DRIVER='mysql';<br />    $ADODB_SESSION_CONNECT='localhost';<br />    $ADODB_SESSION_USER ='scott';<br />    $ADODB_SESSION_PWD ='tiger';<br />    $ADODB_SESSION_DB ='sessiondb';<br />    <br />    include('adodb/session/adodb-cryptsession.php');</b><br />    session_start();</font><br />
  </pre>
  <p>And the same technique for adodb-session-clob.php:</p>
  <pre>  <font
- color="#004040"><br>    include('adodb/adodb.inc.php');<br>    <br><b>    $ADODB_SESSION_DRIVER='mysql';<br>    $ADODB_SESSION_CONNECT='localhost';<br>    $ADODB_SESSION_USER ='scott';<br>    $ADODB_SESSION_PWD ='tiger';<br>    $ADODB_SESSION_DB ='sessiondb';<br>    <br>    include('adodb/session/adodb-session-clob.php');</b><br>    session_start();</font>
+ color="#004040"><br />    include('adodb/adodb.inc.php');<br />    <br /><b>    $ADODB_SESSION_DRIVER='mysql';<br />    $ADODB_SESSION_CONNECT='localhost';<br />    $ADODB_SESSION_USER ='scott';<br />    $ADODB_SESSION_PWD ='tiger';<br />    $ADODB_SESSION_DB ='sessiondb';<br />    <br />    include('adodb/session/adodb-session-clob.php');</b><br />    session_start();</font>
  </pre>
  <p>An alternative way to set persistant or non-persistent connections is to call the following function before session_start() is called.
  <pre>
@@ -159,13 +159,13 @@ including adodb-cryptsession.php instead of adodb-session.php. </li>
  <p> For the adodb-session-clob.php version, create this:
 <p>  <pre>
     <font
- color="#004040"><br>    create table sessions (<br>       SESSKEY char(32) not null,<br>       EXPIRY int(11) unsigned not null,<br>       EXPIREREF varchar(64),<br>       DATA CLOB,<br>      primary key (sesskey)<br>  );</font>
+ color="#004040"><br />    create table sessions (<br />       SESSKEY char(32) not null,<br />       EXPIRY int(11) unsigned not null,<br />       EXPIREREF varchar(64),<br />       DATA CLOB,<br />      primary key (sesskey)<br />  );</font>
  </pre>
  <p>2. Then define the following parameters. You can either modify this file, or define them before this file is included:
  <pre>      <font
- color="#004040"><br>    $ADODB_SESSION_DRIVER='database driver, eg. mysql or ibase';<br>    $ADODB_SESSION_CONNECT='server to connect to';<br>    $ADODB_SESSION_USER ='user';<br>    $ADODB_SESSION_PWD ='password';<br>    $ADODB_SESSION_DB ='database';<br>    $ADODB_SESSION_TBL = 'sessions'; # setting this is optional<br>	</font>
+ color="#004040"><br />    $ADODB_SESSION_DRIVER='database driver, eg. mysql or ibase';<br />    $ADODB_SESSION_CONNECT='server to connect to';<br />    $ADODB_SESSION_USER ='user';<br />    $ADODB_SESSION_PWD ='password';<br />    $ADODB_SESSION_DB ='database';<br />    $ADODB_SESSION_TBL = 'sessions'; # setting this is optional<br />	</font>
  </pre><p>
-     When the session is created, $<b>ADODB_SESS_CONN</b> holds the connection object.<br>    <br>  3. Recommended is PHP 4.0.6 or later. There are documented session bugs in earlier versions of PHP.
+     When the session is created, $<b>ADODB_SESS_CONN</b> holds the connection object.<br />    <br />  3. Recommended is PHP 4.0.6 or later. There are documented session bugs in earlier versions of PHP.
 <h3>Notifications</h3>
 <p>You can receive notification when your session is cleaned up by the session garbage collector or
 when you call session_destroy().
@@ -230,7 +230,7 @@ who is currently logged on.
 </p>
 <p>2. If you delete the sessions record for a specific user, eg.
 </p>
-<pre>delete from sessions where expireref = '$USER'<br></pre>
+<pre>delete from sessions where expireref = '$USER'<br /></pre>
 then the user is logged out. Useful for ejecting someone from a
 site.
 <p>3. You can scan the sessions table to ensure no user
@@ -272,9 +272,9 @@ can be logged in twice. Useful for security reasons.
 Since ADOdb 4.05, thanks to Ross Smith, multiple encryption and
 compression schemes are supported. Currently, supported are:
 <p>
-<pre>  MD5Crypt (crypt.inc.php)<br>  MCrypt<br>  Secure (Horde's emulation of MCrypt, if MCrypt module is not available.)<br>  GZip<br>  BZip2<br></pre>
+<pre>  MD5Crypt (crypt.inc.php)<br />  MCrypt<br />  Secure (Horde's emulation of MCrypt, if MCrypt module is not available.)<br />  GZip<br />  BZip2<br /></pre>
 <p>These are stackable. E.g.
-<p><pre>ADODB_Session::filter(new ADODB_Compress_Bzip2());<br>ADODB_Session::filter(new ADODB_Encrypt_MD5());<br></pre>
+<p><pre>ADODB_Session::filter(new ADODB_Compress_Bzip2());<br />ADODB_Session::filter(new ADODB_Encrypt_MD5());<br /></pre>
 will compress and then encrypt the record in the database.
 <h3>adodb_session_regenerate_id()</h3>
 <p>Dynamically change the current session id with a newly generated one and update database. Currently only

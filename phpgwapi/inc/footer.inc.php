@@ -26,7 +26,7 @@
 	$d1 = strtolower(substr(PHPGW_APP_INC,0,3));
 	if($d1 == 'htt' || $d1 == 'ftp')
 	{
-		echo "Failed attempt to break in via an old Security Hole!<br>\n";
+		echo "Failed attempt to break in via an old Security Hole!<br />\n";
 		exit;
 	} unset($d1);
 

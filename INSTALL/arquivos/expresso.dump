@@ -14025,7 +14025,7 @@ pt-br	admin	create group	Criar Grupo
 pt-br	admin	crontab only (recomended)	somente crontab (recomendado)
 pt-br	admin	data	Dados
 pt-br	admin	day	Dia
-pt-br	admin	day of week<br>(0-6, 0=sun)	Dia da Semana <br> (0-6, 0=Dom)
+pt-br	admin	day of week<br />(0-6, 0=sun)	Dia da Semana <br /> (0-6, 0=Dom)
 pt-br	admin	db host	Host do BD
 pt-br	admin	db name	Nome do BD
 pt-br	admin	db password	Senha
@@ -14103,14 +14103,14 @@ pt-br	admin	enable virtual keyboard on login	Deseja usar o teclado virtual no lo
 pt-br	admin	enabled - hidden from navbar	Habilitado - Escondido da barra de navegação
 pt-br	admin	enabled - popup window	Habilitar Janelas instantâneas
 pt-br	admin	enter a description for the category	digite a descrição dessa categoria
-pt-br	admin	enter some random text for app_session <br>encryption (requires mcrypt)	Digite um texto aleatório para a encriptação de sessão (requer mcrypt)
+pt-br	admin	enter some random text for app_session <br />encryption (requires mcrypt)	Digite um texto aleatório para a encriptação de sessão (requer mcrypt)
 pt-br	admin	enter the background color for the login page	Digite a cor de fundo para a página de login
 pt-br	admin	enter the background color for the site title	Digite a cor de fundo para o título do site
 pt-br	admin	enter the file name of your logo	Digite o nome do seu logotipo
-pt-br	admin	enter the full path for temporary files.<br>examples: /tmp, c:\\temp	Digite o caminho completo para arquivos temporários.<br>Exemplos: /tmp, C:TEMP
-pt-br	admin	enter the full path for users and group files.<br>examples: /files, e:\\files	Digite o caminho completo para arquivos de usuários e grupos.<br>Exemplos: /files, E:FILES
+pt-br	admin	enter the full path for temporary files.<br />examples: /tmp, c:\\temp	Digite o caminho completo para arquivos temporários.<br />Exemplos: /tmp, C:TEMP
+pt-br	admin	enter the full path for users and group files.<br />examples: /files, e:\\files	Digite o caminho completo para arquivos de usuários e grupos.<br />Exemplos: /files, E:FILES
 pt-br	admin	enter the hostname of the machine on which this server is running	Digite o nome da máquina em que este servidor está sendo executado
-pt-br	admin	enter the location of egroupware's url.<br>example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>no trailing slash</b>	Informe a localização da Extranet em um URL .<br>Exemplo: http://www.seudomínio.com.br/extranet &nbsp; ou &nbsp; /extranet<br><b>Não finalize com uma BARRA</b>
+pt-br	admin	enter the location of egroupware's url.<br />example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>no trailing slash</b>	Informe a localização da Extranet em um URL .<br />Exemplo: http://www.seudomínio.com.br/extranet &nbsp; ou &nbsp; /extranet<br /><b>Não finalize com uma BARRA</b>
 pt-br	admin	enter the search string. to show all entries, empty this field and press the submit button again	Entre com a expressão de busca. Para mostrar todas as entradas, deixe esse campo em branco e pressione ENVIAR novamente
 pt-br	admin	enter the site password for peer servers	Digite a senha do servidor para comunicação com servidores Parceiros
 pt-br	admin	enter the site username for peer servers	Digite o usuário do servidor para comunicação com servidores Parceiros
@@ -14152,7 +14152,7 @@ pt-br	admin	groups ldap	Grupos Ldap
 pt-br	admin	hide php information	Esconder informações de PHP
 pt-br	admin	home directory	Diretório de instalação
 pt-br	admin	host information	Informações do servidor
-pt-br	admin	hour<br>(0-23)	Hora<br>(0-23)
+pt-br	admin	hour<br />(0-23)	Hora<br />(0-23)
 pt-br	admin	how many days the password should be kept(empty to disable this) ?	Quantos dias a senha deve ser considerada válida (Deixe vazio para não usar)?
 pt-br	admin	how many days should entries stay in the access log, before they get deleted (default 90) ?	Quantos dias as entradas devem ser mantidas no registro de acessos, antes de serem apagadas (padrão 90)?
 pt-br	admin	how many letters the user password must contain (default 3) ?	Quantas letras a senha do usuário precisa ter (padrão 3) ?
@@ -14347,7 +14347,7 @@ pt-br	admin	timeout for sessions in seconds (default 14400 = 4 hours)	Tempo para
 pt-br	admin	times	Horários
 pt-br	admin	timetrack	Tempo
 pt-br	admin	title	Título
-pt-br	admin	(to install new applications use<br><a href="setup/" target="setup">setup</a> [manage applications] !!!)	(Para instalar um novo aplicativo use <br><a href="setup/" target="setup">Setup</a>[Gerenciar aplicativos] !!!)
+pt-br	admin	(to install new applications use<br /><a href="setup/" target="setup">setup</a> [manage applications] !!!)	(Para instalar um novo aplicativo use <br /><a href="setup/" target="setup">Setup</a>[Gerenciar aplicativos] !!!)
 pt-br	admin	top	topo
 pt-br	admin	total records	Total de registros
 pt-br	admin	trust level	Nível de confiança
@@ -14380,7 +14380,7 @@ pt-br	admin	voip settings	Configurações servidor VoIP
 pt-br	admin	wait loading...!	Aguarde Carregando...!
 pt-br	admin	who would you like to transfer all records owned by the deleted user to?	Para quem você deseja transferir todas as entradas do usuário removido?
 pt-br	admin	would you like egroupware to cache the egw info array ?	Deseja que o eGroupWare faça cache do vetor de informações egw ?
-pt-br	admin	would you like egroupware to check for a new version<br>when admins login ?	Deseja que o eGroupware verifique automaticamente novas versões<br> quando administradores estiverm conectados?
+pt-br	admin	would you like egroupware to check for a new version<br />when admins login ?	Deseja que o eGroupware verifique automaticamente novas versões<br /> quando administradores estiverm conectados?
 pt-br	admin	would you like egroupware to check for new application versions when admins login ?	Deseja que o eGroupware verifique automaticamente novas versões de aplicativos quando administradores estiverem conectados?
 pt-br	admin	would you like to automaticaly load new langfiles (at login-time) ?	Deseja que novos arquivos de localização sejam carragados automaticamente (ao entrar)
 pt-br	admin	would you like to show each application's upgrade status ?	Deseja exibir se cada aplicação está atualizada ?
@@ -14509,7 +14509,7 @@ pt-br	admin	maintain news	Manutenção dos Boletins
 pt-br	admin	00 (disable)	00 (desabilitado)
 pt-br	admin	13 (ntp)	13 (ntp)
 pt-br	admin	80 (http)	80 (http)
-pt-br	admin	datetime port.<br>if using port 13, please set firewall rules appropriately before submitting this page.<br>(port: 13 / host: 129.6.15.28)	Porta da Data e hora.<br>Quando usar a porta 13, por favor configure os filtros do firewall antes de submeter as alterações.<br>(Porta: 13 / Host: 129.6.15.28)
+pt-br	admin	datetime port.<br />if using port 13, please set firewall rules appropriately before submitting this page.<br />(port: 13 / host: 129.6.15.28)	Porta da Data e hora.<br />Quando usar a porta 13, por favor configure os filtros do firewall antes de submeter as alterações.<br />(Porta: 13 / Host: 129.6.15.28)
 pt-br	admin	a please wait message is shown when loading the activity form usefull for long tasks	uma mensagem por favor aguarde será mostrada quando o formulário da atividade for carregado. Útil para tarefas de londa duração
 pt-br	admin	administer instances	Administrar instâncias
 pt-br	admin	administer processes	administrar processos
@@ -14868,7 +14868,7 @@ pt-br	common	exact	exato(a)
 pt-br	common	exit	Sair
 pt-br	common	kyrgyzstan	QUIRGUISTÃO
 pt-br	common	language	Idioma
-pt-br	common	expressolivre is unavailable at this moment. code %1<br>please, try later.	ExpressoLivre indisponível no momento. Código %1<br>Tente mais tarde.
+pt-br	common	expressolivre is unavailable at this moment. code %1<br />please, try later.	ExpressoLivre indisponível no momento. Código %1<br />Tente mais tarde.
 pt-br	common	catalog is out of service, you will not able to do some operations	O serviço de catálogo está em manutenção, você não poderá realizar algumas operações
 pt-br	common	expand menu	Expandir Menu
 pt-br	common	expires	Expira
@@ -15271,7 +15271,7 @@ pt-br	common	user groups	Grupos do usuário
 pt-br	common	username	Usuário
 pt-br	common	users choice	À escolha dos usuários
 pt-br	common	users	Usuários
-pt-br	common	use this space to send your doubts, critics and suggestions	Utilize este espaço para enviar<br><br> suas dúvidas, críticas e sugestões
+pt-br	common	use this space to send your doubts, critics and suggestions	Utilize este espaço para enviar<br /><br /> suas dúvidas, críticas e sugestões
 pt-br	common	uzbekistan	UZBEQUIISTÃO
 pt-br	common	vanuatu	VANUATU
 pt-br	common	venezuela	VENEZUELA
@@ -15304,7 +15304,7 @@ pt-br	common	you have selected an invalid main category	Você selecionou uma cate
 pt-br	common	you have successfully logged out	Você encerrou a sessão corretamente.
 pt-br	common	you need to add the webserver user '%1' to the group '%2'.	Você precisa adicionar o usuário webserver '%1' ao grupo '%2'.
 pt-br	common	your message as been sent	Sua mensagem foi enviada
-pt-br	common	your message could <b>not</b> be sent!<br>	<b>Não</b> foi possível enviar sua mensagem!<br>
+pt-br	common	your message could <b>not</b> be sent!<br />	<b>Não</b> foi possível enviar sua mensagem!<br />
 pt-br	common	your message has been sent	Sua mensagem foi enviada.
 pt-br	common	your password has expired, and you do not have access to change it	Sua senha expirou e você não tem acesso para alterá-la
 pt-br	common	your search returned 1 match	Sua pesquisa retornou 1 ocorrência
@@ -15499,12 +15499,12 @@ en	expressoMail1_2	message	message
 pt-br	expressoMail1_2	the message has attachment	A mensagem contém anexos
 pt-br	expressoMail1_2	the messages were deleted.	Mensagens removidas.
 pt-br	expressoMail1_2	the messages were moved to folder	Mensagens movidas para pasta 
-pt-br	calendar	do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br>you can limit the notifications to certain changes only. each item includes all the notification listed above it. al	Deseja ser notificado sobre compromissos novos ou modificados? Você será notificado sobre as mudanças efetuadas por você mesmo.<br> Você pode limitar essa notificções a certas mudanças apenas. Cada item inclui as notificações listadas sobre o mesmo. Todas as modificções incluem mudança de título, descrição, participantes (menos suas respostas). Se o dono de um evento requisitar qualquer notificação, sempre receberá as respostas dos participantes como aceite ou cancelamentos.
+pt-br	calendar	do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br />you can limit the notifications to certain changes only. each item includes all the notification listed above it. al	Deseja ser notificado sobre compromissos novos ou modificados? Você será notificado sobre as mudanças efetuadas por você mesmo.<br /> Você pode limitar essa notificções a certas mudanças apenas. Cada item inclui as notificações listadas sobre o mesmo. Todas as modificções incluem mudança de título, descrição, participantes (menos suas respostas). Se o dono de um evento requisitar qualquer notificação, sempre receberá as respostas dos participantes como aceite ou cancelamentos.
 pt-br	expressoMail1_2	the message was deleted.	Mensagem removida.
 pt-br	expressoMail1_2	the message was moved to %1 folder.	Mensagem movida para pasta %1.
 pt-br	expressoMail1_2	the message was moved to folder	Mensagem movida para a pasta 
 pt-br	expressoMail1_2	the origin folder and the destination folder are the same.	A pasta de origem e de destino são as mesmas.
-pt-br	calendar	do you want to receive a regulary summary of your appointsments via email?<br>the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br>it is only sent when you have any app	Deseja receber regularmente um resumo de seus compromissos via correio eletrônico?<br>O sumário será enviado para seu endereço eletrônico padrão na manhã de cada dia ou na Segunda-feira para resumos semanais (somente se houverem eventos na semana).<br>
+pt-br	calendar	do you want to receive a regulary summary of your appointsments via email?<br />the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br />it is only sent when you have any app	Deseja receber regularmente um resumo de seus compromissos via correio eletrônico?<br />O sumário será enviado para seu endereço eletrônico padrão na manhã de cada dia ou na Segunda-feira para resumos semanais (somente se houverem eventos na semana).<br />
 pt-br	calendar	duration	Duração
 pt-br	calendar	editing event	Editando evento
 pt-br	calendar	event accepted	Evento Aceito
@@ -15579,8 +15579,8 @@ pt-br	calendar	(i/v)cal	(i/v)Cal
 pt-br	calendar	last	último
 pt-br	calendar	lastname of person to notify	Sobrenome da pessoa a ser notificada
 pt-br	calendar	leave my calendar public	Tornar minha agenda pública
-pt-br	calendar	length<br>(<= 255)	comprimento<br>(<=255)
-pt-br	calendar	length shown<br>(emtpy for full length)	duração mostrada<br>(vazio para dia inteiro)
+pt-br	calendar	length<br />(<= 255)	comprimento<br />(<=255)
+pt-br	calendar	length shown<br />(emtpy for full length)	duração mostrada<br />(vazio para dia inteiro)
 pt-br	calendar	link	Link
 pt-br	calendar	link to view the event	Link para visualizar o evento
 pt-br	calendar	list all categories.	Listar todas as categorias.
@@ -15686,7 +15686,7 @@ pt-br	calendar	send/receive updates via email	Enviar/Receber atualizações atravé
 pt-br	calendar	set a year only for one-time / non-regular holidays.	Informar ano apenas para feriado flutuante/ocorrência única
 pt-br	calendar	set new events to private	Colocar novos itens como restrito
 pt-br	calendar	shared accounts	Contas compartilhadas
-pt-br	calendar	should invitations you rejected still be shown in your calendar ?<br>you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	Os convites recusados devem permanecer no seu calendário ?<br>Você poderá aceitá-los depois (ex. quando desfizer conflitos de horários), caso eles permaneçam
+pt-br	calendar	should invitations you rejected still be shown in your calendar ?<br />you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	Os convites recusados devem permanecer no seu calendário ?<br />Você poderá aceitá-los depois (ex. quando desfizer conflitos de horários), caso eles permaneçam
 pt-br	calendar	should new events created as private by default ?	Novos eventos criados devem ser colocados como privados por padrão?
 pt-br	calendar	should not loged in persons be able to see your freebusy information? you can set an extra password, different from your normal password, to protect this informations. the freebusy information is in ical format and only include th	Usuários não logados não devem ver sua informação de disponibilidade?
 pt-br	calendar	should the mini calendars by printed / displayed in the printer friendly views ?	Mini-calendários devem ser impressos/mostrados na versão para impressão?
@@ -15720,20 +15720,20 @@ pt-br	calendar	the commitment was tentatived successfully!	O compromisso foi mar
 pt-br	calendar	the email addresses must be separated by ','	Os endereços de email devem estar separados por vírgula. Ex.: fulano@aaa.com.br,beltrano@bbb.com, ciclano@ccc.br
 pt-br	calendar	the following conflicts with the suggested time:<ul>%1</ul>	os seguintes conflitos com o horário sugerido:<ul>%1</ul>
 pt-br	calendar	the following commitment had problems for delivering the notification messages.	O compromisso abaixo teve problemas ao ENTREGAR mensagens de NOTIFICAÇÃO.
-pt-br	calendar	there was an error trying to connect to your news server.<br>please contact your admin to check the news servername, username or password.	Houve um erro tentanto conectar no servidor de notícias.<br>Por favor entre em contato com o administrador para verificar a configuração.
+pt-br	calendar	there was an error trying to connect to your news server.<br />please contact your admin to check the news servername, username or password.	Houve um erro tentanto conectar no servidor de notícias.<br />Por favor entre em contato com o administrador para verificar a configuração.
 pt-br	calendar	the user %1 is not participating in this event!	O usuário %1 não está participando desse evento!
 pt-br	calendar	this commitment has already been accepted!	Esse compromisso já foi aceito!
 pt-br	calendar	this commitment has already been rejected!	Esse compromisso já foi rejeitado!
 pt-br	calendar	this commitment has already been tentatived!	Esse compromisso já foi marcado com provisorio!
 pt-br	calendar	this day is shown as first day in the week or month view.	Esse dia será mostrado como primeiro dia da semana na visão semanal e mensal
 pt-br	calendar	this defines the end of your dayview. events after this time, are shown below the dayview.	Isso define o último horário da visão diária. Eventos além desse horário são mostrados abaixo do dia.
-pt-br	calendar	this defines the start of your dayview. events before this time, are shown above the dayview.<br>this time is also used as a default starttime for new events.	Isso define o primeiro horário da visão diária. Eventos antes desse horário são mostrados acima do dia.<br>Esse horário também será o horário inicial para novos eventos.
+pt-br	calendar	this defines the start of your dayview. events before this time, are shown above the dayview.<br />this time is also used as a default starttime for new events.	Isso define o primeiro horário da visão diária. Eventos antes desse horário são mostrados acima do dia.<br />Esse horário também será o horário inicial para novos eventos.
 pt-br	calendar	this group that is preselected when you enter the planner. you can change it in the planner anytime you want.	Esse grupo é pré-selecionado ao entrar no organizador. Você poderá modificá-lo a qualquer tempo.
 pt-br	calendar	this is an external event. even if it added to your expresso its can be changed any time at all	Este é um evento externo. Mesmo que adicionado ao seu Expresso corre o risco de mudança a qualquer momento.
 pt-br	calendar	this is mostly caused by a not or wrongly configured smtp server. notify your administrator.	Esse erro é comumente causado por um servidor SMTP mal configurado. Notifique seu administrador.
 pt-br	calendar	this message is sent for canceled or deleted events.	Essa mensagem é enviada para enventos cancelados ou apagados.
 pt-br	calendar	this message is sent for modified or moved events.	Essa mensagem é enviada para eventos modificados ou transferidos.
-pt-br	calendar	this message is sent to every participant of events you own, who has requested notifcations about new events.<br>you can use certain variables which get substituted with the data of the event. the first line is the subject of the 	Essa mensagem é enviada para cada participante dos eventos que você criou, que pediram informações sobre novos eventos.<br> Você pode usar certas variáveis que subtituirão dados nos seus eventos. A primeira linha é o assunto do email.
+pt-br	calendar	this message is sent to every participant of events you own, who has requested notifcations about new events.<br />you can use certain variables which get substituted with the data of the event. the first line is the subject of the 	Essa mensagem é enviada para cada participante dos eventos que você criou, que pediram informações sobre novos eventos.<br /> Você pode usar certas variáveis que subtituirão dados nos seus eventos. A primeira linha é o assunto do email.
 pt-br	calendar	this message is sent when you accept, tentative accept or reject an event.	Essa mensagem é enviada quando você aceita, aceita com possibilidade de mudança ou rejeita um evento.
 pt-br	calendar	this message is sent when you set an alarm for a certain event. include all information you might need.	Essa mensagem é enviada quando você configura um alarme para certo evento. Inclua toda a informação necessária.
 pt-br	calendar	this message was sent by server. you must send a message to sender to confirm this event	Isso é uma mensagem automática gerada pelo Expresso. Favor confirmar o compromisso respondendo ao remetente
@@ -16970,7 +16970,7 @@ pt-br	expressoMail1_2	next shortcut:control + down	Próximo (Atalho: Ctrl + Para 
 pt-br	expressoMail1_2	snickname	Apelido
 pt-br	expressoMail1_2	nickname	Apelido
 pt-br	expressoMail1_2	valid until	Valido ate
-pt-br	expressoMail1_2	n key (open new message)<br>esc key (close tab)<br>i key (print)<br>e key (forward)<br>r key (reply)<br>delete key (delete the current message)<br>ctrl + up (go to previous message)<br>ctrl + down (go to next message)<br>shift + u	tecla n (Abre nova mensagem)<br>tecla ESC (Fecha aba)<br>tecla i (imprime)<br>tecla e (encaminha)<br>tecla r (responde)<br>tecla DELETE (apaga mensagem atual)<br>Ctrl + pra cima (vai pra mensagem anterior)<br>Ctrl + pra baixo (vai para próxima mensagem)<br>Shift + pra cima ou pra baixo (seleciona várias mensagens)<br>Tecla F9 (procura no catálogo)<br>
+pt-br	expressoMail1_2	n key (open new message)<br />esc key (close tab)<br />i key (print)<br />e key (forward)<br />r key (reply)<br />delete key (delete the current message)<br />ctrl + up (go to previous message)<br />ctrl + down (go to next message)<br />shift + u	tecla n (Abre nova mensagem)<br />tecla ESC (Fecha aba)<br />tecla i (imprime)<br />tecla e (encaminha)<br />tecla r (responde)<br />tecla DELETE (apaga mensagem atual)<br />Ctrl + pra cima (vai pra mensagem anterior)<br />Ctrl + pra baixo (vai para próxima mensagem)<br />Shift + pra cima ou pra baixo (seleciona várias mensagens)<br />Tecla F9 (procura no catálogo)<br />
 pt-br	expressoMail1_2	no data to search	Nenhum dado digitado para pesquisar.
 pt-br	expressoMail1_2	no	Não
 pt-br	expressoMail1_2	no messages to send	Não há mensagens na fila de e-mails offline.
@@ -17287,7 +17287,7 @@ pt-br	expressoMail1_2	click here to update your telephone	Clique aqui para atual
 pt-br	expressoMail1_2	update my telephone	Atualizar meu telefone
 pt-br	expressoMail1_2	you can't modify your commercial telephone.	Você não tem permissão para modificar seu Telefone Comercial.
 pt-br	expressoMail1_2	warning for users	Aviso importante aos usuários
-pt-br	expressoMail1_2	text_warning	Caro usuário, <br>Mantenha seu Telefone Comercial sempre atualizado no Expresso. Muitas pessoas consultam o Catálogo do Expresso como se fosse uma lista telefônica.
+pt-br	expressoMail1_2	text_warning	Caro usuário, <br />Mantenha seu Telefone Comercial sempre atualizado no Expresso. Muitas pessoas consultam o Catálogo do Expresso como se fosse uma lista telefônica.
 pt-br	expressoMail1_2	close this warning	Fechar este aviso
 pt-br	expressoMail1_2	warning	Atenção
 pt-br	expressoMail1_2	send messages with return recipient option by default	Sempre enviar mensagens com solicitação de confirmação de leitura?
@@ -17508,7 +17508,7 @@ pt-br	preferences	%1 hours	%1 horas
 pt-br	preferences	%1 - preferences	%1 - Preferências
 pt-br	preferences	24 hour	24 horas
 pt-br	preferences	acl grants have been updated	As permissões de acesso (ACL) foram atualizadas
-pt-br	preferences	any listing in phpgw will show you this number of entries or lines per page.<br>to many slow down the page display, to less will cost you the overview.	Todas as listas no eGroupWare utilizarão esta quantidade de linhas para a exibição por página. <br>Linhas demais podem deixar lenta a visualização, poucas linhas adificultam a visualização, teste várias possibilidades.
+pt-br	preferences	any listing in phpgw will show you this number of entries or lines per page.<br />to many slow down the page display, to less will cost you the overview.	Todas as listas no eGroupWare utilizarão esta quantidade de linhas para a exibição por página. <br />Linhas demais podem deixar lenta a visualização, poucas linhas adificultam a visualização, teste várias possibilidades.
 pt-br	preferences	are you sure you want to delete this category ?	Tem certeza que deseja apagar essa categoria?
 pt-br	preferences	a template defines the layout of phpgroupware and it contains icons for each application.	Um modelo define o layout do eGroupWare e contém os ícones de cada aplicativo.
 pt-br	preferences	a theme defines the colors and fonts used by the template.	Um tema define as cores e fontes utilizadas pelo modelo
@@ -17539,7 +17539,7 @@ pt-br	preferences	hours	horas
 pt-br	preferences	home	Residencial
 pt-br	preferences	how do you like to display accounts	Como você gostaria que as contas fossem mostradas
 pt-br	preferences	how do you like to select accounts	Como você gostaria de selecionar as contas
-pt-br	preferences	how many hours are you in front or after the timezone of the server.<br>if you are in the same time zone as the server select 0 hours, else select your locale date and time.	Quantas horas você está além ou aquém do fuso-horário do servidor.<br> Se você estiver no mesmo selecione 0, caso contrário, escolha o fuso-horário apropriado.
+pt-br	preferences	how many hours are you in front or after the timezone of the server.<br />if you are in the same time zone as the server select 0 hours, else select your locale date and time.	Quantas horas você está além ou aquém do fuso-horário do servidor.<br /> Se você estiver no mesmo selecione 0, caso contrário, escolha o fuso-horário apropriado.
 pt-br	preferences	how many icons should be shown in the navbar (top of the page). additional icons go into a kind of pulldown menu, callable by the icon on the far right side of the navbar.	Quantos ícones devem ser mostrados na barra de navegação no topo da página. Ícones adicionais serão colocados em um menu do tipo caixa suspensa, sendo acessado por um botão na extremidade direita da barra.
 pt-br	preferences	how should phpgroupware display dates for you.	Como o eGroupWare deve mostrar as datas para você
 pt-br	preferences	icons and text	Ícones e texto
@@ -17560,7 +17560,7 @@ pt-br	preferences	re-enter your password	Digite sua senha novamente
 pt-br	preferences	selectbox	Caixa de seleção
 pt-br	preferences	select different theme	Selecione um tema diferente
 pt-br	preferences	select one	Selecione um
-pt-br	preferences	select the language of texts and messages within phpgroupware.<br>some languages may not contain all messages, in that case you will see an english message.	Selecione o idioma dos textos e mensagens do eGroupWare.<br> Alguns idiomas podem estar incopletos, e neste caso aparecerá a mensagem original em inglês seguida de um asterisco.
+pt-br	preferences	select the language of texts and messages within phpgroupware.<br />some languages may not contain all messages, in that case you will see an english message.	Selecione o idioma dos textos e mensagens do eGroupWare.<br /> Alguns idiomas podem estar incopletos, e neste caso aparecerá a mensagem original em inglês seguida de um asterisco.
 pt-br	preferences	set this to your convenience. for security reasons, you might not want to show your loginname in public.	Selecione isto caso deseje. Por razões de segurança, você pode não querer mostrar seu nome de usuário publicamente.
 pt-br	preferences	should the number of active sessions be displayed for you all the time.	O número de sessões ativas deve ser mostrado todo o tempo.
 pt-br	preferences	should this help messages shown up always, when you enter the preferences or only on request.	Essas mensagens de ajuda devem aparecer sempre ao modificar preferências, ou quando somente quando requisitadas.
@@ -17571,7 +17571,7 @@ pt-br	preferences	show navigation bar as	Exibir barra de navegação como
 pt-br	preferences	show number of current users	Exibir o número de usuários correntes
 pt-br	preferences	show text on navigation icons	Exibir texto na barra de navegação
 pt-br	preferences	text only	Somente texto
-pt-br	preferences	the default application will be started when you enter phpgroupware or click on the homepage icon.<br>you can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to 	A aplicação predeterminada se mostrará ao iniciar a sesão no eGroupWare ou clicar no icone da página de inicio.<br> Também pode ter mais de uma aplicação na página inicial, se não escolher uma aplicação específica aquí, configurándo-a nas suas preferencias de cada aplicação. 
+pt-br	preferences	the default application will be started when you enter phpgroupware or click on the homepage icon.<br />you can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to 	A aplicação predeterminada se mostrará ao iniciar a sesão no eGroupWare ou clicar no icone da página de inicio.<br /> Também pode ter mais de uma aplicação na página inicial, se não escolher uma aplicação específica aquí, configurándo-a nas suas preferencias de cada aplicação.
 pt-br	preferences	theme (colors/fonts) selection	Seleção de tema (cores/fontes)
 pt-br	preferences	the selectbox shows all available users (can be very slow on big installs with many users). the popup can search users by name or group.	A caixa de seleção mostra todos os usuários disponíveis (poderá causar lentidão em instalações com muitos usuários). Pela janela instantânea, é possível pesquisar usuários por nome ou grupo.
 pt-br	preferences	the two passwords are not the same	As duas senhas não são iguais
@@ -17621,7 +17621,7 @@ pt-br	help	%1 manual page(s) added or updated	%1 páginas do manual adicionada(s)
 pt-br	help	download	download
 pt-br	jabberit_messenger	yes	Sim
 pt-br	jabberit_messenger	your preferences	Suas Preferências
-pt-br	help	html_description	Sua mensagem foi enviada ao Administrador do Expresso Livre, e em breve será respondida pelo seu próprio email do Expresso.<br><br> Obrigado por ajudar-nos a melhorar esta ferramenta.<br><br><div align=right><b>Equipe de Desenvolvimento e <BR> Manutenção do Expresso Livre.</b></div>
+pt-br	help	html_description	Sua mensagem foi enviada ao Administrador do Expresso Livre, e em breve será respondida pelo seu próprio email do Expresso.<br /><br /> Obrigado por ajudar-nos a melhorar esta ferramenta.<br /><br /><div align=right><b>Equipe de Desenvolvimento e <br /> Manutenção do Expresso Livre.</b></div>
 pt-br	help	page(s) %1 not found !!!	Página %1 não encontrada !!!
 pt-br	help	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Iniciando a importação de %1, pode levar alguns minutos (especialmente se você o executa pela primeira vez agora) ...
 pt-br	help	your suggestion was sent successfully.	Sua sugestão foi enviada com sucesso.
@@ -18806,7 +18806,7 @@ en	admin	%1 - %2 of %3 user groups	%1 - %2 of %3 user groups
 en	admin	%1 not found or not executable !!!	%1 not found or not executable !!!
 en	admin	(default no, leave it off if you dont use it)	(default No, leave it off if you dont use it)
 en	admin	(stored password will not be shown here)	(Stored password will not be shown here)
-en	admin	(to install new applications use<br><a href="setup/" target="setup">setup</a> [manage applications] !!!)	(To install new applications use<br><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)
+en	admin	(to install new applications use<br /><a href="setup/" target="setup">setup</a> [manage applications] !!!)	(To install new applications use<br /><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)
 en	admin	accesslog and bruteforce defense	AccessLog and BruteForce defense
 en	admin	account active	Account active
 en	admin	account list	Account list
@@ -18880,7 +18880,7 @@ en	admin	create group	Create Group
 en	admin	crontab only (recomended)	crontab only (recomended)
 en	admin	data	Data
 en	admin	day	Day
-en	admin	day of week<br>(0-6, 0=sun)	Day of week<br>(0-6, 0=Sun)
+en	admin	day of week<br />(0-6, 0=sun)	Day of week<br />(0-6, 0=Sun)
 en	admin	default	Default
 en	admin	default file system space per user	Default file system space per user
 en	admin	default file system space per user/group ?	Default file system space per user/group ?
@@ -18941,14 +18941,14 @@ en	admin	enable the xmlrpc service	Enable the xmlrpc service
 en	admin	enabled - hidden from navbar	Enabled - Hidden from navbar
 en	admin	enabled - popup window	Enabled - Popup Window
 en	admin	enter a description for the category	enter a description for the category
-en	admin	enter some random text for app_session <br>encryption (requires mcrypt)	Enter some random text for app_session <br>encryption (requires mcrypt)
+en	admin	enter some random text for app_session <br />encryption (requires mcrypt)	Enter some random text for app_session <br />encryption (requires mcrypt)
 en	admin	enter the background color for the login page	Enter the background color for the login page
 en	admin	enter the background color for the site title	Enter the background color for the site title
-en	admin	enter the full path for temporary files.<br>examples: /tmp, c:\\temp	Enter the full path for temporary files.<br>Examples: /tmp, C:\\TEMP
-en	admin	enter the full path for users and group files.<br>examples: /files, e:\\files	Enter the full path for users and group files.<br>Examples: /files, E:\\FILES
+en	admin	enter the full path for temporary files.<br />examples: /tmp, c:\\temp	Enter the full path for temporary files.<br />Examples: /tmp, C:\\TEMP
+en	admin	enter the full path for users and group files.<br />examples: /files, e:\\files	Enter the full path for users and group files.<br />Examples: /files, E:\\FILES
 en	admin	enter the hostname of the machine on which this server is running	Enter the hostname of the machine on which this server is running
 en	admin	minimum account id (e.g. 500 or 100, etc.)	Minimum account id (e.g. 500 or 100, etc.)
-en	admin	enter the location of egroupware's url.<br>example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>no trailing slash</b>	Enter the location of eGroupWare's URL.<br>Example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>No trailing slash</b>
+en	admin	enter the location of egroupware's url.<br />example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>no trailing slash</b>	Enter the location of eGroupWare's URL.<br />Example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>No trailing slash</b>
 en	admin	enter the search string. to show all entries, empty this field and press the submit button again	Enter the search string. To show all entries, empty this field and press the SUBMIT button again
 en	admin	enter the site password for peer servers	Enter the site password for peer servers
 en	admin	enter the site username for peer servers	Enter the site username for peer servers
@@ -18980,7 +18980,7 @@ en	admin	group name	Group Name
 en	admin	hide php information	hide php information
 en	admin	home directory	Home directory
 en	admin	host information	Host information
-en	admin	hour<br>(0-23)	Hour<br>(0-23)
+en	admin	hour<br />(0-23)	Hour<br />(0-23)
 en	admin	how many days should entries stay in the access log, before they get deleted (default 90) ?	How many days should entries stay in the access log, before they get deleted (default 90) ?
 en	admin	select permissions this group will have	Select permissions this group will have
 en	admin	how many minutes should an account or ip be blocked (default 30) ?	How many minutes should an account or IP be blocked (default 30) ?
@@ -19152,7 +19152,7 @@ en	admin	view this user	view this user
 en	admin	view user account	View user account
 en	admin	who would you like to transfer all records owned by the deleted user to?	Who would you like to transfer ALL records owned by the deleted user to?
 en	admin	would you like egroupware to cache the egw info array ?	Would you like eGroupWare to cache the egw info array ?
-en	admin	would you like egroupware to check for a new version<br>when admins login ?	Would you like eGroupWare to check for a new version<br>when admins login ?
+en	admin	would you like egroupware to check for a new version<br />when admins login ?	Would you like eGroupWare to check for a new version<br />when admins login ?
 en	admin	would you like egroupware to check for new application versions when admins login ?	Would you like eGroupWare to check for new application versions when admins login ?
 en	admin	would you like to automaticaly load new langfiles (at login-time) ?	Would you like to automatically load new langfiles (at login-time) ?
 en	admin	would you like to show each application's upgrade status ?	Would you like to show each application's upgrade status ?
@@ -19243,7 +19243,7 @@ en	admin	maintain news	Maintain News
 en	admin	00 (disable)	00 (disable)
 en	admin	13 (ntp)	13 (ntp)
 en	admin	80 (http)	80 (http)
-en	admin	datetime port.<br>if using port 13, please set firewall rules appropriately before submitting this page.<br>(port: 13 / host: 129.6.15.28)	Datetime port.<br>If using port 13, please set firewall rules appropriately before submitting this page.<br>(Port: 13 / Host: 129.6.15.28)
+en	admin	datetime port.<br />if using port 13, please set firewall rules appropriately before submitting this page.<br />(port: 13 / host: 129.6.15.28)	Datetime port.<br />If using port 13, please set firewall rules appropriately before submitting this page.<br />(Port: 13 / Host: 129.6.15.28)
 en	common	chile	CHILE
 en	admin	a please wait message is shown when loading the activity form usefull for long tasks	a please wait message is shown when loading the activity form usefull for long tasks
 en	admin	administer instances	Administer instances
@@ -19901,7 +19901,7 @@ en	common	you have selected an invalid date	You have selected an invalid date !
 en	common	you have selected an invalid main category	You have selected an invalid main category !
 en	common	you have successfully logged out	You have successfully logged out
 en	common	you need to add the webserver user '%1' to the group '%2'.	You need to add the webserver user '%1' to the group '%2'.
-en	common	your message could <b>not</b> be sent!<br>	Your message could <b>not</b> be sent!<br>
+en	common	your message could <b>not</b> be sent!<br />	Your message could <b>not</b> be sent!<br />
 en	common	your message has been sent	Your message has been sent
 en	common	your search returned %1 matchs	your search returned %1 matches
 en	common	your search returned 1 match	your search returned 1 match
@@ -20066,8 +20066,8 @@ en	calendar	display interval in day view	Display interval in Day View
 en	calendar	display mini calendars when printing	Display mini calendars when printing
 en	calendar	display status of events	Display Status of Events
 en	calendar	displays your default calendar view on the startpage (page you get when you enter egroupware or click on the homepage icon)?	Displays your default calendar view on the startpage (page you get when you enter eGroupWare or click on the homepage icon)?
-en	calendar	do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br>you can limit the notifications to certain changes only. each item includes all the notification listed above it. al	Do you want to be notified about new or changed appointments? You be notified about changes you make yourself.<br>You can limit the notifications to certain changes only. Each item includes all the notification listed above it. All modifications include changes of title, description, participants, but no participant responses. If the owner of an event requested any notifcations, he will always get the participant responses like acceptions and rejections too.
-en	calendar	do you want to receive a regulary summary of your appointsments via email?<br>the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br>it is only sent when you have any app	Do you want to receive a regulary summary of your appointsments via email?<br>The summary is sent to your standard email-address on the morning of that day or on Monday for weekly summarys.<br>It is only sent when you have any appointments on that day or week.
+en	calendar	do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br />you can limit the notifications to certain changes only. each item includes all the notification listed above it. al	Do you want to be notified about new or changed appointments? You be notified about changes you make yourself.<br />You can limit the notifications to certain changes only. Each item includes all the notification listed above it. All modifications include changes of title, description, participants, but no participant responses. If the owner of an event requested any notifcations, he will always get the participant responses like acceptions and rejections too.
+en	calendar	do you want to receive a regulary summary of your appointsments via email?<br />the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br />it is only sent when you have any app	Do you want to receive a regulary summary of your appointsments via email?<br />The summary is sent to your standard email-address on the morning of that day or on Monday for weekly summarys.<br />It is only sent when you have any appointments on that day or week.
 en	calendar	download	Download
 en	calendar	duration	Duration
 en	calendar	edit series	Edit Series
@@ -20127,8 +20127,8 @@ en	calendar	intervals per day in planner view	Intervals per day in planner view
 en	calendar	invalid entry id.	Invalid entry id.
 en	calendar	last	last
 en	calendar	lastname of person to notify	Lastname of person to notify
-en	calendar	length shown<br>(emtpy for full length)	Length shown<br>(emtpy for full length)
-en	calendar	length<br>(<= 255)	Length<br>(<= 255)
+en	calendar	length shown<br />(emtpy for full length)	Length shown<br />(emtpy for full length)
+en	calendar	length<br />(<= 255)	Length<br />(<= 255)
 en	calendar	link	Link
 en	calendar	link to view the event	Link to view the event
 en	calendar	list all categories.	List all categories.
@@ -20217,7 +20217,7 @@ en	calendar	selected contacts (%1)	Selected contacts (%1)
 en	calendar	send/receive updates via email	Send/Receive updates via EMail
 en	calendar	set a year only for one-time / non-regular holidays.	Set a Year only for one-time / non-regular holidays.
 en	calendar	set new events to private	Set new events to private
-en	calendar	should invitations you rejected still be shown in your calendar ?<br>you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	Should invitations you rejected still be shown in your calendar ?<br>You can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!
+en	calendar	should invitations you rejected still be shown in your calendar ?<br />you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	Should invitations you rejected still be shown in your calendar ?<br />You can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!
 en	calendar	wed	Wed
 en	calendar	should new events created as private by default ?	Should new events created as private by default ?
 en	calendar	should not loged in persons be able to see your freebusy information? you can set an extra password, different from your normal password, to protect this informations. the freebusy information is in ical format and only include th	Should not loged in persons be able to see your freebusy information? You can set an extra password, different from your normal password, to protect this informations. The freebusy information is in iCal format and only include the times when you are busy. It does not include the event-name, description or locations. The URL to your freebusy information is %1.
@@ -20248,10 +20248,10 @@ en	calendar	text	Text
 en	calendar	th	T
 en	calendar	the following conflicts with the suggested time:<ul>%1</ul>	The following conflicts with the suggested time:<ul>%1</ul>
 en	calendar	the user %1 is not participating in this event!	The user %1 is not participating in this event!
-en	calendar	there was an error trying to connect to your news server.<br>please contact your admin to check the news servername, username or password.	There was an error trying to connect to your news server.<br>Please contact your admin to check the news servername, username or password.
+en	calendar	there was an error trying to connect to your news server.<br />please contact your admin to check the news servername, username or password.	There was an error trying to connect to your news server.<br />Please contact your admin to check the news servername, username or password.
 en	calendar	this day is shown as first day in the week or month view.	This day is shown as first day in the week or month view.
 en	calendar	this defines the end of your dayview. events after this time, are shown below the dayview.	This defines the end of your day view. Events after this time are shown below the day view.
-en	calendar	this defines the start of your dayview. events before this time, are shown above the dayview.<br>this time is also used as a default starttime for new events.	This defines the start of your day view. Events before this time are shown above the day view.<br>This time is also used as a default start time for new events.
+en	calendar	this defines the start of your dayview. events before this time, are shown above the dayview.<br />this time is also used as a default starttime for new events.	This defines the start of your day view. Events before this time are shown above the day view.<br />This time is also used as a default start time for new events.
 en	calendar	this group that is preselected when you enter the planner. you can change it in the planner anytime you want.	This group that is preselected when you enter the planner. You can change it in the planner anytime you want.
 en	calendar	this is mostly caused by a not or wrongly configured smtp server. notify your administrator.	This is mostly caused by a not or wrongly configured SMTP server. Notify your administrator.
 en	calendar	this message is sent for canceled or deleted events.	This message is sent for canceled or deleted events.
@@ -20259,7 +20259,7 @@ en	calendar	this message is sent for modified or moved events.	This message is s
 en	contactcenter	copy to personal catalog.	Copy to personal catalog
 en	contactcenter	choose city	Choose City...
 en	contactcenter	choose country	Choose Country...
-en	calendar	this message is sent to every participant of events you own, who has requested notifcations about new events.<br>you can use certain variables which get substituted with the data of the event. the first line is the subject of the 	This message is sent to every participant of events you own, who has requested notifcations about new events.<br>You can use certain variables which get substituted with the data of the event. The first line is the subject of the email.
+en	calendar	this message is sent to every participant of events you own, who has requested notifcations about new events.<br />you can use certain variables which get substituted with the data of the event. the first line is the subject of the 	This message is sent to every participant of events you own, who has requested notifcations about new events.<br />You can use certain variables which get substituted with the data of the event. The first line is the subject of the email.
 en	calendar	this message is sent when you accept, tentative accept or reject an event.	This message is sent when you accept, tentatively accept, or reject an event.
 en	calendar	this message is sent when you set an alarm for a certain event. include all information you might need.	This message is sent when you set an Alarm for a certain event.  Include all information you might need.
 en	calendar	this month	This Month
@@ -21170,7 +21170,7 @@ en	preferences	a template defines the layout of phpgroupware and it contains ico
 en	workflow	process %s has been updated	Process %s has been updated
 en	preferences	a theme defines the colors and fonts used by the template.	A theme defines the colors and fonts used by the template.
 en	preferences	acl grants have been updated	ACL grants have been updated
-en	preferences	any listing in phpgw will show you this number of entries or lines per page.<br>to many slow down the page display, to less will cost you the overview.	Any listing in eGroupWare will show you this number of entries or lines per page.<br>Too many slow down the page display, too less will cost you the overview.
+en	preferences	any listing in phpgw will show you this number of entries or lines per page.<br />to many slow down the page display, to less will cost you the overview.	Any listing in eGroupWare will show you this number of entries or lines per page.<br />Too many slow down the page display, too less will cost you the overview.
 en	preferences	are you sure you want to delete this category ?	Are you sure you want to delete this category ?
 en	preferences	change your password	Change your Password
 en	preferences	change your profile	Change your profile
@@ -21191,7 +21191,7 @@ en	preferences	help off	Help off
 en	preferences	hours	hours
 en	preferences	how do you like to display accounts	How would you like to display accounts
 en	preferences	how do you like to select accounts	How would you like to select accounts
-en	preferences	how many hours are you in front or after the timezone of the server.<br>if you are in the same time zone as the server select 0 hours, else select your locale date and time.	How many hours are you in front or after the timezone of the server.<br>If you are in the same time zone as the server select 0 hours, else select your locale date and time.
+en	preferences	how many hours are you in front or after the timezone of the server.<br />if you are in the same time zone as the server select 0 hours, else select your locale date and time.	How many hours are you in front or after the timezone of the server.<br />If you are in the same time zone as the server select 0 hours, else select your locale date and time.
 en	preferences	how many icons should be shown in the navbar (top of the page). additional icons go into a kind of pulldown menu, callable by the icon on the far right side of the navbar.	How many icons should be shown in the navigation bar at the top of the page. Additional icons go into a pulldown menu, callable by the icon on the far right side of the navbar.
 en	preferences	how should phpgroupware display dates for you.	How should eGroupWare display dates for you.
 en	preferences	icons and text	Icons and text
@@ -21208,7 +21208,7 @@ en	preferences	popup with search	Popup with search
 en	preferences	re-enter your password	Re-Enter your password
 en	preferences	select different theme	Select different Theme
 en	preferences	select one	Select one
-en	preferences	select the language of texts and messages within phpgroupware.<br>some languages may not contain all messages, in that case you will see an english message.	Select the language of texts and messages within eGroupWare.<br>Some languages may not contain all messages, in that case you will see an english message.
+en	preferences	select the language of texts and messages within phpgroupware.<br />some languages may not contain all messages, in that case you will see an english message.	Select the language of texts and messages within eGroupWare.<br />Some languages may not contain all messages, in that case you will see an english message.
 en	preferences	selectbox	Selectbox
 en	preferences	set this to your convenience. for security reasons, you might not want to show your loginname in public.	Set this to your liking.  For security reasons, you might not want to show your Username in public.
 en	preferences	should the number of active sessions be displayed for you all the time.	Should the number of active sessions be displayed for you all the time.
@@ -21218,7 +21218,7 @@ en	preferences	show navigation bar as	Show navigation bar as
 en	preferences	show number of current users	Show number of current users
 en	preferences	show text on navigation icons	Show text on navigation icons
 en	preferences	text only	Text only
-en	preferences	the default application will be started when you enter phpgroupware or click on the homepage icon.<br>you can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to 	The default application will be started when you enter eGroupWare or click on the homepage icon.<br>You can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to be configured in the preferences of each application).
+en	preferences	the default application will be started when you enter phpgroupware or click on the homepage icon.<br />you can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to 	The default application will be started when you enter eGroupWare or click on the homepage icon.<br />You can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to be configured in the preferences of each application).
 en	preferences	the selectbox shows all available users (can be very slow on big installs with many users). the popup can search users by name or group.	The selectbox shows all available users (can be very slow on big installs with many users). The popup can search users by name or group.
 en	preferences	the two passwords are not the same	The two passwords are not the same
 en	preferences	theme (colors/fonts) selection	Theme (colors/fonts) Selection
@@ -21924,7 +21924,7 @@ es-es	admin	create group	Crear grupo
 es-es	admin	crontab only (recomended)	Sólo mediante crontab (recomendado)
 es-es	admin	data	Datos
 es-es	admin	day	Día
-es-es	admin	day of week<br>(0-6, 0=sun)	Día de la semana<br>(0-6, 0=Dom)
+es-es	admin	day of week<br />(0-6, 0=sun)	Día de la semana<br />(0-6, 0=Dom)
 es-es	admin	db host	Host del BD
 es-es	admin	db name	Nombre del BD
 es-es	admin	db password	Contraseña
@@ -22000,14 +22000,14 @@ es-es	common	viet nam	VIET NAM
 es-es	admin	enabled - hidden from navbar	Habilitado - Esconder de la barra de navegación
 es-es	admin	enabled - popup window	Habilitado - Ventana emergente
 es-es	admin	enter a description for the category	introduzca una descripción para esta categoría
-es-es	admin	enter some random text for app_session <br>encryption (requires mcrypt)	Introduzca un texto aleatorio para el cifrado <br> de la sesión (requiere mcrypt)
+es-es	admin	enter some random text for app_session <br />encryption (requires mcrypt)	Introduzca un texto aleatorio para el cifrado <br /> de la sesión (requiere mcrypt)
 es-es	admin	enter the background color for the login page	Introduzca el color de fondo para la página de inicio de sesión
 es-es	admin	enter the background color for the site title	Introduzca el color de fondo para el título del sitio
 es-es	admin	enter the file name of your logo	Introduzca el nombre del fichero del logo
-es-es	admin	enter the full path for temporary files.<br>examples: /tmp, c:\\temp	Introduzca la ruta completa para los archivos temporales.<br> Ejemplos: /tmp, C:\\TEMP
-es-es	admin	enter the full path for users and group files.<br>examples: /files, e:\\files	Introduzca la ruta completa para los archivos de usuarios<br>y de grupo. Ejemplos: /files , E:\\FILES
+es-es	admin	enter the full path for temporary files.<br />examples: /tmp, c:\\temp	Introduzca la ruta completa para los archivos temporales.<br /> Ejemplos: /tmp, C:\\TEMP
+es-es	admin	enter the full path for users and group files.<br />examples: /files, e:\\files	Introduzca la ruta completa para los archivos de usuarios<br />y de grupo. Ejemplos: /files , E:\\FILES
 es-es	admin	enter the hostname of the machine on which this server is running	Introduzca el nombre de la máquina sobre la cual se está ejecutando este servidor
-es-es	admin	enter the location of egroupware's url.<br>example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br><b>no trailing slash</b>	Introduzca la URL de eGroupWare. <br>Ejemplo: http://www.dominio.com/egroupware &nbsp; o &nbsp; /egroupware<br><b>Sin barra al final</b>
+es-es	admin	enter the location of egroupware's url.<br />example: http://www.domain.com/egroupware &nbsp; or &nbsp; /egroupware<br /><b>no trailing slash</b>	Introduzca la URL de eGroupWare. <br />Ejemplo: http://www.dominio.com/egroupware &nbsp; o &nbsp; /egroupware<br /><b>Sin barra al final</b>
 es-es	admin	enter the search string. to show all entries, empty this field and press the submit button again	Introduzca la cadena de búsqueda. Para mostrar todas las entradas, vacíe este campo y pulse de nuevo el botón ENVIAR.
 es-es	admin	enter the site password for peer servers	Introduzca la contraseña del sitio para servidores 'peer'
 es-es	admin	enter the site username for peer servers	Introduzca el usuario del sitio para servidores 'peer'
@@ -22048,7 +22048,7 @@ es-es	admin	groups ldap	Adminisrar Grupos de Ldap
 es-es	admin	hide php information	Ocultar información de PHP
 es-es	admin	home directory	Directorio personal
 es-es	admin	host information	Informacion del servidor
-es-es	admin	hour<br>(0-23)	Hora<br>(0-23)
+es-es	admin	hour<br />(0-23)	Hora<br />(0-23)
 es-es	admin	how many days should entries stay in the access log, before they get deleted (default 90) ?	¿Cuántos días deben permanecer las entradas en el registro de acceso, antes de borrarlas? (por defecto, 90)
 es-es	admin	how many letters the user password must contain (default 3) ?	¿Cuántos caracteres de la contraseña de usuario debe contener (por defecto 3)?
 es-es	admin	how many minutes should an account or ip be blocked (default 30) ?	¿Cuántos minutos debe permanecer bloqueada una cuenta o una IP? (por defecto, 30)
@@ -22238,7 +22238,7 @@ es-es	admin	timeout for sessions in seconds (default 14400 = 4 hours)	Tiempo lím
 es-es	admin	times	Horas
 es-es	admin	timetrack	Seguimiento del Tiempo
 es-es	admin	title	Titulo
-es-es	admin	(to install new applications use<br><a href="setup/" target="setup">setup</a> [manage applications] !!!)	(Para instalar nuevas aplicaciones, utilice <br><a href="setup/" target="setup">Instalación</a> [Administrar Aplicaciones])
+es-es	admin	(to install new applications use<br /><a href="setup/" target="setup">setup</a> [manage applications] !!!)	(Para instalar nuevas aplicaciones, utilice <br /><a href="setup/" target="setup">Instalación</a> [Administrar Aplicaciones])
 es-es	admin	top	Superior
 es-es	admin	total records	Total de registros
 es-es	admin	trust level	Nivel de confianza
@@ -22270,7 +22270,7 @@ es-es	admin	voip settings	Ajustes de VoIP
 es-es	admin	wait loading...!	Esperando Cargando...!
 es-es	admin	who would you like to transfer all records owned by the deleted user to?	¿A quién desea transferirle todos los registros del usuario eliminado?
 es-es	admin	would you like egroupware to cache the egw info array ?	¿Desea que eGroupWare almacene en memoria el array egw info?
-es-es	admin	would you like egroupware to check for a new version<br>when admins login ?	¿Desea que eGroupWare revise si hay versiones nuevas<br>cuando inicie la sesión un administrador?
+es-es	admin	would you like egroupware to check for a new version<br />when admins login ?	¿Desea que eGroupWare revise si hay versiones nuevas<br />cuando inicie la sesión un administrador?
 es-es	admin	would you like egroupware to check for new application versions when admins login ?	¿Desea que eGroupWare compruebe nuevas versiones de las aplicaciones cuando un administrador inicie la sesión?
 es-es	admin	would you like to automaticaly load new langfiles (at login-time) ?	¿Desea cargar automáticamente nuevos ficheros de idioma (al iniciar la sesión)?
 es-es	admin	would you like to show each application's upgrade status ?	Desea mostrar el estado de actualizacion de cada aplicacion?
@@ -22322,7 +22322,7 @@ es-es	admin	maintain news	Mantener noticias
 es-es	admin	00 (disable)	00 (desactivar)
 es-es	admin	13 (ntp)	13 (ntp)
 es-es	admin	80 (http)	80 (http)
-es-es	admin	datetime port.<br>if using port 13, please set firewall rules appropriately before submitting this page.<br>(port: 13 / host: 129.6.15.28)	Puerto de fecha.<br>Si usa el puerto 13, por favor, configure adecuadamente las reglas del cortafuegos antes de enviar esta página.<br>
+es-es	admin	datetime port.<br />if using port 13, please set firewall rules appropriately before submitting this page.<br />(port: 13 / host: 129.6.15.28)	Puerto de fecha.<br />Si usa el puerto 13, por favor, configure adecuadamente las reglas del cortafuegos antes de enviar esta página.<br />
 es-es	admin	a please wait message is shown when loading the activity form usefull for long tasks	al cargar el formulario de actividad, se muestra un mensaje de espera, útil para tareas largas
 es-es	admin	administer instances	Administrar instancias
 es-es	admin	administer processes	Administrar procesos
@@ -22624,7 +22624,7 @@ es-es	common	ethiopia	ETHIOPIA
 es-es	common	exact	exacto
 es-es	common	exit	Salir
 es-es	common	lao peoples democratic republic	LAO PEOPLES DEMOCRATIC REPUBLIC
-es-es	common	expressolivre is unavailable at this moment. code %1<br>please, try later.	ExpressoLivre no esta disponible en este momento. Código %1<br>Intente mas tarde.
+es-es	common	expressolivre is unavailable at this moment. code %1<br />please, try later.	ExpressoLivre no esta disponible en este momento. Código %1<br />Intente mas tarde.
 es-es	common	catalog is out of service, you will not able to do some operations	El servicio de catálogo está en mantenimientoo, usted no podra realizar algunas operaciones
 es-es	common	expand menu	Amplíe El Menú
 es-es	common	expires	Expira
@@ -23044,7 +23044,7 @@ es-es	common	you have selected an invalid main category	La categoría principal s
 es-es	common	you have successfully logged out	Ha terminado la sesión correctamente
 es-es	common	you need to add the webserver user '%1' to the group '%2'.	usted necesita agregar al usuario ' %1 ' del webserver al grupo ' %2 '.
 es-es	common	your message as been sent	Su mensaje fue enviado
-es-es	common	your message could <b>not</b> be sent!<br>	Su mensaje <b>no</b> se pudo enviar<br>
+es-es	common	your message could <b>not</b> be sent!<br />	Su mensaje <b>no</b> se pudo enviar<br />
 es-es	common	your message has been sent	Su mensaje ha sido enviado
 es-es	common	your password has expired, and you do not have access to change it	Su contraseña ha expirado, y usted no tiene acceso para cambiarla
 es-es	common	your search returned 1 match	su búsqueda devolvió 1 resultado
@@ -23219,8 +23219,8 @@ es-es	calendar	make freebusy information availible to not loged in persons?	¿Hac
 es-es	calendar	matrixview	Vista matricial
 es-es	calendar	minutes	minutos
 es-es	calendar	mo	L
-es-es	calendar	do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br>you can limit the notifications to certain changes only. each item includes all the notification listed above it. al	¿Desea que se le notifiquen citas nuevas o modificadas? Se le notificará de los cambios que haga usted mismo.<br>Puede limitar las notificaciones para sólo ciertos cambios. Cada elemento incluye toda la notificación listada encima. Todas las modificaciones incluyen cambios de título, participantes, pero no las respuestas de los participantes. Si el dueño de un evento solicitó alguna notificación, siempre obtendrá las respuestas de aceptación o rechazo del participante.
-es-es	calendar	do you want to receive a regulary summary of your appointsments via email?<br>the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br>it is only sent when you have any app	¿Desea recibir regularmente por correo un resumen de sus citas?<br>El resumen se le enviará a su correo electrónico habitual el mismo día por la mañana o el lunes para resúmenes semanales.<br>Sólo se envía si hay citas en ese día o esa semana.
+es-es	calendar	do you want to be notified about new or changed appointments? you be notified about changes you make yourself.<br />you can limit the notifications to certain changes only. each item includes all the notification listed above it. al	¿Desea que se le notifiquen citas nuevas o modificadas? Se le notificará de los cambios que haga usted mismo.<br />Puede limitar las notificaciones para sólo ciertos cambios. Cada elemento incluye toda la notificación listada encima. Todas las modificaciones incluyen cambios de título, participantes, pero no las respuestas de los participantes. Si el dueño de un evento solicitó alguna notificación, siempre obtendrá las respuestas de aceptación o rechazo del participante.
+es-es	calendar	do you want to receive a regulary summary of your appointsments via email?<br />the summary is sent to your standard email-address on the morning of that day or on monday for weekly summarys.<br />it is only sent when you have any app	¿Desea recibir regularmente por correo un resumen de sus citas?<br />El resumen se le enviará a su correo electrónico habitual el mismo día por la mañana o el lunes para resúmenes semanales.<br />Sólo se envía si hay citas en ese día o esa semana.
 es-es	calendar	duration	Duración
 es-es	calendar	editing event	Edición de evento
 es-es	calendar	edit series	Editar series
@@ -23286,8 +23286,8 @@ es-es	calendar	(i/v)cal	(i/v) Cal
 es-es	calendar	last	último
 es-es	calendar	lastname of person to notify	Apellido de la persona a notificar
 es-es	calendar	leave my calendar public	Hacer mi agenda pública
-es-es	calendar	length<br>(<= 255)	Longitud<br>(<=255)
-es-es	calendar	length shown<br>(emtpy for full length)	Longitud mostrada<br>(vació para dia completo)
+es-es	calendar	length<br />(<= 255)	Longitud<br />(<=255)
+es-es	calendar	length shown<br />(emtpy for full length)	Longitud mostrada<br />(vació para dia completo)
 es-es	calendar	modify list of external participants	Modificar lista de participantes externos
 es-es	calendar	mon	Lun
 es-es	calendar	month	Mes
@@ -23374,7 +23374,7 @@ es-es	calendar	selected contacts (%1)	Contactos seleccionados (%1)
 es-es	calendar	send/receive updates via email	Enviar y recibir actualizaciones por correo electrónico
 es-es	calendar	set a year only for one-time / non-regular holidays.	Informar el año para los feriados únicos y no regulares.
 es-es	calendar	set new events to private	Poner los eventos nuevos como privados
-es-es	calendar	should invitations you rejected still be shown in your calendar ?<br>you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	¿Mostrar las invitaciones rechazadas por usted en el calendario?<br>Puede aceptarlas después (por ejemplo, cuando elimine el conflicto de horarios), si todavía se ven en su calendario.
+es-es	calendar	should invitations you rejected still be shown in your calendar ?<br />you can only accept them later (eg. when your scheduling conflict is removed), if they are still shown in your calendar!	¿Mostrar las invitaciones rechazadas por usted en el calendario?<br />Puede aceptarlas después (por ejemplo, cuando elimine el conflicto de horarios), si todavía se ven en su calendario.
 es-es	calendar	should new events created as private by default ?	¿Los nuevos eventos creados deben ser colocados como privados siempre?
 es-es	calendar	should not loged in persons be able to see your freebusy information? you can set an extra password, different from your normal password, to protect this informations. the freebusy information is in ical format and only include th	¿Deben ver las personas que no inicien sesión la información de ocupación? Se puede poner una contraseña extra, distinta a la normal, para proteger esta información. La información de ocupación está en formato iCal y sólo incluye las horas en las que está ocupado. No incluye el nombre del evento, descripción o sitios. La URL para su información de ocupación es %1.
 es-es	calendar	should the mini calendars by printed / displayed in the printer friendly views ?	¿Mostrar o imprimir los minicalendarios en la versión de impresión?
@@ -23405,20 +23405,20 @@ es-es	calendar	the commitment was accepted successfully!	El compromiso fue acept
 es-es	calendar	the commitment was rejected successfully!	El compromiso fue rechazado con suceso!
 es-es	calendar	the email addresses must be separated by ','	Las direcciones de e-mail deben estar separadas por una coma. Ex.: fulano@aaa.com.br, beltrano@bbb.com, ciclano@ccc.br
 es-es	calendar	the following conflicts with the suggested time:<ul>%1</ul>	Los siguientes está en conflicto con la hora sugerida:<ul>%1</ul>
-es-es	calendar	there was an error trying to connect to your news server.<br>please contact your admin to check the news servername, username or password.	Ocurrió un error intentando conectar al servidor de noticias.<br>Por favor, póngase en contacto con su administrador para comprobar el nombre del servidor de noticias, usuario y contraseña.
+es-es	calendar	there was an error trying to connect to your news server.<br />please contact your admin to check the news servername, username or password.	Ocurrió un error intentando conectar al servidor de noticias.<br />Por favor, póngase en contacto con su administrador para comprobar el nombre del servidor de noticias, usuario y contraseña.
 es-es	calendar	the user %1 is not participating in this event!	El usuario %1 no participa en este evento
 es-es	calendar	this commitment has already been accepted!	Esse compromisso já foi aceito!
 es-es	calendar	this commitment has already been rejected!	Esse compromisso já foi rejeitado!
 es-es	calendar	this day is shown as first day in the week or month view.	Este día se mostrará como el primer día en las vistas de semana o de mes.
 es-es	calendar	this defines the end of your dayview. events after this time, are shown below the dayview.	Esto define el final de la vista del día  Los eventos posteriores a esta hora se muestran debajo de la vista del día.
-es-es	calendar	this defines the start of your dayview. events before this time, are shown above the dayview.<br>this time is also used as a default starttime for new events.	Esto define el inicio de la vista del día. Los eventos anteriores a esta hora se muestran encima de la vista del día.<br>Esta hora se usa también como hora predeterminada para nuevos eventos.
+es-es	calendar	this defines the start of your dayview. events before this time, are shown above the dayview.<br />this time is also used as a default starttime for new events.	Esto define el inicio de la vista del día. Los eventos anteriores a esta hora se muestran encima de la vista del día.<br />Esta hora se usa también como hora predeterminada para nuevos eventos.
 es-es	calendar	this group that is preselected when you enter the planner. you can change it in the planner anytime you want.	Este grupo es el predeterminado al entrar en el organizador. Puede cambiarlo en el organizador cuando quiera.
 es-es	calendar	this is an external event. even if it added to your expresso its can be changed any time at all	Este es un evento externo. Aunque sea agregado a su Expresso corre el riesgo de mudar a cualquier momento
 es-es	calendar	this is mostly caused by a not or wrongly configured smtp server. notify your administrator.	Esto se debe mayormente a una configuración errónea del servidor SMTP. Notifíquelo a su administrador.
 es-es	calendar	this message is sent for canceled or deleted events.	Este mensaje se envía cuando un evento se borra o se cancela.
 es-es	calendar	this message is sent for modified or moved events.	Este mensaje se envía al modificar o mover eventos.
 es-es	contactcenter	add relation	Agregue la Relación
-es-es	calendar	this message is sent to every participant of events you own, who has requested notifcations about new events.<br>you can use certain variables which get substituted with the data of the event. the first line is the subject of the 	Este mensaje se envía a cada participante de los eventos de los que usted es el dueño, quien ha solicitado notificaciones sobre nuevos eventos.<br>Puede usar ciertas variables a las que sustituyen los datos del evento. La primera línea es el asunto del correo electrónico.
+es-es	calendar	this message is sent to every participant of events you own, who has requested notifcations about new events.<br />you can use certain variables which get substituted with the data of the event. the first line is the subject of the 	Este mensaje se envía a cada participante de los eventos de los que usted es el dueño, quien ha solicitado notificaciones sobre nuevos eventos.<br />Puede usar ciertas variables a las que sustituyen los datos del evento. La primera línea es el asunto del correo electrónico.
 es-es	calendar	this message is sent when you accept, tentative accept or reject an event.	Este mensaje se envía cuando acepta, acepta la tentativa o rechaza un evento.
 es-es	calendar	this message is sent when you set an alarm for a certain event. include all information you might need.	Este mensaje se envía cuando pone una alarma para un evento concreto. Incluya toda la información necesaria.
 es-es	calendar	this message was sent by server. you must send a message to sender to confirm this event	Este es um mensaje automático generado por el Expresso. Por favor confirmar el compromiso respondiendo al remitente
@@ -24244,7 +24244,7 @@ es-es	expressoMail1_2	new message	Nuevo Mensaje
 es-es	expressoMail1_2	new rule	Nueva Regla
 es-es	expressoMail1_2	next	Próximo
 es-es	expressoMail1_2	nickname	Apodo
-es-es	expressoMail1_2	n key (open new message)<br>esc key (close tab)<br>i key (print)<br>e key (forward)<br>r key (reply)<br>delete key (delete the current message)<br>ctrl + up (go to previous message)<br>ctrl + down (go to next message)<br>shift + u	tecla n (Abre nuevo mensaje)<br>tecla ESC (Fecha aba)<br>tecla i (imprime)<br>tecla e (reenvía)<br>tecla r (responde)<br>tecla DELETE (borra mensaje atual)<br>Ctrl + para arriba (va para mensaje anterior)<br>Ctrl + para abajo (va para próximo mensaje)<br>Shift + para arriba o para abajo (selecciona varios mensajes)<br>Tecla F9 (busca en el catálogo)<br>
+es-es	expressoMail1_2	n key (open new message)<br />esc key (close tab)<br />i key (print)<br />e key (forward)<br />r key (reply)<br />delete key (delete the current message)<br />ctrl + up (go to previous message)<br />ctrl + down (go to next message)<br />shift + u	tecla n (Abre nuevo mensaje)<br />tecla ESC (Fecha aba)<br />tecla i (imprime)<br />tecla e (reenvía)<br />tecla r (responde)<br />tecla DELETE (borra mensaje atual)<br />Ctrl + para arriba (va para mensaje anterior)<br />Ctrl + para abajo (va para próximo mensaje)<br />Shift + para arriba o para abajo (selecciona varios mensajes)<br />Tecla F9 (busca en el catálogo)<br />
 es-es	expressoMail1_2	no data to search	Ningún dato digitado para búsqueda
 es-es	expressoMail1_2	no	No
 es-es	expressoMail1_2	no messages to send	No hay mensajes para enviar.
@@ -24524,7 +24524,7 @@ es-es	preferences	acl grants have been updated	Los permisos de la ACL se han act
 es-es	mobile	contact center	Contactos
 es-es	mobile	continue	Continuar
 es-es	mobile	do you like to delete this message?	Desea excluir este mensaje?
-es-es	preferences	any listing in phpgw will show you this number of entries or lines per page.<br>to many slow down the page display, to less will cost you the overview.	Cualquier listado en eGW le mostrará este número de entradas o líneas por página.<br>Demasiadas ralentizan la página,  pocos pueden ser malo.
+es-es	preferences	any listing in phpgw will show you this number of entries or lines per page.<br />to many slow down the page display, to less will cost you the overview.	Cualquier listado en eGW le mostrará este número de entradas o líneas por página.<br />Demasiadas ralentizan la página,  pocos pueden ser malo.
 es-es	preferences	are you sure you want to delete this category ?	¿Seguro que desea borrar esta categoría?
 es-es	preferences	a template defines the layout of phpgroupware and it contains icons for each application.	Una plantilla define el formato de eGroupWare y contiene iconos para cada aplicación.
 es-es	preferences	a theme defines the colors and fonts used by the template.	Un tema define los colores y los tipos de letra usados en la plantilla
@@ -24557,7 +24557,7 @@ es-es	preferences	hours	horas
 es-es	preferences	home	Residencial
 es-es	preferences	how do you like to display accounts	¿Cómo desea ver las cuentas?
 es-es	preferences	how do you like to select accounts	¿Cómo desea seleccionar las cuentas?
-es-es	preferences	how many hours are you in front or after the timezone of the server.<br>if you are in the same time zone as the server select 0 hours, else select your locale date and time.	Cuántas horas va por delante o por detrás de la zona horaria del servidor.<br>Si está en la misma zona horaria, seleccione 0 horas, si no, seleccione su fecha y hora local.
+es-es	preferences	how many hours are you in front or after the timezone of the server.<br />if you are in the same time zone as the server select 0 hours, else select your locale date and time.	Cuántas horas va por delante o por detrás de la zona horaria del servidor.<br />Si está en la misma zona horaria, seleccione 0 horas, si no, seleccione su fecha y hora local.
 es-es	preferences	how many icons should be shown in the navbar (top of the page). additional icons go into a kind of pulldown menu, callable by the icon on the far right side of the navbar.	Número de iconos a mostrar en la barra de navegación en la parte superior de la página. Los iconos adicionales van en un menú desplegable, en la parte derecha de la barra de navegación.
 es-es	preferences	how should phpgroupware display dates for you.	Forma de mostrar las fechas
 es-es	preferences	icons and text	Iconos y texto
@@ -24584,7 +24584,7 @@ es-es	mobile	download	Bajar Archivos (Download)
 es-es	mobile	drafts	Borrador
 es-es	mobile	e-mail	E-mail
 es-es	mobile	from	De
-es-es	preferences	select the language of texts and messages within phpgroupware.<br>some languages may not contain all messages, in that case you will see an english message.	Seleccione el idioma de los textos y los mensajes en eGroupWare.<br>Algunos idiomas puede que no tengan todos los mensajes, en cuyo caso verá el mensaje en inglés.
+es-es	preferences	select the language of texts and messages within phpgroupware.<br />some languages may not contain all messages, in that case you will see an english message.	Seleccione el idioma de los textos y los mensajes en eGroupWare.<br />Algunos idiomas puede que no tengan todos los mensajes, en cuyo caso verá el mensaje en inglés.
 es-es	preferences	set this to your convenience. for security reasons, you might not want to show your loginname in public.	Ponga esto a su gusto. Por razones de seguridad, puede no querer mostrar su usuario en público.
 es-es	preferences	should the number of active sessions be displayed for you all the time.	¿Mostrar el número de sesiones activas todo el tiempo?
 es-es	preferences	should this help messages shown up always, when you enter the preferences or only on request.	¿Mostrar estos mensajes de ayuda al modificar preferencias, o sólo cuando lo solicite?
@@ -24596,7 +24596,7 @@ es-es	preferences	show navigation bar as	Mostrar la barra de navegación como
 es-es	preferences	show number of current users	Mostrar el número actual de usuarios
 es-es	preferences	show text on navigation icons	Mostrar descripción sobre los iconos
 es-es	preferences	text only	Sólo texto
-es-es	preferences	the default application will be started when you enter phpgroupware or click on the homepage icon.<br>you can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to 	La aplicación predeterminada se mostrará al iniciar la sesión en eGroupWare o pulsar en el icono de la página de inicio.<br>También puede tener más de una aplicación en la página de inicio, si no elige una aplicación específica aquí, configurándolo en las preferencias de cada aplicación.
+es-es	preferences	the default application will be started when you enter phpgroupware or click on the homepage icon.<br />you can also have more than one application showing up on the homepage, if you don't choose a specific application here (has to 	La aplicación predeterminada se mostrará al iniciar la sesión en eGroupWare o pulsar en el icono de la página de inicio.<br />También puede tener más de una aplicación en la página de inicio, si no elige una aplicación específica aquí, configurándolo en las preferencias de cada aplicación.
 es-es	preferences	theme (colors/fonts) selection	Selección de temas (colores/tipos de letra)
 es-es	preferences	the selectbox shows all available users (can be very slow on big installs with many users). the popup can search users by name or group.	La caja de selección muestra todos los usuarios disponibles (puede ser muy lento en grandes instalaciones con muchos usuarios). La ventana emergente puede buscar usuarios por nombre o grupo.
 es-es	preferences	the two passwords are not the same	Las dos contraseñas son distintas
@@ -24631,7 +24631,7 @@ es-es	preferences	determines if a lighter version of the interface should be use
 es-es	filemanger	view	Visualizacion
 es-es	help	%1 manual page(s) added or updated	%1 páginas del manual agregada(s) o atualizada(s)
 es-es	help	download	Bajar archivo (download)
-es-es	help	html_description	Su mensaje fue enviado al Administrador de Expresso Livre, en breve será respondido por su propio correo de Expresso.<br><br> Gracias por ayudarnos a mejorar esta herramenta.<br><br><div align=right><b>Equipo de Desarrolo y <BR> Mantenimiento de Expresso Livre.</b></div>
+es-es	help	html_description	Su mensaje fue enviado al Administrador de Expresso Livre, en breve será respondido por su propio correo de Expresso.<br /><br /> Gracias por ayudarnos a mejorar esta herramenta.<br /><br /><div align=right><b>Equipo de Desarrolo y <br /> Mantenimiento de Expresso Livre.</b></div>
 es-es	help	page(s) %1 not found !!!	Página %1 no encontrada !!!
 es-es	help	starting import from %1, this might take several minutes (specialy if you start it the first time) ...	Iniciando la importación de %1, puede llevar algunos minutos (especialmente se usted lo ejecuta por primera vez ahora) ...
 es-es	help	your suggestion was sent successfully.	Su sugerencia fue enviada con éxito.

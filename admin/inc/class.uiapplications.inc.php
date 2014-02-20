@@ -112,7 +112,7 @@
 			$GLOBALS['phpgw']->template->set_var('lang_enabled',lang('Enabled'));
 
 			$GLOBALS['phpgw']->template->set_var('new_action',$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiapplications.add'));
-			$GLOBALS['phpgw']->template->set_var('lang_note',lang('(To install new applications use<br><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)'));
+			$GLOBALS['phpgw']->template->set_var('lang_note',lang('(To install new applications use<br /><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)'));
 			$GLOBALS['phpgw']->template->set_var('lang_add',lang('add'));
 
 			foreach($applications as $app)
@@ -210,7 +210,7 @@
 				}
 				else
 				{
-					$GLOBALS['phpgw']->template->set_var('error','<p><center>' . $GLOBALS['phpgw']->common->error_list($error) . '</center><br>');
+					$GLOBALS['phpgw']->template->set_var('error','<p><center>' . $GLOBALS['phpgw']->common->error_list($error) . '</center><br />');
 				}
 			}
 			else
@@ -311,7 +311,7 @@
 
 			if ($totalerrors)
 			{
-				$GLOBALS['phpgw']->template->set_var('error','<p><center>' . $GLOBALS['phpgw']->common->error_list($error) . '</center><br>');
+				$GLOBALS['phpgw']->template->set_var('error','<p><center>' . $GLOBALS['phpgw']->common->error_list($error) . '</center><br />');
 			}
 			else
 			{

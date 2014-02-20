@@ -237,33 +237,33 @@
 			'charset' => $_POST['charset']
 		));
 		$help_on_trans = "<a name=\"help\"></a><b>How to use Translation's</b><p>".
-			"Translations enable you to change / adapt the content of each CSV field for your needs. <br>".
-			"General syntax is: <b>pattern1 ${ASep} replacement1 ${PSep} ... ${PSep} patternN ${ASep} replacementN</b><br>".
+			"Translations enable you to change / adapt the content of each CSV field for your needs. <br />".
+			"General syntax is: <b>pattern1 ${ASep} replacement1 ${PSep} ... ${PSep} patternN ${ASep} replacementN</b><br />".
 			"If the pattern-part of a pair is ommited it will match everything ('^.*$'), which is only ".
 			"usefull for the last pair, as they are worked from left to right.<p>".
-			"First example: <b>1${ASep}private${PSep}public</b><br>".
+			"First example: <b>1${ASep}private${PSep}public</b><br />".
 			"This will translate a '1' in the CVS field to 'private' and everything else to 'public'.<p>".
 			"Patterns as well as the replacement can be regular expressions (the replacement is done via preg_replace). ".
 			"If, after all replacements, the value starts with an '@' the whole value is eval()'ed, so you ".
 			"may use all php, phpgw plus your own functions. This is quiet powerfull, but <u>circumvents all ACL</u>.<p>".
-			"Example using regular expressions and '@'-eval(): <br><b>$mktime_lotus</b><br>".
+			"Example using regular expressions and '@'-eval(): <br /><b>$mktime_lotus</b><br />".
 			"It will read a date of the form '2001-05-20 08:00:00.00000000000000000' (and many more, see the regular expr.). ".
 			"The&nbsp;[&nbsp;.:-]-separated fields are read and assigned in different order to @mktime(). Please note to use ".
 			"${VPre} insted of a backslash (I couldn't get backslash through all the involved templates and forms.) ".
 			"plus the field-number of the pattern.<p>".
 			"In addintion to the fields assign by the pattern of the reg.exp. you can use all other CSV-fields, with the ".
-			"syntax <b>${CPre}CVS-FIELDNAME$CPos</b>. Here is an example: <br>".
-			"<b>.+$ASep${CPre}Company$CPos: ${CPre}NFamily$CPos, ${CPre}NGiven$CPos$PSep${CPre}NFamily$CPos, ${CPre}NGiven$CPos</b><br>".
+			"syntax <b>${CPre}CVS-FIELDNAME$CPos</b>. Here is an example: <br />".
+			"<b>.+$ASep${CPre}Company$CPos: ${CPre}NFamily$CPos, ${CPre}NGiven$CPos$PSep${CPre}NFamily$CPos, ${CPre}NGiven$CPos</b><br />".
 			"It is used on the CVS-field 'Company' and constructs a something like <i>Company: FamilyName, GivenName</i> or ".
 			"<i>FamilyName, GivenName</i> if 'Company' is empty.<p>".
 			"You can use the 'No CVS #'-fields to assign cvs-values to more than on field, the following example uses the ".
 			"cvs-field 'Note' (which gots already assingned to the description) and construct a short subject: ".
 			"<b>@substr(${CPre}Note$CPos,0,60).' ...'</b><p>".
-			"Their is two important user-function for the calendar:<br>".
+			"Their is two important user-function for the calendar:<br />".
 			"<b>@addr_id(${CPre}NFamily$CPos,${CPre}NGiven$CPos,${CPre}Company$CPos)</b> ".
 			"searches the addressbook for an address and returns the id if it founds an exact match of at least ".
 			"<i>NFamily</i> AND (<i>NGiven</i> OR <i>Company</i>). This is necessary to link your imported calendar-entrys ".
-			"with the addressbook.<br>".
+			"with the addressbook.<br />".
 			"<b>@cat_id(Cat1,...,CatN)</b> returns a (','-separated) list with the cat_id's. If a category isn't found, it ".
 			"will be automaticaly added. This function is automaticaly called if the category is not numerical!<p>".
 			"I hope that helped to understand the features, if not <a href='mailto:RalfBecker@outdoor-training.de'>ask</a>.";

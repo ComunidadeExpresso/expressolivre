@@ -127,7 +127,7 @@
 				}
 				else 
 				{
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			
@@ -266,7 +266,7 @@
 					$GLOBALS['phpgw']->log->commit();
 				}
 				else {
-					exit('Argument Error on: <br>File:'.__FILE__.'<br>Line:'.__LINE__.'<br>');
+					exit('Argument Error on: <br />File:'.__FILE__.'<br />Line:'.__LINE__.'<br />');
 				}
 			}
 			
@@ -1672,7 +1672,7 @@
 			 			break;
 			 			
 			 		default:
-						echo 'Invalid Field: '.$field.'<br>Value: '.$value;
+						echo 'Invalid Field: '.$field.'<br />Value: '.$value;
 			 			return false;
 				}
 			}

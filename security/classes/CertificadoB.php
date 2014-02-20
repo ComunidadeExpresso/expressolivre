@@ -55,19 +55,19 @@ public function __destruct()
 		if($s == '')	return false;
 		if($c == '')	return false;
 		$senha_arquivo_temporario = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
-		//echo $senha_arquivo_temporario.'<br>';
+		//echo $senha_arquivo_temporario.'<br />';
 		if(!grava_arquivo($senha_arquivo_temporario,$s))
 		{
 			return false;
 		}
 		$cert_arquivo_temporario = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
-		//echo $cert_arquivo_temporario.'<br>';
+		//echo $cert_arquivo_temporario.'<br />';
 		if(!grava_arquivo($cert_arquivo_temporario,$c))
 		{
 			return false;
 		}
 		$senha_criptografada_arquivo_temporario = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
-		//echo $senha_criptografada_arquivo_temporario.'<br>';
+		//echo $senha_criptografada_arquivo_temporario.'<br />';
 
 		$w = exec('openssl rsautl -in ' . $senha_arquivo_temporario . ' -out ' . $senha_criptografada_arquivo_temporario . ' -inkey ' . $cert_arquivo_temporario . ' -certin -pkcs -keyform PEM -encrypt',$saida);
 
@@ -101,13 +101,13 @@ public function __destruct()
 		# Tem de verificar todos os certificados que serao utilizados para criptografar a msg..
 		# Inserir a rotina aqui....
 		$m_arquivo_temporario = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
-		//echo $m_arquivo_temporario.'<br>';
+		//echo $m_arquivo_temporario.'<br />';
 		if(!grava_arquivo($m_arquivo_temporario,$m))
 		{
 			return false;
 		}
 		$enc_arquivo_temporario = gera_nome_arquivo_temporario(&$this->arquivos_para_deletar);
-		//echo $enc_arquivo_temporario.'<br>';
+		//echo $enc_arquivo_temporario.'<br />';
 
 		// LIMPA ERROS ... Pode ser um problema para outras aplicacoes que usam openssl(fonte de erros unica).
 		while ($erro = openssl_error_string()); //  Limpa buffer de erros anteriores......

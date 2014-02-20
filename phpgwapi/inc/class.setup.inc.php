@@ -298,7 +298,7 @@
 				if (!preg_match('/^[0-9.]+$/',$value))
 				{
 					$value = gethostbyname($was=$value);		// resolve domain-name, eg. a dyndns account
-					//echo "resolving '$was' to '$value'<br>\n";
+					//echo "resolving '$was' to '$value'<br />\n";
 				}
 				$values = explode('.',$value);
                 $values_count = count($values);
@@ -397,7 +397,7 @@
 
 			if($GLOBALS['DEBUG'])
 			{
-				echo '<br>register_app(): ' . $appname . ', version: ' . $setup_info[$appname]['version'] . ', table: ' . $appstbl . '<br>';
+				echo '<br />register_app(): ' . $appname . ', version: ' . $setup_info[$appname]['version'] . ', table: ' . $appstbl . '<br />';
 				// _debug_array($setup_info[$appname]);
 			}
 
@@ -457,7 +457,7 @@
 
 			if(@$GLOBALS['DEBUG'])
 			{
-				echo '<br>app_registered(): checking ' . $appname . ', table: ' . $appstbl;
+				echo '<br />app_registered(): checking ' . $appname . ', table: ' . $appstbl;
 				// _debug_array($setup_info[$appname]);
 			}
 
@@ -504,7 +504,7 @@
 
 			if($GLOBALS['DEBUG'])
 			{
-				echo '<br>update_app(): ' . $appname . ', version: ' . $setup_info[$appname]['currentver'] . ', table: ' . $appstbl . '<br>';
+				echo '<br />update_app(): ' . $appname . ', version: ' . $setup_info[$appname]['currentver'] . ', table: ' . $appstbl . '<br />';
 				// _debug_array($setup_info[$appname]);
 			}
 
@@ -517,7 +517,7 @@
 
 			if($setup_info[$appname]['version'])
 			{
-				//echo '<br>' . $setup_info[$appname]['version'];
+				//echo '<br />' . $setup_info[$appname]['version'];
 				if($setup_info[$appname]['tables'])
 				{
 					$tables = implode(',',$setup_info[$appname]['tables']);
@@ -688,7 +688,7 @@
 
 			if($DEBUG)
 			{
-				echo'<br>Input values: '
+				echo'<br />Input values: '
 					. 'A="'.$a.'", B="'.$b.'"';
 			}			
 			$newa = str_replace('-','',str_replace('pre','.',$a));
@@ -713,7 +713,7 @@
             $testa_count = count($testa);
 			for($i=0;$i<$testa_count;++$i)
 			{
-				if($DEBUG) { echo'<br>Checking if '. (int)$testa[$i] . ' is less than ' . (int)$testb[$i] . ' ...'; }
+				if($DEBUG) { echo'<br />Checking if '. (int)$testa[$i] . ' is less than ' . (int)$testb[$i] . ' ...'; }
 				if((int)$testa[$i] < (int)$testb[$i])
 				{
 					if ($DEBUG) { echo ' yes.'; }
@@ -745,20 +745,20 @@
 					$less = count($testa) < count($testb) ? 1 : 0;
 				}
 			}
-			if($DEBUG) { echo '<br>Check value is: "'.$less.'"'; }
+			if($DEBUG) { echo '<br />Check value is: "'.$less.'"'; }
 			if($less>0)
 			{
-				if($DEBUG) { echo '<br>A is less than B'; }
+				if($DEBUG) { echo '<br />A is less than B'; }
 				return True;
 			}
 			elseif($less<0)
 			{
-				if($DEBUG) { echo '<br>A is greater than B'; }
+				if($DEBUG) { echo '<br />A is greater than B'; }
 				return False;
 			}
 			else
 			{
-				if($DEBUG) { echo '<br>A is equal to B'; }
+				if($DEBUG) { echo '<br />A is equal to B'; }
 				return False;
 			}
 		}
@@ -776,7 +776,7 @@
 
 			if($DEBUG)
 			{
-				echo'<br>Input values: '
+				echo'<br />Input values: '
 					. 'A="'.$a.'", B="'.$b.'"';
 			}
 			$newa = str_replace('-','',str_replace('pre','.',$a));
@@ -796,7 +796,7 @@
             $testa_count = count($testa);
 			for($i=0;$i<$testa_count;++$i)
 			{
-				if($DEBUG) { echo'<br>Checking if '. (int)$testa[$i] . ' is more than ' . (int)$testb[$i] . ' ...'; }
+				if($DEBUG) { echo'<br />Checking if '. (int)$testa[$i] . ' is more than ' . (int)$testb[$i] . ' ...'; }
 				if((int)$testa[$i] > (int)$testb[$i])
 				{
 					if($DEBUG) { echo ' yes.'; }
@@ -827,20 +827,20 @@
 					$less = 0;
 				}
 			}
-			if($DEBUG) { echo '<br>Check value is: "'.$less.'"'; }
+			if($DEBUG) { echo '<br />Check value is: "'.$less.'"'; }
 			if($less>0)
 			{
-				if($DEBUG) { echo '<br>A is greater than B'; }
+				if($DEBUG) { echo '<br />A is greater than B'; }
 				return True;
 			}
 			elseif($less<0)
 			{
-				if($DEBUG) { echo '<br>A is less than B'; }
+				if($DEBUG) { echo '<br />A is less than B'; }
 				return False;
 			}
 			else
 			{
-				if($DEBUG) { echo '<br>A is equal to B'; }
+				if($DEBUG) { echo '<br />A is equal to B'; }
 				return False;
 			}
 		}
@@ -882,7 +882,7 @@
 				if(($GLOBALS['phpgw_info']['server']['account_repository'] == 'ldap') &&
 					!$GLOBALS['phpgw']->accounts->ds)
 				{
-					printf("<b>Error: Error connecting to LDAP server %s!</b><br>",$GLOBALS['phpgw_info']['server']['ldap_host']);
+					printf("<b>Error: Error connecting to LDAP server %s!</b><br />",$GLOBALS['phpgw_info']['server']['ldap_host']);
 					exit;
 				}
 			}

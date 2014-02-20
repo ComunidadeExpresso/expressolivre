@@ -371,7 +371,7 @@ function printEmployeesHandler(data)
 		/* display a indication that some employees where not found */
 		if (employeeNotFound)
 		{
-			content += '<hr><p>(*) = Usuários não localizados no catálogo do Expresso.</p>';
+			content += '<hr /><p>(*) = Usuários não localizados no catálogo do Expresso.</p>';
 		}
 
 		if ( arguments[ 1 ] != 'returnResult' )

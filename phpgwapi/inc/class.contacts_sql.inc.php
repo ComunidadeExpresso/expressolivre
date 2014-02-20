@@ -333,11 +333,11 @@
 					{
 						continue;
 					}
-					if ($DEBUG) { echo '<br>DEBUG - Filter intermediate strings 2: #'.$name.'# => #'.$value.'#'; }
+					if ($DEBUG) { echo '<br />DEBUG - Filter intermediate strings 2: #'.$name.'# => #'.$value.'#'; }
 
 					if (empty($value))
 					{
-						if ($DEBUG) { echo '<br>DEBUG - filter field "'.$name.'" is empty (NULL)'; }
+						if ($DEBUG) { echo '<br />DEBUG - filter field "'.$name.'" is empty (NULL)'; }
 
 						$filterlist[] = $name.' is NULL';
 					}
@@ -379,7 +379,7 @@
 
 				if ($DEBUG)
 				{
-					echo '<br>DEBUG - Filter output string: #'.$filterlist.'#';
+					echo '<br />DEBUG - Filter output string: #'.$filterlist.'#';
 				}
 
 				if ($filterlist)
@@ -433,7 +433,7 @@
 
 			if ($DEBUG && $filtermethod)
 			{
-				echo '<br>DEBUG - Filtering with: #' . $filtermethod . '#';
+				echo '<br />DEBUG - Filtering with: #' . $filtermethod . '#';
 			}
 
 			if (!$sort) { $sort = 'ASC'; }
@@ -449,7 +449,7 @@
 
 			if ($DEBUG && $ordermethod)
 			{
-				echo "<br>DEBUG - $ordermethod";
+				echo "<br />DEBUG - $ordermethod";
 			}
 
 			if($lastmod >= 0 && $fwhere)
@@ -463,7 +463,7 @@
 
 			if ($DEBUG && $last_mod_filter && $fwhere)
 			{
-				echo "<br>DEBUG - last_mod_filter added to fwhere: $fwhere";
+				echo "<br />DEBUG - last_mod_filter added to fwhere: $fwhere";
 			}
 
 			$filtermethod = '';
@@ -551,8 +551,8 @@
 			}
 			if($DEBUG)
 			{
-				echo '<br>COUNT QUERY' . $sqlcount;
-				echo '<br>FULL  QUERY' . $sql;
+				echo '<br />COUNT QUERY' . $sqlcount;
+				echo '<br />FULL  QUERY' . $sql;
 			}
 
 //			$db2 = $this->db;

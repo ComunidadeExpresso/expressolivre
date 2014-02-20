@@ -1632,7 +1632,6 @@ div.gray li a.button.delete{float: right;}
 .upper, .lower {
 	background-color: gray;
 	opacity:0.1;
-	filter:alpha(opacity=30);
 	height: 16px;
 	position: fixed;
 	width: 230px;

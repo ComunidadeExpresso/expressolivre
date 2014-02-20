@@ -12,7 +12,7 @@
 	if (! $GLOBALS['phpgw']->acl->check('site_config_access',1,'admin'))
 	{
 		$file = Array(
-			'Global Configuration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+			'Global Configuration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=' . $appname),
 			'Managers' => $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin1_2.uimanagers.list_managers')
 		);
 	}
