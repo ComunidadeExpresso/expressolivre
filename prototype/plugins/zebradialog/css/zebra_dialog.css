@@ -56,16 +56,16 @@
 }
 
 .ZebraDialog .ZebraDialog_Buttons a {
+    white-space: nowrap;
+    display: inline-block;
     text-decoration: none;
     font-weight: bold;
     color: #000;
     background: transparent;
     border: 1px solid #AAA;
     padding: 4px 10px;
-    float: right;
     margin-right: 5px;
     min-width: 60px;
-    width: 60px;
     text-align: center;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;

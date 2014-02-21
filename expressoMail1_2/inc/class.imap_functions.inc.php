@@ -1685,10 +1685,21 @@ class imap_functions
 		$this->set_messages_flag($params);
 		$content = $this->process_embedded_images($images,$msg_number,$content, $msg_folder);
 		$content = $this->replace_special_characters($content);
+
+
+
               $this->replace_links($content);
+
+        ob_start();
+        print_r($content);
+
+        $output = ob_get_clean();
+        file_put_contents( "/tmp/tchaves.log", $output , FILE_APPEND);
+
+
 		$return['body'] = &$content;
 
-		return $return;
+        return $return;
 	}
 
 
@@ -2049,7 +2060,7 @@ class imap_functions
 		// Trata urls do tipo aaaa.bbb.empresa
 		// Usadas na intranet.
 
-		$pattern = '/[^(background-image\:url\()?](?<=[\s|(<br />)|\n|\r|;])(((http|https|ftp|ftps)?:\/\/((?:[\w]\.?)+(?::[\d]+)?[:\/.\-~&=?%;@#,+\w]*))|((?:www?\.)(?:\w\.?)*(?::\d+)?[\:\/\w.\-~&=?%;@+]*))/i';
+		$pattern = '/[^(background-image\:url\()?](?<=[\s|(<br>)|\n|\r|;])(((http|https|ftp|ftps)?:\/\/((?:[\w]\.?)+(?::[\d]+)?[:\/.\-~&=?%;@#,+\w]*))|((?:www?\.)(?:\w\.?)*(?::\d+)?[\:\/\w.\-~&=?%;@+]*))/i';
 
 		$body = preg_replace_callback($pattern,array( &$this, 'replace_links_callback'), $body);
 
