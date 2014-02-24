@@ -178,12 +178,35 @@ Controller::addFallbackHandler( 100, function( $e, $URI ){
 
 });
 
+
 foreach( $args as $i => $data )
 {
     foreach( $data as $uri => $dt )
     {
 	  if( !isset($data[$uri]) )
 		  continue;
+
+        // it fix a bug - import some event with repetition.
+        if( isset( $dt['byday'][0] ) )
+        {
+            $count = strlen( $dt['byday'][0] );
+
+            $days = $dt['byday'][0];
+
+            $dt['byday'] = $dt['byday']['DAY'];
+
+            $i = 0;
+            while($i < $count) {
+                $str = substr($days, $i, 2);
+                $dt['byday'] .= ",{$str}";
+                $i += 2;
+            }
+        }
+
+        // it fix a bug - randomly a repetition event imported come to sunday.
+        if( !isset($dt['byday']) && ($dt['frequency'] || $dt['interval']) )
+            $dt['byday'] = strtoupper(substr(date('D', substr($dt['startTime'], 0, 10 )), 0 , 2 ));
+
 
 	  list( , $concept, $id ) = parseURI( $uri );
 
@@ -193,6 +216,11 @@ foreach( $args as $i => $data )
 	  $oldIds = array();
 
 	  $dt = prepare( $concept, $id, $dt, $data, $oldIds, $mounted, $synced );
+
+        // it fix a bug - randomly a repetition event created come to sunday.
+        if( is_array($dt['schedulable']['repeat']) )
+            if( ( !isset($dt['schedulable']['repeat']['byday']) || empty($dt['schedulable']['repeat']['byday']) ) && ($dt['schedulable']['repeat']['frequency'] || $dt['schedulable']['repeat']['interval']) )
+                $dt['schedulable']['repeat']['byday'] = strtoupper(substr(date('D', strtotime(substr($dt['schedulable']['repeat']['startTime'], 0, 10 ))), 0 , 2 ));
 
 	  try{
 	      $result = Controller::put( array( 'concept' => $concept, 'id' => $id ), $dt );
