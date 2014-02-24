@@ -53,6 +53,7 @@
     -moz-border-radius-bottomright: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    float: right;
 }
 
 .ZebraDialog .ZebraDialog_Buttons a {
