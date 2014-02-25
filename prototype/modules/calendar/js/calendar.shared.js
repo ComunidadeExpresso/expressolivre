@@ -592,7 +592,7 @@ function cancel_signature(signatureId){
     $.Zebra_Dialog('Confirma a remoção desta assinatura ?', {
 	'type':     'question',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Sim', 'Não'],
+	'buttons':  ['Não', 'Sim'],
 	'onClose':  function(clicked) {
 		if(clicked == 'Sim'){
 			DataLayer.remove('calendarSignature', ''+signatureId);

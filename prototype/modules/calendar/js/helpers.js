@@ -965,7 +965,7 @@ UI.dialogs.addEvent.find(".menu-addevent")
     $.Zebra_Dialog('Tem certeza que deseja excluir o evento?', {
 	'type':     'question',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Sim', 'Não'],
+	'buttons':  ['Não', 'Sim'],
 	'onClose':  function(clicked) {
 	    if(clicked == 'Sim'){
 		canDiscardEventDialog = true;
@@ -1688,7 +1688,7 @@ UI.dialogs.addEvent.find('.row.fileupload-buttonbar .button').filter('.delete').
     $.Zebra_Dialog('Tem certeza que deseja excluir todos anexos?', {
 	'type':     'question',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Sim', 'Não'],
+	'buttons':  ['Não', 'Sim'],
 	'onClose':  function(clicked) {
 	    if(clicked == 'Sim'){
 		
@@ -2184,7 +2184,7 @@ function remove_event(eventId, idCalendar, type){
     $.Zebra_Dialog('Tem certeza que deseja excluir?', {
 	'type':     'question',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Sim', 'Não'],
+	'buttons':  ['Não', 'Sim'],
 	'onClose':  function(clicked) {
 	    if(clicked == 'Sim'){
 
@@ -2220,7 +2220,7 @@ function remove_ocurrence(eventId, idRecurrence){
     $.Zebra_Dialog('Tem certeza que deseja excluir esta ocorrência?', {
 	'type':     'question',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Sim', 'Não'],
+	'buttons':  ['Não', 'Sim'],
 	'onClose':  function(clicked) {
 	    if(clicked == 'Sim'){
 		var repeat = mount_exception(eventId, idRecurrence);
@@ -2244,7 +2244,7 @@ function remove_calendar(type){
     $.Zebra_Dialog(title, {
 	'type':     'question',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Sim', 'Não'],
+	'buttons':  ['Não', 'Sim'],
 	'onClose':  function(clicked) {
 	    if(clicked == 'Sim'){
 		var idCalendar =  $('.cal-list-options-btn.ui-state-active').attr('class').match(/[0-9]+/g);

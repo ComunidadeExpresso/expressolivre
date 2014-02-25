@@ -422,7 +422,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
         $.Zebra_Dialog('Tem certeza que deseja excluir esta tarefa?', {
             'type': 'question',
             'overlay_opacity': '0.5',
-            'buttons': ['Sim', 'Não'],
+            'buttons': ['Não', 'Sim'],
             'onClose': function (clicked) {
                 if (clicked == 'Sim') {
                     canDiscardTaskDialog = true; /* Remove por filtro */
@@ -937,7 +937,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
         $.Zebra_Dialog('Tem certeza que deseja excluir todos anexos?', {
             'type': 'question',
             'overlay_opacity': '0.5',
-            'buttons': ['Sim', 'Não'],
+            'buttons': ['Não', 'Sim'],
             'onClose': function (clicked) {
                 if (clicked == 'Sim') {
 
