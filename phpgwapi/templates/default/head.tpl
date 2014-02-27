@@ -19,5 +19,5 @@
 		{cookie_manager}
 	</head>
 	<!-- we don't need body tags anymore, do we?) we do!!! onload!! LK -->
-	<body>
+	<body {body_tags}>
 <!-- END head -->

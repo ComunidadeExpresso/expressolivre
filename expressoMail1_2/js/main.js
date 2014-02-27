@@ -397,7 +397,7 @@ function remove_all_attachments(folder,msg_num) {
 
     $.Zebra_Dialog(get_lang("delete all attachments confirmation"), {
         'type':     'question',
-        'buttons':  [get_lang("Yes"), get_lang("No")],
+        'buttons':  [get_lang("No"), get_lang("Yes")],
         'overlay_opacity' : 0.5,
         'width' : 500,
         'custom_class': 'custom-zebra-filter',
@@ -612,7 +612,7 @@ function show_msg(msg_info){
                     $.Zebra_Dialog(get_lang("Would you like to send the read receipt?"), {
                         'type':     'question',
                         'title':    get_lang('Read receipt'),
-                        'buttons':  [get_lang("Yes"), get_lang("No")],
+                        'buttons':  [get_lang("No"), get_lang("Yes")],
                         'overlay_opacity' : 0.5,
                         'custom_class': 'custom-zebra-filter',
                         'onClose':  function(caption) {
@@ -4495,7 +4495,7 @@ function empty_trash_imap(shared, button, type){
     $.Zebra_Dialog(get_lang('Do you really want to empty your trash folder?'), {
         'type':     'question',
         'title':    get_lang('Empty Trash'),
-        'buttons':  [get_lang("Yes"), get_lang("No")],
+        'buttons':  [get_lang("No"), get_lang("Yes")],
         'overlay_opacity' : 0.5,
         'custom_class': 'custom-zebra-filter',
         'onClose':  function(caption) {
@@ -4551,7 +4551,7 @@ function empty_spam_imap(shared, button, type){
     $.Zebra_Dialog(get_lang('Do you really want to empty your spam folder?'), {
         'type':     'question',
         'title':    get_lang('Empty Spam'),
-        'buttons':  [get_lang("Yes"), get_lang("No")],
+        'buttons':  [get_lang("No"), get_lang("Yes")],
         'overlay_opacity' : 0.5,
         'custom_class': 'custom-zebra-filter',
         'onClose':  function(caption) {
@@ -5399,7 +5399,7 @@ function import_calendar(data){
     {
         $.Zebra_Dialog(get_lang("Do you confirm this import to your Calendar?"), {
             'type':     'question',
-            'buttons':  [get_lang("Yes"), get_lang("No")],
+            'buttons':  [get_lang("No"), get_lang("Yes")],
             'overlay_opacity' : 0.5,
             'custom_class': 'custom-zebra-filter',
             'onClose':  function(caption) {
