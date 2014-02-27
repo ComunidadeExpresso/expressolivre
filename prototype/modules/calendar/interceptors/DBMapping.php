@@ -689,6 +689,8 @@ class DBMapping extends Helpers {
             unset($criteria['historic']['type']);
             unset($criteria['historic']['allDay']);
             unset($criteria['historic']['id']);
+            unset($criteria['historic']['lastUpdate']);
+            unset($criteria['historic']['timezone']);
         }
     }
 
@@ -799,8 +801,8 @@ class DBMapping extends Helpers {
             $time =  time() . '000';
 
             foreach($criteria['historic'] as $k => $v){
-                Controller::create(array('concept' => 'calendarHistoric'), 
-                    array('schedulable' => $uri['id'], 
+                Controller::create(array('concept' => 'calendarHistoric'),
+                    array('schedulable' => $uri['id'],
                         'user' => Config::me('uidNumber'),
                         'time' => $time,
                         'attribute' => $k,
