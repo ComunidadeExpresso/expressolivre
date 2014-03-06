@@ -127,14 +127,22 @@ function assing_calendar_user(path){
 		}
 		
 		
-		UI.dialogs.assingCalendar.find('.add-user-search input').keydown(function(event) {
+		UI.dialogs.assingCalendar.find('.add-user-search input').bind('keypress', function(event) {
 			if(event.keyCode == '13' || typeof(event.keyCode) == 'undefined') {
                             
                                 var result = '';
                                 var group  = '';
-                                if(searchType == 'calendar')
-                                    result = DataLayer.get('calendarToPermission', {filter: ['AND', ['=','type','1'], ['OR', ['i*','name', $(this).val()], ['i*', 'description', $(this).val()] ] ] , criteria: {deepness: 2}});
-                                else{
+                                if(searchType == 'calendar') {
+                                    var calendarIds = [];
+                                	var findCalendars = DataLayer.get('calendar', {filter: ['OR', ['i*', 'name', $(this).val()], ['i*', 'description', $(this).val()] ] });
+                                	
+                                	for( i in findCalendars ) { 
+                                		if (findCalendars[i]['id']) 
+                                			calendarIds.push( findCalendars[i]['id'] );
+                                	}	
+
+                                	result = DataLayer.get('calendarToPermission',  {filter: ['AND', ['=','type','1'], ['IN', 'calendar', calendarIds] ], criteria: {deepness: 2} });
+                                } else {
                                     result = DataLayer.get('user', ["*", "name", $(this).val()], true);
                                     group = DataLayer.get('group', ["*", "name", $(this).val()], true); 
 				
