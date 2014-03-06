@@ -135,8 +135,8 @@ function assing_calendar_user(path){
                                 if(searchType == 'calendar') {
                                     var calendarIds = [];
                                 	var findCalendars = DataLayer.get('calendar', {filter: ['OR', ['i*', 'name', $(this).val()], ['i*', 'description', $(this).val()] ] });
-                                	
-                                	for( i in findCalendars ) { 
+                                
+                                	for( var i in findCalendars ) { 
                                 		if (findCalendars[i]['id']) 
                                 			calendarIds.push( findCalendars[i]['id'] );
                                 	}	
