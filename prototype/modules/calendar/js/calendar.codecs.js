@@ -739,7 +739,7 @@ DataLayer.codec( "schedulable", "task", {
             Date.parseExact(form.startDate + " "+$.trim(form.startHour) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00') :
             Date.parseExact(form.dueDate + " "+$.trim(form.dueTime) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00'),
         due: (form.dueDate == '' ) ? 0 : Date.parseExact(form.dueDate + " "+$.trim(form.dueTime) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00'),
-        allDay: ( form.dueDate == ''  ? 1 : 0 ),
+        allDay: ( (form.dueDate == '' && $.trim(form.startHour) == '00:00') || $.trim(form.dueTime) == '00:00' ? 1 : 0 ),
         status: form.taskStatus,      
         id: form.idTask,
         location: form.location,
@@ -1565,7 +1565,7 @@ DataLayer.codec( "schedulable", "list", {
 
                 for( var ii = 0; ii < occurrences.length; ii++ )
                 {
-                    var currentDate = new Date( occurrences[ii] );
+                    var currentDate = new Date(parseInt(occurrences[ii]));
                     var counter = currentDate.clone();
 
                     var res2 = $.extend( {}, res[i], {
@@ -1664,7 +1664,7 @@ DataLayer.codec( "schedulable", "print", {
 
             for( var ii = 0; ii < occurrences.length; ii++ )
             {
-                var currentDate = new Date( parseInt(occurrences[ii]) );
+                var currentDate = new Date( occurrences[ii] );
                 var counter = currentDate.clone();
                         
                 var res2 = $.extend( {}, res[i], {

@@ -367,7 +367,7 @@ jQuery.ajax({
 
 		var firstFolder = jQuery("#foldertree-container")
 		.removeClass('empty-container')
-		.html(DataLayer.render(BASE_PATH + 'api/templates/foldertree.ejs', {folders: [tree1, tree2, tree3]}))
+		.html(DataLayer.render(BASE_PATH + 'modules/mail/templates/foldertree.ejs', {folders: [tree1, tree2, tree3]}))
 		.find("#foldertree").treeview()
 		.click(function(event){
 
@@ -458,7 +458,7 @@ jQuery.ajax({
 		//jqgrid
 		jQuery("#mailgrid-container")
 		.removeClass('empty-container')
-		.html(DataLayer.render(BASE_PATH + 'api/templates/messagegrid.ejs', {}))
+		.html(DataLayer.render(BASE_PATH + 'modules/mail/templates/messagegrid.ejs', {}))
 		.find("#message_attacher_grid")
 		.jqGrid({
 			url:BASE_PATH + 'REST.php?q=folder/INBOX/message',

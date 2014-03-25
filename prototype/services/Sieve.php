@@ -50,7 +50,7 @@ class Sieve extends Net_Sieve implements Service
 	
     public function create( $URI, $data )
     {	
-		if( $this->installScript( $data['name'], $data['content'], $data['active'] ) )
+		if( $this->installScript(  mb_convert_encoding ($data['name'] , 'UTF-8'), mb_convert_encoding ( $data['content'] , 'UTF-8') , $data['active'] ) )
 			return array('id' => $data['name']);
 
 		return false;

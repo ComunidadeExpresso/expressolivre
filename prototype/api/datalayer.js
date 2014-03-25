@@ -197,7 +197,16 @@ DataLayer = {
 	    return formatting();
 	}
 
-	return this.send( DataLayer.templatePath + templateName, 'get', false, formatting, !!!formatter );
+
+    var path = DataLayer.templatePath + templateName;
+    var pathParams = path.match('(.+)(\/modules\/([a-zA-Z\_\-]+).*\/([^\/]+\.ejs))');
+    var params = {};
+    params['lang'] = !!User.me.lang ? User.me.lang : 'pt_BR';
+    params['module'] = pathParams[3];
+    params['template'] = pathParams[4];
+    params['path'] = pathParams[2] ;
+
+	return this.send(pathParams[1] + '/template.php' , 'get', params, formatting, !!!formatter );
     },
     
     send: function( url, type, data, callback, sync, extraOptions ){

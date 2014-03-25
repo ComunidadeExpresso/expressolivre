@@ -35,7 +35,7 @@
 
 
 	//jquery and Editor 
-	echo '<link rel="stylesheet" type="text/css" href="assetic_css.php"/>';
+    echo '<link rel="stylesheet" type="text/css" href="styles.php"/>';
 	echo '
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/filters/filters.css"/>
@@ -408,7 +408,7 @@
 
 	echo $obj -> getFilesJs($scripts, $update_version);
 	echo '<script type="text/javascript">connector.updateVersion = "'.$update_version.'";</script>';
-	echo '<script type="text/javascript" src="assetic.php"></script>';
+    echo '<script type="text/javascript" src="scripts.php?lang='.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'].'" charset="UTF-8" ></script>';
 
 /////////   Verifica se o usuario esta fora do escritorio imprime a variavel javascript "outOfficeFlag" /////////////////////////////
 
