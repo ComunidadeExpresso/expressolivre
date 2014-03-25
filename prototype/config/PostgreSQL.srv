@@ -6,7 +6,7 @@ host = /tmp
 ; Conexão via TCP/IP
 ;host = 127.0.0.1
 port = 5432
-dbname = expresso.25.cristiano
+dbname = expresso
 user = postgres
 ; Caso o usuario tenha senha...
 ;password=
