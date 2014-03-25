@@ -12,6 +12,22 @@ $configProvider['module'] = 'expressoMail1_2';
 
 $fileDuck = new FileDuck( $config , $configProvider );
 
+
+$fileDuck->add(__DIR__ .'/js/connector.js' ,'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/../phpgwapi/js/dftree/dftree.js','ISO-8859-1');
+$fileDuck->add(__DIR__ .'/js/sniff_browser.js','ISO-8859-1');
+$fileDuck->add(__DIR__ .'/../phpgwapi/js/wz_dragdrop/wz_dragdrop.js');
+$fileDuck->add(__DIR__ .'/../phpgwapi/js/dJSWin/dJSWin.js');
+$fileDuck->add(__DIR__ .'/../phpgwapi/js/x_tools/xtools.js');
+$fileDuck->add(__DIR__ .'/js/DropDownContacts.js');
+$fileDuck->add(__DIR__ .'/../library/fancybox/jquery.fancybox-1.3.4.pack.js');
+$fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/label.js' , 'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/../prototype/plugins/datejs/date-pt-BR.js');
+$fileDuck->add(__DIR__ .'/../prototype/plugins/dateFormat/dateFormat.js');
+$fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.date.js' , 'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.codecs.js' , 'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.alarms.js' , 'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/helpers.js', 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/json2/json2.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/ejs/ejs.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/scrollto/jquery.scrollTo.js');

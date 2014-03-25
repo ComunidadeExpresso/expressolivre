@@ -47,3 +47,4 @@ var divStatusBar = document.getElementById("divStatusBar");
 var denyFileExtensions = new Array('exe','com','reg','chm','cnf','hta','ins','jse','job','lnk','pif','src','scf','sct','shb','vbe','vbs','wsc','wsf','wsh','cer','its','mau','','mda','mar','mdz','prf','pst');
 var mobile_device = false;
 var previous = 0;
+var use_local_messages = false;//disable local messages
