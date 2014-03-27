@@ -68,6 +68,7 @@ $fileDuck->add(__DIR__ .'/js/rich_text_editor.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/modules/filters/filters.js');
 $fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/label.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/init.js' , 'ISO-8859-1' );
+$fileDuck->add(__DIR__ .'/js/checkSession.js' );
 
 
 $fileDuck->renderFile( 'text/javascript' );
