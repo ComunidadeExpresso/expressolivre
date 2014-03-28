@@ -1,7 +1,5 @@
 	function cShareMailbox()
 	{
-		this.xtools 		= new xtools('../expressoMail/templates/');
-
 		var users;
 	}
 
@@ -87,88 +85,68 @@
 
 		if( select.selectedIndex == "-1" )
 		{
-			alert(get_lang("Select a user!"));
+			$.Zebra_Dialog(get_lang('Select a user!'), {
+			        'type'				: 'warning',
+			        'overlay_opacity'	: '0.5',
+					'custom_class'		: 'custom-zebra-filter',
+			        'buttons'			: [ get_lang('Close') ]
+			});				
+
 			return false;
-		}
-		
-		var user = select.options[select.selectedIndex].value;
-		
-		if ( Element('em_input_readAcl').checked ) 
-		{
-			Element('em_input_sendAcl').disabled	= false;
-			Element('em_input_deleteAcl').disabled	= false;
-            Element('em_input_writeAcl').disabled	= false;
-			acl = 'lrs';
 		}
 		else
 		{
-			Element('em_input_sendAcl').disabled	= true;
-			Element('em_input_sendAcl').checked		= false;
-			Element('em_input_deleteAcl').disabled	= true;
-            Element('em_input_deleteAcl').checked	= false;
-            Element('em_input_writeAcl').disabled	= true;
-            Element('em_input_writeAcl').checked	= false;
-		}
-				
-		if (Element('em_input_deleteAcl').checked)
-			acl += 'xtea';
+			var user = select.options[select.selectedIndex].value;
+			
+			if ( Element('em_input_readAcl').checked ) 
+			{
+				Element('em_input_sendAcl').disabled	= false;
+				Element('em_input_deleteAcl').disabled	= false;
+	            Element('em_input_writeAcl').disabled	= false;
+				acl = 'lrs';
+			}
+			else
+			{
+				Element('em_input_sendAcl').disabled	= true;
+				Element('em_input_sendAcl').checked		= false;
+				Element('em_input_deleteAcl').disabled	= true;
+	            Element('em_input_deleteAcl').checked	= false;
+	            Element('em_input_writeAcl').disabled	= true;
+	            Element('em_input_writeAcl').checked	= false;
+			}
+					
+			if (Element('em_input_deleteAcl').checked)
+				acl += 'xtea';
 
-		if (Element('em_input_writeAcl').checked) {
-			acl += 'wika';			
-		}		
-		if (Element('em_input_sendAcl').checked){
-			acl += 'pa';			
-		}
+			if (Element('em_input_writeAcl').checked) {
+				acl += 'wika';			
+			}		
+			if (Element('em_input_sendAcl').checked){
+				acl += 'pa';			
+			}
 
-		this.users[user].acls = acl;
+			this.users[user].acls = acl;
+		}
 	}
 	
 	cShareMailbox.prototype.makeWindow =  function(optionsData)
 	{
-		var div  = null;
-		var args = null;
+		var windowShare = $("#shareMailbox");
 		
-		args =
-		{
-			'button_1' : ">>",
-			'button_2' : "<<",
-			'Note_This_sharing_will_take_action_on_all_of_your_folders_and_messages' : get_lang('Note: This sharing will take action on all of your folders and messages.'),
-			'Organization' : get_lang('Organization'),
-			'Search_user'  : get_lang('Search user'),
-			'Users'		   : get_lang('Users'), 			
-			'Your_mailbox_is_shared_with' : get_lang('Your mailbox is shared with'),
-			'Access_right'			: get_lang('Access right'),
-			'Read'					: get_lang('Read'),
-			'Exclusion'				: get_lang('Exclusion'),
-			'Write'					: get_lang('Write'),
-			'Send'					: get_lang('Send'),
-			'Save'					: get_lang('Save'),
-			'hlp_msg_read_acl'		: get_lang('hlp_msg_read_acl'),
-			'hlp_msg_delmov_acl'	: get_lang('hlp_msg_delmov_acl'),
-			'hlp_msg_addcreate_acl'	: get_lang('hlp_msg_addcreate_acl'),
-			'hlp_msg_sendlike_acl'	: get_lang('hlp_msg_sendlike_acl'),
-			'hlp_msg_savelike_acl'	: get_lang('hlp_msg_savelike_acl')
-		};
-		
-		div					= document.createElement("div");
-		div.innerHTML		= this.xtools.parse(this.xtools.xml('sharedFolders'), 'sharedFolders.xsl', args );
-		div.setAttribute( "style","overflow:hidden");
-		div.setAttribute("id","sharemailbox");
-		
-		$(div).dialog(
+		windowShare.dialog(
 		{
 				resizable	: false,
 				title		: get_lang("Mailbox Sharing"),
 				position	: 'center',
 				width		: 750,
-				height		: 400,
+				height		: 390,
 				modal		: true,
 				buttons		: [
 								{
 									text: get_lang("Close"),
 									click: function()
 									{
-										$(div).dialog("close");
+										$(this).dialog("destroy");
 									},
 									style: "margin-top: -2.1em" 
 								},
@@ -206,7 +184,7 @@
 				],
 				beforeClose	: function()
 				{ 
-					div.removeChild(div.firstChild);
+					$(this).remove( $(this).firstChild() );
 				},
                 close:function(event, ui) 
                 {
@@ -216,41 +194,45 @@
                 open: function(event, ui) 
                 {
                     if(typeof(shortcut) != 'undefined') shortcut.disabled = true; 
+
+					var handlerOrganizations = function(data)
+					{
+						var userOrganization = $('#user_organization').val();
+						
+						for( i = 0; i < data.length; i++ )
+						{
+							$('#em_combo_org').append( new Option( data[i].ou ,data[i].dn ) );
+							
+							if( data[i].ou.indexOf("dc=") != -1 || userOrganization.toUpperCase() == data[i].ou.toUpperCase() )
+							{
+								console.log( $('#em_combo_org') );
+
+								
+								//$('#em_combo_org').options[i].selected = true;
+								
+								//sharemailbox.get_available_users(data[i].dn);
+							}
+						}
+					}
+					
+					cExecute ("$this.ldap_functions.get_organizations2&referral=false", handlerOrganizations);
+
+					$("#em_input_sendAcl").attr('checked', false);
+					$("#em_input_deleteAcl").attr('checked', false);
+					$("#em_input_writeAcl").attr('checked', false);
+
+					var selectSharedFolders = $("#em_select_sharefolders_users");
+
+					/*
+					var selectSharedFolders = Element('em_select_sharefolders_users');
+					this.users = optionsData;
+					for( var i in optionsData )	
+						selectSharedFolders.options[selectSharedFolders.options.length] = new Option(optionsData[i].cn, i, false, false);
+					*/
                 }
 		});
 
-
-		setTimeout(function()
-		{
-			var handler_organizations = function(data)
-			{
-				var user_organization = Element('user_organization').value;
-				
-				for(i = 0; i < data.length; i++)
-				{
-					Element('em_combo_org').options[i] = new Option(data[i].ou,data[i].dn);
-					
-					if(data[i].ou.indexOf("dc=") != -1 || user_organization.toUpperCase() == data[i].ou.toUpperCase())
-					{
-						Element('em_combo_org').options[i].selected = true;
-						sharemailbox.get_available_users(data[i].dn);
-					}
-				}
-			}
-			
-			cExecute ("$this.ldap_functions.get_organizations2&referral=false", handler_organizations);
-			
-		},100);
-		
-		Element('em_input_sendAcl').disabled	= true;
-		Element('em_input_deleteAcl').disabled	= true;
-		Element('em_input_writeAcl').disabled	= true;
-
-		var selectSharedFolders = Element('em_select_sharefolders_users');
-		this.users = optionsData;
-		for( var i in optionsData )	
-			selectSharedFolders.options[selectSharedFolders.options.length] = new Option(optionsData[i].cn, i, false, false);
-		
+		windowShare.html( new EJS( {url: 'templates/default/shareMailbox.ejs'} ).render());
 	}
 	
 	var finderTimeout = '';
@@ -277,63 +259,55 @@
 	
 	cShareMailbox.prototype.add_user = function()
 	{
-		var select_available_users = document.getElementById('em_select_available_users');
-		var select_users = document.getElementById('em_select_sharefolders_users');
+		var new_options 			= "";
+		var select_available_users	= $('#em_select_available_users');
+		var select_users 			= $('#em_select_sharefolders_users');
 
-		var count_available_users = select_available_users.length;
-		var count_users = select_users.options.length;
-		var new_options = '';
-	
-		for (i = 0 ; i < count_available_users ; i++)
-		{
-			if (select_available_users.options[i].selected)
+		select_available_users.find('option:selected').each(function(){
+
+			if( $.trim($(this).val()) === $.trim(User.me.uid) )
 			{
-				if(select_available_users.options[i].value == User.me.uid) {
-					$.Zebra_Dialog(get_lang('Cant share with yourself.'), {
-				        'type':     'warning',
-				        'overlay_opacity': '0.5',
-						'custom_class': 'custom-zebra-filter',
-				        'buttons':  ['Fechar']
-				    });				
-				}else{
-					if(document.all)
-					{
-						if ( (select_users.innerHTML.indexOf('value='+select_available_users.options[i].value)) == '-1' )
-						{
-							new_options +=  '<option value='
-										+ select_available_users.options[i].value
-										+ '>'
-										+ select_available_users.options[i].text
-										+ '</option>';
-						}
-					}
-					else
-					{
-						if ( (select_users.innerHTML.indexOf('value="'+select_available_users.options[i].value+'"')) == '-1' )
-						{
-							new_options +=  '<option value='
-										+ select_available_users.options[i].value
-										+ '>'
-										+ select_available_users.options[i].text
-										+ '</option>';
-						}
-					}
-				}
-				var newobject = new Object;
-				newobject.cn = select_available_users.options[i].text;
-				newobject.acls = "";
-				this.users[select_available_users.options[i].value] = newobject;
+				$.Zebra_Dialog(get_lang('Cant share with yourself.'), {
+			        'type'				: 'warning',
+			        'overlay_opacity'	: '0.5',
+					'custom_class'		: 'custom-zebra-filter',
+			        'buttons'			: [ get_lang('Close') ]
+			    });				
 			}
-		}
+			else
+			{
+				var newVal 		= $(this).val();
+				var flagAppend	= false;
+
+				select_users.find('option').each(function()
+				{
+					if( $(this).val() == newVal && !flagAppend )
+						flagAppend = true;
+						
+				});
+
+				if( !flagAppend )
+					select_users.append( new Option( $(this).text() , $(this).val() ) );
+			}
+
+		});
+
+
+		/*for( i = 0 ; i < select_available_users.children('option').length ; i++ )
+		{
+				
+			// 	var newobject = new Object;
+			// 	newobject.cn = select_available_users.options[i].text;
+			// 	newobject.acls = "";
+			// 	this.users[select_available_users.options[i].value] = newobject;
+			// }
+		}//fim for*/
 
 		if ( new_options != '' )
 		{
 			select_users.innerHTML = '#' + new_options + select_users.innerHTML;
 			select_users.outerHTML = select_users.outerHTML;
 		}
-
-
-
 	}
 
 	cShareMailbox.prototype.remove_user = function()

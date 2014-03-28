@@ -210,4 +210,5 @@
 <div id="freeow" class="freeow freeow-bottom-right"></div>
 <div id="window_InfoQuota" style="display:none"></div>
 <div id="error_reporter" style="display:none"><div>
+<div id="shareMailbox" style="display:none;overflow:hidden;"></div>
 <!-- END list -->
