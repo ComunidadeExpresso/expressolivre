@@ -152,8 +152,7 @@ select
 
 .logo_expresso
 {
-	background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.jpg ) no-repeat 0 3px;
-	/*background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.png ) no-repeat 0 3px;*/
+	background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.png ) no-repeat 0 3px;
 }
 
 .menu
