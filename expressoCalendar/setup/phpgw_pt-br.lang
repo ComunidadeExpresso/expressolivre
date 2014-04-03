@@ -1,0 +1,456 @@
+New Task	expressoCalendar	pt-br	Nova Tarefa
+Description	expressoCalendar	pt-br	Descrição
+Untitled task	expressoCalendar	pt-br	Tarefa sem Título
+Close	expressoCalendar	pt-br	Fechar
+is a repeating event	expressoCalendar	pt-br	é um evento com repetição
+Edit all occurrences	expressoCalendar	pt-br	Editar todas ocorrências
+Edit this event	expressoCalendar	pt-br	Editar essa ocorrência
+Cancel	expressoCalendar	pt-br	Cancelar
+Create Event	expressoCalendar	pt-br	Criar Evento
+Your changes at the event were not saved. Do you want to discard the changes?	expressoCalendar	pt-br	Suas alterações no evento não foram salvas. Deseja descartar as alterações?
+Discard changes	expressoCalendar	pt-br	Descartar alterações
+Continue editing	expressoCalendar	pt-br	Continuar editando
+Untitiled event	expressoCalendar	pt-br	Evento sem título
+Please, enter a start date	expressoCalendar	pt-br	Por favor, informe uma data inicial
+Please, enter an end date	expressoCalendar	pt-br	Por favor, informe uma data final
+Please, enter a start time	expressoCalendar	pt-br	Por favor, informe uma hora inicial
+Please, enter a final time	expressoCalendar	pt-br	Por favor, informe uma hora final
+Invalid start date	expressoCalendar	pt-br	Data inicial inválida
+Invalid end date	expressoCalendar	pt-br	Data final inválida
+Start time equal to the end	expressoCalendar	pt-br	Hora inicial igual a final
+End date less than the initial	expressoCalendar	pt-br	Data final menor que a inicial
+Final hour less than the initial	expressoCalendar	pt-br	Hora final menor que a inicial
+Please, enter the number of occurrences	expressoCalendar	pt-br	Por favor, informe o número de ocorrências
+Please, enter a valid value for the number of occurrences	expressoCalendar	pt-br	Por favor, informe um valor válido para a quantidade de ocorrências
+Please, enter the interval	expressoCalendar	pt-br	Por favor, informe o intervalo
+Please, enter a valid value for the interval	expressoCalendar	pt-br	Por favor informe um valor válido para o intervalo
+The printing view is best viewed with the preference "landscape" selected in your browser.	expressoCalendar	pt-br	A tela de impressão será melhor visualizada com a preferência "Paisagem" selecionada no seu browser.
+Permissions	expressoCalendar	pt-br	Permissões
+Apply to All	expressoCalendar	pt-br	Aplicar a todos
+Day	expressoCalendar	pt-br	Dia
+Week	expressoCalendar	pt-br	Semana
+Month	expressoCalendar	pt-br	Mês
+Year	expressoCalendar	pt-br	Ano
+Are you sure you want to delete this event?	expressoCalendar	pt-br	Tem certeza que deseja excluir o evento?
+Yes	expressoCalendar	pt-br	Sim
+No	expressoCalendar	pt-br	Não
+Add other contacts	expressoCalendar	pt-br	Adicionar outros contatos
+Delegate participation to	expressoCalendar	pt-br	Delegar participação para
+enter an email to invite	expressoCalendar	pt-br	digite um email para convidar
+Invalid Email.	expressoCalendar	pt-br	Email inválido.
+enter the contact name	expressoCalendar	pt-br	informe o nome do contato
+inform the contact email	expressoCalendar	pt-br	informe o email do contato
+The above user has been added!	expressoCalendar	pt-br	O usuário acima já foi adicionado!
+Edit	expressoCalendar	pt-br	Editar
+Details of the participant	expressoCalendar	pt-br	Detalhes do participante
+No results found.	expressoCalendar	pt-br	Nenhum resultado encontrado.
+Add other contacts	expressoCalendar	pt-br	Adicionar outros contatos
+Are you sure you want to delete all attachments?	expressoCalendar	pt-br	Tem certeza que deseja excluir todos anexos?
+Preferences	expressoCalendar	pt-br	Preferências
+Default	expressoCalendar	pt-br	Padrão
+Koala	expressoCalendar	pt-br	Coala
+Tomato	expressoCalendar	pt-br	Tomate
+Lemon	expressoCalendar	pt-br	Limão
+High contrast	expressoCalendar	pt-br	Alto contraste
+Are you sure you want to delete?	expressoCalendar	pt-br	Tem certeza que deseja excluir?
+Are you sure you want to delete this ocurrence?	expressoCalendar	pt-br	Tem certeza que deseja excluir esta ocorrência?
+All tasks of this group will be removed. Proceed with this operation?	expressoCalendar	pt-br	Todas as tarefas deste grupo serão removidas. Deseja prosseguir com a operação?
+All events of this calendar will be removed. Proceed with the operation?	expressoCalendar	pt-br	Todos os eventos desta agenda serão removidos. Deseja prosseguir com a operação?
+New Group	expressoCalendar	pt-br	Novo Grupo
+Group Name	expressoCalendar	pt-br	Nome do grupo
+New Calendar	expressoCalendar	pt-br	Nova Agenda
+Calendar Name	expressoCalendar	pt-br	Nome da Agenda
+The name of this agenda is already being used in a another agenda URL. Please enter another name for schedule.	expressoCalendar	pt-br	O nome desta agenda já está sendo utilizada em uma Url de outra agenda. Por favor, informe outro nome para agenda.
+List of events	expressoCalendar	pt-br	Lista de eventos
+Task List	expressoCalendar	pt-br	Lista de tarefas
+Please select at least one agenda.	expressoCalendar	pt-br	Por favor selecione ao menos uma agenda.
+Please select at least one group.	expressoCalendar	pt-br	Por favor selecione ao menos um grupo.
+Please select at least one book or group.	expressoCalendar	pt-br	Por favor selecione ao menos uma agenda ou grupo.
+Not found any task or activity corresponding to your search.	expressoCalendar	pt-br	Não foi encontrado nenhum evento correspondente à sua pesquisa.
+Not found any event or task or activity corresponding to your search.	expressoCalendar	pt-br	Não foi encontrado nenhum evento ou tarefa ou atividade correspondente à sua pesquisa.
+No events found in this range.	expressoCalendar	pt-br	Não foram encontrados eventos neste intervalo.
+No events or tasks or activities in this range were found.	expressoCalendar	pt-br	Não foram encontradas tarefas ou atividades neste intervalo.
+Import and Export	expressoCalendar	pt-br	Importar e Exportar
+Events	expressoCalendar	pt-br	Eventos
+Tasks	expressoCalendar	pt-br	Tarefas
+Error when performing the import, please check the file	expressoCalendar	pt-br	Erro ao realizar a importação, por favor verifique o arquivo
+Import was successful!	expressoCalendar	pt-br	Importação realizada com sucesso!
+No new events were found in the import!	expressoCalendar	pt-br	Não foram encontrados novos eventos na importação!
+Suggest hours	expressoCalendar	pt-br	Sugerir horário
+Results for	expressoCalendar	pt-br	Resultados para
+File size not allowed!	expressoCalendar	pt-br	Tamanho de arquivo nao permitido!
+Agendas Settings	expressoCalendar	pt-br	Configurações de agendas
+Group Settings	expressoCalendar	pt-br	Configurações de Grupos
+Your changes in the activity were not saved. Do you want to discard changes?	expressoCalendar	pt-br	Suas alterações na atividade não foram salvas. Deseja descartar as alterações?
+Untitled activity	expressoCalendar	pt-br	Atividade sem título
+The exclusion of this activity also has the option to delete your added tasks. What do you want to delete?	expressoCalendar	pt-br	A exclusão desta atividade também traz a opção de excluir suas tarefas adicionadas. O que deseja excluir?
+Activity and Task	expressoCalendar	pt-br	Atividade e Tarefas
+Only Activity	expressoCalendar	pt-br	Apenas Atividade
+You changed the group activity. Would you also change the group of tasks pertaining to this activity?	expressoCalendar	pt-br	Você alterou o grupo da atividade. Deseja alterar também o grupo das tarefas pertencentes à essa atividade?
+Do not Change	expressoCalendar	pt-br	Não Alterar
+Change	expressoCalendar	pt-br	Alterar
+No results found.	expressoCalendar	pt-br	Nenhum resultado encontrado.
+Information	expressoCalendar	pt-br	Informações
+You have a scheduled appointment	expressoCalendar	pt-br	Você possui um compromisso agendado
+Date of start	expressoCalendar	pt-br	Data de inicio
+Date of end	expressoCalendar	pt-br	Data de fim
+Title	expressoCalendar	pt-br	Título
+Status	expressoCalendar	pt-br	Status
+Percentage	expressoCalendar	pt-br	Porcentagem
+Priority	expressoCalendar	pt-br	Prioridade
+Expected completion	expressoCalendar	pt-br	Previsão de término
+In process	expressoCalendar	pt-br	Em processo
+Finalized	expressoCalendar	pt-br	Finalizada
+Canceled	expressoCalendar	pt-br	Cancelada
+New participant	expressoCalendar	pt-br	Novo participante
+New attachment	expressoCalendar	pt-br	Novo anexo
+Daily repetition	expressoCalendar	pt-br	Repetição diária
+Weekly repetition	expressoCalendar	pt-br	Repetição semanal
+Monthly repetition	expressoCalendar	pt-br	Repetição mensal
+Annual repetition	expressoCalendar	pt-br	Repetição anual
+Busy	expressoCalendar	pt-br	Ocupado
+Rem. participant	expressoCalendar	pt-br	Rem. participante
+Rem. attachment	expressoCalendar	pt-br	Rem. anexo
+Jan	expressoCalendar	pt-br	Jan
+Feb	expressoCalendar	pt-br	Fev
+Mar	expressoCalendar	pt-br	Mar
+Apr	expressoCalendar	pt-br	Abr
+May	expressoCalendar	pt-br	Mai
+June	expressoCalendar	pt-br	Jun
+July	expressoCalendar	pt-br	Jul
+Aug	expressoCalendar	pt-br	Ago
+Sept	expressoCalendar	pt-br	Set
+Oct	expressoCalendar	pt-br	Out
+Nov	expressoCalendar	pt-br	Nov
+Dec	expressoCalendar	pt-br	Dez
+January	expressoCalendar	pt-br	Janeiro
+February	expressoCalendar	pt-br	Fevereiro
+March	expressoCalendar	pt-br	Março
+April	expressoCalendar	pt-br	Abril
+May	expressoCalendar	pt-br	Maio
+June	expressoCalendar	pt-br	Junho
+July	expressoCalendar	pt-br	Julho
+August	expressoCalendar	pt-br	Agosto
+September	expressoCalendar	pt-br	Setembro
+October	expressoCalendar	pt-br	Outubro
+November	expressoCalendar	pt-br	Novembro
+December	expressoCalendar	pt-br	Dezembro
+Sunday	expressoCalendar	pt-br	Domingo
+Monday	expressoCalendar	pt-br	Segunda
+Tuesday	expressoCalendar	pt-br	Terça
+Wednesday	expressoCalendar	pt-br	Quarta
+Thursday	expressoCalendar	pt-br	Quinta
+Friday	expressoCalendar	pt-br	Sexta
+Saturday	expressoCalendar	pt-br	Sábado
+Sun	expressoCalendar	pt-br	Dom
+Mon	expressoCalendar	pt-br	Seg
+Tue	expressoCalendar	pt-br	Ter
+Wed	expressoCalendar	pt-br	Qua
+Thu	expressoCalendar	pt-br	Qui
+Fri	expressoCalendar	pt-br	Sex
+Sat	expressoCalendar	pt-br	Sab
+S	expressoCalendar	pt-br	D
+M	expressoCalendar	pt-br	S
+T	expressoCalendar	pt-br	T
+W	expressoCalendar	pt-br	Q
+T	expressoCalendar	pt-br	Q
+F	expressoCalendar	pt-br	S
+S	expressoCalendar	pt-br	S
+time	expressoCalendar	pt-br	hora
+day	expressoCalendar	pt-br	dia
+minute	expressoCalendar	pt-br	minuto
+alert	expressoCalendar	pt-br	alerta
+mail	expressoCalendar	pt-br	e-mail
+Some users are without permission and will be automatically removed. Do you want to continue?	expressoCalendar	pt-br	Alguns usuários estão sem permissões e serão automaticamente removidos. Deseja continuar?
+Continue	expressoCalendar	pt-br	Continuar
+Search agendas	expressoCalendar	pt-br	Pesquisar agendas
+Sharing Calendar	expressoCalendar	pt-br	Compartilhamento de Agenda
+Confirms the removal of this signature?	expressoCalendar	pt-br	Confirma a remoção desta assinatura?
+Do you want to install the notification plugin desktop?	expressoCalendar	pt-br	Deseja instalar o plugin de notificação desktop?
+All day	expressoCalendar	pt-br	Dia todo
+today	expressoCalendar	pt-br	hoje
+Availability	expressoCalendar	pt-br	Disponibilidade
+Please enter a start date	expressoCalendar	pt-br	Por favor, informe uma data inicial
+Please enter a start time	expressoCalendar	pt-br	Por favor, informe uma hora inicial
+Invalid start date	expressoCalendar	pt-br	Data inicial inválida
+Start time equal to the end	expressoCalendar	pt-br	Hora inicial igual a final
+End date less than the initial	expressoCalendar	pt-br	Data final menor que a inicial
+Final hour less than the initial	expressoCalendar	pt-br	Hora final menor que a inicial
+End forecast lower than start date	expressoCalendar	pt-br	Previsão de término menor que a data inicial
+End forecast lower than end date	expressoCalendar	pt-br	Previsão de término menor que a data final
+Must be set the time of end forecast	expressoCalendar	pt-br	Deve ser definido a hora da previsão de término
+Must be set the end forecast	expressoCalendar	pt-br	Deve ser definido a previsão de término
+Forecast end date invalid	expressoCalendar	pt-br	Data de previsão de término inválida
+Create Task	expressoCalendar	pt-br	Criar Tarefa
+Your changes in the task were not saved. Do you want to discard changes?	expressoCalendar	pt-br	Suas alterações na tarefa não foram salvas. Deseja descartar as alterações?
+Are you sure you want to delete this task?	expressoCalendar	pt-br	Tem certeza que deseja excluir esta tarefa?
+enter an email to invite	expressoCalendar	pt-br	digite um email para convidar
+Activity details	expressoCalendar	pt-br	Detalhes da atividade
+Initiation	expressoCalendar	pt-br	Início
+scheduled for completion	expressoCalendar	pt-br	com previsão de término
+Time Zone	expressoCalendar	pt-br	Fuso horário
+Full day	expressoCalendar	pt-br	Dia inteiro
+Conclusion	expressoCalendar	pt-br	Conclusão
+No actions	expressoCalendar	pt-br	Sem ações
+In process	expressoCalendar	pt-br	Em Processo
+High	expressoCalendar	pt-br	Alta
+Normal	expressoCalendar	pt-br	Normal
+Low	expressoCalendar	pt-br	Baixa
+Complete	expressoCalendar	pt-br	Completo
+Alarms	expressoCalendar	pt-br	Alarmes
+Attachments	expressoCalendar	pt-br	Anexos
+History	expressoCalendar	pt-br	Histórico
+Group	expressoCalendar	pt-br	Grupo
+Advertising	expressoCalendar	pt-br	Publicidade
+Privacy	expressoCalendar	pt-br	Privacidade
+Public	expressoCalendar	pt-br	Público
+Private	expressoCalendar	pt-br	Privado
+Use default alarms	expressoCalendar	pt-br	Usar alarmes padrões
+Notify me by	expressoCalendar	pt-br	Avisar-me por
+before each activity.	expressoCalendar	pt-br	antes de cada atividade.
+Add alarm	expressoCalendar	pt-br	Adicionar alarme
+Date-Time	expressoCalendar	pt-br	Data-Hora
+Participant	expressoCalendar	pt-br	Participante
+Changed	expressoCalendar	pt-br	Alterou
+From	expressoCalendar	pt-br	De
+To	expressoCalendar	pt-br	Para
+Add	expressoCalendar	pt-br	Adicionar
+Remove All	expressoCalendar	pt-br	Remover Todos
+Name	expressoCalendar	pt-br	Nome
+Size	expressoCalendar	pt-br	Tamanho
+Download	expressoCalendar	pt-br	Download
+Delete	expressoCalendar	pt-br	Deletar
+Exclude	expressoCalendar	pt-br	Excluir
+Save	expressoCalendar	pt-br	Salvar
+End forecast	expressoCalendar	pt-br	Prev. Fim
+Event alarm	expressoCalendar	pt-br	Alarme de Evento
+You have a scheduled appointment	expressoCalendar	pt-br	Você possui um compromisso agendado
+Date	expressoCalendar	pt-br	Data
+Your commitment starts at	expressoCalendar	pt-br	Seu compromisso inicia-se em
+before each event.	expressoCalendar	pt-br	antes de cada evento.
+before each task.	expressoCalendar	pt-br	antes de cada tarefa.
+before each task or activity.	expressoCalendar	pt-br	antes de cada tarefa ou atividade.
+before each activity.	expressoCalendar	pt-br	antes de cada atividade.
+Confirmed	expressoCalendar	pt-br	Confirmado
+Attempt	expressoCalendar	pt-br	Tentativa
+Canceled	expressoCalendar	pt-br	Cancelado
+No Answer	expressoCalendar	pt-br	Sem Resposta
+Delegate	expressoCalendar	pt-br	Delegado
+I will	expressoCalendar	pt-br	Eu vou
+I will not	expressoCalendar	pt-br	Eu não vou
+Maybe	expressoCalendar	pt-br	Talvez
+Delegate participation to a new participant	expressoCalendar	pt-br	Delegar participação a um novo participante
+Get updates	expressoCalendar	pt-br	Receber atualizações
+Guests	expressoCalendar	pt-br	Convidados
+Organizer	expressoCalendar	pt-br	Organizador
+Delegate for	expressoCalendar	pt-br	Delegado para
+Edit permissions	expressoCalendar	pt-br	Editar permissões
+Remove	expressoCalendar	pt-br	Remover
+No other participants.	expressoCalendar	pt-br	Não há outros participantes.
+Waiting	expressoCalendar	pt-br	Aguardando
+Event with many participants, showing the first 100!	expressoCalendar	pt-br	Evento com muitos participantes, exibindo os 100 primeiros!
+Add other guests	expressoCalendar	pt-br	Adicionar outros convidados
+Participants	expressoCalendar	pt-br	Participantes
+Modify event	expressoCalendar	pt-br	Modificar evento
+Invite other	expressoCalendar	pt-br	Convidar outros
+Mandatory participation	expressoCalendar	pt-br	Participação obrigatória
+Discard	expressoCalendar	pt-br	Descartar
+Apply	expressoCalendar	pt-br	Aplicar
+Custom	expressoCalendar	pt-br	Personalizada
+A small sample text	expressoCalendar	pt-br	Um pequeno texto de exemplo
+Text	expressoCalendar	pt-br	Texto
+Content area	expressoCalendar	pt-br	Área de conteúdo
+Borders	expressoCalendar	pt-br	Bordas
+Daily view	expressoCalendar	pt-br	Visualização diária
+Task groups	expressoCalendar	pt-br	Grupos de tarefas
+New group	expressoCalendar	pt-br	Novo Grupo
+Settings	expressoCalendar	pt-br	Configurações
+Import	expressoCalendar	pt-br	Importar
+Export	expressoCalendar	pt-br	Exportar
+Remove group	expressoCalendar	pt-br	Remover Grupo
+My calendars	expressoCalendar	pt-br	Minhas agendas
+New calendar	expressoCalendar	pt-br	Nova agenda
+Share calendar	expressoCalendar	pt-br	Compartilhar agenda
+Remove calendar	expressoCalendar	pt-br	Remover agenda
+Signed calendars	expressoCalendar	pt-br	Agendas assinadas
+Unsubscribe	expressoCalendar	pt-br	Cancelar assinatura
+Untitled	expressoCalendar	pt-br	Sem Título
+no-class	expressoCalendar	pt-br	sem-classe
+Event Detail	expressoCalendar	pt-br	Detalhes do Evento
+Task Detail	expressoCalendar	pt-br	Detalhes da Tarefa
+List of Events	expressoCalendar	pt-br	Lista de Eventos
+List of Tasks	expressoCalendar	pt-br	Lista de Tarefas
+Results List	expressoCalendar	pt-br	Resultados da Lista
+Monthly view	expressoCalendar	pt-br	Visualização mensal
+Event	expressoCalendar	pt-br	Evento
+Task	expressoCalendar	pt-br	Tarefa
+Activity	expressoCalendar	pt-br	Atividade
+Weekly preview	expressoCalendar	pt-br	Visualização semanal
+Yearly view	expressoCalendar	pt-br	Visualização anual
+Apply color	expressoCalendar	pt-br	Aplicar cor
+Group Tasks Settings	expressoCalendar	pt-br	Configurações do Grupo de Tarefas
+Group Tasks Preferences	expressoCalendar	pt-br	Preferências do Grupo de Tarefas
+Agenda Settings	expressoCalendar	pt-br	Configurações da Agenda
+Agenda Preferences	expressoCalendar	pt-br	Preferências da Agenda
+Basic	expressoCalendar	pt-br	Básico
+Default event duration	expressoCalendar	pt-br	Duração padrão de evento
+Timezone calendar	expressoCalendar	pt-br	Fuso horário da agenda
+Timezone of group	expressoCalendar	pt-br	Fuso horário do grupo
+Colors of the events on this calendar	expressoCalendar	pt-br	Cores dos eventos desta agenda
+Colors of the tasks of this group	expressoCalendar	pt-br	Cores das tarefas deste grupo
+By default, remind me	expressoCalendar	pt-br	Por padrão, lembrar-me por
+Minutes	expressoCalendar	pt-br	Minutos
+Hours	expressoCalendar	pt-br	Horas
+Days	expressoCalendar	pt-br	Dias
+before each event.	expressoCalendar	pt-br	antes de cada evento.
+before each task or activity.	expressoCalendar	pt-br	antes de cada tarefa ou atividade.
+Notifications	expressoCalendar	pt-br	Notificações
+Message to notification of added events	expressoCalendar	pt-br	Mensagem para notificação de eventos adicionados
+Message to notification of canceled events	expressoCalendar	pt-br	Mensagem para notificação de eventos cancelados
+Message to notification modified events	expressoCalendar	pt-br	Mensagem para notificação de eventos modificados
+Message to notification from your answers	expressoCalendar	pt-br	Mensagem para notificação de suas respostas
+Message to notification from your alarms	expressoCalendar	pt-br	Mensagem para notificação de seus alarmes
+Repeat	expressoCalendar	pt-br	Repetir
+Where	expressoCalendar	pt-br	Onde
+Agenda	expressoCalendar	pt-br	Agenda
+hours and	expressoCalendar	pt-br	horas e
+Use default alarms	expressoCalendar	pt-br	Usar alarmes padrões
+Event created in	expressoCalendar	pt-br	Evento criado em
+the	expressoCalendar	pt-br	às
+until	expressoCalendar	pt-br	até
+of event	expressoCalendar	pt-br	do evento
+of task	expressoCalendar	pt-br	da tarefa
+of activity	expressoCalendar	pt-br	da atividade
+Duration	expressoCalendar	pt-br	Duração
+Repetition	expressoCalendar	pt-br	Repetição
+You will be notified by a	expressoCalendar	pt-br	Você será notificado por um
+before	expressoCalendar	pt-br	antes
+Local	expressoCalendar	pt-br	Local
+Presence	expressoCalendar	pt-br	Presença
+This event has repeat	expressoCalendar	pt-br	Este evento tem repetição
+This event has alarms	expressoCalendar	pt-br	Este evento tem alarmes
+This event has attachments	expressoCalendar	pt-br	Este evento tem anexos
+This event has participants	expressoCalendar	pt-br	Este evento tem participantes
+Print	expressoCalendar	pt-br	Imprimir
+Event repetition	expressoCalendar	pt-br	Repetição do evento
+No repetition	expressoCalendar	pt-br	Sem repetição
+Daily	expressoCalendar	pt-br	Diária
+Weekly	expressoCalendar	pt-br	Semanal
+Monthly	expressoCalendar	pt-br	Mensal
+Yearly	expressoCalendar	pt-br	Anual
+Monthly by	expressoCalendar	pt-br	Mensalmente por
+day of the month	expressoCalendar	pt-br	dia do mês
+day of the week	expressoCalendar	pt-br	dia da semana
+All	expressoCalendar	pt-br	Toda
+The repetition	expressoCalendar	pt-br	A repetição
+Never ends	expressoCalendar	pt-br	Nunca termina
+Ends in selected date	expressoCalendar	pt-br	Termina na data selecionada
+Ends after n occcurrences	expressoCalendar	pt-br	Termina após n ocorrencias
+Occurrences	expressoCalendar	pt-br	Ocorrências
+Having range	expressoCalendar	pt-br	Tendo intervalo de
+events	expressoCalendar	pt-br	eventos
+tasks	expressoCalendar	pt-br	tarefas
+File	expressoCalendar	pt-br	Arquivo
+Choose the file that contains one or	expressoCalendar	pt-br	Escolha o arquivo que contenha um ou
+various events	expressoCalendar	pt-br	vários eventos
+various tasks	expressoCalendar	pt-br	várias tarefas
+The Agenda	expressoCalendar	pt-br	A Agenda
+The Group	expressoCalendar	pt-br	O Grupo
+of Expresso can import information from	expressoCalendar	pt-br	do Expresso pode importar informações de
+events	expressoCalendar	pt-br	evento
+in format	expressoCalendar	pt-br	no formato
+Agenda of	expressoCalendar	pt-br	Agenda da
+Group of	expressoCalendar	pt-br	Grupo do
+which	expressoCalendar	pt-br	qual
+the events	expressoCalendar	pt-br	os eventos
+the tasks	expressoCalendar	pt-br	as tarefas
+will be imported	expressoCalendar	pt-br	serão importados
+Export agenda	expressoCalendar	pt-br	Exportar agenda
+Choice	expressoCalendar	pt-br	Escolha
+the agenda	expressoCalendar	pt-br	a agenda
+the group	expressoCalendar	pt-br	o grupo
+that you want to export.	expressoCalendar	pt-br	que deseja exportar.
+of Expresso can export information from	expressoCalendar	pt-br	do Expresso pode exportar informações de
+Agendas settings	expressoCalendar	pt-br	Configuração de agendas
+Groups settings	expressoCalendar	pt-br	Configuração de grupos
+Import Events	expressoCalendar	pt-br	Importar Eventos
+Export Events	expressoCalendar	pt-br	Exportar Eventos
+Import Tasks	expressoCalendar	pt-br	Importar Tarefas
+Export Tasks	expressoCalendar	pt-br	Exportar Tarefas
+Search	expressoCalendar	pt-br	Buscar
+Add event	expressoCalendar	pt-br	Adicionar evento
+Add task	expressoCalendar	pt-br	Adicionar tarefa
+Add activity	expressoCalendar	pt-br	Adicionar atividade
+Recycle Bin	expressoCalendar	pt-br	Lixeira
+Copy repetition	expressoCalendar	pt-br	Copiar repetição
+Copy occurrence	expressoCalendar	pt-br	Copiar ocorrência
+Copy to	expressoCalendar	pt-br	Copiar para
+Move to	expressoCalendar	pt-br	Mover para
+Remove repetition	expressoCalendar	pt-br	Remover repetição
+Remove occurence	expressoCalendar	pt-br	Remover ocorrência
+Delegate participation to this participant	expressoCalendar	pt-br	Delegar participação a este participante
+Edit permissions	expressoCalendar	pt-br	Editar permissões
+General preferences	expressoCalendar	pt-br	Preferências gerais
+Date format	expressoCalendar	pt-br	Formato de data
+Time format	expressoCalendar	pt-br	Formato de hora
+Current time zone	expressoCalendar	pt-br	Fuso horário atual
+Default calendar view	expressoCalendar	pt-br	Visualização padrão do calendário
+Daily with time	expressoCalendar	pt-br	Diária com horário
+Daily without time	expressoCalendar	pt-br	Diária sem horário
+First day of week	expressoCalendar	pt-br	Primeiro dia da semana
+Default start time	expressoCalendar	pt-br	Hora de início padrão
+Default end time	expressoCalendar	pt-br	Hora de término padrão
+Duration of an appointment (in minutes)	expressoCalendar	pt-br	Duração de um compromisso (em minutos)
+Default agenda for creating events	expressoCalendar	pt-br	Agenda padrão para criação de eventos
+Default agenda for importing events	expressoCalendar	pt-br	Agenda padrão para importação de eventos
+Use desktop alarm	expressoCalendar	pt-br	Usar alarme desktop
+Selected calendar	expressoCalendar	pt-br	Calendario selecionado
+Share with	expressoCalendar	pt-br	Compartilhar com
+Selected agendas	expressoCalendar	pt-br	Agendas Selecionadas
+Unshared.	expressoCalendar	pt-br	Não compartilhado.
+No agenda selected	expressoCalendar	pt-br	Nenhuma agenda selecionada
+Public agenda	expressoCalendar	pt-br	Agenda pública
+Public	expressoCalendar	pt-br	Pública
+Free/Busy	expressoCalendar	pt-br	Livre/Ocupado
+Add other users	expressoCalendar	pt-br	Adicionar outros usuários
+Add other calendars	expressoCalendar	pt-br	Adicionar outras agendas
+Users	expressoCalendar	pt-br	Usuários
+Tasks group	expressoCalendar	pt-br	Grupo de tarefas
+No other tasks	expressoCalendar	pt-br	Não há outras tarefas
+Search task	expressoCalendar	pt-br	Pesquisar tarefa
+Advanced	expressoCalendar	pt-br	Avançado
+See	expressoCalendar	pt-br	Ver
+Create/Edit	expressoCalendar	pt-br	Criar/Editar
+Share	expressoCalendar	pt-br	Compartilhar
+accepted your invitation to scheduled appointment	expressoCalendar	pt-br	aceitou o seu convite de compromisso agendado para
+End	expressoCalendar	pt-br	Término
+accepted your invitation to the scheduled task	expressoCalendar	pt-br	aceitou o seu convite da tarefa agendada para
+This is a note stating that you have a scheduled appointment for	expressoCalendar	pt-br	Este é um lembrete informando que você possui um compromisso agendado para
+This is a note stating that you have a scheduled task to	expressoCalendar	pt-br	Este é um lembrete informando que você possui uma tarefa agendada para
+maybe attend at the scheduled appointment to	expressoCalendar	pt-br	talvez compareça no compromisso agendado para
+maybe attend at the scheduled task to	expressoCalendar	pt-br	talvez compareça na tarefa agendada para
+Your appointment scheduled for [startDate] was canceled.	expressoCalendar	pt-br	Seu compromisso agendado para [startDate] foi cancelado.
+You're invited to a scheduled appointment for	expressoCalendar	pt-br	Você foi convidado para um compromisso agendado para
+You're invited to a scheduled task to	expressoCalendar	pt-br	Você foi convidado para uma tarefa agendada para
+You are invited by [delegatedFrom] to participate in their place for the scheduled task	expressoCalendar	pt-br	Você foi convidado por [delegatedFrom] para participar em seu lugar no compromisso agendado para
+You are invited by [delegatedFrom] to participate in their place for the scheduled task	expressoCalendar	pt-br	Você foi convidado por [delegatedFrom] para participar em seu lugar na tarefa agendado para
+delegated their participation to [delegated] the appointment scheduled for	expressoCalendar	pt-br	delegou sua participação para [delegated] no compromisso agendado para
+delegated their participation to [delegated] the scheduled task for	expressoCalendar	pt-br	delegou sua participação para [delegated] na tarefa agendada para
+participation of the delegation of [participant] for the scheduled appointment to	expressoCalendar	pt-br	a delegação de participação de [participant] para o compromisso agendado para
+participation of the delegation of [participant] for the scheduled task to	expressoCalendar	pt-br	a delegação de participação de [participant] para a tarefa agendada para
+Your appointment scheduled for [startDate] was modified.	expressoCalendar	pt-br	Seu compromisso agendado para [startDate] foi modificado.
+Your task scheduled for [startDate] was modified.	expressoCalendar	pt-br	Sua tarefa agendada para [startDate] foi modificada.
+rejected you invitation to appointment scheduled to	expressoCalendar	pt-br	rejeitou o seu convite de compromisso agendado para
+rejected your invitation task scheduled to	expressoCalendar	pt-br	rejeitou o seu convite da tarefa agendado para
+participate in your place for the scheduled appointment to	expressoCalendar	pt-br	participar em seu lugar no compromisso agendado para
+participate in your place for the scheduled task to	expressoCalendar	pt-br	participar em seu lugar na tarefa agendada para
+suggested a new time for your scheduled appointment to	expressoCalendar	pt-br	sugeriu um novo horário para o seu convite de compromisso agendado para
+The Participant [userRequest] suggested a new time for the event	expressoCalendar	pt-br	O participante [userRequest] sugeriu um novo horário para o evento
+suggested a new time for the event	expressoCalendar	pt-br	sugeriu um novo horário para o evento
+Current start	expressoCalendar	pt-br	Início atual
+Current end	expressoCalendar	pt-br	Término atual
+Suggested start	expressoCalendar	pt-br	Início sugerido
+Suggested end	expressoCalendar	pt-br	Término sugerido
+Your suggestion time for the event	expressoCalendar	pt-br	Sua sugestão de horário para o evento
+Create Activity	expressoCalendar	pt-br	Criar Atividade
+Today	expressoCalendar	pt-br	Hoje
