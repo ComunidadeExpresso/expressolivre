@@ -915,7 +915,8 @@ function refresh(alert_new_msg, notifyPermission){
         }
 
         //Sincroniza mensagens lidas e não lidas em clientes de emails diferentes
-        synchronize(data.unseens);
+        if(data.unseens && data.unseens.length != 0)
+            synchronize(data.unseens);
 
         connector.purgeCache();
         cExecute("$this.imap_functions.get_folders_list&onload=true", force_update_menu);
