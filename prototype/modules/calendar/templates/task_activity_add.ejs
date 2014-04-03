@@ -1,5 +1,5 @@
     <dl class="block-activity-group-select activitys-list">
-        <dt class="activity-group-select">Grupo de tarefas</dt>
+        <dt class="activity-group-select"><%= '_[[Tasks group]]' %></dt>
         <dd class="group-select">
             <ul class="activity-group-select">
                 <select name="groupFilter">
@@ -10,12 +10,12 @@
             </ul>
         </dd>
     
-	<dt class="activity-list">Tarefas</dt>
+	<dt class="activity-list"><%= '_[[Tasks]]' %></dt>
 		<dd class="task-activity-list">
 			<ul class="task-activity-list">
 
 	<% if(data.activity.tasks.length <= 0) { %>
-		<li class="not-activity">Não há outras tarefas.</li>
+		<li class="not-activity"><%= '_[[No other tasks]]' %>.</li>
 	<% } %>
 		
 			</ul>
@@ -23,9 +23,9 @@
 	</dl>
 
 <dl class="block-add-activity search" style="">
-	<dt class="add-activity search">Pesquisar tarefa</dt>
+	<dt class="add-activity search"><%= '_[[Search task]]' %></dt>
 	<dd class="add-activity">
-		<fieldset class="block-add-activity" title="Participantes">
+		<fieldset class="block-add-activity" title="<%= '_[[Participants]]' %>">
 			<fieldset class="add-activity-search search-field ui-corner-all">
 				<input class="search" type="text" />
 				<span class="ui-icon ui-icon-search"></span>

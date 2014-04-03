@@ -1,14 +1,14 @@
 <%
 
 	var specialFolders = {
-			INBOX: {name:'Caixa de Entrada', classe:'inbox'}, 
-			Inbox: {name:'Caixa de Entrada', classe:'inbox'}, 
+			INBOX: {name:'_[[Inbox]]', classe:'inbox'},
+			Inbox: {name:'_[[Inbox]]', classe:'inbox'},
 		};
-    specialFolders[outboxfolder] = {name: 'Caixa de Sa�da', classe:'outbox'};
-	specialFolders[trashfolder] = {name:'Lixeira', classe:'trash'};
-	specialFolders[draftsfolder] = {name:'Rascunhos', classe:'drafts'};
+    specialFolders[outboxfolder] = {name: '_[[Outbox]]', classe:'outbox'};
+	specialFolders[trashfolder] = {name:'_[[Trash]]', classe:'trash'};
+	specialFolders[draftsfolder] = {name:'_[[Drafts]]', classe:'drafts'};
 	specialFolders[spamfolder] = {name:'Spam', classe:'spam'};
-	specialFolders[sentfolder] = {name:'Enviados', classe:'sent'};
+	specialFolders[sentfolder] = {name:'_[[Sent]]', classe:'sent'};
 	function recursive_forest(array_trees)
 	{
 	  %><ul><%
@@ -44,30 +44,30 @@
 %>
 <div class="upper"></div>
 	<ul class="filetree foldertree-skin-prognus mainfoldertree">
-	  <li><span class="folder head_folder">Minhas Pastas</span>
+	  <li><span class="folder head_folder"><%= '_[[My folders]]' %></span>
 	      <% recursive_forest(data.folders[0]); %>
 	  </li>
 	  <% if(data.folders[1].length > 0) { %>
-	  <li><span class="folder shared-folders">Pastas compartilhadas</span>
+	  <li><span class="folder shared-folders"><%= '_[[Shared folders]]' %></span>
 	      <% recursive_forest(data.folders[1]); %>
 	  </li> 
 	  <%}%>
 	  <% if(preferences.use_local_messages == 1) { %>
 	     <% if(expresso_mail_archive.enabled && data.folders[2].length > 0) { /*MailArchive ativado*/ %>
 	     	<li>
-	    		<span class="folder local-folder head_folder" >Pastas locais</span>
+	    		<span class="folder local-folder head_folder" ><%= '_[[Local folders]]' %></span>
 	    	 	<% recursive_forest(data.folders[2]); %>
 	    	</li>
 	    <%} else { /*MailArchive desativado*/ %>
 	    	<li>
-	    		<span class="folder local-folder head_folder" style="display: inline;" title="MailArchive Desconectado">Pastas locais</span>
+	    		<span class="folder local-folder head_folder" style="display: inline;" title="MailArchive Desconectado"><%= '_[[Local folders]]' %></span>
 	    		<span class="local-connect" onclick="services_retry();" title="Conectar ao MailArchive"></span>
 	    	</li>
 		<%}%>
 
 	  <%}%>
         <% if(preferences['use_followupflags_and_labels'] == "1"){%>
-	  <li><span class="folder head_folder all_accomp followup-messages">Para acompanhamento</span>
+	  <li><span class="folder head_folder all_accomp followup-messages"><%= '_[[For monitoring]]' %></span>
           <%}%>
 	  </li>
 	</ul>

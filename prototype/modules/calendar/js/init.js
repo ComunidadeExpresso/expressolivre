@@ -179,8 +179,8 @@ $(document).ready(function() {
     				content: {
     					text: $('<div></div>').html( DataLayer.render( 'templates/task_quick_add.ejs', {"componente" : componente} ) ),
     					title: {
-    						text:'Nova Tarefa', 
-    						button: '<a class="button close" href="#">close</a>'
+    						text:'_[[New Task]]',
+    						button: '<a class="button close" href="#">' + '_[[Close]]' + '</a>'
     					}
     				},
     				style: {
@@ -212,8 +212,8 @@ $(document).ready(function() {
 
 	    		/*------------------------------------------------------------------------*/
 	    		/*               Seta os valores padrões nos inputs do qtip               */
-	    		 $('div.qtip div.add-simple-task input.task').Watermark("Tarefa sem título");
-			     $('div.qtip div.add-simple-task textarea').Watermark("Descrição");
+	    		 $('div.qtip div.add-simple-task input.task').Watermark("_[[Untitled task]]");
+			     $('div.qtip div.add-simple-task textarea').Watermark("_[[Description]]");
     			/*------------------------------------------------------------------------*/
 
     			    $('.qtip-active .button.close').button({
@@ -343,13 +343,13 @@ $(document).ready(function() {
 			day: 'dddd dd/MM'  
 		},
 		
-		allDayText: 'Dia todo',
+		allDayText: '_[[All day]]',
 		buttonText: {
-			today: 'hoje',
-			month: 'mês',
-			week: 'semana',
-			day: 'dia',
-			year: 'ano'
+			today: '_[[Today]]',
+			month: '_[[Month]]',
+			week: '_[[Week]]',
+			day: '_[[Day]]',
+			year: '_[[Year]]'
 		},
 
         eventRender: function( event, element, view ){
@@ -491,19 +491,19 @@ $(document).ready(function() {
                 case 1:
                     if(evt.selectable){
                         if(evt.isRepeat && evt.editable ){
-                            $.Zebra_Dialog(evt.title + ' é um evento com repetição.', {
+                            $.Zebra_Dialog(evt.title + ' [[is a repeating event]].', {
                                 'type':     'question',
                                 'overlay_opacity': '0.5',
                                 'custom_class':  'occurrence-zebra',
                                 'width': 427,
-                                'buttons':  ['Editar todas ocorrências', 'Editar essa ocorrência', 'Cancelar'],
+                                'buttons':  ['_[[Edit all occurrences]]', '_[[Edit this event]]', '_[[Cancel]]'],
                                 'onClose':  function(clicked) {
-                                    if(clicked == 'Editar todas ocorrências') {
+                                    if(clicked == '_[[Edit all occurrences]]') {
                                         var schedule = getSchedulable(evt.id, '');
                                         schedule.calendar = evt.calendar;
                                         eventDetails( schedule , true);
 
-                                    }else if (clicked == 'Editar essa ocorrência'){
+                                    }else if (clicked == '_[[Edit this event]]'){
                                         /*
                                         * TODO - repeat foi adicionado pois melhorias devem ser feitas no rollback do
                                         *DataLayer, repeat somente é usado quando se trata da criação de um evento

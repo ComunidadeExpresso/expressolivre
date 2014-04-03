@@ -52,9 +52,9 @@ function disponibily(objEvent, path, attendees, viewName){
 		selectable: true,
 		selectHelper: false,
 		droppable: false,
-		allDayText: 'Dia todo',
+		allDayText: '_[[All day]]',
 		buttonText: {
-			today: 'hoje'
+			today: '_[[today]]'
 		},
 		titleFormat: {
 			month: 'MMMM yyyy',                             
@@ -92,7 +92,7 @@ function disponibily(objEvent, path, attendees, viewName){
 		events: [
 			{
 				id : 'map',
-				title: 'Disponibilidade',
+				title: '_[[Availability]]',
 				start: startDate,
 				end: endDate,
 				editable : true,

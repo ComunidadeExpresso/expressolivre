@@ -3,31 +3,31 @@
 	<ul class="fg-menu ui-corner-all evt-option">
 		<%if(signature.isOwner == "1"){%>
                     <%if(data.isRecurrence){%>
-                        <li role="menuitem" class="copy menu-item"><a href="#" class="ui-corner-all">Copiar repetição</a></li>
-                        <li role="menuitem" class="ocurrency copy menu-item"><a href="#" class="ui-corner-all">Copiar ocorrência</a></li>
+                        <li role="menuitem" class="copy menu-item"><a href="#" class="ui-corner-all"><%= '_[[Copy repetition]]' %></a></li>
+                        <li role="menuitem" class="ocurrency copy menu-item"><a href="#" class="ui-corner-all"><%= '_[[Copy occurrence]]' %></a></li>
                     <%}else{%>
-                        <li role="menuitem" class="copy menu-item"><a href="#" class="ui-corner-all">Copiar para</a></li>
+                        <li role="menuitem" class="copy menu-item"><a href="#" class="ui-corner-all"><%= '_[[Copy to]]' %></a></li>
                     <%}%>
-			<li role="menuitem" class="move menu-item"><a href="#" class="ui-corner-all">Mover para</a></li>
-			<li role="menuitem" class="menu-item"><a href="../prototype/modules/calendar/export.php?event=<%=data.event%>" class="ui-corner-all">Exportar</a></li>
+			<li role="menuitem" class="move menu-item"><a href="#" class="ui-corner-all"><%= '_[[Move to]]' %></a></li>
+			<li role="menuitem" class="menu-item"><a href="../prototype/modules/calendar/export.php?event=<%=data.event%>" class="ui-corner-all"><%= '_[[Export]]' %></a></li>
 			 <%if(data.isRecurrence){%>
-                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all">Remover repetição</a></li>
-                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_ocurrence(<%= data.event%>, <%= data.idRecurrence%>);" class="ui-corner-all">Remover ocorrência</a></li>
+                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all"><%= '_[[Remove repetition]]' %></a></li>
+                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_ocurrence(<%= data.event%>, <%= data.idRecurrence%>);" class="ui-corner-all"><%= '_[[Remove occurence]' %></a></li>
                             <%}else{%>
-                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all">Remover</a></li>
+                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all"><%= '_[[Remove]]' %></a></li>
                             <%}%>
 		<%}else{%>
-			<li role="menuitem" class="copy menu-item"><a href="#" class="ui-corner-all copy">Copiar para</a></li>
+			<li role="menuitem" class="copy menu-item"><a href="#" class="ui-corner-all copy"><%= '_[[Copy to]]' %></a></li>
 			<%if(signature.permission.acl['write']){%>
-				<li role="menuitem" class="move menu-item"><a href="#" class="ui-corner-all move">Mover para</a></li>
+				<li role="menuitem" class="move menu-item"><a href="#" class="ui-corner-all move"><%= '_[[Move to]]' %></a></li>
 			<%}%>
-			<li role="menuitem" class="menu-item"><a href="../prototype/modules/calendar/export.php?event=<%=data.event%>" class="ui-corner-all">Exportar</a></li>
+			<li role="menuitem" class="menu-item"><a href="../prototype/modules/calendar/export.php?event=<%=data.event%>" class="ui-corner-all"><%= '_[[Export]]' %></a></li>
 			<%if(signature.permission.acl['write'] || signature.permission.acl['remove']){%>
                             <%if(data.isRecurrence){%>
-                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all">Remover repetição</a></li>
-                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_ocurrence(<%= data.event%>, <%= data.idRecurrence%>);" class="ui-corner-all">Remover ocorrência</a></li>
+                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all"><%= '_[[Remove repetition]]' %></a></li>
+                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_ocurrence(<%= data.event%>, <%= data.idRecurrence%>);" class="ui-corner-all"><%= '_[[Remove occurence]' %></a></li>
                             <%}else{%>
-                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all">Remover</a></li>
+                                <li role="menuitem" class="menu-item"><a href="#" onclick="remove_event(<%= data.event%>, <%= signature.calendar.id %>);" class="ui-corner-all"><%= '_[[Remove]]' %></a></li>
                             <%}%>
 			<%}%>
 		<%}%>

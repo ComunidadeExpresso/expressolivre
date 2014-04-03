@@ -13,7 +13,7 @@ $moduleMap =  parse_ini_file( __DIR__ ."/config/moduleMap.ini", true );
 
 $config = array();
 $config['provider'] = 'expresso';
-$config['language'] = isset($_GET['lang'])  ? $_GET['lang'] : 'pt_BR';
+$config['lang'] = isset($_GET['lang'])  ? $_GET['lang'] : 'pt_BR';
 
 
 $configProvider = array();

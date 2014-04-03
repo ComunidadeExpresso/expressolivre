@@ -1,8 +1,8 @@
 <% if(data){ 
-	var priority = {1: 'Alta', 2: 'Normal', 3: 'Baixa'};%>
-	Título: <%= data.summary %><br>
-	Início: <%= data.startDate %> <%= data.startHour %><br>
-	Prev. Fim: <%= data.dueDate %> <%= data.dueTime %><br>
-	% Conclusão: <%= data.percentage %><br>
-	Prioridade: <%= priority[data.priority] %><br>
+	var priority = {1: '_[[High]]', 2: '_[[Normal]]', 3: '_[[Low]]'};%>
+	<%= '_[[Title]]' %>: <%= data.summary %><br>
+	<%= '_[[Initiation]]' %>: <%= data.startDate %> <%= data.startHour %><br>
+	<%= '_[[End forecast]]' %>: <%= data.dueDate %> <%= data.dueTime %><br>
+	% <%= '_[[Conclusion]]' %>: <%= data.percentage %><br>
+	<%= '_[[Priority]]' %>: <%= priority[data.priority] %><br>
 <% } %>

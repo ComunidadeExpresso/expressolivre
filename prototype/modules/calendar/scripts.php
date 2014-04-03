@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../../library/fileDuck/FileDuck.php';
 
 $config = array();
 $config['provider'] = 'expresso';
-$config['language'] = $_GET['lang'];
+$config['lang'] = $_GET['lang'];
 $configProvider = array();
 $configProvider['module'] = 'expressoCalendar';
 
@@ -39,6 +39,7 @@ $fileDuck->add(__DIR__ .'/js/map.disponibility.js');
 $fileDuck->add(__DIR__ .'/js/activity.helpers.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/task.helpers.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/helpers.js', 'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/js/calendar.date.js'  , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/calendar.shared.js'  , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/timezone.js'  , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/calendar.codecs.js' , 'ISO-8859-1');

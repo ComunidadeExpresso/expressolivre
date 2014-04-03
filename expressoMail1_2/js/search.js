@@ -914,7 +914,7 @@
 					$(this).addClass("selected_msg");
 				}
 				if($("#content_id_"+border_id).find("tr input:checked").length > 1)
-					return $(DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : (($("#content_id_"+border_id).find("tr input:checked")).length+" mensagens selecionadas"), type: "messages"}));
+					return $(DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : (($("#content_id_"+border_id).find("tr input:checked")).length+ " " + get_lang("featured messages")), type: "messages"}));
 				if(	$(this).find(".td_msg_search_subject").text().length > 18 )
 					return $(DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : $(this).find(".td_msg_search_subject").text().substring(0,18) + "...", type: "messages"}));
 				else
@@ -1769,22 +1769,22 @@
 
 			    params['folder'] = current_folder;
 			    url[0] = args + "&" +  $.param( params );
-			    labels[0] = "mensagem na sua pasta atual";
+			    labels[0] = get_lang("messages in your current folder");
 
 			    if(selection1.length)
 			    {
 					params['folder'] = selection1;
 					url[1] = args + "&" +  $.param( params );
-					labels[1] = "mensagens nas suas outras pastas";
+					labels[1] = get_lang("messages in your other folders");
 				}
 				if(selection2.length)
 			    {
 					params['folder'] = selection2;
 					url[2] = args + "&" +  $.param( params );
-					labels[2] = "mensagens nas suas pastas compartilhadas";
+					labels[2] = get_lang("messages in your shared folders");
 				}
-			    var link = ' <a href="#" style="position: relative; z-index: 10000" onclick="searchE.prototype.quickSearchAbort(); clean_msg(); return false;">cancelar<a/>';
-			    write_msg( "pesquisando " + labels[0] + link, true );
+			    var link = ' <a href="#" style="position: relative; z-index: 10000" onclick="searchE.prototype.quickSearchAbort(); clean_msg(); return false;">'+ get_lang('cancel') +'<a/>';
+			    write_msg( get_lang("researching") + " " + labels[0] + link, true );
 			    var keepFilled = false;
 			    //Inserida variável de controle para correta manipulação das mensagens locais
 			    var local_messages_link = true;
@@ -1823,8 +1823,8 @@
 					if( allMsg['num_msgs'] )
 						EsearchE.total = allMsg['num_msgs'] = Math.max( (EsearchE.total || 0), allMsg['num_msgs'] );	
 
-					EsearchE.mount_result( allMsg, EsearchE.sort, ( keepFilled || border_id === currentTab ), keepFilled, "Foram encontradas " + data['msgs'].length + " "+labels.shift()+"." );
-					write_msg( "pesquisando " + labels[0] + link, true );
+					EsearchE.mount_result( allMsg, EsearchE.sort, ( keepFilled || border_id === currentTab ), keepFilled, get_lang("Were found")+ " " + data['msgs'].length + " "+labels.shift()+"." );
+					write_msg( get_lang("researching") + " " + labels[0] + link, true );
 					keepFilled = true;
 					if( url.length ){
 					    xhr = $.ajax({

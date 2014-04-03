@@ -1,5 +1,5 @@
-<br />[delegated] [status] a delegação de partipação de [participant] para o compromisso agendado para [startDate].<br /><br />
+<br />[delegated] [status] _[[participation of the delegation of [participant] for the scheduled appointment to]] [startDate].<br /><br />
 <strong>[eventTitle]</strong><br />
-<strong>Início:</strong> [startDate] [startTime]<br />
-<strong>Término:</strong> [endDate] [endTime]<br />
-<strong>Local:</strong> [eventLocation]<br />
+<strong>_[[Initiation]]:</strong> [startDate] [startTime]<br />
+<strong>_[[End]]:</strong> [endDate] [endTime]<br />
+<strong>_[[Local]]:</strong> [eventLocation]<br />

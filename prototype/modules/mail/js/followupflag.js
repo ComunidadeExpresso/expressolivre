@@ -317,7 +317,7 @@ function init_followup(data){
 			var nameFollowupflag = $('.followupflag-configure').find('option')[$(this).parents('li').index()].text;
 			var removeLi = $(this).parents("li");		
 			
-			$.Zebra_Dialog(get_lang('All messages flagged with the flag type ') + '<strong>'+ nameFollowupflag + '</strong>' + get_lang(' will be removed. This action cannot be undone. Want to continue?'), {
+			$.Zebra_Dialog('_[[All messages flagged with the flag type ]]' + '<strong>'+ nameFollowupflag + '</strong>' + '_[[will be removed. This action cannot be undone. Do you want to continue?]]', {
 				'type':     'question',
 				'custom_class': (is_ie ? 'configure-zebra-dialog custom-zebra-filter' : 'custom-zebra-filter'),
 				'title':    'Atenção',
@@ -356,7 +356,7 @@ function init_followup(data){
 		});
 
 	});
-	winElement.find('.ui-corner-right.ui-button-icon').attr('title', get_lang('Show All Items'));
+	winElement.find('.ui-corner-right.ui-button-icon').attr('title', '_[[Show all items]]');
 
 	winElement.find('[name="alarmDate"],[name="alarmTime"]').attr("disabled","disabled");
 	
@@ -524,8 +524,8 @@ function alarmFollowupflagged(alert_type, filter_list){
 			if(decodeAlarms.sent.length)
 				data.alarmDeadline = {
 						alarms: decodeAlarms.sent,
-						title: get_lang('Follow ups'),
-						caption: (itens.length == 1) ? get_lang('You have one undone message today:') : get_lang('You have %1 follow ups due for today:', decodeAlarms.sent.length),
+						title: '_[[Flagged]]',
+						caption: (itens.length == 1) ? '_[[You have one undone message today]]' + ':' : '_[[You have $decodeAlarms.sent.length$ follow ups due for today]]' + ':',
 						type: 'alarmDeadline'
 					};
 			else
@@ -556,8 +556,8 @@ function alarmFollowupflagged(alert_type, filter_list){
 			}
 		    data.doneDeadline = {
 			alarms: itens,
-			title: get_lang('Done'),
-			caption: (itens.length == 1) ? get_lang('You have one undone message today:') : get_lang('You have %1 follow ups due for today:', itens.length),
+			title: '_[[Done]]',
+			caption: (itens.length == 1) ? '_[[You have one message in conclusion today]]' + ':' : '_[[You have $itens.length$ flagged messages for today]]' + ':',
 			type: 'doneDeadline'
 		    };
 		}else
@@ -585,8 +585,8 @@ function alarmFollowupflagged(alert_type, filter_list){
 
 		data.filtersAlarms = {
 				alarms: itens,
-				title: get_lang('Filter by sender'),
-				caption: (itens.length == 1) ? get_lang('You have an archived message:') : get_lang('You have %1 messages archived:', itens.length),
+				title: '_[[Filter by sender]]',
+				caption: (itens.length == 1) ? '_[[You have an archived message:]]' : '_[[You have $itens.length$ messages archived' + ':',
 				type: 'filtersDeadline',
 				captions: {
 				    singular:'You have one undone message today:', 
@@ -698,9 +698,9 @@ function cancelAlarm(element, idAlarm, messageNumber, folderName){
 	if(length > 0){
 		var msg = '';
 		if(length == 1)
-			msg = get_lang( 'You have a follow up due for today:');
+			msg = '_[[You have a follow up due for today]]' + ':';
 		else
-			msg = get_lang('You have %1 follow ups due for today:', length);
+			msg = '_[[You have $length$ follow ups due for today]]' + ':';
 
 		$(view).find('span.subtitle-alarm strong').html(msg);
 	}else
@@ -746,9 +746,9 @@ alarmDeadline = {
 				    		var length = $(view).find('ul.message-list li').length;
 				    		var msg = '';
 				    		if(length == 1)
-				    			msg = get_lang( 'You have a follow up due for today:');
+				    			msg = '_[[You have a follow up due for today]]' + ':';
 				    		else
-				    			msg = get_lang('You have %1 follow ups due for today:', length);
+				    			msg = '_[[You have $length$ follow ups due for today]]' + ':';
 
 				    		$(view).find('span.subtitle-alarm strong').html(msg);
 
@@ -762,8 +762,8 @@ alarmDeadline = {
 				    	}else{
 				    		var item = {
 								alarms: [alarm],
-								title: get_lang('Follow ups'),
-								caption: get_lang('You have one undone message today:'),
+								title: '_[[Follow ups]]',
+								caption: '_[[You have one undone message today]]' + ':',
 								type: 'alarmDeadline'
 							};
 							showAlarmsModal(item);

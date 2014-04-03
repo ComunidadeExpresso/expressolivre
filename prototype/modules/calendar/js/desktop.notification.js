@@ -12,17 +12,17 @@ desktopNotification = {
 
 			if(window.webkitNotifications && window.webkitNotifications.checkPermission()){
 			    if($.browser.safari){
-                     $.Zebra_Dialog('Deseja instalar o plugin de notificação desktop?', {
+                     $.Zebra_Dialog('_[[Do you want to install the notification plugin desktop?]]', {
                         'custom_class': 'request-notification-permission',
                         'type':     'question',
                         'overlay_opacity': '0.5',
-                        'buttons':  ['Não', 'Sim']
+                        'buttons':  ['_[[No]]', '_[[Yes]]']
                     });
 
                     $('div.ZebraDialog.request-notification-permission a').click(function() {
-                        if($(this).html() == 'Sim'){
+                        if($(this).html() == '_[[Yes]]'){
                             window.webkitNotifications.requestPermission();       
-                    	}else if ($(this).html() == 'Não'){
+                    	}else if ($(this).html() == '_[[No]]'){
                     		$.cookie('no-notification','true');
                     	}
                     });

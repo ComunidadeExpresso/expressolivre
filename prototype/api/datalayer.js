@@ -574,9 +574,9 @@ DataLayer = {
     },
     
     /*
-     * RemoveFilter = método para remoção de objetos por critério, funcionalidade não implementada no método remove
-     * TODO - A remoção é feira em tempo real, onde ainda o mesmo não suporta remoção apenas na camada do cliente
-     * caso necessária tao funcionalidade a mesma será implementada no futuro
+     * RemoveFilter = mï¿½todo para remoï¿½ï¿½o de objetos por critï¿½rio, funcionalidade nï¿½o implementada no mï¿½todo remove
+     * TODO - A remoï¿½ï¿½o ï¿½ feira em tempo real, onde ainda o mesmo nï¿½o suporta remoï¿½ï¿½o apenas na camada do cliente
+     * caso necessï¿½ria tao funcionalidade a mesma serï¿½ implementada no futuro
      **/
     removeFilter: function( concept, filter, oneSide ){
 	//remover

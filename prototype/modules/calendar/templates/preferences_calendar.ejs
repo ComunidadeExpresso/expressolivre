@@ -1,17 +1,17 @@
-<div class="preferences-win active" title="Configurações da Agenda">
-	<h3>Preferências Gerais</h3>
+<div class="preferences-win active" title="<%= '_[[Agenda Settings]]' %>">
+	<h3><%= '_[[General preferences]]' %></h3>
 	<div class="header-menu-container">
-		<a class="button cancel" href="#">Cancelar</a>
-		<a class="button save" href="#">Salvar</a>
+		<a class="button cancel" href="#"><%= '_[[Cancel]]' %></a>
+		<a class="button save" href="#"><%= '_[[Save]]' %></a>
 	</div> 
 
 	<form method="POST" action="modulePreference:detail">
 
 		<fieldset class="no-legend">
-			<legend class="hidden">Preferências Gerais</legend>
+			<legend class="hidden"><%= '_[[General preferences]]' %></legend>
 
 			<p class="input-group">
-				<label for="dateFormat" class="small">Formato de data:</label>
+				<label for="dateFormat" class="small"><%= '_[[Date format]]' %>:</label>
 				<select name="dateFormat" >
 					<option value="dd/MM/yyyy" <%= data.preferences.dateFormat =='dd/MM/yyyy' ? 'selected="selected"':'' %>>31/12/2011</option>
 					<option value="dd-MM-yyyy" <%= data.preferences.dateFormat =='dd-MM-yyyy' ? 'selected="selected"':'' %>>31-12-2011</option>
@@ -20,58 +20,58 @@
 			</p>
 
 			<p class="input-group">
-				<label for="hourFormat">Formato de hora:</label>
+				<label for="hourFormat"><%= '_[[Time format]]' %>:</label>
 				<select name="hourFormat" >
-					<option value="HH:mm" <%= data.preferences.hourFormat =='HH:mm' ? 'selected="selected"':'' %>>24 horas</option>
-					<option value="hh:mm tt" <%= data.preferences.hourFormat =='hh:mm tt' ? 'selected="selected"':'' %>>12 horas (am/pm)</option>
+					<option value="HH:mm" <%= data.preferences.hourFormat =='HH:mm' ? 'selected="selected"':'' %>>24 <%= '_[[hours]]' %></option>
+					<option value="hh:mm tt" <%= data.preferences.hourFormat =='hh:mm tt' ? 'selected="selected"':'' %>>12 <%= '_[[hours]]' %> (am/pm)</option>
 				</select>
 			</p>
 			
 			<p class="input-group">
-				<label for="timezone">Fuso horário atual:</label>
+				<label for="timezone"><%= '_[[Current time zone]]' %>:</label>
 				<select name="timezone"> </select>
 			</p>
 			
 			<p class="input-group">
-				<label for="defaultCalView">Visualização padrão do calendário:</label>
+				<label for="defaultCalView"><%= '_[[Default calendar view]]' %>:</label>
 				<select name="defaultCalView" >
-					<option value="agendaDay" <%= data.preferences.defaultCalView =='agendaDay' ? 'selected="selected"':'' %>>Diária com horário</option>
-					<option value="basicDay" <%= data.preferences.defaultCalView =='basicDay' ? 'selected="selected"':'' %>>Diária sem horário</option>
-					<option value="agendaWeek" <%= data.preferences.defaultCalView =='agendaWeek' ? 'selected="selected"':'' %>>Semanal</option>
-					<option value="month" <%= data.preferences.defaultCalView =='month' ? 'selected="selected"':'' %>>Mensal</option>
-					<option value="year" <%= data.preferences.defaultCalView =='year' ? 'selected="selected"':'' %>>Anual</option>
+					<option value="agendaDay" <%= data.preferences.defaultCalView =='agendaDay' ? 'selected="selected"':'' %>><%= '_[[Daily with time]]' %></option>
+					<option value="basicDay" <%= data.preferences.defaultCalView =='basicDay' ? 'selected="selected"':'' %>><%= '_[[Daily without time]]' %></option>
+					<option value="agendaWeek" <%= data.preferences.defaultCalView =='agendaWeek' ? 'selected="selected"':'' %>><%= '_[[Weekly]]' %></option>
+					<option value="month" <%= data.preferences.defaultCalView =='month' ? 'selected="selected"':'' %>><%= '_[[Monthly]]' %></option>
+					<option value="year" <%= data.preferences.defaultCalView =='year' ? 'selected="selected"':'' %>><%= '_[[Annual]]' %></option>
 				</select>
 			</p>
 			<p class="input-group">
-				<label for="weekStart">Primeiro dia da Semana:</label>
+				<label for="weekStart"><%= '_[[First day of week]]' %>:</label>
 				<select name="weekStart" >
-				<option value="SUN" <%= data.preferences.weekStart =='SUN' ? 'selected="selected"':'' %>>Domingo</option>
-					<option value="MON" <%= data.preferences.weekStart =='MON' ? 'selected="selected"':'' %>>Segunda</option>
-					<option value="TUE" <%= data.preferences.weekStart =='TUE' ? 'selected="selected"':'' %>>Terça</option>
-					<option value="WED" <%= data.preferences.weekStart =='WED' ? 'selected="selected"':'' %>>Quarta</option>
-					<option value="THU" <%= data.preferences.weekStart =='THU' ? 'selected="selected"':'' %>>Quinta</option>
-					<option value="FRI" <%= data.preferences.weekStart =='FRI' ? 'selected="selected"':'' %>>Sexta</option>
-					<option value="SAT" <%= data.preferences.weekStart =='SAT' ? 'selected="selected"':'' %>>Sábado</option>
+				<option value="SUN" <%= data.preferences.weekStart =='SUN' ? 'selected="selected"':'' %>><%= '_[[Sunday]]' %></option>
+					<option value="MON" <%= data.preferences.weekStart =='MON' ? 'selected="selected"':'' %>><%= '_[[Monday]]' %></option>
+					<option value="TUE" <%= data.preferences.weekStart =='TUE' ? 'selected="selected"':'' %>><%= '_[[Tuesday]]' %></option>
+					<option value="WED" <%= data.preferences.weekStart =='WED' ? 'selected="selected"':'' %>><%= '_[[Wednesday]]' %></option>
+					<option value="THU" <%= data.preferences.weekStart =='THU' ? 'selected="selected"':'' %>><%= '_[[Thursday]]' %></option>
+					<option value="FRI" <%= data.preferences.weekStart =='FRI' ? 'selected="selected"':'' %>><%= '_[[Friday]]' %></option>
+					<option value="SAT" <%= data.preferences.weekStart =='SAT' ? 'selected="selected"':'' %>><%= '_[[Saturday]]' %></option>
 				</select>
 			</p>			
                         
 			<p class="input-group">
-                <label for="defaultStartHour">Hora de início padrão:</label>
+                <label for="defaultStartHour"><%= '_[[Default start time]]' %>:</label>
 				<input type="text" class="time" value="<%= (data.preferences.defaultStartHour) ? data.preferences.defaultStartHour : '' %>" name="defaultStartHour" /> 
 			</p>
 			
 			<p class="input-group">
-                <label for="defaultEndHour">Hora de término padrão:</label>
+                <label for="defaultEndHour"><%= '_[[Default end time]]' %>:</label>
 				<input type="text" class="time" value="<%= (data.preferences.defaultEndHour) ? data.preferences.defaultEndHour : '' %>" name="defaultEndHour" /> 
 			</p>
 			
 			<p class="input-group">
-				<label for="defaultDuration">Duração de um compromisso (em minutos):</label>
+				<label for="defaultDuration"><%= '_[[Duration of an appointment (in minutes)]]' %>:</label>
 				<input name="defaultDuration" value="<%= data.preferences.defaultDuration%>" type="text" class="number inputNumber"/>
 			</p>
 
 			<p class="input-group"> 
-                <label for="defaultCalendar">Agenda padrão para Criação de Eventos:</label>
+                <label for="defaultCalendar"><%= '_[[Default agenda for importing events]]' %>:</label>
                 <select name="defaultCalendar" > 
                     <%for(var i = 0; i < data.calendars.length; i++){%> 
                         <option value="<%=data.calendars[i].id%>"> <%= data.calendars[i].name %></option> 
@@ -80,7 +80,7 @@
 			</p>
 
             <p class="input-group">
-                <label for="dafaultImportCalendar">Agenda padrão para Importação de Eventos :</label>
+                <label for="dafaultImportCalendar"><%= '_[[Default schedule for Import Events]]' %>:</label>
                 <select name="dafaultImportCalendar" >
                     <option value=""> </option>
                     <%for(var i = 0; i < data.calendars.length; i++){
@@ -92,10 +92,10 @@
             </p>
 
 			<p class="input-group">
-				<label for="useDesktopNotification">Usar alarme desktop:</label>
+				<label for="useDesktopNotification"><%= '_[[Use desktop alarm]]' %>:</label>
 				<select name="useDesktopNotification" >
-					<option value="1" <%= data.preferences.useDesktopNotification == '1' ? 'selected="selected"' : '' %>>Sim</option>
-					<option value="0" <%= data.preferences.useDesktopNotification != '1' ? 'selected="selected"' : '' %>>Não</option>
+					<option value="1" <%= data.preferences.useDesktopNotification == '1' ? 'selected="selected"' : '' %>><%= '_[[Yes]]' %></option>
+					<option value="0" <%= data.preferences.useDesktopNotification != '1' ? 'selected="selected"' : '' %>><%= '_[[No]]' %></option>
 				</select>
 			</p>
 			
@@ -105,8 +105,8 @@
   
     
   <div class="header-menu-container">
-	<a class="button cancel">Cancelar</a>
-    <a class="button save">Salvar</a>
+	<a class="button cancel"><%= '_[[Cancel]]' %></a>
+    <a class="button save"><%= '_[[Save]]' %></a>
   </div>
   
   

@@ -27,7 +27,7 @@ function activityDetails( objActivity, decoded, path, isMail, repeat){
 			
 	if (!UI.dialogs.addActivity) {
 
-	    UI.dialogs.addActivity = jQuery('#sandbox').append('<div title="Criar Atividade" class="new-activity-win active"> <div>').find('.new-activity-win.active').html(html).dialog({
+	    UI.dialogs.addActivity = jQuery('#sandbox').append('<div title="_[[Create Activity]]" class="new-activity-win active"> <div>').find('.new-activity-win.active').html(html).dialog({
     		resizable: false, 
     		modal:true, 
     		autoOpen: false,
@@ -47,12 +47,12 @@ function activityDetails( objActivity, decoded, path, isMail, repeat){
     		    if (!canDiscardActivityDialog && !zebraDiscardActivityDialog) {
         			zebraDiscardActivityDialog = true;
         			window.setTimeout(function() {
-        			    $.Zebra_Dialog('Suas alterações na atividade não foram salvas. Deseja descartar as alterações?', {
+        			    $.Zebra_Dialog('_[[Your changes in the activity were not saved. Do you want to discard changes?]]', {
         				'type':     'question',
         				'overlay_opacity': '0.5',
-        				'buttons':  ['Descartar alterações', 'Continuar editando'],
+        				'buttons':  ['_[[Discard changes]]', '_[[Continue editing]]'],
         				'onClose':  function(clicked) {
-        				    if(clicked == 'Descartar alterações') {
+        				    if(clicked == '_[[Discard changes]]') {
             					canDiscardActivityDialog = true;
             					/**
             					*Remoção dos anexos do eventos caso seja cancelado a edição
@@ -167,7 +167,7 @@ todoStatus('addActivity', (objActivity.activityStatus != undefined) ? objActivit
 UI.dialogs.addActivity.find('select[name="activityStatus"]').attr('disabled', 'disabled');
 
 // ==== validation events ====
-UI.dialogs.addActivity.find(".input-group .h1").Watermark("Atividade sem título");
+UI.dialogs.addActivity.find(".input-group .h1").Watermark("_[[Untitled activity]]");
 
 UI.dialogs.addActivity.find(".number").numeric();
 
@@ -186,11 +186,11 @@ UI.dialogs.addActivity.find(".date").mask("99/99/9999", {
 
 UI.dialogs.addActivity.find(".menu-addactivity")
 .children(".delete").click(function(){
-    $.Zebra_Dialog('A exclusão desta atividade também traz a opção de excluir suas tarefas adicionadas. O que deseja excluir?', {
+    $.Zebra_Dialog('_[[The exclusion of this activity also has the option to delete your added tasks. What do you want to delete?]]', {
 	'type':     'question',
     'width': '400',
 	'overlay_opacity': '0.5',
-	'buttons':  ['Atividade e Tarefas', 'Apenas Atividade', 'Cancelar'],
+	'buttons':  ['_[[Activity and Task]]', '_[[Only Activity]]', '_[[Cancel]]'],
 	'onClose':  function(clicked) {
 	    if(clicked == 'Apenas Atividade'){
             canDiscardActivityDialog = true;
@@ -240,14 +240,13 @@ UI.dialogs.addActivity.find(".menu-addactivity")
 	//Verifica se o grupo da atividade mudou 
 	if (group.id != UI.dialogs.addActivity.children().find('form select[name="group"] :selected').val() && typeof group.id != 'undefined') { 
 		//Janela de dialogo 
-		$.Zebra_Dialog('Você alterou o grupo da atividade, deseja alterar também o grupo das tarefas pertencentes à essa atividade?', { 
+		$.Zebra_Dialog('_[[You changed the group activity. Would you also change the group of tasks pertaining to this activity?]]', {
 			'type':     'question', 
 			'overlay_opacity': '0.5', 
 			'modal': true, 
-			'buttons':  ['Não Alterar', 'Alterar'], 
+			'buttons':  ['_[[Do not Change]]', '_[[Change]]'],
 			'onClose':  function(clicked) { 
-				if(clicked == 'Não Alterar') { 
-				   
+				if(clicked == '_[[Do not Change]]') {
 					handler_save(); 
 				}else{ 
 					var objsToSave = []; 
@@ -317,7 +316,7 @@ blkAddTask.find('.add-activity-search input').keydown(function(event) {
 	*/
 	blkAddTask.find('ul.search-result-list').empty().css('overflow', 'hidden');
 	if (!result) {
-	    blkAddTask.find('ul.search-result-list').append('<li><label class="empty">Nenhum resultado encontrado.</label></li>');
+	    blkAddTask.find('ul.search-result-list').append('<li><label class="empty">' + '_[[No results found.]]' + '</label></li>');
 	}else{
     	for(i=0; i<result.length; i++)
     	    result[i].enabled = (blkAddTask.find('dd.task-activity-list ul.task-activity-list input[value="' +  result[i].id + '"]').length) ? false : true;
@@ -402,7 +401,7 @@ UI.dialogs.addActivity.find('.row.fileupload-buttonbar-activity .button').filter
     },
     text: 'Excluir'
 }).click(function () {
-    $.Zebra_Dialog('Tem certeza que deseja excluir todos anexos?', {
+    $.Zebra_Dialog('_[[Are you sure you want to delete all attachments?]]', {
 	'type':     'question',
 	'overlay_opacity': '0.5',
 	'buttons':  ['Não', 'Sim'],
@@ -659,8 +658,8 @@ function callbackTask(blkAddTask, path){
 							'priority' : priority
                         } ) ),
                         title: {
-                            text:'Informações',
-                            button: '<a class="button close" href="#">close</a>'
+                            text:'_[[Information]]',
+                            button: '<a class="button close" href="#">' + '_[[Close]]' + '</a>'
                         }
                     },
                 style: {

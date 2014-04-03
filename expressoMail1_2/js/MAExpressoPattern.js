@@ -1,5 +1,5 @@
 <!--
-/* 
+/*
  * MailArchiver Expresso Pattern serialized format
  * ---
  * This resources intended to be used on converting data formats, to make

@@ -1,11 +1,11 @@
 
 	<p class="input-group arquive-info">
-		<label class="lbl-archive-nome">Nome:</label>
+		<label class="lbl-archive-nome"><%= '_[[Name]]' %>:</label>
 		<span class="archive-nome"><%=data.file.fileName%></span>
 		
-		<label class="lbl-archive-size">Tamanho:</label>
+		<label class="lbl-archive-size"><%= '_[[Size]]' %>:</label>
 		<span class="archive-size"><%=data.file.fileSize%></span>
-		<button type="button" class="button close tiny upload delete-upload" title="Deletar">Deletar</button>
+		<button type="button" class="button close tiny upload delete-upload" title="<%= '_[[Delete]]' %>"><%= '_[[Delete]]' %></button>
 		<span class="status-upload"></span>
 		<%if(data.file.error){%>
 			<span class="archive-error"><%=data.file.error%></span>

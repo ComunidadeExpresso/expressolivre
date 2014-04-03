@@ -13,9 +13,9 @@
 <div class="all-list-calendars">
 
     <div class="my-groups-task">
-        <a title='Grupos de tarefas' class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'>Grupos de tarefas</a>
+        <a title="<%= '_[[Task groups]]' %>" class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'><%= '_[[Task groups]]' %></a>
         <span class="status-list ui-icon ui-icon-triangle-1-s"></span>
-        <a href="#" class="button new new-calendar 1">Novo Grupo</a>
+        <a href="#" class="button new new-calendar 1"><%= '_[[New group]]' %></a>
         <ul class="list-calendars my-list-calendars">
             <% for (var i=0; i < signatures['taskGroup'].length; i++) {%>
             <li class="list-calendars-item list-calendars-item-<%= signatures['taskGroup'][i].calendar.id %>" title="<%= signatures['taskGroup'][i].calendar.name %>">
@@ -32,11 +32,11 @@
 
                 <div class="cal-list-options my-cal-list-options-<%= signatures['taskGroup'][i].calendar.id %> hidden">
                     <ul>
-                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['taskGroup'][i].calendar.id%>, 1);">Configurações</a></li>
-			<li><a href="#" onclick="show_modal_import_export(0,<%= signatures['taskGroup'][i].calendar.id%>, 1);">Importar</a></li>
-                        <li><a href="#" onclick="show_modal_import_export(1,<%= signatures['taskGroup'][i].calendar.id%>, 1);">Exportar</a></li>
+                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['taskGroup'][i].calendar.id%>, 1);"><%= '_[[Settings]]' %></a></li>
+			<li><a href="#" onclick="show_modal_import_export(0,<%= signatures['taskGroup'][i].calendar.id%>, 1);"><%= '_[[Import]]' %></a></li>
+                        <li><a href="#" onclick="show_modal_import_export(1,<%= signatures['taskGroup'][i].calendar.id%>, 1);"><%= '_[[Export]]' %></a></li>
                         <%if(signatures['taskGroup'][i].type == '0'){%>
-			    <li><a href="#" onclick="remove_calendar(1);">Remover Grupo</a></li>
+			    <li><a href="#" onclick="remove_calendar(1);"><%= '_[[Remove group]]' %></a></li>
 			<%}%>
                     </ul>
 
@@ -48,9 +48,9 @@
     </div>
 
     <div class="my-calendars">
-        <a title='Minhas agendas' class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'>Minhas agendas</a>
+        <a title='Minhas agendas' class="title-my-calendars" aria-expanded='false' role='button' tabindex='0'><%= '_[[My calendars]]' %></a>
         <span class="status-list ui-icon ui-icon-triangle-1-s"></span>
-        <a href="#" class="button new new-calendar 0">Nova Agenda</a>
+        <a href="#" class="button new new-calendar 0"><%= '_[[New calendar]]' %></a>
         <ul class="list-calendars my-list-calendars">
             <% for (var i=0; i < signatures.calendar.length; i++) {%>
             <li class="list-calendars-item list-calendars-item-<%= signatures['calendar'][i].calendar.id %>" title="<%= signatures['calendar'][i].calendar.name %>">
@@ -67,11 +67,11 @@
 
                 <div class="cal-list-options my-cal-list-options-<%= signatures['calendar'][i].calendar.id %> hidden">
                     <ul>
-                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['calendar'][i].calendar.id%>, 0);">Configurações</a></li>
-                        <li><a href="#" onclick="show_modal_import_export(0, <%= signatures['calendar'][i].calendar.id%>, 0);">Importar</a></li>
-                        <li><a href="#" onclick="show_modal_import_export(1, <%= signatures['calendar'][i].calendar.id%>, 0);">Exportar</a></li>
-                        <li><a href="#" onclick="show_modal_shared(<%= signatures['calendar'][i].calendar.id%>);">Compartilhar agenda</a></li>
-                        <li><a href="#" onclick="remove_calendar(0);">Remover agenda</a></li>
+                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['calendar'][i].calendar.id%>, 0);"><%= '_[[Settings]]' %></a></li>
+                        <li><a href="#" onclick="show_modal_import_export(0, <%= signatures['calendar'][i].calendar.id%>, 0);"><%= '_[[Import]]' %></a></li>
+                        <li><a href="#" onclick="show_modal_import_export(1, <%= signatures['calendar'][i].calendar.id%>, 0);"><%= '_[[Export]]' %></a></li>
+                        <li><a href="#" onclick="show_modal_shared(<%= signatures['calendar'][i].calendar.id%>);"><%= '_[[Share calendar]]' %></a></li>
+                        <li><a href="#" onclick="remove_calendar(0);"><%= '_[[Remove calendar]]' %></a></li>
                     </ul>
 
                 </div>
@@ -82,9 +82,9 @@
     </div>
 
     <div class="signed-calendars">
-        <a title='Agendas assinadas' class="title-signed-calendars" aria-expanded='false' role='button' tabindex='0'>Agendas assinadas</a>			
+        <a title='Agendas assinadas' class="title-signed-calendars" aria-expanded='false' role='button' tabindex='0'><%= '_[[Signed calendars]]' %></a>
         <span class="status-list-shared ui-icon ui-icon-triangle-1-s"></span>
-        <a href="#" class="button new new-calendar-shared tiny">Nova Agenda</a>
+        <a href="#" class="button new new-calendar-shared tiny"><%= '_[[New Calendar]]' %></a>
 
         <ul class="list-calendars signed-list-calendars">
             <% for (var i=0; i < signatures['sharedCalendar'].length; i++) {%>
@@ -97,11 +97,11 @@
                     <img src="../prototype/modules/calendar/img/arrow_down.png" width="10" height="10" class="cal-list-img"/></a>
                 <div class="cal-list-options my-cal-list-options-<%= signatures['sharedCalendar'][i].calendar.id  %> hidden">
                     <ul>
-                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['sharedCalendar'][i].calendar.id %>, 0);">Configurações</a></li>
-                        <li><a href="#" onclick="show_modal_import_export(0, <%= signatures['sharedCalendar'][i].calendar.id%>, 0);">Importar</a></li>
-                        <li><a href="#" onclick="show_modal_import_export(1, <%= signatures['sharedCalendar'][i].calendar.id%>, 0);">Exportar</a></li>
+                        <li><a href="#" onclick="add_tab_configure_calendar(<%= signatures['sharedCalendar'][i].calendar.id %>, 0);"><%= '_[[Settings]]' %></a></li>
+                        <li><a href="#" onclick="show_modal_import_export(0, <%= signatures['sharedCalendar'][i].calendar.id%>, 0);"><%= '_[[Import]]' %></a></li>
+                        <li><a href="#" onclick="show_modal_import_export(1, <%= signatures['sharedCalendar'][i].calendar.id%>, 0);"><%= '_[[Export]]' %></a></li>
                         <%if(!signatures['sharedCalendar'][i].permission.acl['required']){%>
-                            <li><a href="#" onclick="cancel_signature(<%= signatures['sharedCalendar'][i].id %>);">Cancelar assinatura</a></li>
+                            <li><a href="#" onclick="cancel_signature(<%= signatures['sharedCalendar'][i].id %>);"><%= '_[[Unsubscribe]]' %></a></li>
                         <%}%>
                     </ul>
 

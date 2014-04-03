@@ -465,13 +465,13 @@ function draftTests(ID, msg_sent){
         }    
         else  
         {
-             var msg = 'Existem alterações não salvas na mensagem.';
-             var buttons = ['Descartar alterações', 'Salvar e fechar' ,'Cancelar'];
+             var msg = '_[[There are unsaved changes in the message.]]';
+             var buttons = ['_[[Discard changes]]', '_[[Save and close]]' ,'_[[cancelar]]'];
              var width = 371;
              if($('#fileupload_msg'+ID).find('.in-progress').length)
              {
-                 msg = 'Existem anexos sendo enviados para o servidor.';
-                 buttons = ['Descartar alterações e anexos', 'Salvar estado atual fechar', 'Continuar editando']; 
+                 msg = '_[[Attachments are being sent to the server]]';
+                 buttons = ['_[[Discard changes and attachments]]', '_[[Save current state close]]', '_[[Continue editing]]'];
                  width = 560;
              }
              zebraDiscardEventDialog = true;
@@ -483,13 +483,13 @@ function draftTests(ID, msg_sent){
                             'buttons':  buttons,
                             'width' : width,
                             'onClose':  function(clicked) {
-                                    if(clicked == 'Cancelar'){
+                                    if(clicked == '_[[cancelar]]'){
                                         if (RichTextEditor.plain[id] != true) 
                                             setTimeout("RichTextEditor.focus("+ID+")",100);                  
                                         else  
                                             $('#body_'+ID).focus(); 
                                     }
-                                    if(clicked == 'Descartar alterações' || clicked == 'Descartar alterações e anexos' ) {
+                                    if(clicked == '_[[Discard changes]]' || clicked == '_[[Discard changes and attachments]]' ) {
                                         if (openTab.imapBox[ID] && !openTab.toPreserve[ID])
                                             openTab.toPreserve[ID] = false;
 
@@ -497,7 +497,7 @@ function draftTests(ID, msg_sent){
                                         close_delete(ID, msg_sent);
                                        
                                     }
-                                    else if(clicked == 'Salvar e fechar' || clicked == 'Salvar estado atual fechar')
+                                    else if(clicked == '_[[Save and close]]' || clicked == '_[[Save current state close]]')
                                     {
                                         save_msg(ID);
                                         openTab.toPreserve[ID] = false;

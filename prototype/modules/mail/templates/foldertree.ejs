@@ -1,13 +1,13 @@
 <%
 	var specialFolders = {
-			INBOX: {name:'Caixa de Entrada', classe:'inbox'}, 
-			Inbox: {name:'Caixa de Entrada', classe:'inbox'}, 
+			INBOX: {name:'_[[Inbox]]'', classe:'inbox'},
+			Inbox: {name:'_[[Inbox]]', classe:'inbox'},
 		};
-    specialFolders[outboxfolder] = {name: 'Caixa de Saída', classe:'outbox'};
-	specialFolders[trashfolder] = {name:'Lixeira', classe:'trash'};
-	specialFolders[draftsfolder] = {name:'Rascunhos', classe:'drafts'};
-	specialFolders[spamfolder] = {name:'Spam', classe:'spam'};
-	specialFolders[sentfolder] = {name:'Enviados', classe:'sent'};
+    specialFolders[outboxfolder] = {name: '_[[Outbox]]', classe:'outbox'};
+	specialFolders[trashfolder] = {name:'_[[Trash]]', classe:'trash'};
+	specialFolders[draftsfolder] = {name:'_[[Draft]]', classe:'drafts'};
+	specialFolders[spamfolder] = {name:'_[[Spam]]', classe:'spam'};
+	specialFolders[sentfolder] = {name:'_[[Sent]]', classe:'sent'};
 
 	function recursive_forest(array_trees)
 	{

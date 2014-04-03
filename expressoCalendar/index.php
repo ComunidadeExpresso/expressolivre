@@ -29,8 +29,8 @@ $configProvider['module'] = 'expressoCalendar';
 
 $fileDuck = new FileDuck( $config , $configProvider );
 
-$fileDuck->add( __DIR__ .'/../prototype/modules/calendar/templates/index.ejs' , 'ISO-8859-1' );
+$fileDuck->add( __DIR__ .'/../prototype/modules/calendar/templates/index.ejs' );
 
-echo $fileDuck->renderContent();
+echo mb_convert_encoding( $fileDuck->renderContent() , 'ISO-8859-1' , 'UTF-8' );
 
 echo '<script type="text/javascript" src="../prototype/modules/calendar/scripts.php?lang='.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'].'" charset="UTF-8" ></script>';

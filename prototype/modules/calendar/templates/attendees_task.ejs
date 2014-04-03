@@ -1,27 +1,27 @@
     <%var iconStatus = ['','ui-icon-check', 'ui-icon-radio-off', 'ui-icon-close', 'ui-icon-help', 'ui-icon-transferthick-e-w', 'ui-icon-contact']
-      var legendStatus = ['','Confirmado','Tentativa','Cancelado','Sem Resposta','Delegado', 'Participante']
+      var legendStatus = ['','_[[Confirmed]]','_[[Attempt]]','_[[Canceled]]','_[[No Answer]]','_[[Delegate]]', '_[[Participant]]']
     %>
     <dl class="block-attendee-list attendees-list">
         <dt class="me"><%= data.task.me.user ? data.task.me.user.name : data.task.me.name %></dt>
         <dd class="me">
             <select class="status" name="status">
                 <%if(!data.task.delegatedFrom[data.task.me.id]){%>
-                    <option value="1" <%= data.task.status=='1' ? 'selected="selected"':'' %>>Eu vou</option>
-                        <option value="3" <%= data.task.status=='3' ? 'selected="selected"':'' %>>Eu não vou</option>
-                        <option value="2" <%= data.task.status=='2' ? 'selected="selected"':'' %>>Talvez</option>
-                        <option class="hidden" value="5">Delegado</option>
+                    <option value="1" <%= data.task.status=='1' ? 'selected="selected"':'' %>><%= '_[[I will]]' %></option>
+                        <option value="3" <%= data.task.status=='3' ? 'selected="selected"':'' %>><%= '_[[I will not]]' %></option>
+                        <option value="2" <%= data.task.status=='2' ? 'selected="selected"':'' %>><%= '_[[Maybe]]' %></option>
+                        <option class="hidden" value="5"><%= '_[[Delegate]]' %></option>
                 <%}else{%>
-                    <option value="5" 'selected="selected"'>Delegado</option>
+                    <option value="5" 'selected="selected"'><%= '_[[Delegate]]' %></option>
                 <%}%>
             </select>
 	    <% if (data.task.id && !data.task.delegatedFrom[data.task.me.id] && !data.task.isOrganizer) { %>
 		    <fieldset class="add-attendee-options-read">
-			    <a href="#" class="button participant-delegate add-attendee-options-button">Delegar participação a um novo participante</a>
+			    <a href="#" class="button participant-delegate add-attendee-options-button"><%= '_[[Delegate participation to a new participant]]' %></a>
 		    </fieldset>
 	    <%}%>
             <p class="input-group request-update <%=data.task.delegatedFrom[data.task.me.id] ? '' : "hidden"%>">
                 <input type="checkbox" name="receiveNotification" value="true" <%=data.task.me.receiveNotification =='1' ? 'checked="checked"' : ''%>/>
-                <label for="request-update">Receber atualizações</label>
+                <label for="request-update"><%= '_[[Get updates]]' %></label>
             </p>
             
             <input type="hidden" name="delegatedFrom[]" value="<%=data.task.me.delegatedFrom%>">
@@ -29,7 +29,7 @@
             <input type="hidden" name="attendeeType[]" value="0">            
         </dd>
 
-        <dt class="attendee-list">Convidados</dt>
+        <dt class="attendee-list"><%= '_[[Guests]]' %></dt>
         <dd class="attendee-list">
             <ul class="attendee-list">
                 <label for="attendee" title="<%=  data.task.me.user ? data.task.me.user.mail : data.task.me.mail %>" class="mail hidden"></label>
@@ -37,7 +37,7 @@
                 <li class="organizer <%= (data.task.isOrganizer || (data.task.delegatedFrom[data.task.me.id] && data.task.delegatedFrom[data.task.me.id].isOrganizer == '1')) ? "hidden" : "" %>">
                     <div style="overflow:hidden; width:100%; display:table;">
                         <span class="space-status ui-icon <%=iconStatus[data.task.organizer.status]%>" title="<%=legendStatus[data.task.organizer.status]%>"></span>
-                        <span class="space-special ui-icon ui-icon-person" title="Organizador"></span>
+                        <span class="space-special ui-icon ui-icon-person" title="<%= '_[[Organizer]]' %>"></span>
                         
                         <% if(data.task.me.id != data.task.organizer.id){%> 
                             <input type="checkbox" value="<%= data.task.organizer.id %>" disabled="disabled">
@@ -55,7 +55,7 @@
                 <li class="me-delegated">
                     <div style="overflow:hidden; width:100%; display:table;">
                         <span class="space-status ui-icon <%=iconStatus[delegated_me.status]%>" title="<%=legendStatus[delegated_me.status]%>"></span>
-                        <span class="space-special ui-icon <%=iconStatus[5]%>" title="Delegado para"></span>
+                        <span class="space-special ui-icon <%=iconStatus[5]%>" title="<%= '_[[Delegate for]]' %>"></span>
                         <input type="checkbox" value="<%= delegated_me.id%>" disabled="disabled">
                         <label for="me-delegated" title="<%= delegated_me.name ? delegated_me.name: '' %>" class="name name-special"><%= delegated_me.name ? delegated_me.name : '' %></label>
                         <label for="me-delegated" title="<%= delegated_me.mail ? delegated_me.mail: '' %>" class="mail name-special"><%= delegated_me.mail ? delegated_me.mail : '' %></label>
@@ -84,7 +84,7 @@
                         </div>
 			<%if(data.task.isOrganizer){%>
 			    <div class="attendee-options">
-				<a class="button close new">Remover</a>
+				<a class="button close new"><%= '_[[Remove]]' %></a>
 			    </div>
 			<%}%>
 
@@ -112,7 +112,7 @@
                     </li>   
                 <%} 
             } else if(data.task.me.id == data.task.organizer.id && !(data.task.attendee.length > 0) ) { %>
-                <li class="not-attendee">Não há outros participantes.</li>
+                <li class="not-attendee"><%= '_[[No other participants.]]' %></li>
             <% } %>
             </ul>
         </dd>
@@ -135,15 +135,15 @@
         <dd class="attendee-list-brief">
         <% if (data.task && data.task.attendee.length > 0) { %>
           <ul class="attendees-count">
-            <li><label>Sim:</label><%=data.task.statusParticipants.accepted%></li>
-            <li><label>Não:</label><%=data.task.statusParticipants.cancelled%></li>
-            <li><label>Talvez:</label><%=data.task.statusParticipants.tentative%></li>
-            <li><label>Aguardando:</label><%=data.task.statusParticipants.unanswered%></li>
+            <li><label><%= '_[[Yes]]' %>:</label><%=data.task.statusParticipants.accepted%></li>
+            <li><label><%= '_[[No]]' %>:</label><%=data.task.statusParticipants.cancelled%></li>
+            <li><label><%= '_[[Maybe]]' %>:</label><%=data.task.statusParticipants.tentative%></li>
+            <li><label><%= '_[[Waiting]]' %>:</label><%=data.task.statusParticipants.unanswered%></li>
           </ul>     
         <% } %>
         <% if (data.task && data.task.sizeAttendeeLimit){%>
         <ul class="attendees-count">
-            <li>Evento com muitos participantes, exibindo os 100 primeiros!</li>
+            <li><%= '_[[Event with many participants, showing the first 100!]]' %></li>
         </ul>
         <% } %>
         </dd>
@@ -151,9 +151,9 @@
     </dl>
 
     <dl class="block-add-attendee search <%= data.task.isOrganizer ? '' : 'hidden'%>">
-    <dt class="add-attendee search">Adicionar outros convidados</dt>
+    <dt class="add-attendee search"><%= '_[[Add other guests]]' %></dt>
     <dd class="add-attendee  <%= data.task.isOrganizer ? '' : 'hidden'%>">
-        <fieldset class="block-add-attendee" title="Participantes">
+        <fieldset class="block-add-attendee" title="<%= '_[[Participants]]' %>">
             <fieldset class="add-attendee-search search-field ui-corner-all">
                 <input class="search" type="text" />
                 <span class="ui-icon ui-icon-search"></span>

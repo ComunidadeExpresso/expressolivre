@@ -1,13 +1,13 @@
 <%if(!!parseInt(data.type)){%>
-<div class="configure-calendars-win active" title="Configurações do Grupo de Tarefas">
-	<h3>Preferências do Grupo de Tarefas</h3>
+<div class="configure-calendars-win active" title="<%= '_[[Group Tasks Settings]]' %>">
+	<h3><%= '_[[Group Tasks Preferences]]' %></h3>
 <%}else{%>
-<div class="configure-calendars-win active" title="Configurações da Agenda">
-	<h3>Preferências da Agenda</h3>
+<div class="configure-calendars-win active" title="<%= '_[[Agenda Settings]]' %>">
+	<h3><%= '_[[Agenda Preferences]]' %></h3>
 <%}%>
 	<div  class="header-menu-container">
-		<a class="button cancel" href="#">Cancelar</a>
-		<a class="button save" href="#">Salvar</a>
+		<a class="button cancel" href="#"><%= '_[[Cancel]]' %></a>
+		<a class="button save" href="#"><%= '_[[Save]]' %></a>
 	</div>
 	<% for (var i=0; i<data.signatures.length; i++) { %>
 		<fieldset class="user-calendar" title="<%= data.calendars[i].name%>" >
@@ -23,8 +23,8 @@
 	</fieldset>
 	-->
 	<div class="footer-menu-container">
-		<a class="button cancel">Cancelar</a>
-		<a class="button save">Salvar</a>
+		<a class="button cancel"><%= '_[[Cancel]]' %></a>
+		<a class="button save"><%= '_[[Save]]' %></a>
 	</div>
 
 </div>

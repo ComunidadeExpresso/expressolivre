@@ -600,3 +600,111 @@ Displays the user name in the header print email	expressoMail1_2	es-es	Muestra e
 Report error	expressoMail1_2	es-es	Informe de error
 Describe the problem to report to technical support (optional)	expressoMail1_2	es-es	Describa el problema que le informe de apoyo técnico (opcional)
 Attention! The original message will be sent along with the original source of the email message	expressoMail1_2	es-es	¡Atención! El mensaje original se enviará junto con la fuente original del mensaje de correo electrónico
+Attach files	expressoMail1_2	es-es	Anexar archivos
+Attach messages	expressoMail1_2	es-es	Anexar mensages
+Drop here annexes	expressoMail1_2	es-es	Soltar aqui sus anexos
+Outbox	expressoMail1_2	es-es	Buzón de salida
+Trash	expressoMail1_2	es-es	Vertedero
+Drafts	expressoMail1_2	es-es	Borradores
+Sent	expressoMail1_2	es-es	Enviados
+My folders	expressoMail1_2	es-es	Mis carpetas
+Shared folders	expressoMail1_2	es-es	Pastas compartidas
+Local folders	expressoMail1_2	es-es	Pastas locales
+For monitoring	expressoMail1_2	es-es	Para acompañamiento
+Inbox	expressoMail1_2	es-es	Buzón de entrada
+Recent contact	expressoMail1_2	es-es	Contacto reciente
+Personal contact	expressoMail1_2	es-es	Contacto particular
+Shared contact	expressoMail1_2	es-es	Contacto compartido
+Personal group	expressoMail1_2	es-es	Grupo particular
+Shared group	expressoMail1_2	es-es	Grupo compartido
+Delete recent contact	expressoMail1_2	es-es	Borrar contacto reciente
+All messages flagged with the flag type	expressoMail1_2	es-es	Todas las mensajes señalizadas con el tipo de señalizador
+will be removed. This action cannot be undone. Do you want to continue?	expressoMail1_2	es-es	serán removidas. Esta acción no podrá ser revertida. Desea continuar?
+Show all items	expressoMail1_2	es-es	Mostrar todos los items
+Flagged	expressoMail1_2	es-es	Señalizadas
+You have one message in conclusion today	expressoMail1_2	es-es	Usted tiene un mensage concluyendo hoy
+You have %1 flagged messages for today	expressoMail1_2	es-es	Ustaed tiene %1 mensages señalizadas para hoy
+Done	expressoMail1_2	es-es	Concluidas
+No label found	expressoMail1_2	es-es	Ningún marcador encontrado
+One or more messages from any sub-folder are open	expressoMail1_2	es-es	Uno o mas mensages de alguna subcarpeta de esta carpeta están abiertos
+One or more messages from this folder are open	expressoMail1_2	es-es	Uno o mas mensages de esta carpeta están abiertos
+Thie folder is already in this place	expressoMail1_2	es-es	La carpeta ya existe en este local
+Can not move this folder to this location, because the target has already a folder with this name	expressoMail1_2	es-es	Imposible mover esta carpeta para este local, el destino ya contiene una carpeta con este nombre
+Permission denied	expressoMail1_2	es-es	Permiso denegado
+The folder was successfully moved	expressoMail1_2	es-es	La carpeta fue movida con éxito
+Error moving your folder.	expressoMail1_2	es-es	Ocurrio un error al mover su carpeta.
+The folder was successfully rename	expressoMail1_2	es-es	La carpeta fue renombrada con éxito
+Delete/move subfolders first	expressoMail1_2	es-es	Borrar/mover las subcarpetas primero
+File name	expressoMail1_2	es-es	Nombre del archivo
+Size	expressoMail1_2	es-es	Tamaño
+Status	expressoMail1_2	es-es	Estado
+Loading	expressoMail1_2	es-es	Carregando
+Success	expressoMail1_2	es-es	Éxito
+no folder found	expressoMail1_2	es-es	ninguna carpeta encontrada
+Delete	expressoMail1_2	es-es	Borrar
+Edit	expressoMail1_2	es-es	Editar
+Close	expressoMail1_2	es-es	Cerrar
+Basic	expressoMail1_2	es-es	Básico
+Flag as	expressoMail1_2	es-es	Señalizar como
+Alarm	expressoMail1_2	es-es	Alarma
+Conclusion	expressoMail1_2	es-es	Conclusión
+at	expressoMail1_2	es-es	la
+Flag color	expressoMail1_2	es-es	Color del señalizador
+Default	expressoMail1_2	es-es	Predeterminado
+Custom	expressoMail1_2	es-es	Personalizado
+Color	expressoMail1_2	es-es	Color
+Remove	expressoMail1_2	es-es	Eliminar
+Apply	expressoMail1_2	es-es	Aplicar
+Cancel	expressoMail1_2	es-es	Cancelar
+Nickname	expressoMail1_2	es-es	Apodo
+First Name	expressoMail1_2	es-es	Primer  nombre
+Last Name	expressoMail1_2	es-es	Último nombre
+Mail	expressoMail1_2	es-es	E-mail
+Choose the file	expressoMail1_2	es-es	Seleccione el archivo
+Select a zip or eml file	expressoMail1_2	es-es	Seleccione el archivo zip o eml
+Select a folder	expressoMail1_2	es-es	Seleccione una carpeta
+no folder found	expressoMail1_2	es-es	ninguna carpeta encontrada
+My labels	expressoMail1_2	es-es	Mis marcadores
+Add label	expressoMail1_2	es-es	Agregar marcadores
+Label name	expressoMail1_2	es-es	Nombre del marcador
+Label color	expressoMail1_2	es-es	Color del marcador
+Coala	expressoMail1_2	es-es	Koala
+Tomato	expressoMail1_2	es-es	Tomate
+Lemon	expressoMail1_2	es-es	Limón
+High contrast	expressoMail1_2	es-es	Alto contraste
+Text color	expressoMail1_2	es-es	Color del texto
+Border color	expressoMail1_2	es-es	Color del borde
+Undo	expressoMail1_2	es-es	Deshacer
+Send mail	expressoMail1_2	es-es	Enviar correo electrónico
+Send	expressoMail1_2	es-es	Enviar
+Send and archive	expressoMail1_2	es-es	Enviar y archivar
+Save mail	expressoMail1_2	es-es	Guardar correo electrónico
+Save	expressoMail1_2	es-es	Guardar
+Important message	expressoMail1_2	es-es	Mensage importante
+Return receipt	expressoMail1_2	es-es	Conf. de lectura
+Digitally sign message?	expressoMail1_2	es-es	Firmar digitalmente el mensage?
+Encrypted email	expressoMail1_2	es-es	Correo electrónico criptografado
+Add CC	expressoMail1_2	es-es	Agregar CC
+Add Bcc	expressoMail1_2	es-es	Agregar CCO
+Reply to	expressoMail1_2	es-es	Responder a
+Rich text	expressoMail1_2	es-es	Texto enriquecido
+Simple text	expressoMail1_2	es-es	Texto simples
+From	expressoMail1_2	es-es	De
+Search	expressoMail1_2	es-es	Búsqueda
+Use F9 Key as shortcut.	expressoMail1_2	es-es	Use la tecla  F9 como acceso directo.
+To	expressoMail1_2	es-es	Para
+Bcc	expressoMail1_2	es-es	CCO
+Reply to	expressoMail1_2	es-es	Responder a
+has subject	expressoMail1_2	es-es	contiene asunto
+Simple text mode	expressoMail1_2	es-es	Modo texto simples
+Attachments	expressoMail1_2	es-es	Anexos
+Select messages to attach...	expressoMail1_2	es-es	Seleccione mensages para anexar
+Spam	expressoMail1_2	es-es	Spam
+Edit folder	expressoMail1_2	es-es	Editar Carpeta
+Clean spam	expressoMail1_2	es-es	Limpiar spam
+Edit folder	expressoMail1_2	es-es	Editar carpeta
+Export folder messages	expressoMail1_2	es-es	Exportar mensages de la carpeta
+Update my telephone	expressoMail1_2	es-es	Actualizar mi teléfono
+Hide details	expressoMail1_2	es-es	Ocultar detalles
+Discard changes	expressoMail1_2	es-es	Descartar modificaciones
+Continue editing	expressoMail1_2	es-es	Continuar editando

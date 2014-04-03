@@ -1,8 +1,8 @@
-<div title="Criar Tarefa" class="div-addtask content">
+<div title="<%= '_[[create Task]]' %>" class="div-addtask content">
     <form method="POST" action="<%= data.task.isOrganizer ? 'schedulable:task' : 'schedulable:taskEdit' %>" class="form-addtask content">
 
 	<fieldset id="calendar_addtask_details1">
-		<legend class="hidden">Detalhes da tarefa</legend>
+		<legend class="hidden"><%= '_[[Tasks Detail]]' %></legend>
 		<p class="input-group">
 		    <input type="text" class="h1" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> name="summary" value="<%= (data.task.summary) ? data.task.summary : '' %>"/>
 		    <% if( data.task.id ){ %>
@@ -16,11 +16,11 @@
             <span>Inicio</span>
 			<input type="text" class="date start-date" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= (data.task.startDate) ? data.task.startDate : '' %>" name="startDate" />
 			<input type="text" class="time start-time" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= (data.task.startHour) ? data.task.startHour : '' %>" name="startHour" />
-			<span>com previsão de término</span>
+			<span><%= '_[[scheduled for completion]]' %></span>
             <input type="text" name="dueDate" class="date date-prevision" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= data.task.dueDate %>">
             <input type="text" name="dueTime" class="time time-prevision" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%> value="<%= data.task.dueTime %>">
 
-            <a href="#" class="calendar_addtask_details_lnk_timezone" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>Fuso horário</a>
+            <a href="#" class="calendar_addtask_details_lnk_timezone" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>><%= '_[[Time Zone]]' %></a>
 			
 			
 <!--		<input type="text" name="timezone" style="display: none;" />-->
@@ -31,8 +31,7 @@
 				<% } %>
 			</select>
 
-			<a class="button suggestion-hours small hidden" href="#">Sugerir horário</a>
-
+			<a class="button suggestion-hours small hidden" href="#"><%= '_[[Suggest hours]]' %></a>
 
 		</p>
 				
@@ -46,41 +45,41 @@
 		</div>
 
 		<p class="input-group subitem">
-				% Conclusão: <input type="text" name="percentage" class="done" value="<%= data.task.percentage %>">
+				% <%= '_[[Conclusion]]' %>: <input type="text" name="percentage" class="done" value="<%= data.task.percentage %>">
 				<span style="margin:0 0 0 5px;">Status:</span> 
 		    <select name="taskStatus" style="margin: 0 0 0 5px;">
-                    <option class="taskStatus-noAction"<%= (data.task.taskStatus == '1') ? 'selected="selected"' : '' %> value="1">Sem ações</option>
-                    <option class="taskStatus-inProcess"<%= (data.task.taskStatus == '2') ? 'selected="selected"' : '' %> value="2">Em Processo</option>
-                    <option class="taskStatus-finished"<%= (data.task.taskStatus == '3') ? 'selected="selected"' : '' %> value="3">Finalizada</option>
-					<option class="taskStatus-canceled"<%= (data.task.taskStatus == '4') ? 'selected="selected"' : '' %> value="4">Cancelada</option>
+                    <option class="taskStatus-noAction"<%= (data.task.taskStatus == '1') ? 'selected="selected"' : '' %> value="1"><%= '_[[No Actions]]' %></option>
+                    <option class="taskStatus-inProcess"<%= (data.task.taskStatus == '2') ? 'selected="selected"' : '' %> value="2"><%= '_[[In Process]]' %></option>
+                    <option class="taskStatus-finished"<%= (data.task.taskStatus == '3') ? 'selected="selected"' : '' %> value="3"><%= '_[[Finalized]]' %></option>
+					<option class="taskStatus-canceled"<%= (data.task.taskStatus == '4') ? 'selected="selected"' : '' %> value="4"><%= '_[[Canceled]]' %></option>
 				</select>
-				<span style="margin:0 0 0 5px;">Prioridade:</span> 
+				<span style="margin:0 0 0 5px;"><%= '_[[Priority]]' %>:</span>
 				<select name="priority" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
-					<option <%= (data.task.priority == '1') ? 'selected="selected"' : '' %> value="1">Alta</option>
-					<option <%= (data.task.priority == '2') ? 'selected="selected"' : '' %> value="2">Normal</option>
-					<option <%= (data.task.priority == '3') ? 'selected="selected"' : '' %> value="3">Baixa</option>
+					<option <%= (data.task.priority == '1') ? 'selected="selected"' : '' %> value="1"><%= '_[[High]]' %></option>
+					<option <%= (data.task.priority == '2') ? 'selected="selected"' : '' %> value="2"><%= '_[[Normal]]' %></option>
+					<option <%= (data.task.priority == '3') ? 'selected="selected"' : '' %> value="3"><$= '_[[Low]]' %></option>
 				</select>
-                <span class="span_done"><label>Completo</label></span>
+                <span class="span_done"><label><%= '_[[Complete]]' %></label></span>
 		</p>
 	</fieldset>
 	<ul style="width: 752px">
-		<li><a href="#calendar_addtask_details2">Detalhes da tarefa</a></li>
-		<li><a href="#calendar_addtask_details4">Lembretes</a></li>
-		<li><a href="#calendar_addtask_details5">Anexos</a></li>
-		<li><a href="#calendar_addtask_details6">Participantes</a></li>
-		<li><a href="#calendar_addtask_details7">Disponibilidade</a></li>
-		<li><a href="#calendar_addtask_details8">Histórico</a></li>
+		<li><a href="#calendar_addtask_details2"><%= '_[[Task Detail]]' %></a></li>
+		<li><a href="#calendar_addtask_details4"><%= '_[[Alarms]]' %></a></li>
+		<li><a href="#calendar_addtask_details5"><%= '_[[Attachments]]' %></a></li>
+		<li><a href="#calendar_addtask_details6"><%= '_[[Participants]]' %></a></li>
+		<li><a href="#calendar_addtask_details7"><%= '_[[Availability]]' %></a></li>
+		<li><a href="#calendar_addtask_details8"><%= '_[[History]]' %></a></li>
 	</ul>
 	<fieldset id="calendar_addtask_details2" class="tab-level2">
-		<legend class="hidden">Detalhes da tarefa</legend>
+		<legend class="hidden"><%= '_[[Task Detail]]' %></legend>
 
 		<p class="input-group">
-			<label for="calendar_addtask_details_txtarea_description" class="for-textarea" >Descrição</label>
+			<label for="calendar_addtask_details_txtarea_description" class="for-textarea" ><%= '_[[Description]]' %></label>
 			<textarea name="description" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>><%=(data.task) ? data.task.description : '' %></textarea>
 		</p>
 
 		<p class="input-group">
-			<label for="calendar_addtask_details_slt_cal">Grupo</label>
+			<label for="calendar_addtask_details_slt_cal"><%= '_[[Group]]' %></label>
 				<select  name="group" >
 					<% 
 					  if(data.task.groups){
@@ -95,16 +94,16 @@
 		</p>
 		
 		<fieldset class="hidden">
-			<legend class="hidden">Publicidade</legend>
+			<legend class="hidden"><%= '_[[Advertising]]' %></legend>
 
 			<p class="input-group">
-				<label class="input-group">Privacidade</label>
+				<label class="input-group"><%= '_[[Privacy]]' %></label>
 				<input type="radio" name="class" value="1" checked="checked"/>
-				<label for="calendar_addtask_details_rdo_class1">Padrão</label>
+				<label for="calendar_addtask_details_rdo_class1"><%= '_[[Default]]' %></label>
 				<input type="radio" name="class" value="2" />
-				<label for="calendar_addtask_details_rdo_class2">Público</label>
+				<label for="calendar_addtask_details_rdo_class2"><%= '_[[Public]]' %></label>
 				<input type="radio" name="class" value="3" />
-				<label for="calendar_addtask_details_rdo_class3">Privado</label>
+				<label for="calendar_addtask_details_rdo_class3"><%= '_[[Private]]' %></label>
 			</p>
 			
 		</fieldset>
@@ -113,11 +112,11 @@
 	
 	<div class="overflow_add_calender">
 	<fieldset id="calendar_addtask_details4" class="tab-level2">
-		<legend class="hidden">Lembretes</legend>
+		<legend class="hidden"><%= '_[[Alarms]]' %></legend>
 		
 		<p class="default-alarm-task <%= (!data.task.id && data.task.alarms) ? '' : 'hidden'%>">
 			<input type="checkbox" name="defaultAlarm" value="true" checked="checked"/>
-			<label class="input-default-alarm" for="defautAlarm">Usar alarmes padrões</label>
+			<label class="input-default-alarm" for="defautAlarm"><%= '_[[Use default alarms]]' %></label>
 		</p>
 	
 		<ul class="task-alarms-list">
@@ -125,46 +124,46 @@
 				for (var i=0; i< data.task.alarms.length; i++) {
 			%>
 			<li class="input-group">
-				<label>Avisar-me por </label>
+				<label><%= '_[[Notify me by]]' %> </label>
 				<select name="alarmType[]">
-                    <option value="alert" <%= data.task.alarms[i].type=='alert' ? 'selected="selected"':'' %>>Alerta</option>
-                    <option value="mail" <%= data.task.alarms[i].type=='mail' ? 'selected="selected"':'' %>>E-mail</option>
+                    <option value="alert" <%= data.task.alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
+                    <option value="mail" <%= data.task.alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
                     <!--<option value="sms" <%= data.task.alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 				</select>
 				<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.task.alarms[i].time %>"/>
 				<select name="alarmUnit[]">
-					<option value="m" <%= data.task.alarms[i].unit=='m' ? 'selected="selected"':'' %>>Minutos</option>
-					<option value="h" <%= data.task.alarms[i].unit=='h' ? 'selected="selected"':'' %>>Horas</option>
-					<option value="d" <%= data.task.alarms[i].unit=='d' ? 'selected="selected"':'' %>>Dias</option>
+					<option value="m" <%= data.task.alarms[i].unit=='m' ? 'selected="selected"':'' %>><%= '_[[Minutes]]' %></option>
+					<option value="h" <%= data.task.alarms[i].unit=='h' ? 'selected="selected"':'' %>><%= '_[[Hours]]' %></option>
+					<option value="d" <%= data.task.alarms[i].unit=='d' ? 'selected="selected"':'' %>><%= '_[[Days]]' %></option>
 				</select>
 				<input type="hidden" name="alarmId[]" value="<%=data.task.useAlarmDefault ? '' : data.task.alarms[i].id%>" />
 				<input type="hidden" name="isDefaultAlarm[]" value="<%=data.task.useAlarmDefault ? 1 : 0%>" />
-				<label> antes de cada tarefa.</label>
+				<label> <%= '_[[before each task.]]' %></label>
 				<a class="button remove tiny"></a>
 			</li>
 			<%	}
 			   }
 			%>
 		</ul>
-		<span class="button add button-add-alarms">Adicionar lembrete</span>
+		<span class="button add button-add-alarms"><%= '_[[Add alarm]]' %></span>
 	
 	</fieldset>
 	</div>
 	
-	<fieldset id="calendar_addtask_details6" class="tab-level2" title="Participantes">
+	<fieldset id="calendar_addtask_details6" class="tab-level2" title="<%= '_[[Participants]]' %>">
 	</fieldset>	
 	
-	<fieldset id="calendar_addtask_details7" class="tab-level2" title="Disponibilidade">
+	<fieldset id="calendar_addtask_details7" class="tab-level2" title="<%= '_[[Availability]]' %>">
 	</fieldset>
 	
-	<fieldset id="calendar_addtask_details8" class="tab-level2" title="Histórico">
+	<fieldset id="calendar_addtask_details8" class="tab-level2" title="<%= '_[[History]]' %>">
 	    <div class="parent">
 		<div class="child-top">
-		    <div class="date-hour"><span>Data-Hora</span></div>
-		    <div class="user"><span>Participante</span></div>
-		    <div class="attribute"><span>Alterou</span></div>
-		    <div class="beforeValue"><span>De</span></div>
-		    <div class="afterValue"><span>Para</span></div>
+		    <div class="date-hour"><span><%= '_[[Date-Time]]' %></span></div>
+		    <div class="user"><span><%= '_[[Participants]]' %></span></div>
+		    <div class="attribute"><span><%= '_[[Changed]]' %></span></div>
+		    <div class="beforeValue"><span><%= '_[[From]]' %></span></div>
+		    <div class="afterValue"><span><%= '_[[To]]' %></span></div>
 		</div>
 
 		<div class="child-bottom">
@@ -201,11 +200,11 @@
             <div class="button-files-upload">
                 <!-- The fileinput-button span is used to style the file input field as button --> 
 		      <span class="button btn-success fileinput-button <%= data.task.isOrganizer  ? '' : 'hidden'%>" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
-                    <span><i class="icon-plus icon-white"></i> Adicionar</span>
+                    <span><i class="icon-plus icon-white"></i> <%= '_[[Add]]' %></span>
                     <input type="file" name="files[]" multiple <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
                 </span>
 		<button type="button" class="button btn-danger delete <%= data.task && data.task.attachments && data.task.attachments.length ? '' : 'hidden' %>" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
-			<i class="icon-trash icon-white"></i> Remover Todos
+			<i class="icon-trash icon-white"></i> <%= '_[[Remove All]]' %>
 		</button>
             </div>
             <div id="fileupload-progress-task"></div>
@@ -215,14 +214,14 @@
                     for (var i=0; i< data.task.attachments.length; i++) {
 				%>
 					<p class="input-group arquive-info">
-						<label class="lbl-archive-nome">Nome:</label>
+						<label class="lbl-archive-nome"><%= '_[[Name]]' %>:</label>
 						<span class="archive-nome"><%=data.task.attachments[i].name%></span>
 						
-						<label class="lbl-archive-size">Tamanho:</label>
+						<label class="lbl-archive-size"><%= '_[[Size]]' %>:</label>
 						<span class="archive-size"><%=data.task.attachments[i].size%></span>
-						<a href="../prototype/getArchive.php?attachment=<%=data.task.attachments[i].id%>" class="button tiny upload downlaod-archive">Download</a>
+						<a href="../prototype/getArchive.php?attachment=<%=data.task.attachments[i].id%>" class="button tiny upload downlaod-archive"><%= '_[[Download]]' %></a>
 						
-						<span class="button close tiny upload edit delete-upload" title="Deletar">Deletar</span>
+						<span class="button close tiny upload edit delete-upload" title="<%= '_[[Delete]]' %>"><%= '_[[Delete]]' %></span>
 						
 						<input type="hidden" name="fileId[]" value="<%=data.task.attachments[i].id%>"/>
 					</p>
@@ -244,11 +243,11 @@
 
     <div title="" class="menu-container footer-container menu-addtask">
 	    <% if (data.task.id) { %>
-			<a title="Exportar" class="button export" href="#">Exportar</a>
-			<a title="Excluir" class="button delete" href="#">Excluir</a>
+			<a title="<%= '_[[Export]]' %>" class="button export" href="#"><%= '_[[Export]]' %></a>
+			<a title="<%= '_[[Delete]]' %>" class="button delete" href="#"><%= '_[[Delete]]' %></a>
 	    <% } %>
-		<a title="Cancelar" class="button cancel" href="#">Cancelar</a>
-	    <a title="Salvar" class="button save" href="#">Salvar</a>
+		<a title="<%= '_[[Cancel]]' %>" class="button cancel" href="#"><%= '_[[Cancel]]' %></a>
+	    <a title="<%= '_[[Save]]' %>" class="button save" href="#"><%= '_[[Save]]' %></a>
     </div>
 </div>
 <!--<script src="application.js"></script>-->

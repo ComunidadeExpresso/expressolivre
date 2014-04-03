@@ -1,11 +1,11 @@
 <div class="tabs-import-export">
 	<ul>
 		<li>
-			<a href="#tab-import">Importar</a>
+			<a href="#tab-import"><%= '_[[Import]]' %></a>
 		</li>
 
 		<li>
-			<a href="#tab-export">Exportar</a>
+			<a href="#tab-export"><%= '_[[Export]]' %></a>
 		</li>
 	</ul>
     
@@ -14,47 +14,47 @@
         <fieldset class="import-calendar"> 
 		<input type="hidden" name="type" value="iCal">
 		<input type="hidden" name="params[owner]" value="<%= data.owner %>">
-                <legend class="hidden">Importar <%=data.typeView == 0 ? 'eventos' : 'tarefas'%></legend>
+                <legend class="hidden"><%= '_[[Import]]' %> <%=data.typeView == 0 ? '_[[events]]' : '_[[tasks]]'%></legend>
                 <p class="input-group">
-                        <label for="data">Arquivo:</label>
+                        <label for="data"><%= '_[[File]]' %>:</label>
 						<span class="hidden file-add"></span>
                         <input type="file" name="data" value=""/>
-                        <span class="tip">Escolha o arquivo que contenha um ou  <%=data.typeView == 0 ? 'vários eventos' : 'várias tarefas'%>.  <%=data.typeView == 0 ? 'A Agenda' : 'O Grupo'%> do Expresso pode importar informações de <%=data.typeView == 0 ? 'evento' : 'tarefa'%> no formato iCal.</span>
-                        <label for="calendar"><%=data.typeView == 0 ? 'Agenda:' : 'Grupo:'%></label>
+                        <span class="tip"><%= '_[[Choose the file that contains one or]]' %>  <%=data.typeView == 0 ? '_[[various events]]' : '_[[various tasks]]'%>.  <%=data.typeView == 0 ? '_[[The Agenda]]' : '_[[The Group]]'%> <%= '_[[of Expresso can import information from]]' %> <%=data.typeView == 0 ? '_[[event]]' : '_[[task]]'%> <%= '_[[in format]]' %> iCal.</span>
+                        <label for="calendar"><%=data.typeView == 0 ? '_[[Agenda]]' + ':' : '_[[Group]]' + ':' %></label>
                         <select name="params[calendar]">
 			<% for( var i = 0; i < data.calendars.length; i++ ){ %>
                             <option value="<%= data.calendars[i].id %>"><%= data.calendars[i].name %></option>
 			<% } %>
                         </select>
-                        <span class="tip"><%=data.typeView == 0 ? 'Agenda da' : 'Grupo do'%> qual  <%=data.typeView == 0 ? 'os eventos' : 'as tarefas'%> serão importados</span>
+                        <span class="tip"><%=data.typeView == 0 ? '_[[Agenda of]]' : 'Group of'%> <%= '_[[which]]' %>  <%=data.typeView == 0 ? '_[[the events]]' : '_[[the tasks]]'%> <%= '_[[will be imported]]' %></span>
                 </p>
         </fieldset>
         </form>
                 <div class="menu-container footer-container menu-import-event">
-                        <a class="button cancel calendar-import-btn-cancel" href="#">Cancelar</a>
-						<a class="button import calendar-import-btn-import" href="#">Importar</a>
+                        <a class="button cancel calendar-import-btn-cancel" href="#"><%= '_[[Cancel]]' %></a>
+						<a class="button import calendar-import-btn-import" href="#"><%= '_[[Import]]' %></a>
                 </div>
      </div>
     
     <div id="tab-export">
         <form method="GET" action="../prototype/modules/calendar/export.php" class="export-event-form">
         <fieldset class="export_calendar">
-                <legend class="hidden">Exportar agenda</legend>
+                <legend class="hidden"><%= '_[[Export agenda]]' %></legend>
                 <p class="input-group">
-                        <label for="calendar"><%=data.typeView == 0 ? 'Agenda:' : 'Grupo:'%></label>
+                        <label for="calendar"><%=data.typeView == 0 ? '_[[Agenda]]' + ':' : '_[[Group]]' + ':'%></label>
                         <select name="calendar">
                             <!--<option value="cal_all">Todas agendas</option>-->
                             <% for( var i = 0; i < data.calendars.length; i++ ){ %>
 			      <option value="<%= data.calendars[i].id %>"><%= data.calendars[i].name %></option>
 			    <% } %>
                         </select>
-                        <span class="tip">Escolha <%=data.typeView == 0 ? 'a agenda' : 'o grupo'%> que deseja exportar. <%=data.typeView == 0 ? 'A Agenda' : 'O Grupo'%> do Expresso pode exportar informações de <%=data.typeView == 0 ? 'eventos' : 'tarefas'%> no formato iCal.</span>
+                        <span class="tip"><%= '_[[Choice]]' %> <%=data.typeView == 0 ? '_[[the agenda]]' : '_[[the group]]'%> <%= '_[[that you want to export.]]' %> <%=data.typeView == 0 ? '_[[The Agenda]]' : '_[[The Group]]'%> <%= '_[[of Expresso can export information from]]' %> <%=data.typeView == 0 ? '_[[events]]' : '_[[tasks]]'%> <%= '_[[the format]]' %> iCal.</span>
                 </p>
         </fieldset>
         </form>
                 <div class="menu-container footer-container menu-export-event">
-                        <a class="button cancel calendar-export-btn-cancel" href="#">Cancelar</a>
-						<a class="button export calendar-export-btn-export" href="#">Exportar</a>
+                        <a class="button cancel calendar-export-btn-cancel" href="#"><%= '_[[Cancel]]' %></a>
+						<a class="button export calendar-export-btn-export" href="#"><%= '_[[Export]]' %></a>
                 </div>
     </div>
     

@@ -1,4 +1,4 @@
-<br />[participant] aceitou o seu convite da tarefa agendada para [startDate].<br /><br />
+<br />[participant] _[[accepted your invitation to the scheduled task]] [startDate].<br /><br />
 <strong>[eventTitle]</strong><br />
-<strong>Início:</strong> [startDate] [startTime]<br />
-<strong>Previsão de término:</strong> [endDate] [endTime]<br />
+<strong>_[[Initiation]]:</strong> [startDate] [startTime]<br />
+<strong>_[[Expected completion]]:</strong> [endDate] [endTime]<br />

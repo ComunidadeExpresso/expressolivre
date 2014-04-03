@@ -35,7 +35,7 @@
 	offline_access.prototype.do_login = function(uid_usuario,pass) {
 		control = expresso_local_messages.set_as_logged(uid_usuario,pass,false);
 		if(!control) {
-			document.getElementById('div_error').innerHTML = 'login ou senha inválida';
+			document.getElementById('div_error').innerHTML = get_lang('Invalid login or password');
 		}
 		else {
 			document.location.href = 'offline.php';

@@ -1,51 +1,51 @@
 <%if(data.alarm){
 	for(var i = 0; i < data.alarm.defaultAlarms.length; i++){%>
 		<li class="input-group">
-			<label>Avisar-me por </label>
+			<label><%= '_[[Notify me by]]' %> </label>
 			<select name="alarmType[]">
-				<option value="alert" <%= data.alarm.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>>Alerta</option>
-				<option value="mail" <%= data.alarm.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>>E-mail</option>
+				<option value="alert" <%= data.alarm.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
+				<option value="mail" <%= data.alarm.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
 				<!--<option value="sms" <%= data.alarm.defaultAlarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 			</select>
 			<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.alarm.defaultAlarms[i].time %>"/>
 			<select name="alarmUnit[]">
-				<option value="m" <%= data.alarm.defaultAlarms[i].unit=='m' ? 'selected="selected"':'' %>>Minutos</option>
-				<option value="h" <%= data.alarm.defaultAlarms[i].unit=='h' ? 'selected="selected"':'' %>>Horas</option>
-				<option value="d" <%= data.alarm.defaultAlarms[i].unit=='d' ? 'selected="selected"':'' %>>Dias</option>
+				<option value="m" <%= data.alarm.defaultAlarms[i].unit=='m' ? 'selected="selected"':'' %>><%= '_[[Minutes]]' %></option>
+				<option value="h" <%= data.alarm.defaultAlarms[i].unit=='h' ? 'selected="selected"':'' %>><%= '_[[Hours]]' %></option>
+				<option value="d" <%= data.alarm.defaultAlarms[i].unit=='d' ? 'selected="selected"':'' %>><%= '_[[Days]]' %></option>
 			</select>
 			<input type="hidden" name="alarmId[]" value="" />
 			<input type="hidden" name="isDefaultAlarm[]" value="<%=data.alarm.useAlarmDefault ? 1 : 0%>" />
 			<%if(!!!parseInt(data.type)){%>
-				<label>antes de cada evento.</label>
+				<label><%= '_[[before each event.]]' %></label>
 			<%}else{%>
-				<label>antes de cada tarefa.</label>
+				<label><%= '_[[before each task.]]' %></label>
 			<%}%>
 			<a class="button remove tiny"></a>
 		</li>
 	<%}
 }else{%>
 	<li class="input-group">
-		<label>Avisar-me por </label>
+		<label><%= '_[[Notify me by]]' %> </label>
 		<select name="alarmType[]">
-			<option value="alert">Alerta</option>
-			<option value="mail">E-mail</option>
+			<option value="alert"><%= '_[[Alert]]' %></option>
+			<option value="mail"><%= '_[[Mail]]' %></option>
 <!--			<option value="sms">SMS</option>-->
 		</select>
 		<input type="text" class="number input-small" name="alarmTime[]" />
 		<select name="alarmUnit[]">
-			<option value="m">Minutos</option>
-			<option value="h">Horas</option>
-			<option value="d">Dias</option>
+			<option value="m"><%= '_[[Minutes]]' %></option>
+			<option value="h"><%= '_[[Hours]]' %></option>
+			<option value="d"><%= '_[[Days]]' %></option>
 		</select>
 		<input type="hidden" name="alarmId[]" value="" />
 		<%if(parseInt(data.type) == 0){%>
-			<label>antes de cada evento.</label>
+			<label><%= '_[[before each event.]]' %></label>
 		<%}else if (parseInt(data.type) == 1){%>
-			<label>antes de cada tarefa.</label>
+			<label><%= '_[[before each task.]]' %></label>
 		<%}else if(parseInt(data.type) == 4){%>
-            <label>antes de cada tarefa ou atividade.</label>
+            <label><%= '_[[before each task or activity.]]' %></label>
         <%}else{%>
-            <label>antes de cada atividade.</label>
+            <label><%= '_[[before each activity.]]' %></label>
         <%}%>
 		<a class="button remove tiny"></a>
 	</li>

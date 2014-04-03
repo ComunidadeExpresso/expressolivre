@@ -1,10 +1,10 @@
 <%
 
     var encoder = {};
-    encoder.alarm = {'1':'do evento','2':'da tarefa','3':'da atividade'};
-    encoder.status = {'1':'Eu vou', '2':'Talvez', '3':'Eu não vou' , '4':'Sem resposta'};
-    encoder.statusEvent = {1: 'Sem ações', 2: 'Em processo', 3: 'Completo', 4: 'Cancelado'};
-    encoder.priority = {1: 'Alta', 2: 'Normal', 3: 'Baixa'};
+    encoder.alarm = {'1':'_[[of event]]','2':'_[[of task]]','3':'_[[of activity]]'};
+    encoder.status = {'1':'_[[I will]]', '2':'_[[Maybe]]', '3':'_[[I will not]]' , '4':'_[[No Answer]]'};
+    encoder.statusEvent = {1: '_[[No Actions]]', 2: '_[[In process]]', 3: '_[[Complete]]', 4: '_[[Canceled]]'};
+    encoder.priority = {1: '_[[High]]', 2: '_[[Normal]]', 3: '_[[Low]]]'};
 
     var _event = data['_event'];
 %>
@@ -12,19 +12,19 @@
 <fieldset class="fields-details-event-list">
     <%if(_event.allDay){%>
     <p class="input-group date-info">
-        <label>Duração:</label>
-        <span class="">Dia inteiro</span>
+        <label><%= '_[[Duration]]' %>:</label>
+        <span class=""><%= '_[[Full day]]' %></span>
     </p>
     <%}else{%>
     <p class="input-group date-info">
-        <label>Início:</label>
-        <span class=""><%= _event.startDate %> às </span>
+        <label><%= '_[[Initiation]]' %>:</label>
+        <span class=""><%= _event.startDate %> <%= '_[[the]]' %> </span>
         <span class=""><%= _event.startHour %></span>
 
     </p>
     <p class="input-group">
         <label>Término:</label>
-        <span class=""><%= _event.endDate %> às </span>
+        <span class=""><%= _event.endDate %> <%= '_[[the]]' %> </span>
         <span class=""><%= _event.endHour %></span>
         <span><%= _event.timezone %></span>
     </p>
@@ -33,16 +33,16 @@
     <%if(_event.type == '1'){
     if(_event.repeat ){%>
     <p class="input-group">
-        <label>Repetição</label>
+        <label><%= '_[[Repetition]]' %></label>
         <span><%= _event.repeat %></span>
     </p>
     <%}}%>
 
     <p class="input-group">
-        <label>Lembretes:</label>
+        <label><%= '_[[Alarms]]' %>:</label>
             <span class="large" >
                 <% for (var l=0; l < _event.alarms.length; l++) { %>
-                    <span class="large" >Você será notificado por um <%= dateCalendar.alarmtype[_event.alarms[l].type]%> <%= _event.alarms[l].time %> <%= dateCalendar.timeunit[_event.alarms[l].unit]%><%=_event.alarms[l].time > 1 ? 's' : '' %> antes <%= encoder.alarm[ event.type ] %></span>
+                    <span class="large" ><%= '_[[You will be notified by a]]' %> <%= dateCalendar.alarmtype[_event.alarms[l].type]%> <%= _event.alarms[l].time %> <%= dateCalendar.timeunit[_event.alarms[l].unit]%><%=_event.alarms[l].time > 1 ? 's' : '' %> <%= '_[[before]]' %> <%= encoder.alarm[ event.type ] %></span>
                 <% } %>
             </span>
     </p>
@@ -50,21 +50,21 @@
 
     <%if(_event.type == '1'){%>
     <p class="input-group">
-        <label>Local:</label>
+        <label><%= '_[[Local]]' %>:</label>
         <span><%= _event.location %></span>
     </p>
     <%}%>
     <p class="input-group">
-        <label>Descrição:</label>
+        <label><%= '_[[Description]]' %>:</label>
         <span class="large" ><%= _event.description %></span>
     </p>
     <%if(_event.type != '1'){%>
     <p class="input-group">
-        <label>Prioridade:</label>
+        <label><%= '_[[Priority]]' %>:</label>
         <span><%= encoder.priority[_event.priority] %></span>
     </p>
     <p class="input-group">
-        <label>% Conlusão:</label>
+        <label>% <%= '_[[Conclusion]]' %>:</label>
         <span><%= _event.percentage %>%</span>
     </p>
     <p class="input-group">
@@ -75,13 +75,13 @@
 
     <%if(_event.organizer && _event.organizer.user){%>
     <p class="input-group">
-        <label>Organizador:</label>
+        <label><%= '_[[Organizer]]' %>:</label>
         <span class="large"><%= _event.organizer.user ? _event.organizer.user.name : _event.organizer.name %>  (<%= _event.organizer.user ? _event.organizer.user.mail : _event.organizer.mail %>)</span>
     </p>
     <%}%>
     <%if(_event.type != '3'){%>
     <p class="input-group">
-        <label>Participantes:</label>
+        <label><%= '_[[Participants]]' %>:</label>
         <% if(_event.attendee) { %>
                 <span class="large" >
                 <% for (var m=0; m < _event.attendee.length; m++) { %>
@@ -93,7 +93,7 @@
     <%}
     if(_event.type == '3'){%>
     <p class="input-group">
-        <label>Tarefas</label>
+        <label><%= '_[[Tasks]]' %></label>
         <% if(_event.tasks) { %>
                 <span class="large" >
                 <% for (var m in _event.tasks) { %>
@@ -105,7 +105,7 @@
     <%}%>
 
     <p class="input-group">
-        <label>Presença:</label>
+        <label><%= '_[[Presence]]' %>:</label>
         <span> <%= encoder.status[ _event.status ] %> </span>
     </p>
 

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/print.css" />
-		<title>Visualização Semanal</title>
+		<title><%= '_[[Weekly preview]]' %></title>
 	</head>
 	<body>	
 
@@ -39,13 +39,13 @@
 										var title_type = "";
 										if(data.days.events[i][eachInd].events[ii].type == '1'){
 											img_type = "../prototype/modules/calendar/img/mini-event.png";
-											title_type = "Evento";
+											title_type = "_[[Event]]";
 										}if(data.days.events[i][eachInd].events[ii].type == '2'){
 											img_type = "../prototype/modules/calendar/img/mini-task.png"; 
-											title_type = "Tarefa";
+											title_type = "_[[Task]]";
 										}if(data.days.events[i][eachInd].events[ii].type == '3'){
 											img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
-											title_type = "Atividade";
+											title_type = "_[[Activity]]";
 										}
 										if(data.days.events[i][eachInd].events[ii].allDay == true){
 										aux = true;
@@ -75,13 +75,13 @@
 									var title_type = "";
 									if(data.days.events[i][eachInd].events[ii].type == '1'){
 										img_type = "../prototype/modules/calendar/img/mini-event.png";
-										title_type = "Evento";
+										title_type = "_[[Event]]";
 									}if(data.days.events[i][eachInd].events[ii].type == '2'){
 										img_type = "../prototype/modules/calendar/img/mini-task.png"; 
-										title_type = "Tarefa";
+										title_type = "_[[Task]]";
 									}if(data.days.events[i][eachInd].events[ii].type == '3'){
 										img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
-										title_type = "Atividade";
+										title_type = "_[[Activity]]";
 									}
 					
 									if(data.days.events[i][eachInd].events[ii].allDay == false){

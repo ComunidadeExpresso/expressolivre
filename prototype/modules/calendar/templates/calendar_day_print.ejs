@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/print.css" />
-		<title>Visualização Diária</title>
+		<title><%= '_[[Daily view]]' %></title>
 	</head>
 	<body>	
 	<div class="day">
@@ -12,7 +12,7 @@
 			for(var jj in data.days.events[0]){
 		%>
 			<div class="content_month_print">	
-				<div class="allDay_list_label"><span>Dia Todo</span></div>
+				<div class="allDay_list_label"><span><%= '_[[All day]]' %></span></div>
 				<% for(var ii=0; ii<data.days.events[0][jj].events.length; ii++){ 
 					if(!data.days.events[0][jj].events[ii].allDay)
 						continue;

@@ -1,27 +1,27 @@
 <% //CASE
 	var valid = {
-		title : "Sem titulo",
-		class : "sem-classe"
+		title : '_[[Untitled]]',
+		class : '_[[no-class]]'
 	};
 	switch (data.type){
 		case 'event-detail':
-			valid.title = "Detalhes do Evento";
+			valid.title = '_[[Event Detail]]';
 			valid.class = "detail";
 			break;
 		case 'task-detail':
-			valid.title = "Detalhes da Tarefa";
+			valid.title = '_[[Task Detail]]';
 			valid.class = "detail";
 			break;
 		case 'event-list':
-			valid.title = "Lista de Eventos";
+			valid.title = '_[[List of Events]]';
 			valid.class = "list";
 			break;
 		case 'task-list':
-			valid.title = "Lista de Tarefas";
+			valid.title = '_[[List of Tasks]]';
 			valid.class = "list";
 			break;
 		case 'search':
-			valid.title = "Resultados da Lista";
+			valid.title = '_[[Results List]]';
 			valid.class = "list";
 			break;
 	}

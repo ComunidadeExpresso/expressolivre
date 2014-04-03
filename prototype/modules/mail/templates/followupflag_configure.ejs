@@ -54,36 +54,36 @@
 %>
 <div class="followupflag-container">
 	<fieldset class="basic-fields">
-		<legend><%= get_lang("Basic")%></legend>
+		<legend><%= '_[[Basic]]' %></legend>
 		<div class="followupflag-configure">
 			<input type="hidden" class="id-followup" value="<%=(flagsId)?flagsId:''%>" name="followupflagId">
-			<label class="label-name"><%= get_lang("Flag as")%>:</label> 
+			<label class="label-name"><%= '_[[Flag as]]' %>:</label>
 			<select name="name">
 				<% for(var i=0; i<data.followupflags.length; i++) {  %>
 					<% var selected = (data.followupflags[i].id == followupflagged.followupflag.id ) ? 'selected="selected"' : '' %>
-					<% if(data.followupflags[i].id >= 1 && data.followupflags[i].id <= 6){ var innerOption = get_lang(data.followupflags[i].name)
+					<% if(data.followupflags[i].id >= 1 && data.followupflags[i].id <= 6){ var innerOption = '_[' + data.followupflags[i].name + ']'
 					}else{var innerOption = data.followupflags[i].name}%>
 					<option value="<%= data.followupflags[i].id %>" <%= selected %>><%= innerOption %></option>
 				<% } %>
 			</select>
 			<div class="alarm-fields">
-				<input type="checkbox" name="alarm" <%=(followupflagged.alarmDeadline) ? 'checked="checked"' : '' %> /><label><%= get_lang("Alarm")%>: </label>
+				<input type="checkbox" name="alarm" <%=(followupflagged.alarmDeadline) ? 'checked="checked"' : '' %> /><label><%= '_[[Alarm]]' %>: </label>
 				<input type="text" name="alarmDate" class="date" size="12" value="<%=(followupflagged.alarmDeadline) ? followupflagged.alarmDeadline.toString('dd/MM/yyyy') : '' %>" /> 
 				<input type="text" name="alarmTime" class="time" size="8" disabled="disabled" value="<%=(followupflagged.alarmDeadline) ? followupflagged.alarmDeadline.toString('HH:mm') : '' %>" />
 			</div>		
 		   <div class="completed-followup">
-				<input type="checkbox" name="done" <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'checked="checked"' : '' %> /><label><%= get_lang("Done")%></label>
+				<input type="checkbox" name="done" <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'checked="checked"' : '' %> /><label><%= '_[[Done]]' %></label>
 		   </div>		
 		</div>
 		<div class="right-data input-done">
-			<label><%= get_lang("Conclusion")%>:</label>
-			<input <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'disabled="disabled"' : '' %> type="text" name="doneDate" class="date" size="12" value="<%=(followupflagged.doneDeadline) ? followupflagged.doneDeadline.toString('dd/MM/yyyy') : '' %>" /> <%= get_lang('at') %> 
+			<label><%= '_[[Conclusion]]' %>:</label>
+			<input <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'disabled="disabled"' : '' %> type="text" name="doneDate" class="date" size="12" value="<%=(followupflagged.doneDeadline) ? followupflagged.doneDeadline.toString('dd/MM/yyyy') : '' %>" /> <%= '_[[at]]' %>
 			<input <%=(followupflagged.isDone && followupflagged.isDone != '0') ? 'disabled="disabled"' : '' %> type="text" name="doneTime" class="time" size="8" value="<%=(followupflagged.doneDeadline) ? followupflagged.doneDeadline.toString('HH:mm') : '' %>" />
 		</div> 
 	</fieldset>
 
 	<fieldset class="followups-colorpicker color-fields">
-		<legend><%= get_lang("Flag color")%></legend>
+		<legend><%= '_[[Flag color]]' %></legend>
 		<div class="left-seletor-flag">
 			<% 
 				var defaultColor = false;
@@ -98,8 +98,8 @@
 				}
 			%>
 			<select name="setColor">
-				<option value="default" <%= (defaultColor && !followupflagged.backgroundColor) ? 'selected="selected"' : ''%> ><%= get_lang("Default")%></option>
-				<option value="custom" <%= (!defaultColor && followupflagged.backgroundColor) ? 'selected="selected"' : ''%> ><%= get_lang("Custom")%></option>
+				<option value="default" <%= (defaultColor && !followupflagged.backgroundColor) ? 'selected="selected"' : ''%> ><%= '_[[Default]]' %></option>
+				<option value="custom" <%= (!defaultColor && followupflagged.backgroundColor) ? 'selected="selected"' : ''%> ><%= '_[[Custom]]' %></option>
 			</select>
 		</div>
 		<div class="followupflag-color sample-list">
@@ -111,7 +111,7 @@
 		</div>
 		<div class="followupflag-color-fields">
 			<div class="form-item">
-				<label class="flag-label"><%= get_lang("Color")%>: </label>
+				<label class="flag-label"><%= '_[[Color]]' %>: </label>
 				<input type="text" name="backgroundColor" class="colorwell background-color" value="<%=(followupflagged.backgroundColor) ? followupflagged.backgroundColor : '#00820F' %>" readonly="readonly" />
 				<div class="flag-edit flag-color-preview" style="background: <%=(followupflagged.backgroundColor) ? followupflagged.backgroundColor : '#00820F' %> background-image:url(../prototype/modules/mail/img/mail-sprites.png);background-position: 0 -864px;">
 				</div>
@@ -120,8 +120,8 @@
 		</div>
 	</fieldset>
 	<div class="menu-container footer-container menu-configure-followupflag">
-		<span class="button delete"><%= get_lang("Remove")%></span>
-		<span class="button save"><%= get_lang("Apply")%></span>
-		<span class="button cancel"><%= get_lang("Cancel")%></span>
+		<span class="button delete"><%= '_[[Remove]]' %></span>
+		<span class="button save"><%= '_[[Apply]]' %></span>
+		<span class="button cancel"><%= '_[[Cancel]]' %></span>
 	</div>
 </div> 
