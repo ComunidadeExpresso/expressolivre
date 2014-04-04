@@ -3075,7 +3075,7 @@ function draw_message(info_msg, ID){
 				div_other_mark_options.innerHTML += '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick="nospam('+info_msg.msg_number+',\'null\', \''+info_msg.msg_folder+'\');">'+get_lang("Not Spam")+'</span> | ';
 	}
 			else{
-				div_other_mark_options.innerHTML += '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick="spam(\''+info_msg.msg_folder+'\', '+info_msg.msg_number+',\'null\');">'+get_lang("Is Spam")+'</span> | ';
+				div_other_mark_options.innerHTML += '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick="spam(\''+info_msg.msg_folder+'\', '+info_msg.msg_number+',\'null\');">'+get_lang("Spam")+'</span> | ';
 			}
 		}
 		var space5 = document.createElement("SPAN");

@@ -48,8 +48,8 @@
 				% <%= '_[[Conclusion]]' %>: <input type="text" name="percentage" class="done" value="<%= data.task.percentage %>">
 				<span style="margin:0 0 0 5px;">Status:</span> 
 		    <select name="taskStatus" style="margin: 0 0 0 5px;">
-                    <option class="taskStatus-noAction"<%= (data.task.taskStatus == '1') ? 'selected="selected"' : '' %> value="1"><%= '_[[No Actions]]' %></option>
-                    <option class="taskStatus-inProcess"<%= (data.task.taskStatus == '2') ? 'selected="selected"' : '' %> value="2"><%= '_[[In Process]]' %></option>
+                    <option class="taskStatus-noAction"<%= (data.task.taskStatus == '1') ? 'selected="selected"' : '' %> value="1"><%= '_[[No actions]]' %></option>
+                    <option class="taskStatus-inProcess"<%= (data.task.taskStatus == '2') ? 'selected="selected"' : '' %> value="2"><%= '_[[In process]]' %></option>
                     <option class="taskStatus-finished"<%= (data.task.taskStatus == '3') ? 'selected="selected"' : '' %> value="3"><%= '_[[Finalized]]' %></option>
 					<option class="taskStatus-canceled"<%= (data.task.taskStatus == '4') ? 'selected="selected"' : '' %> value="4"><%= '_[[Canceled]]' %></option>
 				</select>
@@ -57,7 +57,7 @@
 				<select name="priority" <%= data.task.isOrganizer ? '' : 'disabled="disabled"'%>>
 					<option <%= (data.task.priority == '1') ? 'selected="selected"' : '' %> value="1"><%= '_[[High]]' %></option>
 					<option <%= (data.task.priority == '2') ? 'selected="selected"' : '' %> value="2"><%= '_[[Normal]]' %></option>
-					<option <%= (data.task.priority == '3') ? 'selected="selected"' : '' %> value="3"><$= '_[[Low]]' %></option>
+					<option <%= (data.task.priority == '3') ? 'selected="selected"' : '' %> value="3"><%= '_[[Low]]' %></option>
 				</select>
                 <span class="span_done"><label><%= '_[[Complete]]' %></label></span>
 		</p>
@@ -126,8 +126,8 @@
 			<li class="input-group">
 				<label><%= '_[[Notify me by]]' %> </label>
 				<select name="alarmType[]">
-                    <option value="alert" <%= data.task.alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
-                    <option value="mail" <%= data.task.alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
+                    <option value="alert" <%= data.task.alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[alert]]' %></option>
+                    <option value="mail" <%= data.task.alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[mail]]' %></option>
                     <!--<option value="sms" <%= data.task.alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 				</select>
 				<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.task.alarms[i].time %>"/>

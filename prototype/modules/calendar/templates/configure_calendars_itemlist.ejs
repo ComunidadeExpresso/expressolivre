@@ -86,8 +86,8 @@
 						for(var i = 0; i < data.signature.numberDefaultAlarm; i++){%>
 							<li class="input-group">
 							<select name="alarmType[]">
-								<option value="alert" <%= data.signature.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
-								<option value="mail" <%= data.signature.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
+								<option value="alert" <%= data.signature.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[alert]]' %></option>
+								<option value="mail" <%= data.signature.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[mail]]' %></option>
 <!--								<option value="sms" <%= data.signature.defaultAlarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 							</select>
 							<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.signature.defaultAlarms[i].time %>"/>
