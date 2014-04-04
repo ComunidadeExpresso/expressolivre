@@ -160,7 +160,7 @@ time	expressoCalendar	es-es	tiempo
 day	expressoCalendar	es-es	dia
 minute	expressoCalendar	es-es	minuto
 alert	expressoCalendar	es-es	alerta
-mail	expressoCalendar	es-es	e-mail
+mail	expressoCalendar	es-es	correo
 Some users are without permission and will be automatically removed. Do you want to continue?	expressoCalendar	es-es	Algunos usuarios están sin permisiones y serán automáticamente eliminados. Desea continuar?
 Continue	expressoCalendar	es-es	Continuar
 Search agendas	expressoCalendar	es-es	Buscar agendas
@@ -454,3 +454,5 @@ Suggested end	expressoCalendar	es-es	Término sugerido
 Your suggestion time for the event	expressoCalendar	es-es	Su sugerencia de horario para el evento
 Create Activity	expressoCalendar	es-es	Crear Actividad
 Today	expressoCalendar	es-es	Hoy
+Add reminder	expressoCalendar	pt-br	Añadir recordatorio
+Is Spam	expressoCalendar	pt-br	Spam

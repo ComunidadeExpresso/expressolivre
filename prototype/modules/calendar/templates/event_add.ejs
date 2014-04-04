@@ -141,8 +141,8 @@
 			<li class="input-group">
 				<label><%= '_[[Notify me by]]' %> </label>
 				<select name="alarmType[]">
-                                    <option value="alert" <%= data.event.alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
-                                    <option value="mail" <%= data.event.alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
+                                    <option value="alert" <%= data.event.alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[alert]]' %></option>
+                                    <option value="mail" <%= data.event.alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[mail]]' %></option>
                                     <!--<option value="sms" <%= data.event.alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 				</select>
 				<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.event.alarms[i].time %>"/>

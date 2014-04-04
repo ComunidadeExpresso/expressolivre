@@ -131,8 +131,8 @@
 					<li class="input-group">
 					    <label><%= '_[[Notify me by]]' %> </label>
 					    <select name="alarmType[]">
-						<option value="alert" <%= alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
-						<option value="mail" <%= alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
+						<option value="alert" <%= alarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[alert]]' %></option>
+						<option value="mail" <%= alarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[mail]]' %></option>
 						<!--<option value="sms" <%= alarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 					    </select>
 					    <input type="text" name="alarmTime[]" class="number input-small" value="<%= alarms[i].time %>"/>
@@ -161,8 +161,8 @@
 					<div class="date-hour"><span><%= '_[[Date-Time]]' %></span></div>
 					<div class="user"><span><%= '_[[Participant]]' %></span></div>
 					<div class="attribute"><span><%= '_[[Changed]]' %></span></div>
-					<div class="beforeValue"><span><%= '_[[of]]' %></span></div>
-					<div class="afterValue"><span><%= '_[[For]]' %></span></div>
+                    <div class="beforeValue"><span><%= '_[[From]]' %></span></div>
+                    <div class="afterValue"><span><%= '_[[To]]' %></span></div>
 				    </div>
 
 				    <div class="child-bottom">

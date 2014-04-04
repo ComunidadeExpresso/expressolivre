@@ -3,8 +3,8 @@
 		<li class="input-group">
 			<label><%= '_[[Notify me by]]' %> </label>
 			<select name="alarmType[]">
-				<option value="alert" <%= data.alarm.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[Alert]]' %></option>
-				<option value="mail" <%= data.alarm.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[Mail]]' %></option>
+				<option value="alert" <%= data.alarm.defaultAlarms[i].type=='alert' ? 'selected="selected"':'' %>><%= '_[[alert]]' %></option>
+				<option value="mail" <%= data.alarm.defaultAlarms[i].type=='mail' ? 'selected="selected"':'' %>><%= '_[[mail]]' %></option>
 				<!--<option value="sms" <%= data.alarm.defaultAlarms[i].type=='sms' ? 'selected="selected"':'' %>>SMS</option>-->
 			</select>
 			<input type="text" name="alarmTime[]" class="number input-small" value="<%= data.alarm.defaultAlarms[i].time %>"/>
@@ -27,8 +27,8 @@
 	<li class="input-group">
 		<label><%= '_[[Notify me by]]' %> </label>
 		<select name="alarmType[]">
-			<option value="alert"><%= '_[[Alert]]' %></option>
-			<option value="mail"><%= '_[[Mail]]' %></option>
+			<option value="alert"><%= '_[[alert]]' %></option>
+			<option value="mail"><%= '_[[mail]]' %></option>
 <!--			<option value="sms">SMS</option>-->
 		</select>
 		<input type="text" class="number input-small" name="alarmTime[]" />
