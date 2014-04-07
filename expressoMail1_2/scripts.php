@@ -24,6 +24,7 @@ $fileDuck->add(__DIR__ .'/../library/fancybox/jquery.fancybox-1.3.4.pack.js');
 $fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/label.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/datejs/date-pt-BR.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/dateFormat/dateFormat.js');
+$fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/timezone.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.date.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.codecs.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.alarms.js' , 'ISO-8859-1');
