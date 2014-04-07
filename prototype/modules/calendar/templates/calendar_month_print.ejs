@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/print.css" />
-		<title>Visualização Mensal</title>
+		<title><%= '_[[Monthly view]]' %></title>
 
 	<body>	
 	<div class="month">
@@ -21,7 +21,7 @@
 					var hora, currentEvent = data.days.events[i][jj].events[ii];
 					
 					hora = (!currentEvent.isOneDay) ? (currentEvent.startDate +" - "+ currentEvent.startHour +" | "+ currentEvent.endDate +" - "+ currentEvent.endHour) : 
-						   (currentEvent.allDay ? "Dia todo" : currentEvent.startHour + " - " + currentEvent.endHour);
+						   (currentEvent.allDay ? "_[[All day]]" : currentEvent.startHour + " - " + currentEvent.endHour);
 					
 				%>
 					<%
@@ -29,13 +29,13 @@
 							var title_type = "";
 							if(data.days.events[i][jj].events[ii].type == '1'){
 								img_type = "../prototype/modules/calendar/img/mini-event.png";
-								title_type = "Evento";
+								title_type = "_[[Event]]";
 							}if(data.days.events[i][jj].events[ii].type == '2'){
 								img_type = "../prototype/modules/calendar/img/mini-task.png"; 
-								title_type = "Tarefa";
+								title_type = "_[[Task]]";
 							}if(data.days.events[i][jj].events[ii].type == '3'){
 								img_type = "../prototype/modules/calendar/img/mini-activity.png"; 
-								title_type = "Atividade";
+								title_type = "_[[Activity]]";
 							}
 							%>
 							<li class="calendar_item_print"><img title="<%= title_type %>" src="<%= img_type %>"><span><%= hora %> | <%= data.days.events[i][jj].events[ii].summary %></span></li>

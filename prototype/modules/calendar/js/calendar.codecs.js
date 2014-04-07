@@ -412,8 +412,8 @@ DataLayer.codec( "schedulable", "taskEdit", {
 
     decoder: function( evtObj ){
 	Encoder.EncodeType = "entity";
-	
-	if( notArray = $.type(evtObj) !== "array" )
+
+    if( notArray = $.type(evtObj) !== "array" )
 	    evtObj = [ evtObj ];
 
 	var pref = User.preferences;
@@ -739,7 +739,7 @@ DataLayer.codec( "schedulable", "task", {
             Date.parseExact(form.startDate + " "+$.trim(form.startHour) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00') :
             Date.parseExact(form.dueDate + " "+$.trim(form.dueTime) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00'),
         due: (form.dueDate == '' ) ? 0 : Date.parseExact(form.dueDate + " "+$.trim(form.dueTime) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00'),
-        allDay: ( form.dueDate == ''  ? 1 : 0 ),
+        allDay: ( (form.dueDate == '' && $.trim(form.startHour) == '00:00') || $.trim(form.dueTime) == '00:00' ? 1 : 0 ),
         status: form.taskStatus,      
         id: form.idTask,
         location: form.location,
@@ -747,7 +747,7 @@ DataLayer.codec( "schedulable", "task", {
         percentage: form.percentage,
         priority: form.priority,
         category: form.category,
-        summary: form.summary == '' ? 'Tarefa sem título' : form.summary,
+        summary: form.summary == '' ? '_[[Untitled task]]' : form.summary,
         description: form.description,
         timezone: tzId,
         attachments: $.map(form.attachment || [], function( attachment, i ){
@@ -940,21 +940,21 @@ function decodeHistoric ( evt ) {
     var historic = evt.historic;
     var decoded = [];
     var attributeDecoded = {
-        'startTime': 'Data de inicio',
-        'endTime' : 'Data de fim',
-        'summary' : 'Título',
-        'description': 'Descrição',
-        'status': 'Status',
-        'percentage': 'Porcentagem',
-        'priority': 'Prioridade',
-        'due' : 'Previsão de término'
+        'startTime': '_[[Date of start]]',
+        'endTime' : '_[[Date of end]]',
+        'summary' : '_[[Title]]',
+        'description': '_[[Description]]',
+        'status': '_[[Status]]',
+        'percentage': '_[[Percentage]]',
+        'priority': '_[[Priority]]',
+        'due' : '_[[Expected completion]]'
     };
     
     var statusDecoded = {
-	1: 'Sem ações',
-	2: 'Em processo',
-	3: 'Finalzada',
-	4: 'Cancelada'
+	1: '_[[No shares]]',
+	2: '_[[In process]]',
+	3: '_[[Finalized]]',
+	4: '_[[Canceled]]'
     };
 
     var decodeDate = function(time){
@@ -977,7 +977,7 @@ function decodeHistoric ( evt ) {
             case 'participant':
                 return{
                     user :$.type(historic.user) == 'object' ? historic.user : DataLayer.get('user', historic.user),
-                    attribute : historic.beforeValue == '' ? ('Novo participante') : ('Rem. participante'),
+                    attribute : historic.beforeValue == '' ? ('_[[New participant]]') : ('_[[Rem. participant]]'),
                     beforeValue : historic.beforeValue == '' ? '' : historic.beforeValue.mail,
                     afterValue : historic.afterValue == '' ? '' : historic.afterValue.mail,
                     time: decodeDate(historic.time)
@@ -986,7 +986,7 @@ function decodeHistoric ( evt ) {
             case 'attachment':
                 return{
                     user : $.type(historic.user) == 'object' ? historic.user : DataLayer.get('user', historic.user),
-                    attribute : historic.beforeValue == '' ? ('Novo anexo') : ('Rem. anexo'),
+                    attribute : historic.beforeValue == '' ? ('_[[New attachment]]') : ('_[[Rem. attachment]]'),
                     beforeValue : historic.beforeValue,
                     afterValue : historic.afterValue,
                     time: decodeDate(historic.time)
@@ -1121,7 +1121,7 @@ DataLayer.codec( "schedulable", "activity", {
         percentage: form.percentage,
         priority: form.priority,
         category: form.category,
-        summary: form.summary == '' ? 'Atividade sem título' : form.summary,
+        summary: form.summary == '' ? '_[[Activity Untitled]]' : form.summary,
         description: form.description,
         timezone: tzId,
         attachments: $.map(form.attachment || [], function( attachment, i ){
@@ -1394,7 +1394,7 @@ DataLayer.codec( "schedulable", "detail", {
 		type: 1,
 		category: form.category,
 		priority: form.priority,
-		summary: form.summary == '' ? 'Evento sem título' : form.summary,
+		summary: form.summary == '' ? '_[[Event untitled]]' : form.summary,
 		description: form.description,
 		timezone: tzId,
 		attachments: $.map(form.attachment || [], function( attachment, i ){
@@ -1475,10 +1475,10 @@ DataLayer.codec( "schedulable", "detail", {
             var dates = {};
             var typeRepeat = {
                 'none': false,
-                'daily': 'Repetição diária',
-                'weekly': 'Repetição semanal',
-                'monthly': 'Repetição mensal',
-                'yearly': 'repetição anual'
+                'daily': '_[[Daily repetition]]',
+                'weekly': '_[[Weekly repetition]]',
+                'monthly': '_[[Monthly repetition]]',
+                'yearly': '_[[Annual repetition]]'
             }
 
             for (var i=0; i < res.length; i++) {
@@ -1541,10 +1541,10 @@ DataLayer.codec( "schedulable", "list", {
             var dates = {};
             var typeRepeat = {
                 'none': false,
-                'daily': 'Repetição diária',
-                'weekly': 'Repetição semanal',
-                'monthly': 'Repetição mensal',
-                'yearly': 'repetição anual'
+                'daily': '_[[Daily repetition]]',
+                'weekly': '_[[Weekly repetition]]',
+                'monthly': '_[[Monthly repetition]]',
+                'yearly': '_[[Annual repetition]]'
             }
 
             for (var i=0; i < res.length; i++) {
@@ -1565,7 +1565,7 @@ DataLayer.codec( "schedulable", "list", {
 
                 for( var ii = 0; ii < occurrences.length; ii++ )
                 {
-                    var currentDate = new Date( occurrences[ii] );
+                    var currentDate = new Date(parseInt(occurrences[ii]));
                     var counter = currentDate.clone();
 
                     var res2 = $.extend( {}, res[i], {
@@ -1631,11 +1631,11 @@ DataLayer.codec( "schedulable", "print", {
         var dates = {};
 
         var typeRepeat = {
-        'none': false, 
-        'daily': 'Repetição diária',
-        'weekly': 'Repetição semanal',
-        'monthly': 'Repetição mensal',
-        'yearly': 'repetição anual'
+        'none': false,
+        'daily': '_[[Daily repetition]]',
+        'weekly': '_[[Weekly repetition]]',
+        'monthly': '_[[Monthly repetition]]',
+        'yearly': '_[[Annual repetition]]'
         }
 
         var orderByStartUnixTime = function( a , b )
@@ -1664,7 +1664,7 @@ DataLayer.codec( "schedulable", "print", {
 
             for( var ii = 0; ii < occurrences.length; ii++ )
             {
-                var currentDate = new Date( parseInt(occurrences[ii]) );
+                var currentDate = new Date( occurrences[ii] );
                 var counter = currentDate.clone();
                         
                 var res2 = $.extend( {}, res[i], {
@@ -1840,7 +1840,7 @@ DataLayer.codec( "schedulable", "calendar", {
 					className: mountClass(aclSignature.acl)
 					}, aclSignature.acl['busy'] ? 
 					{
-						title: 'Ocupado', 
+						title: '_[[Busy]]',
 						selectable: false
 					} : {
 						selectable: true

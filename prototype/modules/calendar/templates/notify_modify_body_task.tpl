@@ -1,4 +1,4 @@
-<br />Sua tarefa agendada para [startDate] foi modificada.<br /><br /><strong>[eventTitle]</strong><br />
-<strong>Início:</strong> [startDate] [startTime]<br />
-<strong>Previsão de término:</strong> [endDate] [endTime]<br />
-<strong>Participantes:</strong> [participants]
+<br />_[[Its scheduled for [startDate] task was modified.]]<br /><br /><strong>[eventTitle]</strong><br />
+<strong>_[[Initiation]]:</strong> [startDate] [startTime]<br />
+<strong>_[[Expected completion]]:</strong> [endDate] [endTime]<br />
+<strong>_[[Participants]]:</strong> [participants]

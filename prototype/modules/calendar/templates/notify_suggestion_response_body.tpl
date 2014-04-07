@@ -1,1 +1,1 @@
-<br />Sua sugestão de horário para o evento <strong>[eventTitle]</strong> [status].<br /><br />
+<br />_[[Your suggestion time for the event]]<strong>[eventTitle]</strong> [status].<br /><br />

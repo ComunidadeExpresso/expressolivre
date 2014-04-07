@@ -3,7 +3,7 @@
 	<fieldset>
 		<dl class="block-user-list users-list">
 			<%if(data.calendar){%>
-				<dt class="calendar-shared">Calendario selecionado</dt>
+				<dt class="calendar-shared"><%= '_[[Selected calendar]]' %></dt>
 				<dd class="calendar">
 					<select class="calendar" name="calendar">
                         <%
@@ -25,29 +25,29 @@
 					</select>
 					</dd>
 			<%}%>
-			<dt class="<%=data.calendar ? "user-list" : "calendar-list"%>" style="z-index: 5"><%=data.calendar ? 'Compartilhar com' : 'Agendas Selecionadas'%></dt>
+			<dt class="<%=data.calendar ? "user-list" : "calendar-list"%>" style="z-index: 5"><%=data.calendar ? '_[[Share with]]' : '_[[Selected agendas]]'%></dt>
 			<dd class="<%=data.calendar ? "user-list" : "calendar-list"%>">
 				<ul class="user-list">
-					<li class="not-user"><%=data.calendar ? "Não compartilhado." : "Nenhuma agenda selecionada"%></li>
+					<li class="not-user"><%=data.calendar ? '_[[Unshared.]]' : '_[[No agenda selected]]'%></li>
 				</ul>
 			</dd>	
 		</dl>
 
 		<%if(data.calendar){%>
 			<dl class="block-public-calendar">
-				<dt class="calendar-public">Agenda pública</dt>
+				<dt class="calendar-public"><%= '_[[Public agenda]]' %></dt>
 				<dd class="calendar-public">
 						<ul>
-							<input type="checkbox" name="isPublic"/><label>Pública</label>
-							<input type="checkbox" name="busy" class="free-busy hidden"/><label class="free-busy hidden">Livre/Ocupado</label>
+							<input type="checkbox" name="isPublic"/><label><%= '_[[Public]]' %></label>
+							<input type="checkbox" name="busy" class="free-busy hidden"/><label class="free-busy hidden"><%= '_[[Free/Busy]]' %></label>
 						</ul>
 				</dd>
 			</dl>
 		<%}%>
 		<dl class="<%=data.calendar ? "block-add-calendar" : "block-add-user"%> search ">
-			<dt class="add-user search"><%=data.calendar ? 'Adicionar outros usuários' : 'Adicionar outras agendas'%></dt>
+			<dt class="add-user search"><%=data.calendar ? '_[[Add other users]]' : '_[[Add other calendars]]'%></dt>
 			<dd class="<%=data.calendar ? "add-user-calendar" : "add-user"%>">
-				<fieldset class="block-add-user" title="Usuários">
+				<fieldset class="block-add-user" title="<%[ '_[[Users]]' %>">
 					<fieldset class="add-user-search search-field ui-corner-all">
 						<input class="search" type="text" />
 						<span class="ui-icon ui-icon-search"></span>
@@ -59,8 +59,8 @@
 		</dl>
 	</fieldset>
 	<div class="menu-container footer-container menu-addevent">
-		<a class="button cancel" href="#">Cancelar</a>
-	    <a class="button save" href="#">Salvar</a>
+		<a class="button cancel" href="#"><%= '_[[Cancel]]' %></a>
+	    <a class="button save" href="#"><%= '_[[Save]]' %></a>
     </div>
 	</form>
 </fieldset>

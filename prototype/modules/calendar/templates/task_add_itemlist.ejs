@@ -2,10 +2,10 @@
     <div style="overflow:hidden; width:100%; display:table;">	
 	<div class="activity-options" style="float: right; margin: 0 10px 0 0;">
 	    <%if(data[0].isWrite){%>
-		<a class="button edit activity-options-button-edit new ui-icon-pencil">Editar</a>
+		<a class="button edit activity-options-button-edit new ui-icon-pencil"><%= '_[[Edit]]' %></a>
 	    <%}%>
-	    <a class="button info activity-options-button-notice new ui-icon-notice">Informações</a>
-	    <a class="button close new">Remover</a>
+	    <a class="button info activity-options-button-notice new ui-icon-notice"><%= '_[[Information]]' %></a>
+	    <a class="button close new"><%= '_[[Remove]]' %></a>
 	</div>	
 	<input class="new" type="checkbox" value="<%= data[0].idTask %>">
     <input type="hidden" name="idtask[]" value="<%= data[0].idTask %>">

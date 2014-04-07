@@ -79,7 +79,7 @@
 					posHandler(param);  
 			}
 			if(Element('form_status') != null)
-				Element('form_status').innerHTML = "<span style='background:#cc4444;'>&nbsp;&nbsp;<font color='WHITE'>Aguarde...</font>&nbsp;</span>";
+				Element('form_status').innerHTML = "<span style='background:#cc4444;'>&nbsp;&nbsp;<font color='WHITE'>_[[Wait]]...</font>&nbsp;</span>";
 			cExecute("$this.ScriptS.init_a",handler_sieve);
 			_this.get_email();
 	    }

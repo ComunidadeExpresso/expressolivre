@@ -757,7 +757,7 @@ function configureLabels(data){
 function configureFollowupflag(){
 
     if(get_current_folder().split("_")[0] == "local"){
-        alert("Pastas locais não fornece suporte para acompanhamento.");
+        alert("_[[Local folders not provide support for monitoring.]]");
         return true;
     }
 
@@ -1223,8 +1223,8 @@ function select_all_messages(select)
 		if (totalSelected() == totalFolderMsgs && totalSelected() > 0){
 			allMsgsSelected = true;
 				if (total_pages > 1){
-					var link = "<a class='select-link' href='#'>Limpar seleção?</a>";
-					var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
+					var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
+					var info = "_[[All]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+" _[[were selected.}} "+link;
 					div.html("<span>"+info+"<span>");
 					//div.show();
 					$('.select-link').bind('click',function(){
@@ -1234,8 +1234,8 @@ function select_all_messages(select)
 				}			
 		}
 		else if (!allMsgsSelected && total_pages > 1){
-			var link = "<a class='select-link' href='#'>Selecionar todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+"?</a>";
-			var info = "Todas as <b>"+$('#table_box tr').length+"</b> mensagens desta página foram selecionadas. "+link;
+			var link = "<a class='select-link' href='#'>_[[Select all the]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+"?</a>";
+			var info = "_[[All]] <b>"+$('#table_box tr').length+"</b> _[[posts on this page were selected.]] "+link;
 			div.html("<span>"+info+"<span>");
 			//div.show();
 			$('.select-link').bind('click',function(){
@@ -1259,8 +1259,8 @@ function select_all_messages(select)
 			updateSelectedMsgs();
 		}
 		else if (totalSelected() > 0 && total_pages > 1){
-			var link = "<a class='select-link' href='#'>Limpar seleção?</a>";
-			var info = "Foram selecionadas <b>"+totalSelected()+"</b> mensagens "+filterFlag+" em "+folder+". "+link;
+			var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
+			var info = "_[[Were selected]] <b>"+totalSelected()+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+". "+link;
 			div.html("<span>"+info+"<span>");
 			div.show();
 			$('.select-link').bind('click',function(){
@@ -1268,7 +1268,7 @@ function select_all_messages(select)
 				//$('.select-link').unbind('click');
 			});			
 		}
-		else div.html('<span class="none-selected">Nenhuma mensagem foi selecionada.</span>');		
+		else div.html('<span class="none-selected">_[[No selected message.]]</span>');
 	}
 	resizeWindow();
 }

@@ -1218,7 +1218,7 @@ function getColSizesCookie() {
 /*Cria a div que permite a seleção de todas as mensagens*/
 function drawSelectMsgsTable(){
 	var div = $('<div>');	
-	div.html('<span class="none-selected">Nenhuma mensagem foi selecionada.</span>');
+	div.html('<span class="none-selected">_[[No selected message.]]</span>');
 	div.attr('class','select-all-messages'); 
 	$('#content_id_0').first().prepend(div);
 	//div.css('display','none');
@@ -1270,8 +1270,8 @@ function updateSelectedMsgs(selected,msg_number){
 		allMsgsSelected = true;
 		$('#chk_box_select_all_messages').attr('checked',true);
 		if (total_pages > 1){
-			var link = "<a class='select-link' href='#'>Limpar seleção?</a>";
-			var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
+			var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
+			var info = "_[[All]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+" _[[were selected.}} "+link;
 			div.html("<span>"+info+"<span>");
 			div.show();
 			$('.select-link').bind('click',function(){selectAllFolderMsgs();$('.select-link').unbind('click');});
@@ -1280,12 +1280,12 @@ function updateSelectedMsgs(selected,msg_number){
 	/*Se foram selecionadas algumas mensagens*/
 	else if (tSelected > 0 && !allMsgsSelected && total_pages > 1){
 		$('#chk_box_select_all_messages').attr('checked',false);
-		var link = "<a class='select-link' href='#'>Limpar seleção?</a>";
+		var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
 		if (tSelected == 1){
-			var info = "Foi selecionada <b>"+tSelected+"</b> mensagem "+filterFlag+" em "+folder+". "+link;
+			var info = "_[[Was selected]] <b>"+tSelected+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+". "+link;
 		}
 		else{
-			var info = "Foram selecionadas <b>"+tSelected+"</b> mensagens "+filterFlag+" em "+folder+". "+link;
+			var info = "_[[Were selected]] <b>"+tSelected+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+". "+link;
 		}
 		div.html("<span>"+info+"<span>");
 		div.show();
@@ -1295,8 +1295,8 @@ function updateSelectedMsgs(selected,msg_number){
         });		
 	}
 	else if (allMsgsSelected && total_pages > 1){
-		var link = "<a class='select-link' href='#'>Limpar seleção?</a>";
-		var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
+		var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
+		var info = "_[[All]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" em "+folder+" _[[were selected.]] "+link;
 		div.html("<span>"+info+"<span>");
 		div.show();
 		$('.select-link').bind('click',function(){
@@ -1305,7 +1305,7 @@ function updateSelectedMsgs(selected,msg_number){
         });
 	}
 	else if (totalFolderMsgs > parseInt(preferences.max_email_per_page)){
-		div.html('<span class="none-selected">Nenhuma mensagem foi selecionada.</span>');
+		div.html('<span class="none-selected">_[[No selected message.]]</span>');
 	}
 	else{
 		div.hide();
@@ -1322,8 +1322,8 @@ function selectAllFolderMsgs(select){
 	var div = $('.select-all-messages');
 	if (select){
 		allMsgsSelected = true;
-		var link = "<a class='select-link' href='#'>Limpar seleção?</a>";
-		var info = "Todas as <b>"+totalFolderMsgs+"</b> mensagens "+filterFlag+" em "+folder+" foram selecionadas. "+link;
+		var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
+		var info = "_[[All]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" em "+folder+" _[[were selected.]] "+link;
 		div.html("<span>"+info+"<span>");
 		//div.show();
 		$('.select-link').bind('click',function(){
@@ -1344,7 +1344,7 @@ function selectAllFolderMsgs(select){
 		for(var obj in selectedPagingMsgs){
 			selectedPagingMsgs[obj] = false;
 		}
-		div.html('<span class="none-selected">Nenhuma mensagem foi selecionada.</span>');
+		div.html('<span class="none-selected">_[[No selected message.]]</span>');
 	}
     resizeWindow();
 }
@@ -3075,7 +3075,7 @@ function draw_message(info_msg, ID){
 				div_other_mark_options.innerHTML += '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick="nospam('+info_msg.msg_number+',\'null\', \''+info_msg.msg_folder+'\');">'+get_lang("Not Spam")+'</span> | ';
 	}
 			else{
-				div_other_mark_options.innerHTML += '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick="spam(\''+info_msg.msg_folder+'\', '+info_msg.msg_number+',\'null\');">'+get_lang("Is Spam")+'</span> | ';
+				div_other_mark_options.innerHTML += '<span onmouseover="this.className=\'reply_options_active\'" onmouseout="this.className=\'reply_options\'" class="reply_options" onclick="spam(\''+info_msg.msg_folder+'\', '+info_msg.msg_number+',\'null\');">'+get_lang("Spam")+'</span> | ';
 			}
 		}
 		var space5 = document.createElement("SPAN");

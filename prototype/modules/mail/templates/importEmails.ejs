@@ -1,7 +1,7 @@
 <div id="importMessageAccordion"  style="overflow:hidden;">
 	<h3>
 		<a href="#">
-			<%= get_lang('Choose the file')%>
+			<%= '_[[Choose the file]]' %>
 		</a>
 	</h3>			 
 	<div>
@@ -9,7 +9,7 @@
 			<div class="button-files-upload">
 		    	<span class="button small btn-success fileinput-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button">
 					<span class="ui-button-text">
-					    <span><%= get_lang("Select a zip file or eml")%></span>
+					    <span><%= '_[[Select a zip or eml file]]' %></span>
 					    <form id="importFileMessages" method="POST" name="form_import" enctype="multipart/form-data">
 					    	<input type="file" name="file_1" />
 					    	<input type="hidden" name="countFiles" value="1" />
@@ -21,16 +21,16 @@
 		</div>
 		
 		<div style="margin-top: 35px;">
-			<label><%= get_lang('File name')%>:</label>
+			<label><%= '_[[File name]]' %>:</label>
 			<label id="lblFileName"></label>
 		</div>
 	</div>
 	<h3>
-		<a href="#"><%= get_lang('Select a folder')%></a>
+		<a href="#"><%= '_[[Select a folder]]' %></a>
 	</h3>
 	<div style="overflow : auto;">
 		<div id="foldertree-container-importMessage" class="empty-container">
-			<span class="message"><%=get_lang('no folder found')%></span>
+			<span class="message"><%= '_[[no folder found]]' %></span>
 		</div>
 	</div>
 </div>

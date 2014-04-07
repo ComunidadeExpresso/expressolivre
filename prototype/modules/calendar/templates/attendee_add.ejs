@@ -1,182 +1,182 @@
-	<%var iconStatus = ['','ui-icon-check', 'ui-icon-radio-off', 'ui-icon-close', 'ui-icon-help', 'ui-icon-transferthick-e-w', 'ui-icon-contact']
-	  var legendStatus = ['','Confirmado','Tentativa','Cancelado','Sem Resposta','Delegado', 'Participante']
-	%>
-	<dl class="block-attendee-list attendees-list">
-		<dt class="me"><%= data.event.me.user ? data.event.me.user.name : data.event.me.name %></dt>
-		<dd class="me">
-		    <select class="status" name="status" <%= data.event.isAttendee ? '' : 'disabled' %>>
-				<%if(!data.event.delegatedFrom[data.event.me.id]){%>
-					<option value="1" <%= data.event.status=='1' ? 'selected="selected"':'' %>>Eu vou</option>
-					<%if(!data.event.acl.participationRequired){%>
-						<option value="3" <%= data.event.status=='3' ? 'selected="selected"':'' %>>Eu não vou</option>
-						<option value="2" <%= data.event.status=='2' ? 'selected="selected"':'' %>>Talvez</option>
-                        <option value="4" <%= data.event.status=='4' ? 'selected="selected"':'' %>>Sem resposta </option>
-					    <option class="hidden" value="5" >Delegado</option>
-					<%}%>
-				<%}else{%>
-					<option value="5" 'selected="selected"'>Delegado</option>
-				<%}%>
-			</select>
-			<% if ((!data.event.acl.organization && !data.event.acl.write && !data.event.acl.inviteGuests && !data.event.acl.participationRequired && !data.event.delegatedFrom[data.event.me.id]) && data.event.isAttendee) { %>
-				<fieldset class="add-attendee-options-read">
-					<a href="#" class="button participant-delegate add-attendee-options-button">Delegar participação a um novo participante</a>
-				</fieldset>
-			<% } %>
-			
-			<p class="input-group request-update <%=data.event.delegatedFrom[data.event.me.id] ? '' : "hidden"%>">
-				<input type="checkbox" name="receiveNotification" value="true" <%=data.event.me.receiveNotification=='1' ? 'checked="checked"' : ''%>/>
-				<label for="request-update">Receber atualizações</label>
-			</p>
-			
-			<input type="hidden" name="delegatedFrom[]" value="<%=data.event.me.delegatedFrom%>">
-		
-			<input type="hidden" name="attendee[]" value="<%=data.event.me.id%>">
-			<input type="hidden" name="attendeeType[]" value="0">
-			<input type="hidden" name="attendeeAcl[]" value="<%=data.event.me.acl%>">				
-			
-		</dd>
+<%var iconStatus = ['','ui-icon-check', 'ui-icon-radio-off', 'ui-icon-close', 'ui-icon-help', 'ui-icon-transferthick-e-w', 'ui-icon-contact']
+var legendStatus = ['','_[[Confirmed]]','_[[Attempt]]','_[[Canceled]]','_[[No Answer]]','_[[Delegate]]', '_[[Participant]]']
+%>
+<dl class="block-attendee-list attendees-list">
+    <dt class="me"><%= data.event.me.user ? data.event.me.user.name : data.event.me.name %></dt>
+    <dd class="me">
+        <select class="status" name="status" <%= data.event.isAttendee ? '' : 'disabled' %>>
+        <%if(!data.event.delegatedFrom[data.event.me.id]){%>
+        <option value="1" <%= data.event.status=='1' ? 'selected="selected"':'' %>><%= '_[[I will]]' %></option>
+        <%if(!data.event.acl.participationRequired){%>
+        <option value="3" <%= data.event.status=='3' ? 'selected="selected"':'' %>><%= '_[[I will not]]' %></option>
+        <option value="2" <%= data.event.status=='2' ? 'selected="selected"':'' %>><%= '_[[Maybe]]' %></option>
+        <option value="4" <%= data.event.status=='4' ? 'selected="selected"':'' %>><%= '_[[No Answer]]' %></option>
+        <option class="hidden" value="5" ><%= '_[[Delegate]]' %></option>
+        <%}%>
+        <%}else{%>
+        <option value="5" 'selected="selected"'><%= '_[[Delegate]]' %></option>
+        <%}%>
+        </select>
+        <% if ((!data.event.acl.organization && !data.event.acl.write && !data.event.acl.inviteGuests && !data.event.acl.participationRequired && !data.event.delegatedFrom[data.event.me.id]) && data.event.isAttendee) { %>
+        <fieldset class="add-attendee-options-read">
+            <a href="#" class="button participant-delegate add-attendee-options-button"><%= '_[[Delegate participation to a new participant]]' %></a>
+        </fieldset>
+        <% } %>
 
-		<dt class="attendee-list">Convidados</dt>
-		<dd class="attendee-list">
-			<ul class="attendee-list">
-			    <% if (data.event.isAttendee && !data.event.acl.organization){ %>
-				<label for="attendee" title="<%=  data.event.me.user ? data.event.me.user.mail : data.event.me.mail %>" class="mail hidden"></label>
-			    <%}%>
-			    
-				<li class="organizer <%= (data.event.acl.organization || (data.event.delegatedFrom[data.event.me.id] && data.event.delegatedFrom[data.event.me.id].isOrganizer == '1')) ? "hidden" : "" %>">
-					<div style="overflow:hidden; width:100%; display:table;">
-						<span class="space-status ui-icon <%=iconStatus[data.event.organizer.status]%>" title="<%=legendStatus[data.event.organizer.status]%>"></span>
-						<span class="space-special ui-icon ui-icon-person" title="Organizador"></span>
-						<% if (!data.event.acl.organization && (data.event.organizer.id != data.event.me.id )) { %>
-							<input type="checkbox" value="<%= data.event.organizer.id %>" disabled="disabled">
-							<input type="hidden" name="attendee[]" value="<%=data.event.organizer.id%>">
-							<input type="hidden" name="attendeeType[]" value="0">
-							<input type="hidden" name="attendeeAcl[]" value="<%=data.event.organizer.acl%>">
-							<input type="hidden" name="delegatedFrom[]" value="<%=data.event.organizer.delegatedFrom%>">
-						<%}%>
-						<input type="hidden" name="attendee_organizer" value="<%=data.event.organizer.id%>">
-						<label for="attendee_organizer" title="<%= data.event.organizer.name ? data.event.organizer.name: '' %>" class="name name-special"><%= data.event.organizer.name ? data.event.organizer.name : '' %></label>
-						<label for="attendee_organizer" title="<%= data.event.organizer.mail ? data.event.organizer.mail: '' %>" class="mail name-special"><%= data.event.organizer.mail ? data.event.organizer.mail : '' %></label>
-					</div>
-				</li>
-			<%if(!!data.event.delegatedFrom[data.event.me.id]){
-				var delegated_me = data.event.delegatedFrom[data.event.me.id]%>
-				<li class="me-delegated">
-					<div style="overflow:hidden; width:100%; display:table;">
-						<span class="space-status ui-icon <%=iconStatus[delegated_me.status]%>" title="<%=legendStatus[delegated_me.status]%>"></span>
-						<span class="space-special ui-icon <%=iconStatus[5]%>" title="Delegado para"></span>
-						<input type="checkbox" value="<%= delegated_me.id%>" disabled="disabled">
-						<label for="me-delegated" title="<%= delegated_me.name ? delegated_me.name: '' %>" class="name name-special"><%= delegated_me.name ? delegated_me.name : '' %></label>
-						<label for="me-delegated" title="<%= delegated_me.mail ? delegated_me.mail: '' %>" class="mail name-special"><%= delegated_me.mail ? delegated_me.mail : '' %></label>
-					</div>
-				</li>
-			<%}%>
-			<% if (data.event && data.event.attendee.length > 0) {
-				for (var i=0; i< data.event.attendee.length; i++) {%>
-					<li class="attendee"> 
-						<div style="overflow:hidden; width:100%; display:table;">
-							<%if(data.event.delegatedFrom[data.event.attendee[i].id]){%>
-								<span class="open-delegate new ui-icon ui-icon-triangle-1-e"></span>
-							<%}else{%>
-								<span class="space-status ui-icon <%=iconStatus[data.event.attendee[i].status]%>" title="<%=legendStatus[data.event.attendee[i].status]%>"></span>
-							<%}%>
-							<span class="space-special ui-icon <%= !!data.event.delegatedFrom[data.event.attendee[i].id] ? iconStatus[5] : iconStatus[6]%>" title="<%=!!data.event.delegatedFrom[data.event.attendee[i].id] ? legendStatus[5] : legendStatus[6]%>"></span>
-							<%if(data.event.acl.organization || data.event.acl.write){%>
-								<input type="checkbox" class="new" value="<%= data.event.attendee[i].id %>">
-							<%}else{%>
-								<input type="checkbox" value="<%= data.event.attendee[i].id%>" disabled="disabled">
-							<%}%>
-							<input type="hidden" name="attendee[]" value="<%=data.event.attendee[i].id%>">
-							<input type="hidden" name="attendeeType[]" value="<%=data.event.attendee[i].isExternal%>">
-							<input type="hidden" name="attendeeAcl[]" value="<%=data.event.attendee[i].acl%>">
-							<input type="hidden" name="delegatedFrom[]" value="<%=data.event.attendee[i].delegatedFrom%>">
-							<label title="<%= data.event.attendee[i].name ? data.event.attendee[i].name: '' %>" class="name <%= !!data.event.delegatedFrom[data.event.attendee[i].id] ? "name-special-delegated" : "name-special" %>"><%= data.event.attendee[i].name ? data.event.attendee[i].name : '' %></label>
-							<label title="<%= data.event.attendee[i].mail ? data.event.attendee[i].mail : ''%>" class="mail <%= !!data.event.delegatedFrom[data.event.attendee[i].id] ? "name-special-delegated" : "name-special"%>"><%= data.event.attendee[i].mail ? data.event.attendee[i].mail : '' %></label>
-							<span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span>
-						</div> 
-						<div class="attendee-options">
-							<%if(data.event.acl.organization || data.event.acl.write){%>
-								<a class="button edit attendee-options-button-edit new">Editar permissões</a>
-								<a class="button close new">Remover</a>
-							<%}%>
-						</div>
+        <p class="input-group request-update <%=data.event.delegatedFrom[data.event.me.id] ? '' : "hidden"%>">
+        <input type="checkbox" name="receiveNotification" value="true" <%=data.event.me.receiveNotification=='1' ? 'checked="checked"' : ''%>/>
+        <label for="request-update"><%= '_[[Get updates]]' %></label>
+        </p>
+
+        <input type="hidden" name="delegatedFrom[]" value="<%=data.event.me.delegatedFrom%>">
+
+        <input type="hidden" name="attendee[]" value="<%=data.event.me.id%>">
+        <input type="hidden" name="attendeeType[]" value="0">
+        <input type="hidden" name="attendeeAcl[]" value="<%=data.event.me.acl%>">
+
+    </dd>
+
+    <dt class="attendee-list"><%= '_[[Guests]]' %></dt>
+    <dd class="attendee-list">
+        <ul class="attendee-list">
+            <% if (data.event.isAttendee && !data.event.acl.organization){ %>
+            <label for="attendee" title="<%=  data.event.me.user ? data.event.me.user.mail : data.event.me.mail %>" class="mail hidden"></label>
+            <%}%>
+
+            <li class="organizer <%= (data.event.acl.organization || (data.event.delegatedFrom[data.event.me.id] && data.event.delegatedFrom[data.event.me.id].isOrganizer == '1')) ? "hidden" : "" %>">
+            <div style="overflow:hidden; width:100%; display:table;">
+                <span class="space-status ui-icon <%=iconStatus[data.event.organizer.status]%>" title="<%=legendStatus[data.event.organizer.status]%>"></span>
+                <span class="space-special ui-icon ui-icon-person" title="<%= '_[[Organizer]]' %>"></span>
+                <% if (!data.event.acl.organization && (data.event.organizer.id != data.event.me.id )) { %>
+                <input type="checkbox" value="<%= data.event.organizer.id %>" disabled="disabled">
+                <input type="hidden" name="attendee[]" value="<%=data.event.organizer.id%>">
+                <input type="hidden" name="attendeeType[]" value="0">
+                <input type="hidden" name="attendeeAcl[]" value="<%=data.event.organizer.acl%>">
+                <input type="hidden" name="delegatedFrom[]" value="<%=data.event.organizer.delegatedFrom%>">
+                <%}%>
+                <input type="hidden" name="attendee_organizer" value="<%=data.event.organizer.id%>">
+                <label for="attendee_organizer" title="<%= data.event.organizer.name ? data.event.organizer.name: '' %>" class="name name-special"><%= data.event.organizer.name ? data.event.organizer.name : '' %></label>
+                <label for="attendee_organizer" title="<%= data.event.organizer.mail ? data.event.organizer.mail: '' %>" class="mail name-special"><%= data.event.organizer.mail ? data.event.organizer.mail : '' %></label>
+            </div>
+            </li>
+            <%if(!!data.event.delegatedFrom[data.event.me.id]){
+            var delegated_me = data.event.delegatedFrom[data.event.me.id]%>
+            <li class="me-delegated">
+                <div style="overflow:hidden; width:100%; display:table;">
+                    <span class="space-status ui-icon <%=iconStatus[delegated_me.status]%>" title="<%=legendStatus[delegated_me.status]%>"></span>
+                    <span class="space-special ui-icon <%=iconStatus[5]%>" title="<%= '_[[Delegate for]]' %>"></span>
+                    <input type="checkbox" value="<%= delegated_me.id%>" disabled="disabled">
+                    <label for="me-delegated" title="<%= delegated_me.name ? delegated_me.name: '' %>" claess="name name-special"><%= delegated_me.name ? delegated_me.name : '' %></label>
+                    <label for="me-delegated" title="<%= delegated_me.mail ? delegated_me.mail: '' %>" class="mail name-special"><%= delegated_me.mail ? delegated_me.mail : '' %></label>
+                </div>
+            </li>
+            <%}%>
+            <% if (data.event && data.event.attendee.length > 0) {
+            for (var i=0; i< data.event.attendee.length; i++) {%>
+            <li class="attendee">
+                <div style="overflow:hidden; width:100%; display:table;">
+                    <%if(data.event.delegatedFrom[data.event.attendee[i].id]){%>
+                    <span class="open-delegate new ui-icon ui-icon-triangle-1-e"></span>
+                    <%}else{%>
+                    <span class="space-status ui-icon <%=iconStatus[data.event.attendee[i].status]%>" title="<%=legendStatus[data.event.attendee[i].status]%>"></span>
+                    <%}%>
+                    <span class="space-special ui-icon <%= !!data.event.delegatedFrom[data.event.attendee[i].id] ? iconStatus[5] : iconStatus[6]%>" title="<%=!!data.event.delegatedFrom[data.event.attendee[i].id] ? legendStatus[5] : legendStatus[6]%>"></span>
+                    <%if(data.event.acl.organization || data.event.acl.write){%>
+                    <input type="checkbox" class="new" value="<%= data.event.attendee[i].id %>">
+                    <%}else{%>
+                    <input type="checkbox" value="<%= data.event.attendee[i].id%>" disabled="disabled">
+                    <%}%>
+                    <input type="hidden" name="attendee[]" value="<%=data.event.attendee[i].id%>">
+                    <input type="hidden" name="attendeeType[]" value="<%=data.event.attendee[i].isExternal%>">
+                    <input type="hidden" name="attendeeAcl[]" value="<%=data.event.attendee[i].acl%>">
+                    <input type="hidden" name="delegatedFrom[]" value="<%=data.event.attendee[i].delegatedFrom%>">
+                    <label title="<%= data.event.attendee[i].name ? data.event.attendee[i].name: '' %>" class="name <%= !!data.event.delegatedFrom[data.event.attendee[i].id] ? "name-special-delegated" : "name-special" %>"><%= data.event.attendee[i].name ? data.event.attendee[i].name : '' %></label>
+                    <label title="<%= data.event.attendee[i].mail ? data.event.attendee[i].mail : ''%>" class="mail <%= !!data.event.delegatedFrom[data.event.attendee[i].id] ? "name-special-delegated" : "name-special"%>"><%= data.event.attendee[i].mail ? data.event.attendee[i].mail : '' %></label>
+                    <span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span>
+                </div>
+                <div class="attendee-options">
+                    <%if(data.event.acl.organization || data.event.acl.write){%>
+                    <a class="button edit attendee-options-button-edit new"><%= '_[[Edit permissions]]' %></a>
+                    <a class="button close new"><%= '_[[Remove]]' %></a>
+                    <%}%>
+                </div>
 
 
-						<%if(!!data.event.delegatedFrom[data.event.attendee[i].id]){%>
-							<%var attendee = data.event.delegatedFrom[data.event.attendee[i].id]%>
-							<% while(attendee != 0){%>
-								<div class="list-delegates hidden">
-									<div style="overflow:hidden; width:100%; display:table;">
-										<span class="status-delegate ui-icon <%=iconStatus[attendee.status]%>" title="<%=legendStatus[attendee.status]%>"></span>
-										<span class="space-special-delegated ui-icon <%= !!data.event.delegatedFrom[attendee.id] ? iconStatus[5] : iconStatus[6]%>" title="<%=!!data.event.delegatedFrom[attendee.id] ? legendStatus[5] : legendStatus[6]%>"></span>
-										<input type="hidden" name="attendee[]" value="<%=attendee.id%>">
-										<input type="hidden" name="attendeeType[]" value="<%=attendee.isExternal%>">
-										<input type="hidden" name="attendeeAcl[]" value="<%=attendee.acl%>">
-										<input type="hidden" name="delegatedFrom[]" value="<%=attendee.delegatedFrom%>">
-										<label title="<%= attendee.name ? attendee.name : '' %>" class="name <%=attendee.status == 5 ? "name-status-delegated-delegated" : "name-status-delegated-none"%>"><%= attendee.name ? attendee.name : '' %></label>
-										<label title="<%= attendee.mail ? attendee.mail : '' %>" class="mail <%=attendee.status == 5 ? "name-status-delegated-none" : "name-status-delegated-none"%>"><%= attendee.mail ? attendee.mail : '' %></label>
-										<span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span>
-									</div> 
-								</div>
-								<%attendee = !!data.event.delegatedFrom[attendee.id] ? data.event.delegatedFrom[attendee.id] : 0%>
-							<%}%>
-						<%}%>
-						
+                <%if(!!data.event.delegatedFrom[data.event.attendee[i].id]){%>
+                <%var attendee = data.event.delegatedFrom[data.event.attendee[i].id]%>
+                <% while(attendee != 0){%>
+                <div class="list-delegates hidden">
+                    <div style="overflow:hidden; width:100%; display:table;">
+                        <span class="status-delegate ui-icon <%=iconStatus[attendee.status]%>" title="<%=legendStatus[attendee.status]%>"></span>
+                        <span class="space-special-delegated ui-icon <%= !!data.event.delegatedFrom[attendee.id] ? iconStatus[5] : iconStatus[6]%>" title="<%=!!data.event.delegatedFrom[attendee.id] ? legendStatus[5] : legendStatus[6]%>"></span>
+                        <input type="hidden" name="attendee[]" value="<%=attendee.id%>">
+                        <input type="hidden" name="attendeeType[]" value="<%=attendee.isExternal%>">
+                        <input type="hidden" name="attendeeAcl[]" value="<%=attendee.acl%>">
+                        <input type="hidden" name="delegatedFrom[]" value="<%=attendee.delegatedFrom%>">
+                        <label title="<%= attendee.name ? attendee.name : '' %>" class="name <%=attendee.status == 5 ? "name-status-delegated-delegated" : "name-status-delegated-none"%>"><%= attendee.name ? attendee.name : '' %></label>
+                        <label title="<%= attendee.mail ? attendee.mail : '' %>" class="mail <%=attendee.status == 5 ? "name-status-delegated-none" : "name-status-delegated-none"%>"><%= attendee.mail ? attendee.mail : '' %></label>
+                        <span class="ui-icon ui-icon-close ui-corner-all ui-icon-float-right"></span>
+                    </div>
+                </div>
+                <%attendee = !!data.event.delegatedFrom[attendee.id] ? data.event.delegatedFrom[attendee.id] : 0%>
+                <%}%>
+                <%}%>
 
-					</li>	
-				<%} 
-			} else if((data.event.me.id == data.event.organizer.id) && (data.event.attendee.length == 0) && $.isEmptyObject(data.event.delegatedFrom)){ %>
-				<li class="not-attendee">Não há outros participantes.</li>
-			<% } %>
-			</ul>
-		</dd>
-		<dd class="attendee-list-add <%= (data.event.acl.organization || data.event.acl.write || data.event.acl.inviteGuests) && data.event.isAttendee ? '' : 'hidden' %>">
-			<fieldset class="add-attendee-input input-field-rounded ui-corner-all">
-				<span class="ui-icon ui-icon-plus"></span>
-				<input class="plus" type="text" />
-			</fieldset>
-		</dd>
-		
-		<div class="ui-widget email-validation hidden">
-			<div style="padding: 0.2em 0.7em; margin-top: 5px;" class="ui-state-highlight ui-corner-all"> 
-				<p class="message">
-					<span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span> 
-					<label></label>
-				</p>
-			</div>
-		</div>
-		
-		<dd class="attendee-list-brief">
-		<% if (data.event && data.event.attendee.length > 0) { %>
-		  <ul class="attendees-count">
-		    <li><label>Sim:</label><%=data.event.statusParticipants.accepted%></li>
-		    <li><label>Não:</label><%=data.event.statusParticipants.cancelled%></li>
-		    <li><label>Talvez:</label><%=data.event.statusParticipants.tentative%></li>
-		    <li><label>Aguardando:</label><%=data.event.statusParticipants.unanswered%></li>
-		  </ul>     
-	    <% } %>
-	    <% if (data.event && data.event.sizeAttendeeLimit){%>
-		<ul class="attendees-count">
-		    <li>Evento com muitos participantes, exibindo os 100 primeiros!</li>
-		</ul>
-	    <% } %>
-		</dd>
-		
-	</dl>
+
+            </li>
+            <%}
+            } else if((data.event.me.id == data.event.organizer.id) && (data.event.attendee.length == 0) && $.isEmptyObject(data.event.delegatedFrom)){ %>
+            <li class="not-attendee"><%= '_[[No other participants.]]' %></li>
+            <% } %>
+        </ul>
+    </dd>
+    <dd class="attendee-list-add <%= (data.event.acl.organization || data.event.acl.write || data.event.acl.inviteGuests) && data.event.isAttendee ? '' : 'hidden' %>">
+        <fieldset class="add-attendee-input input-field-rounded ui-corner-all">
+            <span class="ui-icon ui-icon-plus"></span>
+            <input class="plus" type="text" />
+        </fieldset>
+    </dd>
+
+    <div class="ui-widget email-validation hidden">
+        <div style="padding: 0.2em 0.7em; margin-top: 5px;" class="ui-state-highlight ui-corner-all">
+            <p class="message">
+                <span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+                <label></label>
+            </p>
+        </div>
+    </div>
+
+    <dd class="attendee-list-brief">
+        <% if (data.event && data.event.attendee.length > 0) { %>
+        <ul class="attendees-count">
+            <li><label><%= '_[[Yes]]' %>:</label><%=data.event.statusParticipants.accepted%></li>
+            <li><label><%= '_[[No]]' %>:</label><%=data.event.statusParticipants.cancelled%></li>
+            <li><label><%= '_[[Maybe]]' %>:</label><%=data.event.statusParticipants.tentative%></li>
+            <li><label><%= '_[[Waiting]]' %>:</label><%=data.event.statusParticipants.unanswered%></li>
+        </ul>
+        <% } %>
+        <% if (data.event && data.event.sizeAttendeeLimit){%>
+        <ul class="attendees-count">
+            <li><%= '_[[Event with many participants, showing the first 100!]]' %></li>
+        </ul>
+        <% } %>
+    </dd>
+
+</dl>
 <% var isSearch = (data.event.acl.organization || data.event.acl.write || data.event.acl.inviteGuests) ? '' : 'hidden' %>
 <dl class="block-add-attendee search <%= isSearch %>">
-	<dt class="add-attendee search">Adicionar outros convidados</dt>
-	<dd class="add-attendee">
-		<fieldset class="block-add-attendee" title="Participantes">
-			<fieldset class="add-attendee-search search-field ui-corner-all">
-				<input class="search" type="text" />
-				<span class="ui-icon ui-icon-search"></span>
-			</fieldset>
-			<ul class="search-result-list ui-corner-all">
+    <dt class="add-attendee search"><%= '_[[Add other guests]]' %></dt>
+    <dd class="add-attendee">
+        <fieldset class="block-add-attendee" title="<%= '_[[Participants]]' %>">
+            <fieldset class="add-attendee-search search-field ui-corner-all">
+                <input class="search" type="text" />
+                <span class="ui-icon ui-icon-search"></span>
+            </fieldset>
+            <ul class="search-result-list ui-corner-all">
 
-			</ul>
+            </ul>
 
-		</fieldset>
-	</dd>
+        </fieldset>
+    </dd>
 </dl>
 

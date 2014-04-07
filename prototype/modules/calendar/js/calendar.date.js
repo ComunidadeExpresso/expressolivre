@@ -2,47 +2,47 @@ dateCalendar = {
 	//sortMonthOfNumber
 	monthNamesShort:
 		[
-			'Jan',
-			'Fev',
-			'Mar',
-			'Abr',
-			'Mai',
-			'Jun',
-			'Jul',
-			'Ago',
-			'Set',
-			'Out',
-			'Nov',
-			'Dez'
+			'_[[Jan]]',
+			'_[[Feb]]',
+			'_[[Mar]]',
+			'_[[Apr]]',
+			'_[[May]]',
+			'_[[June]]',
+			'_[[July]]',
+			'_[[Aug]]',
+			'_[[Sept]]',
+			'_[[Oct]]',
+			'_[[Nov]]',
+			'_[[Dez]]'
 		],
 
 	//MonthOfNumber
 	monthNames:
 		[	
-			'Janeiro',
-			'Fevereiro',
-			'Março',
-			'Abril',
-			'Maio',
-			'Junho',
-			'Julho',
-			'Agosto',
-			'Setembro',
-			'Outubro',
-			'Novembro',
-			'Dezembro'
+			'_[[January]]',
+			'_[[February]]',
+			'_[[March]]',
+			'_[[April]]',
+			'_[[May]]',
+			'_[[June]]',
+			'_[[July]]',
+			'_[[August]]',
+			'_[[September]]',
+			'_[[October]]',
+			'_[[November]]',
+			'_[[December]]'
 		],
 
 	//weekOfDay
 	dayNames:
 		[
-			'Domingo',
-			'Segunda',
-			'Terça',
-			'Quarta',
-			'Quinta',
-			'Sexta',
-			'Sábado'
+			'_[[Sunday]]',
+			'_[[Monday]]',
+			'_[[Tuesday]]',
+			'_[[Wednesday]]',
+			'_[[Thursday]]',
+			'_[[Friday]]',
+			'_[[Saturday]]'
 		],
 	
 	dayOfWeek:
@@ -58,36 +58,36 @@ dateCalendar = {
 		
 	dayNamesShort:
 		[
-			'Dom',
-			'Seg',
-			'Ter',
-			'Qua',
-			'Qui',
-			'Sex',
-			'Sab'
+			'_[[Sun]]',
+			'_[[Mon]]',
+			'_[[Tue]]',
+			'_[[Wed]]',
+			'_[[Thu]]',
+			'_[[Fri]]',
+			'_[[Sat]]'
 		],
 		
 	dayNamesShortest:
 		[
-			'D',
-			'S',
-			'T',
-			'Q',
-			'Q ',
-			'S ',
-			'S'
+			'_[[S]]',
+			'_[[M]]',
+			'_[[T]]',
+			'_[[W]]',
+			'_[[T]]',
+			'_[[F]]',
+			'_[[S]]'
 		],
 	
 	timeunit : 
 	{	
-		'h': 'hora',
-		'd': 'dia',
-		'm': 'minuto'
+		'h': '_[[time]]',
+		'd': '_[[day]]',
+		'm': '_[[minute]]'
 	},
 	
 	alarmtype:{
-		'alert' : 'alerta',
-		'mail' : 'email',
+		'alert' : '_[[alert]]',
+		'mail' : '_[[mail]]',
 		'sms': 'sms'
 	},
 	

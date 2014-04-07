@@ -66,6 +66,12 @@ class DBMapping extends Helpers {
     static function encodeCreateSchedulable(&$uri, &$params, &$criteria, $original) 
     {
 
+        if($params['type'] == 2 && $params['allDay'] == 0){
+            $params['due'] = date('Y-m-d', strtotime($params['startTime']));
+            $params['endTime'] = $params['due'] . ' 23:59';
+            $params['due'] = self::parseTimeDate($params['due'] . ' 23:59', $params['timezone']);
+        }
+
     	if (isset($params['startTime']) && !is_numeric($params['startTime']))
     	    $params['startTime'] = self::parseTimeDate($params['startTime'], $params['timezone']);
 	

@@ -1,6 +1,6 @@
-<br />[participant] sugeriu um novo horário para o seu convite de compromisso agendado para [startDate].<br /><br />
+<br />[participant] _[[suggested a new time for your scheduled appointment to]] [startDate].<br /><br />
 <strong>[eventTitle]</strong><br />
-<strong>Início sugerido:</strong> [startDateSuggested] [startTimeSuggested]<br />
-<strong>Término:</strong> [endDateSuggested] [endTimeSuggested]<br />
-<strong>Local:</strong> [eventLocation]<br />
-<strong>Participantes:</strong> [participants]
+<strong>_[[Suggested start]]:</strong> [startDateSuggested] [startTimeSuggested]<br />
+<strong>_[[End]]:</strong> [endDateSuggested] [endTimeSuggested]<br />
+<strong>_[[Local]]:</strong> [eventLocation]<br />
+<strong>_[[Participants]]:</strong> [participants]

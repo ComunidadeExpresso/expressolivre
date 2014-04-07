@@ -68,7 +68,7 @@ function valid_tabs(children_of_this_folder, folder_to_move){
         $.each(children_of_this_folder, function(index, value){
             if($(children_of_this_folder[index]).attr('id') == openTab.imapBox[$(borders_open[i]).find("input[type=hidden]").attr("name")]){
                 error = true;
-                write_msg(get_lang("One or more messages from any sub-folder are open"));
+                write_msg('_[[One or more messages from any sub-folder are open]]');
                 return error;
                 
             }
@@ -79,7 +79,7 @@ function valid_tabs(children_of_this_folder, folder_to_move){
         //VERIFICA SE EXISTE NA PASTA A SER MOVIDA
         if(openTab.imapBox[$(borders_open[i]).find("input[type=hidden]").attr("name")] == folder_to_move){
             error = true;
-            write_msg(get_lang("One or more messages from this folder are open"));
+            write_msg('_[[One or more messages from this folder are open]]');
             return error;
         }
     }
@@ -428,7 +428,7 @@ function draw_new_tree_folder(callback, force)
             if($(this).parent().attr('id') == undefined)
             {
                 var folder_to = 'INBOX';
-                var to_folder_title = get_lang("Inbox");
+                var to_folder_title = "_[Inbox]";
             }
             else
             {
@@ -471,11 +471,11 @@ function draw_new_tree_folder(callback, force)
             {
                 if($(ui.draggable[0]).parent().find("input").val() == "localFolder" && $(this).parents("li").find("input").first().val() != "localFolder")
                 {
-                    return write_msg(get_lang("It isn't possible to send a folder by Archiver to My folders"));
+                    return write_msg('_[[It isn\'t possible to send a folder by Archiver to My folders]]');
                 }
                 else if(!$(ui.draggable[0]).parent().find("input").val() && $(this).parents("li").find("input").first().val() == "localFolder")
                 {
-                    return write_msg(get_lang("It isn't possible to send a folder by My folders to Archiver"));
+                    return write_msg('_[[It isn\'t possible to send a folder by My folders to Archiver]]');
                 }
                 var folder_to_exist = folder_to_move.split(cyrus_delimiter);
                 folder_to_exist = folder_to + cyrus_delimiter + folder_to_exist[folder_to_exist.length - 1];
@@ -489,30 +489,30 @@ function draw_new_tree_folder(callback, force)
                 // VALIDA SE O USUARIO ESTA TENTANDO MOVER A PASTA PARA O eventSMO LOCAL
                 if(folder_to_exist == folder_to_move)
                 {
-                    return write_msg(get_lang("Thie folder is already in this place"));
+                    return write_msg('_[[Thie folder is already in this place]]');
                 }
 
                 // VALIDA SE O USUARIO ESTA TENTANDO MOVER A PASTA ABERTA NO momentO
                 if(folder_to_move == get_current_folder())
                 {
-                    return write_msg(get_lang("It's not possible move this folder, because it is being used in the moment!"));
+                    return write_msg('_[[It\'s not possible move this folder, because it is being used in the moment!]]');
                 }
 
                 // VALIDA SE O USUARIO ESTA TENTANDO MOVER UMA PASTA FILHA DA PASTA ABERTA NO momentO
                 if(ui.draggable.parent().find(".selected")[0])
                 {
-                    return write_msg(get_lang("It's not possible move this folder, because its subfolder is being used in the moment!"));
+                    return write_msg('_[It\'s not possible move this folder, because its subfolder is being used in the moment!]');
                 }
 
                 // VALIDA SE O USUARIO ESTA TENTANDO MOVER UMA PASTA PAI PARA DENTRO DE UMA FILHA
                 if(ui.draggable.parent().find('[id="' + folder_to + '"]')[0])
                 {
-                    return write_msg(get_lang("It's not possible to move this folder to its subfolders!"));
+                    return write_msg('_[It\'s not possible to move this folder to its subfolders!]');
                 }
 
                 if($('[id="' + folder_to_exist + '"]').length)
                 {
-                    return write_msg(get_lang("Can not move this folder to this location, because the target has already a folder with this name"));
+                    return write_msg('_[[Can not move this folder to this location, because the target has already a folder with this name]]');
                 }
 
                 $(this).addClass("folders-loading");
@@ -541,15 +541,15 @@ function draw_new_tree_folder(callback, force)
                             data = connector.unserialize(data);
                             if(data == "Permission denied")
                             {
-                                write_msg(get_lang("Permission denied"));
+                                write_msg('_[[Permission denied]]');
                             }
                             else if(data)
                             {
-                                write_msg(get_lang("The folder was successfully moved"));
+                                write_msg('_[[The folder was successfully moved]]');
                             }
                             else
                             {
-                                write_msg(get_lang("ERROR moving your folder."));
+                                write_msg('_[[Error moving your folder.]]');
                             }
                         }
                     });
@@ -602,11 +602,11 @@ function draw_new_tree_folder(callback, force)
                 var name = $.trim($(this).parents(".closed:first").find("span:first").text().split("[")[0]);
                 if($(this).parents(".closed:first").find("span:first").hasClass("selected"))
                 {
-                    return write_msg(get_lang("It's not possible rename this folder, because it is being used in the moment!"));
+                    return write_msg('_[[It\'s not possible rename this folder, because it is being used in the moment!]');
                 }
                 if($(this).parents(".closed:first").find("span.selected").length)
                 {
-                    return write_msg(get_lang("It's not possible rename this folder, because its subfolder is being used in the moment!"));
+                    return write_msg('_[It\'s not possible rename this folder, because its subfolder is being used in the moment!]');
                 }
                 if(valid_tabs($(this).parents("li:first").find("li"), folder_id))
                 {
@@ -624,13 +624,13 @@ function draw_new_tree_folder(callback, force)
                              * em parte do nome (palavra reservada para pastas locais) */
                             if($(this).val().match(/[\`\~\^\<\>\|\\\"\!\@\#\$\%\&\*\+\(\)\[\]\{\}\?;:]/gi) || $(this).val().indexOf("local_") != -1)
                             {
-                                return write_msg(get_lang("cannot create folder. try other folder name"));
+                                return write_msg("_[cannot create folder. try other folder name]");
                             }
                             var new_name = folder_id.replace(/[a-zA-Z0-9á-úÁ-Ú,=^\s_-]+$/, $(this).val());
                             if($('[id="' + new_name + '"]').length)
                             {
                                 $(".folders-loading").removeClass("folders-loading");
-                                write_msg(get_lang("Mailbox already exists"));
+                                write_msg('_[[Mailbox already exists]]');
                                 return draw_new_tree_folder();
                             }
                             $(".new_folder").parent().addClass("folders-loading");
@@ -655,9 +655,9 @@ function draw_new_tree_folder(callback, force)
                                         {
                                             $(".folders-loading").removeClass("folders-loading");
                                             cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
-                                            return write_msg(get_lang("Permission denied"));
+                                            return write_msg('_[[Permission denied]]');
                                         }
-                                        write_msg(get_lang("The folder was successfully rename"));
+                                        write_msg('_[[The folder was successfully rename]]');
                                         cExecute("$this.imap_functions.get_folders_list&onload=true", force_update_menu);
                                     }
                                 });
@@ -695,25 +695,25 @@ function draw_new_tree_folder(callback, force)
                 if($(this).parents(".closed:first").find("ul").length)
                 {
                     $(this).parents(".closed:first").find(".folder").removeClass("folders-loading");
-                    return write_msg(get_lang("Delete/move subfolders first"));
+                    return write_msg('_[[Delete/move subfolders first]]');
                 }
                 if($(this).parents(".closed:first").find("span.selected").length)
                 {
                     $(this).parents(".closed:first").find(".folder").removeClass("folders-loading");
-                    return write_msg(get_lang("It's not possible delete this folder, because it is being used in the moment!"));
+                    return write_msg('_[[It\'s not possible delete this folder, because it is being used in the moment!]]');
                 }
                 var folder_span = $(this);
-                var confirm_text = get_lang("Do you wish to exclude the folder ");
+                var confirm_text = '_[[Do you wish to exclude the folder]' + ' ';
 
                 $.Zebra_Dialog(confirm_text + folder_name, {
                     'type': 'question',
                     'overlay_opacity': '0.5',
                     'custom_class': 'custom-zebra-filter',
-                    'buttons': [get_lang('Yes'), get_lang('No')],
+                    'buttons': ['_[[Yes]]', '_[[No]]'],
                     'onClose': function(caption)
                     {
 
-                        if(caption == get_lang('Yes'))
+                        if(caption == '_[[Yes]]')
                         {
                             if(folder_span.parents("li").find("input").first().val() == "localFolder")
                             {
@@ -734,15 +734,15 @@ function draw_new_tree_folder(callback, force)
                                         if(data == "Mailbox does not exist")
                                         {
                                             $(".folders-loading").removeClass("folders-loading");
-                                            return write_msg(get_lang("Mailbox does not exist"));
+                                            return write_msg('_[[Mailbox does not exist]]');
                                         }
                                         else if(data == "Permission denied")
                                         {
                                             $(".folders-loading").removeClass("folders-loading");
                                             cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
-                                            return write_msg(get_lang("Permission denied"));
+                                            return write_msg("_[Permission denied]");
                                         }
-                                        write_msg(get_lang("The folder %1 was successfully removed", folder_name));
+                                        write_msg('_[[The folder $folder_name$ was successfully removed]]');
                                         cExecute("$this.imap_functions.get_folders_list&onload=true", force_update_menu);
                                     }
                                 });
@@ -796,7 +796,7 @@ function draw_new_tree_folder(callback, force)
                     });
                 }
                 var existsIdenticalFolder = false;
-                selected_li.find(".new_folder").Watermark("Nova Pasta").focus().keydown(function(event)
+                selected_li.find(".new_folder").Watermark('_[[New folder]]').focus().keydown(function(event)
                 {
                     event.stopPropagation();
 
@@ -843,7 +843,7 @@ function draw_new_tree_folder(callback, force)
                          * em parte do nome (palavra reservada para pastas locais) */
                         if($(this).val().match(/[\`\~\^\<\>\|\\\"\!\@\#\$\%\&\*\+\(\)\[\]\{\}\?;:]/gi) || $(this).val().indexOf("local_") != -1)
                         {
-                            return write_msg(get_lang("cannot create folder. try other folder name"));
+                            return write_msg('_[[cannot create folder. try other folder name]]');
                         }
                         if($(this).parents("li").find("input[type=hidden]").val() == "localFolder")
                         {
@@ -851,7 +851,7 @@ function draw_new_tree_folder(callback, force)
                             $(".new_folder").parent().addClass("folders-loading");
 
                             var folderName = $(this).val();
-                            var folder = (folderName != "" ? folderName : get_lang("New Folder"));
+                            var folder = (folderName != "" ? folderName : "_[New Folder]");
                             var father = typeof(selected_li.attr('id')) != "undefined" ? selected_li.attr('id').split("_")[2] : "home";
 
                             $(this).parents(".treeview:first").find("li").each(function()
@@ -867,7 +867,7 @@ function draw_new_tree_folder(callback, force)
                             if(existsIdenticalFolder)
                             {
                                 event.stopPropagation();
-                                write_msg(get_lang("Mailbox already exists"));
+                                write_msg('_[[Mailbox already exists]]');
                                 draw_new_tree_folder();
                                 return false;
                             }
@@ -880,7 +880,7 @@ function draw_new_tree_folder(callback, force)
                             }
                             else
                             {
-                                var folder = (folderName != "" ? folderName : get_lang("New Folder"));
+                                var folder = (folderName != "" ? folderName : '_[[New Folder]]');
                                 create_new_local_folder((selected_li.attr('id') ? selected_li.attr('id') : "inbox"), folder);
                             }
 
@@ -891,11 +891,11 @@ function draw_new_tree_folder(callback, force)
                             if($('[id="' + (selected_li.attr('id') ? selected_li.attr('id') : "INBOX") + cyrus_delimiter + $(this).val() + '"]').length)
                             {
                                 $(".folders-loading").removeClass("folders-loading");
-                                write_msg(get_lang("Mailbox already exists"));
+                                write_msg('_[[Mailbox already exists]]');
                                 return draw_new_tree_folder();
                             }
                             $(".new_folder").parent().addClass("folders-loading");
-                            create_new_folder(($(this).val() != "" ? $(this).val() : get_lang("New Folder")), (selected_li.attr('id') ? selected_li.attr('id') : "INBOX"));
+                            create_new_folder(($(this).val() != "" ? $(this).val() : '_[[New folder]]'), (selected_li.attr('id') ? selected_li.attr('id') : "INBOX"));
                         }
 
                     }
@@ -924,11 +924,11 @@ function draw_new_tree_folder(callback, force)
                         clean_msg();
                         if(!data)
                         {
-                            write_msg(get_lang('Error compressing messages (ZIP). Contact the administrator.'))
+                            write_msg('_[[Error compressing messages (ZIP). Contact the administrator.]]')
                         }
                         else if(data["empty_folder"] || data == "empty_folder")
                         {
-                            write_msg(get_lang("The selected folder is empty."));
+                            write_msg('_[[The selected folder is empty.]]');
                         }
                         else download_attachments(null, null, data, null, null, name_folder + '.zip');
                     }
@@ -944,7 +944,7 @@ function draw_new_tree_folder(callback, force)
                 {
                     cExecute("$this.exporteml.export_all", hand_export, "folder=" + name_box);
                 }
-                write_msg(get_lang('You must wait while the messages will be exported...'), true);
+                write_msg('_[[You must wait while the messages will be exported...]]', true);
             });
             //FUNÇÃO DO eventNU FLUTUANTE NOVA PASTA < END
         }

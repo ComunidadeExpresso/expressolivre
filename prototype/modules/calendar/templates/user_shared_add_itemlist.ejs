@@ -2,7 +2,7 @@
 	<div style="overflow:hidden; width:999px; display:table;">
 		<%if(data[0].isCalendar){%>
 			<div class="user-acls-shared-calendar calendar">
-					<a class="button close new">Remover</a>
+					<a class="button close new"><%= '_[[Remove]]' %></a>
 			</div>
 			
 			<input type="checkbox" class="hidden" name="idPermission" value="<%=data[0].idPermission%>">
@@ -11,12 +11,12 @@
 			<label title="<%= !!data[0].description ? data[0].description : data[0].name %>" class="name"><%= data[0].name ? data[0].name : '' %></label>
 		<%}else{%>
 			<div class="user-acls-shared-calendar">
-					<a class="button read user-options-button-view new">Ver</a>
-					<a class="button write user-options-button-edit-new new">Criar/Editar</a>
-					<a class="button remove user-options-button-remove new">Excluir</a>
-					<a class="button busy user-options-button-free-bussy new">Livre/Ocupado</a>
-					<a class="button shared user-options-button-shared new">Compartilhar</a>
-					<a class="button close new">Remover</a>
+					<a class="button read user-options-button-view new"><%= '_[[See]]' %></a>
+					<a class="button write user-options-button-edit-new new"><%= '_[[Create/Edit]]' %></a>
+					<a class="button remove user-options-button-remove new"><%= '_[[Delete]]' %></a>
+					<a class="button busy user-options-button-free-bussy new"><%= '_[[Free/Busy]]' %></a>
+					<a class="button shared user-options-button-shared new"><%= '_[[Share]]' %></a>
+					<a class="button close new"><%= '_[[Remove]]' %></a>
 			</div>
 
 		<input type="checkbox" value="<%=data[0].current ? data[0].idPermission : data[0].id%>">

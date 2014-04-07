@@ -250,7 +250,7 @@ function delete_label(id){
 	winElement.find(".label-list li:first").trigger("click");
 	
 	if($(".label-list li").length == 0){
-		winElement.find(".label-list-container").html('<ul class="label-list"><li class="empty-item">'+get_lang("No labels found.")+'.</li></ul>');
+		winElement.find(".label-list-container").html('<ul class="label-list"><li class="empty-item">'+'_[[No label found]]'+'.</li></ul>');
 		$(".save-label").button("disable");	
 	}
 	var qtdLi = $(".label-list-container ul").find("li").not(".empty-item").length;
@@ -406,7 +406,7 @@ function init_label(data){
 	}else{
 		//Exibe a mensagem informando o usuário de que não há nenhum marcador cadastrado.
 		Label_List = winElement
-		.find(".label-list-container").html('<ul class="label-list"><li class="empty-item">'+get_lang("No labels found.")+'.</li></ul>');
+		.find(".label-list-container").html('<ul class="label-list"><li class="empty-item">'+'_[[No labels found.]]'+'.</li></ul>');
 		
 	}
 	Label_List.end()

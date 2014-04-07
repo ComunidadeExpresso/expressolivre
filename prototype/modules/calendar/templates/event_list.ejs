@@ -1,6 +1,6 @@
 <%
 
-    var decoder = {status: {1: 'Sem ações', 2: 'Em processo', 3: 'Completo', 4: 'Cancelado'}, priority: {1: 'Alta', 2: 'Normal', 3: 'Baixa'}}
+    var decoder = {status: {1: '_[[No actions]]', 2: '_[[In process]]', 3: '_[[Complete]]', 4: '_[[Canceled]]'}, priority: {1: '_[[High]]', 2: '_[[Normal]]', 3: '_[[Low]]'}}
 
 %>
 
@@ -53,13 +53,13 @@
 							var title_type = "";
 							if(_event.type == '1'){
 								img_type = "../prototype/modules/calendar/img/big-event.png";
-								title_type = "Evento";
+								title_type = "_[[Event]]";
 							}if(_event.type == '2'){
 								img_type = "../prototype/modules/calendar/img/big-task.png"; 
-								title_type = "Tarefa";
+								title_type = "_[[Task]]";
 							}if(_event.type == '3'){
 								img_type = "../prototype/modules/calendar/img/big-activity.png"; 
-								title_type = "Atividade";
+								title_type = "_[[Activity]]";
 							}
 							%>
 							<img title="<%= title_type %>" src="<%= img_type %>"> 
@@ -70,19 +70,19 @@
 							var title     = "";
 							var url_image = "";
 							if (_event.repeat) {
-								title	  = "Este evento tem repetição";
+								title	  = "_[[This event has repeat]]";
 								url_image = "img/repeat.png";
 							}
 							if ((_event.alarms) && (_event.alarms.length > 0)) {
-								title	  = "Este evento tem lembretes";
+								title	  = "_[[This event has alarms]]";
 								url_image = "img/alarm.png";
 							}
 							if ((_event.attachments) && (_event.attachments.length > 0)) {
-								title	  = "Este evento tem anexos";
+								title	  = "_[[This event has attachments]]";
 								url_image = "img/attachment.png";
 							}
 							if ((_event.participants) && (_event.participants.length > 0)) {
-								title	  = "Este evento tem participantes";
+								title	  = "This event has participants";
 								url_image = "img/user.png";
 							}
 						    */						
@@ -111,9 +111,9 @@
                                 <input name="eventid" type="hidden" value="<%=_event.id%>"/>
                                 <input name="eventtype" type="hidden" value="<%=_event.type%>"/>
                                 <input name="calendarid" type="hidden" value="<%=_event.calendar ? _event.calendar : _event.group%>"/>
-                                <a title="Imprimir" class="button print" href="#">Imprimir</a>
-                                <a title="Excluir" class="button delete" href="#">Excluir</a>
-                                <a title="Editar" class="button edit" href="#">Editar</a>
+                                <a title="<%= '_[[Print]]' %>" class="button print" href="#"><%= '_[[Print]]' %></a>
+                                <a title="<%= '_[[Delete]]' %>" class="button delete" href="#"><%= '_[[Delete]]' %></a>
+                                <a title="<%= '_[[Edit]]' %>" class="button edit" href="#"><%= '_[[Edit]]' %></a>
                             </div>
 						</div>
 	

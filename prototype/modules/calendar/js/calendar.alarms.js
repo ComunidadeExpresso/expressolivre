@@ -15,7 +15,7 @@ Alarms = {
 
 		    desktopNotification.sentNotification(
 			'../expressoCalendar/templates/default/images/navbar.png',
-			'Você possui um compromisso agendado:', 
+			'_[[You have a scheduled appointment]]' + ':',
 			eventDay.event_start + ' ' + eventDay.schedulable.startTime + ' - ' + eventDay.schedulable.summary
 			);
 
@@ -39,7 +39,7 @@ Alarms = {
 			$.Zebra_Dialog(html , {
 			    'type':     'question',
 			    'overlay_opacity': '0.5',
-			    'buttons':  ['Fechar'],
+			    'buttons':  ['_[[Close]]'],
 			    'onClose':  function(clicked) {}
 			});
 		    });

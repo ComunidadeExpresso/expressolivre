@@ -3,27 +3,27 @@
 		'/dynamiccontacts': {
 			css: 'recent', 
 			img: 'recent', 
-			text: 'Contato Recente'
+			text: '_[[Recent contact]]'
 		},
 		'/personalContact':{
 			css: 'personal',
 			img: 'personal',
-			text: 'Contato pessoal'
+			text: '_[[Personal contact]]'
 		},
 		'/sharedcontact':{
 			css: 'personal',
 			img: 'sharedcontact',
-			text: 'Contato compartilhado'
+			text: '_[[Shared contact]]'
 		},
 		'/groups':{
 			css: 'group',
 			img: 'group',
-			text: 'Grupo pessoal'
+			text: '_[[Personal group]]'
 		},
 		'/sharedgroup':{
 			css: 'group',
 			img: 'sharedgroup',
-			text: 'Grupo compartilhado'
+			text: '_[[Shared group]]'
 		}
 	} 
 %>
@@ -41,6 +41,6 @@
 			<div class="dynamic-stars" style="display: inline-block;float: right;"/>
 		<% } %>
 	</a>
-	<span style="width:16px; height:16px; top:5px; <%=data.type == '/dynamiccontacts' ?  '': 'display:none'%>">Excluir contato recente</span>	
+	<span style="width:16px; height:16px; top:5px; <%=data.type == '/dynamiccontacts' ?  '': 'display:none'%>"><%= '_[[Delete recent contact]]' %></span>
 <%}%>
 </li>

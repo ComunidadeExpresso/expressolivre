@@ -150,7 +150,7 @@
 					}
 				}
 				if (data_[id_contact].vacationactive == "TRUE"){
-					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 					if ( data_[id_contact].vacationinfo ){
 						details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data_[id_contact].vacationinfo +'</span></div></div>');
 						if ( $('.outoffice-inner').height() > $('.outoffice').height() ){						
@@ -170,7 +170,7 @@
                 if(data_[id_contact].telephonenumber != null)
                     details.append('<p><label class="attribute">Telefone</label>' + '<span class="value">' + data_[id_contact].telephonenumber + '</span></p>');
 				if (data_[id_contact].vacationactive == "TRUE"){
-					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 					if (data_[id_contact].vacationinfo){
 						details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data_[id_contact].vacationinfo +'</span></div></div>');
 						if ( $('.outoffice-inner').height() > $('.outoffice').height() ){
@@ -215,7 +215,7 @@
 					}
 				}
 				if (data_[id_contact].vacationactive == "TRUE"){
-					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 					if (data_[id_contact].vacationinfo){
 						details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data_[id_contact].vacationinfo +'</span></div></div>');
 						if ( $('.outoffice-inner').height() > $('.outoffice').height() ){
@@ -363,7 +363,7 @@
 					}
 				}
 				if (data[first_contact].vacationactive == "TRUE"){
-					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 					if ( data[first_contact].vacationinfo ){
 						details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data[first_contact].vacationinfo +'</span></div></div>');
 						if ( $('.outoffice-inner').height() > $('.outoffice').height() ){						
@@ -383,7 +383,7 @@
                 if(data[first_contact].telephonenumber != null)
 					details.append('<p><label class="attribute">Telefone</label>' + '<span class="value">' + data[first_contact].telephonenumber  + '</span></p>');
 				if (data[first_contact].vacationactive == "TRUE"){
-					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 					if ( data[first_contact].vacationinfo ){
 						details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data[first_contact].vacationinfo +'</span></div></div>');
 						if ( $('.outoffice-inner').height() > $('.outoffice').height() ){
@@ -427,7 +427,7 @@
 					}
 				}
 				if (data[first_contact].vacationactive == "TRUE"){
-					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+					details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 					if ( data[first_contact].vacationinfo ){
 						details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data[first_contact].vacationinfo +'</span></div></div>');
 						if ( $('.outoffice-inner').height() > $('.outoffice').height() ){						
@@ -486,7 +486,7 @@
 										}
 									}
 									if (data[this.value].vacationactive == "TRUE"){
-										details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+										details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 										if ( data[this.value].vacationinfo ){
 											details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data[this.value].vacationinfo +'</span></div></div>');
 											if ( $('.outoffice-inner').height() > $('.outoffice').height() ){											
@@ -506,7 +506,7 @@
 									if(data[this.value].telephonenumber != null)
 										details.append('<p><label class="attribute">Telefone</label>' + '<span class="value">' + data[this.value].telephonenumber + "</span></p>");
 									if (data[this.value].vacationactive == "TRUE"){
-										details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+										details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 										if ( data[this.value].vacationinfo ){
 											details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data[this.value].vacationinfo +'</span></div></div>');
 											if ( $('.outoffice-inner').height() > $('.outoffice').height() ){
@@ -552,7 +552,7 @@
 										}
 									}
 									if (data[this.value].vacationactive == "TRUE"){
-										details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">Filtro "Fora do Escritório" ativo.</span></p>');	
+										details.append('<p><img src="templates/default/images/mala-big.png"/><span class="title-outoffice">_[[Filter "Out of Office" active.]]</span></p>');
 										if ( data[this.value].vacationinfo ){
 											details.append('<div class="outoffice"><div class="outoffice-inner"><span>'+ data[this.value].vacationinfo +'</span></div></div>')
 											if ( $('.outoffice-inner').height() > $('.outoffice').height() ){
@@ -640,7 +640,7 @@
 				Ul.onclick = function(){
 				};
 				var Op = document.createElement("li");
-				Op.innerHTML = '<span class="menu-control"></span><div id="no_results"><div class="name_contact"><strong class="name">Nenhum Resultado Encontrado</strong></div></div>';
+				Op.innerHTML = '<span class="menu-control"></span><div id="no_results"><div class="name_contact"><strong class="name">_[[No Results Found]]</strong></div></div>';
 				selectable.append(Op);
 				selectable.append(Ul);
 				var string_results = "0 " + get_lang("of") + " 0 (0 "  + get_lang("Results") + ")"; 		

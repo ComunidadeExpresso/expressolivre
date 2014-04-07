@@ -1,5 +1,5 @@
-<br />Você foi convidado para uma tarefa agendada para [startDate].<br /><br />
+<br />_[[You're invited to a scheduled task to]] [startDate].<br /><br />
 <strong>[eventTitle]</strong><br />
-<strong>Início:</strong> [startDate] [startTime]<br />
-<strong>Previsão de término:</strong> [endDate] [endTime]<br />
-<strong>Participantes:</strong> [participants]
+<strong>_[[Initiation]]:</strong> [startDate] [startTime]<br />
+<strong>_[[Expected completion]]:</strong> [endDate] [endTime]<br />
+<strong>_[[Participants]]:</strong> [participants]

@@ -1,14 +1,14 @@
 <fieldset>
 	<fieldset class="ui-corner-all">
 		<ul class="attendee-permissions-list">
-			<li class="attendee-permissions-list"><input type="checkbox" name="acl-white" value="w"><label for="attendee-mod-event">Modificar evento </label></li>
-			<li class="attendee-permissions-list"><input type="checkbox" name="acl-invite-guests" value="i"><label for="attendee-invite-others">Convidar outros</label></li>
+			<li class="attendee-permissions-list"><input type="checkbox" name="acl-white" value="w"><label for="attendee-mod-event"><%= '_[[Modify event]]' %> </label></li>
+			<li class="attendee-permissions-list"><input type="checkbox" name="acl-invite-guests" value="i"><label for="attendee-invite-others"><%= '_[[Invite other]]' %></label></li>
 			<!--<li class="attendee-permissions-list"><input type="checkbox" name="attendee-view-list-invited"><label for="attendee-view-list-invited">Ver lista de convidados</label></li>-->
-			<li class="attendee-permissions-list"><input type="checkbox" name="acl-participation-required" value="p"><label for="attendee-force">Participação obrigatória</label></li>
+			<li class="attendee-permissions-list"><input type="checkbox" name="acl-participation-required" value="p"><label for="attendee-force"><%= '_[[Mandatory participation]]' %></label></li>
 		</ul>
 	</fieldset>
 	<fieldset class="menu-container footer-container menu-addevent">
-			<a class="button cancel" href="#">Descartar</a>
-			<a class="button save" href="#">Aplicar</a>
+			<a class="button cancel" href="#"><%= '_[[Discard]]' %></a>
+			<a class="button save" href="#"><%= '_[[Apply]]' %></a>
 	</fieldset>
 </fieldset>

@@ -979,3 +979,110 @@ take off this option to disregard the message body in the search.	expressoMail1_
 Local Archive	expressoMail1_2	pt-br	Arquivamento Local
 Do you wish enable autosearch?	admin	pt-br	Você deseja habilitar a busca automática?
 Minimum number of characters to start the search for participants	admin	pt-br	Número mínimo de caracteres para pesquisa por participantes
+Attach files	expressoMail1_2	pt-br	Anexar arquivos
+Attach messages	expressoMail1_2	pt-br	Anexar mensagens
+Drop here annexes	expressoMail1_2	pt-br	Solte aqui seus anexos
+Outbox	expressoMail1_2	pt-br	Caixa de saída
+Trash	expressoMail1_2	pt-br	Lixeira
+Drafts	expressoMail1_2	pt-br	Rascunhos
+Sent	expressoMail1_2	pt-br	Enviados
+My folders	expressoMail1_2	pt-br	Minhas pastas
+Shared folders	expressoMail1_2	pt-br	Pastas compartilhadas
+Local folders	expressoMail1_2	pt-br	Pastas locais
+For monitoring	expressoMail1_2	pt-br	Para acompanhamento
+Inbox	expressoMail1_2	pt-br	Caixa de entrada
+Recent contact	expressoMail1_2	pt-br	Contato recente
+Personal contact	expressoMail1_2	pt-br	Contato pessoal
+Shared contact	expressoMail1_2	pt-br	Contato compartilhado
+Personal group	expressoMail1_2	pt-br	Grupo pessoal
+Shared group	expressoMail1_2	pt-br	Grupo compartilhado
+Delete recent contact	expressoMail1_2	pt-br	Excluir contato recente
+All messages flagged with the flag type	expressoMail1_2	pt-br	Todas as mensagens sinalizadas com o tipo de sinalizador
+will be removed. This action cannot be undone. Do you want to continue?	expressoMail1_2	pt-br	serão removidas. Essa ação não poderá ser desfeita. Deseja continuar?
+Show all items	expressoMail1_2	pt-br	Mostrar todos os itens
+Flagged	expressoMail1_2	pt-br	Sinalizadas
+You have one message in conclusion today	expressoMail1_2	pt-br	Você tem uma mensagem concluindo hoje
+You have %1 flagged messages for today	expressoMail1_2	pt-br	Você tem %1 mensagens sinalizadas para hoje
+Done	expressoMail1_2	pt-br	Concluídas
+No label found	expressoMail1_2	pt-br	Nenhum marcador encontrado
+One or more messages from any sub-folder are open	expressoMail1_2	pt-br	Uma ou mais mensagens de alguma sub-pasta desta pasta estão abertas
+One or more messages from this folder are open	expressoMail1_2	pt-br	Uma ou mais mensagens desta pasta estão abertas
+Thie folder is already in this place	expressoMail1_2	pt-br	A pasta já esta neste local
+Can not move this folder to this location, because the target has already a folder with this name	expressoMail1_2	pt-br	Impossivel mover esta pasta para este local, pois o destino já tem uma pasta com este nome
+Permission denied	expressoMail1_2	pt-br	Permissão negada
+The folder was successfully moved	expressoMail1_2	pt-br	Pasta foi movida com sucesso
+Error moving your folder.	expressoMail1_2	pt-br	Ocorreu um erro ao mover sua pasta.
+The folder was successfully rename	expressoMail1_2	pt-br	Pasta foi renomeada com sucesso
+Delete/move subfolders first	expressoMail1_2	pt-br	Delete/mova suas subpastas primeiro
+File name	expressoMail1_2	pt-br	Nome do arquivo
+Size	expressoMail1_2	pt-br	Tamanho
+Status	expressoMail1_2	pt-br	Status
+Loading	expressoMail1_2	pt-br	Carregando
+Success	expressoMail1_2	pt-br	Sucesso
+no folder found	expressoMail1_2	pt-br	nenhuma pasta encontrada
+Delete	expressoMail1_2	pt-br	Excluir
+Edit	expressoMail1_2	pt-br	Editar
+Close	expressoMail1_2	pt-br	Fechar
+Basic	expressoMail1_2	pt-br	Básico
+Flag as	expressoMail1_2	pt-br	Sinalizar como
+Alarm	expressoMail1_2	pt-br	Alarme
+Conclusion	expressoMail1_2	pt-br	Conclusão
+at	expressoMail1_2	pt-br	ás
+Flag color	expressoMail1_2	pt-br	Cor do sinalizador
+Default	expressoMail1_2	pt-br	Padrão
+Custom	expressoMail1_2	pt-br	Personalizado
+Color	expressoMail1_2	pt-br	Cor
+Remove	expressoMail1_2	pt-br	Remover
+Apply	expressoMail1_2	pt-br	Aplicar
+Cancel	expressoMail1_2	pt-br	Cancelar
+Nickname	expressoMail1_2	pt-br	Apelido
+First Name	expressoMail1_2	pt-br	Primeiro Nome
+Last Name	expressoMail1_2	pt-br	Último Nome
+Mail	expressoMail1_2	pt-br	E-mail
+Choose the file	expressoMail1_2	pt-br	Escolha o arquivo
+Select a zip or eml file	expressoMail1_2	pt-br	Selecione um arquivo zip ou eml
+Select a folder	expressoMail1_2	pt-br	Selecione uma pasta
+no folder found	expressoMail1_2	pt-br	nenhuma pasta encontrada
+My labels	expressoMail1_2	pt-br	Meus marcadores
+Add label	expressoMail1_2	pt-br	Adicionar marcador
+Label name	expressoMail1_2	pt-br	Nome do marcador
+Label color	expressoMail1_2	pt-br	Cor do marcador
+Coala	expressoMail1_2	pt-br	Coala
+Tomato	expressoMail1_2	pt-br	Tomate
+Lemon	expressoMail1_2	pt-br	Limão
+High contrast	expressoMail1_2	pt-br	Alto contraste
+Text color	expressoMail1_2	pt-br	Cor do texto
+Border color	expressoMail1_2	pt-br	Cor da borda
+Undo	expressoMail1_2	pt-br	Desfazer
+Send mail	expressoMail1_2	pt-br	Enviar e-mail
+Send	expressoMail1_2	pt-br	Enviar
+Send and archive	expressoMail1_2	pt-br	Enviar e arquivar
+Save mail	expressoMail1_2	pt-br	Salvar e-mail
+Save	expressoMail1_2	pt-br	Salvar
+Important message	expressoMail1_2	pt-br	Mensagem importante
+Return receipt	expressoMail1_2	pt-br	Conf. de leitura
+Digitally sign message?	expressoMail1_2	pt-br	Assinar digitalmente a mensagem?
+Encrypted email	expressoMail1_2	pt-br	E-mail criptografado
+Add CC	expressoMail1_2	pt-br	Adicionar CC
+Add Bcc	expressoMail1_2	pt-br	Adicionar CCo
+Reply to	expressoMail1_2	pt-br	Responder a
+Rich text	expressoMail1_2	pt-br	Texto rico
+Simple text	expressoMail1_2	pt-br	Texto simples
+From	expressoMail1_2	pt-br	De
+Search	expressoMail1_2	pt-br	Buscar
+Use F9 Key as shortcut.	expressoMail1_2	pt-br	Use a tecla F9 como atalho.
+To	expressoMail1_2	pt-br	Para
+Bcc	expressoMail1_2	pt-br	CCo
+Reply to	expressoMail1_2	pt-br	Responder a
+has subject	expressoMail1_2	pt-br	tem assunto
+Simple text mode	expressoMail1_2	pt-br	Modo texto simples
+Attachments	expressoMail1_2	pt-br	Anexos
+Select messages to attach...	expressoMail1_2	pt-br	Selecione mensagens para anexar...
+Spam	expressoMail1_2	pt-br	Spam
+Edit folder	expressoMail1_2	pt-br	Editar Pasta
+Clean spam	expressoMail1_2	pt-br	Limpar spam
+Edit folder	expressoMail1_2	pt-br	Editar pasta
+Export folder messages	expressoMail1_2	pt-br	Exportar mensagens da pasta
+Update my telephone	expressoMail1_2	pt-br	Atualizar meu telefone
+Discard changes	expressoMail1_2	pt-br	Descartar alterações
+Continue editing	expressoMail1_2	pt-br	Continuar editando

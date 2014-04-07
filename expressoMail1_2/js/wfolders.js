@@ -146,14 +146,14 @@
                     write_msg(get_lang('No selected message.'));
             } else{
                 if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){
-                    alert("Impossível manipular mensagens locais a partir de uma busca. Isso é permitido apenas para mensagens não locais.");
+                    alert(get_lang("Unable to handle local messages from a search. This is allowed only for non-local messages."));
                     return true;
                 }
                 this.load( border_id, type, false);
             }
         }else {
             if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){
-                alert("Impossível manipular mensagens locais a partir de uma busca. Isso é permitido apenas para mensagens não locais.");
+                alert(get_lang("Unable to handle local messages from a search. This is allowed only for non-local messages."));
                 return true;
             }
             this.load( border_id, type, false);

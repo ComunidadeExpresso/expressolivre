@@ -1,20 +1,20 @@
 function validDateTask(){
 	
 	var errors = {
-		'emptyInitData': 'Por favor, informe uma data inicial',
-		'emptyInitHour': 'Por favor, informe uma hora inicial',
+		'emptyInitData': '_[[Please enter a start date]]',
+		'emptyInitHour': '_[[Please enter a start time]]',
 		
-		'invalidInitData' : 'Data inicial inválida',
+		'invalidInitData' : '_[[Invalid start date]]',
 
-		'equalData' : 'Hora inicial igual a final',
-		'theirData' : 'Data final menor que a inicial',		
-		'theirHour' : 'Hora final menor que a inicial',
+		'equalData' : '_[[Start time equal to the end]]',
+		'theirData' : '_[[End date less than the initial]]',
+		'theirHour' : '_[[Final hour less than the initial]]',
 		
-		'dueInitDate' : 'Previsão de término menor que a data inicial', 
-		'dueEndDate'  : 'Previsão de término menor que a data final',
-		'dueTime'	  : 'Deve ser definido a hora da Previsão de Término',
-		'dueDate'  	  : 'Deve ser definido a Previsão de Término',
-		'invalidDueData' : 'Data de Previsão de Término inválida'
+		'dueInitDate' : '_[[End forecast lower than start date]]',
+		'dueEndDate'  : '_[[End forecast lower than end date]]',
+		'dueTime'	  : '_[[Must be set the time of end forecast]]',
+		'dueDate'  	  : '_[[Must be set the end forecast]]',
+		'invalidDueData' : '_[[Forecast end date invalid]]'
 	};
 
     var start_date = $(".new-task-win.active .start-date").val();
@@ -211,7 +211,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
 
     if (!UI.dialogs.addTask) {
 
-        UI.dialogs.addTask = jQuery('#sandbox').append('<div title="Criar Tarefa" class="new-task-win active"> <div>').find('.new-task-win.active').html(html).dialog({
+        UI.dialogs.addTask = jQuery('#sandbox').append('<div title="'+'_[[Create Task]]'+'" class="new-task-win active"> <div>').find('.new-task-win.active').html(html).dialog({
             resizable: false,
             modal: true,
             autoOpen: false,
@@ -229,12 +229,12 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
                 if (!canDiscardTaskDialog && !zebraDiscardTaskDialog) {
                     zebraDiscardTaskDialog = true;
                     window.setTimeout(function () {
-                        $.Zebra_Dialog('Suas alterações na tarefa não foram salvas. Deseja descartar as alterações?', {
+                        $.Zebra_Dialog('_[[Your changes in the task were not saved. Do you want to discard changes?]]', {
                             'type': 'question',
                             'overlay_opacity': '0.5',
-                            'buttons': ['Descartar alterações', 'Continuar editando'],
+                            'buttons': ['_[[Discard changes]]', '_[[Continue editing]]'],
                             'onClose': function (clicked) {
-                                if (clicked == 'Descartar alterações') {
+                                if (clicked == '_[[Discard changes]]') {
                                     canDiscardTaskDialog = true;
                                     /**
                                      *Remoção dos anexos da task caso seja cancelado a edição
@@ -388,7 +388,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
     });
 
     // ==== validation tasks ====
-    UI.dialogs.addTask.find(".input-group .h1").Watermark("Tarefa sem título");
+    UI.dialogs.addTask.find(".input-group .h1").Watermark("_[[Untitled task]]");
     if (User.preferences.hourFormat.length == 5) {
         UI.dialogs.addTask.find(".end-time, .start-time, .time-prevision").mask("99:99", {
             completed: function () {
@@ -419,12 +419,12 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
     });
 
     UI.dialogs.addTask.find(".menu-addtask").children(".delete").click(function () {
-        $.Zebra_Dialog('Tem certeza que deseja excluir esta tarefa?', {
+        $.Zebra_Dialog('_[[Are you sure you want to delete this task?]]', {
             'type': 'question',
             'overlay_opacity': '0.5',
-            'buttons': ['Não', 'Sim'],
+            'buttons': ['_[[No]]', '_[[Yes]]'],
             'onClose': function (clicked) {
-                if (clicked == 'Sim') {
+                if (clicked == '_[[Yes]]') {
                     canDiscardTaskDialog = true; /* Remove por filtro */
                     DataLayer.removeFilter('schedulable', {
                         filter: ['AND', ['=', 'id', objTask.id],
@@ -529,7 +529,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
         }
     });
     
-    UI.dialogs.addTask.find(".attendee-list-add .add-attendee-input input").Watermark("digite um email para convidar");
+    UI.dialogs.addTask.find(".attendee-list-add .add-attendee-input input").Watermark("_[[enter an email to invite]]");
     /* 
     * Trata a edição de um novo participante adicionado
     */
@@ -588,7 +588,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
 		newAttendeeEmail = currentTip.find('input[name="mail"]').val();
 
 		if (!(!!newAttendeeEmail.match(/^[\w!#$%&'*+\/=?^`{|}~-]+(\.[\w!#$%&'*+\/=?^`{|}~-]+)*@(([\w-]+\.)+[A-Za-z]{2,6}|\[\d{1,3}(\.\d{1,3}){3}\])$/))) {
-		    currentTip.find('.messages').removeClass('hidden').find('.message label').html('Email inválido.');
+		    currentTip.find('.messages').removeClass('hidden').find('.message label').html('_[[Invalid Email.]]');
 		    return false;
 		}
 
@@ -641,8 +641,8 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
 			event.preventDefault();
 		    }
 		})
-		.filter('[name="name"]').Watermark("informe o nome do contato").end()
-		.filter('[name="mail"]').Watermark("informe o email do contato");
+		.filter('[name="name"]').Watermark("_[[enter the contact name]]").end()
+		.filter('[name="mail"]').Watermark("_[[inform the contact email]]");
 	    }
 
 	    /**
@@ -654,7 +654,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
 		newAttendeeName = blkAddAtendee.find('label.mail[title="' + newAttendeeEmail + '"]').parents('li').find('label.name').attr('title');
 
 		blkAddAtendee.find('.email-validation').removeClass('hidden')
-		.find('.message label').html("O usuário acima já foi adicionado! <a class=\"small button\">Editar</a>")
+		.find('.message label').html('_[[The above user has been added!]]' + '<a class="small button">' + '_[[Edit]]' + '</a>')
 		.find(".button").button().click(function () { 
 		    /**
 		    * Se o usuário optar por editar o participante anteriormente adicionado,
@@ -685,8 +685,8 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
 			    }
 			} ) ), 
 		    title: {
-			text:'Detalhes do participante', 
-			button: '<a class="button close" href="#">close</a>'
+			text:'_[[Details of the participant]]',
+			button: '<a class="button close" href="#">' + '_[[Close]]' +'</a>'
 		    }
 		    },
 		    style: {
@@ -803,8 +803,8 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
 		}
 	    } ) ), 
 	title: {
-	    text:'Detalhes do participante', 
-	    button: '<a class="button close" href="#">close</a>'
+	    text:'_[[Details of the participant]]',
+	    button: '<a class="button close" href="#">' + '_[[Close]]' + '</a>'
 	}
 	},
 	style: {
@@ -858,7 +858,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
              */
             blkAddAtendee.find('ul.search-result-list').empty().css('overflow', 'hidden');
             if (!result) {
-                blkAddAtendee.find('ul.search-result-list').append('<li><label class="empty">Nenhum resultado encontrado.</label></li>');
+                blkAddAtendee.find('ul.search-result-list').append('<li><label class="empty">'+'_[[No results found.]]'+'</label></li>');
             }
 
             for (i = 0; i < result.length; i++)
@@ -892,7 +892,7 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
                     if (objTask.me.id != objTask.organizer.id) {
 
                         blkAddAtendee.find('.block-add-attendee.search').addClass('hidden');
-                        blkAddAtendee.find('.block-add-attendee.search dt').html('Adicionar outros contatos');
+                        blkAddAtendee.find('.block-add-attendee.search dt').html('_[[Add other contacts]]');
 
                         blkAddAtendee.find('.status option').toggleClass('hidden');
                         blkAddAtendee.find('option[value=5]').attr('selected', 'selected').trigger('change');
@@ -934,12 +934,12 @@ function taskDetails(objTask, decoded, path, isMail, repeat, isActivityView) {
         },
         text: 'Excluir'
     }).click(function () {
-        $.Zebra_Dialog('Tem certeza que deseja excluir todos anexos?', {
+        $.Zebra_Dialog('_[[Are you sure you want to delete all attachments?]]', {
             'type': 'question',
             'overlay_opacity': '0.5',
-            'buttons': ['Não', 'Sim'],
+            'buttons': ['_[[No]]', '_[[Yes]]'],
             'onClose': function (clicked) {
-                if (clicked == 'Sim') {
+                if (clicked == '_[[Yes]]') {
 
                     var ids = [];
                     $.each($('.attachment-list input'), function (i, input) {

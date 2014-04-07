@@ -1,44 +1,44 @@
 <div class="new-msg-head-buttons table_message ui-widget-header" style="width:100%; clear: both; display: inline-block; height: 30px;">
 	<div class="new-msg-head-left-buttons" style="float: left; margin: 3px; white-space: nowrap;">		
-		<button class="send button small" title="<%= get_lang("Send Mail") %>"><%= get_lang("Send") %></button>
+		<button class="send button small" title="<%= '_[[Send mail]]' %>"><%= '_[[Send]]' %></button>
 		<%
 		if((preferences.save_in_folder == "-1") || (preferences.save_in_folder == "")) {
 		%>
-		<button class="save-and-send button small"><%= get_lang("Send and file") %></button>
+		<button class="save-and-send button small"><%= '_[[Send and archive]]' %></button>
 		<%
 		}
 		%>
-		<button class="save button small" title="<%= get_lang("Save Mail") %>"><%=get_lang("Save")%></button>
+		<button class="save button small" title="<%= '_[[Save mail]]' %>"><%= '_[[Save]]' %></button>
 		<%
 		if (parseInt(preferences.use_important_flag)){
 		%>
-		<button class="important button small msg-option" name="input_important_message" title="<%= get_lang("Important message") %>">&nbsp;</button>
+		<button class="important button small msg-option" name="input_important_message" title="<%= '_[[Important message]]' %>">&nbsp;</button>
 		<%
 		}
 		%>
 		
-		<button class="return-recept button small msg-option <%=(parseInt(preferences.return_recipient_deafault) != 0 ? "expressomail-button-icon-ative": "")%>" name="input_return_receipt" title="<%= get_lang("Return receipt") %>">&nbsp;</button>
+		<button class="return-recept button small msg-option <%=(parseInt(preferences.return_recipient_deafault) != 0 ? "expressomail-button-icon-ative": "")%>" name="input_return_receipt" title="<%= '_[[Return receipt]]' %>">&nbsp;</button>
 		
 		<%
 		if(parseInt(preferences.use_assinar_criptografar)){
 			if(parseInt(preferences.use_signature_digital_cripto)){
 		%>
-		<button class="return_cripto button small" title="<%=get_lang("Digitally sign message?")%>">&nbsp;</button>
-		<button class="return_digital button small" title="<%=get_lang("Encrypted email")%>">&nbsp;</button>
+		<button class="return_cripto button small" title="<%=  '_[[Digitally sign message?]]' %>">&nbsp;</button>
+		<button class="return_digital button small" title="<%= '_[[Encrypted email]]' %>">&nbsp;</button>
 		<%
 			}
 		}
 		%>
 	</div>
 	<div class="new-msg-head-right-buttons" style="float: right; margin: 3px; margin-rigth: 5px; white-space: nowrap;">
-		<button class="button small cc-button"><%= get_lang("Add CC") %></button>
+		<button class="button small cc-button"><%= '_[[Add CC]]' %></button>
 		<%if(allow_hidden_copy){ %>
-		<button class="button small cco-button"><%= get_lang("Add BCC") %></button>
+		<button class="button small cco-button"><%= '_[[Add Bcc]]' %></button>
 		<%
 		}	
 		%>
-		<button class="button small reply-to-button"><%= get_lang("Reply to") %></button>
-		<button class="button small rich-button"><%= (preferences.plain_text_editor == 1 ? get_lang("Rich Text") : get_lang("Simple Text")) %></button>
+		<button class="button small reply-to-button"><%= '_[[Reply to]]' %></button>
+		<button class="button small rich-button"><%= (preferences.plain_text_editor == 1 ? '_[[Rich text]]' : '_[[Simple text]]' ) %></button>
 	</div>
 </div>
 <div class="new-msg-head-data" style="font-size:11px; overflow: auto;height: 95%; width: 100%;">
@@ -47,7 +47,7 @@
 		<table style="width: 100%;height: auto;">
 			<tr class="from-tr" style="display:none;">
 				<td class="field">
-					<%= get_lang("From") %>:
+					<%= '_[[From]]' %>:
 				</td>
 				<td class="value">
 					<select style="width: 99.3%;" class="from-select" name="input_from" >
@@ -56,8 +56,8 @@
 			</tr>
 			<tr class="to-tr">
 				<td class="field" style="width: 1%;">
-					<button title="<%= get_lang("Search") %> | <%= get_lang("Use F9 Key as shortcut.") %>" class="button small adress_button">
-						<%= get_lang("To") %>:
+					<button title="<%= '_[[Search]]' %> | <%= '_[[Use F9 Key as shortcut.]]' %>" class="button small adress_button">
+						<%= '_[[To]]' %>:
 					</button>
 				</td>
 				<td class="value" style="width: 100%;">
@@ -69,7 +69,7 @@
 			</tr>
 			<tr class="cc-tr" style="display:none;">
 				<td class="field">
-					<button title="<%= get_lang("Search") %> | <%= get_lang("Use F9 Key as shortcut.") %>" class="button small adress_button">
+					<button title="<%= '_[[Search]]' %> | <%= '_[[Use F9 Key as shortcut.]]' %>" class="button small adress_button">
 						Cc:
 					</button>
 				</td>
@@ -82,8 +82,8 @@
 			</tr>
 			<tr class="cco-tr" style="display:none;">
 				<td class="field">
-					<button title="<%= get_lang("Search") %> | <%= get_lang("Use F9 Key as shortcut.") %>" class="button small adress_button">
-						<%= get_lang("CCo") %>:
+					<button title="<%= '_[[Search]]' %> | <%= '_[[Use F9 Key as shortcut.]]' %>" class="button small adress_button">
+						<%= '_[[Bcc]]' %>:
 					</button>
 				</td>
 				<td class="value">
@@ -95,7 +95,7 @@
 			</tr>
             <tr class="reply-to-tr" style="display:none;">
                 <td class="field" style="width: 6%;">
-                    <%= get_lang("Reply to") %>:
+                    <%= '_[[Reply to]]' %>:
                 </td>
                 <td class="value" style="width: 100%;">
                     <div class="email-area ui-corner-all">
@@ -106,17 +106,17 @@
             </tr>
 			<tr class="subject-tr">
 				<td class="field">
-					<%=get_lang("Subject")%>:
+					<%='_[[Subject]]'%>:
 				</td>
 				<td class="value">
-					<input name="input_subject" class="new-message-input subject" style="width:99.2%; border-radius: 5px;"></input>
+					<input name="input_subject" class="new-message-input subject" style="width:99.2%; border-radius: 5px;" />
 				</td>
 			</tr>
 			<tr class="message-general-options" style="display:none;">
 				<td class="field">
-					<label for="important_message"><%=get_lang("Important message")%></label>
-					<label for="textplain_rt_checkbox"><%=get_lang("Simple text mode")%></label>
-					<label for="return_receipt"><%=get_lang("Return receipt")%></label>
+					<label for="important_message"><%='_[[Important message]]'%></label>
+					<label for="textplain_rt_checkbox"><%='_[[Simple text mode]]'%></label>
+					<label for="return_receipt"><%='_[[Return receipt]]'%></label>
 				</td>
 				<td class="value">
 					<input type="checkbox" class="checkbox" name="input_return_receipt" <%=(parseInt(preferences.return_recipient_deafault) != 0 ? "checked='True'": "")%>/>
@@ -136,11 +136,11 @@
 			</tr>
 			<tr class="attachment">
 				<td class="field">
-					<%=get_lang("Attachments: ")%>
+					<%='_[[Attachments]]'%>:
 					<input style="display:none;" name="attDisposition<%= data.id %>" id="attDisposition<%= data.id%>" value="attachment"/>
 				</td>
 				<td class="value">
-					<div id="message-attach-dialog" title="'<%=get_lang("Select messages to attach...")%>" style="clear: both; display:none;")>&nbsp;</div>
+					<div id="message-attach-dialog" title="<%='_[[Select messages to attach...]]'%>" style="clear: both; display:none;")>&nbsp;</div>
 				</td>
 			</tr>
 		</table>	

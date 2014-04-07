@@ -171,7 +171,7 @@
 }
 span.input-group { display: block; }
 /*p.input-group label { vertical-align: top; }*/
-.new-event-win p.input-group label, .new-task-win p.input-group label { display: inline-block; width: 65px;}
+.new-event-win p.input-group label, .new-task-win p.input-group label { display: inline-block; width: 70px;}
 .new-event-win p.input-group label.input-group, .new-task-win p.input-group label.input-group { display: inline-block; width: 110px; font-weight: bold;}
 .new-activity-win p.input-group label { display: inline-block; width: 65px;}
 .new-activity-win p.input-group label.input-group { display: inline-block; width: 110px; font-weight: bold;}

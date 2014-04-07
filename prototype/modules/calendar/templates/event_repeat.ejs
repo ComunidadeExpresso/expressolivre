@@ -1,15 +1,15 @@
 <fieldset id="calendar_event_repeat_form" class="event-repeat-container">
-	<legend class="hidden">Repetição do evento</legend>
+	<legend class="hidden"><%= '_[[Event repetition]]' %></legend>
 	<input type="hidden" name="repeatId"/>
 	
 	<p class="input-group">
-		<label for="frequency">Repetição:</label>
+		<label for="frequency"><%= '_[[Repetition]]' %>:</label>
 		<select name="frequency" class="frequency" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-			<option value="none">Sem repetição</option>
-			<option value="daily">Diária</option>
-			<option value="weekly">Semanal</option>
-			<option value="monthly">Mensal</option>
-			<option value="yearly">Anual</option>
+			<option value="none"><%= '_[[No repetition]]' %></option>
+			<option value="daily"><%= '_[[Daily]]' %></option>
+			<option value="weekly"><%= '_[[Weekly]]' %></option>
+			<option value="monthly"><%= '_[[Monthly]]' %></option>
+			<option value="yearly"><%= '_[[Yearly]]' %></option>
 		</select>
 	</p>
 	
@@ -17,37 +17,37 @@
 
 	<!-- Mês -->
 	<p class="input-group event-repeat-monthly hidden frequency-option"> 
-		<label>Mensalmente por </label>
+		<label><%= '_[[Monthly by]]' %> </label>
 		<input type="radio" name="repeatmonthyType" value="0" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatmonthyType">dia do mês</label>
+		<label for="repeatmonthyType"><%= '_[[day of the month]]' %></label>
 
 		<input type="radio" name="repeatmonthyType" value="1" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatmonthyType">dia da semana</label>
+		<label for="repeatmonthyType"><%= '_[[day of the week]]' %></label>
 	</p>
 	
 	<!-- Semana -->
 	<p class="input-group event-repeat-weekly hidden frequency-option">   
-		<label>Toda </label>
+		<label><%= '_[[All]]' %> </label>
 		<input type="checkbox" name="repeatweekly[]" value="SU" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Domingo</label>
+		<label for="repeatweekly[]"><%= '_[[Sunday]]' %></label>
 
 		<input type="checkbox" name="repeatweekly[]" value="MO" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Segunda</label>
+		<label for="repeatweekly[]"><%= '_[[Monday]]' %></label>
 
 		<input type="checkbox" name="repeatweekly[]" value="TU" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Terça</label>
+		<label for="repeatweekly[]"><%= '_[[Tuesday]]' %></label>
 
 		<input type="checkbox" name="repeatweekly[]" value="WE" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Quarta</label>
+		<label for="repeatweekly[]"><%= '_[[Wednesday]]' %></label>
 
 		<input type="checkbox" name="repeatweekly[]" value="TH" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Quinta</label>
+		<label for="repeatweekly[]"><%= '_[[Thursday]]' %></label>
 
 		<input type="checkbox" name="repeatweekly[]" value="FR" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Sexta</label>
+		<label for="repeatweekly[]"><%= '_[[Friday]]' %></label>
 
 		<input type="checkbox" name="repeatweekly[]" value="SA" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-		<label for="repeatweekly[]">Sabado</label>
+		<label for="repeatweekly[]"><%= '_[[Friday]]' %></label>
 	</p>
 	
 	<p class="input-group finish_event repeat-in hidden">
@@ -62,21 +62,21 @@
         </p>
         <p class="input-group finish_event repeat-in hidden">
 		<span class="input-group">
-			<label class="label_finish_event">A repetição</label>
+			<label class="label_finish_event"><%= '_[[The repetition]]' %></label>
 			<!--<input type="radio" name="repeat_finish" value="date_fixed">-->
                         <select name="endOptions" class="endRepeat" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-                            <option value="never">Nunca termina</option>
-                            <option value="customDate">Termina na Data Selecionada</option>
-                            <option value="occurrences">Termina Após n Ocorrencias</option>
+                            <option value="never"><%= '_[[Never ends]]' %></option>
+                            <option value="customDate"><%= '_[[Ends in selected date]]' %></option>
+                            <option value="occurrences"><%= '_[[Ends after n occcurrences]]' %></option>
                         </select>
                         <input type="text" name="end" class="date customDateEnd hidden" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
                         <input type="text" name="occurrences" class="tiny number occurrencesEnd hidden" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
-			<label name="occurrences" class="hidden">Ocorrências</label>
+			<label name="occurrences" class="hidden"><%= '_[[Occurrences]]' %></label>
 		</span>
         </p>
         <p class="input-group finish_event repeat-in hidden">
-                <span class="input-group">
-			<label>Tendo intervalo de</label>
+        <span class="input-group">
+			<label><%= '_[[Having range]]' %></label>
 			<input type="text" name="" class="tiny number eventInterval" value="1" <%= ((data.event.acl.write || data.event.acl.organization) && data.event.isAttendee) ? '' : 'disabled="disabled"'%>>
 			<label class="interval"></label>
 		</span>

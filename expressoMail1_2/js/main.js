@@ -831,7 +831,7 @@ function refresh(alert_new_msg, notifyPermission){
                                 });
                             }
                             if(totalSelected() > 1)
-                                return $("<tr><td>"+DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : (totalSelected()+" mensagens selecionadas"), type: "messages"})+"</td></tr>");
+                                return $("<tr><td>"+DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : (totalSelected()+" "+get_lang("featured messages")), type: "messages"})+"</td></tr>");
                             if(	$(this).find(".td_msg_subject").text().length > 18 )
                                 return $("<tr><td>"+DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : $(this).find(".td_msg_subject").text().substring(0,18) + "...", type: "messages"})+"</td></tr>");
                             else
@@ -915,7 +915,8 @@ function refresh(alert_new_msg, notifyPermission){
         }
 
         //Sincroniza mensagens lidas e não lidas em clientes de emails diferentes
-        synchronize(data.unseens);
+        if(data.unseens && data.unseens.length != 0)
+            synchronize(data.unseens);
 
         connector.purgeCache();
         cExecute("$this.imap_functions.get_folders_list&onload=true", force_update_menu);
@@ -1000,7 +1001,7 @@ function synchronize(unseens){
 
 function delete_msgs(folder, msgs_number, border_ID, show_success_msg,archive, prev_message){
     if( preferences.use_local_messages == 1 && expresso_local_messages.isArchiving( msgs_number, folder ) ){
-        alert( "Impossivel deletar mensagens que ainda estão sendo arquivadas." );
+        alert( get_lang("Impossible to delete messages that are still being archived.") );
         return;
     }
 
@@ -1182,7 +1183,7 @@ function move_search_msgs(border_id, new_folder, new_folder_name, action){
     selected_messages = get_selected_messages_search();
 
     if( preferences.use_local_messages == 1 && expresso_local_messages.isArchiving( selected_messages, folder ) ){
-        alert( "Impossivel mover mensagens que ainda estão sendo arquivadas." );
+        alert( get_lang("Impossible to move messages that are still being archived.") );
         return;
     }
     var handler_move_search_msgs = function(data){
@@ -1331,7 +1332,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
     not_opem_previus = typeof(not_opem_previus) != 'undefined' ? not_opem_previus : false;
     var folder_error = new_folder_name;
     if( preferences.use_local_messages == 1 && expresso_local_messages.isArchiving( msgs_number, folder ) ){
-        alert( "Impossivel mover mensagens que ainda estão sendo arquivadas." );
+        alert( get_lang("Impossible to move messages that are still being archived.") );
         return;
     }
 
@@ -1773,7 +1774,7 @@ function archive_search_msgs(folder_dest) {
     id_msgs = expresso_local_messages.checkArchived( id_msgs, folder_dest );
 
     if( !id_msgs ){
-        write_msg( "Todas as mensagens já foram arquivadas anteriormente." );
+        write_msg( get_lang("All messages have been filed earlier.") );
         return;
     }
 
@@ -1826,7 +1827,7 @@ function archive_search_msgs(folder_dest) {
 function archive_msgs(folder,folder_dest,id_msgs) {
 
     if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){
-        alert("Impossével manipular mensagens locais a partir de uma busca. Isso é permitido apenas para mensagens não locais.");
+        alert(get_lang("Unable to handle local messages from a search. This is allowed only for non-local messages."));
         return true;
     }
     write_msg(get_lang('Starting to archive messages'));
@@ -2814,7 +2815,7 @@ function useOriginalAttachments(new_border_ID,old_id_border)
         var fileUploadMSG = $('#fileupload_msg'+new_border_ID);
         var attachments = $("#attachments_" + old_id_border).find("a");
         if(openTab.imapBox[new_border_ID].split("local").length > 1 && attachments.length > 0){
-            alert("Não é possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos");
+            alert(get_lang("It is not possible to use the attachments of local posts, please unarchive to have access to attachments"));
             return false;
         }
 
@@ -2926,7 +2927,7 @@ function useOriginalAttachments(new_border_ID,old_id_border)
         if(arrayAttachments.length > 0)
         {
 
-            var orignialAtt = fileUploadMSG.find('.button-files-upload').append(' <button tabindex="-1" class="message-add-original-att button-small">Anexar arquivos originais</button>').find(".message-add-original-att").button();
+            var orignialAtt = fileUploadMSG.find('.button-files-upload').append(' <button tabindex="-1" class="message-add-original-att button-small">_[[Attach native files]]</button>').find(".message-add-original-att").button();
             orignialAtt.click(function(event ){
 
                 for (var i = 0; i < arrayAttachments.length; i++){
@@ -3019,7 +3020,7 @@ function addOriginalAttachments(new_border_ID,old_id_border)
     var attachments = $("#attachments_" + old_id_border).find("a");
 
     if(openTab.imapBox[new_border_ID].split("local").length > 1 && attachments.length > 0){
-        alert("Não é possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos");
+        alert(get_lang("It is not possible to use the attachments of local posts, please unarchive to have access to attachments"));
         return false;
     }
 
@@ -3445,14 +3446,14 @@ function send_message(ID, folder, folder_name){
     {
         zebraDiscardEventDialog = true;
         window.setTimeout(function() {
-            $.Zebra_Dialog('Existem anexos sendo enviados para o servidor. Caso envie sua mensagem agora estes arquivos serão perdidos.', {
+            $.Zebra_Dialog('_[[Attachments are being sent to the server. If you send your message now these files will be lost.]]', {
                 'type':     'question',
                 'overlay_opacity': '0.5',
                 'custom_class': 'custom-zebra-filter',
-                'buttons':  ['Descartar anexos e enviar', 'Continuar editando e esperar anexos'],
+                'buttons':  ['_[[Discard and send attachments]]', '_[[Continue editing and wait attachments]]'],
                 'width' : 500,
                 'onClose':  function(clicked) {
-                    if(clicked == 'Descartar anexos e enviar' ){
+                    if(clicked == '_[[Discard and send attachments]]' ){
                         $.each($('#fileupload_msg'+ID).find('.att-box'), function(index, value){
                             if($(value).find(".att-box-loading").length)
                                 $(value).find('.att-box-delete').trigger("click");
@@ -3588,11 +3589,11 @@ function is_valid_email(campo){
 
     if((campo.replace(/^\s+|\s+$/g,"")) != ""){
         if(invalidEmail[0] == true){
-            write_msg("Erro de SMTP: Os endereços de destinatário a seguir falharam: "+ invalidEmail[1]);
+            write_msg("_[[SMTP Error: The following recipient addresses failed:]]" + " " + invalidEmail[1]);
             return false;
         }else{
             if(semicolon.length > 1){
-                var stringError = "Erro de SMTP: Os endereços devem ser separados apenas por vírgula: ";
+                var stringError = "_[[SMTP Error: The addresses must be separated only by commas:]]" + " ";
                 for(var i= 0; i < semicolon.length; i++){
                     stringError = stringError + semicolon[i];
                     if(i+1 < semicolon.length)
@@ -3709,7 +3710,7 @@ function save_msg(border_id){
         {
             uidsSave[border_id].push(data['message://'+idJavascript].id);
             saveBorderError[border_id] = false;
-            write_msg('Mensagem salva com sucesso!');
+            write_msg('_[[Message saved successfully!]]');
             if(folder == 'INBOX'+cyrus_delimiter+'Drafts'){
                 refresh();
             }
@@ -3717,7 +3718,7 @@ function save_msg(border_id){
         else
         {
             saveBorderError[border_id] = idJavascript;
-            write_msg('Erro ao salvar sua mensagem! Nova tentativa em alguns segundos.');
+            write_msg('_[[Error saving your messages! Retry in a few seconds.]]');
         }
     });
 
@@ -4304,7 +4305,7 @@ function print_messages_list(){
 
 function print_all(){
     if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){
-        alert("Impossével manipular mensagens locais a partir de uma busca. Isso é permitido apenas para mensagens não locais.");
+        alert("_[[Unable to handle local messages from a search. This is allowed only for non-local messages.]]");
         return true;
     }
     if (openTab.type[currentTab] == 2)
@@ -4317,7 +4318,7 @@ function print_all(){
     if (get_selected_messages() == false){
         return print_messages_list();
     }
-    var msg = 'Algumas mensagens foram selecionadas para impressão. Deseja imprimir o conteúdo de cada uma delas? Caso contrário, apenas uma lista das mensagens selecionadas será impressa.';
+    var msg = '_[[Some messages were selected for printing. Want to print the contents of each one? Otherwise, only a list of selected messages will be printed.]]';
     $.Zebra_Dialog(msg, {
         'type':     'question',
         'buttons': ['Sim','Não'],
@@ -4789,7 +4790,7 @@ function spam(folder, msgs_number, border_ID){
 function import_window()
 {
     if(typeof (currentTab) == "string" && currentTab.indexOf("local") != -1){
-        alert("Impossível manipular mensagens locais a partir de uma busca. Isso é permitido apenas para mensagens não locais.");
+        alert("_[[Unable to handle local messages from a search. This is allowed only for non-local messages.]]");
         return true;
     }
     var folder = {};
@@ -5020,7 +5021,7 @@ function return_import_msgs(data, folder)
             var er = /^local_/;
             if ( er.test(folder.id) )
             {
-                alert( "Mensagens não podem ser importadas em pastas locais" );
+                alert( "_[[Messages can not be imported into local folders]]" );
                 //archive_msgs('INBOX/Lixeira/tmpMoveToLocal',wfolders_tree._selected.id,data);
                 //cExecute('$this.imap_functions.delete_mailbox',function(){},'del_past=INBOX/Lixeira/tmpMoveToLocal');
             }
@@ -5297,7 +5298,7 @@ function import_calendar(data){
                                         $.ajax({
                                             url: "controller.php?action="+import_url+'&from_ajax=true&selected='+$("#select-agenda option:selected").val()+'&status='+$("#select-status option:selected").val()+'&uidAccount='+decodeOwner()+'&cirus_delimiter='+cyrus_delimiter,
                                             success: function(msg){
-                                                var alt = ( (msg = connector.unserialize(msg)) == "ok") ? "Importado com sucesso para " : "Ocorreu um erro ao importar o evento/tarefa para a agenda ";
+                                                var alt = ( (msg = connector.unserialize(msg)) == "ok") ? "_[[Imported successfully to]]" + " " : "_[[An error occurred while importing the event/task to the calendar]]" + " ";
                                                 alert( alt + $("#select-agenda option:selected").text() );
                                             }
                                         });
@@ -5315,7 +5316,7 @@ function import_calendar(data){
                             $.ajax({
                                 url: "controller.php?action="+import_url+'&from_ajax=true&selected=true',
                                 success: function(msg){
-                                    alert( ( ( connector.unserialize(msg)) == "ok") ? "Seu evento/tarefa foi removido " : "Ocorreu um erro ao remover o evento/tarefa" );
+                                    alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Your event/task was removed]]" + " " : "_[[An error occurred while removing the event/task]]" );
                                 }
                             });
                             return;
@@ -5324,29 +5325,29 @@ function import_calendar(data){
                             $.ajax({
                                 url: 'controller.php?action='+import_url+'&from_ajax=true&selected=true&cirus_delimiter='+cyrus_delimiter,
                                 success: function(msg){
-                                    alert( ( ( connector.unserialize(msg)) == "ok") ? "Seu evento/tarefa foi Atualizado com sucesso" : "Ocorreu um erro ao atualizar evento/tarefa" );
+                                    alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Your event/task has been successfully Updated]]" : "_[[An error occurred while updating event/task]]" );
                                 }
                             });
                             return;
                             break;
                         case 6:
-                            var acceptedSuggestion = confirm("Deseja atualizar o evento/tarefa de acordo com a sugestão ?");
+                            var acceptedSuggestion = confirm("_[[Want to update the event/task according to the suggestion?]]");
                             $.ajax({
                                 url: "controller.php?action="+import_url+'&from_ajax=true&id_user='+User.me.id+'&selected=true&cirus_delimiter='+cyrus_delimiter+'&acceptedSuggestion='+acceptedSuggestion+"&from="+document.getElementById('from_values_'+currentTab).value+'&uidAccount='+decodeOwner(),
                                 success: function(msg){
                                     if(acceptedSuggestion)
-                                        alert( ( ( connector.unserialize(msg)) == "ok") ? "Evento/tarefa atualizado com sucesso " : "Ocorreu um erro ao atualizar o evento" );
+                                        alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Updated event/task successfully]]" + " " : "_[[An error occurred while updating the event]]" );
                                 }
                             });
                             return;
                             break;
                         case 4:
                         case 9:
-                            alert('Seu evento/tarefa não possui alterações!');
+                            alert('_[[Your event/task does not own changes!]]');
                             return;
                             break;
                         case 11:
-                            alert('Este evento/tarefa já fora importando por algum dos particpantes e já se encontra disponível em sua agenda compartilhada!');
+                            alert('_[[This event / task had already been caring for some of the participants and is now available on your shared calendar!]]');
                             return;
                             break;
                         default:
@@ -5364,7 +5365,7 @@ function import_calendar(data){
                                         $.ajax({
                                             url: "controller.php?action="+import_url+'&from_ajax=true&cirus_delimiter='+cyrus_delimiter+'&selected='+ (parseInt(typeImport) == 2 || parseInt(typeImport) == 4 ? 'true' : $("#select-agenda option:selected").val()) +'&status='+$("#select-status option:selected").val()+'&uidAccount='+decodeOwner(),
                                             success: function(msg){
-                                                alert( ( (msg = connector.unserialize(msg)) == "ok") ? "Atualizado com sucesso" : "Ocorreu um erro ao atualizar o evento" );
+                                                alert( ( (msg = connector.unserialize(msg)) == "ok") ? "_[[Updated successfully]]" : "_[[An error occurred while updating the event]]" );
                                             }
                                         });
                                         $( this ).dialog( "close" );

@@ -2134,6 +2134,8 @@ class iCal implements Formatter {
 	if ($lastUpdate = self::_getTime($component, 'LAST-MODIFIED'))
 	    $schedulable['lastUpdate'] = $lastUpdate;
 
+    if ($status = $component->getProperty('status', false, false))
+        $schedulable['status'] = self::decodeStatusTodo(mb_convert_encoding(str_ireplace(array('\n', '\t'), array("\n", "\t"), $status), 'UTF-8', 'UTF-8,ISO-8859-1'));
 
 	if ($sequence = $component->getProperty('SEQUENCE', false, false))
 	    $schedulable['sequence'] = $sequence;

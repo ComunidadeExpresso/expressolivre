@@ -1,0 +1,52 @@
+<%
+	var specialFolders = {
+			INBOX: {name:'_[[Inbox]]'', classe:'inbox'},
+			Inbox: {name:'_[[Inbox]]', classe:'inbox'},
+		};
+    specialFolders[outboxfolder] = {name: '_[[Outbox]]', classe:'outbox'};
+	specialFolders[trashfolder] = {name:'_[[Trash]]', classe:'trash'};
+	specialFolders[draftsfolder] = {name:'_[[Draft]]', classe:'drafts'};
+	specialFolders[spamfolder] = {name:'_[[Spam]]', classe:'spam'};
+	specialFolders[sentfolder] = {name:'_[[Sent]]', classe:'sent'};
+
+	function recursive_forest(array_trees)
+	{
+	  %><ul><%
+	
+	      for(var i=0; i<array_trees.length; i++)
+	      {
+		  folder_class = '';
+		  folder_name = array_trees[i].commonName;
+
+		  if( specialFolders[folder_name] ){
+		      folder_class = specialFolders[folder_name].classe;
+		      folder_name = specialFolders[folder_name].name;
+		  }
+
+		  %><li id="<%= array_trees[i].id %>" class="closed"><span class="folder <%= folder_class %>" title="<%= folder_name %>"><%= folder_name %></span>
+		  <%
+
+		  if (array_trees[i].children.length>0)
+			  recursive_forest(array_trees[i].children);
+
+		  %></li><%
+	      }
+ 
+	  %></ul><%
+	}
+%>
+<ul id="foldertree" class="filetree foldertree-skin-prognus">
+  <li><span class="folder">Minhas Pastas</span>
+      <% recursive_forest(data.folders[0]); %>
+  </li>
+  <% if(data.folders[1].length > 0) { %>
+  <li><span class="folder">Pastas compartilhadas</span>
+      <% recursive_forest(data.folders[1]); %>
+  </li> 
+  <%}%>
+  <% if(preferences.use_local_messages == 1) { %>
+  <li><span class="folder">Pastas locais</span>
+      <% recursive_forest(data.folders[2]); %>
+  </li>
+  <%}%>
+</ul>
