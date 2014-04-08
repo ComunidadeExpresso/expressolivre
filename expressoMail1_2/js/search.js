@@ -154,7 +154,7 @@
 
 		var foldersTree = jQuery("#divFoldersSearch")
 		.removeClass('empty-container')
-		.html(DataLayer.render(BASE_PATH + 'api/templates/foldertree.ejs', {folders: [cp_tree1, cp_tree2, cp_tree3 ]}))
+		.html(DataLayer.render(BASE_PATH + 'modules/mail/templates/foldertree.ejs', {folders: [cp_tree1, cp_tree2, cp_tree3 ]}))
 		.find("#foldertree").treeview()
 		.click(function(event)
 		{
