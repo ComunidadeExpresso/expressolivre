@@ -1,6 +1,6 @@
 <%
 	var specialFolders = {
-			INBOX: {name:'_[[Inbox]]'', classe:'inbox'},
+			INBOX: {name:'_[[Inbox]]', classe:'inbox'},
 			Inbox: {name:'_[[Inbox]]', classe:'inbox'},
 		};
     specialFolders[outboxfolder] = {name: '_[[Outbox]]', classe:'outbox'};
@@ -36,16 +36,16 @@
 	}
 %>
 <ul id="foldertree" class="filetree foldertree-skin-prognus">
-  <li><span class="folder">Minhas Pastas</span>
+  <li><span class="folder"><%= '_[[My Folders]]' %></span>
       <% recursive_forest(data.folders[0]); %>
   </li>
   <% if(data.folders[1].length > 0) { %>
-  <li><span class="folder">Pastas compartilhadas</span>
+  <li><span class="folder"><%= '_[[Shared folders]]' %></span>
       <% recursive_forest(data.folders[1]); %>
   </li> 
   <%}%>
   <% if(preferences.use_local_messages == 1) { %>
-  <li><span class="folder">Pastas locais</span>
+  <li><span class="folder"><%= '_[[Local folders]]' %></span>
       <% recursive_forest(data.folders[2]); %>
   </li>
   <%}%>
