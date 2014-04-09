@@ -1,201 +1,119 @@
- function emInfoContact()
+function CardContact()
 {
-	this.email = "";
-	this.timeout = null;
-	this.timeout_hide = null;
-	this._mousemove = document.onmousemove;
-	this.td;
-	this.createCard();
-	this.folder = get_current_folder();
+	$("#info_card_cc").css({
+		'width' 	: '244px',
+		'height'	: '134px',
+		'backgroundImage' : 'url(./templates/default/images/card.gif)'
+	});
+
+	this.delayCard 	= null;
+	this.contact	= null;
 }
 
-emInfoContact.prototype.createCard = function(){
-	var pic= new Image(); 
-	pic.src="./templates/"+template+"/images/card.gif"; 
-	card = document.createElement("DIV");
-	card.id = "card_cc";
-	card.style.display = "none";
-	card.style.width = "244px";
-	card.style.backgroundImage = "url("+pic.src+")";
-	card.style.height = "134px";
-	card.style.position = "absolute";
-	card.innerHTML = "<table onmouseout='InfoContact.timeout_hide=setTimeout(\"InfoContact.hide()\",50);' onmouseover='clearTimeout(InfoContact.timeout_hide);' cellpadding=0 cellspacing=0 width='100%' height='100%'><tr><td valign='center' align='center' id='card_cc_td'></td></tr></table>";
-	document.body.appendChild(card);
-}
-emInfoContact.prototype.begin = function(td, email){
+CardContact.prototype.begin = function()
+{
+	if( arguments.length > 0 )
+	{
+		var element 		= $(arguments[0]);
+		var email			= arguments[1];
+		var trustedDomain 	= false;
 
-	var card = Element("card_cc");
-	if(email.match(/<([^<]*)>[\s]*$/))
-		email = email.match(/<([^<]*)>[\s]*$/)[1];
-	
-	if(this.td != td){
-		this.email = email;
-		this.td = td;
-		clearTimeout(this.timeout);
+		var handlerShowCardContact = function( data )
+		{
+			InfoContact.contact = data;
+			InfoContact.showCard( data, element );
+		}
+
+		if( email.match(/<([^<]+)>+$/) )
+		{
+			email = email.match(/<([^<]+)>+$/)[1];
+
+			// If "preferences.notification_domains" was setted, then verify if "mail" has a trusted domain.
+			if( preferences.notification_domains && $.trim(preferences.notification_domains) != "" )
+			{
+				var domains = preferences.notification_domains.split(',');
+
+				for( var i in domains )
+					if( email.toString().match($.trim(domains[i])) && !trustedDomain )
+						trustedDomain = true;
+			}	
+			
+			if( trustedDomain )
+			{
+				var searchContact = true;
+
+				for( var i in InfoContact.contact )
+				{
+					if( $.trim(i) === $.trim('email') && $.trim(InfoContact.contact[i]) === $.trim(email) )
+						searchContact = false;
+				}	
+
+				if( searchContact )
+					cExecute("$this.ldap_functions.getUserByEmail&email="+email, handlerShowCardContact);
+				else
+					handlerShowCardContact( InfoContact.contact );
+			}
+		}
+		else
+		{
+			handlerShowCardContact( email );
+		}
 	}
-	this.timeout = setTimeout("InfoContact.search('"+email+"')",1000);		
 }
 
-emInfoContact.prototype.label = function (text){
-	InfoContact.hide();
-	var div_label = Element("div_label");
-	if(!div_label) {
-		div_label = document.createElement("DIV");
-		div_label.id = "div_label";
-		div_label.style.padding = "2px";
-		div_label.style.display = "none";
-		div_label.style.position = "absolute";
-		div_label.style.border = "1px solid black";
-		div_label.style.backgroundColor="#FFFFDC";
-		document.body.appendChild(div_label);
-	}
-	div_label.innerHTML = text;
-	div_label.style.top = (findPosY(this.td) + 20 - Element("divScrollMain_"+numBox).scrollTop)+"px";
-	div_label.style.left = (findPosX(this.td) + 20)+"px";
-	div_label.style.display = '';
-	setTimeout("InfoContact.hide()",1000);
-}
-
-emInfoContact.prototype.connectVoip = function (phoneUser, typePhone){
-	var handler_connectVoip = function(data){
-		if(!data) {
+CardContact.prototype.connectVoip = function (phoneUser, typePhone)
+{
+	var handler_connectVoip = function(data)
+	{
+		if(!data)
+		{
 			alert(get_lang("Error contacting VoIP server."));
 		}
-		else{
+		else
+		{
 			alert(get_lang("Requesting a VoIP call")+":\n"+data);
 		}
 	}
 	cExecute ("$this.functions.callVoipConnect&to="+phoneUser+"&typePhone="+typePhone, handler_connectVoip);
 }
 
-emInfoContact.prototype.show = function (data){
-	if (this.folder != get_current_folder()){
-		this.folder = get_current_folder();
-		return false;
-	}	
-	var _this = this;
-	var card = Element("card_cc");
-	card.style.left = (findPosX(this.td) + 20)+"px";
-	var divScroll = Element("divScrollMain_"+numBox);
-	var y = findPosY(this.td) + 20 - (divScroll ? divScroll.scrollTop : 0);
-	var w_height = is_ie ? document.body.clientHeight + document.body.scrollTop : window.innerHeight + window.pageYOffset;
-	if(y + 160 > w_height)
-		card.style.top =  (y - 160)+"px";	
-	else
-		card.style.top = y+"px";		
-	card.style.display = '';
-	var cn = data.cn;
-	if(cn && cn.toString().length > 35)
-		cn = cn.toString().substring(0,30) + "...";
-	
-		var phoneUser;
+CardContact.prototype.sendMail = function( name , email )
+{
+	$("msg_number").val('"'+name+'" <'+email+'>'); 
 
-		data.telefone ? phoneUser = data.telefone : phoneUser ="<br />";
-
-		data.mobile ? phoneUser += "<br />&nbsp;"+data.mobile :  phoneUser += "<br />";
-
-		data.employeeNumber ? employeeNumber = data.employeeNumber : employeeNumber ="";
-
-		data.ou ? ou = data.ou :  ou = "";
-
-
-
-	if(preferences.voip_enabled) {
-		phoneUser = '';
-		if(data.telefone)
-			phoneUser = "<a title=\""+get_lang("Call to Comercial Number")+"\" href=\"#\" onclick=\"InfoContact.connectVoip('"+ data.telefone+"', 'com')\">"+ data.telefone+"</a>";
-		if(data.mobile){
-			phoneUser += "<br>&nbsp;<a title=\""+get_lang("Call to Mobile Number")+"\" href=\"#\" onclick=\"InfoContact.connectVoip('"+data.mobile+"', 'mob')\">"+data.mobile+"</a>";
-		}
-	}
-
-		Element("card_cc_td").innerHTML =
-						"<table cellpadding=0 cellspacing=0 border=0 height='100%' width='100%'><tr>"+
-						"<td  style='padding-top:4px' align='center' valign='center' colspan ='2'><img src='templates/"+template+"/images/"+(data.type)+"_catalog.png' /><font size=1 color=BLACK>&nbsp;<b>"+get_lang("Sender's Information")+"</b></font>"+_this.verifyIM(data.uid,data.email)+"</td></tr>"+
-
-						"<tr><td align='center' style='width:70px;height:93px;padding-left:6px' align='center' valign='center'>"+
-						"<img style='float:left' src='./inc/show_img.php?email="+data.email+"'></td>"+
-						"<td style='padding-left:2px' width='70%' align='left' valign='top'>"+
-						"<br><img style='float:left'align='center' src='templates/"+template+"/images/phone.gif' />&nbsp;<font  size=1  color=BLACK>"+(phoneUser ? phoneUser : get_lang("None") )+"</font><br />"+
-						"<br><font size=1 color=BLACK>"+cn+"</font><br><b>"+employeeNumber+"</b>"+
-						"<br/>"+ou+"</td></tr>"+
-						"<tr><td  style='padding-bottom:4px' align='center' valign='center' colspan ='2' nowrap><span title='"+get_lang("Write message")+"' style='cursor:pointer' onclick='InfoContact.sendMail(\""+cn+"\",\""+data.email+"\")'><font size=1 color=DARKBLUE><u>"+data.email+"</u></font></span>"+
-										"</td></tr></table>";
-
-
-	this.timeout_hide = setTimeout("InfoContact.hide()",1000);	
-}
-
-emInfoContact.prototype.search = function (email){
-	var _this = this;
-	var trustedDomain = false;
-	//	If "preferences.notification_domains" was setted, then verify if "mail" has a trusted domain.	
-	if (preferences.notification_domains != undefined && preferences.notification_domains != "") {
-		var domains = preferences.notification_domains.split(',');
-		for (var i = 0; i < domains.length; i++) {
-			if (email.toString().match(domains[i]))
-				trustedDomain = true;
-		}
-	}
-	else
-		trustedDomain = true;
-
-	var handler_search = function(data){
-		if(data != null){
-			_this.show(data);
-		}
-		else
-			_this.label(email);			
-	}
-	
-	if (trustedDomain)
-		cExecute ("$this.ldap_functions.getUserByEmail&email="+email, handler_search);
-	else
-		_this.label(email);
-}
-
-emInfoContact.prototype.hide = function(){
-	this.email = "";
-	if(Element("div_label"))
-		Element("div_label").style.display = 'none';
-
-	if(Element("card_cc")) 
-		Element("card_cc").style.display = "none";	
-}
-
-emInfoContact.prototype.sendMail = function(name, email){
-	Element("msg_number").value = "\""+ name+"\" <"+email+">";
-	InfoContact.hide();
+	// Send New Message
 	new_message_to(email);
 }
 
-emInfoContact.prototype.openChat = function(event, email){
-	IM.action_button(event, '1', email ,false);
-}
+CardContact.prototype.showCard = function( data, element )
+{
+	var position = $(element).position();
+	var top = ( (parseInt($(window).height()) - parseInt(position.top)) < 150 ) ? ( parseInt(position.top) - 130 ) : parseInt(position.top);
 
-emInfoContact.prototype.verifyIM = function(uid, email){
+	$("#info_card_cc").css({'display' : 'block','position' : 'absolute', 'z-index' : 'auto' });
+	$("#info_card_cc").html('');
+	$("#info_card_cc").html(new EJS( {url: 'templates/default/contact_card.ejs'} ).render( { 'data': data } ) );
+	$("#info_card_cc").on("mouseover", function()
+	{ 
+		if( InfoContact.delayCard ) { clearTimeout( InfoContact.delayCard ); }	
+	}).on("mouseout", function()
+	{ 
+		if( InfoContact.delayCard ) { clearTimeout( InfoContact.delayCard ); }	
+		InfoContact.delayCard = setTimeout(function(){ $("#info_card_cc").fadeOut() }, 50);		
+	});
 
-	if ( !window.IM || !document.getElementById('myStatus') )
-		return  "";
+	$("#info_card_cc").css({'display' : 'block','position' : 'absolute', 'z-index' : '1000', 'top' : top, 'left' : parseInt(position.left) + 60 });
 
-	var status = IM.infoContact(uid);
-	var _return = '<br/>';
-
-	if ( status )
+	$(element).on("mousemove", function()
 	{
-		_return += '<img align="center" src="'+status.src+'" />';
-		_return	+= '<span onclick="IM.action_button(event,\''+status.jid+'\');"><font size="1" color=';
-		
-		if( status.src != img_unavailable.src)
-			_return 	+= '"DARKBLUE"><u style="cursor:pointer;">'+get_lang("User connected")+"</u>";
-		else
-			_return 	+= '"BLACK">'+get_lang("User not connected");
-
-		_return	+= "</font></span><br />";
-	}
-
-	return _return;
+		if( InfoContact.delayCard ) { clearTimeout( InfoContact.delayCard ); }	
+		InfoContact.delayCard = setTimeout(function(){ $("#info_card_cc").fadeOut() }, 1000);		
+	});
 }
-/* Build the Object */
-var emInfoContact;
-InfoContact = new emInfoContact();
+
+CardContact.prototype.hide = function()
+{
+	$("#info_card_cc").css({'display' : 'none' });
+}
+
+var InfoContact = new CardContact();
