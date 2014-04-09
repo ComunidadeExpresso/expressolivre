@@ -41,6 +41,7 @@ $fileDuck->add(__DIR__ .'/../prototype/plugins/block/jquery.blockUI.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/jq-raty/js/jquery.raty.min.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/jquery.jrating/jRating.jquery.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/watermark/jquery.watermarkinput.js');
+
 $fileDuck->add(__DIR__ .'/../prototype/plugins/fileupload/jquery.iframe-transport.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/qtip/jquery.qtip-1.0.0-rc3.min.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/treeview/jquery.treeview.js');
@@ -70,6 +71,7 @@ $fileDuck->add(__DIR__ .'/../prototype/modules/filters/filters.js');
 $fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/label.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/init.js' , 'ISO-8859-1' );
 $fileDuck->add(__DIR__ .'/js/checkSession.js' );
+$fileDuck->add(__DIR__ .'/../prototype/plugins/farbtastic/farbtastic.js');
 
 
 $fileDuck->renderFile( 'text/javascript' );
