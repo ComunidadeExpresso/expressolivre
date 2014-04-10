@@ -561,7 +561,7 @@ The extension %1 is incorrect.	expressoMail1_2	pt-br	O ramal %1 está incorretame
 The field \"%1\" of the message it contains	expressoMail1_2	pt-br	O campo \"%1\" da mensagem contém
 The folder %1 was successfully removed	expressoMail1_2	pt-br	A pasta %1 foi removida com sucesso!
 The local folder %1 was successfully removed	expressoMail1_2	pt-br	A pasta local %1 foi removida com sucesso!
-The folder was not deleted!	expressoMail1_2	es-es	A pasta não foi removida!
+The folder was not deleted!	expressoMail1_2	pt-br	A pasta não foi removida!
 The import was executed successfully.	expressoMail1_2	pt-br	A importação foi executada com sucesso.
 The list has no participant.	expressoMail1_2	pt-br	Essa lista não possui nenhum participante.
 The message has attachment	expressoMail1_2	pt-br	A mensagem contém anexos
@@ -1086,3 +1086,7 @@ Export folder messages	expressoMail1_2	pt-br	Exportar mensagens da pasta
 Update my telephone	expressoMail1_2	pt-br	Atualizar meu telefone
 Discard changes	expressoMail1_2	pt-br	Descartar alterações
 Continue editing	expressoMail1_2	pt-br	Continuar editando
+Selected	expressoMail1_2	pt-br	Selecionadas
+Message saved successfully!	expressoMail1_2	pt-br	Mensagem salva corretamente!
+Default schedule for Import Events	expressoMail1_2	pt-br	Horario predeterminado para importación de eventos
+Clear selection?	expressoMail1_2	pt-br	Limpar seleção?

@@ -623,7 +623,7 @@ if ($type == 'user' || $type == ''){
 
 	<div id='_signature' name='signature' style='display: none;'>
 	<div id='options_signature'>
-	<input id='edit_signature' type='checkbox' name='isEditor' onclick='changeType( this, this.id.replace( /[^0-9]*/gi, \"\" ) );' checked='checked'><label for='isEditor'>Editor de texto</label>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp; Titulo da assinatura&nbsp;<input type='text' id='title_signature'>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;<input type='radio' id='default_signature' name='signature_default'><label>Usar como padrao</label> &nbsp;|&nbsp; <a href='#' onclick='javascript: return removeSignature( this );' id='remove_signature'> Remover</a> 
+	<input id='edit_signature' type='checkbox' name='isEditor' onclick='changeType( this, this.id.replace( /[^0-9]*/gi, \"\" ) );' checked='checked'><label for='isEditor'>" . lang("Text editor") . "</label>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp; " . lang("Title subscription") . "&nbsp;<input type='text' id='title_signature'>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;<input type='radio' id='default_signature' name='signature_default'><label>" . lang("Use by default") . "</label> &nbsp;|&nbsp; <a href='#' onclick='javascript: return removeSignature( this );' id='remove_signature'> ". lang("Remove"). "</a>
 	</div><br/>
 	<div id='text_signature'>
 	<textarea rows='10' cols='65' id='user_signature' class='editor'></textarea></div>
@@ -676,7 +676,7 @@ function removeSignature( el )
     return( false );
 }
 </script>
-<input id='add_signature' type='button' onclick='addSignature();' value='Adicionar Assinatura'>
+<input id='add_signature' type='button' onclick='addSignature();' value='" . lang("Add Subscription") . "'>
 ");
 }
 ?>

@@ -111,7 +111,7 @@ Don\`t use	expressoMail1_2	es-es	No usar
 Download all atachments	expressoMail1_2	es-es	Descargar todos de una vez
 Download manual	expressoMail1_2	es-es	Descargar manual
 Do you confirm this import to your Calendar?	expressoMail1_2	es-es	¿Confirma la importación para su agenda de Expresso?
-Do you really want to empty your trash folder?	expressoMail1_2	es-es	¿Esta seguro de que desea eliminar su papelera?
+Do you really want to empty your trash folder?	expressoMail1_2	es-es	¿Esta seguro de que desea vaciar su papelera?
 Do you really want to empty your spam folder?	expressoMail1_2	es-es	¿Esta seguro de vaciar la papelera?
 Do you wanna receive an alert for new messages?	expressoMail1_2	es-es	¿Desea recibir una alerta de nuevos mensajes?
 Do you want to automatically display the message header?	¿expressoMail1_2	es-es	Desea ver automáticamente el encabezado del mensaje?
@@ -160,7 +160,8 @@ Error moving or delete message: Message too large. Select one message by one.	ex
 ERROR saving your message. 	expressoMail1_2	es-es	Ocurrió un ERROR al guardar su mensaje.
 ERROR emptying your Spam folder.	expressoMail1_2	es-es	Ocurrió un ERROR al vaciar su carpeta Spam.
 Everytime you receive new messages you will be informed	expressoMail1_2	es-es	Cada vez que reciba nuevos mensajes será informado
-Exclusion	expressoMail1_2	es-es	Exclusión
+Exclusion	expressoMail1_2	es-es	Excluir
+Select a user!	expressoMail1_2	es-es	¡Seleccione un usuario!
 Export	expressoMail1_2	es-es	Exportar
 Export messages	expressoMail1_2	es-es	Exportar mensajes
 ExpressoMail Configuration	expressoMail1_2	es-es	Configuraciones del expressoMail
@@ -334,7 +335,7 @@ normal	expressoMail1_2	es-es	normal
 No selected message.	expressoMail1_2	es-es	Ningún mensaje fue seleccionado
 No Subject	expressoMail1_2	es-es	Sin Asunto
 Not allowed in offline mode	expressoMail1_2	es-es	No esta permitido en modo offline
-Note: This sharing will take action on all of your folders and messages.	expressoMail1_2	es-es	Atención: Esta acción de compartir tendrá acción en TODAS sus carpetas y mensajes
+Note: This sharing will take action on all of your folders and messages.	expressoMail1_2	es-es	Atención: Esta acción de compartir tendrá efectos en TODAS sus carpetas y mensajes
 Not Spam	expressoMail1_2	es-es	No es spam
 now	expressoMail1_2	es-es	ahora
 Number of dynamic contacts	admin	es-es	Número de contactos dinámicos
@@ -563,7 +564,7 @@ Would you like to use local messages?	expressoMail1_2	es-es	¿Le gustaría tener m
 Write	expressoMail1_2	es-es	Escribir
 Write message	expressoMail1_2	es-es	Escribir mensaje
 wrote	expressoMail1_2	es-es	escribió
-Yes	expressoMail1_2	es-es	Sin
+Yes	expressoMail1_2	es-es	Sí
 Yesterday	expressoMail1_2	es-es	Ayer
 You cant manipulate local messages on search	expressoMail1_2	es-es	Imposible manipular mensajes locales a partir de una busqueda. Eso es permitido apenas para mensajes no locales.
 you can't move mails from local to server folders	expressoMail1_2	es-es	No es posible mover mensajes de una carpeta local para una carpeta en el servidor.
@@ -580,7 +581,7 @@ you have to enter the name of the new folder	expressoMail1_2	es-es	Informe el no
 You must wait while the messages will be exported...	expressoMail1_2	es-es	Espere mientras los mensajes son exportados...
 You must wait while the messages will be imported...	expressoMail1_2	es-es	Aguarde mientras los mensajes son importados...
 Your Mailbox is 100% full! You must free more space or will not receive messages.	expressoMail1_2	es-es	¡Su buzon de correo esta 100% llena! Libere espacio o no podrá recibir mensajes
-Your mailbox is shared with	expressoMail1_2	es-es	Su buzon correo esta compartido con 
+Your mailbox is shared with	expressoMail1_2	es-es	Su buzón de correo está compartido con
 Your message has not been sent and will be discarted.	expressoMail1_2	es-es	Su mensaje no fue enviado y será perdido
 Your message has not been sent. Discard your message?	expressoMail1_2	es-es	Su mensaje no fue enviado. ¿Eliminar el mensaje?
 Your message to %1 has not been saved or sent. To %2 will be necessary open it again. Discard your message?	expressoMail1_2	es-es	Su mensaje para %1 no fue guardado o enviado. Para %2 será preciso abrir nuevamente. ¿Descartar su mensaje?
@@ -604,11 +605,11 @@ Attach files	expressoMail1_2	es-es	Anexar archivos
 Attach messages	expressoMail1_2	es-es	Anexar mensages
 Drop here annexes	expressoMail1_2	es-es	Soltar aqui sus anexos
 Outbox	expressoMail1_2	es-es	Buzón de salida
-Trash	expressoMail1_2	es-es	Vertedero
+Trash	expressoMail1_2	es-es	Papelera
 Drafts	expressoMail1_2	es-es	Borradores
 Sent	expressoMail1_2	es-es	Enviados
 My folders	expressoMail1_2	es-es	Mis carpetas
-Shared folders	expressoMail1_2	es-es	Pastas compartidas
+Shared folders	expressoMail1_2	es-es	Carpertas compartidas
 Local folders	expressoMail1_2	es-es	Pastas locales
 For monitoring	expressoMail1_2	es-es	Para acompañamiento
 Inbox	expressoMail1_2	es-es	Buzón de entrada
@@ -708,3 +709,8 @@ Hide details	expressoMail1_2	es-es	Ocultar detalles
 Discard changes	expressoMail1_2	es-es	Descartar modificaciones
 Continue editing	expressoMail1_2	es-es	Continuar editando
 Attach	expressoMail1_2	es-es	Anexar
+Selected	expressoMail1_2	es-es	Seleccionadas
+take on this option to regard the message body in the search.	expressoMail1_2	es-es	asumir esta opción a considerar el cuerpo del mensaje en la búsqueda.
+Message saved successfully!	expressoMail1_2	es-es	¡Mensaje guardado correctamente
+Clear selection?	expressoMail1_2	es-es	¿Borrar selección?
+Create filter from message	expressoMail1_2	es-es	Crear filtro del mensaje

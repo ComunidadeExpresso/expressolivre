@@ -517,7 +517,7 @@ remove messages size rule	expressoAdmin1_2	pt-br	Remover regras de tamanho máxim
 Default size must be a number	expressoAdmin1_2	pt-br	Valor padrão deve ser um número
 Default size can not be negative	expressoAdmin1_2	pt-br	Valor padrão não pode ser negativo
 Are you sure that you want to delete this shared account	expressoAdmin1_2	pt-br	Tem certeza que deseja deletar essa conta compartilhada
-Assign default calendar for user	expressoAdmin1_2	pt-br	Atribuir agenda padrão
+Assign default calendar for user	expressoAdmin1_2	pt-br	Atribuir agenda padrão a um usuário
 freebusy	expressoAdmin1_2	pt-br	Livre/Ocupado
 write	expressoAdmin1_2	pt-br	Criar/Editar
 save sent messages in this shared account	expressoAdmin1_2	pt-br	salvar mensagens enviadas na pasta da conta compartilhada
