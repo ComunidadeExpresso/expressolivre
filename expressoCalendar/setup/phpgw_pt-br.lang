@@ -206,6 +206,7 @@ Privacy	expressoCalendar	pt-br	Privacidade
 Public	expressoCalendar	pt-br	Público
 Private	expressoCalendar	pt-br	Privado
 Use default alarms	expressoCalendar	pt-br	Usar alarmes padrões
+Use alarms patterns 	expressoCalendar	pt-br	Usar padrões de alarmes
 Notify me by	expressoCalendar	pt-br	Avisar-me por
 before each activity.	expressoCalendar	pt-br	antes de cada atividade.
 Add alarm	expressoCalendar	pt-br	Adicionar alarme
@@ -314,6 +315,7 @@ Repeat	expressoCalendar	pt-br	Repetir
 Where	expressoCalendar	pt-br	Onde
 Agenda	expressoCalendar	pt-br	Agenda
 hours and	expressoCalendar	pt-br	horas e
+hours	expressoCalendar	pt-br	horas
 Use default alarms	expressoCalendar	pt-br	Usar alarmes padrões
 Event created in	expressoCalendar	pt-br	Evento criado em
 the	expressoCalendar	pt-br	às
@@ -455,3 +457,5 @@ Your suggestion time for the event	expressoCalendar	pt-br	Sua sugestão de horári
 Create Activity	expressoCalendar	pt-br	Criar Atividade
 Today	expressoCalendar	pt-br	Hoje
 Add reminder	expressoCalendar	pt-br	Adicionar lembrere
+Default schedule for Import Events	expressoCalendar	pt-br	Calendário padrão para eventos importados
+minutes	expressoCalendar	pt-br	minutos

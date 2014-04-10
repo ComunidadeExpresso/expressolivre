@@ -205,6 +205,7 @@ Privacy	expressoCalendar	es-es	Intimidad
 Public	expressoCalendar	es-es	Público
 Private	expressoCalendar	es-es	Privado
 Use default alarms	expressoCalendar	es-es	Usar alarmas predeterminadas
+Use alarms patterns 	expressoCalendar	es-es	Utilizar normas de alarmas
 Notify me by	expressoCalendar	es-es	Notificarme por
 before each activity.	expressoCalendar	es-es	antes de cada actividad
 Add alarm	expressoCalendar	es-es	Agregar alarma
@@ -314,6 +315,7 @@ Repeat	expressoCalendar	es-es	Repetición
 Where	expressoCalendar	es-es	Donde
 Agenda	expressoCalendar	es-es	Agenda
 hours and	expressoCalendar	es-es	horas y 
+hours	expressoCalendar	es-es	horas
 Use default alarms	expressoCalendar	es-es	Usar alarmas predeterminadas
 Event created in	expressoCalendar	es-es	Evento creado en
 the	expressoCalendar	es-es	la
@@ -454,5 +456,6 @@ Suggested end	expressoCalendar	es-es	Término sugerido
 Your suggestion time for the event	expressoCalendar	es-es	Su sugerencia de horario para el evento
 Create Activity	expressoCalendar	es-es	Crear Actividad
 Today	expressoCalendar	es-es	Hoy
-Add reminder	expressoCalendar	pt-br	Añadir recordatorio
-Is Spam	expressoCalendar	pt-br	Spam
+Add reminder	expressoCalendar	es-es	Añadir recordatorio
+Is Spam	expressoCalendar	es-es	Spam
+minutes	expressoCalendar	es-es	minutos
