@@ -61,7 +61,7 @@
 			<select name="name">
 				<% for(var i=0; i<data.followupflags.length; i++) {  %>
 					<% var selected = (data.followupflags[i].id == followupflagged.followupflag.id ) ? 'selected="selected"' : '' %>
-					<% if(data.followupflags[i].id >= 1 && data.followupflags[i].id <= 6){ var innerOption = '_[' + data.followupflags[i].name + ']'
+					<% if(data.followupflags[i].id >= 1 && data.followupflags[i].id <= 6){ var innerOption = get_lang(data.followupflags[i].name)
 					}else{var innerOption = data.followupflags[i].name}%>
 					<option value="<%= data.followupflags[i].id %>" <%= selected %>><%= innerOption %></option>
 				<% } %>
