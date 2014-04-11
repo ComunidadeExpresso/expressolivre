@@ -431,12 +431,12 @@ local_messages.prototype.capture = function( uri, complete ){
 	sync.length--;
 
 	if( sync.length )
-	    return write_msg( ( sync.archived.length ?  sync.archived.length + " " + get_lang("messages already filed previously") + ", " : "" )
+	    return write_msg( ( sync.archived.length ?  sync.archived.length + " " + get_lang("already archived messages previously") + ", " : "" )
 			      + get_lang("filing") + " " + sync.length + get_lang("messages") + "...", true );
 
 	clean_msg();
-	write_msg( ( sync.success.length ? get_lang("Were properly filed") + " " + sync.success.length + " " + get_lang("messages") : get_lang("No archived message") )
-		 + ( sync.archived.length ? ", " + sync.archived.length + " " + get_lang("messages already filed previously") : "" )
+	write_msg( ( sync.success.length ? get_lang("Were properly archived") + " " + sync.success.length + " " + get_lang("messages") : get_lang("No message archived") )
+		 + ( sync.archived.length ? ", " + sync.archived.length + " " + get_lang("already archived messages previously") : "" )
 		 + ( sync.fails.length ? ", " + sync.fails.length + " " + get_lang("failed") : "" ) + "." );
 
 	_this.update_mails( sync.success, sync.fails, complete );

@@ -831,7 +831,7 @@ function refresh(alert_new_msg, notifyPermission){
                                 });
                             }
                             if(totalSelected() > 1)
-                                return $("<tr><td>"+DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : (totalSelected()+" "+get_lang("featured messages")), type: "messages"})+"</td></tr>");
+                                return $("<tr><td>"+DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : (totalSelected()+" "+get_lang("selected messages")), type: "messages"})+"</td></tr>");
                             if(	$(this).find(".td_msg_subject").text().length > 18 )
                                 return $("<tr><td>"+DataLayer.render('../prototype/modules/mail/templates/draggin_box.ejs', {texto : $(this).find(".td_msg_subject").text().substring(0,18) + "...", type: "messages"})+"</td></tr>");
                             else
@@ -2815,7 +2815,7 @@ function useOriginalAttachments(new_border_ID,old_id_border)
         var fileUploadMSG = $('#fileupload_msg'+new_border_ID);
         var attachments = $("#attachments_" + old_id_border).find("a");
         if(openTab.imapBox[new_border_ID].split("local").length > 1 && attachments.length > 0){
-            alert(get_lang("It is not possible to use the attachments of local posts, please unarchive to have access to attachments"));
+            alert(get_lang("It is not possible to use the attachments of local messages, to have access please unarchive the attachments"));
             return false;
         }
 
@@ -2927,7 +2927,7 @@ function useOriginalAttachments(new_border_ID,old_id_border)
         if(arrayAttachments.length > 0)
         {
 
-            var orignialAtt = fileUploadMSG.find('.button-files-upload').append(' <button tabindex="-1" class="message-add-original-att button-small">_[[Attach native files]]</button>').find(".message-add-original-att").button();
+            var orignialAtt = fileUploadMSG.find('.button-files-upload').append(' <button tabindex="-1" class="message-add-original-att button-small">_[[Attach original files]]</button>').find(".message-add-original-att").button();
             orignialAtt.click(function(event ){
 
                 for (var i = 0; i < arrayAttachments.length; i++){
@@ -3020,7 +3020,7 @@ function addOriginalAttachments(new_border_ID,old_id_border)
     var attachments = $("#attachments_" + old_id_border).find("a");
 
     if(openTab.imapBox[new_border_ID].split("local").length > 1 && attachments.length > 0){
-        alert(get_lang("It is not possible to use the attachments of local posts, please unarchive to have access to attachments"));
+        alert(get_lang("It is not possible to use the attachments of local messages, to have access please unarchive the attachments"));
         return false;
     }
 
@@ -3450,10 +3450,10 @@ function send_message(ID, folder, folder_name){
                 'type':     'question',
                 'overlay_opacity': '0.5',
                 'custom_class': 'custom-zebra-filter',
-                'buttons':  ['_[[Discard and send attachments]]', '_[[Continue editing and wait attachments]]'],
+                'buttons':  ['_[[Discard attachments and send]]', '_[[Continue editing and wait attachments]]'],
                 'width' : 500,
                 'onClose':  function(clicked) {
-                    if(clicked == '_[[Discard and send attachments]]' ){
+                    if(clicked == '_[[Discard attachments and send]]' ){
                         $.each($('#fileupload_msg'+ID).find('.att-box'), function(index, value){
                             if($(value).find(".att-box-loading").length)
                                 $(value).find('.att-box-delete').trigger("click");
@@ -3718,7 +3718,7 @@ function save_msg(border_id){
         else
         {
             saveBorderError[border_id] = idJavascript;
-            write_msg('_[[Error saving your messages! Retry in a few seconds.]]');
+            write_msg('_[[Error saving your message! Retry in a few seconds.]]');
         }
     });
 
@@ -4318,7 +4318,7 @@ function print_all(){
     if (get_selected_messages() == false){
         return print_messages_list();
     }
-    var msg = '_[[Some messages were selected for printing. Want to print the contents of each one? Otherwise, only a list of selected messages will be printed.]]';
+    var msg = '_[[Some messages were selected for printing. Do you want to print the contents of each one? Otherwise, only a list of selected messages will be printed.]]';
     $.Zebra_Dialog(msg, {
         'type':     'question',
         'buttons': ['Sim','Não'],
@@ -5325,29 +5325,29 @@ function import_calendar(data){
                             $.ajax({
                                 url: 'controller.php?action='+import_url+'&from_ajax=true&selected=true&cirus_delimiter='+cyrus_delimiter,
                                 success: function(msg){
-                                    alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Your event/task has been successfully Updated]]" : "_[[An error occurred while updating event/task]]" );
+                                    alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Your event/task has been updated successfully]]" : "_[[An error occurred while updating event/task]]" );
                                 }
                             });
                             return;
                             break;
                         case 6:
-                            var acceptedSuggestion = confirm("_[[Want to update the event/task according to the suggestion?]]");
+                            var acceptedSuggestion = confirm("_[[Do you want to update the event/task according to the suggestion?]]");
                             $.ajax({
                                 url: "controller.php?action="+import_url+'&from_ajax=true&id_user='+User.me.id+'&selected=true&cirus_delimiter='+cyrus_delimiter+'&acceptedSuggestion='+acceptedSuggestion+"&from="+document.getElementById('from_values_'+currentTab).value+'&uidAccount='+decodeOwner(),
                                 success: function(msg){
                                     if(acceptedSuggestion)
-                                        alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Updated event/task successfully]]" + " " : "_[[An error occurred while updating the event]]" );
+                                        alert( ( ( connector.unserialize(msg)) == "ok") ? "_[[Event/task successfully updated]]" + " " : "_[[An error occurred while updating the event]]" );
                                 }
                             });
                             return;
                             break;
                         case 4:
                         case 9:
-                            alert('_[[Your event/task does not own changes!]]');
+                            alert('_[[Your event/task does not have changes!]]');
                             return;
                             break;
                         case 11:
-                            alert('_[[This event / task had already been caring for some of the participants and is now available on your shared calendar!]]');
+                            alert('_[[This event / task had already been caried for some of the participants and is now available on your shared calendar!]]');
                             return;
                             break;
                         default:
