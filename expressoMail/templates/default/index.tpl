@@ -112,7 +112,7 @@
 			</table>
 			<div id="content_id_0" class="conteudo"></div>
 			<div id="footer_menu">
-				<table style="border-top:0px solid black" id="footer_box" cellpadding=0 cellspacing=0 border=0 width="100%" height="10px">
+				<table style="border-top:0px solid black" id="footer_box" cellpadding=0 cellspacing=0 border=0 width="100%" height="14px">
 					<tbody>
 						<tr id="table_message"></tr>
 					</tbody>
