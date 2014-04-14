@@ -1224,7 +1224,7 @@ function select_all_messages(select)
 			allMsgsSelected = true;
 				if (total_pages > 1){
 					var link = "<a class='select-link' href='#'>_[[Clear selection?]]</a>";
-					var info = "_[[All]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+" _[[were selected.}} "+link;
+					var info = "_[[All]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+" _[[were selected.]] "+link;
 					div.html("<span>"+info+"<span>");
 					//div.show();
 					$('.select-link').bind('click',function(){

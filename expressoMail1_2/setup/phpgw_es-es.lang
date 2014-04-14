@@ -714,3 +714,58 @@ take on this option to regard the message body in the search.	expressoMail1_2	es
 Message saved successfully!	expressoMail1_2	es-es	¡Mensaje guardado correctamente
 Clear selection?	expressoMail1_2	es-es	¿Borrar selección?
 Create filter from message	expressoMail1_2	es-es	Crear filtro del mensaje
+There are unsaved changes in the message.	expressoMail1_2	es-es	Existen alteraciones que no fueron guardadas en el mensaje.
+Save and close	expressoMail1_2	es-es	Guardar y cerrar
+Attachments are being sent to the server	expressoMail1_2	es-es	Existen anexos que están siendo enviados al servidor.
+Discard changes and attachments	expressoMail1_2	es-es	Descartar modificaciones y anexos
+Save current state close	expressoMail1_2	es-es	Guardar estado actual y cerrar
+Local folders do not provide support for monitoring.	expressoMail1_2	es-es	Carpetas locales no proveen soporte para acompañamiento.
+Clear selection?	expressoMail1_2	es-es	Limpiar selección?
+were selected.	expressoMail1_2	es-es	mensajes de esta página fueron seleccionados
+All	expressoMail1_2	es-es	Todos los
+Were selected	expressoMail1_2	es-es	Fueron seleccionados
+Select all the	expressoMail1_2	es-es	Seleccionar todos los
+messages on this page were selected.	expressoMail1_2	es-es	mensajes de esta página fueron seleccionados
+Was selected	expressoMail1_2	es-es	Fue seleccionado
+Wait	expressoMail1_2	es-es	Aguarde
+already archived messages previously	expressoMail1_2	es-es	mensajes ya fueron archivados anteriormente
+filing	expressoMail1_2	es-es	archivando
+Were properly archived	expressoMail1_2	es-es	Fueron archivados correctamente
+No message archived	expressoMail1_2	es-es	Ningún mensaje archivado
+failed	expressoMail1_2	es-es	fallaron
+selected messages	expressoMail1_2	es-es	mensajes seleccionados
+Impossible to delete messages that are still being archived.	expressoMail1_2	es-es	Imposible borrar mensajes que aún estan siendo archivados
+Impossible to move messages that are still being archived.	expressoMail1_2	es-es	Imposible mover mensajes que aún estan siendo archivados
+All messages have been filed earlier.	expressoMail1_2	es-es	Todos los mensajes ya fueron archivados anteriormente
+Unable to handle local messages from a search. This is allowed only for non-local messages.	expressoMail1_2	es-es	Imposible manipular mensajes locales apartir de una búsqueda. Esto es permitido apenas para mensajes no locales.
+It is not possible to use the attachments of local messages, to have access please unarchive the attachments	expressoMail1_2	es-es	No es posible utilizar los anexos de las mensajes locales, favor desarchivar para tener acceso a los anexos
+Attach original files	expressoMail1_2	es-es	Anexar archivos originales
+Attachments are being sent to the server. If you send your message now these files will be lost.	expressoMail1_2	es-es	Existen anexos siendo enviados para el servidor. En caso de que envie sus mensajes ahora estos archivos serán perdidos
+Discard attachments and send	expressoMail1_2	es-es	Descartar anexos y enviar
+Continue editing and wait attachments	expressoMail1_2	es-es	Continuar editando y esperar anexos
+SMTP Error: The following recipient addresses failed:	expressoMail1_2	es-es	Error de SMTP: Las direcciones de los destinatarios a seguir fallaron:
+SMTP Error: The addresses must be separated only by commas:	expressoMail1_2	es-es	Error de SMTP: Las direcciones deven ser separados apenas por coma:
+Message saved successfully!	expressoMail1_2	es-es	Mensaje guardado con éxito!
+Error saving your message! Retry in a few seconds.	expressoMail1_2	es-es	Error al guardar su mensaje! Se volverá a reintentar en algunos segundos.
+Some messages were selected for printing. Do you want to print the contents of each one? Otherwise, only a list of selected messages will be printed.	expressoMail1_2	es-es	Algunos mensajes fueron seleccionados para impresión. Desea imprimir el contenido de cada uno de ellos? De lo contrario, apenas uma lista de los mensajes seleccionados será impreso.
+Messages can not be imported into local folders	expressoMail1_2	es-es	Mensajes no pueden ser importados en carpetas locales
+Your event/task was removed	expressoMail1_2	es-es	Su evento/tarea será eliminado/a
+An error occurred while removing the event/task	expressoMail1_2	es-es	Ocurrió un error al remover el/la evento/tarea
+Imported successfully to	expressoMail1_2	es-es	Importado con éxito para
+An error occurred while importing the event/task to the calendar	expressoMail1_2	es-es	Ocurrió un error al importar e/lal evento/tarea para la agenda
+Your event/task has been updated successfully	expressoMail1_2	es-es	Su evento/tarea se ha Actualizado con éxito
+An error occurred while updating event/task	expressoMail1_2	es-es	Ocurrió un error al actualizar evento/tarea
+Do you want to update the event/task according to the suggestion?	expressoMail1_2	es-es	Desea actualizar el/la evento/tarea de acuerdo con la sugerencia?
+Event/task successfully updated	expressoMail1_2	es-es	Evento/tarea actualizado con éxito!
+An error occurred while updating the event	expressoMail1_2	es-es	Ocurrió un error al actualizar el evento
+Your event/task does not have changes!	expressoMail1_2	es-es	Su evento/tarea no posee modificaciones!
+This event / task had already been caried for some of the participants and is now available on your shared calendar!	expressoMail1_2	es-es	Este evento/tarea ya fue importado por alguno de los participantes y ya se encuentra disponible en su agenda compartida!
+Updated successfully	expressoMail1_2	es-es	Actualizado con éxito
+Invalid login or password	expressoMail1_2	es-es	login o contraseña incorrecta
+Filter "Out of Office" active.	expressoMail1_2	es-es	Filtro "Fuera del Escritorio" activado.
+No Results Found	expressoMail1_2	es-es	Ningún Resultado Encontrado
+messages in your current folder	expressoMail1_2	es-es	mensaje en su carpeta actual
+messages in your other folders	expressoMail1_2	es-es	mensajes en sus otras carpetas
+messages in your shared folders	expressoMail1_2	es-es	mensajes em sus carpetas compartidas
+searching	expressoMail1_2	es-es	buscando
+Were found	expressoMail1_2	es-es	Fueron encontrados

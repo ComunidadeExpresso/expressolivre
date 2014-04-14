@@ -16,6 +16,8 @@ function setBorderAttributes(ID)
 
 function alternate_border(ID)
 {
+   
+
     msg_selected = false;//Controle da seleção de mensagens
     if(isNaN(ID))
         if(preferences.use_shortcuts == "1")
@@ -464,7 +466,7 @@ function draftTests(ID, msg_sent){
         else  
         {
              var msg = '_[[There are unsaved changes in the message.]]';
-             var buttons = ['_[[Discard changes]]', '_[[Save and close]]' ,'_[[cancelar]]'];
+             var buttons = ['_[[Discard changes]]', '_[[Save and close]]' ,'_[[cancel]]'];
              var width = 371;
              if($('#fileupload_msg'+ID).find('.in-progress').length)
              {
@@ -481,7 +483,7 @@ function draftTests(ID, msg_sent){
                             'buttons':  buttons,
                             'width' : width,
                             'onClose':  function(clicked) {
-                                    if(clicked == '_[[cancelar]]'){
+                                    if(clicked == '_[[cancel]]'){
                                         if (RichTextEditor.plain[id] != true) 
                                             setTimeout("RichTextEditor.focus("+ID+")",100);                  
                                         else  
@@ -637,8 +639,7 @@ function close_delete(ID, msg_sent)
     if(is_webkit)
         resizeWindow();
     RichTextEditor.destroy( 'body_'+ID );
-        //delete msgAttachments[ID];
-        msgAttachments.splice(ID,1);
+        delete msgAttachments[ID];
         //Caso for uma mensagem anexada tem que deletar ela da lixeira apos fechar a aba
             var isPartMsg = false;
             if(!parseInt(id2))
@@ -694,16 +695,9 @@ function addAttachment(ID, att)
 
 function delAttachment(ID, att)
 {
+    
     if(msgAttachments[ID] == undefined) return;
-    //var len = msgAttachments[ID].length;
-
-    /*
-      * The delete operator change the value to undefined.
-    */
-    msgAttachments[ID].splice(msgAttachments[ID][att],1);
-
-    /*
-
+    var len = msgAttachments[ID].length;
     for(var i = 0; i < len; i++)
     {
         if(msgAttachments[ID][i] == att)
@@ -711,7 +705,7 @@ function delAttachment(ID, att)
             delete msgAttachments[ID][i];
             break;
         }
-    }  */
+    }  
 }
 
 function listAttachment(ID)

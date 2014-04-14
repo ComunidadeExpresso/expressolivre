@@ -703,7 +703,7 @@ function draw_new_tree_folder(callback, force)
                     return write_msg('_[[It\'s not possible delete this folder, because it is being used in the moment!]]');
                 }
                 var folder_span = $(this);
-                var confirm_text = '_[[Do you wish to exclude the folder]]' + ' ';
+                var confirm_text = '_[[Do you wish to exclude the folder?]]' + ' ';
 
                 $.Zebra_Dialog(confirm_text + folder_name, {
                     'type': 'question',

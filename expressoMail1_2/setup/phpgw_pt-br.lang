@@ -143,7 +143,7 @@ Do you want to show common name instead of UID?	expressoMail1_2	pt-br	Utilizar n
 Do you want to use important flag in email editor?	expressoMail1_2	pt-br	Você gostaria de usar a flag de importante na edição de emails?
 Do you want to use remove attachments function?	expressoMail1_2	pt-br	Você gostaria de usar a função de desanexar?
 Do you want to use the spam filter?	admin	pt-br	Você gostaria de utilizar o filtro anti-spam?
-Do you wish to exclude the folder 	expressoMail1_2	pt-br	Você gostaria de excluir a pasta: 
+Do you wish to exclude the folder? 	expressoMail1_2	pt-br	Você gostaria de excluir a pasta?
 Draft	expressoMail1_2	pt-br	Rascunho
 Drafts	expressoMail1_2	pt-br	Rascunhos
 Drafts Folder name	admin	pt-br	Nome da pasta rascunhos
@@ -1145,3 +1145,8 @@ messages in your other folders	expressoMail1_2	pt-br	mensagens nas suas outras p
 messages in your shared folders	expressoMail1_2	pt-br	mensagens nas suas pastas compartilhadas
 searching	expressoMail1_2	pt-br	pesquisando
 Were found	expressoMail1_2	pt-br	Foram encontradas
+in	expressoMail1_2	pt-br	no
+Empty trash	expressoMail1_2	pt-br	Esvaziar lixeira
+Mailbox does not exist	expressoMail1_2	pt-br	Caixa de mail não existe
+The folder $folder_name$ was successfully removed	expressoMail1_2	pt-br	A pasta $folder_name$ foi removida com sucesso
+New folder	expressoMail1_2	pt-br	Nova pasta
