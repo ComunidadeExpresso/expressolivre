@@ -16,8 +16,6 @@ function setBorderAttributes(ID)
 
 function alternate_border(ID)
 {
-   
-
     msg_selected = false;//Controle da seleção de mensagens
     if(isNaN(ID))
         if(preferences.use_shortcuts == "1")
@@ -639,7 +637,8 @@ function close_delete(ID, msg_sent)
     if(is_webkit)
         resizeWindow();
     RichTextEditor.destroy( 'body_'+ID );
-        delete msgAttachments[ID];
+        //delete msgAttachments[ID];
+        msgAttachments.splice(ID,1);
         //Caso for uma mensagem anexada tem que deletar ela da lixeira apos fechar a aba
             var isPartMsg = false;
             if(!parseInt(id2))
@@ -695,9 +694,16 @@ function addAttachment(ID, att)
 
 function delAttachment(ID, att)
 {
-    
     if(msgAttachments[ID] == undefined) return;
-    var len = msgAttachments[ID].length;
+    //var len = msgAttachments[ID].length;
+
+    /*
+      * The delete operator change the value to undefined.
+    */
+    msgAttachments[ID].splice(msgAttachments[ID][att],1);
+
+    /*
+
     for(var i = 0; i < len; i++)
     {
         if(msgAttachments[ID][i] == att)
@@ -705,7 +711,7 @@ function delAttachment(ID, att)
             delete msgAttachments[ID][i];
             break;
         }
-    }  
+    }  */
 }
 
 function listAttachment(ID)

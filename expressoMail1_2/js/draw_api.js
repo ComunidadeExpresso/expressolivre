@@ -4774,7 +4774,7 @@ function attach_message (folder_name, message_number) {
     })); 
     $("#content_id_" + currentTab + " .save").button("enable"); 
     upload.find('.att-box-loading').remove(); 
-    upload.append('<input type="hidden" name="fileId[]" value=\'' + idATT + '\'/>'); 
+    
  
     upload.find('.att-box-delete').click(function() 
     { 
@@ -4831,15 +4831,15 @@ function attach_message (folder_name, message_number) {
         }); 
     } 
 
+    var idATT = "";
     if(folder_name.indexOf("local_messages_") != 0)
     {
         att.folder = folder_name; 
         att.uid = message_number; 
         att.type = 'imapMSG'; 
         att.name = Base64.encode(onceOpenedHeadersMessages[folder_name][message_number].subject + '.eml'); 
-        var idATT = JSON.stringify(att); 
-        addAttachment(ID, idATT); 
-
+        idATT = JSON.stringify(att); 
+        addAttachment(ID, idATT);
         fileUploadMSG.find('.attachments-list').append(upload);
         addtip(attach);
     }
@@ -4859,7 +4859,7 @@ function attach_message (folder_name, message_number) {
                     att.uid = data.uid; 
                     att.type = 'imapMSG'; 
                     att.name = Base64.encode(onceOpenedHeadersMessages[folder_name][message_number].subject + '.eml'); 
-                    var idATT = JSON.stringify(att); 
+                    idATT = JSON.stringify(att); 
                     addAttachment(ID, idATT);
                     fileUploadMSG.find('.attachments-list').append(upload);
                     addtip(attach);
@@ -4867,6 +4867,7 @@ function attach_message (folder_name, message_number) {
             });
         }); 
     }
+    upload.append('<input type="hidden" name="fileId[]" value=\'' + idATT + '\'/>');
     upload.find('.att-box-loading').remove();     
 }
 
