@@ -757,7 +757,7 @@ function configureLabels(data){
 function configureFollowupflag(){
 
     if(get_current_folder().split("_")[0] == "local"){
-        alert("_[[Local folders not provide support for monitoring.]]");
+        alert("_[[Local folders do not provide support for monitoring.]]");
         return true;
     }
 
@@ -1235,7 +1235,7 @@ function select_all_messages(select)
 		}
 		else if (!allMsgsSelected && total_pages > 1){
 			var link = "<a class='select-link' href='#'>_[[Select all the]] <b>"+totalFolderMsgs+"</b> _[[messages]] "+filterFlag+" _[[in]] "+folder+"?</a>";
-			var info = "_[[All]] <b>"+$('#table_box tr').length+"</b> _[[posts on this page were selected.]] "+link;
+			var info = "_[[All]] <b>"+$('#table_box tr').length+"</b> _[[messages on this page were selected.]] "+link;
 			div.html("<span>"+info+"<span>");
 			//div.show();
 			$('.select-link').bind('click',function(){

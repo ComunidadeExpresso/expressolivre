@@ -1090,3 +1090,58 @@ Selected	expressoMail1_2	pt-br	Selecionadas
 Message saved successfully!	expressoMail1_2	pt-br	Mensagem salva corretamente!
 Default schedule for Import Events	expressoMail1_2	pt-br	Horario predeterminado para importación de eventos
 Clear selection?	expressoMail1_2	pt-br	Limpar seleção?
+There are unsaved changes in the message.	expressoMail1_2	pt-br	Existem alterações não salvas na mensagem.
+Save and close	expressoMail1_2	pt-br	Salvar e fechar
+Attachments are being sent to the server	expressoMail1_2	pt-br	Existem anexos sendo enviados para o servidor.
+Discard changes and attachments	expressoMail1_2	pt-br	Descartar alterações e anexos
+Save current state close	expressoMail1_2	pt-br	Salvar estado atual fechar
+Local folders do not provide support for monitoring.	expressoMail1_2	pt-br	Pastas locais não fornece suporte para acompanhamento.
+Clear selection?	expressoMail1_2	pt-br	Limpar seleção?
+were selected.	expressoMail1_2	pt-br	foram selecionadas.
+All	expressoMail1_2	pt-br	Todas as
+Were selected	expressoMail1_2	pt-br	Foram selecionadas
+Select all the	expressoMail1_2	pt-br	Selecionar todas as
+messages on this page were selected.	expressoMail1_2	pt-br	mensagens desta página foram selecionadas.
+Was selected	expressoMail1_2	pt-br	Foi selecionada
+Wait	expressoMail1_2	pt-br	Aguarde
+already archived messages previously	expressoMail1_2	pt-br	mensagens já arquivadas anteriormente
+filing	expressoMail1_2	pt-br	arquivando
+Were properly archived	expressoMail1_2	pt-br	Foram arquivadas corretamente
+No message archived	expressoMail1_2	pt-br	Nenhuma mensagem arquivada
+failed	expressoMail1_2	pt-br	falharam
+selected messages	expressoMail1_2	pt-br	mensagens selecionadas
+Impossible to delete messages that are still being archived.	expressoMail1_2	pt-br	Impossivel deletar mensagens que ainda estão sendo arquivadas.
+Impossible to move messages that are still being archived.	expressoMail1_2	pt-br	Impossivel mover mensagens que ainda estão sendo arquivadas.
+All messages have been filed earlier.	expressoMail1_2	pt-br	Todas as mensagens já foram arquivadas anteriormente.
+Unable to handle local messages from a search. This is allowed only for non-local messages.	expressoMail1_2	pt-br	Impossível manipular mensagens locais a partir de uma busca. Isso é permitido apenas para mensagens não locais.
+It is not possible to use the attachments of local messages, to have access please unarchive the attachments	expressoMail1_2	pt-br	Não é possivel utilizar os anexos das mensagens locais, favor desarquivar para ter acesso aos anexos
+Attach original files	expressoMail1_2	pt-br	Anexar arquivos originais
+Attachments are being sent to the server. If you send your message now these files will be lost.	expressoMail1_2	pt-br	Existem anexos sendo enviados para o servidor. Caso envie sua mensagem agora estes arquivos serão perdidos.
+Discard attachments and send	expressoMail1_2	pt-br	Descartar anexos e enviar
+Continue editing and wait attachments	expressoMail1_2	pt-br	Continuar editando e esperar anexos
+SMTP Error: The following recipient addresses failed:	expressoMail1_2	pt-br	Erro de SMTP: Os endereços de destinatário a seguir falharam:
+SMTP Error: The addresses must be separated only by commas:	expressoMail1_2	pt-br	Erro de SMTP: Os endereços devem ser separados apenas por vírgula:
+Message saved successfully!	expressoMail1_2	pt-br	Mensagem salva com sucesso!
+Error saving your message! Retry in a few seconds.	expressoMail1_2	pt-br	Erro ao salvar sua mensagem! Nova tentativa em alguns segundos.
+Some messages were selected for printing. Do you want to print the contents of each one? Otherwise, only a list of selected messages will be printed.	expressoMail1_2	pt-br	Algumas mensagens foram selecionadas para impressão. Deseja imprimir o conteúdo de cada uma delas? Caso contrário, apenas uma lista das mensagens selecionadas será impressa.
+Messages can not be imported into local folders	expressoMail1_2	pt-br	Mensagens não podem ser importadas em pastas locais
+Your event/task was removed	expressoMail1_2	pt-br	Seu evento/tarefa foi removido
+An error occurred while removing the event/task	expressoMail1_2	pt-br	Ocorreu um erro ao remover o evento/tarefa
+Imported successfully to	expressoMail1_2	pt-br	Importado com sucesso para
+An error occurred while importing the event/task to the calendar	expressoMail1_2	pt-br	Ocorreu um erro ao importar o evento/tarefa para a agenda
+Your event/task has been updated successfully	expressoMail1_2	pt-br	Seu evento/tarefa foi Atualizado com sucesso
+An error occurred while updating event/task	expressoMail1_2	pt-br	Ocorreu um erro ao atualizar evento/tarefa
+Do you want to update the event/task according to the suggestion?	expressoMail1_2	pt-br	Deseja atualizar o evento/tarefa de acordo com a sugestão?
+Event/task successfully updated	expressoMail1_2	pt-br	Evento/tarefa atualizado com sucesso
+An error occurred while updating the event	expressoMail1_2	pt-br	Ocorreu um erro ao atualizar o evento
+Your event/task does not have changes!	expressoMail1_2	pt-br	Seu evento/tarefa não possui alterações!
+This event / task had already been caried for some of the participants and is now available on your shared calendar!	expressoMail1_2	pt-br	Este evento/tarefa já fora importando por algum dos particpantes e já se encontra disponível em sua agenda compartilhada!
+Updated successfully	expressoMail1_2	pt-br	Atualizado com sucesso
+Invalid login or password	expressoMail1_2	pt-br	login ou senha inválida
+Filter "Out of Office" active.	expressoMail1_2	pt-br	Filtro "Fora do Escritório" ativo.
+No Results Found	expressoMail1_2	pt-br	Nenhum Resultado Encontrado
+messages in your current folder	expressoMail1_2	pt-br	mensagem na sua pasta atual
+messages in your other folders	expressoMail1_2	pt-br	mensagens nas suas outras pastas
+messages in your shared folders	expressoMail1_2	pt-br	mensagens nas suas pastas compartilhadas
+searching	expressoMail1_2	pt-br	pesquisando
+Were found	expressoMail1_2	pt-br	Foram encontradas

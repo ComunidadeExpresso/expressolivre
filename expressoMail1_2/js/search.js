@@ -1784,7 +1784,7 @@
 					labels[2] = get_lang("messages in your shared folders");
 				}
 			    var link = ' <a href="#" style="position: relative; z-index: 10000" onclick="searchE.prototype.quickSearchAbort(); clean_msg(); return false;">'+ get_lang('cancel') +'<a/>';
-			    write_msg( get_lang("researching") + " " + labels[0] + link, true );
+			    write_msg( get_lang("searching") + " " + labels[0] + link, true );
 			    var keepFilled = false;
 			    //Inserida variável de controle para correta manipulação das mensagens locais
 			    var local_messages_link = true;
@@ -1824,7 +1824,7 @@
 						EsearchE.total = allMsg['num_msgs'] = Math.max( (EsearchE.total || 0), allMsg['num_msgs'] );	
 
 					EsearchE.mount_result( allMsg, EsearchE.sort, ( keepFilled || border_id === currentTab ), keepFilled, get_lang("Were found")+ " " + data['msgs'].length + " "+labels.shift()+"." );
-					write_msg( get_lang("researching") + " " + labels[0] + link, true );
+					write_msg( get_lang("searching") + " " + labels[0] + link, true );
 					keepFilled = true;
 					if( url.length ){
 					    xhr = $.ajax({
