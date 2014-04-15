@@ -1468,12 +1468,15 @@ function make_tr_message(headers_msgs, msg_folder, offsetToGMT){
 			else{
 				var spanSender = document.createElement("SPAN");
 				spanSender.setAttribute('class','span-sender');
-				spanSender.onmouseover = function (event) {try {InfoContact.begin(this,headers_msgs.reply_toaddress)} catch(e){};};
-				spanSender.onmouseout = function (){try {clearTimeout(InfoContact.timeout);} catch(e){}};
+				spanSender.onmouseover = function(event)
+				{
+					InfoContact.begin( this , headers_msgs.reply_toaddress );
+				};
 				folder = special_folders['Sent'];
 				current = get_current_folder();
 				if ((preferences.from_to_sent == "1") && (current.substr(current.length - folder.length, folder.length) == folder)){
-					spanSender.onmouseover = function () { 
+					spanSender.onmouseover = function()
+					{ 
 						var title_to = ''; 
 						$.each(headers_msgs.to, function(index, value) { 
 								if(index == (headers_msgs.to.length - 1)){ 

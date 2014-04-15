@@ -698,8 +698,10 @@ function filterbox(){
 } 
 
 function sharebox(){
+
 	var handler_imap_getacl = function(data)
 	{
+
 		connector.loadScript("finder", "../services/");
 		connector.loadScript("sharemailbox");
 		
@@ -711,6 +713,7 @@ function sharebox(){
 		
 		sharemailbox.makeWindow(data);
 	}
+	
 	cExecute ("$this.imap_functions.getacl", handler_imap_getacl);
 }
 

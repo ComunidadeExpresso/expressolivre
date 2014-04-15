@@ -114,6 +114,7 @@ CardContact.prototype.showCard = function( data, element )
 CardContact.prototype.hide = function()
 {
 	$("#info_card_cc").css({'display' : 'none' });
+	if( InfoContact.delayCard ) { clearTimeout( InfoContact.delayCard ); }	
 }
 
 var InfoContact = new CardContact();
