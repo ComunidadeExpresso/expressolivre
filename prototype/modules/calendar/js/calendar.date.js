@@ -13,7 +13,7 @@ dateCalendar = {
 			'_[[Sept]]',
 			'_[[Oct]]',
 			'_[[Nov]]',
-			'_[[Dez]]'
+			'_[[Dec]]'
 		],
 
 	//MonthOfNumber

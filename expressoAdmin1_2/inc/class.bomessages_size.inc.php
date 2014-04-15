@@ -80,7 +80,7 @@ include_once(PHPGW_API_INC.'/class.common.inc.php');
 			if((!preg_match("/^[0-9]+$/i", $params['max_messages_size'])))
 			{
 				$result['status'] = false;
-				$result['msg']  = $this->functions->lang('Field size must be a number');
+                                                        $result['msg']  = $this->functions->lang('Field size must be a number');
 				return $result;
 			
 			}
@@ -150,7 +150,7 @@ include_once(PHPGW_API_INC.'/class.common.inc.php');
 		 * @params params - informações da regra vindas do formulário.
          * @return retorna um status informando se a operação foi concluída com sucesso e uma mensagem de erro ou sucesso.
          */
-		function save_rule($params) 
+		function save_rule($params)
 		{
 			$usuarios = array();
 			foreach($params['owners'] as $i=>$value)
