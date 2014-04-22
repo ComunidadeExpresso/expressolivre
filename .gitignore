@@ -1,0 +1,14 @@
+# Arquivos que serao ignorados pelo git
+*.log
+
+# Arquivos temporarios do z-push
+zpush/logs/*
+zpush/states/*
+
+# Arquivos de configuracao especificos de cada ambiente
+prototype/config/CalDAV.srv
+prototype/config/OpenLDAP.srv
+prototype/config/PostgreSQL.srv
+prototype/config/Sieve.srv
+prototype/config/SMTP.srv
+prototype/config/REST.ini
