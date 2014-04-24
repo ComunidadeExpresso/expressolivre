@@ -22,7 +22,7 @@
 							<td>
 								<div id="search_div" class="class_search_div" style="white-space:nowrap">
 									<input type="text" id="em_message_search" size="17" style="margin-left: 5px;"/>
-									<img style="padding:0px 8px; width:16px; height:16px; margin: -5px -5px; cursor:pointer;" class="" src="templates/default/images/search.gif" onMouseOut="window.status='';return true;" title='{lang_Open_Search_Window}' onMouseOver="window.status='{lang_Open_Search_Window}';return true;" href="javascript:void(0);"  onClick="javascript:search_emails(Element('em_message_search').value)"/>
+									<img style="padding:0px 8px; width:16px; height:16px; margin: -5px -5px; cursor:pointer;" class="" src="templates/default/images/search.gif" onMouseOut="window.status='';return true;" title='{lang_Open_Search_Window}' onMouseOver="window.status='{lang_Open_Search_Window}';return true;" href="javascript:void(0);"  onClick="javascript:EsearchE.quickSearchMail($('#em_message_search').val(), null, 'SORTDATE_REVERSE');"/>
 									<img style="padding:0px 8px; width:16px; height:16px; margin: -5px -5px; cursor:pointer;" class="" src="templates/default/images/users.gif" onMouseOut="window.status='';return true;" title='{lang_search_user}' onMouseOver="window.status='{lang_search_user}' ;return true;" href="javascript:void(0);"  onClick="javascript:emQuickSearch(Element('em_message_search').value, 'null', 'null', 'expressoMail')"></img> 
 								</div>
 							</td>
@@ -212,4 +212,5 @@
 <div id="error_reporter" style="display:none"></div>
 <div id="shareMailbox" style="display:none;overflow:hidden;"></div>
 <div id="info_card_cc" style="display:none"></div>
+<div id="searchEmails" style="display:none"></div>
 <!-- END list -->

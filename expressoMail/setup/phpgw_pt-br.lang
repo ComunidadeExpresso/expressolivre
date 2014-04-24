@@ -382,7 +382,7 @@ Next Shortcut:Control + Down	expressoMail	pt-br	Próximo (Atalho: Ctrl + Para bai
 SNickname	expressoMail	pt-br	Apelido
 Nickname	expressoMail	pt-br	Apelido
 n key (Open new message)<br>ESC key (Close tab)<br>i key (print)<br>e key (forward)<br>r key (reply)<br>DELETE key (delete the current message)<br>Ctrl + up (go to previous message)<br>Ctrl + down (go to next message)<br>Shift + up or down (select multiple messages)<br>F9  key (search at catalog)<br>	expressoMail	pt-br	tecla n (Abre nova mensagem)<br>tecla ESC (Fecha aba)<br>tecla i (imprime)<br>tecla e (encaminha)<br>tecla r (responde)<br>tecla DELETE (apaga mensagem atual)<br>Ctrl + pra cima (vai pra mensagem anterior)<br>Ctrl + pra baixo (vai para próxima mensagem)<br>Shift + pra cima ou pra baixo (seleciona várias mensagens)<br>Tecla F9 (procura no catálogo)<br>
-No data to search	expressoMail	pt-br	Nenhum dado digitado para pesquisar.
+No data for search	expressoMail	pt-br	Sem dados para a busca
 No	expressoMail	pt-br	Não
 No messages to send	expressoMail	pt-br	Não há mensagens na fila de e-mails offline.
 None	expressoMail	pt-br	Nenhum

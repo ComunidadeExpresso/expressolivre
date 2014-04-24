@@ -891,7 +891,10 @@ function search_emails(value, data)
     }
     else
     {
-		EsearchE.showForms(value, data);
+		/*// if( $.trim(value) !== "" )
+			EsearchE.quickSearchMail(value, null, 'SORTDATE_REVERSE');
+		// else*/
+		EsearchE.showForms();
 	}
 	
 	$("#em_message_search").val("");
