@@ -1,15 +1,16 @@
 <?php
+use prototype\api\Config;
 
 class ParseTPL
 {
 	
 	static function load_tpl(&$data, $file)
     {
-        include __DIR__ . '/../../library/fileDuck/FileDuck.php';
+        include_once __DIR__ . '/../../library/fileDuck/FileDuck.php';
 
         $config = array();
         $config['lang'] = 'pt_BR';
-        $sql  = "SELECT * FROM phpgw_preferences where preference_app = 'common' AND preference_owner IN ( '-2' , '-1' , {Config::me('uidNumber')} ) ORDER BY preference_owner";
+        $sql  = "SELECT * FROM phpgw_preferences where preference_app = 'common' AND preference_owner IN ( '-2' , '-1' , " . Config::me('uidNumber') . " ) ORDER BY preference_owner";
         $preferences =  Controller::service('PostgreSQL')->execResultSql($sql);
         foreach( $preferences as $preference){
             $values = unserialize($preference['preference_value']);
@@ -23,10 +24,10 @@ class ParseTPL
         $configProvider = array();
         $configProvider['module'] = 'expressoCalendar';
 
-        if( preg_match('/(.*)\/modules\/([a-zA-Z\_\-]+).*\/)/i' , $file , $matches))
+        if( preg_match('/\/modules\/([a-z\_\-]+)\//i' , $file , $matches))
         {
             $moduleMap =  parse_ini_file( __DIR__ ."/../config/moduleMap.ini", true );
-            $configProvider['module'] = isset( $moduleMap[$matches[2]] ) ?  $moduleMap[$matches[2]] : 'phpgwapi' ;
+            $configProvider['module'] = isset( $moduleMap[$matches[1]] ) ?  $moduleMap[$matches[1]] : 'phpgwapi' ;
         }
 
         $fileDuck = new FileDuck( $config , $configProvider );

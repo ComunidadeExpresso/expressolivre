@@ -275,8 +275,8 @@ class ICalService
                 $return['uid'] = $component->getProperty( 'uid' , FALSE , TRUE );
                 $return['dtstamp'] = $component->getProperty( 'dtstamp' , FALSE , TRUE );
                 $return['sequence'] = $component->getProperty( 'sequence' , FALSE , TRUE );
-                $return['request-status'] = $component->getProperty( 'request-status' , propOrderNo/FALSE, TRUE );
-                $return['rrule'] = $component->getProperty( 'rrule' , propOrderNo/FALSE, TRUE );
+                $return['request-status'] = $component->getProperty( 'request-status' , FALSE, TRUE );
+                $return['rrule'] = $component->getProperty( 'rrule' , FALSE, TRUE );
                 $return['transp'] = $component->getProperty( 'transp' , FALSE , TRUE );
                 $return['url'] = $component->getProperty( 'url' , FALSE , TRUE );
                 $return['recurrence-id'] = $component->getProperty( 'recurrence-id' , FALSE , TRUE );
@@ -286,23 +286,23 @@ class ICalService
                 $return['duration'] = $component->getProperty( 'duration' , FALSE , TRUE );
                 $return['geo'] = $component->getProperty( 'geo' , FALSE , TRUE );
                 $return['last-modified'] = $component->getProperty( 'last-modified', FALSE , TRUE );
-                $return['rdate'] = $component->getProperty( 'rdate' , propOrderNo/FALSE , TRUE );
-                $return['related-to'] = $component->getProperty( 'related-to' , propOrderNo/FALSE , TRUE );
-                $return['resources'] = $component->getProperty( 'resources' , propOrderNo/FALSE, TRUE );
+                $return['rdate'] = $component->getProperty( 'rdate' , FALSE , TRUE );
+                $return['related-to'] = $component->getProperty( 'related-to' , FALSE , TRUE );
+                $return['resources'] = $component->getProperty( 'resources' , FALSE, TRUE );
 
-                while($property = $component->getProperty( FALSE, propOrderNo/FALSE, TRUE )){$return['x-property'][] = array('name' => $property[0], 'value' => $property[1]['value'],'params' => $property[1]['params']);};
+                while($property = $component->getProperty( FALSE, FALSE, TRUE )){$return['x-property'][] = array('name' => $property[0], 'value' => $property[1]['value'],'params' => $property[1]['params']);};
                
-                while($property = $component->getProperty('attendee',propOrderNo/FALSE , TRUE))
+                while($property = $component->getProperty('attendee',FALSE , TRUE))
                 {
                     $ateendee = $property;
                     $ateendee['value'] = str_replace('MAILTO:', '', $ateendee['value']);
                     $return['attendee'][] = $ateendee;
                 };
 
-                while($property = $component->getProperty('categories',propOrderNo/FALSE , TRUE)){$return['categories'][] = $property;};
-                while($component->getProperty('contact',propOrderNo/FALSE , TRUE)){$return['contact'][] = $property;};
-                while($component->getProperty('exdate',propOrderNo/FALSE , TRUE)){$return['exdate'][] = $property;};
-                while($component->getProperty('exrule',propOrderNo/FALSE , TRUE)){$return['exrule'][] = $property;};
+                while($property = $component->getProperty('categories',FALSE , TRUE)){$return['categories'][] = $property;};
+                while($component->getProperty('contact',FALSE , TRUE)){$return['contact'][] = $property;};
+                while($component->getProperty('exdate',FALSE , TRUE)){$return['exdate'][] = $property;};
+                while($component->getProperty('exrule',FALSE , TRUE)){$return['exrule'][] = $property;};
 
                 $return['sub'] = array();
 
@@ -321,7 +321,7 @@ class ICalService
                 $return['repeat'] = $component->getProperty( 'repeat', FALSE , TRUE );
                 $return['summary'] = $component->getProperty( 'summary' , FALSE , TRUE );
                 $return['trigger'] = $component->getProperty( 'trigger' , FALSE , TRUE );
-                while($property = $component->getProperty( FALSE, propOrderNo/FALSE, TRUE )){$return['x-property'][] = array('name' => $property[0], 'value' => $property[1]['value'],'params' => $property[1]['params']);};
+                while($property = $component->getProperty( FALSE, FALSE, TRUE )){$return['x-property'][] = array('name' => $property[0], 'value' => $property[1]['value'],'params' => $property[1]['params']);};
 
                 break;
             default:
