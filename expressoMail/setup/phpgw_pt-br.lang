@@ -128,6 +128,7 @@ Digitally crypt message?	expressoMail	pt-br	Cifrar digitalmente a mensagem?
 Digitally sign message?	expressoMail	pt-br	Assinar digitalmente a mensagem?
 DISABLED	expressoMail	pt-br	Desabilitada
 Disable	expressoMail	pt-br	Desabilitar
+Domain Jabber	common	pt-br	Domínio Jabber
 Don\`t use	expressoMail	pt-br	Não use
 Download all atachments	expressoMail	pt-br	Baixar todos de uma vez
 Download manual	expressoMail	pt-br	Baixar manual
@@ -165,6 +166,7 @@ Enable digitally sign/cipher the message?	expressoMail	pt-br	Possibilitar assina
 Enable	expressoMail	pt-br	Habilitar
 Enable Quick Reply	expressoMail	pt-br	Responder rápido (com histórico e ao remetente)
 Enable this option if you want to read the next message everytime you delete a message	expressoMail	pt-br	Habilite esta opção se você quiser ler a mensagem seguinte sempre que você apagar uma mensagem
+Enabled groups	common	pt-br	Grupos Habilitados
 Enabling this options you will be able to store messages in your local computer	expressoMail	pt-br	Ao ativar esta opção você será capaz de armazenar mensagens no seu computador local
 End of archive messages	expressoMail	pt-br	Fim do arquivamento de mensagens
 English	expressoMail	pt-br	Inglês
@@ -187,6 +189,7 @@ ERROR saving your message.	expressoMail	pt-br	Ocorreu um ERRO ao salvar sua mens
 ERROR emptying your Spam folder.	expressoMail	pt-br	Ocorreu um ERRO ao limpar sua pasta Spam.
 Everytime you receive new messages you will be informed	expressoMail	pt-br	Cada vez que você receber novas mensagens você será informado
 Exclusion	expressoMail	pt-br	Exclusão
+Expand	expressoMail	pt-br	Expandir
 Export	expressoMail	pt-br	Exportar
 Export messages	expressoMail	pt-br	Exportar mensagens
 Export folder messages	expressoMail	pt-br	Exportar mensagens da pasta
@@ -225,6 +228,7 @@ Global Catalog	expressoMail	pt-br	Catálogo Geral
 Go back	expressoMail	pt-br	Voltar
 greater than	expressoMail	pt-br	Maior que
 Groups	expressoMail	pt-br	Grupos
+Groups ldap	common	pt-br	Grupos Ldap
 Hide details	expressoMail	pt-br	Ocultar detalhes
 Show details	expressoMail	pt-br	Mostrar detalhes
 if email	expressoMail	pt-br	Se o email
@@ -235,6 +239,8 @@ reject	expressoMail	pt-br	Rejeitar
 discard	expressoMail	pr-br	Descartar
 Hide options	expressoMail	pt-br	Ocultar opções
 Hide Search	expressoMail	pt-br	Ocultar Pesquisa
+Hide	expressoMail	pt-br	Ocultar
+Hide/Expand	expressoMail	pt-br	Ocultar/Expandir
 size is over than	expressoMail	pt-br	tem tamanho maior que
 size is under than	expressoMail	pt-br	tem tamanho menor que
 Criteria	expressoMail	pt-br	Critério
@@ -497,6 +503,7 @@ Select a zip file or eml	expressoMail	pt-br	Selecione um arquivo zip ou eml
 Select an organization and click on button <b>Search</b>	expressoMail	pt-br	Selecione uma Organização e clique no botão <b>Pesquisar</b>
 Select Date	expressoMail	pt-br	Selecione uma data
 selected messages have been archived	expressoMail	pt-br	As mensagens selecionadas foram arquivadas com sucesso
+Select Organization	common	pt-br	Selecione a Organização
 Select on send	expressoMail	pt-br	Selecionar no envio da mensagem
 Select the desired image file	expressoMail	pt-br	Selecione o arquivo de imagem desejado
 Select the table size	expressoMail	pt-br	Selecione o tamanho da tabela
@@ -535,6 +542,7 @@ Signature Type	expressoMail	pt-br	Tipo de Assinatura
 Signed message	expressoMail	pt-br	Mensagem assinada digitalmente
 Simple Text	expressoMail	pt-br	Texto Simples
 Since Date	expressoMail	pt-br	Desta  Data
+Site configuration Expresso Messenger	common	pt-br	Configuração do serviço Expresso Messenger
 Size	expressoMail	pt-br	Tamanho
 Size rule must be a number	expressoMail	pt-br	Tamanho da mensagem deve ser um número
 Small	expressoMail	pt-br	Pequena
@@ -617,6 +625,7 @@ Uninstall Offline	expressoMail	pt-br	Desinstalar offline
 unlimited	expressoMail	pt-br	Sem limite
 Unseen	expressoMail	pt-br	Não lida
 Upload file	expressoMail	pt-br	Anexar arquivo
+URL for direct connection	common	pt-br	URL para conexão direta
 Use dynamic contacts?	expressoMail	pt-br	Usar contatos dinâmicos?
 Use F9 Key as shortcut.	expressoMail	pt-br	Use a tecla F9 como atalho.
 User connected	instant_messenger	pt-br	Está on-line
@@ -703,6 +712,7 @@ Show TO: in place of FROM: only in Automatic SEND folder	expressoMail	pt-br	Troc
 Certificate Owner	expressoMail	en	Expedido para
 Common Name (CN)	expressoMail	en	Nome Comum (CN)
 Organization (O)	expressoMail	en	Empresa (O)
+Organizations	common	pt-br	Organizações
 Organizational Unit (OU)	expressoMail	en	Unidade Organizacional (OU)
 Personal Data	expressoMail	en	Dados Pessoais
 Birthday	expressoMail	en	Data de nascimento

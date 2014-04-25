@@ -25,6 +25,7 @@ require_once '../header.inc.php';
 	$title = $appname;
 	$file = Array(
 		'Site Configuration' => $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+		'Site configuration Expresso Messenger' => $GLOBALS['phpgw']->link('/index.php','menuaction=expressoMail.configMessenger.edit')		
 	);
 //Do not modify below this line
 	display_section($appname,$title,$file);

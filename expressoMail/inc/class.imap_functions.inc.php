@@ -4357,7 +4357,6 @@ class imap_functions
 
 	function search_msg( $params = false )
 	{
-	
 		include '../prototype/api/controller.php';
 		if(strpos($params['condition'],"#")===false)
 		{ //local messages
@@ -4367,7 +4366,7 @@ class imap_functions
 		{
 			$search = explode(",",$params['condition']);
 		}
-		
+
 		$params['page'] = $params['page'] * 1;
 
 	    if( is_array($search) )

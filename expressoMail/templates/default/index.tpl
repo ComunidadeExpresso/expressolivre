@@ -63,33 +63,37 @@
 				<div id="content_folders" class="menu-degrade" style="width:230px;height:100%;overflow:auto"></div> 
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<div id="content_messenger" style="width:225px;"></div>
+			</td>
+		</tr>
 		</tbody>
 		</table>
 		<script type="text/javascript">
-		var element_input = document.getElementById('em_message_search');
-		
-		function keyPressQuickSearchEmail(e)
-		{
-			if( e.keyCode == 13 )
-				performQuickSearch(Element('em_message_search').value);
-		}
-		
-		if ( element_input.addEventListener )
-			element_input.addEventListener('keypress', keyPressQuickSearchEmail, false);
-		else if ( element_input.attachEvent )
-			element_input.attachEvent('onkeypress', keyPressQuickSearchEmail);
-		
-		function onFocusQuickSearchEmail(pInput)
-		{
-			if ( pInput.createTextRange )
+			var element_input = document.getElementById('em_message_search');
+			
+			function keyPressQuickSearchEmail(e)
 			{
-				var FieldRange = pInput.createTextRange();
-					FieldRange.moveStart('character', pInput.value.length);
-					FieldRange.collapse();
-					FieldRange.select();
+				if( e.keyCode == 13 )
+					performQuickSearch(Element('em_message_search').value);
 			}
-		}
-		
+			
+			if ( element_input.addEventListener )
+				element_input.addEventListener('keypress', keyPressQuickSearchEmail, false);
+			else if ( element_input.attachEvent )
+				element_input.attachEvent('onkeypress', keyPressQuickSearchEmail);
+			
+			function onFocusQuickSearchEmail(pInput)
+			{
+				if ( pInput.createTextRange )
+				{
+					var FieldRange = pInput.createTextRange();
+						FieldRange.moveStart('character', pInput.value.length);
+						FieldRange.collapse();
+						FieldRange.select();
+				}
+			}
 		</script>
 	</td>
 	<td class="collapse_folders_td">

@@ -44,59 +44,75 @@ function config_events(pObj, pEvent, pHandler)
     }
 }
 
+function openMessenger()
+{
+	var content_folders		= $("#content_folders");
+	var content_messenger	= $("#content_messenger");
+
+	content_folders.css("display","none");
+	content_messenger.find("div#_plugin").css("display","block");
+	content_messenger.find("div#_menu").off("click", openMessenger ).on("click", closeMessenger );
+
+	resizeWindow();
+}
+
+function closeMessenger()
+{
+	var content_folders 	= $("#content_folders");
+	var content_messenger	= $("#content_messenger");
+	
+	content_folders.css("display","block");
+	content_messenger.find("div#_plugin").css("display","none");
+	content_messenger.find("div#_menu").off("click", closeMessenger ).on("click", openMessenger );
+
+	resizeWindow();
+}
+
 function resizeWindow()
 {
-	var clientWidth 	= 0; 
-	var clientHeight 	= 0;
-	var divScrollMain 	= Element("divScrollMain_"+numBox);
-	var table_message 	= Element("table_message");
-	var content_folders = Element("content_folders");
+	var clientWidth 		= $(window).innerWidth();
+	var clientHeight 		= $(window).innerHeight() - 8;
+	var divScrollMain 		= $("#divScrollMain_"+numBox);
+	var table_message 		= Element("table_message");
+	var content_folders 	= $("#content_folders");
+	var content_messenger 	= $("#content_messenger");
 
-	if( typeof( window.innerWidth ) == 'number' )
+	if( divScrollMain.length )
 	{
-		//Non-IE
-		clientWidth = window.innerWidth;
-		clientHeight = window.innerHeight;
-	} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
-		//IE 6+ in 'standards compliant mode'
-		clientWidth = document.documentElement.clientWidth;
-		clientHeight = document.documentElement.clientHeight;
-	} else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
-		//IE 4 compatible
-		clientWidth = document.body.clientWidth;
-		clientHeight = document.body.clientHeight;
-	}
-	
-	clientHeight = clientHeight - 8;
-
-	if(divScrollMain)
-	{
-		divScrollMain.style.height = (clientHeight - (findPosY(divScrollMain) + (table_message.clientHeight ? table_message.clientHeight : table_message.offsetHeight))) + "px";
+		divScrollMain.css("height", (clientHeight - ( divScrollMain.position().top + (table_message.clientHeight ? table_message.clientHeight : table_message.offsetHeight))));
 	}
 
 	if( typeof(BordersArray) != 'undefined' )
 	{
 		for( var i = 1; BordersArray.length > 1 && i < BordersArray.length; i++ )
 		{
-			var div_scroll = Element("div_message_scroll_"+BordersArray[i].sequence);
-			var div = Element("content_id_"+BordersArray[i].sequence);
+			var div_scroll	= $("#div_message_scroll_"+BordersArray[i].sequence);
+			var div 		= $("#content_id_"+BordersArray[i].sequence);
 
-			if(div){
-				div.style.height = (clientHeight - (findPosY(div) + (table_message.clientHeight ? table_message.clientHeight : table_message.offsetHeight)+2)) + "px";
-				div.style.width = (clientWidth - (findPosX(div)+10)) + "px";
+			if( div.length )
+			{
+				div.css('height',(clientHeight - (div.position().top + (table_message.clientHeight ? table_message.clientHeight : table_message.offsetHeight)+2)) + "px");
+				div.css('width', (clientWidth - (div.position().top + 10)) + "px");
 			}
-			if(div_scroll){
-				div_scroll.style.height = (clientHeight - (findPosY(div_scroll) + (table_message.clientHeight ? table_message.clientHeight : table_message.offsetHeight)+5)) + "px";
-				div_scroll.style.width = (clientWidth - (findPosX(div_scroll)+15)) + "px";
+			
+			if( div_scroll.length )
+			{
+				div_scroll.css('height', (clientHeight - (div_scroll.position().top + (table_message.clientHeight ? table_message.clientHeight : table_message.offsetHeight)+5)) + "px");
+				div_scroll.css('width', (clientWidth - (div_scroll.position().left+15)) + "px");
 			}
 		}
 	}
 
-	if(content_folders)
+	if( content_folders.length )
 	{
-		var search_div = Element("search_div");
-		var contentFoldersY = findPosY(content_folders);
-		content_folders.style.height = (clientHeight - (contentFoldersY + (contentFoldersY > findPosY(search_div) ? 0 : (search_div.clientHeight ? search_div.clientHeight : search_div.offsetHeight) + 5))) + "px";
+		if( content_messenger.length )
+		{
+			content_folders.css('height',((clientHeight - (content_folders.position().top + (content_folders.position().top > $("#search_div").position().top ? 0 : ($("#search_div").height() ? $("#search_div").height() : $("#search_div").height()) + 5))) - 30) + "px");			
+		}
+		else
+		{
+			content_folders.css('height',(clientHeight - (content_folders.position().top + (content_folders.position().top > $("#search_div").position().top ? 0 : ($("#search_div").height() ? $("#search_div").height() : $("#search_div").height()) + 5))) + "px");
+		}
 	}
 	
 	redim_borders(count_borders());

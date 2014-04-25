@@ -33,9 +33,9 @@
 	$_SESSION['phpgw_info']['expressomail']['user'] = $GLOBALS['phpgw_info']['user'];
 	echo "<script type='text/javascript'>var template = '".$_SESSION['phpgw_info']['expressoMail']['user']['preferences']['common']['template_set']."';</script>";
 
-
 	//jquery and Editor 
 	echo '<link rel="stylesheet" type="text/css" href="assetic_css.php"></link>';
+
 	echo '
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery/jquery-ui.css"/>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/filters/filters.css"/>
@@ -50,27 +50,45 @@
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/treeview/jquery.treeview.css"/>
 		<link rel="stylesheet" type="text/css" href="../prototype/modules/attach_message/attach_message.css"/>
 		<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery.jrating/jRating.jquery.css"/>
+		<link rel="stylesheet" type="text/css" href="../prototype/plugins/wijmo/jquery.wijmo.css"/>
+		<link rel="stylesheet" type="text/css" href="../prototype/plugins/contextmenu/jquery.contextMenu.css"/>
+		<link rel="stylesheet" type="text/css" href="../prototype/plugins/messenger/im.css"/>';
 		
+	echo '
 		<script src="../prototype/plugins/jquery/jquery.min.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/jquery/jquery.migrate.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/library/ckeditor/ckeditor.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/library/ckeditor/adapters/jquery.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/jquery/jquery-ui.min.js" language="javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="../prototype/plugins/farbtastic/farbtastic.js"></script>
+		<script src="../prototype/plugins/farbtastic/farbtastic.js" type="text/javascript" ></script>
 		<script src="../prototype/plugins/countdown/jquery.countdown.min.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/countdown/jquery.countdown-pt-BR.js" language="javascript" charset="utf-8"></script>
 		<script src="../prototype/plugins/fileupload/jquery.fileupload.js" language="javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="../prototype/plugins/contextmenu/jquery.contextMenu.js"></script>
-		<script type="text/javascript" src="../prototype/plugins/mask/jquery.maskedinput.js"></script>
-		<script type="text/javascript" src="../prototype/plugins/lazy/jquery.lazy.js"></script>
-		<script type="text/javascript" src="../prototype/plugins/jquery.autoscroll/jquery.aautoscroll.min.2.41.js"></script>
-		';	
+		<script src="../prototype/plugins/mask/jquery.maskedinput.js" type="text/javascript"></script>
+		<script src="../prototype/plugins/lazy/jquery.lazy.js" type="text/javascript"></script>
+		<script src="../prototype/plugins/jquery.autoscroll/jquery.aautoscroll.min.2.41.js" type="text/javascript"></script>';	
+
+
+	echo'
+		<script type="text/javascript" src="../prototype/plugins/wijmo/jquery.wijmo.min.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/sort/jquery.tinysort.min.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/sort/jquery.tinysort.charorder.min.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/sort/jquery.opensource.min.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/wijmo/jquery.wijmo.wijdialog.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/linkify/ba-linkify.min.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/dateFormat/dateFormat.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/scrollto/jquery.scrollTo-min.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/datejs/sugarpak.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/datejs/date-pt-BR.js"></script>	
+		<script type="text/javascript" src="../prototype/plugins/jquery-xmpp/APIAjax.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/jquery-xmpp/jquery.xmpp.js"></script>
+		<script type="text/javascript" src="../prototype/plugins/messenger/lang/messages.js"></script>	
+		<script type="text/javascript" src="../prototype/plugins/messenger/im.js"></script>';
 
 	echo "<script src='js/globals.js?".$update_version."' type='text/javascript'></script>";
 	echo '<script type="text/javascript" src="../phpgwapi/js/wz_dragdrop/wz_dragdrop.js?'.$update_version.'"></script>
 		  <script type="text/javascript" src="../phpgwapi/js/dJSWin/dJSWin.js?'.$update_version.'"></script>
 		  <script type="text/javascript" src="js/connector.js"></script>
-		  <script type="text/javascript" src="../phpgwapi/js/x_tools/xtools.js?'.$update_version.'"></script>
 		  <script type="text/javascript" src="js/DropDownContacts.js"></script>
 		  ';
 
@@ -90,8 +108,6 @@
 
 	echo "<div id='overlay' style='background-color: #AAAAAAA; opacity: .50; filter:Alpha(Opacity=50); height: 100%; width: 100%; position: absolute; top: 0; left: 0; visibility: hidden; z-index: 30000000000000000000000'></div>";
 
-	
-
 	//Enable/Disable VoIP Service -> Voip Server Config
 	$voip_enabled = false;
 	$voip_groups = array();	
@@ -105,6 +121,29 @@
 			if(array_search($group['account_name'],$voip_groups) !== FALSE){		 
 				$voip_enabled = true;
 				$emailVoip = $GLOBALS['phpgw_info']['server']['voip_email_redirect'];
+				break;
+			}
+		}
+	}
+
+	//Enable/Disable Expresso Messenger -> ExpressoMail Config
+	$messenger = array();
+	$messenger_groups = array();
+	if( $GLOBALS['phpgw_info']['server']['groups_expresso_messenger'] && $GLOBALS['phpgw_info']['server']['groups_expresso_messenger'] != "" )
+	{
+		$messenger_groups = unserialize($GLOBALS['phpgw_info']['server']['groups_expresso_messenger']);
+		foreach( $messenger_groups as $group )
+		{
+			$values = explode( ";", $group );
+			$messenger[] = $values[1];
+		}
+		foreach( $GLOBALS['phpgw']->accounts->membership() as $group )
+		{			
+			$search = array_search( $group['account_name'], $messenger_groups );
+			if( array_search( $group['account_name'], $messenger ) !== FALSE )
+			{	
+				echo '<input type="hidden" name="expresso_messenger_enabled" value="true">';
+				echo '<input type="hidden" name="messenger_fullName" value="'.$GLOBALS['phpgw_info']['user']['fullname'].'">';
 				break;
 			}
 		}

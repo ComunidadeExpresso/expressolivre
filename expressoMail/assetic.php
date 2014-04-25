@@ -35,6 +35,8 @@ $compressor->setCharset("ISO-8859-1");
 $plugins = new AssetCollection(array(
         new FileAsset('../prototype/plugins/json2/json2.js'),
         new FileAsset('../prototype/plugins/ejs/ejs.js'),
+        new FileAsset('../prototype/plugins/ejs/ejs_production.js'),
+        new FileAsset('../prototype/plugins/ejs/view.js'),
         new FileAsset('../prototype/plugins/scrollto/jquery.scrollTo.js'),
         new FileAsset('../prototype/plugins/timepicker/jquery-ui-timepicker-addon.js'),
         new FileAsset('../prototype/plugins/timepicker/localization/jquery-ui-timepicker-pt-BR.js'),
@@ -56,7 +58,8 @@ $plugins = new AssetCollection(array(
         new FileAsset('../prototype/plugins/zebradialog/javascript/zebra_dialog.js'),
         new FileAsset('../prototype/plugins/alphanumeric/jquery.alphanumeric.js'),
         new FileAsset('../prototype/plugins/freeow/jquery.freeow.js'),
-        new FileAsset('../prototype/plugins/widgets/combobox.js')
+        new FileAsset('../prototype/plugins/widgets/combobox.js'),
+        new FileAsset('../prototype/plugins/contextmenu/jquery.contextMenu.js')
     ), null, 'expressoMail-plugins-js'
 );
 

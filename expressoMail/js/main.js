@@ -135,23 +135,10 @@ function init()
 
 	current_folder = "INBOX";
 
-    //MAILARCHIVER-02
-    //Try to get ArchiveServices object directly
-    if(ArchiveServices)
-        expresso_mail_archive.Startup();
-    //ArchiveServices not runnnig: catch the user preferences to set up message at header
-    else{
-        if(preferences.use_local_messages=="1")
-            write_msg(get_lang('Sorry, but Mail Archiver does not seems to be running or installed at this workstation. By now, we are turning off local messages!'));
-    }
-
     cExecute ("$this.imap_functions.get_range_msgs2&folder=INBOX&msg_range_begin=1&msg_range_end="+preferences.max_email_per_page+"&sort_box_type=SORTARRIVAL&search_box_type=ALL&sort_box_reverse=1", handler_draw_box);
 
     // Insere a applet de criptografia
-    if( preferences.use_signature_digital_cripto == '1' )
-    {
-        loadApplet();
-    }
+    if( preferences.use_signature_digital_cripto == '1' ){ loadApplet(); }
     
     // Fim da inserção da applet
     cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
@@ -161,17 +148,17 @@ function init()
             $("#folderscol").addClass( "hidden");
         else
             $("#folderscol").hide();
-        $(".collapse_folders").addClass("ui-icon ui-icon-triangle-1-e").children().attr('title', "Expandir");
+        $(".collapse_folders").addClass("ui-icon ui-icon-triangle-1-e").children().attr('title', get_lang("Expand"));
         refresh();
         resizeWindow();
     }
     else{
-        $(".collapse_folders").addClass("ui-icon ui-icon-triangle-1-w").children().attr('title', "Ocultar");
+        $(".collapse_folders").addClass("ui-icon ui-icon-triangle-1-w").children().attr('title', get_lang("Hide"));
         refresh();
         resizeWindow();
     }
 
-    $(".collapse_folders_td").attr('title', "Ocultar/Expandir").click(function(){
+    $(".collapse_folders_td").attr('title', get_lang("Hide/Expand")).click(function(){
         if($("#folderscol").css("display") != "none"){
             if(!is_ie)
                 $("#folderscol").addClass( "hidden");
@@ -180,7 +167,7 @@ function init()
 
             $(".collapse_folders").removeClass("ui-icon-triangle-1-w");
             $(".collapse_folders").addClass("ui-icon-triangle-1-e");
-            $(".collapse_folders").parent().attr('title', "Expandir");
+            $(".collapse_folders").parent().attr('title', get_lang("Expand"));
             $.cookie('collapse_folders', "true");
             refresh();
             resizeWindow();
@@ -191,13 +178,12 @@ function init()
                 $("#folderscol").show();
             $(".collapse_folders").removeClass("ui-icon-triangle-1-e");
             $(".collapse_folders").addClass("ui-icon-triangle-1-w");
-            $(".collapse_folders").parent().attr('title', "Ocultar");
+            $(".collapse_folders").parent().attr('title', get_lang("Hide"));
             $.cookie('collapse_folders', "false");
             refresh();
             resizeWindow();
         }
         resizeWindow();
-
     }).hover(
         function(){
             $(this).addClass("collapse_folders_td_over");
@@ -207,16 +193,11 @@ function init()
         }
     );
 
-    if(parseInt(preferences.use_dynamic_contacts)){
-        updateDynamicContact();
-    }
-
+    if(parseInt(preferences.use_dynamic_contacts)){ updateDynamicContact(); }
 
     var handler_automatic_trash_cleanness = function(data)
     {
-		if (data != false){
-			write_msg(data.length +' '+ Element('txt_clear_trash').value);
-		}
+		if( data != false ){ write_msg(data.length +' '+ $("#txt_clear_trash").val()); }
 	}
 
 	// Versão
@@ -234,6 +215,9 @@ function init()
 	setTimeout('auto_refresh()', time_refresh);
 	
 	$("#divAppbox").css("padding-left", "0px");
+
+	// Inicia Messenger
+	setTimeout( function(){ init_messenger(); }, 1000 );
 }
 
 function init_offline(){
@@ -260,6 +244,125 @@ function init_offline(){
 
 	}
 }
+
+function init_messenger()
+{
+	 // Function Remove Plugin
+	 var remove_plugin_im = function()
+	 {
+		// Remove tr/td/div
+		$("#content_messenger").parent().parent().remove();
+	
+		// Remove Input
+		$("input[name=expresso_messenger_enabled]").remove();
+
+		// Div bar
+		$("#messenger-conversation-bar-container").parent().remove();
+
+		// Resize Window
+		resizeWindow();
+	 };
+
+	 if( $("input[name=expresso_messenger_enabled]").length > 0 )
+	 {	
+		if( $("input[name=expresso_messenger_enabled]").attr("value") === "true" )
+		{
+			if( parseInt($.browser.version) > 7 )
+			{	
+				$.ajax({
+					"type"		: "POST",
+					"url"		: "../prototype/plugins/messenger/auth_messenger.php",
+					"dataType"	: "json",
+					"success" 	: function(data)
+					{
+						if( !data['error'] )
+						{
+							if( $.trim(data['dt__b']) != "" )
+							{	
+								// Append divs
+								$("#content_messenger").append("<div id='_plugin'></div>");
+								$("#content_messenger").append("<div id='_menu'></div>");
+								
+								// Div content_messenger#_menu
+								$("#content_messenger").find("div#_menu").css({"cursor":"pointer","text-align":"center"})
+								$("#content_messenger").find("div#_menu").append($("<img>").attr("src","templates/default/images/chat-icon-disabled.png")
+								.attr("title", get_lang("Expresso Messenger disabled"))
+								.attr("alt", get_lang("Expresso Messenger disabled")));
+								
+								// Div content_messenger#_plugin
+								$("#content_messenger").find("div#_plugin").css({"width":"210px","display":"none"});
+
+								// Load IM
+								$("#content_messenger").find("div#_menu").find("img").on("click", function()
+								{
+									// OpenMessenger
+									$("#content_messenger").find("div#_menu").on("click", openMessenger );
+
+									// Load IM
+									$("#content_messenger").find("div#_plugin").im({
+										"resource" 	: data['dt__a'],
+										"url"		: data['dt__b'],
+										"domain"	: data['dt__c'],
+										"username"	: data['dt__d'],
+										"auth"		: data['dt__e'],
+										"debug"		: false,
+										"soundPath"	: "../prototype/plugins/messenger/",
+										"height"	: 270
+									}).fadeIn(3000);
+
+									//Full Name Expresso Messenger
+									var fullName = $("input[name=messenger_fullName]").val();
+									
+									$(".chat-title").find(".chat-name")
+										.html( fullName.substring(0,20) + "..." )
+										.attr("alt", fullName)
+										.attr("title", fullName);
+
+									$("#conversation-bar-container")
+										.css("overflow","hidden")
+										.css("bottom","1px");
+
+									$(this).off("click");
+									
+								});
+								
+								// Resize Window
+								resizeWindow();
+							}
+							else
+							{
+								// Error Load Plugin Jabber;
+								write_msg( get_lang("ERROR: The IM service, inform the administrator") );
+								
+								// Remove Plugin;
+								remove_plugin_im();
+							}
+						}
+						else
+						{
+							// Remove Plugin
+							remove_plugin_im();
+						}
+					}
+				});
+			}
+			else
+			{
+				// Msg update browser
+				write_msg( get_lang("Your browser is not compatible to use the Express Messenger") );
+
+				// Remove Plugin
+				remove_plugin_im();
+			}
+		}//
+	}
+	else
+	{
+		// Remove Plugin
+		remove_plugin_im();
+	}
+}
+
 /**
  * Carrega a applet java no objeto search_div
  * @author Mário César Kolling <mario.kolling@serpro.gov.br>
