@@ -56,11 +56,6 @@
 		$file['Find and Register all Application Hooks'] = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiapplications.register_all_hooks');
 	}
 
-	if (! $GLOBALS['phpgw']->acl->check('asyncservice_access',1,'admin'))
-	{
-		$file['Asynchronous timed services'] = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiasyncservice.index');
-	}
-
 	if (! $GLOBALS['phpgw']->acl->check('info_access',1,'admin'))
 	{
 		$file['phpInfo']         = $GLOBALS['phpgw']->link('/admin/phpinfo.php');

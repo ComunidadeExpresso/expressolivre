@@ -377,10 +377,12 @@
 				}*/
 				// call the asyncservice check_run function if it is not explicitly set to cron-only
 				//
-				if (!$GLOBALS['phpgw_info']['server']['asyncservice'])	// is default
-				{
-					ExecMethod('phpgwapi.asyncservice.check_run','fallback');
-				}
+
+                /*if ($GLOBALS['phpgw_info']['server']['asyncservice'])
+                {
+                    ExecMethod('phpgwapi.asyncservice.check_run','fallback');
+                }*/
+
 				/* Clean up mcrypt */
 				if (@is_object($GLOBALS['phpgw']->crypto))
 				{
