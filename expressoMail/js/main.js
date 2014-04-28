@@ -290,7 +290,7 @@ function init_messenger()
 								.attr("alt", get_lang("Expresso Messenger disabled")));
 								
 								// Div content_messenger#_plugin
-								$("#content_messenger").find("div#_plugin").css({"width":"210px","display":"none"});
+								$("#content_messenger").find("div#_plugin").css({"width":"225px","display":"none"});
 
 								// Load IM
 								$("#content_messenger").find("div#_menu").find("img").on("click", function()

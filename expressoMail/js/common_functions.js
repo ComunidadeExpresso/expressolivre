@@ -105,9 +105,40 @@ function resizeWindow()
 
 	if( content_folders.length )
 	{
-		if( content_messenger.length )
+		var positionContent = content_folders.position();
+
+		if( content_messenger.find("div#_menu").length > 0 )
 		{
-			content_folders.css('height',((clientHeight - (content_folders.position().top + (content_folders.position().top > $("#search_div").position().top ? 0 : ($("#search_div").height() ? $("#search_div").height() : $("#search_div").height()) + 5))) - 30) + "px");			
+			var _heightBrowser = 0;
+			
+			// FIREFOX
+			if( $.browser.mozilla )
+			{
+				_heightBrowser = ( parseInt($.browser.version) > 15 ) ? _heightBrowser = $(window).innerHeight() - 335 : _heightBrowser = $(window).innerHeight() - 342;
+			}
+
+			// CHROME
+			if( $.browser.chrome )
+			{
+				_heightBrowser = $(window).innerHeight() - 341;
+			}
+
+			// MSIE
+			if( $.browser.msie )
+			{
+				_heightBrowser = $(window).innerHeight() - 332;
+			}
+
+			if( BordersArray.length > 1 )
+			{
+				content_folders.css("height", $(window).innerHeight() - ( positionContent.top + $("#table_message").height() + 27 ) );
+			}
+			else
+			{
+				content_folders.css("height", $(window).innerHeight() - ( positionContent.top + $("#table_message").height() + 20 ) );
+			}
+
+			content_messenger.find("div ul.chat-list").css("height", _heightBrowser );
 		}
 		else
 		{
