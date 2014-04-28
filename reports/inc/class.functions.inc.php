@@ -1394,7 +1394,7 @@
 				$aList = array();
 				for (
 					$iCurrent = 0, $rEntry = ldap_first_entry( $rConnection, $rSearch );
-					$iCurrent <= $iEnd && is_resource( $rEntry );
+					$iCurrent < $iEnd && is_resource( $rEntry );
 					++$iCurrent, $rEntry = ldap_next_entry( $rConnection, $rEntry )
 					)
 				{
