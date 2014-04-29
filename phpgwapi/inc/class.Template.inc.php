@@ -289,17 +289,20 @@
 		 */
 		function get_var($varname)
 		{
-			if (!is_array($varname))
+			if( is_string($varname) )
 			{
-				return $this->varvals[$varname];
+				return ( isset($this->varvals[$varname]) ) ? $this->varvals[$varname] : "";
 			}
 			else
 			{
-				foreach($varname as $k => $v)
+				if( is_array($varname) )
 				{
-					$result[$k] = $this->varvals[$k];
+					foreach($varname as $k => $v)
+					{
+						$result[$k] = $this->varvals[$k];
+					}
+					return $result;
 				}
-				return $result;
 			}
 		}
 

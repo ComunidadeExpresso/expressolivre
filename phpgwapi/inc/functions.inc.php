@@ -61,26 +61,26 @@
 		return $value;
 	}
 
-        function get_theme()
+    function get_theme()
+    {
+
+        $test_cookie = get_var('THEME', 'COOKIE');
+
+        // se o cookie foi definido coloca tema na sessão
+        if (!empty($test_cookie))
         {
-
-            $test_cookie = get_var('THEME', 'COOKIE');
-
-            // se o cookie foi definido coloca tema na sessão
-            if (!empty($test_cookie))
-            {
-                $_SESSION['THEME'] = $test_cookie;
-            }
-
-            // se tema não estiver definido na sessão retorna $GLOBALS['phpgw_info']['user']['preferences']['common']['theme']
-            if (!$_SESSION['THEME'])
-            {
-                return $GLOBALS['phpgw_info']['user']['preferences']['common']['theme'];
-            }
-            
-            // senão retorna o tema definido na sessão
-            return $_SESSION['THEME'];
+            $_SESSION['THEME'] = $test_cookie;
         }
+
+        // se tema não estiver definido na sessão retorna $GLOBALS['phpgw_info']['user']['preferences']['common']['theme']
+        if ( !isset($_SESSION['THEME'] ) )
+        {
+            return $GLOBALS['phpgw_info']['user']['preferences']['common']['theme'];
+        }
+        
+        // senão retorna o tema definido na sessão
+        return $_SESSION['THEME'];
+    }
 
 	/* Make sure the header.inc.php is current. */
 	if ($GLOBALS['phpgw_info']['server']['versions']['header'] < $GLOBALS['phpgw_info']['server']['versions']['current_header'])

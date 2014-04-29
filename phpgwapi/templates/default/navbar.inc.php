@@ -30,11 +30,11 @@
 		$GLOBALS['celepar_tpl']->set_block('navbar','appbox','appbox');
 		$GLOBALS['celepar_tpl']->set_block('navbar','navbar_footer','navbar_footer');
 		
-	        $GLOBALS['celepar_tpl']->set_var('my_preferences', lang("My Preferences"));
-                $GLOBALS['celepar_tpl']->set_var('title_my_preferences', lang("Click here to change your Expresso password and other preferences"));
-                $GLOBALS['celepar_tpl']->set_var('title_suggestions', lang("Send your critics, doubts or suggestions"));
-                $GLOBALS['celepar_tpl']->set_var('suggestions', lang("Suggestions"));
-                $GLOBALS['celepar_tpl']->set_var('help', lang("Help"));
+		$GLOBALS['celepar_tpl']->set_var('my_preferences', lang("My Preferences"));
+		$GLOBALS['celepar_tpl']->set_var('title_my_preferences', lang("Click here to change your Expresso password and other preferences"));
+		$GLOBALS['celepar_tpl']->set_var('title_suggestions', lang("Send your critics, doubts or suggestions"));
+		$GLOBALS['celepar_tpl']->set_var('suggestions', lang("Suggestions"));
+		$GLOBALS['celepar_tpl']->set_var('help', lang("Help"));
 		$GLOBALS['celepar_tpl']->set_var('title_help', lang("Click here for help"));
 		$GLOBALS['celepar_tpl']->set_var('template',$GLOBALS['phpgw_info']['server']['template_set']);
 
@@ -43,11 +43,8 @@
 		$var['table_bg_color'] = $GLOBALS['phpgw_info']['theme']['navbar_bg'];
 
 		$show_menu_event = 'onClick';
-	
 
 		$applications = '';
-
-		//	== 'icons_and_text')
 
 		$max_icons=$GLOBALS['phpgw_info']['user']['preferences']['common']['max_icons'];
 		 
@@ -57,14 +54,19 @@
 		}
 		
 		$i = 0;
+		
+		$app_icons = "";
+
+		$app_extra_icons = "";
+		
 		foreach($GLOBALS['phpgw_info']['navbar'] as $app => $app_data)
 		{
 			$current_app = False;
 				if($app != 'preferences' && $app != 'about' && $app != 'logout')
 				{
-					$icon = '<a href="'.$app_data['url'].'">';
-					$title = $GLOBALS['phpgw_info']['apps'][$app]['title'];
-					if($app == 'home') $title = lang('Home');
+					$icon 	= '<a href="'.$app_data['url'].'">';
+					$title 	= (isset($GLOBALS['phpgw_info']['apps'][$app]['title'])) ? $GLOBALS['phpgw_info']['apps'][$app]['title'] : "";
+					if( trim($app) === 'home') $title = lang('Home');
 					if ($GLOBALS['phpgw_info']['flags']['currentapp'] == $app)
 					{
 						$icon .= '<img id="'.str_replace('_','',$app).'id" src="' . $app_data['icon'] . '" alt="' . $title . '" title="'. $title . '" border="0" width="35" height="35" nowrap="nowrap"/></a>';
@@ -83,7 +85,6 @@
 				
 					// Verifica qual o formato da Barra de navegação: 
 					// Icone ou Texto, ou Icone e Texto
-					
 
 					if($GLOBALS['phpgw_info']['user']['preferences']['common']['navbar_format']=='icons') {
 						$title_extra = $title;
@@ -93,9 +94,10 @@
 						$icon = '';
 					}
 
-					if($i< $max_icons) {
+					if( $i < $max_icons )
+					{
 
-						if($GLOBALS['phpgw_info']['user']['preferences']['common']['start_and_logout_icons']=='no')
+						if( $GLOBALS['phpgw_info']['user']['preferences']['common']['start_and_logout_icons'] == 'no' )
 						{
 							$tdwidth = 100/($max_icons);
 						}
@@ -109,14 +111,14 @@
 						'onmouseout="javascript:'.($current_app?'return true;':'').'this.className=\'navbar_but\'; '.($current_app?'':'zoom_out(this.firstChild.firstChild.id)').'" '.
 						'class="'.($current_app?'navbar_butOut':'navbar_but').'">';
 
-						if(isset($GLOBALS['phpgw_info']['flags']['navbar_target']) && $GLOBALS['phpgw_info']['flags']['navbar_target'])
+						if( isset($GLOBALS['phpgw_info']['flags']['navbar_target']) )
 						{
 							$app_icons .= ' target="' . $GLOBALS['phpgw_info']['flags']['navbar_target'] . '"';
 						}						
+						
 						$app_icons .=  $icon;
 					}
-					
-										
+
 					$icon = '<img align="center" src="' . $app_data['icon'] . '" alt="' . $title . '" width="16" title="'. $title . '" border="0" />';
 				
 					$app_extra_icons .= '<tr>';
@@ -227,37 +229,40 @@
 			. lang($GLOBALS['phpgw']->common->show_date($now,'l')) . ' '
 			. $GLOBALS['phpgw']->common->show_date($now,$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']);
 			
-			if($GLOBALS['phpgw_info']['server']['use_frontend_name'])
+			if( isset($GLOBALS['phpgw_info']['server']['use_frontend_name']) )
+			{
 				$var['frontend_name'] = " - ".$GLOBALS['phpgw_info']['server']['use_frontend_name'];
+			}
 
 			/*
 			 *	Forçar termo de aceite por parte do usuário
 			 */
 
-			if(($GLOBALS['phpgw_info']['user']['agree_terms'] != 1) && ($GLOBALS['phpgw_info']['server']['use_agree_term']=='True')) //Ele deverá confirmar o termo de aceite.
+			if( isset($GLOBALS['phpgw_info']['user']['agree_terms']) )
 			{
-				$agreeterm_url = $_SERVER['HTTP_HOST'] . $GLOBALS['phpgw_info']['server']['webserver_url'] . '/preferences/termo_aceite.php';
-				
-				if ($GLOBALS['phpgw_info']['server']['use_https'] == 2)
-					$agreeterm_url = 'https://' . $agreeterm_url;
-				else
-					$agreeterm_url = 'http://' . $agreeterm_url;
-				
-				echo '<script>' .
-						'if(location.href.indexOf("termo_aceite.php") == -1){' .
-							'location.href = "' . $agreeterm_url . '"' .
-						'}' .
-					 '</script>';
+				if( ($GLOBALS['phpgw_info']['user']['agree_terms'] != 1) && ($GLOBALS['phpgw_info']['server']['use_agree_term']=='True') ) //Ele deverá confirmar o termo de aceite.
+				{
+					$agreeterm_url = $_SERVER['HTTP_HOST'] . $GLOBALS['phpgw_info']['server']['webserver_url'] . '/preferences/termo_aceite.php';
+					
+					if ($GLOBALS['phpgw_info']['server']['use_https'] == 2)
+						$agreeterm_url = 'https://' . $agreeterm_url;
+					else
+						$agreeterm_url = 'http://' . $agreeterm_url;
+					
+					echo '<script>' .
+							'if(location.href.indexOf("termo_aceite.php") == -1){' .
+								'location.href = "' . $agreeterm_url . '"' .
+							'}' .
+						 '</script>';
+				}
 			}
 
-                        if ($GLOBALS['phpgw_info']['server']['max_pwd_age'] && $GLOBALS['phpgw_info']['server']['max_pwd_age'] > 0 )
-                            {
-                                $aux = time() - (86400*$GLOBALS['phpgw_info']['server']['max_pwd_age']);
-                            }
-                        else
-                            {
-                                $aux = $GLOBALS['phpgw_info']['server']['max_pwd_age'];
-                            }
+			$aux = ( isset( $GLOBALS['phpgw_info']['server']['max_pwd_age'] ) ) ? $GLOBALS['phpgw_info']['server']['max_pwd_age'] : '';
+
+            if( isset( $GLOBALS['phpgw_info']['server']['max_pwd_age'] ) && $GLOBALS['phpgw_info']['server']['max_pwd_age'] > 0 )
+            {
+                $aux = time() - (86400*$GLOBALS['phpgw_info']['server']['max_pwd_age']);
+            }
 
 			if(($GLOBALS['phpgw_info']['user']['lastpasswd_change'] == '0'  && (($GLOBALS['phpgw_info']['user']['agree_terms'] == 1) || ($GLOBALS['phpgw_info']['server']['use_agree_term']!='True'))) ||
                                 $GLOBALS['phpgw_info']['user']['lastpasswd_change'] < $aux)
@@ -274,31 +279,13 @@
 							'location.href = "' . $changepasswd_url . '"' .
 						'}' .
 					 '</script>';
-				
-				/*
-				$api_messages = lang('You are required to change your password during your first login')
-				. '<br> Click this image on the navbar: <img src="'
-				. $GLOBALS['phpgw']->common->image('preferences','navbar.gif').'">';
-				*/
 			}
-			/*
-			elseif($GLOBALS['phpgw_info']['user']['lastpasswd_change'] < time() - (86400*30))
-			{
-				$api_messages = lang('it has been more then %1 days since you changed your password',30);
-			}
-			*/
-			/*
-			// This is gonna change
-			if(isset($cd))
-			{
-				$var['messages'] = $api_messages . '<br>' . checkcode($cd);
-			}*/
 
-			$var['logo_file'] = $GLOBALS['phpgw']->common->image('phpgwapi',$GLOBALS['phpgw_info']['server']['login_logo_file']?$GLOBALS['phpgw_info']['server']['login_logo_file']:'logo');
-			$var['logo_url'] = $GLOBALS['phpgw_info']['server']['login_logo_url']?$GLOBALS['phpgw_info']['server']['login_logo_url']:'http://www.eGroupWare.org';
-			$var['logo_title'] = $GLOBALS['phpgw_info']['server']['login_logo_title']?$GLOBALS['phpgw_info']['server']['login_logo_title']:'www.eGroupWare.org';
-			$var['hide_bar_txt'] = lang("Hide header and toolbar");
-			$var['show_bar_txt'] = lang("Show header and toolbar");
+			$var['logo_file'] 		= $GLOBALS['phpgw']->common->image('phpgwapi', ( isset( $GLOBALS['phpgw_info']['server']['login_logo_file'] ) ) ? $GLOBALS['phpgw_info']['server']['login_logo_file'] : 'logo' );
+			$var['logo_url'] 		= ( isset($GLOBALS['phpgw_info']['server']['login_logo_url'] ) ) ? $GLOBALS['phpgw_info']['server']['login_logo_url'] : 'http://www.eGroupWare.org';
+			$var['logo_title'] 		= ( isset($GLOBALS['phpgw_info']['server']['login_logo_title'] ) ) ? $GLOBALS['phpgw_info']['server']['login_logo_title'] : 'www.eGroupWare.org';
+			$var['hide_bar_txt'] 	= lang("Hide header and toolbar");
+			$var['show_bar_txt'] 	= lang("Show header and toolbar");
 			$GLOBALS['celepar_tpl']->set_var($var);
 			$GLOBALS['celepar_tpl']->pfp('out','navbar_header');
 
@@ -406,7 +393,7 @@
 					}
 					$var['lang_item'] = isset($item_link['no_lang']) && $item_link['no_lang'] ? $item_link['text'] : lang($item_link['text']);
 					$var['item_link'] = $item_link['link'];
-					if ($item_link['target'])
+					if( isset($item_link['target']) )
 					{
 						$var['target'] = ' target="' . $item_link['target'] . '"';
 					}
