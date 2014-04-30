@@ -1430,7 +1430,7 @@ class imap_functions
                 else       return utf8_decode($part);
                 break;
             default:
-                return mb_convert_encoding($part, 'iso-8859-1');
+                return mb_convert_encoding($part, 'iso-8859-1' , $encode ? $encode : null);
                 break;
         }
     }

@@ -7,16 +7,6 @@ DefaultLanguage pt-BR
 AddDefaultCharset ISO-8859-1
 ServerSignature Off
 
-#
-# Configuracoes de "headers", cache e outras otimizacoes
-#
-# Disable caches and browsers from being able to validate files,
-# so they are forced to rely on your Cache-Control and Expires header.
-<ifModule mod_headers.c>
-	Header unset ETag
-</ifModule>
-FileETag None
-
 #-> http://www.htaccesselite.com/htaccess/cache-control-http-headers-vt65.html
 #      300   5 M
 #     2700  45 M
