@@ -101,19 +101,19 @@
 			$p->set_var('modal_id', $modal_id);
                         
 			$davicalConf = parse_ini_file( dirname(__FILE__)."/../../prototype/config/CalDAV.srv", true );	
-                        $var = Array(
-                            'mailquota' =>  $this->current_config['expressoAdmin_defaultSharedAccountQuota'],
-                            'changequote_disabled' => $this->functions->check_acl($account_lid,'edit_shared_accounts_quote') ? '' : 'readonly',
-                            'disabled_empty_inbox' => $this->functions->check_acl($account_lid,'empty_shared_accounts_inbox') ? '' : 'disabled',
-                            'display_quota_used' => 'none',
-                            'aclExpressoCalendar' =>  '' ,
-                            'aclCalendar' => 'none',
-			                'calendarName' => 'ExpressoCalendar',
-                            'sharedAccountsLocation' => isset($davicalConf['sharedAccountsLocation']) ? $davicalConf['sharedAccountsLocation'] : ''
-			  );
-                        $p->set_var($var);
+			$var = Array(
+				'mailquota' 				=> ( isset($this->current_config['expressoAdmin_defaultSharedAccountQuota']) ? $this->current_config['expressoAdmin_defaultSharedAccountQuota'] : "" ),
+				'changequote_disabled'		=> $this->functions->check_acl($account_lid,'edit_shared_accounts_quote') ? '' : 'readonly',
+				'disabled_empty_inbox'		=> $this->functions->check_acl($account_lid,'empty_shared_accounts_inbox') ? '' : 'disabled',
+				'display_quota_used' 		=> 'none',
+				'aclExpressoCalendar' 		=> '' ,
+				'aclCalendar' 				=> 'none',
+				'calendarName' 				=> 'ExpressoCalendar',
+				'sharedAccountsLocation'	=> (isset($davicalConf['sharedAccountsLocation']) ? $davicalConf['sharedAccountsLocation'] : '')
+			);
+			$p->set_var($var);
 			$shared_accounts_modal_tpl = $p->fp('out','shared_accounts_modal');
-                        /* End: set modal */
+			/* End: set modal */
 			
 			$var = Array(
 				'th_bg'	=> $GLOBALS['phpgw_info']['theme']['th_bg'],

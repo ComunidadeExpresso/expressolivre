@@ -311,7 +311,7 @@ use prototype\api\Config as Config;
 							if( (substr($temp[1],0,5) =='login') && ($temp[0] == 'class') )
 							{
 								$options .= "<option value='".$temp[1]."'";
-								if($current_config['expressoAdmin_loginGenScript'] == $temp[1])
+								if( isset($current_config['expressoAdmin_loginGenScript']) && $current_config['expressoAdmin_loginGenScript'] == $temp[1] )
 									$options .= " selected";
 								$options .= ">" . ucwords(str_replace("_"," ",substr($temp[1],6))) . "</option>";
 							}				
@@ -406,7 +406,10 @@ use prototype\api\Config as Config;
 						}
 						else
 						{
-							$t->set_var($value,htmlspecialchars($current_config[$newval]));
+							if( isset($current_config[$newval]) )
+								$t->set_var( $value, htmlspecialchars($current_config[$newval]) );
+							else
+								$t->set_var( $value, "" );
 						}
 						break;
 					/*
@@ -427,19 +430,19 @@ use prototype\api\Config as Config;
 						$config  = '';
 						$newvals = explode(' ',$newval);
 						$setting = end($newvals);
-						for ($i=0;$i<(count($newvals) - 1); ++$i)
+						for ( $i = 0 ; $i <  (count($newvals) - 1) ; ++$i )
 						{
 							$configs[] = $newvals[$i];
 						}
 						$config = implode('_',$configs);
-						/* echo $config . '=' . $current_config[$config]; */
-						if ($current_config[$config] == $setting)
+						
+						if( isset($current_config[$config]) && $current_config[$config] == $setting )
 						{
-							$t->set_var($value,' selected');
+							$t->set_var( $value ,' selected' );
 						}
 						else
 						{
-							$t->set_var($value,'');
+							$t->set_var( $value , '' );
 						}
 						break;
 					case 'hook':

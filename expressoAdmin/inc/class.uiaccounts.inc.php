@@ -315,7 +315,7 @@
 				'display_picture'				=> $this->functions->check_acl($manager_lid,'edit_users_picture') ? '' : 'none', 
 				'display_tr_default_password'	=> 'none',
 				'minimumSizeLogin'				=> $this->current_config['expressoAdmin_minimumSizeLogin'],
-				'defaultDomain'					=> $this->current_config['expressoAdmin_defaultDomain'],
+				'defaultDomain'					=> ( isset($this->current_config['expressoAdmin_defaultDomain']) ? $this->current_config['expressoAdmin_defaultDomain'] : "" ),
 				'concatenateDomain'				=> $this->current_config['expressoAdmin_concatenateDomain'],
 				'ldap_context'					=> ldap_dn2ufn($GLOBALS['phpgw_info']['server']['ldap_context']),
 				
@@ -335,8 +335,8 @@
 				//SAMBA ABA
 				'use_attrs_samba_checked'			=> 'CHECKED',
 				'sambadomainname_options'			=> $sambadomainname_options,
-				'sambalogonscript'					=> $this->current_config['expressoAdmin_defaultLogonScript'] != '' ? $this->current_config['expressoAdmin_defaultLogonScript'] : '',
-				'use_suggestion_in_logon_script'	=> $this->current_config['expressoAdmin_defaultLogonScript'] == '' ? 'true' : 'false',
+				'sambalogonscript'					=> ( isset($this->current_config['expressoAdmin_defaultLogonScript']) && $this->current_config['expressoAdmin_defaultLogonScript'] != '' ) ? $this->current_config['expressoAdmin_defaultLogonScript'] : '',
+				'use_suggestion_in_logon_script'	=> ( isset($this->current_config['expressoAdmin_defaultLogonScript']) && $this->current_config['expressoAdmin_defaultLogonScript'] == '' ) ? 'true' : 'false',
 			);
 			
 			if( (isset($this->current_config['expressoAdmin_loginGenScript'])) && 

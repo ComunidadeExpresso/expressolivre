@@ -203,7 +203,7 @@
 				'back_url'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uimaillists.list_maillists'),
 				'combo_manager_org'			=> $combo_manager_org,
 				'combo_all_orgs'			=> $combo_all_orgs,
-				'defaultDomain'				=> $this->current_config['expressoAdmin_defaultDomain']
+				'defaultDomain'				=> ( isset($this->current_config['expressoAdmin_defaultDomain']) ? $this->current_config['expressoAdmin_defaultDomain'] : "" )
 			);
 			$p->set_var($var);
 			$p->set_var($this->functions->make_dinamic_lang($p, 'body'));
