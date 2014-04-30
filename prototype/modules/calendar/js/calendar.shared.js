@@ -423,14 +423,23 @@ function show_modal_search_shared(){
 
     UI.dialogs.sharedCalendar.find('.add-user-search input').keydown(function(event) {
         if(event.keyCode == '13' || typeof(event.keyCode) == 'undefined') {
-            var result = DataLayer.get('calendarToPermission', {
-                filter: ['AND', ['=','user',User.me.id],   ['OR', ['i*','name',$(this).val()], ["i*", "description", $(this).val()]]]  ,
-                criteria: {
-                    deepness: 2
-                }
-            }, true);
+            /*
+            * @var calendarIds
+            * Comment: This new variable has data filter result -> ['OR', ['i*','name',$(this).val()], ["i*", "description", $(this).val()]]
+            * */
+            var calendarIds = [];
+
+            var findCalendars = DataLayer.get('calendar', {filter: ['OR', ['i*', 'name', $(this).val()], ['i*', 'description', $(this).val()] ] });
+
+            for( var i in findCalendars ) {
+                if (findCalendars[i]['id'])
+                    calendarIds.push( findCalendars[i]['id'] );
+            }
+
+            var result = DataLayer.get('calendarToPermission',  {filter: ['AND', ['=','user',User.me.id], ['IN', 'calendar', calendarIds] ], criteria: {deepness: 2} });
+
             var resultPublic = DataLayer.get('calendarToPermission', {
-                filter: ['AND', ['=','type',1], ['OR', ['i*','name',$(this).val()], ["i*", "description", $(this).val()]], ['!IN','calendar', Calendar.calendarIds]]  ,
+                  filter: ['AND', ['=','type',1], ['IN', 'calendar', calendarIds], ['!IN','calendar', Calendar.calendarIds]],
                 criteria: {
                     deepness: 2
                 }
