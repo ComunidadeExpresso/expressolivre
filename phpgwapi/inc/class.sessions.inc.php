@@ -564,7 +564,7 @@
 			{
 				$this->phpgw_setcookie('last_loginid', $this->account_lid ,$now+1209600); /* For 2 weeks */
 				$this->phpgw_setcookie('last_domain',$this->account_domain,$now+1209600);
-				$this->phpgw_setcookie('last_organization',$_POST['organization'],$now+1209600);
+				$this->phpgw_setcookie('last_organization',(isset($_POST['organization'])?$_POST['organization']:""),$now+1209600);
 			}
 			unset($GLOBALS['phpgw_info']['server']['default_domain']); /* we kill this for security reasons */
 

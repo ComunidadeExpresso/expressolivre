@@ -39,9 +39,17 @@
 			{
 				return False;
 			}
-			session_id($this->sessionid);
-			session_start();
-			return $GLOBALS['phpgw_session'] = $_SESSION['phpgw_session'];
+			else
+			{
+				session_id( $this->sessionid );
+				
+				if( session_status() == PHP_SESSION_NONE)
+				{
+					session_start();
+				}
+				
+				return $GLOBALS['phpgw_session'] = $_SESSION['phpgw_session'];
+			}
 		}
 
 		function set_cookie_params($domain)
@@ -51,7 +59,10 @@
 
 		function new_session_id()
 		{
-			session_start();
+			if( session_status() === PHP_SESSION_DISABLED )
+			{
+				session_start();
+			}
 
 			return session_id();
 		}

@@ -474,8 +474,9 @@
 		function get_list($_type='both', $start = '',$sort = '', $order = '', $query = '', $offset = '',$query_type='')
 		{
 			//print "\$_type=$_type, \$start=$start , \$sort=$sort, \$order=$order, \$query=$query, \$offset=$offset, \$query_type=$query_type<br>";
-			$query = strtolower($query);
-
+			$query 		= strtolower($query);
+			$accounts 	= array();
+			
 			if($_type == 'accounts' || $_type == 'both')
 			{
 				$filter = "(&(uidnumber=*)(|(phpgwaccounttype=u)(phpgwaccounttype=s))";
@@ -547,7 +548,7 @@
 				while (list($null,$allVals) = @each($allValues))
 				{
 					settype($allVals,'array');
-					$test = $allVals['cn'][0];
+					$test = ( ( isset($allVals['cn']) ) ? $allVals['cn'][0] :"" );
 					if((isset($GLOBALS['phpgw_info']['server']['global_denied_groups'][$test]) && !$GLOBALS['phpgw_info']['server']['global_denied_groups'][$test]) && isset($allVals['cn'][0]) )
 					{
 						$accounts[] = Array(
@@ -568,7 +569,9 @@
 			{
 				$order = 'account_lid';
 			}
+			
 			$sortedAccounts = $arrayFunctions->arfsort($accounts,explode(',',$order),$sort);
+			
 			$this->total = count($accounts);
 
 			// return only the wanted accounts

@@ -80,7 +80,7 @@
 	}
 
 	$GLOBALS[$class] = CreateObject(sprintf('%s.%s',$app,$class));
-	if((is_array($GLOBALS[$class]->public_functions) && $GLOBALS[$class]->public_functions[$method]) && ! $invalid_data)
+	if( ( isset($GLOBALS[$class]->public_functions) && is_array($GLOBALS[$class]->public_functions) && $GLOBALS[$class]->public_functions[$method]) && ! $invalid_data)
 	{
 		execmethod($_GET['menuaction']);
 		unset($app);
@@ -107,21 +107,25 @@
 			}
 		}
 
-		if(!is_array($GLOBALS[$class]->public_functions) || ! $$GLOBALS[$class]->public_functions[$method] && $method)
+		if( isset($GLOBALS[$class]->public_functions) )
 		{
-			if(@is_object($GLOBALS['phpgw']->log))
-			{				
-			 	if( isset($menuaction) )
-                {			
-					$GLOBALS['phpgw']->log->message(array(
-						'text' => "W-BadmenuactionVariable, attempted to access private method: $method",
-						'p1'   => $method,
-						'line' => __LINE__,
-						'file' => __FILE__
-					));
-                }
+			if(!is_array($GLOBALS[$class]->public_functions) || ! $$GLOBALS[$class]->public_functions[$method] && isset($method) )
+			{
+				if(@is_object($GLOBALS['phpgw']->log))
+				{				
+				 	if( isset($menuaction) )
+	                {			
+						$GLOBALS['phpgw']->log->message(array(
+							'text' => "W-BadmenuactionVariable, attempted to access private method: $method",
+							'p1'   => $method,
+							'line' => __LINE__,
+							'file' => __FILE__
+						));
+	                }
+				}
 			}
 		}
+
 		if(@is_object($GLOBALS['phpgw']->log))
 		{
 			$GLOBALS['phpgw']->log->commit();

@@ -13,33 +13,23 @@
 
 	require_once "logout_code.php";
 
-	$ifMobile = false;
-	// $browser = CreateObject('phpgwapi.browser');
-	// switch ( $browser->get_platform() )
-	// {
-	// 	case browser::PLATFORM_IPHONE:
-	// 	case browser::PLATFORM_IPOD:
-	// 	case browser::PLATFORM_IPAD:
-	// 	case browser::PLATFORM_BLACKBERRY:
-	// 	case browser::PLATFORM_NOKIA:
-	// 	case browser::PLATFORM_ANDROID:
-	// 		$ifMobile = true;						
-	// 		break;
-	// }
+	$extra_vars		= "";
+	$lang			= "";
+	$passwd 		= "";
+	$passwd_type	= "";
 	
-
 	/* Program starts here */
 	if($GLOBALS['phpgw_info']['server']['auth_type'] == 'http' && isset($_SERVER['PHP_AUTH_USER']))
 	{
 		$submit = True;
-		$login  = $_SERVER['PHP_AUTH_USER'];
-		$passwd = $_SERVER['PHP_AUTH_PW'];
+		$login  = ( isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : "" );
+		$passwd = ( isset($_SERVER['PHP_AUTH_PW']) ? $_SERVER['PHP_AUTH_PW'] : "" );
 		$passwd_type = 'text';
 	}
 	else
 	{
-		$passwd = $_POST['passwd'];
-		$passwd_type = $_POST['passwd_type'];
+		$passwd 		= (isset($_POST['passwd']) ? $_POST['passwd'] : "" );
+		$passwd_type 	= (isset($_POST['passwd_type']) ? $_POST['passwd_type'] : "" );
 	}
 
 	# Apache + mod_ssl style SSL certificate authentication
@@ -80,12 +70,12 @@
 		$_SESSION['contador_captcha'] = 0;
 	}
 
-	if( isset($passwd_type) || $_POST['submitit_x'] || $_POST['submitit_y'] || $submit )
+	if( isset($passwd_type) || isset($_POST['submitit_x']) || isset($_POST['submitit_y']) || $submit )
 	{
 	    // Primeiro testa o captcha....se houver......
         if( $GLOBALS['phpgw_info']['server']['captcha'] == 1 )
 		{
-			if( $_SESSION['contador_captcha'] > $GLOBALS['phpgw_info']['server']['num_badlogin'] )
+			if( isset($_SESSION['contador_captcha']) && ($_SESSION['contador_captcha'] > $GLOBALS['phpgw_info']['server']['num_badlogin']) )
 			{
 				if ($_SESSION['CAPTCHAString'] != trim(strtoupper($_POST['codigo'])))
 				{
@@ -99,7 +89,7 @@
 			}
 		}
 
-		if( $_POST['user'] && (trim($_POST['user']) != "") )
+		if( isset($_POST['user']) && (trim($_POST['user']) != "" ) )
 		{
 	 		$_POST['login'] = $_POST['user'];
 		}
@@ -116,7 +106,7 @@
 		// don't get login data again when $submit is true
 		if( $submit == false )
 		{
-			$login = $_POST['login'];
+			$login = ( isset($_POST['login']) ? $_POST['login'] : "" );
 		}
 
 		if( !$_GET['cd'] )
@@ -130,7 +120,7 @@
 		}
 		else
 		{
-			if( $_POST['lang'] && preg_match('/^[a-z]{2}(-[a-z]{2}){0,1}$/',$_POST['lang']) &&
+			if( isset($_POST['lang']) && preg_match('/^[a-z]{2}(-[a-z]{2}){0,1}$/',$_POST['lang']) &&
 			    $_POST['lang'] != $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] )
 			{
 				$GLOBALS['phpgw']->preferences->add('common','lang',$_POST['lang'],'session');
@@ -168,7 +158,7 @@
 	}
 
 	// Incrementar Contador para o Uso do Captcha
-    $_SESSION['contador_captcha']++;
+    if(isset($_SESSION['contador_captcha'])){ $_SESSION['contador_captcha']++; } 
 
 	// !!! DONT CHANGE THESE LINES !!!
 	// If there is something wrong with this code TELL ME!
@@ -184,9 +174,9 @@
 		}
 	}
 	
-	$_GET['lang'] = addslashes($_GET['lang']);
-	if ($_GET['lang'])
+	if ( isset($_GET['lang']) )
 	{
+		$_GET['lang'] = addslashes($_GET['lang']);
 		$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $_GET['lang'];
 	}
 	elseif(!isset($_COOKIE['last_loginid']) || !$prefs->account_id)
@@ -235,8 +225,9 @@
 	$cnf_reg = createobject('phpgwapi.config','registration');
 	$cnf_reg->read_repository();
 	$config_reg = $cnf_reg->config_data;
-
-	if($config_reg[enable_registration]=='True' && $config_reg[register_link]=='True')
+	$reg_link	= "";
+	
+	if( ( isset($config_reg['enable_registration']) && $config_reg['enable_registration'] == 'True' ) && $config_reg['register_link'] == 'True' )
 	{
 		$reg_link='&nbsp;<a href="registration/">'.lang('Not a user yet? Register now').'</a><br/>';
 	}
@@ -247,7 +238,7 @@
 
 	$tmpl->set_var('register_link',$reg_link);
 	$tmpl->set_var('charset',$GLOBALS['phpgw']->translation->charset());
-	$tmpl->set_var('login_url', $GLOBALS['phpgw_info']['server']['webserver_url'] . '/login.php' . $extra_vars);
+	$tmpl->set_var('login_url', $GLOBALS['phpgw_info']['server']['webserver_url'] . '/login.php' . ((is_string($extra_vars)? $extra_vars:"")));
 	$tmpl->set_var('registration_url',$GLOBALS['phpgw_info']['server']['webserver_url'] . '/registration/');
 	$tmpl->set_var('version',$GLOBALS['phpgw_info']['server']['versions']['phpgwapi']);
 	$tmpl->set_var('cd',check_logoutcode($_GET['cd']));
@@ -261,16 +252,15 @@
 	$tmpl->set_var('template_set', $template);
 
 	// Keyboard Virtual
-	$tmpl->set_var('show_kbd',$GLOBALS['phpgw_info']['server']['login_virtual_keyboard']); 
-
-	$tmpl->set_var('autocomplete', ($GLOBALS['phpgw_info']['server']['autocomplete_login'] ? 'autocomplete="off"' : ''));
+	$tmpl->set_var('show_kbd',(isset($GLOBALS['phpgw_info']['server']['login_virtual_keyboard']) ? $GLOBALS['phpgw_info']['server']['login_virtual_keyboard'] : "" )); 
+	$tmpl->set_var('autocomplete', ( isset($GLOBALS['phpgw_info']['server']['autocomplete_login']) ? 'autocomplete="off"' : '') );
 
 	// soh mostra o captcha se for login sem certificado....
 	if($GLOBALS['phpgw_info']['server']['captcha'] && $_GET['cd']!='300' )
 	{
 		$aux_captcha = '<input type="hidden" name="'.session_name().'"  value="'.session_id().'">';
 
-		if( $_SESSION['contador_captcha'] > $GLOBALS['phpgw_info']['server']['num_badlogin'] )
+		if( isset($_SESSION['contador_captcha']) > $GLOBALS['phpgw_info']['server']['num_badlogin'] )
 		{
 			$aux_captcha = '<div>'
 			   .'<img id="id_captcha" src="./security/captcha.php?' . session_name() . '=' . session_id() . '" title="'.lang('Security code').'" alt="'.lang('Security code').'" style="position:static;">'
@@ -281,6 +271,8 @@
 
 		$tmpl->set_var('captcha',$aux_captcha);
 	}
+
+	$link_alterna_login = "";
 
 	// Testa se deve incluir applet para login com certificado......
 	if ( $_GET['cd']=='300' && $GLOBALS['phpgw_info']['server']['certificado'] == 1 )

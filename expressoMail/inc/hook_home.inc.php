@@ -9,18 +9,20 @@
 		*  option) any later version.                                              * 
 		\**************************************************************************/ 
 		
-	if(!isset($GLOBALS['phpgw_info'])){
-        	$GLOBALS['phpgw_info']['flags'] = array(
-                	'currentapp' => 'expressoMail',
-                	'nonavbar'   => true,
-                	'noheader'   => true
-        	);
+	if( !isset($GLOBALS['phpgw_info']) )
+	{
+    	$GLOBALS['phpgw_info']['flags'] = array(
+            	'currentapp' => 'expressoMail',
+            	'nonavbar'   => true,
+            	'noheader'   => true
+    	);
 	}
 
+	$current_app	= 'expressoMail';
+	$current_name	= 'Expresso Mail';
 	
-	$current_app = 'expressoMail';
-	$current_name	 = 'Expresso Mail';
-	if(!$_SESSION['phpgw_info']['user']['preferences']['expressoMail']) { 
+	if( !isset( $_SESSION['phpgw_info']['user']['preferences']['expressoMail'] ) )
+	{ 
 		$preferences = $GLOBALS['phpgw']->preferences->read(); 
 		$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['expressoMail'];
 	}
