@@ -9,9 +9,11 @@
 	*  option) any later version.                                              *
 	\**************************************************************************/
 	
-	$current_url = substr($_SERVER["SCRIPT_NAME"], 0, strpos($_SERVER["SCRIPT_NAME"],'index.php'));
+	$current_url	= substr($_SERVER["SCRIPT_NAME"], 0, strpos($_SERVER["SCRIPT_NAME"],'index.php'));
+	$phpgw_info 	= array();
+	$api_requested	= false;
+	$invalid_data	= false;
 
-	$phpgw_info = array();
 	if(!file_exists('header.inc.php'))
 	{
 		Header('Location: '.$current_url.'setup/index.php');
@@ -40,9 +42,6 @@
 	}
 	else
 	{
-	//$phpgw->log->message('W-BadmenuactionVariable, menuaction missing or corrupt: %1',$menuaction);
-	//$phpgw->log->commit();
-
 		$app = 'home';
 		$invalid_data = True;
 	}
@@ -112,7 +111,7 @@
 		{
 			if(@is_object($GLOBALS['phpgw']->log))
 			{				
-			 	if($menuaction)
+			 	if( isset($menuaction) )
                 {			
 					$GLOBALS['phpgw']->log->message(array(
 						'text' => "W-BadmenuactionVariable, attempted to access private method: $method",
@@ -128,10 +127,7 @@
 			$GLOBALS['phpgw']->log->commit();
 		}
 
-		if( $_GET['dont_redirect_if_moble'] == 1 )
-			Header('Location: ' . $GLOBALS['phpgw']->link('/home.php?dont_redirect_if_moble=1'));
-		else
-			Header('Location: ' . $GLOBALS['phpgw']->link('/home.php'));
+		Header('Location: ' . $GLOBALS['phpgw']->link('/home.php'));
 	}
 
 	if($_GET['menuaction'])

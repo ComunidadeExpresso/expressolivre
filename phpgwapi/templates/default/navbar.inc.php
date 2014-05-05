@@ -209,13 +209,14 @@
 				$var['app_extra_icons_icon']= '<td width="26" valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#"  onMouseOver="ypSlideOutMenu.showMenu(\'menu1\')" onClick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img src="'.$var['img_root'].'/extra_icons.png" border="0" /></a></td>';
 
 
-			if(isset($GLOBALS['phpgw_info']['flags']['app_header']))
+			if( isset($GLOBALS['phpgw_info']['flags']['app_header'] ) )
 			{
 				$var['current_app_title'] = $GLOBALS['phpgw_info']['flags']['app_header'];
 			}
 			else
 			{
-				$var['current_app_title']=$GLOBALS['phpgw_info']['navbar'][$GLOBALS['phpgw_info']['flags']['currentapp']]['title'];
+				if( isset($GLOBALS['phpgw_info']['flags']['currentapp']) )
+					$var['current_app_title'] = @$GLOBALS['phpgw_info']['navbar'][$GLOBALS['phpgw_info']['flags']['currentapp']]['title'];
 			}
 
 			if(isset($GLOBALS['phpgw_info']['navbar']['admin']) && $GLOBALS['phpgw_info']['user']['preferences']['common']['show_currentusers'])
@@ -295,19 +296,30 @@
 
 			$menu_title = lang('General Menu');
 
-			$file['Home'] = $GLOBALS['phpgw_info']['navbar']['home']['url'];
-			if($GLOBALS['phpgw_info']['user']['apps']['preferences'])
+			$file = array();
+			$file = array("Home" => $GLOBALS['phpgw_info']['navbar']['home']['url']);
+			
+			if( $GLOBALS['phpgw_info']['user']['apps']['preferences'] )
 			{
-				$file['Preferences'] = $GLOBALS['phpgw_info']['navbar']['preferences']['url'];
+				$file = array( "Preferences" => $GLOBALS['phpgw_info']['navbar']['preferences']['url'] );
 			}
+
+			$text = "";
+
+			if( isset($GLOBALS['phpgw_info']['apps'][$GLOBALS['phpgw_info']['flags']['currentapp']]['title']))
+			{
+				$text = $GLOBALS['phpgw_info']['apps'][$GLOBALS['phpgw_info']['flags']['currentapp']]['title'];
+			}
+
 			$file += array(
 				array(
-					'text'    => lang('About %1',$GLOBALS['phpgw_info']['apps'][$GLOBALS['phpgw_info']['flags']['currentapp']]['title']),
-					'no_lang' => True,
-					'link'    => $GLOBALS['phpgw_info']['navbar']['about']['url']
-				),
-				'Logout'=>$GLOBALS['phpgw_info']['navbar']['logout']['url']
+					'text'    	=> lang('About %1', $text ),
+					'no_lang' 	=> True,
+					'link'    	=> $GLOBALS['phpgw_info']['navbar']['about']['url']
+				)
 			);
+			
+			$file = array( "Logout" => $GLOBALS['phpgw_info']['navbar']['logout']['url'] );
 
 			if($GLOBALS['phpgw_info']['user']['preferences']['common']['auto_hide_sidebox']==1)
 			{
@@ -348,7 +360,7 @@
 			if(!@$GLOBALS['phpgw_info']['flags']['noappheader'] && @isset($_GET['menuaction']))
 			{
 				list($app,$class,$method) = explode('.',$_GET['menuaction']);
-				if(is_array($GLOBALS[$class]->public_functions) && $GLOBALS[$class]->public_functions['header'])
+				if(is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['header']) )
 				{
 					$GLOBALS[$class]->header();
 				}

@@ -917,14 +917,14 @@
 				}
 			}
 
-			if ($functionparams != '_UNDEF_' && ($functionparams || $functionparams != 'True'))
+			if( $functionparams != '_UNDEF_' && ($functionparams || $functionparams != 'True') )
 			{
-				eval('$returnval = '.$parentobject.'->'.$classname.'->'.$functionname.'('.$functionparams.');');
+				@eval('$returnval = '.$parentobject.'->'.$classname.'->'.$functionname.'('.$functionparams.');');
 				return $returnval;
 			}
 			else
 			{
-				eval('$returnval = '.$parentobject.'->'.$classname.'->'.$functionname.'();');
+				@eval('$returnval = '.$parentobject.'->'.$classname.'->'.$functionname.'();');
 				return $returnval;
 			}
 		}

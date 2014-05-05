@@ -48,12 +48,12 @@
 		
 		function exportlist()
 		{
-			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			if(!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
 			{
 				$this->deny();
 			}
 
-			if ($_POST['btnDone'])
+			if(isset($_POST['btnDone']))
 			{
 				$GLOBALS['phpgw']->redirect_link('/admin/index.php');
 			}

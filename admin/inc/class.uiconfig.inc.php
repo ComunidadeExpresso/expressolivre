@@ -94,22 +94,20 @@ use prototype\api\Config as Config;
                 }
             }
 
-			if (isset($_POST['migration']) && ($_POST['migration']  == "true")){
-			
+			if( isset($_POST['migration']) && ($_POST['migration']  == "true") )
+			{
 				require_once dirname(__FILE__ )."/../../expressoCalendar/inc/class.ui_migration.inc.php";
-
 				$migratrion = new Migra();
 				$migratrion->calendar();
 			}
-
 		}
 
-			if ($_POST['cancel'] || $_POST['submit'] && $GLOBALS['phpgw']->acl->check('site_config_access',2,'admin'))
+			if( isset($_POST['cancel']) || isset($_POST['submit']) && $GLOBALS['phpgw']->acl->check('site_config_access',2,'admin'))
 			{
 				$GLOBALS['phpgw']->redirect_link('/admin/index.php');
 			}
 
-			if ($_POST['submit'])
+			if( isset($_POST['submit']) )
 			{
 				/* Load hook file with functions to validate each config (one/none/all) */
 				$GLOBALS['phpgw']->hooks->single('config_validate',$appname);
@@ -176,7 +174,7 @@ use prototype\api\Config as Config;
 				}
 			}
 
-			if($errors)
+			if( isset($errors) )
 			{
 				$t->set_var('error',lang('Error') . ': ' . $errors);
 				$t->set_var('th_err','#FF8888');
@@ -363,12 +361,16 @@ use prototype\api\Config as Config;
 			$map = Config::get('user', 'OpenLDAP.mapping');
 			$validate = false;	
 			$options = "<option value=''>".lang('None')."</option>";
-			foreach($map as $value){
+			foreach($map as $value)
+			{
 				$options .= "<option value='".$value."'";
-				if($current_config['expressoMail_ldap_identifier_recipient'] == $value){
+				
+				if( isset($current_config['expressoMail_ldap_identifier_recipient']) && $current_config['expressoMail_ldap_identifier_recipient'] == $value )
+				{
 					$validate = true;
 					$options .= " selected='selected'";
 				}
+				
 				$options .= ">". $value . "</option>";
 			}
 

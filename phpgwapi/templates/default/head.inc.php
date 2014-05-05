@@ -25,10 +25,11 @@
 		. $GLOBALS['phpgw_info']['theme']['alink'] . '" link="' . $GLOBALS['phpgw_info']['theme']['link'] . '" vlink="'
 		. $GLOBALS['phpgw_info']['theme']['vlink'] . '"';
 
-	if(!$GLOBALS['phpgw_info']['server']['htmlcompliant'])
+	if( isset($GLOBALS['phpgw_info']['server']['htmlcompliant']) && !$GLOBALS['phpgw_info']['server']['htmlcompliant'] )
 	{
 		$bodyheader .= '';
 	}
+	
 	$currentapp = $GLOBALS['phpgw_info']['flags']['currentapp'] ;
 
 	#_debug_array($GLOBALS['phpgw_info']['user']['preferences']['common']);

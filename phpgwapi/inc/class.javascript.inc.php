@@ -151,7 +151,7 @@
 		*/
 		function set_onload($code)
 		{
-			$this->body['onLoad'] .= $code;
+			@$this->body['onLoad'] .= $code;
 		}
 
 		/**

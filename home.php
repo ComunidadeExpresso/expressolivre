@@ -38,12 +38,12 @@
 	
 	$GLOBALS['phpgw_info']['flags']['app_header']=lang('home');
 
-	if ($GLOBALS['phpgw_info']['server']['force_default_app'] && $GLOBALS['phpgw_info']['server']['force_default_app'] != 'user_choice')
+	if ( isset($GLOBALS['phpgw_info']['server']['force_default_app']) && $GLOBALS['phpgw_info']['server']['force_default_app'] != 'user_choice')
 	{
 		$GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] = $GLOBALS['phpgw_info']['server']['force_default_app'];
 	}
 
-	if ($_GET['cd']=='yes' && $GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] &&
+	if ( ( isset($_GET['cd']) && $_GET['cd']=='yes' ) && $GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] &&
 		$GLOBALS['phpgw_info']['user']['apps'][$GLOBALS['phpgw_info']['user']['preferences']['common']['default_app']])
 	{
 		$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/' . $GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] . '/' . 'index.php'));
@@ -80,57 +80,63 @@
         @reset($sorted_apps);
         $idx = 1;
         echo "<table width='100%' cellpadding=5>";
-        foreach($sorted_apps as $appname)
+        foreach( $sorted_apps as $appname )
         {
-                if((int)$done[$appname] == 1 || empty($appname)){
-                        continue;
-                }
-                $varnames = $portal_oldvarnames;
-                $varnames[] = 'homepage_display';
-                $thisd = 0;
-                $tmp = '';
+            if( isset($done[$appname]) )
+                if((int)$done[$appname] == 1 || empty($appname)){ continue; }
+            $varnames = $portal_oldvarnames;
+            $varnames[] = 'homepage_display';
+            $thisd = 0;
+            $tmp = '';
 
-                foreach($varnames as $varcheck)
+            foreach($varnames as $varcheck)
+            {
+                if(array_search($appname, $default_apps) !== False)
                 {
-
-                    if(array_search($appname, $default_apps) !== False){
-                            $thisd = 1;
-                            break;
-                    }
-                    if($GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck]=='True') {
-                            $thisd = 1;
-                            break;
-                    }
-                    else  {
-                            $_thisd = (int)$GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck];
-                            if($_thisd > 0) {
-                                    $thisd = $_thisd;
-                                    break;
-                            }
-                    }
+                    $thisd = 1;
+                    break;
                 }
-
-               if($thisd > 0)
+                
+                if( isset($GLOBALS['phpgw_info']['user']['preferences'][$appname]) )
                 {
-                        if($tmp) {
-                $appname = $tmp;
-                                $tmp = '';
+                    if( $GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck]=='True')
+                    {
+                        $thisd = 1;
+                        break;
+                    }
+                    else
+                    {
+                        $_thisd = (int)$GLOBALS['phpgw_info']['user']['preferences'][$appname][$varcheck];
+                        if( $_thisd > 0 )
+                        {
+                            $thisd = $_thisd;
+                            break;
                         }
-                        if($idx == 0) {
-                                print '<tr>';
-                        }
-                        print '<td style="vertical-align:top;" width="45%">';
-                        $GLOBALS['phpgw']->hooks->single('home',$appname);
-                        print '</td>';
-
-                        if($idx == 2){
-                                $idx = 0;
-                                print '</tr>';
-                        }
-                        ++$idx;
-                        $neworder[] = $appname;
+                    }
                 }
-                $done[$appname] = 1;
+            }
+
+           if( $thisd > 0 )
+           {
+                    if($tmp) {
+            $appname = $tmp;
+                            $tmp = '';
+                    }
+                    if($idx == 0) {
+                            print '<tr>';
+                    }
+                    print '<td style="vertical-align:top;" width="45%">';
+                    $GLOBALS['phpgw']->hooks->single('home',$appname);
+                    print '</td>';
+
+                    if($idx == 2){
+                            $idx = 0;
+                            print '</tr>';
+                    }
+                    ++$idx;
+                    $neworder[] = $appname;
+            }
+            $done[$appname] = 1;
         }
         print '</table>';
 

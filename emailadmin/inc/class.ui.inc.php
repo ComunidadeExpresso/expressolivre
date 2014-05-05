@@ -356,10 +356,10 @@
 				$rows, 
 				$data, 
 				lang('profile list'), 
-				$_start, 
-				$_total, 
-				$_menuAction)
-			);
+				(isset($_start)?$_start:""), 
+				(isset($_total)?$_total:""), 
+				(isset($_menuAction)?$_menuAction:"")
+			));
 			
 			$linkData = array
 			(
@@ -381,11 +381,11 @@
 			$template->set_block('body','header_row','headerRow');
 		
 			$var = Array(
-				'th_bg'			=> $GLOBALS['phpgw_info']['theme']['th_bg'],
-				'left_next_matchs'	=> $this->nextmatchs->left('/index.php',$start,$total,'menuaction=emailadmin.ui.listServers'),
-				'right_next_matchs'	=> $this->nextmatchs->right('/admin/groups.php',$start,$total,'menuaction=emailadmin.ui.listServers'),
+				'th_bg'				=> $GLOBALS['phpgw_info']['theme']['th_bg'],
+				'left_next_matchs'	=> $this->nextmatchs->left('/index.php',(isset($start)?$start:""),(isset($total)?$total:""),'menuaction=emailadmin.ui.listServers'),
+				'right_next_matchs'	=> $this->nextmatchs->right('/admin/groups.php',(isset($start)?$start:""),(isset($total)?$stop:""),'menuaction=emailadmin.ui.listServers'),
 				'lang_groups'		=> lang('user groups'),
-				'sort_name'		=> $this->nextmatchs->show_sort_order($sort,'account_lid',$order,'/index.php',lang('name'),'menuaction=emailadmin.ui.listServers'),
+				'sort_name'			=> $this->nextmatchs->show_sort_order((isset($sort)?$sort:""),'account_lid',(isset($order)?$order:""),'/index.php',lang('name'),'menuaction=emailadmin.ui.listServers'),
 				'description'		=> $_description,
 				'header_edit'		=> lang('Edit'),
 				'header_delete'		=> lang('Delete')
@@ -436,14 +436,14 @@
 			$globalSettings['description'] = $_POST['globalsettings']['description'];
 			$globalSettings['defaultDomain'] = $_POST['globalsettings']['defaultDomain'];
 			$globalSettings['organisationName'] = $_POST['globalsettings']['organisationName'];
-			$globalSettings['userDefinedAccounts'] = $_POST['globalsettings']['userDefinedAccounts'];
-			
+			$globalSettings['userDefinedAccounts'] = (isset($_POST['globalsettings']['userDefinedAccounts'])) ? $_POST['globalsettings']['userDefinedAccounts'] : "";
 			
 			// get the settings for the smtp server
 			$smtpType = $_POST['smtpsettings']['smtpType'];
 			foreach($this->boemailadmin->getFieldNames($smtpType,'smtp') as $key)
 			{
-				$smtpSettings[$key] = $_POST['smtpsettings'][$smtpType][$key];
+				if( isset($_POST['smtpsettings'][$smtpType][$key]) )
+					$smtpSettings[$key] = $_POST['smtpsettings'][$smtpType][$key];
 			}
 			$smtpSettings['smtpType'] = $smtpType;
 			
@@ -453,7 +453,8 @@
 			$imapType = $_POST['imapsettings']['imapType'];
 			foreach($this->boemailadmin->getFieldNames($imapType,'imap') as $key)
 			{
-				$imapSettings[$key] = $_POST['imapsettings'][$imapType][$key];
+				if( isset($_POST['imapsettings'][$imapType][$key]) )
+					$imapSettings[$key] = $_POST['imapsettings'][$imapType][$key];
 			}
 			$imapSettings['imapType'] = $imapType;
 			

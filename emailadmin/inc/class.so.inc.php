@@ -28,27 +28,30 @@
 
 			foreach($_smtpSettings+$_globalSettings+$_imapSettings as $key => $value)
 			{
-				if($key == 'profileID')
-					continue;
+				if( isset($this->table['fd'][$key]['type'] ) )
+				{
+					if($key == 'profileID')
+						continue;
 
-				if($fields != '')
-				{
-					$fields .= ',';
-					$values .= ',';
-					$query  .= ',';
+					if($fields != '')
+					{
+						$fields .= ',';
+						$values .= ',';
+						$query  .= ',';
+					}
+					switch($this->table['fd'][$key]['type'])
+					{
+						case 'int': case 'auto':
+							$value = intval($value);
+							break;
+						default:
+							$value = $this->db->db_addslashes($value);
+							break;
+					}
+					$fields .= "$key";
+					$values .= "'$value'";
+					$query  .= "$key='$value'";
 				}
-				switch($this->table['fd'][$key]['type'])
-				{
-					case 'int': case 'auto':
-						$value = intval($value);
-						break;
-					default:
-						$value = $this->db->db_addslashes($value);
-						break;
-				}
-				$fields .= "$key";
-				$values .= "'$value'";
-				$query  .= "$key='$value'";
 			}
 			if ($profileID)
 			{

@@ -74,7 +74,8 @@
 					$this->$var = '';
 				}
 			}
-			if (!is_object($GLOBALS['phpgw']->html))
+
+			if( !is_object(@$GLOBALS['phpgw']->html) )
 			{
 				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
 			}

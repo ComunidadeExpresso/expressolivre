@@ -548,14 +548,14 @@
 				{
 					settype($allVals,'array');
 					$test = $allVals['cn'][0];
-					if (!$GLOBALS['phpgw_info']['server']['global_denied_groups'][$test] && $allVals['cn'][0])
+					if((isset($GLOBALS['phpgw_info']['server']['global_denied_groups'][$test]) && !$GLOBALS['phpgw_info']['server']['global_denied_groups'][$test]) && isset($allVals['cn'][0]) )
 					{
 						$accounts[] = Array(
 							'account_id'        => $allVals['gidnumber'][0],
 							'account_lid'       => $allVals['cn'][0],
 							'account_type'      => $allVals['phpgwaccounttype'][0],
-							'account_firstname' => $GLOBALS['phpgw']->translation->convert($allVals['givenname'][0],'utf-8'),
-							'account_lastname'  => $GLOBALS['phpgw']->translation->convert($allVals['sn'][0],'utf-8'),
+							'account_firstname' => $GLOBALS['phpgw']->translation->convert((isset($allVals['givenname'][0])?$allVals['givenname'][0]:""),'utf-8'),
+							'account_lastname'  => $GLOBALS['phpgw']->translation->convert((isset($allVals['sn'][0])?$allVals['sn'][0]:""),'utf-8'),
 							'account_status'    => $allVals['phpgwaccountstatus'][0],
 							'account_email'     => $allVals['mail'][0],
 						);

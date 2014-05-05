@@ -228,8 +228,8 @@
 			while($this->db->next_record())
 			{
 				// The following replacement is required for PostgreSQL to work
-				$app = str_replace(' ','',$this->db->f('preference_app'));
-				$value = unserialize($this->db->f('preference_value'));
+				$app 	= str_replace(' ','',$this->db->f('preference_app'));
+				$value	= @unserialize($this->db->f('preference_value'));
 				$this->unquote($value);
 				if (!is_array($value))
 				{
