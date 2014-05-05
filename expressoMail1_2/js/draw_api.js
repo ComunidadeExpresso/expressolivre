@@ -3687,21 +3687,22 @@ function draw_message(info_msg, ID){
 				    var calendarPermission = data.calendar;
 				    data = data.action;
 				}
-					
+
+                var typeImages = $('#content_id_' + currentTab + ' .type_images');
 				switch(parseInt(data)){
 				case 5:
-                    $('#content_id_' + currentTab + ' .type_images').append('<img class="loader" src="templates/default/images/ajax-loader.gif" align="top" style="margin-left: 5px; cursor: pointer; display: inline">');
+                    typeImages.append('<img class="loader" src="templates/default/images/ajax-loader.gif" align="top" style="margin-left: 5px; cursor: pointer; display: inline">');
 					$.ajax({
 						url: "controller.php?action="+import_url+'&from_ajax=true&selected=true',
 						success: function(msg){
-                            $('#content_id_' + currentTab + ' .type_images').append('<img src="../prototype/modules/mail/img/flagDone.png" align="top" style="margin: 3px 0 0 5px; cursor: pointer; display: inline">').parent().find('.loader').remove();
+                            typeImages.append('<img src="../prototype/modules/mail/img/flagDone.png" align="top" style="margin: 3px 0 0 5px; cursor: pointer; display: inline">').parent().find('.loader').remove();
 							write_msg( ( ( connector.unserialize(msg)) == "ok") ? "Seu evento foi Atualizado com sucesso" : "Ocorreu um erro ao atualizar evento" );
 						}
 					});
 					return;
 					break;		
 				case 4:
-                    $('#content_id_' + currentTab + ' .type_images').append('<img src="../prototype/modules/mail/img/flagDone.png" align="top" style="margin: 3px 0 0 5px; cursor: pointer; ">');
+                    typeImages.append('<img src="../prototype/modules/mail/img/flagDone.png" align="top" style="margin: 3px 0 0 5px; cursor: pointer; ">');
 					write_msg("Seu evento encontra-se atualizado.");
 					return;
 					break;
