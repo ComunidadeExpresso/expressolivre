@@ -9,7 +9,8 @@
 	*  option) any later version.														*
 	\***********************************************************************************/
 
-	define('PHPGW_API_INC','../phpgwapi/inc');
+	if( !defined('PHPGW_API_INC') )
+		define('PHPGW_API_INC','../phpgwapi/inc');
 
 	class uimessages_size
 	{
@@ -69,9 +70,14 @@
 			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
 			$acl = $this->functions->read_acl($account_lid);
 			$contexts = $acl['contexts'];
-                        
-			foreach ($acl['contexts_display'] as $index=>$tmp_context) {
-				$context_display .= '<br>'.$tmp_context;
+			$context_display = "";
+
+			if( isset($acl['contexts_display']) )
+			{
+				foreach( $acl['contexts_display'] as $index=>$tmp_context )
+				{
+					$context_display .= '<br>'.$tmp_context;
+				}
 			}
 			
 			if (!$this->functions->check_acl($account_lid,'messages_size')) {
@@ -87,8 +93,13 @@
 			/* Begin: set modal */	 
 			$functions = CreateObject('expressoAdmin.functions');
 			
+			$combo_manager_org = "";
+
 			foreach ($contexts as $index=>$context)
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context);
+			}
+			
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context']);
 			
 			$p->set_var('manager_organizations', $combo_manager_org);

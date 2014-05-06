@@ -30,7 +30,7 @@
 		{
 			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
 			$tmp = $this->functions->read_acl($account_lid);
-			$manager_context = $tmp[0]['context'];
+			$manager_context = ( isset($tmp[0]['context']) ? $tmp[0]['context'] : "" );
 			
 			// Verifica se o administrador tem acesso.
 			if (!$this->functions->check_acl($account_lid,'view_logs'))
@@ -50,7 +50,7 @@
 			$p->set_block('logs','row_empty','row_empty');
 
 			//Administrador realizou uma pesquisa no log
-			if (($_POST['query_manager_lid'] != '') || ($_POST['query_action'] != '') || ($_POST['query_date'] != '') || ($_POST['query_hour'] != '') || ($_POST['query_other'] != ''))
+			if((isset($_POST['query_manager_lid']) && $_POST['query_manager_lid'] != '') || (isset($_POST['query_action']) && $_POST['query_action'] != '') || (isset($_POST['query_date']) && $_POST['query_date'] != '') || ( isset($_POST['query_hour']) && $_POST['query_hour'] != '') || ( isset($_POST['query_other']) && $_POST['query_other'] != ''))
 			{
 				$query = "SELECT manager,date,userinfo,action FROM phpgw_expressoadmin_log WHERE"; 
 				
@@ -103,20 +103,20 @@
 				'back_url'			=> $GLOBALS['phpgw']->link('/expressoAdmin/index.php'),
 				'search_action'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uilogs.list_logs'),
 				
-				'query_manager_lid'	=> $_POST['query_manager_lid'],
-				'query_action'		=> $_POST['query_action'],
-				'query_date'		=> $_POST['query_date'],
-				'query_hour'		=> $_POST['query_hour'],
-				'query_other'		=> $_POST['query_other'],
+				'query_manager_lid'	=> (isset($_POST['query_manager_lid']) ? $_POST['query_manager_lid'] : "" ),
+				'query_action'		=> (isset($_POST['query_action']) ? $_POST['query_action'] : "" ),
+				'query_date'		=> (isset($_POST['query_date']) ? $_POST['query_date'] : "" ),
+				'query_hour'		=> (isset($_POST['query_hour']) ? $_POST['query_hour'] : "" ),
+				'query_other'		=> (isset($_POST['query_other']) ? $_POST['query_other'] : "" ),
 			);
 			$p->set_var($var);
 			$p->set_var($this->functions->make_dinamic_lang($p, 'list'));
 
-			if ((!count($logs)) && (($_POST['query_manager_lid'] != '') || ($_POST['query_date'] != '') || ($_POST['query_hour'] != '')))
+			if((isset($logs) && !count($logs)) && ((isset($_POST['query_manager_lid']) && $_POST['query_manager_lid'] != '') || ( isset($_POST['query_date']) && $_POST['query_date'] != '') || (isset($_POST['query_hour']) && $_POST['query_hour'] != '')))
 			{
 				$p->set_var('message',lang('No matches found'));
 			}
-			else if (count($logs))
+			else if( isset($logs) && count($logs) )
 			{
 				foreach ($logs as $log)
 				{

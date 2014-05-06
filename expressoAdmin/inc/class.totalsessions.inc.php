@@ -23,7 +23,8 @@
 			$this->functions = createobject('expressoAdmin.functions');
 			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
 			$tmp = $this->functions->read_acl($account_lid);
-			$manager_context = $tmp[0]['context'];
+			$manager_context = ( isset($tmp[0]['context'])? $tmp[0]['context'] : "" );
+
 			// Verifica se o administrador tem acesso.
 			if (!$this->functions->check_acl($account_lid,'view_global_sessions'))
 			{

@@ -10,7 +10,8 @@
 	*  option) any later version.														*
 	\***********************************************************************************/
 
-	define('PHPGW_API_INC','../phpgwapi/inc');
+	if( !defined('PHPGW_API_INC') )
+		define('PHPGW_API_INC','../phpgwapi/inc');
 
 	class uishared_accounts
 	{
@@ -50,12 +51,14 @@
 			$acl = $this->functions->read_acl($account_lid);
 			$contexts = $acl['contexts'];
                         
-                        // Loading Config Module
-                        $conf = CreateObject('phpgwapi.config','phpgwapi');
-                        $conf->read_repository();
-                        $config = $conf->config_data;  
+			// Loading Config Module
+			$conf = CreateObject('phpgwapi.config','phpgwapi');
+			$conf->read_repository();
+			$config = $conf->config_data;  
+			$context_display = "";
                         
-			foreach ($acl['contexts_display'] as $index=>$tmp_context) {
+			foreach ($acl['contexts_display'] as $index=>$tmp_context)
+			{
 				$context_display .= '<br>'.$tmp_context;
 			}
 			
@@ -88,10 +91,13 @@
 
 			$functions = CreateObject('expressoAdmin.functions');
 			
-			//$organizations = $functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context']);
-			
+			$combo_manager_org = "";
+
 			foreach ($contexts as $index=>$context)
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context);
+			}
+			
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context']);
 			
 			$p->set_var('manager_organizations', $combo_manager_org);

@@ -37,13 +37,18 @@
 		
 		function list_sectors()
 		{
-			$manager_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
-			$acl = $this->functions->read_acl($manager_lid);
-			$contexts = $acl['contexts'];
-			foreach ($acl['contexts_display'] as $index=>$tmp_context)
+			$manager_lid		= $GLOBALS['phpgw']->accounts->data['account_lid'];
+			$acl 				= $this->functions->read_acl($manager_lid);
+			$contexts 			= $acl['contexts'];
+			$context_display	= "";
+
+			if( isset($acl['contexts_display']) && is_array($acl) )
 			{
-				$context_display .= '<br>'.$tmp_context;
-			}
+				foreach ($acl['contexts_display'] as $index=>$tmp_context)
+				{
+					$context_display .= '<br>'.$tmp_context;
+				}
+			}	
 
 			// Verifica se o administrador tem acesso.
 			if (!$this->functions->check_acl($manager_lid,'list_sectors'))
@@ -94,18 +99,20 @@
 					$can_delete = True;
 				}
 
-				foreach($sectors_info as $context=>$sector)
+				$tr_color = "";
+
+				foreach( $sectors_info as $context=>$sector )
 				{
 					$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
-					$var = Array(
-						'tr_color'    => $tr_color,
-						'sector_name'  => $sector['display'], 
- 	                                        'cota_link' => $this->row_action('view','cota',$sector['dn']), 
- 	                                        'add_link' => $this->row_action('add','sector',$sector['dn']) 
+					
+					$var = array(
+						'tr_color'		=> $tr_color,
+						'sector_name'	=> $sector['display'], 
+						'cota_link' 	=> $this->row_action('view','cota',$sector['dn']), 
+ 	                    'add_link' 		=> $this->row_action('add','sector',$sector['dn']) 
 					);	
 					
 					$var['sector_name'] =  utf8_decode($var['sector_name']);
-
 									
 					if(isset($GLOBALS['phpgw_info']['server']['time_to_account_expires']))
 						$var['inactives_link'] = $this->row_action('list_inactive','users',$sector['dn'],'uiaccounts'); 

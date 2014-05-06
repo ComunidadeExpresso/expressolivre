@@ -105,7 +105,7 @@
 						return true;
 					break;
 				default:
-					return $array_acl["acl_$access"];
+					return ( isset($array_acl["acl_$access"]) ? $array_acl["acl_$access"] : false );
 			}
 			return false;
 		}
@@ -542,11 +542,8 @@
                                  
                                 $info_retorno['display'] = $display; 
                                 $info_retorno['dn'] = $info_ou['dn']; 
-                                $info_retorno['diskquota'] = $info_ou['diskquota'][0]; 
-                                $info_retorno['usersquota'] = $info_ou['usersquota'][0]; 
-//                              $info_retorno['actualdiskquota'] = round($this->get_actual_disk_usage($info_ou['dn']),2);//$info_ou['actualdiskquota'][0]; 
-//                              $info_retorno['actualnumusers'] = $this->get_num_users($info_ou['dn']); 
-                                 
+                                $info_retorno['diskquota'] = (isset($info_ou['diskquota'][0]) ? $info_ou['diskquota'][0] : "" ); 
+                                $info_retorno['usersquota'] = (isset($info_ou['usersquota'][0]) ? $info_ou['usersquota'][0] : "" );
                                 array_push($options,$info_retorno); 
                                  
                 } 

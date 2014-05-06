@@ -9,7 +9,8 @@
 	*  option) any later version.														*
 	\***********************************************************************************/
 
-	define('PHPGW_API_INC','../phpgwapi/inc');
+	if( !defined('PHPGW_API_INC') )
+		define('PHPGW_API_INC','../phpgwapi/inc');
 
 	class institutional_accounts
 	{
@@ -41,10 +42,13 @@
 		function index()
 		{
 			/* Begin:  Check manager access */
-			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
-			$acl = $this->functions->read_acl($account_lid);
-			$contexts = $acl['contexts'];
-			foreach ($acl['contexts_display'] as $index=>$tmp_context) {
+			$account_lid 		= $GLOBALS['phpgw']->accounts->data['account_lid'];
+			$acl 				= $this->functions->read_acl($account_lid);
+			$contexts 			= $acl['contexts'];
+			$context_display 	= "";
+			
+			foreach ($acl['contexts_display'] as $index=>$tmp_context)
+			{
 				$context_display .= '<br>'.$tmp_context;
 			}
 			
@@ -75,12 +79,14 @@
 
 			/* Begin: set modal */
 
-			$functions = CreateObject('expressoAdmin.functions');
-			
-			//$organizations = $functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context']);
+			$functions 			= CreateObject('expressoAdmin.functions');
+			$combo_manager_org	= "";
 			
 			foreach ($contexts as $index=>$context)
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context);
+			}
+
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context']);
 			
 			$p->set_var('manager_organizations', $combo_manager_org);

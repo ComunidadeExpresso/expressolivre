@@ -45,10 +45,11 @@
 		
 		function list_maillists()
 		{
-			
-			$manager_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
-			$manager_acl = $this->functions->read_acl($manager_lid);
-			$manager_contexts = $manager_acl['contexts'];
+			$manager_lid 		= $GLOBALS['phpgw']->accounts->data['account_lid'];
+			$manager_acl 		= $this->functions->read_acl($manager_lid);
+			$manager_contexts	= $manager_acl['contexts'];
+			$context_display	= "";
+
 			foreach ($manager_acl['contexts_display'] as $index=>$tmp_context)
 			{
 				$context_display .= '<br>'.$tmp_context;
@@ -91,10 +92,12 @@
 			$p->set_var($this->functions->make_dinamic_lang($p, 'list'));
 			
 			// Save query
-			$p->set_var('query', $GLOBALS['query']);
+			$p->set_var('query', (isset($GLOBALS['query']) ? $GLOBALS['query'] : ""));
 			
+			$maillists_info = array();
+
 			//Admin make a search
-			if ($GLOBALS['query'] != '')
+			if ( isset($GLOBALS['query']) && $GLOBALS['query'] != '')
 			{
 				$maillists_info = $this->functions->get_list('maillists', $GLOBALS['query'], $manager_contexts);
 			}

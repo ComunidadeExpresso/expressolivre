@@ -49,10 +49,11 @@
 		
 		function list_groups()
 		{
-			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
-			$manager_acl = $this->functions->read_acl($account_lid);
-			$raw_context = $acl['raw_context'];
-			$contexts = $manager_acl['contexts'];
+			$account_lid 		= $GLOBALS['phpgw']->accounts->data['account_lid'];
+			$manager_acl		= $this->functions->read_acl($account_lid);
+			$contexts 			= $manager_acl['contexts'];
+			$context_display	= "";
+
 			foreach ($manager_acl['contexts_display'] as $index=>$tmp_context)
 			{
 				$context_display .= '<br>'.$tmp_context;
@@ -95,13 +96,16 @@
 			$p->set_var($this->functions->make_dinamic_lang($p, 'list'));
 			
 			// Save query
-			$p->set_var('query', $GLOBALS['query']);
+			$p->set_var('query', (isset($GLOBALS['query'])? $GLOBALS['query'] : ""));
 			
 			//Admin make a search
-			if ($GLOBALS['query'] != '')
+			$groups_info = array();
+			
+			if( isset($GLOBALS['query']) && $GLOBALS['query'] != '' )
 			{
 				$groups_info = $this->functions->get_list('groups', $GLOBALS['query'], $contexts);
 			}
+			
 			$total = count($groups_info);
 
 			if (!count($total) && $GLOBALS['query'] != '')
@@ -119,35 +123,38 @@
 					$can_delete = True;
 				}
 
-				foreach($groups_info as $group)
+				if( count($groups_info) )
 				{
-					$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
-					$var = Array(
-						'tr_color'    		=> $tr_color,
-						'row_cn'  			=> $group['cn'],
-						'row_description'	=> $group['description']
-					);
-					$p->set_var($var);
+					foreach($groups_info as $group)
+					{
+						$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
+						$var = Array(
+							'tr_color'    		=> $tr_color,
+							'row_cn'  			=> $group['cn'],
+							'row_description'	=> $group['description']
+						);
+						$p->set_var($var);
 
-					if ($can_edit)
-					{
-						$p->set_var('edit_link',$this->row_action('edit','groups',$group['gidnumber'],$group['cn']));
-					}
-					else
-					{
-						$p->set_var('edit_link','&nbsp;');
-					}
+						if ($can_edit)
+						{
+							$p->set_var('edit_link',$this->row_action('edit','groups',$group['gidnumber'],$group['cn']));
+						}
+						else
+						{
+							$p->set_var('edit_link','&nbsp;');
+						}
 
-					if ($can_delete)
-					{
-						$p->set_var('delete_link',"<a href='#' onClick='javascript:delete_group(\"".$group['cn']."\",\"".$group['gidnumber']."\");'>".lang('to delete')."</a>");
-					}
-					else
-					{
-						$p->set_var('delete_link','&nbsp;');
-					}
+						if ($can_delete)
+						{
+							$p->set_var('delete_link',"<a href='#' onClick='javascript:delete_group(\"".$group['cn']."\",\"".$group['gidnumber']."\");'>".lang('to delete')."</a>");
+						}
+						else
+						{
+							$p->set_var('delete_link','&nbsp;');
+						}
 
-					$p->fp('rows','row',True);
+						$p->fp('rows','row',True);
+					}
 				}
 			}
 			$p->parse('rows','row_empty',True);
@@ -159,7 +166,8 @@
 			}
 			if (! $GLOBALS['phpgw']->acl->check('run',2,'admin'))
 			{
-				$p->set_var('input_search',lang('Search') . '&nbsp;<input name="query" value="'.htmlspecialchars(stripslashes($GLOBALS['query'])).'">');
+				$query = (isset($GLOBALS['query'])? $GLOBALS['query'] : "");
+				$p->set_var('input_search',lang('Search') . '&nbsp;<input name="query" value="'.htmlspecialchars(stripslashes($query)).'">');
 			}
 			$p->pfp('out','list');
 		}
@@ -167,12 +175,15 @@
 		function add_groups()
 		{
 			if ($this->current_config['expressoAdmin_samba_support'] == 'true')
+			{
 				$GLOBALS['phpgw']->js->set_onload('get_available_sambadomains(document.forms[0].context.value, \'create_group\');');
+			}
 
-			$manager_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
-			$manager_acl = $this->functions->read_acl($manager_lid);
-			$manager_contexts = $manager_acl['contexts'];
-			
+			$manager_lid 		= $GLOBALS['phpgw']->accounts->data['account_lid'];
+			$manager_acl 		= $this->functions->read_acl($manager_lid);
+			$manager_contexts 	= $manager_acl['contexts'];
+			$group_info 		=  array();
+
 			// Verifica se tem acesso a este modulo
 			if (!$this->functions->check_acl($manager_lid,'add_groups'))
 			{
@@ -191,9 +202,14 @@
 
 			// Pega combo das organizações e seleciona um dos setores em caso de um erro na validaçao dos dados.
 			//$combo_manager_org = $this->functions->get_organizations($manager_context, trim(strtolower($group_info['context'])));
-			foreach ($manager_contexts as $index=>$context)
-				$combo_manager_org .= $this->functions->get_organizations($context, trim(strtolower($group_info['context'])));
-			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], trim(strtolower($group_info['context'])));
+			foreach( $manager_contexts as $index => $context )
+			{
+				if( isset($group_info['context']) )
+					$combo_manager_org .= $this->functions->get_organizations($context, trim(strtolower($group_info['context'])));
+			}
+			
+			if( isset($group_info['context']) )
+				$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], trim(strtolower($group_info['context'])));
 			
 			// Chama funcao para criar lista de aplicativos disponiveis.
 			$apps = $this->functions->make_list_app($manager_lid);
@@ -220,21 +236,21 @@
 				'color_bg2'					=> "#D3DCE3",
 				'type'						=> 'create_group',
 				'cn'						=> '',
-				'restrictionsOnGroup'		=> $this->current_config['expressoAdmin_restrictionsOnGroup'],
+				'restrictionsOnGroup'		=> (isset($this->current_config['expressoAdmin_restrictionsOnGroup'])? $this->current_config['expressoAdmin_restrictionsOnGroup'] : "" ),
 				'type'						=> 'create_group',
 				'ldap_context'				=> $GLOBALS['phpgw_info']['server']['ldap_context'],
 				'ufn_ldap_context'			=> ldap_dn2ufn($GLOBALS['phpgw_info']['server']['ldap_context']),
-				'concatenateDomain'			=> $this->current_config['expressoAdmin_concatenateDomain'],
-				'defaultDomain'				=> $this->current_config['expressoAdmin_defaultDomain'],
+				'concatenateDomain'			=> (isset($this->current_config['expressoAdmin_concatenateDomain'])?$this->current_config['expressoAdmin_concatenateDomain'] : "" ),
+				'defaultDomain'				=> (isset($this->current_config['expressoAdmin_defaultDomain'])?$this->current_config['expressoAdmin_defaultDomain'] : "" ),
 				'apps'						=> $apps,
 				'use_attrs_samba_checked'	=> '',
 				'disabled_samba'			=> 'disabled',
 				'display_samba_options'		=> $this->current_config['expressoAdmin_samba_support'] == 'true' ? '' : '"display:none"',
 				'disable_email_groups'		=> $this->functions->check_acl($manager_lid,'edit_email_groups') ? '' : 'disabled',
-				'sambadomainname_options'	=> $sambadomainname_options,
+				'sambadomainname_options'	=> ( isset($sambadomainname_options) ? $sambadomainname_options : "" ),
 				'back_url'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uigroups.list_groups'),
-				'combo_manager_org'			=> $combo_manager_org,
-				'combo_all_orgs'			=> $combo_all_orgs
+				'combo_manager_org'			=> (isset($combo_manager_org)? $combo_manager_org : "" ),
+				'combo_all_orgs'			=> (isset($combo_all_orgs) ? $combo_all_orgs : "" )
 			);
 			$p->set_var($var);
 			$p->set_var($this->functions->make_dinamic_lang($p, 'list'));

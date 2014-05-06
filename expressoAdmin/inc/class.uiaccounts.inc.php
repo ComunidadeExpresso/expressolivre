@@ -114,10 +114,12 @@
 
 		function list_users()
 		{
-			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
-			$acl = $this->functions->read_acl($account_lid);
-			$raw_context = $acl['raw_context'];
-			$contexts = $acl['contexts'];
+			$account_lid 		= $GLOBALS['phpgw']->accounts->data['account_lid'];
+			$acl				= $this->functions->read_acl($account_lid);
+			$raw_context		= $acl['raw_context'];
+			$contexts			= $acl['contexts'];
+			$context_display	= "";
+
 			foreach ($acl['contexts_display'] as $index=>$tmp_context)
 			{
 				$context_display .= '<br>'.$tmp_context;
@@ -161,16 +163,17 @@
 			);
 			$p->set_var($var);
 			$p->set_var($this->functions->make_dinamic_lang($p, 'body'));
-
-			$p->set_var('query', $GLOBALS['query']);
+			$p->set_var('query', (isset($GLOBALS['query'])?$GLOBALS['query']:""));
 			
 			//Admin make a search
-			if ($GLOBALS['query'] != '')
+			$account_info = array();
+
+			if(isset($GLOBALS['query']) && $GLOBALS['query'] != '')
 			{
 				$account_info = $this->functions->get_list('accounts', $GLOBALS['query'], $contexts);
 			}
 			
-			if (!count($account_info) && $GLOBALS['query'] != '')
+			if( !count($account_info) && ( isset($GLOBALS['query']) && $GLOBALS['query'] != '' ) )
 			{
 				$p->set_var('message',lang('No matches found'));
 				$p->parse('rows','row_empty',True);
@@ -262,8 +265,13 @@
 			$t->set_block('body','main');
 
 			// Pega combo das organizações e seleciona, caso seja um post, o setor que o usuario selecionou.
+			$combo_manager_org = "";
+
 			foreach ($manager_contexts as $index=>$context)
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context);
+			}
+			
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], '', true, true, true);
 
 			// Chama funcao para criar lista de aplicativos disponiveis.
@@ -302,9 +310,9 @@
 				
 				// First ABA
 				'display_spam_uid'				=> 'display:none',
-				'lang_generate_login'              => lang('Generate login'),
-				'start_coment_expired'						=> "<!--",
-				'end_coment_expired'						=> "-->",
+				'lang_generate_login'			=> lang('Generate login'),
+				'start_coment_expired'			=> "<!--",
+				'end_coment_expired'			=> "-->",
 				'sectors'						=> $combo_manager_org,
 				'combo_organizations'			=> $combo_manager_org,
 				'combo_all_orgs'				=> $combo_all_orgs,
@@ -316,7 +324,7 @@
 				'display_tr_default_password'	=> 'none',
 				'minimumSizeLogin'				=> $this->current_config['expressoAdmin_minimumSizeLogin'],
 				'defaultDomain'					=> ( isset($this->current_config['expressoAdmin_defaultDomain']) ? $this->current_config['expressoAdmin_defaultDomain'] : "" ),
-				'concatenateDomain'				=> $this->current_config['expressoAdmin_concatenateDomain'],
+				'concatenateDomain'				=> ( isset($this->current_config['expressoAdmin_concatenateDomain']) ? $this->current_config['expressoAdmin_concatenateDomain'] : "" ),
 				'ldap_context'					=> ldap_dn2ufn($GLOBALS['phpgw_info']['server']['ldap_context']),
 				
 				// Corporative Information
@@ -334,7 +342,7 @@
 				
 				//SAMBA ABA
 				'use_attrs_samba_checked'			=> 'CHECKED',
-				'sambadomainname_options'			=> $sambadomainname_options,
+				'sambadomainname_options'			=> ( isset($sambadomainname_options) ? $sambadomainname_options : "" ),
 				'sambalogonscript'					=> ( isset($this->current_config['expressoAdmin_defaultLogonScript']) && $this->current_config['expressoAdmin_defaultLogonScript'] != '' ) ? $this->current_config['expressoAdmin_defaultLogonScript'] : '',
 				'use_suggestion_in_logon_script'	=> ( isset($this->current_config['expressoAdmin_defaultLogonScript']) && $this->current_config['expressoAdmin_defaultLogonScript'] == '' ) ? 'true' : 'false',
 			);
