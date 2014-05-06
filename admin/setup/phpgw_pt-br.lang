@@ -91,6 +91,7 @@ change acl rights	admin	pt-br	Mudar direitos da ACL
 change config settings	admin	pt-br	Mudar parâmetros de configuração
 change main screen message	admin	pt-br	Alterar mensagem da tela principal
 check ip address of all sessions	admin	pt-br	Verificar endereço IP de todas sessões
+enable asynchronous tasks	admin	pt-br	Habilitar tarefas assíncronas
 check items to <b>%1</b> to %2 for %3	admin	pt-br	Marcar itens de <b> %1</b> a %2 para %3
 click to select a color	admin	pt-br	Clique para selecionar uma cor
 color	admin	pt-br	Cor
@@ -569,3 +570,4 @@ Identifier of the recipient of a message	admin	pt-br	Identificador do destinatár
 LDAP attribute used to replacement	admin	pt-br	Atributo LDAP utilizado para substituição
 None	admin	pt-br	Nenhum
 Permission	admin	pt-br	Permissão
+Site Configuration	admin	pt-br	Configuração do site

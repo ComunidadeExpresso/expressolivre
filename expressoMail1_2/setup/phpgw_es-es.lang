@@ -319,7 +319,7 @@ Nao foi possivel verificar se o certificado esta revogado.(CD-01)	expressoMail1_
 Nao foi possivel verificar se o certificado esta revogado.(CD-02)	expressoMail1_2	es-es	No fue posibl verificar si el certificado está revocado.(CD-02)
 Nao foi possivel verificar se o certificado esta revogado.(CD-03)	expressoMail1_2	es-es	No fue posible verificar si el certificado está revocado.(CD-03)
 New	expressoMail1_2	es-es	Nuevo
-New folder	expressoMail1_2	es-es	Nueva carpeta
+New Folder	expressoMail1_2	es-es	Nueva carpeta
 New Message	expressoMail1_2	es-es	Nuevo Mensaje
 New rule	expressoMail1_2	es-es	Nueva Regla
 Next	expressoMail1_2	es-es	Próximo
@@ -524,7 +524,7 @@ underline	expressoMail1_2	es-es	Subrayado
 Undo	expressoMail1_2	es-es	Deshacer
 Unflagged	expressoMail1_2	es-es	No Importante
 Uninstall Offline	expressoMail1_2	es-es	Desinstalar offline
-unlimited	expressoMail1_2	es-es	Sin limite
+unlimited	expressoMail1_2	es-es	Sin límite
 Unseen	expressoMail1_2	es-es	No leídas
 Upload file	expressoMail1_2	es-es	Anexar archivo
 Use dynamic contacts?	expressoMail1_2	es-es	¿Usar contactos dinámicos?
@@ -541,12 +541,12 @@ Validity of certificate: 	expressoMail1_2	es-es	Validez del certificado:
 View HTML source	expressoMail1_2	es-es	Ver código html
 View tips	expressoMail1_2	es-es	Ver tips
 Voided message	expressoMail1_2	es-es	Mensaje anulado
-Warning: Your Mailbox is almost full!	expressoMail1_2	es-es	Aviso: ¡Su Buzón de Correo está casi lleno!
+Warning: Your Mailbox is almost full!	expressoMail1_2	es-es	Aviso: ¡Su Bandeja de Correo está casi lleno!
  was succefully removed	expressoMail1_2	es-es	fue eliminado con éxito
 Wednesday	expressoMail1_2	es-es	Miércoles
 What is the height of the lines in the list of messages?	expressoMail1_2	es-es	¿Cuál es la altura de las líneas en la lista de mensajes?
 What is the maximum number of results in an e-mail search?	expressoMail1_2	es-es	Cual es el número máximo de resultados en la busqueda de e-mails?
-What is the maximum size of embedded images?	expressoMail1_2	es-es	¿cual es el tamaño máximo de las imagenes insertadas al e-mail?
+What is the maximum size of embedded images?	expressoMail1_2	es-es	¿Cual es el tamaño máximo de las imágenes insertadas al e-mail?
 What is the minimum number of characters in searching contacts?	expressoMail1_2	es-es	¿Cual es el número mínimo de caracteres para búscar contatos?
 When delete message, send it automatically to trash folder	expressoMail1_2	es-es	Al borrar un mensaje, mover automaticamente este mensaje para la carpeta pepelera
 When user send an email with image in body message, it changes the size	expressoMail1_2	es-es	Cuando el usuário envia un e-mail con una imagen en el cuerpo del mensaje, el cambia del tamaño
@@ -576,7 +576,7 @@ You have %1 new	expressoMail1_2	es-es	Usted tiene%1 nuevo(s)
 You have 1 new message	expressoMail1_2	es-es	Usted tiene 1 nuevo mensaje
 You have exceeded the number of allowed characters	expressoMail1_2	es-es	EL número máximo de caracteres permitidos fue excedido.
 You have messages to send. Want you to send them now?	expressoMail1_2	es-es	¿Usted tiene mensages para enviar. Desea enviárlos ahora?
-You have reached the maximum number of rules	expressoMail1_2	es-es	El número máximo de mensajes fue restringido
+You have reached the maximum number of rules	expressoMail1_2	es-es	Usted número máximo de mensajes fue alcanzado
 you have to enter the name of the new folder	expressoMail1_2	es-es	Informe el nombre de la carpeta
 You must wait while the messages will be exported...	expressoMail1_2	es-es	Espere mientras los mensajes son exportados...
 You must wait while the messages will be imported...	expressoMail1_2	es-es	Aguarde mientras los mensajes son importados...
@@ -602,9 +602,9 @@ Report error	expressoMail1_2	es-es	Informe de error
 Describe the problem to report to technical support (optional)	expressoMail1_2	es-es	Describa el problema que le informe de apoyo técnico (opcional)
 Attention! The original message will be sent along with the original source of the email message	expressoMail1_2	es-es	¡Atención! El mensaje original se enviará junto con la fuente original del mensaje de correo electrónico
 Attach files	expressoMail1_2	es-es	Anexar archivos
-Attach messages	expressoMail1_2	es-es	Anexar mensages
+Attach messages	expressoMail1_2	es-es	Anexar mensajes
 Drop here annexes	expressoMail1_2	es-es	Soltar aqui sus anexos
-Outbox	expressoMail1_2	es-es	Buzón de salida
+Outbox	expressoMail1_2	es-es	Bandeja de salida
 Trash	expressoMail1_2	es-es	Papelera
 Drafts	expressoMail1_2	es-es	Borradores
 Sent	expressoMail1_2	es-es	Enviados
@@ -612,7 +612,7 @@ My folders	expressoMail1_2	es-es	Mis carpetas
 Shared folders	expressoMail1_2	es-es	Carpertas compartidas
 Local folders	expressoMail1_2	es-es	Pastas locales
 For monitoring	expressoMail1_2	es-es	Para acompañamiento
-Inbox	expressoMail1_2	es-es	Buzón de entrada
+Inbox	expressoMail1_2	es-es	Bandeja de entrada
 Recent contact	expressoMail1_2	es-es	Contacto reciente
 Personal contact	expressoMail1_2	es-es	Contacto particular
 Shared contact	expressoMail1_2	es-es	Contacto compartido
@@ -623,12 +623,12 @@ All messages flagged with the flag type	expressoMail1_2	es-es	Todas las mensajes
 will be removed. This action cannot be undone. Do you want to continue?	expressoMail1_2	es-es	serán removidas. Esta acción no podrá ser revertida. Desea continuar?
 Show all items	expressoMail1_2	es-es	Mostrar todos los items
 Flagged	expressoMail1_2	es-es	Señalizadas
-You have one message in conclusion today	expressoMail1_2	es-es	Usted tiene un mensage concluyendo hoy
-You have %1 flagged messages for today	expressoMail1_2	es-es	Ustaed tiene %1 mensages señalizadas para hoy
+You have one message in conclusion today	expressoMail1_2	es-es	Usted tiene un mensaje concluyendo hoy
+You have %1 flagged messages for today	expressoMail1_2	es-es	Ustaed tiene %1 mensajes señalizadas para hoy
 Done	expressoMail1_2	es-es	Concluidas
 No label found	expressoMail1_2	es-es	Ningún marcador encontrado
-One or more messages from any sub-folder are open	expressoMail1_2	es-es	Uno o mas mensages de alguna subcarpeta de esta carpeta están abiertos
-One or more messages from this folder are open	expressoMail1_2	es-es	Uno o mas mensages de esta carpeta están abiertos
+One or more messages from any sub-folder are open	expressoMail1_2	es-es	Uno o mas mensajes de alguna subcarpeta de esta carpeta están abiertos
+One or more messages from this folder are open	expressoMail1_2	es-es	Uno o mas mensajes de esta carpeta están abiertos
 Thie folder is already in this place	expressoMail1_2	es-es	La carpeta ya existe en este local
 Can not move this folder to this location, because the target has already a folder with this name	expressoMail1_2	es-es	Imposible mover esta carpeta para este local, el destino ya contiene una carpeta con este nombre
 Permission denied	expressoMail1_2	es-es	Permiso denegado
@@ -683,7 +683,7 @@ Save mail	expressoMail1_2	es-es	Guardar correo electrónico
 Save	expressoMail1_2	es-es	Guardar
 Important message	expressoMail1_2	es-es	Mensage importante
 Return receipt	expressoMail1_2	es-es	Conf. de lectura
-Digitally sign message?	expressoMail1_2	es-es	Firmar digitalmente el mensage?
+Digitally sign message?	expressoMail1_2	es-es	Firmar digitalmente el mensaje?
 Encrypted email	expressoMail1_2	es-es	Correo electrónico criptografado
 Add CC	expressoMail1_2	es-es	Agregar CC
 Add Bcc	expressoMail1_2	es-es	Agregar CCO
@@ -698,12 +698,12 @@ Bcc	expressoMail1_2	es-es	CCO
 Reply to	expressoMail1_2	es-es	Responder a
 has subject	expressoMail1_2	es-es	contiene asunto
 Simple text mode	expressoMail1_2	es-es	Modo texto simples
-Select messages to attach...	expressoMail1_2	es-es	Seleccione mensages para anexar
+Select messages to attach...	expressoMail1_2	es-es	Seleccione mensajes para anexar
 Spam	expressoMail1_2	es-es	Spam
 Edit folder	expressoMail1_2	es-es	Editar Carpeta
 Clean spam	expressoMail1_2	es-es	Limpiar spam
 Edit folder	expressoMail1_2	es-es	Editar carpeta
-Export folder messages	expressoMail1_2	es-es	Exportar mensages de la carpeta
+Export folder messages	expressoMail1_2	es-es	Exportar mensajes de la carpeta
 Update my telephone	expressoMail1_2	es-es	Actualizar mi teléfono
 Hide details	expressoMail1_2	es-es	Ocultar detalles
 Discard changes	expressoMail1_2	es-es	Descartar modificaciones
@@ -769,3 +769,358 @@ messages in your other folders	expressoMail1_2	es-es	mensajes en sus otras carpe
 messages in your shared folders	expressoMail1_2	es-es	mensajes em sus carpetas compartidas
 searching	expressoMail1_2	es-es	buscando
 Were found	expressoMail1_2	es-es	Fueron encontrados
+in	expressoMail1_2	es-es	en
+Alert message filter by sender	expressoMail1_2	es-es	Filtro de mensajes de alerta por el remitente
+Allowed domains for sieve forwarding	expressoMail1_2	es-es	Dominios permitidos para el reenvío en filtros
+Are you sure to delete the filters?	expressoMail1_2	es-es	¿Está seguro que desea eliminar los filtros de búsqueda?
+Read receipt	expressoMail1_2	es-es	Leer recibo
+Event Calendar	expressoMail1_2	es-es	Calendario de Eventos
+User	expressoMail1_2	es-es	Usuario
+accepted your event	expressoMail1_2	es-es	aceptado su evento
+this message cant be marked as normal	expressoMail1_2	es-es	este mensaje no puedo estar marcado de forma normal
+Answer messages from: %1 - Status: %2 - message: %3	expressoMail1_2	es-es	Responder mensajes de: %1 - Estado: %2 - mensaje: %3
+body	expressoMail1_2	es-es	cuerpo
+Cancel and returns the previous screen	expressoMail1_2	es-es	Cancelar y devuelve la pantalla anterior
+Cannot import target event. Please check if the format is right.	expressoMail1_2	es-es	No se puede importar evento de destino. Por favor verifique si el formato es correcto.
+Comma separated	expressoMail1_2	es-es	separados por comas
+Confirmation message is not sent	expressoMail1_2	es-es	No se envía un mensaje de confirmación
+Config for expressoMail1_2	expressoMail1_2	es-es	Config para expressoMail1_2
+Contact added successfully.	expressoMail1_2	es-es	Contacto añadido correctamente.
+Continue checking other rules if the criteria is met.	expressoMail1_2	es-es	Continúe observando otras reglas si se cumple el criterio.
+Convert this message into plain text can make parts of it are removed. Continue?	expressoMail1_2	es-es	Convertir este mensaje en texto sin formato se puede hacer se eliminan partes de ella. ¿Desea continuar?
+Define some criterion to the fields Sender, To and Subject with more than 3 characters!	expressoMail1_2	es-es	Definir algún criterio al Remitente campos, Para y Asunto con más de 3 letras!
+Enter a numerical value to the message size!	expressoMail1_2	es-es	Introduzca un valor numérico para el tamaño del mensaje!
+Default font editor	expressoMail1_2	es-es	Editor de letra predeterminado
+Default font size editor	expressoMail1_2	es-es	Editor Tamaño de letra predeterminado
+Wish you receive notifications for: "New messages", "Filter criteria", "Event alerts"?	expressoMail1_2	es-es	Deseo que usted reciba notificaciones por: "Nuevos mensajes", "Criterios de filtro", "alertas de eventos"?
+Do you wish to exclude the folder?	expressoMail1_2	es-es	¿Desea excluir la carpeta?
+Labels	expressoMail1_2	es-es	Las etiquetas
+Follow up	expressoMail1_2	es-es	Seguimiento
+Empty Spam Folder	expressoMail1_2	es-es	Vaciar carpeta de Spam
+Empty Spam	expressoMail1_2	es-es	spam vacía
+English	expressoMail1_2	es-es	Inglés
+Enter with link URL:	expressoMail1_2	es-es	Introduzca con URL de vínculo:
+File extension forbidden or invalid file	expressoMail1_2	es-es	Extensión de archivo de archivos prohibida o no válida
+First page	expressoMail1_2	es-es	Primera página
+Flag as important	expressoMail1_2	es-es	Marcar como importante
+Labels:	expressoMail1_2	es-es	Etiquetas:
+Inform a forwarding e-mail!	expressoMail1_2	es-es	Informar a un redireccionamiento de correo!
+Invalid date on field %1	expressoMail1_2	es-es	Fecha no válida en el campo %1
+Invalid mail	expressoMail1_2	es-es	electrónico no es válido
+ERROR moving your folder.	expressoMail1_2	es-es	ERROR mover su carpeta.
+In the local file attachments, including images, will be disregarded. To forward / reply with the attachments, please first make the reopening of the message	expressoMail1_2	es-es	En los archivos adjuntos locales, incluidas las imágenes, se tendrán en cuenta. Para reenviar / respuesta con los accesorios, por favor, primero hacer la reapertura del mensaje
+It's not possible remove this folder, because it is being used in the moment!	expressoMail1_2	es-es	No es posible eliminar esta carpeta, porque se está utilizando en el momento!
+It's not possible move this folder, because it is being used in the moment!	expressoMail1_2	es-es	No es posible mover esta carpeta, porque se está utilizando en el momento!
+It's not possible to move this folder to its subfolders!	expressoMail1_2	es-es	No es posible mover esta carpeta a las subcarpetas!
+It's not possible move this folder, because its subfolder is being used in the moment!	expressoMail1_2	es-es	No es posible mover esta carpeta, ya que su subcarpeta se está utilizando en el momento!
+It's not possible rename this folder, because its subfolder is being used in the moment!	expressoMail1_2	es-es	No es posible cambiar el nombre de esta carpeta, ya que su subcarpeta se está utilizando en el momento!
+Last page	expressoMail1_2	es-es	Última página
+Limit reached folders	expressoMail1_2	es-es	Límite alcanzado carpetas
+Local Results	expressoMail1_2	es-es	Resultados locales
+Is Spam	expressoMail1_2	es-es	es spam
+Message date:	expressoMail1_2	es-es	Fecha del mensaje:
+Message required	expressoMail1_2	es-es	Mensaje requerido
+Message not supported	expressoMail1_2	es-es	Message not supported
+Message has attachment	expressoMail1_2	es-es	Message has attachment
+Message untouched and authentic	expressoMail1_2	es-es	Message untouched and authentic
+Message untouched with signer different from sender	expressoMail1_2	es-es	Message untouched with signer different from sender
+Message without receiver	expressoMail1_2	es-es	Message without receiver
+Next page	expressoMail1_2	es-es	Next page
+Next Shortcut:Control + Down	expressoMail1_2	es-es	Next Shortcut:Control + Down
+SNickname	expressoMail1_2	es-es	SNickname
+Normal	expressoMail1_2	es-es	Normal
+Notification	expressoMail1_2	es-es	Notification
+Filter criteria	expressoMail1_2	es-es	criterios de filtro
+It isn't possible to send a folder by Archiver to My folders	expressoMail1_2	es-es	No es posible enviar una carpeta por Archiver a Mis carpetas
+It isn't possible to send a folder by My folders to Archiver	expressoMail1_2	es-es	No es posible enviar una carpeta de Mis carpetas para Archiver
+Open search window	expressoMail1_2	es-es	Abrir ventana de búsqueda
+Portuguese	expressoMail1_2	es-es	portugués
+Prev Page	expressoMail1_2	es-es	Anterior Página
+Previous Shortcut:Control + Up	expressoMail1_2	es-es	Shortcut Anterior: Control + Up
+Preview message text within subject column	expressoMail1_2	es-es	Vista previa de mensajes de texto dentro de la columna tema
+QuickAddInvalidMail	expressoMail1_2	es-es	QuickAddInvalidMail
+QuickAddEmptyMail	expressoMail1_2	es-es	QuickAddEmptyMail
+Search Email	expressoMail1_2	es-es	Búsqueda Envíe
+Search Inbox	expressoMail1_2	es-es	Buscar Bandeja de entrada
+attachment(s)	expressoMail1_2	es-es	adjunto(s)
+Select a zip file or eml	expressoMail1_2	es-es	Seleccione un archivo zip o eml
+Select Date	expressoMail1_2	es-es	Seleccione una fecha
+Save and returns the previous screen	expressoMail1_2	es-es	Guardar y devuelve la pantalla anterior
+Send Mail	expressoMail1_2	es-es	Enviar correo
+Save Mail	expressoMail1_2	es-es	Guardar Enviar
+Send and not file	expressoMail1_2	es-es	Envía y no presentar
+Server Results	expressoMail1_2	es-es	Resultados Server
+Share folders	expressoMail1_2	es-es	Compartir carpetas
+Shared options saved with success	expressoMail1_2	es-es	Opciones compartidos guardados con éxito
+Signature Configuration	expressoMail1_2	es-es	Configuración Firma
+Since Date	expressoMail1_2	es-es	Desde Fecha
+Size rule must be a number	expressoMail1_2	es-es	Tamaño regla debe ser un número
+Spanish	expressoMail1_2	es-es	español
+SpellCheck	expressoMail1_2	es-es	SpellCheck
+The local folder %1 was successfully removed	expressoMail1_2	es-es	La carpeta local %1 se ha eliminado correctamente
+The message has attachment	expressoMail1_2	es-es	El mensaje tiene datos adjuntos
+The messages were moved to folder	expressoMail1_2	es-es	Los mensajes fueron trasladados a la carpeta
+The message was moved to %1 folder.	expressoMail1_2	es-es	El mensaje fue movido a la carpeta %1 .
+The message was moved to folder	expressoMail1_2	es-es	El mensaje fue movido a la carpeta
+The filter is active for alerts	expressoMail1_2	es-es	El filtro está activo para alertas
+The search has%1 messages stored locally. Want to see them ? Click here.	expressoMail1_2	es-es	La búsqueda tiene %1 mensajes almacenados localmente. ¿Quieres verlos? Haga clic aquí .
+The Timezone you're in.	expressoMail1_2	es-es	La zona horaria que está in
+Thursday	expressoMail1_2	es-es	jueves
+To use local messages you have to install google gears. Would you like to be redirected to gears installation page?	expressoMail1_2	es-es	Para utilizar los mensajes locales tiene que instalar Google Gears . ¿Te gustaría ser redirigido a la página de instalación de engranajes ?
+undisclosed-recipient	expressoMail1_2	es-es	no revelada -receptor
+Use plain text editor as standard ?	expressoMail1_2	es-es	Utilice editor de texto plano como estándar ?
+Would you like to send the read receipt?	expressoMail1_2	es-es	¿Le gustaría enviar la confirmación de lectura ?
+Would you like to activate the alert for message attachment?	expressoMail1_2	es-es	¿Quieres activar la alerta para la fijación mensaje?
+What is your timezone?	expressoMail1_2	es-es	¿Cuál es la zona horaria ?
+Where should the quick search be performed by default?	expressoMail1_2	es-es	¿Dónde se debe realizar la búsqueda rápida por defecto?
+It is where the keyword should be searched when the user executes a quick search.	expressoMail1_2	es-es	Es el lugar donde la palabra clave debe ser buscado cuando el usuario ejecuta una búsqueda rápida.
+without destination	expressoMail1_2	es-es	sin destino
+Would you like to have a read receipt option to read messages?	expressoMail1_2	es-es	¿Te gustaría tener una opción de confirmación de lectura para leer los mensajes ?
+Write a message	expressoMail1_2	es-es	Escribir un mensaje
+You can't forward e-mails to this domain: %1	expressoMail1_2	es-es	No puede reenviar mensajes de correo electrónico para este dominio : %1
+You have %1 new messages	expressoMail1_2	es-es	Tienes %1 mensajes nuevos
+You must choose a file	expressoMail1_2	es-es	Debes elegir un archivo
+You must choose a folder	expressoMail1_2	es-es	Usted debe elegir una carpeta
+You wrote "%1" in your message, but there are no files attached. Send it anyway?	expressoMail1_2	es-es	Usted escribió " %1 " en su mensaje , pero no hay archivos adjuntos. Enviar de todas formas ?
+There are still editing posts, really want to leave the page	expressoMail1_2	es-es	Todavía está editando mensajes , muchas ganas de salir de la página
+Your changes are not saved. What to do?	expressoMail1_2	es-es	Los cambios no se guardan. ¿Qué hacer?
+Invalid recipients in the message	expressoMail1_2	es-es	Los destinatarios no válidos en el mensaje
+Your search argument must be longer than %1 characters.	expressoMail1_2	es-es	Su argumento de búsqueda debe tener más de %1 caracteres.
+Your session could not be verified.	expressoMail1_2	es-es	Su sesión no pudo ser verificada .
+Certificate Owner	expressoMail1_2	es-es	Certificado propietario
+Common Name (CN)	expressoMail1_2	es-es	Nombre común ( CN)
+Organization (O)	expressoMail1_2	es-es	Organización (O)
+Organizational Unit (OU)	expressoMail1_2	es-es	Unidad organizativa (OU )
+Personal Data	expressoMail1_2	es-es	datos Personales
+Birthday	expressoMail1_2	es-es	cumpleaños
+Fiscal Id	expressoMail1_2	es-es	Id fiscal
+Identification	expressoMail1_2	es-es	identificación
+Certificate Issuer	expressoMail1_2	es-es	Emisor del certificado
+Validity	expressoMail1_2	es-es	validez
+Valid From	expressoMail1_2	es-es	Válido desde
+Valid Until	expressoMail1_2	es-es	Vigencia
+Serial Number	expressoMail1_2	es-es	Número de Serie
+Automaticaly create Default local folders?	expressoMail1_2	es-es	De forma automática crear carpetas locales predeterminados ?
+Enable this option if you want to automaticaly create the Inbox, Draft, Trash and Sent folders	expressoMail1_2	es-es	Active esta opción si desea crear de forma automática la bandeja de entrada , Borrador , Papelera y Enviados
+View extended information about users	expressoMail1_2	es-es	Ver información ampliada sobre los usuarios
+Do you want to use SpellChecker in email editor?	expressoMail1_2	es-es	¿Quieres utilizar SpellChecker en el editor de correo electrónico?
+It allow you to check the spelling of your emails	expressoMail1_2	es-es	Que le permiten revisar la ortografía de sus mensajes de correo electrónico
+Increases th maximum size of show messages?	expressoMail1_2	es-es	Aumenta th tamaño máximo de los mensajes de la demostración ?
+Increases the maximum size of show emails from 100kb to 1mb'	expressoMail1_2	es-es	Aumenta el tamaño máximo de show -mails de 100kb a 1mb '
+If you want to install a desktop shortcut for accessing the offline ExpressoMail please confirm it after pressing the Install offline button.	expressoMail1_2	es-es	Si desea instalar un acceso directo del escritorio para acceder a la línea ExpressoMail favor confirmarlo después de presionar el botón Instalar offline .
+The application also can be accessed using the URL:	expressoMail1_2	es-es	La aplicación también se puede acceder mediante la dirección URL :
+The selected folder cotain any accented character. The filter dont work with accented folders. Please, rename the folder or choose another folder.	expressoMail1_2	es-es	La carpeta seleccionada cotain cualquier carácter acentuado . El filtro no trabajan con las carpetas acentuados. Por favor , cambie el nombre de la carpeta o seleccione otra carpeta.
+Do you want to use x origin in source menssage?	expressoMail1_2	es-es	¿Quieres utilizar origen x en menssage fuente?
+Send this mail as text plain	expressoMail1_2	es-es	Envía este correo como texto sin formato
+The text format will be lost	expressoMail1_2	es-es	El formato de texto se perderá
+The format of telephone number is invalid	expressoMail1_2	es-es	El formato del número de teléfono no es válido
+Telephone number updated with success.	expressoMail1_2	es-es	Número de teléfono actualizado con éxito.
+Click here to update your telephone	expressoMail1_2	es-es	Haz clic aquí para actualizar su teléfono
+You can't modify your Commercial Telephone.	expressoMail1_2	es-es	Usted no puede modificar su Teléfono Comercial .
+Warning for users	expressoMail1_2	es-es	Advertencia para los usuarios
+text_Warning	expressoMail1_2	es-es	text_Warning
+Close this warning	expressoMail1_2	es-es	Cerrar esta advertencia
+Warning	expressoMail1_2	es-es	advertencia
+Discard	expressoMail1_2	es-es	descartar
+Send messages with return recipient option by default	expressoMail1_2	es-es	Enviar mensajes con opción de devolución destinatario por defecto
+With this option every new email will get the return recipient option marked	expressoMail1_2	es-es	Con esta opción cada nuevo correo electrónico recibirá la opción de devolución receptor marcado
+You must manually close one of your tabs before opening a new one	expressoMail1_2	es-es	Usted debe cerrar una de sus fichas antes de abrir uno nuevo
+Auto close the first tab on reaching the maximum number of tabs?	expressoMail1_2	es-es	Auto cerrar la primera ficha en alcanzar el número máximo de fichas?
+gears firefox windows url	expressoMail1_2	es-es	engranajes firefox windows url
+gears firefox linux url	expressoMail1_2	es-es	engranajes firefox url linux
+gears ie url	expressoMail1_2	es-es	engranajes, es decir url
+Limit reached folders	expressoMail1_2	es-es	Límite alcanzado carpetas
+Send this mail as text plain	expressoMail1_2	es-es	Envía este correo como texto sin formato
+The text format will be lost	expressoMail1_2	es-es	El formato de texto se perderá
+Error exporting messages, try again latter	expressoMail1_2	es-es	Error al exportar mensajes, inténtalo de nuevo este último
+Exporting selected messages, this can take some time.	expressoMail1_2	es-es	Exportar los mensajes seleccionados, esto puede tomar algún tiempo.
+More information about the problem (optional)	expressoMail1_2	es-es	Más información sobre el problema (opcional)
+Attention! The information contained in the e-mail will be sent to the support team	expressoMail1_2	es-es	¡Atención! La información que figura en el e-mail será enviado al equipo de soporte
+allow hidden copy	expressoMail1_2	es-es	permitir la copia oculta
+Email report error	expressoMail1_2	es-es	Email informe de errores
+Results	expressoMail1_2	es-es	Resultados
+Please, enter a parameter to search	expressoMail1_2	es-es	Por favor, introduzca un parámetro para buscar
+Paramter must be at least	expressoMail1_2	es-es	Paramter debe ser al menos
+characters	expressoMail1_2	es-es	personajes
+Contact Details	expressoMail1_2	es-es	Datos de contacto
+page	expressoMail1_2	es-es	página
+search	expressoMail1_2	es-es	búsqueda
+catalog	expressoMail1_2	es-es	catálogo
+Quick Search Contacts	expressoMail1_2	es-es	Búsqueda Rápida Contactos
+All Catalogs	expressoMail1_2	es-es	Todos los Catálogos
+of	expressoMail1_2	es-es	de
+Messages: add+	expressoMail1_2	es-es	Mensajes: añadir +
+no folder selected	expressoMail1_2	es-es	no hay ninguna carpeta seleccionada
+select a message to preview	expressoMail1_2	es-es	seleccionar un mensaje para previsualizar
+Your message have %1 characters, the message needs to have less then 10000 characters	expressoMail1_2	es-es	Su mensaje tiene %1 caracteres , el mensaje tiene que tener menos de 10.000 caracteres
+Wait a moment, your image is uploading ...	expressoMail1_2	es-es	Espere un momento, su imagen está cargando ...
+Reached maximum tab limit. Want to close this tab	expressoMail1_2	es-es	Alcanzado el límite máximo de tabulación. Quiere cerrar esta pestaña
+It's not possible rename this folder. try other folder name	expressoMail1_2	es-es	No es posible cambiar el nombre de esta carpeta. pruebe otro nombre carpeta
+SMTP Error: The following recipient addresses failed: %1	expressoMail1_2	es-es	Error SMTP: Los siguientes direcciones de los destinatarios fallaron :%1
+The recipients addresses failed %1	expressoMail1_2	es-es	Las direcciones de los destinatarios fallaron %1
+Message size greater than allowed(Default rule)	expressoMail1_2	es-es	Mayor tamaño de mensaje de lo permitido ( regla por defecto )
+(no subject)	expressoMail1_2	es-es	( no subject)
+Message file too big.	expressoMail1_2	es-es	Mensaje archivo demasiado grande.
+Tip: For faster save, click over the image with right button.	expressoMail1_2	es-es	Sugerencia: Para guardar rápidamente, haga clic sobre la imagen con el botón derecho .
+Shortcut: %1	expressoMail1_2	es-es	Atajo: %1
+Open message	expressoMail1_2	es-es	mensaje abierto
+Please enter a parameter to search	expressoMail1_2	es-es	Por favor, introduzca un parámetro para buscar
+parameter must be at least	expressoMail1_2	es-es	parámetro debe ser al menos
+this exhibits a sample of message within the message subject column	expressoMail1_2	es-es	este exhibe una muestra del mensaje dentro de la columna tema del mensaje
+this exhibits a sample of message within a tool-tip box	expressoMail1_2	es-es	este exhibe una muestra del mensaje dentro de una caja de herramientas con punta
+This exhibits employeenumber and ou from LDAP in searchs	expressoMail1_2	es-es	Esto exhibe employeenumber y ou de LDAP en searchs
+what is the minimum number of characters in searching contacts	expressoMail1_2	es-es	¿cuál es el número mínimo de caracteres en la búsqueda de contactos
+Increases the maximum size of show emails from 100kb to 1mb	expressoMail1_2	es-es	Aumenta el tamaño máximo de show -mails de 100kb a 1mb
+How to show nested messages	expressoMail1_2	es-es	Cómo mostrar mensajes anidados
+ERROR saving your message over quota.	expressoMail1_2	es-es	ERROR. Ahorro de su mensaje una cuota.
+Display default fields on the quick search screen?	expressoMail1_2	es-es	Campos de visualización por defecto en la pantalla de búsqueda rápida ?
+No mail	expressoMail1_2	es-es	Sin electrónico
+It is not possible to add this contact as a recipient because it does not have email	expressoMail1_2	es-es	No es posible añadir este contacto como un destinatario , ya que no tiene correo electrónico
+Unable to remove the message (s) of shared folders which you do not have permission.	expressoMail1_2	es-es	No se puede eliminar el mensaje ( s ) de las carpetas compartidas que no tiene permiso .
+Error processing some messages.	expressoMail1_2	es-es	Error al procesar algunos mensajes.
+Some messages were not marked with success!	expressoMail1_2	es-es	Algunos mensajes no se marcaron con éxito!
+The messages were marked with success!	expressoMail1_2	es-es	Los mensajes fueron marcados con el éxito!
+Error marking messages.	expressoMail1_2	es-es	Error marcar los mensajes .
+Error importing.	expressoMail1_2	es-es	Importación de error.
+Using cache for list of messages	expressoMail1_2	es-es	Uso de caché para la lista de mensajes
+Maximum time for the list of messages keep in cache	expressoMail1_2	es-es	Tiempo máximo para la lista de mensajes de mantener en la memoria caché
+Title	expressoMail1_2	es-es	título
+Location	expressoMail1_2	es-es	ubicación
+Start	expressoMail1_2	es-es	comienzo
+End	expressoMail1_2	es-es	final
+Organizer	expressoMail1_2	es-es	organizador
+Participants	expressoMail1_2	es-es	Los participantes
+Remove CC	expressoMail1_2	es-es	Retire CC
+Remove CCo	expressoMail1_2	es-es	Retire CCo
+Include digital signature	expressoMail1_2	es-es	Incluir firma digital
+cannot create folder with more than 100 characters	expressoMail1_2	es-es	no se puede crear la carpeta con más de 100 caracteres
+Do you want to cancel the folder creation?	expressoMail1_2	es-es	¿Usted desea cancelar la creación de carpetas?
+Do you want to cancel the folder edition?	expressoMail1_2	es-es	¿Usted desea cancelar la edición de carpetas?
+My Labels	expressoMail1_2	es-es	Mis etiquetas
+No labels found.	expressoMail1_2	es-es	No se han encontrado etiquetas.
+Label Color	expressoMail1_2	es-es	Etiqueta de color
+New Label	expressoMail1_2	es-es	Nueva etiqueta
+high Contrast	expressoMail1_2	es-es	de alto contraste
+Add Label	expressoMail1_2	es-es	Añadir etiqueta
+This event does not exist on its agenda	expressoMail1_2	es-es	Este evento no existe en su agenda
+Follow up	expressoMail1_2	es-es	Seguimiento
+Answer	expressoMail1_2	es-es	respuesta
+Don't forward	expressoMail1_2	es-es	No reenvíe
+Don't answer	expressoMail1_2	es-es	No conteste
+Show All Items	expressoMail1_2	es-es	Todos los productos del
+You have one undone message today:	expressoMail1_2	es-es	Tiene un mensaje sin hacer hoy:
+You have a follow up due for today:	expressoMail1_2	es-es	Usted tiene un seguimiento debido para hoy:
+You have %1 undone messages today:	expressoMail1_2	es-es	Tienes %1 mensajes deshechas hoy:
+You have %1 follow ups due for today:	expressoMail1_2	es-es	Tienes %1 seguimientos debidos para hoy:
+Don't show this window anymore today.	expressoMail1_2	es-es	No muestre esta ventana ya hoy.
+Apply filter	expressoMail1_2	es-es	Aplicar filtro
+vacation	expressoMail1_2	es-es	vacaciones
+redirect	expressoMail1_2	es-es	redirigir
+setflag	expressoMail1_2	es-es	setflag
+fileinto	expressoMail1_2	es-es	fileinto
+Contains	expressoMail1_2	es-es	Contiene
+Name of the rule	expressoMail1_2	es-es	Nombre de la regla
+Sender	expressoMail1_2	es-es	remitente
+is equal to	expressoMail1_2	es-es	es igual a
+contains the phrase	expressoMail1_2	es-es	contiene la frase
+doesn't contain the phrase	expressoMail1_2	es-es	no contiene la frase
+starting with	expressoMail1_2	es-es	comenzando con
+ends with	expressoMail1_2	es-es	termina con
+Receiver	expressoMail1_2	es-es	receptor
+Message	expressoMail1_2	es-es	mensaje
+is over than	expressoMail1_2	es-es	es de más de
+is under than	expressoMail1_2	es-es	es bajo que
+Attend all the criteria	expressoMail1_2	es-es	Asistir a todos los criterios
+Attend any of the criteria	expressoMail1_2	es-es	Asistir a cualquiera de los criterios
+Continue	expressoMail1_2	es-es	continuar
+Actions	expressoMail1_2	es-es	acciones
+Actions to be performed on messages that attend the criteria specified above.	expressoMail1_2	es-es	Acciones que se deben realizar en los mensajes que asisten a los criterios especificados anteriormente.
+These actions apply only to new messages arriving.	expressoMail1_2	es-es	Estas acciones sólo se aplican a los mensajes nuevos que llegan.
+Archive in folder	expressoMail1_2	es-es	Archivo en la carpeta
+Move to Trash	expressoMail1_2	es-es	Mover a la papelera
+Reject and automatically respond with the message	expressoMail1_2	es-es	Rechazar y responder con el mensaje de forma automática
+Type a reply message	expressoMail1_2	es-es	Escriba un mensaje de respuesta
+All messages will be answered automatically with the message indicated.	expressoMail1_2	es-es	Todos los mensajes serán contestados de forma automática con el mensaje indicado.
+Delete rule	expressoMail1_2	es-es	Eliminar regla
+Enable rule	expressoMail1_2	es-es	Habilitar regla
+Disable rule	expressoMail1_2	es-es	Deshabilitar regla
+Change rule	expressoMail1_2	es-es	Cambiar regla
+No name filled	expressoMail1_2	es-es	Sin nombre lleno
+No criteria filled	expressoMail1_2	es-es	No hay criterios llenas
+Invalid name, 'vacation' is a reserved word	expressoMail1_2	es-es	Nombre no válido, "vacaciones" es una palabra reservada
+There is already a filter with this name	expressoMail1_2	es-es	Ya existe un filtro con este nombre
+Fill the action value	expressoMail1_2	es-es	Llene el valor de acción
+This user is already blocked. Would you like to unlock it?	expressoMail1_2	es-es	Este usuario ya está bloqueado. ¿Te gustaría volver a activarla?
+Lock User	expressoMail1_2	es-es	Bloqueo del usuario
+removed	expressoMail1_2	es-es	eliminado
+Want to block the user	expressoMail1_2	es-es	¿Desea bloquear al usuario
+blocked	expressoMail1_2	es-es	obstruido
+Are you sure to delete the filter	expressoMail1_2	es-es	¿Está seguro que desea eliminar el filtro
+Exclusion Confirmation	expressoMail1_2	es-es	Confirmación Exclusión
+Rules for message classification	expressoMail1_2	es-es	Reglas para la clasificación de mensajes
+Add new rule	expressoMail1_2	es-es	Añadir nueva regla
+Add rule out of office	expressoMail1_2	es-es	Agregar regla de fuera de la oficina
+Out of office	expressoMail1_2	es-es	Fuera de la oficina
+Do you want to display date in format numerical?	expressoMail1_2	es-es	¿Quieres mostrar la fecha en formato numérico?
+Remove Label	expressoMail1_2	es-es	Retire la etiqueta
+will be removed. This action cannot be undone. Want to continue?	expressoMail1_2	es-es	se eliminarán. Esta acción no se puede deshacer. ¿Desea continuar?
+Message size greateruler than allowed (Default rule)	expressoMail1_2	es-es	Greateruler tamaño del mensaje que lo permitido (regla por defecto)
+You have an archived message:	expressoMail1_2	es-es	Tiene un mensaje archivado:
+You have %1 messages archived:	expressoMail1_2	es-es	Tienes %1 mensajes archivados:
+Filter by sender	expressoMail1_2	es-es	Filtrar por tipo de emisor
+Follow ups	expressoMail1_2	es-es	Siga ups
+If more than one criterion for the filter, the "Meeting all the criteria" must be selected	expressoMail1_2	es-es	Si más de un criterio para el filtro, el "cumplir con todos los criterios" debe seleccionarse
+The filter should be set as a criteria "Sender" and action "Archive folder"	expressoMail1_2	es-es	El filtro se debe establecer como "Remitente" criterio y de acción "carpeta de Archivo"
+Filter with alert	expressoMail1_2	es-es	Filtro con alerta
+Group contacts	expressoMail1_2	es-es	Agrupar contactos
+Remove recipient	expressoMail1_2	es-es	Retire destinatario
+Quick search of messages	expressoMail1_2	es-es	Búsqueda rápida de mensajes
+Search messages of ...	expressoMail1_2	es-es	Mensajes de búsqueda de ...
+Telephone	expressoMail1_2	es-es	teléfono
+And more %1 contact	expressoMail1_2	es-es	Y más de %1 de contactos
+Impossible editing this contact, but it's possible to remove it	expressoMail1_2	es-es	Imposible editar este contacto , pero es posible eliminarlo
+The contact was moved from recent contacts to personal contacts successful.	expressoMail1_2	es-es	El contacto fue trasladado de contactos recientes contactos personales exitosas.
+Permission denied to folder "%1".	expressoMail1_2	es-es	Permiso denegado a la carpeta " %1".
+The contact was moved from recent contacts to personal contacts successful.	expressoMail1_2	es-es	El contacto fue trasladado de contactos recientes contactos personales exitosas.
+You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder.	expressoMail1_2	es-es	No se puede quitar el mensaje con la preferencia ' Enviar a la papelera ' activado . No hay permiso para mover los mensajes a la carpeta de basura.
+One of his messages can not be marked as read, because it contains a read confirmation.	expressoMail1_2	es-es	Uno de sus mensajes no pueden ser marcados como leídos, ya que contiene una confirmación de lectura .
+of its messages could not be marked as read, because it contains a read confirmation.	expressoMail1_2	es-es	de sus mensajes no se podían marcar como leído, ya que contiene una confirmación de lectura .
+Cant share with yourself.	expressoMail1_2	es-es	No puedo compartir con usted mismo.
+You can not remove the message with the preference 'Send to Trash' enabled. There is no permission to move messages to the trash folder.	expressoMail1_2	es-es	No se puede quitar el mensaje con la preferencia ' Enviar a la papelera ' activado . No hay permiso para mover los mensajes a la carpeta de basura.
+Moving message %1 of %2	expressoMail1_2	es-es	Mover mensaje %1 de %2
+All done. Message(s) moved successfully	expressoMail1_2	es-es	Todo hecho . Mensaje ( s ) se trasladó con éxito
+Starting to move messages	expressoMail1_2	es-es	Empieza a mover los mensajes
+MailArchiver does not seems to be running or installed at this workstation, local messages are disabled. Check it out!	expressoMail1_2	es-es	MailArchiver no parece estar funcionando o se ha instalado en esta estación de trabajo , los mensajes locales están desactivados. Échale un vistazo!
+Starting to unarchive messages	expressoMail1_2	es-es	A partir de los mensajes desarchivar
+Messages successfully unarchived	expressoMail1_2	es-es	Mensajes con éxito desarchivados
+All done. End of archive messages operation	expressoMail1_2	es-es	Todo hecho . Fin de la operación de archivar mensajes
+No messages were unarchived	expressoMail1_2	es-es	No hay mensajes eran desarchivados
+Some messages weren't successfully unarchived	expressoMail1_2	es-es	Algunos mensajes no fueron satisfactoriamente desarchivados
+Coudn't unarchive message	expressoMail1_2	es-es	Mensaje desarchivar coudn't
+Message successfully unarchived	expressoMail1_2	es-es	Mensaje éxito desarchivados
+Unarchiving message %1 of %2	expressoMail1_2	es-es	Mensaje desarchivar %1 de %2
+Message %1 of %2 successfully archived	expressoMail1_2	es-es	Mensaje %1 de %2 archivada con éxito
+Sorry, but Mail Archiver does not seems to be running or installed at this workstation. By now, we are turning off local messages!	expressoMail1_2	es-es	Lo sentimos , pero el correo Archiver no parece estar funcionando o se ha instalado en esta estación de trabajo . Por ahora , estamos apagando los mensajes locales !
+Sorry, but Mail Archiver still seems to be sleeping. Check out your system services!	expressoMail1_2	es-es	Lo sentimos , pero el correo Archiver todavía parece estar durmiendo . Echa un vistazo a sus servicios del sistema !
+Trying to communicate with Mail Archiver...	expressoMail1_2	es-es	Tratar de comunicarse con el correo Archiver ...
+Wait: attempt %1 from %2...	expressoMail1_2	es-es	Espere : intentar %1 de %2 ...
+Sorry, but you need to reload this web page. Click at reload page at web browsing top navigation	expressoMail1_2	es-es	Lo sentimos , pero necesita volver a cargar esta página web. Haga clic en la recarga de la página web a la navegación de navegación superior
+There is something wrong with MailArchiver environment. Contact you support	expressoMail1_2	es-es	Hay algo mal con el medio ambiente MailArchiver. Póngase en contacto con usted el apoyo
+Mail Archiver is not responding. There is some communicating issue hang it up. Some services may not work properly. Check it out!	expressoMail1_2	es-es	Correo Archiver no responde. Hay algún problema comunicarse colgarlo . Algunos servicios pueden no funcionar correctamente . Échale un vistazo!
+Archive operation error: getting online message flags fails. Achievement will not be done	expressoMail1_2	es-es	Error de operación Archivo : obtener indicadores de mensajes en línea falla. Logro no se hará
+Unarchive error	expressoMail1_2	es-es	error desarchivar
+Messages marked as \"%1\"	expressoMail1_2	es-es	Los mensajes marcados como \"%1\"
+MailArchiver search operation fails	expressoMail1_2	es-es	Operación de búsqueda MailArchiver falla
+MailArchiver user login fail	expressoMail1_2	es-es	Inicio de sesión de usuario MailArchiver fallar
+MailArchiver user logged out	expressoMail1_2	es-es	Usuario MailArchiver se desconectó
+Error trying to send the message. Retry in a few seconds...	expressoMail1_2	es-es	Error al intentar enviar el mensaje. Vuelve a intentarlo en unos segundos ...
+Sending the message...	expressoMail1_2	es-es	Enviando el mensaje ...
+Please, Wait the messages from archieve be ready.	expressoMail1_2	es-es	Por favor , espera los mensajes de archieve estar listos .
+take off this option to disregard the message body in the search.	expressoMail1_2	es-es	despegar esta opción para ignorar el cuerpo del mensaje en la búsqueda.
+Local Archive	expressoMail1_2	es-es	Archivo local
+Do you wish enable autosearch?	expressoMail1_2	es-es	¿Desea permitir autobusqueda ?
+Minimum number of characters to start the search for participants	expressoMail1_2	es-es	Número mínimo de caracteres para iniciar la búsqueda de los participantes
+Default schedule for Import Events	expressoMail1_2	es-es	Horario predeterminado para Importación de eventos
+Empty trash	expressoMail1_2	es-es	Vaciar papelera
+Mailbox does not exist	expressoMail1_2	es-es	Mailbox no existe
+The folder $folder_name$ was successfully removed	expressoMail1_2	es-es	La carpeta $folder_name$ se ha eliminado correctamente

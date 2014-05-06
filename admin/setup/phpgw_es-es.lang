@@ -91,6 +91,7 @@ change acl rights	admin	es-es	cambiar permisos de ACL
 change config settings	admin	es-es	Cambiar opciones de configuración
 change main screen message	admin	es-es	Cambiar mensaje de la pantalla principal
 check ip address of all sessions	admin	es-es	Comprobar  la IP de todas las sesiones
+enable asynchronous tasks	admin	es-es	Habilitar tareas asincrónicas
 check items to <b>%1</b> to %2 for %3	admin	es-es	Comprobar elementos a <b>%1</b> a %2 para %3
 click to select a color	admin	es-es	Pulse para seleccionar un color
 color	admin	es-es	Color

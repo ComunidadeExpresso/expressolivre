@@ -528,7 +528,7 @@ send	common	es-es	Enviar
 Send your critics, doubts or suggestions	common	es-es	Envíe sus críticas, dudas o sugerencias.
 senegal	common	es-es	SENEGAL
 september	common	es-es	Septiembre
-server %1 has been added	common	es-es	El servidor %1 ha sido añadido
+server %1 has been added	common	es-es	servidor %1 ha sido añadido
 server name	common	es-es	Nombre del servidor
 session has been killed	common	es-es	La sesión ha sido eliminada
 setup	common	es-es	Instalación
@@ -692,3 +692,30 @@ Do you agree with the terms?	common	es-es	Esta de acuerdo con los terminos expue
 An important error has occured with your login, please contact your system administrator	common	es-es	Un error importante ocorrio con su login, por favor contate su administrador
 Logon with my digital certificate	common	es-es	Utilizar mi Certificado para logearse.
 Link to use digital certificate	common	es-es	Link para acseso usando Certificado Digital
+Auto import calendars to receive an internal event	common	es-es	Calendarios de importación automática para recibir un evento interno
+Blocked, too many attempts(%1)! Retry in %2 minute(s)	common	es-es	Bloqueados, demasiados intentos (%1)! Vuelva a intentarlo en %2 minuto (s)
+Connection failed with %1 Server. Try later.	common	es-es	Error de conexión con %1 Server. Intente más tarde.
+Error in access. Please, alert the Administrator.	common	es-es	Error en el acceso. Por favor, avisar al administrador.
+ExpressoCalendar migration	common	es-es	migración ExpressoCalendar
+expressoCalendar Setup	common	es-es	Configuración expressoCalendar
+Global Settings	common	es-es	Configuración global
+Help	common	es-es	ayudar
+Invalid code	common	es-es	código no válido
+Mail	common	es-es	correo
+notices	common	es-es	avisos
+Pause	common	es-es	pausa
+previous	common	es-es	anterior
+Resume	common	es-es	currículum
+Sector	common	es-es	sector
+Use this space to send your doubts, critics and suggestions	common	es-es	Utilice este espacio para enviar sus dudas, críticas y sugerencias
+You have %1 new messages!	common	es-es	Tienes %1 mensajes nuevos!
+Access without Digital Certificate	common	es-es	Acceso sin certificado digital
+Failure when get user data to login	common	es-es	Fallo en los datos de usuario get inicien sesión
+Fail to get certificate	common	es-es	Error al obtener el certificado
+Invalid data from users directory	common	es-es	Datos no válidos desde el directorio de usuarios
+User account is inactive in Expresso	common	es-es	Cuenta de usuario está inactivo en Expresso
+The current certificate not registered to login	common	es-es	El certificado actual no registrado para iniciar sesión
+Failure when get identification number from certificate	common	es-es	Error al obtener el número de identificación del certificado
+Nested messages are shown	common	es-es	Mensajes anidados se muestran
+in your own tab, one for each attached message	common	es-es	en su propia pestaña, una para cada mensaje adjunto
+nested in the same tab of the main message	common	es-es	anidado en la misma ficha del mensaje principal

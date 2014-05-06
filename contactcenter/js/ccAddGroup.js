@@ -315,7 +315,7 @@
                     return;
                 }
 
-                alert(get_lang('Erro ao carregar contatos pessoais.'));
+                alert(get_lang('Error loading personal contacts.'));
 
 
             }

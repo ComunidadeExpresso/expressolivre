@@ -78,6 +78,7 @@ category list	admin	en	Category list
 change acl rights	admin	en	change ACL Rights
 change config settings	admin	en	Change config settings
 change main screen message	admin	en	Change main screen message
+enable asynchronous tasks	admin	en	Enable asynchronous tasks
 check ip address of all sessions	admin	en	Check IP address of all sessions
 check items to <b>%1</b> to %2 for %3	admin	en	Check items to <b>%1</b> to %2 for %3
 click to select a color	admin	en	Click to select a color

@@ -119,8 +119,7 @@ function grava_senha_criptografada_com_certificado_no_ldap($aux_uid,$aux_senha)
 
 	if ($GLOBALS['phpgw_info']['server']['auth_type'] != 'ldap')
 	{
-		$GLOBALS['phpgw']->template->set_var('sql_message',lang('note: This feature does *not* change your email password. This will '
-			. 'need to be done manually.'));
+		$GLOBALS['phpgw']->template->set_var('sql_message',lang('note: This feature does *not* change your email password. This will need to be done manually.'));
 	}
 
 	if ($_POST['change'])
