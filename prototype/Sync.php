@@ -186,27 +186,49 @@ foreach( $args as $i => $data )
 	  if( !isset($data[$uri]) )
 		  continue;
 
-        // it fix a bug - import some event with repetition.
-        if( isset( $dt['byday'][0] ) )
-        {
-            $count = strlen( $dt['byday'][0] );
+        /*
+         * Bug fixed;
+         * Comment: Some bugs happened when an event was imported or created with weekly repetition.
+         * */
+        if( is_array($dt['byday']) && isset( $dt['byday'] ) && strtolower($dt['frequency']) == 'weekly' ) {
+            $byday = $dt['byday'];
+            unset($dt['byday']);
 
-            $days = $dt['byday'][0];
+            /*
+             * Refactor [ExpressoCalendar] array
+             * */
+            //This condition check if it is creating or importing an event only in [ExpressoCalendar]
+            if($byday[0] && $byday['DAY'] ) {
+                $count = strlen( $byday[0] );
 
-            $dt['byday'] = $dt['byday']['DAY'];
+                $days = $byday[0];
 
-            $i = 0;
-            while($i < $count) {
-                $str = substr($days, $i, 2);
-                $dt['byday'] .= ",{$str}";
-                $i += 2;
+                unset($byday[0]);
+                $byday[0]['DAY'] = $byday['DAY'];
+
+                $i = 0;
+                while($i < $count) {
+                    $str = substr($days, $i, 2);
+                    $byday[]['DAY'] = $str;
+                    $i += 2;
+                }
+                unset( $byday['DAY'] );
+            }
+
+            if( isset($byday['DAY']) )
+                $dt['byday'] = $byday['DAY'];
+            else
+            {
+                foreach($byday as $day) {
+                    $dt['byday'] .= $day['DAY'].",";
+                }
+                $dt['byday'] = rtrim($dt['byday'], ',');
             }
         }
 
         // it fix a bug - randomly a repetition event imported come to sunday.
-        if( !isset($dt['byday']) && ($dt['frequency'] || $dt['interval']) )
+        if( !isset($dt['byday']) && ($dt['frequency'] || $dt['interval']) && strtolower($dt['frequency']) == 'weekly' )
             $dt['byday'] = strtoupper(substr(date('D', substr($dt['startTime'], 0, 10 )), 0 , 2 ));
-
 
 	  list( , $concept, $id ) = parseURI( $uri );
 
@@ -217,8 +239,8 @@ foreach( $args as $i => $data )
 
 	  $dt = prepare( $concept, $id, $dt, $data, $oldIds, $mounted, $synced );
 
-        // it fix a bug - randomly a repetition event created come to sunday.
-        if( is_array($dt['schedulable']['repeat']) )
+        // it fix a bug - randomly a event repetition created come to sunday.
+        if( is_array($dt['schedulable']['repeat']) && strtolower($dt['schedulable']['repeat']['frequency']) == 'weekly' )
             if( ( !isset($dt['schedulable']['repeat']['byday']) || empty($dt['schedulable']['repeat']['byday']) ) && ($dt['schedulable']['repeat']['frequency'] || $dt['schedulable']['repeat']['interval']) )
                 $dt['schedulable']['repeat']['byday'] = strtoupper(substr(date('D', strtotime(substr($dt['schedulable']['repeat']['startTime'], 0, 10 ))), 0 , 2 ));
 
