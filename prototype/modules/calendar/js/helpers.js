@@ -1591,7 +1591,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
              */
             blkAddAtendee.find('ul.search-result-list').empty().css('overflow', 'hidden');
             if (!result) {
-                blkAddAtendee.find('ul.search-result-list').append('<li><label class="empty">[[No results found.]]</label></li>');
+                blkAddAtendee.find('ul.search-result-list').append('<li><label class="empty">_[[No results found.]]</label></li>');
             }
 
             for(i=0; i<result.length; i++)
