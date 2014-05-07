@@ -24,8 +24,12 @@ class FilterCollection implements FilterInterface, \IteratorAggregate, \Countabl
 
     public function __construct($filters = array())
     {
-        foreach ($filters as $filter) {
-            $this->ensure($filter);
+        if( count($filters) > 0 )
+        {
+            foreach ($filters as $filter)
+            {
+                $this->ensure($filter);
+            }
         }
     }
 

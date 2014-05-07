@@ -211,7 +211,7 @@
 				$pieces = explode('-', $value);
 				$value = $pieces[0];
 				# print 'current lang $value<br>';
-				if ($supportedLanguages[$value])
+				if( isset($supportedLanguages[$value]) )
 				{
 					$retValue=$value;
 					break;

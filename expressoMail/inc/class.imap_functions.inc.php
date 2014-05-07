@@ -238,7 +238,7 @@ class imap_functions
                         $return[$i++] = $this->get_info_head_msg( $msg_number , $sample );					
                 }
 
-                if($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_followupflags_and_labels'] == "1")
+                if( isset($_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_followupflags_and_labels']) && $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['use_followupflags_and_labels'] == "1")
                 {
                     $filter = array('AND', array('=', 'folderName', $folder), array('IN','messageNumber', $sort_array_msg));
                     $followupflagged = Controller::find(

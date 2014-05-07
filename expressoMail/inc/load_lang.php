@@ -10,18 +10,29 @@
 		\**************************************************************************/ 
 		
 	$array_keys = array();
+	
 	$fn = 'setup/phpgw_'.$_SESSION['phpgw_info']['expressomail']['user']['preferences']['common']['lang'].'.lang';			
-	if (file_exists($fn)){
+	
+	if (file_exists($fn))
+	{
 		$fp = fopen($fn,'r');
-		while ($data = fgets($fp,16000)){
+		
+		while ($data = fgets($fp,16000))
+		{
 			list($message_id,$app_name,$null,$content) = explode("\t",substr($data,0,-1));
 			$expressomaillang[$message_id] =  $content;
 			$_SESSION['phpgw_info']['expressomail']['lang'][$message_id] = $content;
 		}
+		
 		fclose($fp);
 	}
 	
+	$script = "";
+
 	foreach($expressomaillang as $key => $value)
+	{
 		$script .= "array_lang['".str_replace("'","\'",strtolower($key))."'] = '".str_replace("'","\'",$value)."';\n";
-	echo "<script type='text/javascript'>$script</script>";
+	}
+	
+	echo "<script type='text/javascript'>".$script."</script>";
 ?>
