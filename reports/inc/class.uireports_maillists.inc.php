@@ -381,7 +381,7 @@
 			else if (count($account_info))
 			{ 
 				//url do paginador 
-				$url = $GLOBALS['phpgw_info']['server']['webserver_url'].'/index.php?menuaction=reports.uireports_maillists.report_maillists_print';
+				$url = $GLOBALS['phpgw_info']['server']['webserver_url'].'/index.php?menuaction=reports.uireports_maillists.report_maillists_group_print';
 
 				// **** Grupo de paginas ****
 				$gpag = $_POST['gpage'];
