@@ -119,7 +119,7 @@
 			}
 
 			$var = Array(
-				'bg_color'     => $GLOBALS['phpgw_info']['themes']['bg_color'],
+				'bg_color'     => (isset($GLOBALS['phpgw_info']['themes']['bg_color'])?$GLOBALS['phpgw_info']['themes']['bg_color']:""),
 				'footer_total' => lang('Total records') . ': ' . $total_records
 			);
 			if ($account_id)

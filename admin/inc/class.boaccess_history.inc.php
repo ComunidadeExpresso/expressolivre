@@ -66,7 +66,7 @@
 					'lo'         => $record['lo'],
 					'account_id' => $record['account_id'],
 					'sessionid'  => $record['sessionid'],     
-					'total'      => $total
+					'total'      => (isset($total)?$total:"")
 				);
 			}
 			return $_records;

@@ -28,7 +28,7 @@
 		);
 		function uiasyncservice()
 		{
-			if (!is_object($GLOBALS['phpgw']->asyncservice))
+			if (!isset($GLOBALS['phpgw']->asyncservice))
 			{
 				$GLOBALS['phpgw']->asyncservice = CreateObject('phpgwapi.asyncservice');
 			}
@@ -51,7 +51,7 @@
 
 			$async = $GLOBALS['phpgw']->asyncservice;	// use an own instance, as we might set debug=True
 
-			$async->debug = !!$_POST['debug'];
+			$async->debug = (isset($_POST['debug'])?$_POST['debug']:"");
 
 			$units = array(
 				'year'  => lang('Year'),
@@ -62,7 +62,7 @@
 				'min'   => lang('Minute')
 			);
 
-			if ($_POST['send'] || $_POST['test'] || $_POST['cancel'] || $_POST['install'] || $_POST['deinstall'] || $_POST['update'] || isset($_POST['asyncservice']))
+			if ( isset($_POST['send']) || isset($_POST['test']) || isset($_POST['cancel']) || isset($_POST['install']) || isset($_POST['deinstall']) || isset($_POST['update']) || isset($_POST['asyncservice']))
 			{
 				$times = array();
 				foreach($units as $u => $ulabel)
@@ -169,14 +169,14 @@
 			echo "<hr><table border=0><tr>\n";
 			foreach ($units as $u => $ulabel)
 			{
-				echo " <td>$ulabel</td><td><input name=\"$u\" value=\"$times[$u]\" size=5> &nbsp; </td>\n";
+				echo '<td>'.$ulabel.'</td><td><input name="'.$u.'" value="'.(isset($times[$u])?$times[$u]:'').'" size=5> &nbsp; </td>';
 			}
 			echo "</tr><tr>\n <td colspan=4>\n";
 			echo ' <input type="submit" name="send" value="'.lang('Calculate next run').'"></td>'."\n";
-			echo ' <td colspan="8"><input type="checkbox" name="debug" value="1"'.($_POST['debug'] ? ' checked' : '')."> \n".
+			echo ' <td colspan="8"><input type="checkbox" name="debug" value="1"'.(isset($_POST['debug']) ? ' checked' : '')."> \n".
 				lang('Enable debug-messages')."</td>\n</tr></table>\n";
 
-			if ($_POST['send'])
+			if( isset($_POST['send']) )
 			{
 				$next = $async->next_run($times,True);
 

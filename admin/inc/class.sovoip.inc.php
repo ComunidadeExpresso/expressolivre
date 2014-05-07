@@ -10,8 +10,8 @@
   *  option) any later version.                                              *
   \**************************************************************************/
 
-define('PHPGW_INCLUDE_ROOT', '../');
-define('PHPGW_API_INC','../phpgwapi/inc');
+if(!defined('PHPGW_INCLUDE_ROOT')){define('PHPGW_INCLUDE_ROOT', '../');}
+if(!defined('PHPGW_API_INC')){ define('PHPGW_API_INC','../phpgwapi/inc'); }
 require_once( PHPGW_API_INC . '/class.common.inc.php' );
 
 class sovoip
@@ -26,10 +26,10 @@ class sovoip
 
 	final function __construct()
 	{
-		$this->ldap_host	 = $_SESSION['admin']['server']['ldap_host'];
-		$this->ldap_root_dn	 = $_SESSION['admin']['server']['ldap_root_dn'];
-		$this->ldap_root_pw  = $_SESSION['admin']['server']['ldap_root_pw'];
-		$this->ldap_context  = $_SESSION['admin']['server']['ldap_context'];
+		$this->ldap_host	 = (isset($_SESSION['admin']['server']['ldap_host'])?$_SESSION['admin']['server']['ldap_host']:"");
+		$this->ldap_root_dn	 = (isset($_SESSION['admin']['server']['ldap_root_dn'])?$_SESSION['admin']['server']['ldap_root_dn']:"");
+		$this->ldap_root_pw  = (isset($_SESSION['admin']['server']['ldap_root_pw'])?$_SESSION['admin']['server']['ldap_root_pw']:"");
+		$this->ldap_context  = (isset($_SESSION['admin']['server']['ldap_context'])?$_SESSION['admin']['server']['ldap_context']:"");
 		$this->common = new common();
 	}
 

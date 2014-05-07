@@ -60,7 +60,7 @@
 
 		function get_error_cols_e()
 		{
-			if ($this->task_cols_e == '')
+			if( @$this->task_cols_e == '' )
 			{
 				/* Get Columns for Errors */
 				$this->error_cols_e = $this->get_error_cols();
@@ -74,6 +74,7 @@
 					$this->error_cols_e[$name] = array();
 				}
 			}
+			
 			return $this->error_cols_e;
 		}
 
@@ -159,10 +160,13 @@
 
 			/* Do Select  */
 			@reset($fields);
+			$fkeys = "";
+			
 			while(list($key,$val) = @each($fields))
 			{
 				$fkeys .= $key . ',';
 			}
+			
 			$fkeys = substr($fkeys,0,-1);
 
 			$select = 'SELECT ' . $fkeys . ' ' . $from_clause . $where_clause . $orderby_clause;

@@ -22,8 +22,8 @@
 		$GLOBALS['phpgw']->redirect_link('/index.php');
 	}
 
-// Throw a little notice out if PHPaccelerator is enabled.
-	if($GLOBALS['_PHPA']['ENABLED'])
+	// Throw a little notice out if PHPaccelerator is enabled.
+	if(isset($GLOBALS['_PHPA']['ENABLED']))
 	{
 		echo 'PHPaccelerator enabled:</br>'."\n";
 		echo 'PHPaccelerator Version: '.$GLOBALS['_PHPA']['VERSION'].'</br></p>'."\n";

@@ -727,39 +727,42 @@
 			{
 				return False;
 			}
-			$columns = $this->Link_ID->MetaColumns($table);
-			//$columns = $this->Link_ID->MetaColumnsSQL($table);
-			//echo "<b>metadata</b>('$table')=<pre>\n".print_r($columns,True)."</pre>\n";
+			
+			$columns 	= $this->Link_ID->MetaColumns($table);
+			$metadata 	= array();
+			
+			$i 		= 0;
+			$flags 	= "";
 
-			$metadata = array();
-			$i = 0;
 			foreach($columns as $column)
 			{
 				// for backwards compatibilty (depreciated)
-				unset($flags);
-				if($column->auto_increment) $flags .= "auto_increment ";
-				if($column->primary_key) $flags .= "primary_key ";
-				if($column->binary) $flags .= "binary ";
+				$flags = "";
+				if(isset($column->auto_increment)) $flags .= "auto_increment ";
+				if(isset($column->primary_key)) $flags .= "primary_key ";
+				if(isset($column->binary)) $flags .= "binary ";
 
 //				_debug_array($column);
 				$metadata[$i] = array(
 					'table' => $table,
-					'name'  => $column->name,
-					'type'  => $column->type,
-					'len'   => $column->max_length,
-					'flags' => $flags, // for backwards compatibilty (depreciated) used by JiNN atm
-					'not_null' => $column->not_null,
-					'auto_increment' => $column->auto_increment,
-					'primary_key' => $column->primary_key,
-					'binary' => $column->binary,
-					'has_default' => $column->has_default,
-					'default'  => $column->default_value,
+					'name'  => (isset($column->name)?$column->name:""),
+					'type'  => (isset($column->type)?$column->type:""),
+					'len'   => (isset($column->max_length)?$column->max_length:""),
+					'flags' => (isset($flags)?$flags:""), // for backwards compatibilty (depreciated) used by JiNN atm
+					'not_null' 			=> (isset($column->not_null)?$column->not_null:""),
+					'auto_increment' 	=> (isset($column->auto_increment)?$column->auto_increment:""),
+					'primary_key' 		=> (isset($column->primary_key)?$column->primary_key:""),
+					'binary' 			=> (isset($column->binary)?$column->binary:""),
+					'has_default' 		=> (isset($column->has_default)?$column->has_default:""),
+					'default'  			=> (isset($column->default_value)?$column->default_value:""),
 				);
 				$metadata[$i]['table'] = $table;
-				if ($full)
+				
+				if( $full )
 				{
 					$metadata['meta'][$column->name] = $i;
 				}
+				
 				++$i;
 			}
 			if ($full)

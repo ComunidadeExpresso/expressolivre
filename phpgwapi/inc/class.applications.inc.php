@@ -313,7 +313,7 @@
 			{
 				$this->read_installed_apps();
 			}
-			if ($GLOBALS['phpgw_info']['apps'][$appname]['enabled'])
+			if( isset($GLOBALS['phpgw_info']['apps'][$appname]['enabled']) )
 			{
 				return True;
 			}

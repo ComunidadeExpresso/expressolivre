@@ -152,17 +152,6 @@
 			// App, create list of available apps
 			$applications_list = $this->make_app_list('');
 			
-			/*
-			if ($_POST['context'])
-			{
-				$contexts = preg_split('/%/', $_POST['context']);
-				foreach ($contexts as $manager_context)
-					$input_context_fields .= "<input type='text' size=60 value=$manager_context></input><br>";
-			}
-			else
-				$input_context_fields = '<input type="text" size=60></input><br>';
-			*/
-			
 			$options_context = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], '', false, true, false);
 			
 			// Seta variaveis que estao no TPL
@@ -294,8 +283,14 @@
 			$applications_list = $this->make_app_list($manager[0]['apps']);
 
 			$a_context = preg_split('/%/', $_POST['context']);
+			
+			$input_context_fields = "";
+			
 			foreach ($a_context as $context)
+			{
 				$input_context_fields .= '<div><input disabled type="text" value="'.$context.'" size=60></input><span onclick="this.parentNode.parentNode.removeChild(this.parentNode);" style="cursor:pointer"> -</span></div>';
+			}
+
 			$options_context = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], '', false, true, false);
 
 			$var = Array(
@@ -309,10 +304,10 @@
 				'type'						=> "edit",
 				'display_manager_select' 	=> 'none',
 				'input_manager_lid_disabled'=> 'disabled',
-				'error_messages'			=> $_POST['error_messages'] == '' ? '' : '<script language="JavaScript1.3">alert("'.$_POST['error_messages'].'");</script>',
-				'manager_lid'				=> $_POST['manager_lid'],
-				'hidden_manager_lid'		=> $_POST['manager_lid'],
-				'context'					=> $_POST['context'],
+				'error_messages'			=> (isset($_POST['error_messages'])?($_POST['error_messages'] == '' ? '' : '<script language="JavaScript1.3">alert("'.$_POST['error_messages'].'");</script>'):""),
+				'manager_lid'				=> (isset($_POST['manager_lid'])?$_POST['manager_lid']:""),
+				'hidden_manager_lid'		=> (isset($_POST['manager_lid'])?$_POST['manager_lid']:""),
+				'context'					=> (isset($_POST['context'])?$_POST['context']:""),
 				
 				'input_context_fields'		=> $input_context_fields,
 				'options_contexts'			=> $options_context,
@@ -331,9 +326,9 @@
 				if ($acl !== false)
 				{
 					if ($first_time)
-						$p->set_var($atribute, $manager_acl[$atribute] === '1' ? 'checked' : '');
+						$p->set_var($atribute, (isset($manager_acl[$atribute]) && $manager_acl[$atribute] === '1' ? 'checked' : ''));
 					else
-						$p->set_var($atribute, $_POST[$atribute] === '1' ? 'checked' : ''); 
+						$p->set_var($atribute, (isset($_POST[$atribute]) && $_POST[$atribute] === '1' ? 'checked' : '')); 
 				}
 				// Setar os langs do tpl.
 				elseif($lang !== false)
@@ -359,11 +354,11 @@
 		function make_app_list($manager_app_list)
 		{
 			$this->nextmatchs = createobject('phpgwapi.nextmatchs');
-			$apps = CreateObject('phpgwapi.applications',$_account_id);
+			$apps = CreateObject('phpgwapi.applications',(isset($_account_id)?$_account_id:""));
 			$db_perms = $apps->read_account_specific();
 			$availableApps = $GLOBALS['phpgw_info']['apps'];
 			
-			uasort($availableApps,create_function('$a,$b','return strcasecmp($a["title"],$b["title"]);'));
+			uasort( $availableApps,create_function('$a,$b','return @strcasecmp($a["title"],$b["title"]);') );
 			
 			// Loop para criar dinamicamente uma tabela com 3 colunas, cada coluna com um aplicativo e um check box.
 			$applications_list = '';
@@ -383,7 +378,7 @@
 					else
 						$checked = '';
 					$app_col1 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='applications_list[%s]' value='1' %s %s></td>\n",
-					$data['title'],$app,$checked, $disabled);
+					(isset($data['title'])?$data['title']:""),$app,$checked,(isset($disabled)?$disabled:""));
 					
 					if ($i == ($total_apps-1))
 						$applications_list .= sprintf('<tr bgcolor="%s">%s</tr>',$this->nextmatchs->alternate_row_color(), $app_col1);
@@ -396,7 +391,7 @@
 					else
 						$checked = '';
 					$app_col2 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='applications_list[%s]' value='1' %s %s></td>\n",
-					$data['title'],$app,$checked, $disabled);
+					$data['title'],$app,$checked,(isset($disabled)?$disabled:""));
 					
 					if ($i == ($total_apps-1))
 						$applications_list .= sprintf('<tr bgcolor="%s">%s%s</tr>',$this->nextmatchs->alternate_row_color(), $app_col1,$app_col2);
@@ -404,12 +399,12 @@
 				// 3 coluna 
 				if (($i +1) % 3 == 0)
 				{
-					if (is_array($manager_app_list) && $manager_app_list[$app] == 1)
+					if (is_array($manager_app_list) && ( isset($manager_app_list[$app]) && $manager_app_list[$app] == 1) )
 						$checked = 'checked';
 					else
 						$checked = '';
 					$app_col3 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='applications_list[%s]' value='1' %s %s></td>\n",
-					$data['title'],$app,$checked, $disabled);
+					$data['title'],$app,$checked,(isset($disabled)?$disabled:""));
 					
 					// Cria nova linha
 					$applications_list .= sprintf('<tr bgcolor="%s">%s%s%s</tr>',$this->nextmatchs->alternate_row_color(), $app_col1, $app_col2, $app_col3);					

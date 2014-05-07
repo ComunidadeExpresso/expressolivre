@@ -60,7 +60,7 @@
 				$this->store_location($info);
 			}
 
-			if ($GLOBALS['start'] || $GLOBALS['sort'] || $GLOBALS['order'])
+			if( isset($GLOBALS['start']) || isset($GLOBALS['sort']) || isset($GLOBALS['order']) )
 			{
 				if ($GLOBALS['start'] == 0 || $GLOBALS['start'] && $GLOBALS['start'] != $info['start'])
 				{

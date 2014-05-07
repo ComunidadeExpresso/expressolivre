@@ -638,6 +638,8 @@
 					//if ($line[0] == '#' || count($parts) < 6 || ($parts[5][0] != '/' && substr($parts[5],0,3) != 'php')) 
 					if ($line[0] == '#' || count($parts) < 6)
 					{
+						$times['error'] = "";
+						
 						// ignore comments
 						if ($line[0] != '#')
 						{

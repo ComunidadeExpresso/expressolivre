@@ -192,15 +192,19 @@
 	$GLOBALS['phpgw']->translation->add_app('loginscreen');
 
 	// Get cookie last_loginid
-	$last_loginid = $_COOKIE['last_loginid'];
-	if($last_loginid !== '')
+	$last_loginid = (isset($_COOKIE['last_loginid'])?$_COOKIE['last_loginid']:"");
+	if( $last_loginid !== '' )
 	{
 		reset($GLOBALS['phpgw_domain']);
+		
 		list($default_domain) = each($GLOBALS['phpgw_domain']);
 
-		if($_COOKIE['last_domain'] != $default_domain && !empty($_COOKIE['last_domain']))
+		if( isset($_COOKIE['last_domain']) )
 		{
-			$last_loginid .= '@' . $_COOKIE['last_domain'];
+			if($_COOKIE['last_domain'] != $default_domain && !empty($_COOKIE['last_domain']))
+			{
+				$last_loginid .= '@' . $_COOKIE['last_domain'];
+			}
 		}
 	}
 

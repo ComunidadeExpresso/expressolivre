@@ -53,9 +53,9 @@
 			$GLOBALS['phpgw']->template->set_block('applications','row','row');
 			$GLOBALS['phpgw']->template->set_block('applications','add','add');
 			
-			$start = get_var('start',array('POST','GET'));
-			$sort  = $_GET['sort'];
-			$order = $_GET['order'];
+			$start 	= get_var('start',array('POST','GET'));
+			$sort  	= (isset($_GET['sort'])?$_GET['sort']:"");
+			$order 	= (isset($_GET['order'])?$_GET['order']:"");
 			$offset = $GLOBALS['phpgw_info']['user']['preferences']['common']['maxmatchs'];
 
 			$apps = $this->bo->get_list();
@@ -114,6 +114,8 @@
 			$GLOBALS['phpgw']->template->set_var('new_action',$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiapplications.add'));
 			$GLOBALS['phpgw']->template->set_var('lang_note',lang('(To install new applications use<br><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)'));
 			$GLOBALS['phpgw']->template->set_var('lang_add',lang('add'));
+
+			$tr_color = "";
 
 			foreach($applications as $app)
 			{

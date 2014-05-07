@@ -58,7 +58,9 @@
 
 		function return_logged_out($account_id)
 		{
-			if ($account_id)
+			$where = "";
+						
+			if( $account_id )
 			{
 				$where = "and account_id='$account_id'";
 			}
