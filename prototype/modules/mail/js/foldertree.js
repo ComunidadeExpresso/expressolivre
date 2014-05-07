@@ -428,7 +428,7 @@ function draw_new_tree_folder(callback, force)
             if($(this).parent().attr('id') == undefined)
             {
                 var folder_to = 'INBOX';
-                var to_folder_title = "_[Inbox]";
+                var to_folder_title = "_[[Inbox]]";
             }
             else
             {
@@ -501,13 +501,13 @@ function draw_new_tree_folder(callback, force)
                 // VALIDA SE O USUARIO ESTA TENTANDO MOVER UMA PASTA FILHA DA PASTA ABERTA NO momentO
                 if(ui.draggable.parent().find(".selected")[0])
                 {
-                    return write_msg('_[It\'s not possible move this folder, because its subfolder is being used in the moment!]');
+                    return write_msg('_[[It\'s not possible move this folder, because its subfolder is being used in the moment!]]');
                 }
 
                 // VALIDA SE O USUARIO ESTA TENTANDO MOVER UMA PASTA PAI PARA DENTRO DE UMA FILHA
                 if(ui.draggable.parent().find('[id="' + folder_to + '"]')[0])
                 {
-                    return write_msg('_[It\'s not possible to move this folder to its subfolders!]');
+                    return write_msg('_[[It\'s not possible to move this folder to its subfolders!]]');
                 }
 
                 if($('[id="' + folder_to_exist + '"]').length)
@@ -606,7 +606,7 @@ function draw_new_tree_folder(callback, force)
                 }
                 if($(this).parents(".closed:first").find("span.selected").length)
                 {
-                    return write_msg('_[It\'s not possible rename this folder, because its subfolder is being used in the moment!]');
+                    return write_msg('_[[It\'s not possible rename this folder, because its subfolder is being used in the moment!]]');
                 }
                 if(valid_tabs($(this).parents("li:first").find("li"), folder_id))
                 {
@@ -624,7 +624,7 @@ function draw_new_tree_folder(callback, force)
                              * em parte do nome (palavra reservada para pastas locais) */
                             if($(this).val().match(/[\`\~\^\<\>\|\\\"\!\@\#\$\%\&\*\+\(\)\[\]\{\}\?;:]/gi) || $(this).val().indexOf("local_") != -1)
                             {
-                                return write_msg("_[cannot create folder. try other folder name]");
+                                return write_msg("_[[cannot create folder. try other folder name]]");
                             }
                             var new_name = folder_id.replace(/[a-zA-Z0-9А-За-з,=^\s_-]+$/, $(this).val());
                             if($('[id="' + new_name + '"]').length)
@@ -740,7 +740,7 @@ function draw_new_tree_folder(callback, force)
                                         {
                                             $(".folders-loading").removeClass("folders-loading");
                                             cExecute("$this.imap_functions.get_folders_list&onload=true", update_menu);
-                                            return write_msg("_[Permission denied]");
+                                            return write_msg("_[[Permission denied]]");
                                         }
                                         write_msg('_[[The folder $folder_name$ was successfully removed]]');
                                         cExecute("$this.imap_functions.get_folders_list&onload=true", force_update_menu);
@@ -851,7 +851,7 @@ function draw_new_tree_folder(callback, force)
                             $(".new_folder").parent().addClass("folders-loading");
 
                             var folderName = $(this).val();
-                            var folder = (folderName != "" ? folderName : "_[New Folder]");
+                            var folder = (folderName != "" ? folderName : "_[[New Folder]]");
                             var father = typeof(selected_li.attr('id')) != "undefined" ? selected_li.attr('id').split("_")[2] : "home";
 
                             $(this).parents(".treeview:first").find("li").each(function()
