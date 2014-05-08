@@ -2805,7 +2805,7 @@ class imap_functions
 
                     $return = substr($return, 0, -2);
 
-                    return $this->functions->getLang('you are blocked  from sending mail to the following addresses') . ': ' . $return;
+                    return $this->functions->getLang('you are blocked from sending mail to the following addresses') . ': ' . $return;
                 }
             }
         }

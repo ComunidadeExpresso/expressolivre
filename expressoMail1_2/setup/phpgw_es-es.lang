@@ -312,6 +312,7 @@ More than %1 results. Please, try to refine your search.	expressoMail1_2	es-es	M
 More than %1 results were found	expressoMail1_2	es-es	Más de %1 resultados fueron encontrados
 Move	expressoMail1_2	es-es	Mover
 Move to	expressoMail1_2	es-es	Mover para
+Message size greater than allowed (Rule By User)	expressoMail1_2	es-es	O tamanho da mensagem é maior do que o permitido (Regra por usuário)
 #MSG010- Erro verificando Expiracao/CAs do certificado.	expressoMail1_2	es-es	Error al verificar fecha de expiración del certificado.
 #MSG011- Ocorreu erro validando o certificado.	expressoMail1_2	es-es	Ocurrió error validando el certificado.
 My Folders	expressoMail1_2	es-es	Mis Carpetas
@@ -594,6 +595,7 @@ Your search argument must be longer than 4 characters.	expressoMail1_2	es-es	Sus
 your session could not be verified.	expressoMail1_2	es-es	Su sesión expiró. Entre nuevamente a su Expresso
 Your Spam folder was empty.	expressoMail1_2	es-es	Su carpeta Spam fue vaciada.
 Your Trash folder was empty.	expressoMail1_2	es-es	Su carpeta Papelera fue vaciada
+you are blocked from sending mail to the following addresses	expressoMail1_2	es-es	Você está bloqueado de enviar e-mail para os seguintes endereços
 zip mails to import	expressoMail1_2	es-es	Archivo .zip o .eml:
 Show TO: in place of FROM: only in Automatic SEND folder	expressoMail1_2	es-es	Cambiar remitente por destinatário en la columna QIUEM solamente en la carpeta Enviado
 View the user name in the header of the messages printed?	expressoMail1_2	es-es	Ver el nombre de usuario en el encabezado de los mensajes impresos?
