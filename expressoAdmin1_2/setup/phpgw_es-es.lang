@@ -90,6 +90,7 @@ Group Organization	expressoAdmin1_2	es-es	Organización del Grupo
 Groups Names	expressoAdmin1_2	es-es	Nombre de los Grupos 
 Groups Permission	expressoAdmin1_2	es-es	Permiso de los Grupos
 Group users	expressoAdmin1_2	es-es	Usuarios del Grupo
+Group success deleted	expressoAdmin1_2	es-es	Grupo excluído com sucesso
 Home Directory	expressoAdmin1_2	es-es	Directorio Central
 Hour	expressoAdmin1_2	es-es	Hora
 leave empty for no quota	expressoAdmin1_2	es-es	deje vacio para no ocupar espacio
@@ -110,6 +111,7 @@ Manager Login	expressoAdmin1_2	es-es	Autenticación del  Gerente
 Manager name	expressoAdmin1_2	es-es	Nombre del Gerente
 Managers	common	es-es	Encargados
 Manipulate corporative information	expressoAdmin1_2	es-es	Manipular informaciones corporativas
+Manager successful saved	expressoAdmin1_2	es-es	Gerente salvo com sucesso
 No matches found	expressoAdmin1_2	es-es	Ningún registro encontrado
 Occult Sector	expressoAdmin1_2	es-es	Ocultar sector
 Only forwarding	expressoAdmin1_2	es-es	Solamente reenviar
