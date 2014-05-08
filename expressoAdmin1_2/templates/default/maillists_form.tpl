@@ -33,7 +33,7 @@
 							<input id="ea_maillist_uid" name="uid" size="35" value="{uid}" autocomplete="off" onblur="javascript:emailSuggestion_maillist();"><br />
 							
 							{lang_maillist_mail}: <font color="blue">Ex: lista-celepar-rh@celepar.pr.gov.br</font>
-							<input id="ea_maillist_mail" name="mail" size="35" value="{mail}" autocomplete="off"><br />
+							<input id="ea_maillist_mail" name="mail" size="35" value="{mail}" autocomplete="off" style="display: block">
 							
 							{lang_maillist_name}:<br />
 							<input name="cn" size="60" value="{cn}" autocomplete="off"><br />
