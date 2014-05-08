@@ -9,8 +9,8 @@
   *  option) any later version.                                               *
   \***************************************************************************/
 
-define('PHPGW_INCLUDE_ROOT', '../');
-define('PHPGW_API_INC','../phpgwapi/inc');
+if(!defined('PHPGW_INCLUDE_ROOT')){define('PHPGW_INCLUDE_ROOT', '../');}
+if(!defined('PHPGW_API_INC')){define('PHPGW_API_INC','../phpgwapi/inc');}
 require_once( PHPGW_API_INC . '/class.common.inc.php' );
 
 class configMessenger
@@ -98,19 +98,24 @@ class configMessenger
 				$organizationsLdap .= "<option value='".$value."'>".$value."</option>";
 		}
 
+		$current_config = array();
+
 		// Get values
 		if( $this->repository->config_data )
 		{
 			$current_config = $this->repository->config_data;
 		}
 
-		//Groups Expresso Messenger
-		natsort( $current_config['groups_expresso_messenger'] );
-
-		foreach( $current_config['groups_expresso_messenger'] as $value )
+		if( isset($current_config['groups_expresso_messenger']) )
 		{
-			$groups = explode(";", $value);
-			$groups_expresso_messenger .= "<option value='".$value."'>".$groups[0]."</option>";
+			//Groups Expresso Messenger
+			natsort( $current_config['groups_expresso_messenger'] );
+
+			foreach( $current_config['groups_expresso_messenger'] as $value )
+			{
+				$groups = explode(";", $value);
+				$groups_expresso_messenger .= "<option value='".$value."'>".$groups[0]."</option>";
+			}
 		}
 
 		$GLOBALS['phpgw']->template->set_file(array('expressoMessenger' => 'expressoMessenger.tpl'));
@@ -129,11 +134,11 @@ class configMessenger
 													'lang_URL_for_connecting_via_WebServer' => lang('URL for connecting via WebServer'),
 													'lang_URL_for_direct_connection'		=> lang('URL for direct connection'),
 													'path_expressoMail'						=> $path_expressoMail,
-													'value_jabber_url_1'					=> $current_config['jabber_url_1'],
-													'value_jabber_url_2'					=> $current_config['jabber_url_2'],
-													'value_jabber_domain'					=> $current_config['jabber_domain'],
-													'value_organizationsLdap'				=> $organizationsLdap,
-													'value_groups_expresso_messenger'		=> $groups_expresso_messenger
+													'value_jabber_url_1'					=> (isset($current_config['jabber_url_1'])?$current_config['jabber_url_1']:""),
+													'value_jabber_url_2'					=> (isset($current_config['jabber_url_2'])?$current_config['jabber_url_2']:""),
+													'value_jabber_domain'					=> (isset($current_config['jabber_domain'])?$current_config['jabber_domain']:""),
+													'value_organizationsLdap'				=> (isset($organizationsLdap)?$organizationsLdap:""),
+													'value_groups_expresso_messenger'		=> (isset($groups_expresso_messenger)?$groups_expresso_messenger:"")
 											));
 		
 		$GLOBALS['phpgw']->template->pparse('out','bodyMessenger');
@@ -147,7 +152,7 @@ class configMessenger
 		}		
 		else
 		{
-			if ( $_POST['save'] )
+			if ( isset($_POST['save'] ) )
 			{
 				$this->repository->config_data['jabber_domain']		= $_POST['jabber_domain'];
 				$this->repository->config_data['jabber_url_1']		= $_POST['jabber_url_1'];

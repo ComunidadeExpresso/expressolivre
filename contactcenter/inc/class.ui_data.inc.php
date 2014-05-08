@@ -18,7 +18,7 @@
 	{
 		var $public_functions = array(
 			'data_manager' => true,
-                        'advanced_searh_fields' => true 
+            'advanced_searh_fields' => true 
 		);
 
 		var $bo;
@@ -133,17 +133,13 @@
 
 			$cc_css_file = $GLOBALS['phpgw_info']['server']['webserver_url'].'/contactcenter/styles/cc.css';
 			$cc_card_image_file = $GLOBALS['phpgw_info']['server']['webserver_url'].'/contactcenter/templates/default/images/card.png';
-			$GLOBALS['phpgw']->template->set_var('cc_css',$cc_css_file);
-			$GLOBALS['phpgw']->template->set_var('cc_dtree_css', $cc_dtree_file);
-			$GLOBALS['phpgw']->template->set_var('cc_card_image',$cc_card_image_file);
+			$GLOBALS['phpgw']->template->set_var('cc_css',(isset($cc_css_file)?$cc_css_file:""));
+			$GLOBALS['phpgw']->template->set_var('cc_dtree_css', (isset($cc_dtree_file)?$cc_dtree_file:""));
+			$GLOBALS['phpgw']->template->set_var('cc_card_image',(isset($cc_card_image_file)?$cc_card_image_file:""));
 
 			$GLOBALS['phpgw']->template->set_var('cc_personal',lang('Personal'));
-
-/***rev 104***/
-			//$GLOBALS['phpgw']->template->set_var('cc_full_add',lang('Full Add'));
 			$GLOBALS['phpgw']->template->set_var('cc_full_add_button',lang('Full Add'));
-/******/
-                        $GLOBALS['phpgw']->template->set_var('cc_full_add_button_sh',lang('Full Add Shared'));
+			$GLOBALS['phpgw']->template->set_var('cc_full_add_button_sh',lang('Full Add Shared'));
 			$GLOBALS['phpgw']->template->set_var('cc_reset',lang('Reset'));
 
 			$GLOBALS['phpgw']->template->set_var('cc_personal_data',lang('Personal Data'));
@@ -280,59 +276,61 @@
 			
 			$GLOBALS['phpgw']->template->set_var('cc_select_groups',$select_groups);
 			
-			if($GLOBALS['phpgw_info']['server']['personal_contact_type']=='True'){
+			if( isset($GLOBALS['phpgw_info']['server']['personal_contact_type']) && $GLOBALS['phpgw_info']['server']['personal_contact_type']=='True')
+			{
 				$GLOBALS['phpgw']->template->set_var('cc_contact_type', 'advanced');
-			}else{
+			}
+			else
+			{
 				$GLOBALS['phpgw']->template->set_var('cc_contact_type', 'default');
 			}
                         
-                        /*
-                         * Monta Contactcenter Busca Avancada
-                         */
-                        $c = CreateObject('phpgwapi.config','contactcenter');
-                        $c->read_repository();
-                        $current_config = $c->config_data;
+            /*
+             * Monta Contactcenter Busca Avancada
+             */
+            $c = CreateObject('phpgwapi.config','contactcenter');
+            $c->read_repository();
+            $current_config = $c->config_data;
 
-                        $arraySearch = array();
-                        foreach ($current_config as $index => $value)
+            $arraySearch = array();
+            foreach ($current_config as $index => $value)
+            {
+
+                if(substr($index, 0, 24) == 'cc_attribute_searchable_')
+                {
+                    if($value == 'true')
+                    {
+                        $v = substr($index, 24, strlen($index));
+                        $arraySearch[] = $v;
+                    }
+                }
+            }
+            $advanceSearchArray = array();
+            foreach ($arraySearch as $value)
+            {
+                foreach ($current_config as $index => $value2)
+                {
+                    if($value == substr($index, 22, strlen($index)) && substr($index, 0, 22) == 'cc_attribute_ldapname_')
+                    {
+                        foreach ($current_config as $index2 => $value3)
                         {
-
-                            if(substr($index, 0, 24) == 'cc_attribute_searchable_')
-                            {
-                                if($value == 'true')
-                                {
-                                    $v = substr($index, 24, strlen($index));
-                                    $arraySearch[] = $v;
-                                }
-                            }
+                            if($value == substr($index2, 18, strlen($index2)) && substr($index2, 0, 18) == 'cc_attribute_name_')
+                                 $advanceSearchArray[$value2] =  $value3;
                         }
-                        $advanceSearchArray = array();
-                        foreach ($arraySearch as $value)
-                        {
-                            foreach ($current_config as $index => $value2)
-                            {
-                                if($value == substr($index, 22, strlen($index)) && substr($index, 0, 22) == 'cc_attribute_ldapname_')
-                                {
-                                    foreach ($current_config as $index2 => $value3)
-                                    {
-                                        if($value == substr($index2, 18, strlen($index2)) && substr($index2, 0, 18) == 'cc_attribute_name_')
-                                             $advanceSearchArray[$value2] =  $value3;
-                                    }
-                                }
+                    }
 
-                            }
-                        }
+                }
+            }
 
-                        $advanceSearch = array();
-                        foreach ($advanceSearchArray as $index => $value)
-                            $advanceSearch[] ='"'.$index.'":"'.$value.'"';
+            $advanceSearch = array();
+            foreach ($advanceSearchArray as $index => $value)
+            {
+                $advanceSearch[] ='"'.$index.'":"'.$value.'"';
+            }
 
-                        $advancedFields =  "{".implode(',',$advanceSearch)."}";
+            $advancedFields =  "{".implode(',',$advanceSearch)."}";
 
-
-                        $GLOBALS['phpgw']->template->set_var('cc_config_advanced_search', $advancedFields);
-
-                        
+            $GLOBALS['phpgw']->template->set_var('cc_config_advanced_search', $advancedFields);
                         
 			$GLOBALS['phpgw']->template->parse('out','index');
 
@@ -425,7 +423,7 @@
 /****/
 
 				case 'get_group':
-					return $this->get_group_data($_GET['id'],isset($_GET['shared_from'])?$_GET['shared_from']:null);
+					return $this->get_group_data((isset($_GET['id'])?$_GET['id']:""),isset($_GET['shared_from'])?$_GET['shared_from']:null);
 
 				case 'get_contact_full_add_const':
 					return $this->get_contact_full_add_const();
@@ -546,16 +544,17 @@
 			$id_catalog = str_replace('\\"', '"', $id_catalog);
 			$temp = $this->bo->set_catalog($id_catalog);
 
-                        if(!$this->bo->catalog->src_info) {
-                            $ldap = CreateObject('contactcenter.bo_ldap_manager');
-                            $this->bo->catalog->src_info = $ldap->srcs[1];
-                        }
+            if(!isset($this->bo->catalog->src_info))
+            {
+                $ldap = CreateObject('contactcenter.bo_ldap_manager');
+                $this->bo->catalog->src_info = $ldap->srcs[1];
+            }
 
-                        $resetCC_actual_letter = 0;
-                        if($this->bo->catalog->src_info['visible'] == "false")
-                        {
-                            $resetCC_actual_letter = 1;
-                        }
+            $resetCC_actual_letter = 0;
+            if($this->bo->catalog->src_info['visible'] == "false")
+            {
+                $resetCC_actual_letter = 1;
+            }
 
 			if ($temp)
 			{
@@ -580,9 +579,9 @@
                                 if ($echo)
                                 {
                                     echo serialize(array(
-                                            'status' => 'ok',
-                                            'catalog' => $catalog_info['class'],
-                                            'external' => $catalog_info['external']?true:false,
+                                            'status' 	=> 'ok',
+                                            'catalog' 	=> (isset($catalog_info['class'])?$catalog_info['class']:""),
+                                            'external' 	=> (isset($catalog_info['external'])?true:false),
                                             'resetCC_actual_letter' => $resetCC_actual_letter,
                                             'perms'  => $perms
                                     ));
@@ -664,7 +663,7 @@
 			$folderImageDir = substr($folderImageDir, 0, strpos($folderImageDir, 'globalcatalog-mini.png'));
 
 			// Deals with error messages from the server and returns them to the browser
-			if ($tree['msg'])
+			if ( isset($tree['msg']) )
 			{
 				$msg = $tree['msg'];
 				unset($tree['msg']);
@@ -673,7 +672,7 @@
 			$tree_js = $this->convert_tree($tree, $folderImageDir, $parent);
 
 			// Return status = ok, or else return generated message to the browser
-			if (!$msg)
+			if (!isset($msg))
 			{
 				return array(
 					'data' => $tree_js,
@@ -755,14 +754,13 @@
 		*/
 		function get_cards_data($letter, $page, $ids, $dontPaginate = false)
 		{
-			if( $ids )
-				$_SESSION['ids'] = $ids;
+			if( isset($ids) ){ $_SESSION['ids'] = $ids; }
 
 			// It's an external catalog?
 			$external = $this->bo->is_external($this->page_info['actual_catalog']);
 			//echo $page."\n";
-			if ($letter !== 'search' and ($letter != $this->page_info['actual_letter'] or
-			    ($letter == $this->page_info['actual_letter'] and $page == $this->page_info['actual_page']) or
+			if ($letter !== 'search' and ( (isset($this->page_info['actual_letter']) && $letter != $this->page_info['actual_letter']) or
+			    ((isset($this->page_info['actual_letter']) && $letter == $this->page_info['actual_letter']) and (isset($this->page_info['actual_page']) && $page == $this->page_info['actual_page'])) or
 			    $this->page_info['changed']))
 			{
 				unset($ids);
@@ -1272,7 +1270,7 @@
 
 				}
 
-				if(!$this->bo->catalog->src_info) {
+				if(!isset($this->bo->catalog->src_info)) {
 				    $ldaps = CreateObject('contactcenter.bo_ldap_manager');
 				    $this->bo->catalog->src_info = $ldaps->srcs[1];
 				}
@@ -3682,8 +3680,8 @@
 		*/
 		function save_session()
 		{
-			$GLOBALS['phpgw']->session->appsession('ui_data.page_info','contactcenter',$this->page_info);
-			$GLOBALS['phpgw']->session->appsession('ui_data.all_entries','contactcenter',$this->all_entries);
+			$GLOBALS['phpgw']->session->appsession('ui_data.page_info','contactcenter',(isset($this->page_info)?isset($this->page_info):""));
+			$GLOBALS['phpgw']->session->appsession('ui_data.all_entries','contactcenter',(isset($this->all_entries)?$this->all_entries:""));
 		}
 
 		/*!

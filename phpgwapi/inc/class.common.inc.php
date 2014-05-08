@@ -1264,7 +1264,7 @@
 		*
 		* @author Dave Hall (*based* on verdilak? css inclusion code)
 		*/
-function get_css( )
+		function get_css( )
 		{
 			$tpl = createObject('phpgwapi.Template', $this->get_tpl_dir('phpgwapi'));
 			$tpl->set_file('css', 'css.tpl');
@@ -1273,9 +1273,12 @@ function get_css( )
 			if(@isset($_GET['menuaction']))
 			{
 				list($app,$class,$method) = explode('.',$_GET['menuaction']);
-				if( is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['css'] ) )
+				if( isset($GLOBALS[$class]) )
 				{
-					$app_css .= $GLOBALS[$class]->css();
+					if( is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['css'] ) )
+					{
+						$app_css .= $GLOBALS[$class]->css();
+					}
 				}
 			}
 			if (isset($GLOBALS['phpgw_info']['flags']['css']))
@@ -1355,9 +1358,12 @@ function get_css( )
 			if(@isset($_GET['menuaction']))
 			{
 				list($app,$class,$method) = explode('.',$_GET['menuaction']);
-				if( is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['java_script']) )
+				if( isset($GLOBALS[$class]) )
 				{
-					$java_script .= $GLOBALS[$class]->java_script();
+					if( is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['java_script']) )
+					{
+						$java_script .= $GLOBALS[$class]->java_script();
+					}
 				}
 			}
 			if (isset($GLOBALS['phpgw_info']['flags']['java_script']))

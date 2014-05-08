@@ -21,10 +21,10 @@ class Migra{
 		{
 			include_once dirname(__FILE__ ).'/../../header.inc.php';
 
-			if (is_array($_SESSION['phpgw_info']['expresso']['server']))
+			if ( isset($_SESSION['phpgw_info']['expresso']['server']) )
 				$GLOBALS['phpgw_info']['server'] = $_SESSION['phpgw_info']['expresso']['server'];
 			else
-			$_SESSION['phpgw_info']['expresso']['server'] = $GLOBALS['phpgw_info']['server'];
+				$_SESSION['phpgw_info']['expresso']['server'] = $GLOBALS['phpgw_info']['server'];
 					
 			$local = $_SESSION['phpgw_info']['expresso']['server']['db_host'];
 			$login = $_SESSION['phpgw_info']['expresso']['server']['db_user'];

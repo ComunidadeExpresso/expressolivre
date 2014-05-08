@@ -469,13 +469,11 @@
 
 		function get_ldap_tree_level($id_source, $resource, $context, $objectClass, $branch_dn, $external = 0)
 		{			
-
 			/*
 			 * TODO: Search timeouts
 			 */
 
-			$dn_parts = ldap_explode_dn(($refer_context ? $refer_context : $context),1);
-			//$filter = '(!(objectClass='.$objectClass.'))';
+			$dn_parts = ldap_explode_dn((isset($refer_context)? $refer_context : $context),1);
 			// Don't show OU's whith phpgwAccountVisible equal to '-1'
 			if ($external)
 			{

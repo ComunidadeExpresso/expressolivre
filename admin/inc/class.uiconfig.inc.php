@@ -78,7 +78,7 @@ use prototype\api\Config as Config;
 
             };
 
-            if($_POST['newsettings']['expressoCalendar_autoImportCalendars'] == 'true')
+            if( isset($_POST['newsettings']['expressoCalendar_autoImportCalendars']) && $_POST['newsettings']['expressoCalendar_autoImportCalendars'] == 'true' )
             {
                 $db = $GLOBALS['phpgw']->db;
                 $calendars = array();
@@ -204,23 +204,26 @@ use prototype\api\Config as Config;
 			if($appname=="contactcenter") 
 			{
 				
-				foreach ($c->config_data as $key => $config) 
-				{        	
-					$parts = explode('_', $key);
-                	if (is_numeric($parts[3]) && $parts[1]=='attribute')
-                	{
-                        $fields[$parts[3]][$key] = $config;
-                	}
-                	
-                	
-                	if($key == 'cc_allow_details') {
-                		$checkedCoisa = 'value="details"';
-              			if ($config=='true') {
-              				$checkedCoisa = 'value="details" checked="checked"'; 
-              			}
-                	}			
+				if( count($c->config_data) > 0 )
+				{
+					foreach ($c->config_data as $key => $config) 
+					{        	
+						$parts = explode('_', $key);
+	                	if (is_numeric($parts[3]) && $parts[1]=='attribute')
+	                	{
+	                        $fields[$parts[3]][$key] = $config;
+	                	}
+	                	
+	                	
+	                	if($key == 'cc_allow_details') {
+	                		$checkedCoisa = 'value="details"';
+	              			if ($config=='true') {
+	              				$checkedCoisa = 'value="details" checked="checked"'; 
+	              			}
+	                	}			
+					}
 				}
-	
+		
 				$campos_vazio = true;
 				$campos = "
 						<input type=\"hidden\" id=\"textHidden\" value=\"".lang('Text')."\" />

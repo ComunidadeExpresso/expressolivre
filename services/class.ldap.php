@@ -298,7 +298,7 @@ class LdapService {
 
         $returnL = ldap_get_entries($this->connection, $sr);
         $return = array();
-        if (is_array($returnL[0]['mailalternateaddress']))
+        if ( isset($returnL[0]['mailalternateaddress']) )
             foreach ($returnL[0]['mailalternateaddress'] as $i => $v) {
                 if ($i === 'count')
                     continue;

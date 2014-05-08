@@ -80,13 +80,12 @@
 			$lvl_vector = explode('.', $level);
 			$id = $lvl_vector[1];
 
-			if ($this->tree['branches'][$id]['external'])
+			if( isset($this->tree['branches'][$id]['external']) )
 			{
 				return true;
 			}
 
 			return false;
-
 		}
 
 		/*
@@ -454,7 +453,7 @@
 			$path = @explode('.',$level);
 			$n_ways = count($path);
 			
-			if ($n_ways <= 1)
+			if( $n_ways <= 1 )
 			{
 				return false;
 			}
@@ -469,7 +468,7 @@
 			//echo 'Codigo: '.$code.'<br>';
 			eval($code);
 			
-			return $branch;
+			return @$branch;
 		}
 
 		/*!
@@ -621,7 +620,7 @@
 					$this->catalog_level = array($level);
 					$GLOBALS['phpgw']->session->appsession('bo_contactcenter.catalog_level','contactcenter', $this->catalog_level);
 					$call = '$this->catalog = CreateObject('.'\'contactcenter.'.$catalog['class'].'\'';
-					if ($catalog['class_args'])
+					if( isset($catalog['class_args']) )
 					{
 						foreach($catalog['class_args'] as $arg)
 						{
