@@ -1580,7 +1580,6 @@ class iCal implements Formatter
 
     static private function _makeVEVENT($schedulable, $component, $params)
     {
-
         $interation = array();
         $eventID = isset($schedulable['id']) ? $schedulable['id'] : mt_rand() . '(Formatter)';
 
@@ -1608,7 +1607,9 @@ class iCal implements Formatter
         } else {
 
             //Fixing bug in mozilla
-            $schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($startTime['value'])) . '000';
+            //$schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($startTime['value'])) . '000';
+
+            $schedulable['startTime'] = self::date2timestamp($startTime['value'])  . '000';
 
             if (strpos($params['prodid'], 'Outlook') !== false) {
                 //Se o ics veio em utc não aplicar horario de verão
@@ -1634,7 +1635,9 @@ class iCal implements Formatter
         else {
 
             //Fixing bug in mozilla
-            $schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($endTime['value'])) . '000';
+            //$schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($endTime['value'])) . '000';
+
+            $schedulable['endTime'] = self::date2timestamp($endTime['value']) . '000';
 
             if (strpos($params['prodid'], 'Outlook') !== false) {
                 //Se o ics veio em utc não aplicar horario de verão
