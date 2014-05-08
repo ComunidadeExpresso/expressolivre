@@ -491,7 +491,7 @@ $(document).ready(function() {
                 case 1:
                     if(evt.selectable){
                         if(evt.isRepeat && evt.editable ){
-                            $.Zebra_Dialog(evt.title + '_[[is a repeating event]]' + '.', {
+                            $.Zebra_Dialog(evt.title + ' _[[is a repeating event]]' + '.', {
                                 'type':     'question',
                                 'overlay_opacity': '0.5',
                                 'custom_class':  'occurrence-zebra',
