@@ -79,11 +79,11 @@
 	if( ( isset($GLOBALS[$class]->public_functions) && is_array($GLOBALS[$class]->public_functions) && $GLOBALS[$class]->public_functions[$method]) && ! $invalid_data)
 	{
 		execmethod($_GET['menuaction']);
-		if(isset($app)){unset($app)};
-		if(isset($class)){unset($class)};
-		if(isset($method)){unset($method)};
-		if(isset($invalid_data)){unset($invalid_data)};
-		if(isset($api_requested)){unset($api_requested)};
+		if(isset($app)){unset($app);}
+		if(isset($class)){unset($class);}
+		if(isset($method)){unset($method);}
+		if(isset($invalid_data)){unset($invalid_data);}
+		if(isset($api_requested)){unset($api_requested);}
 	}
 	else
 	{
