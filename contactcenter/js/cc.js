@@ -1034,7 +1034,7 @@ function checkFullAdd()
             }
             var _options_default = Element("cc_"+(type == 1 ? 'email' : 'phone')+"_default");
             if(_options_default.value == '-1') {
-                alert("É necessário escolher um "+ (type == 1 ? 'E-mail' : 'Telefone')+" como padrão!");
+                alert(get_lang("It is necessary to choose a ") + (type == 1 ? 'Email' : get_lang('Phone ')) + get_lang('default!'));
                 return false;
             }
         }
@@ -1759,7 +1759,7 @@ function connAddNewLine ()
 
 		for(k = 0; k < CC_conn_count; k++) {
 			if(Element("cc_conn_name_"+k) && Element("cc_conn_name_"+k).value != "" && Element("cc_conn_name_"+k).value == Element("cc_conn_type_sel").value) {
-				alert('Você já possui uma entrada para o tipo "'+Element("cc_conn_type_sel").value+'"!');
+				alert(get_lang('You already have an entry for the type "') + Element("cc_conn_type_sel").value+'"!');
 				Element("cc_conn_type_sel").options.selectedIndex = 0;
 				return false;
 			}
@@ -2092,7 +2092,7 @@ function removeAllEntries()
 		if(result.toLowerCase() == number)
 			Connector.newRequest('removeAllEntries', '../index.php?menuaction=contactcenter.ui_data.data_manager&method=remove_all_entries', 'GET', handler);
 		else
-			alert('Código Incorreto');
+			alert(get_lang('Incorrect code'));
 	}
 }
 
@@ -2325,7 +2325,7 @@ function populateCards(data, type)
 {
 	if (data[3].length >= 100 )
 	{
-		alert("Critério de pesquisa muito abrangente, achados " + data[3].length + " resultados");
+		alert(get_lang("Critério de pesquisa muito abrangente, achados ") + data[3].length + get_lang(" resultados"));
 		for (i = 0; i < (Math.sqrt(data[3].length)-1); i++)
 			for (j = 0; j < 3; j++)
 				document.getElementById("cc_card:"+j+":"+i).innerHTML = '';
@@ -2523,7 +2523,7 @@ function populateCards(data, type)
 								}
 								else
 								{
-									if (Element(id+':'+data[2][k]) == null) alert('É nulo');
+									if (Element(id+':'+data[2][k]) == null) alert(get_lang('Is null'));
 									Element(id+':'+data[2][k]).innerHTML = data[3][pos][k];
 								}
 						}
@@ -3154,11 +3154,11 @@ function sendQuickAdd ()
 function connectVoip (phoneUser, typePhone){
 	var handler_voip = function (responseText){
 		if(!responseText) {
-			alert("Erro conectando servidor VoIP.");
+			alert("Error connecting VoIP server.");
 		}
 		else{
 		    data = unserialize(responseText);
-			alert("Requisitando chamada para o ramal: "+data);
+			alert(get_lang("Ordering call to extension: ") + data);
         }
 	}
 	Connector.newRequest('voip', "../../expressoMail1_2/controller.php?action=expressoMail1_2.functions.callVoipconnect&to="+phoneUser+"&typePhone="+typePhone, 'POST', handler_voip);

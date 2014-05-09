@@ -64,7 +64,7 @@
 		this.window = new dJSWin({
 			id: 'ccQuickAddDOM',
 			content_id: 'ccQuickAddContent',
-			width: '262px',
+			width: '322px',
 			height: wHeight+'px',
 			title_color: '#3978d6',
 			bg_color: '#eee',
@@ -190,7 +190,7 @@
 		}
 
 		if(!$.trim(sdata[1])){ 
- 	        alert("O campo nome é obrigatório(a)!"); 
+ 	        alert(get_lang("The name field is required!"));
  	        return false; 
  	    }
 		
@@ -205,8 +205,7 @@
 			var reEmail = /^[a-zA-Z0-9][_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]{1,})*$/;
 			
 			if (sdata[4] !== "" && !reEmail.test(this._fields[4].value)) {
-				alert("O endereço de email '" + this._fields[4].value + "' não é válido!\n" +
-				"Por favor informe um endereço válido.");
+				alert(get_lang("The email address '") + this._fields[4].value + get_lang("' is not valid! \n Please enter a valid address."));
 				return false;
 			}
 		}

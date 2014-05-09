@@ -104,7 +104,7 @@ cListParticipants.prototype.showList = function(id, contact, email, title, accou
 	cListParticipants.prototype.showWindow = function (div)
 	{						
 		if(! div) {
-			alert('Essa lista não possui nenhum participante.');
+			alert(get_lang('This list has no participant.'));
 			return;
 		}
 							

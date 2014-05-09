@@ -103,7 +103,7 @@ ccFullSearch.prototype.go = function () {
 	}
 
 	if (!greaterThanMin){
-		alert("Favor fazer a consulta com pelo menos " + v_min + " caracteres!");
+		alert(get_lang("Please make a query with at least ") + v_min + get_lang(" characters!"));
 		return;
 	}
 

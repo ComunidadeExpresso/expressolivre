@@ -22,6 +22,8 @@
 	);
 	include('../header.inc.php');
 
+    echo "<script src='../" . $GLOBALS['phpgw_info']['flags']['currentapp'] . "/inc/load_lang.php'></script>";
+
 	$_SESSION['phpgw_info']['user']['preferences']['contactcenter']['telephone_number'] = $GLOBALS['phpgw_info']['user']['telephonenumber'];
 
 	$prefs = CreateObject('contactcenter.ui_preferences');
@@ -67,5 +69,6 @@
 		$obj->index();
        
    	echo '<script type="text/javascript" src="../prototype/plugins/jquery/jquery.min.js"></script>';
+
 	$GLOBALS['phpgw']->common->phpgw_footer();
 ?>

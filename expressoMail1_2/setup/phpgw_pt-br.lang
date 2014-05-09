@@ -1149,3 +1149,4 @@ in	expressoMail1_2	pt-br	no
 Empty trash	expressoMail1_2	pt-br	Esvaziar lixeira
 Mailbox does not exist	expressoMail1_2	pt-br	Caixa de mail não existe
 The folder $folder_name$ was successfully removed	expressoMail1_2	pt-br	A pasta $folder_name$ foi removida com sucesso
+Create Event	expressoCalendar	pt-br	Criar Evento

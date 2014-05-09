@@ -140,7 +140,7 @@
 		}
 		
 		if(!$.trim(sdata[1])){ 
- 	        alert("O campo nome é obrigatório(a)!"); 
+ 	        alert(get_lang("The name field is required!"));
  	        return false; 
  	    }
 		
@@ -152,8 +152,7 @@
  	    var reEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[_a-z0-9-]+(\.[_a-z0-9-]+)+$/;
 
 		if(sdata[4] !== "" && !reEmail.test(sdata[4])){
-			alert("O endereço de email '" + sdata[4] + "' não é válido!\n" +
-			"Por favor informe um endereço válido.");
+			alert(get_lang("The email address '") + sdata[4] + get_lang("' não é válido! \n Por favor informe um endereço válido."));
 			return false;
 		}
 				

@@ -58,7 +58,7 @@ Contact [Quick Add]	contactcenter	pt-br	Contato [Adição Rápida]
 Contacts	common	pt-br	Contatos
 Copy to personal catalog.	contactcenter	pt-br	Copiar para o Catálogo Pessoal
 Couldn't contact server or server response is invalid. Contact Admin.	contactcenter	pt-br	Não foi possível estabelecer conexão com o servidor. Contacte o Administrador do sistema.
-Could\'nt remove group with id: %1	contactcenter	pt-br	Não foi possível remover grupo com id: %1
+Couldn't remove group with id: %1	contactcenter	pt-br	Não foi possível remover grupo com id: %1
 Country	contactcenter	pt-br	País
 Corporate	contactcenter	pt-br	Empresa
 Corporative	contactcenter	pt-br	Corporativo
@@ -232,3 +232,8 @@ home	contactcenter	pt-br	Casa
 This group name already exists, please enter another name.	contactcenter	pt-br	Esse nome grupo já existe, por favor informe outro nome.
 Export as Outlook 2003 CSV.	contactcenter	pt-br	Exportar como Outlook 2003 CSV.
 Not informed	contactcenter	pt-br	Não informado.
+More than 300 results were returned! \n Please, refine your search	contactcenter	es-es	Mais de 300 resultados foram retornados! \n Favor refinar sua busca.
+Advanced Search	contactcenter	es-es	Busca Avancada
+Name:	contactcenter	es-es	Nome:
+Exact Search	contactcenter	es-es	Busca Exata
+Close	contactcenter	es-es	Fechar

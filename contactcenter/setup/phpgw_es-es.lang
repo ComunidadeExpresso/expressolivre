@@ -174,7 +174,7 @@ Select the telephone	contactcenter	es-es	Seleccione el teléfono
 Send Mail	common	es-es	Enviar e-mail
 Server Contacted. Waiting for response...	contactcenter	es-es	Servidor contactado. Esperando respuesta...
 Sex	contactcenter	es-es	Sexo
-Showing found entries	common	es-es	Mostrando items encontrados
+Showing found entries	common	es-es	Mostrando entradas encontrados
 State	contactcenter	es-es	Estado
 Suffix	contactcenter	es-es	Característica
 Table View	contactcenter	es-es	Mostrar Matriz
@@ -213,3 +213,32 @@ Add	common	es-es	Añadir
 The reported field was not found in LDAP	common	es-es	El campo reportado como correspondencia en LDAP no se encontró
 Text	common	es-es	Texto
 Multivalued	common	es-es	multivalor
+Couldn't remove group with id: %1	contactcenter	es-es	Podría eliminar grupo con id: %1
+Export as Outlook Express (English) CSV.	contactcenter	es-es	Exportar como Outlook Express (Inglés) CSV.
+Home Phone	contactcenter	es-es	Teléfono de la casa
+Call Extension	contactcenter	es-es	Llame a la extensión
+Problems on adding your Group. Be sure that a group with this name do not exists	contactcenter	es-es	Problemas en la adición de su Grupo. Asegúrese de que no existe un grupo con este nombre
+Name	contactcenter	es-es	nombre
+Add new detail field	contactcenter	es-es	Añadir un nuevo campo de detalle
+Corresponding LDAP	contactcenter	es-es	LDAP correspondiente
+Contact's details	contactcenter	es-es	Detalles de Contacto de
+The extra details are not configured.	contactcenter	es-es	Los detalles adicionales no están configurados.
+Attribute name	contactcenter	es-es	nombre del atributo
+Show extra contact's details.	contactcenter	es-es	Mostrar detalles de contacto adicional.
+Yes	contactcenter	es-es	sí
+No	contactcenter	es-es	no
+Could not find the LDAP attribute pointed by	contactcenter	es-es	No se pudo encontrar el atributo LDAP señalado por
+lang_LDAP_max_results	contactcenter	es-es	lang_LDAP_max_results
+work_main	contactcenter	es-es	work_main
+work_cell	contactcenter	es-es	work_cell
+home_cell	contactcenter	es-es	home_cell
+home_fax	contactcenter	es-es	home_fax
+home	contactcenter	es-es	casa
+This group name already exists, please enter another name.	contactcenter	es-es	Este nombre de grupo ya existe, por favor, introduzca otro nombre.
+Export as Outlook 2003 CSV.	contactcenter	es-es	Exportar como CSV de Outlook 2003.
+Not informed	contactcenter	es-es	No informado
+More than 300 results were returned! \n Please, refine your search	contactcenter	es-es	Se devolvieron más de 300 resultados! \ n Por favor, modifique su búsqueda
+Advanced Search	contactcenter	es-es	Búsqueda Avanzada
+Name:	contactcenter	es-es	Nombre:
+Exact Search	contactcenter	es-es	Exacto Buscar
+Close	contactcenter	es-es	cerca

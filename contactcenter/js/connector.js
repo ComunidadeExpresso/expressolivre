@@ -104,7 +104,7 @@
 							break;
 
 						case 404:
-							alert('Page Not Found!');
+							alert(get_lang('Page Not Found!'));
 							break;
 
 						default:

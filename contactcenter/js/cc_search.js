@@ -15,6 +15,21 @@
 	 * ContactCenter API - Search for Entries Window
 	 */
 
+  function get_lang(_key)
+  {
+      var key = _key.toLowerCase();
+      if(array_lang[key])
+          var _value = array_lang[key];
+      else
+          var _value = _key+"*";
+
+      if(arguments.length > 1)
+          for(j = 1; typeof(arguments[j]) != 'undefined'; j++)
+              _value = _value.replace("%"+j,arguments[j]);
+      return _value;
+
+  }
+
 	function ccSearchClass(params)
 	{
 		if (!params || typeof(params) != 'object')
@@ -39,7 +54,7 @@
 			
 			if (data[3].length > 300)
 			{
-				alert("Mais de 300 resultados foram retornados! \n Favor refinar sua busca.");
+				alert(get_lang("More than 300 results were returned! \n Please, refine your search"));
 
 				if (_this.onSearchFinish)
 					_this.onSearchFinish(null);
@@ -199,7 +214,7 @@
 		//this.DOMbtn2.style.height = parseInt(this.DOMdiv.style.height)/2 + 'px';
 		this.DOMbtn2.style.width = '60px';
                 this.DOMbtn2.disabled = 'disabled';
-		this.DOMbtn2.value = 'Nome:';
+		this.DOMbtn2.value = get_lang('Name:');
 
 		this.DOMbtn3.type = 'text';
 		//this.DOMbtn3.style.height = parseInt(this.DOMdiv.style.height)/2 + 'px';
@@ -211,7 +226,7 @@
 
 		this.DOMAdv.type = 'button';
 // 		this.DOMAdv.style.padding = '1px';
-		this.DOMAdv.value = 'Busca Avancada';
+		this.DOMAdv.value = get_lang('Advanced Search');
 		this.DOMAdv.id = 'advanced';
 		this.DOMAdv.style.display = 'none';
 		this.DOMAdv.onclick = function()
@@ -253,11 +268,11 @@
 
 			var label_exact_search = document.createElement('label');
 			label_exact_search.setAttribute( "rel", exact_search.id );
-			label_exact_search.innerHTML = 'Busca Exata';
+			label_exact_search.innerHTML = get_lang('Exact Search');
 
 			btn.onclick = function(){ _this.go(); };
 			var closeBtn = document.createElement('input');
-			closeBtn.value = 'Fechar';
+			closeBtn.value = get_lang('Close');
 			closeBtn.type = 'button';
 			closeBtn.onclick = function(){ 
 			    win.close();

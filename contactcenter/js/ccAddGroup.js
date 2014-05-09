@@ -397,7 +397,7 @@
 
                 if (data[3].length > 300)
                 {
-                    alert("Mais de 300 resultados foram retornados! \n Favor refinar sua busca.");
+                    alert(get_lang("More than 300 results were returned! \n Please, refine your search."));
 
                     return false;
                 }
