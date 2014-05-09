@@ -23,7 +23,9 @@
 	$alternativeMailService = ServiceLocator::getService('ldap');
 	$AlternateEmailExpresso = Array();
 	$AlternateEmailExpresso = ((isset($_SESSION['phpgw_info']['expressomail']))?$alternativeMailService->getMailAlternateByUidNumber($_SESSION['phpgw_info']['expressomail']['user']['account_id']):"");
-	$template->set_var("user_email_alternative", implode(",", $AlternateEmailExpresso));	
+	if( is_array($AlternateEmailExpresso) ){
+		$template->set_var("user_email_alternative", implode(",", $AlternateEmailExpresso));	
+	}
   	
   	if (execmethod('emailadmin.ui.countProfiles') == 0){
         execmethod('emailadmin.ui.addDefaultProfile');

@@ -346,7 +346,8 @@
 					)
 				)
 			);
- 			if($_SESSION['phpgw_info']['user']['preferences']['contactcenter']['shared_contacts']){
+ 			if(isset($_SESSION['phpgw_info']['user']['preferences']['contactcenter']['shared_contacts']))
+ 			{
 	 			$this->tree[2] = array('type' => 'sql');
 				$this->tree['branches'][2] = array(
 										'name' => lang('Shared'),

@@ -61,17 +61,13 @@
 
 	if (($GLOBALS['phpgw_info']['server']['use_https'] == 2) && ($_SERVER['HTTPS'] != 'on'))
 	{
-	
 		Header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 		exit;
 	}
 
 	if($app == 'home' && !$api_requested)
 	{
-		if( $_GET['dont_redirect_if_moble'] == 1 )
-			Header('Location: ' . $GLOBALS['phpgw']->link('/home.php?dont_redirect_if_moble=1'));
-		else
-			Header('Location: ' . $GLOBALS['phpgw']->link('/home.php'));
+		Header('Location: ' . $GLOBALS['phpgw']->link('/home.php'));
 	}
 
 	if($api_requested)
@@ -83,15 +79,15 @@
 	if( ( isset($GLOBALS[$class]->public_functions) && is_array($GLOBALS[$class]->public_functions) && $GLOBALS[$class]->public_functions[$method]) && ! $invalid_data)
 	{
 		execmethod($_GET['menuaction']);
-		unset($app);
-		unset($class);
-		unset($method);
-		unset($invalid_data);
-		unset($api_requested);
+		if(isset($app)){unset($app)};
+		if(isset($class)){unset($class)};
+		if(isset($method)){unset($method)};
+		if(isset($invalid_data)){unset($invalid_data)};
+		if(isset($api_requested)){unset($api_requested)};
 	}
 	else
 	{
-		if(!$app || !$class || !$method)
+		if( !$app || !$class || !$method )
 		{
 			if(@is_object($GLOBALS['phpgw']->log))
 			{
@@ -134,7 +130,7 @@
 		Header('Location: ' . $GLOBALS['phpgw']->link('/home.php'));
 	}
 
-	if($_GET['menuaction'])
+	if( isset($_GET['menuaction']) )
 	{
 		$modulo = explode('.', $_GET['menuaction']);
 		

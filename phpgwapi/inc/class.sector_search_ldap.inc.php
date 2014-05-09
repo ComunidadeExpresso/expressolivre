@@ -161,7 +161,7 @@ class sector_search_ldap {
 		    $inverted_dn[$dn] = implode("#", $array_dn_reverse);
 		}
 
-		if( is_array($inverted_dn) )
+		if( isset($inverted_dn) && is_array($inverted_dn) )
 		{
 		    // Ordenação
 		    natcasesort($inverted_dn);

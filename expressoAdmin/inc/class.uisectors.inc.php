@@ -19,8 +19,8 @@
 			'edit_sector'					=> True,
 			'validate_data_sectors_edit'	=> True,
 			'delete_sector'					=> True,
-			'css'                                                   => True, 
- 	                'view_cota'                                             => True 
+			'css'							=> True, 
+			'view_cota'                     => True 
 		);
 
 		var $bo;
@@ -228,7 +228,7 @@
 		{
 			$account_lid = $GLOBALS['phpgw']->accounts->data['account_lid'];
 			$acl = $this->functions->read_acl($account_lid);
-			$manager_context = $acl[0]['context'];
+			$manager_context = (isset($acl[0])? $acl[0]['context']: "");
 			
 			$context = $_GET['context'];
 
@@ -260,13 +260,13 @@
 			$p->set_file(Array('edit_sector' => 'sectors_form.tpl'));
 			$p->set_block('edit_sector','list','list');
 			
-			if (!$_POST)
+			if( !isset($_POST) )
 			{
-				$sector_info = $this->so->get_info($_GET['context']);
-                $sector_disk_quota = $sector_info[0]['diskquota'][0]; 
- 	            $sector_users_quota = $sector_info[0]['usersquota'][0]; 
- 	            $sector_associated_domain = $sector_info[0]['associateddomain'][0]; 
-				$_POST['sector_visible'] = $sector_info[0]['phpgwaccountvisible'][0];
+				$sector_info 				= $this->so->get_info($_GET['context']);
+                $sector_disk_quota 			= (isset($sector_info[0]['diskquota'])?$sector_info[0]['diskquota'][0]:""); 
+ 	            $sector_users_quota 		= (isset($sector_info[0]['usersquota'])?$sector_info[0]['usersquota'][0]:""); 
+ 	            $sector_associated_domain	= (isset($sector_info[0]['associateddomain'])?$sector_info[0]['associateddomain'][0]:""); 
+				$_POST['sector_visible'] 	= (isset($sector_info[0]['phpgwaccountvisible'])?$sector_info[0]['phpgwaccountvisible'][0]:"");
 			} 
 			
 			// Seta variaveis utilizadas pelo tpl.
@@ -274,27 +274,30 @@
 				'action'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.bosectors.save_sector'),
 				'back_url'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uisectors.list_sectors'),
 				'th_bg'				=> $GLOBALS['phpgw_info']['theme']['th_bg'],
-				'context'			=> $context == '' ? $manager_context : $context,
-				'sector'			=> $_POST['sector'] == '' ? $sector_name : $_POST['sector'],
+				'context'			=> (isset($context) && $context == '' ? $manager_context : $context),
+				'sector'			=> (isset($_POST['sector']) ? ( $_POST['sector'] == '' ? $sector_name : $_POST['sector']):"" ),
 				'manager_org'		=> $combo_manager_org,
-				'sector_visible_checked'=> $_POST['sector_visible'] ? 'checked' : '',
-                'disk_quota'        => $_POST['disk_quota'] == '' ? $sector_disk_quota : $_POST['disk_quota'], 
- 	            'users_quota'       => $_POST['users_quota'] == '' ? $sector_users_quota : $_POST['users_quota'], 
- 	            'associated_domain'        => $_POST['associated_domain'] == '' ? $sector_associated_domain : $_POST['associated_domain'], 
+				'sector_visible_checked'=> (isset($_POST['sector_visible']) ? 'checked' : ''),
+                'disk_quota'        => (isset($_POST['disk_quota'])?($_POST['disk_quota'] == '' ? $sector_disk_quota : $_POST['disk_quota']):""), 
+ 	            'users_quota'       => (isset($_POST['users_quota'])?($_POST['users_quota'] == '' ? $sector_users_quota : $_POST['users_quota']):""), 
+ 	            'associated_domain'	=> (isset($_POST['associated_domain'])?($_POST['associated_domain'] == '' ? $sector_associated_domain : $_POST['associated_domain']):""), 
 				'lang_add'			=> lang('Add'),
 				'disable'			=> 'disabled',
-				'error_messages'	=> $_POST['error_messages'] == '' ? '' : "<script type='text/javascript'>alert('".$_POST['error_messages']."')</script>",
-			        'lang_disk_quota'   => lang('disk quota'), 
- 		                'lang_users_quota'  => lang('users quota') 
- 	                ); 
- 	                if($this->functions->db_functions->use_cota_control()) { 
- 	                        $var["open_comment_cotas"] = ""; 
- 	                        $var["close_comment_cotas"] =""; 
- 	                } 
- 	                else { 
- 	                        $var["open_comment_cotas"] = "<!--"; 
- 	                        $var["close_comment_cotas"] ="-->"; 
- 	                } 
+				'error_messages'	=> (isset($_POST['error_messages'])?($_POST['error_messages'] == '' ? '' : "<script type='text/javascript'>alert('".$_POST['error_messages']."')</script>" ):""),
+				'lang_disk_quota'   => lang('disk quota'), 
+ 		        'lang_users_quota'  => lang('users quota') 
+ 	            ); 
+            
+            if($this->functions->db_functions->use_cota_control())
+            { 
+                $var["open_comment_cotas"] = ""; 
+                $var["close_comment_cotas"] =""; 
+            } 
+            else
+            { 
+                $var["open_comment_cotas"] = "<!--"; 
+                $var["close_comment_cotas"] ="-->"; 
+            } 
 
 			$var['sector'] = preg_replace("/\\\([0-9A-Fa-f]{2})/e", "''.chr(hexdec('\\1')).''",$var['sector']);
 			$var['sector'] = utf8_decode($var['sector']);

@@ -102,8 +102,7 @@
 		function get_external_ldap_sources()
 		{
 			include(PHPGW_INCLUDE_ROOT . '/contactcenter/setup/external_catalogs.inc.php' );
-			//include('external_catalogs.inc.php' );
-			return $external_srcs;
+			return (isset($external_srcs)?$external_srcs : "");
 		}
 
 		/*
