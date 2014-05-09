@@ -3,7 +3,7 @@ class = "OpenLDAP"
 [config]
 idAtribute = "uidNumber"
 host = 127.0.0.1
-context = "dc=debianvm2,dc=com,dc=br"
+context = "LDAP_DN"
 ; Caso o LDAP requisite autenticacao, configure os parametros a seguir
 ;user = 
 ;password = 
