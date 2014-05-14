@@ -43,9 +43,9 @@ function get_associated_domain(context)
 function get_lang(key_raw)
 {
 	key = key_raw.replace(/ /g,"_");
-	key = key.replace(/-/g,"");
+	key = key.replace(/-/g,"_");
 	lang = eval("global_langs."+key.toLowerCase());
-	
+
 	if (typeof(lang)=='undefined')
 		return key_raw + '*';
 	else

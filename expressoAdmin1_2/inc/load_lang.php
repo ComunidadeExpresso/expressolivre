@@ -14,6 +14,7 @@
 	{
 		foreach($_SESSION['phpgw_info']['expressoAdmin']['lang'] as $message_id=>$content)
 		{
+            $message_id = str_replace('-', '_', $message_id);
 			$lang[str_replace(" ", "_", (strtolower($message_id)) )] = $content;
 		}
 	}
