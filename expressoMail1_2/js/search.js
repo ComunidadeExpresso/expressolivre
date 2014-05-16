@@ -70,7 +70,7 @@
 				"From_value" : (data != "undefined" ? data : "")
 			}
 				
-			$(div).html(DataLayer.render("./templates/default/searchMails.ejs", args ));
+			$(div).html(DataLayer.render("../prototype/modules/mail/templates/searchMails.ejs", args ));
 			div.setAttribute( "style","overflow:hidden");
 			
 			this.modal = $(div).dialog(
