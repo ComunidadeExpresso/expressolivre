@@ -574,7 +574,7 @@ table.fc-border-separate {
 .fc-event-vert .fc-event-content {
 	position: relative;
 	z-index: 2;
-	width: 100%;
+	/*width: 100%;*/
 	overflow: hidden;
 	}
 	
@@ -647,3 +647,5 @@ table.fc-border-separate {
 	opacity:0;
 	filter:alpha(opacity=0); /* For IE8 and earlier */
 }
+
+.fc-event-inner.fc-event-skin img{float: left}
