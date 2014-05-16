@@ -239,7 +239,7 @@ function optionFinder(id)
 
 function delete_group(cn, gidnumber)
 {
-	if (confirm(get_lang('Do you really want delete the group') + ' ' + cn + " ??"))
+	if (confirm(get_lang('Do you really want delete the group') + ' ' + cn + " ?"))
 	{
 		var handler_delete_group = function(data)
 		{

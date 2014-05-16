@@ -1098,7 +1098,7 @@ Save current state close	expressoMail1_2	pt-br	Salvar estado atual fechar
 Local folders do not provide support for monitoring.	expressoMail1_2	pt-br	Pastas locais não fornece suporte para acompanhamento.
 Clear selection?	expressoMail1_2	pt-br	Limpar seleção?
 were selected.	expressoMail1_2	pt-br	foram selecionadas.
-All	expressoMail1_2	pt-br	Todas as
+All	expressoMail1_2	pt-br	Todas
 Were selected	expressoMail1_2	pt-br	Foram selecionadas
 Select all the	expressoMail1_2	pt-br	Selecionar todas as
 messages on this page were selected.	expressoMail1_2	pt-br	mensagens desta página foram selecionadas.
@@ -1149,4 +1149,4 @@ in	expressoMail1_2	pt-br	no
 Empty trash	expressoMail1_2	pt-br	Esvaziar lixeira
 Mailbox does not exist	expressoMail1_2	pt-br	Caixa de mail não existe
 The folder $folder_name$ was successfully removed	expressoMail1_2	pt-br	A pasta $folder_name$ foi removida com sucesso
-Create Event	expressoCalendar	pt-br	Criar Evento
+Create Event	expressoMail1_2	pt-br	Criar Evento

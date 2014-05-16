@@ -89,18 +89,18 @@ criation of institutional accounts	expressoAdmin1_2	pt-br	Criação de contas inst
 default password already registered	expressoAdmin1_2	pt-br	Senha padrão já registrada
 default password not registered	expressoAdmin1_2	pt-br	Senha padrão não registrada
 default password successful saved	expressoAdmin1_2	pt-br	Senha padrão salva com sucesso
-Delete computers	expressoAdmin1_2	pt-br	Deletar computadores
+Delete computers	expressoAdmin1_2	pt-br	Excluir computadores
 deleted user	expressoAdmin1_2	pt-br	Deletado usuário
-Delete email lists	expressoAdmin1_2	pt-br	Deletar listas de emails
+Delete email lists	expressoAdmin1_2	pt-br	Excluir listas de emails
 delete	expressoAdmin1_2	pt-br	Remover
-Delete Group	expressoAdmin1_2	pt-br	Deletar Grupo
-Delete groups	expressoAdmin1_2	pt-br	Deletar grupos
-Delete Organizations	expressoAdmin1_2	pt-br	Deletar organizações
-delete photo	expressoAdmin1_2	pt-br	Deletar foto
-Delete Sectors	expressoAdmin1_2	pt-br	Deletar setores
-Delete shared accounts	expressoAdmin1_2	pt-br	Deletar Contas Compartilhadas
+Delete Group	expressoAdmin1_2	pt-br	Excluir Grupo
+Delete groups	expressoAdmin1_2	pt-br	Excluir grupos
+Delete Organizations	expressoAdmin1_2	pt-br	Excluir organizações
+delete photo	expressoAdmin1_2	pt-br	Excluir foto
+Delete Sectors	expressoAdmin1_2	pt-br	Excluir setores
+Delete shared accounts	expressoAdmin1_2	pt-br	Excluir Contas Compartilhadas
 Delete user	expressoAdmin1_2	pt-br	Excluir Usuário
-Delete users	expressoAdmin1_2	pt-br	Deletar usuários
+Delete users	expressoAdmin1_2	pt-br	Excluir usuários
 desactive user	expressoAdmin1_2	pt-br	usuário inativo
 display name	expressoAdmin1_2	pt-br	Nome de exibição
 DESCRIPTION field contains characters not allowed	expressoAdmin1_2	pt-br	Campo DESCRIÇÃO contém caracteres não permitidos
@@ -110,11 +110,11 @@ Login interface not implemented (contact suport)	expressoAdmin1_2	pt-br	A interf
 do not show this email list	expressoAdmin1_2	pt-br	Ocultar esta lista de e-mail
 do not show this group	expressoAdmin1_2	pt-br	Ocultar este grupo
 do not show this sector	expressoAdmin1_2	pt-br	Ocultar este setor
-Do you really want delete the email list	expressoAdmin1_2	pt-br	Você realmente quer DELETAR o lista de e-mail
-Do you really want delete the group	expressoAdmin1_2	pt-br	Você realmente quer DELETAR o grupo
-Do you really want delete the user	expressoAdmin1_2	pt-br	Você realmente quer DELETAR o usuário
-do you really want delete this sector	expressoAdmin1_2	pt-br	Você realmente quer deletar este setor
-Do you really want delete this sector	expressoAdmin1_2	pt-br	Você realmente quer DELETAR este setor
+Do you really want delete the email list	expressoAdmin1_2	pt-br	Você deseja realmente excluir a lista de e-mail
+Do you really want delete the group	expressoAdmin1_2	pt-br	Você deseja realmente excluir o grupo
+Do you really want delete the user	expressoAdmin1_2	pt-br	Você deseja realmente excluir o usuário
+do you really want delete this sector	expressoAdmin1_2	pt-br	Você deseja realmente excluir este setor
+Do you really want delete this sector	expressoAdmin1_2	pt-br	Você deseja realmente excluir este setor
 Do you want to continue anyway	expressoAdmin1_2	pt-br	Você quer continuar assim mesmo
 drafts	expressoAdmin1_2	pt-br	Rascunhos
 edit and remove blocking sending email to shared accounts exception	expressoAdmin1_2	pt-br	Editar e remover exceção a bloqueio de envio de emails para contas compartilhadas
@@ -228,8 +228,8 @@ It is not allow select all users from the root organization	expressoAdmin1_2	pt-
 it was not possible to change users mailbox quota	expressoAdmin1_2	pt-br	Não foi possível alterar a cota da caixa postal do usuário
 it was not possible to clean the users mailbox	expressoAdmin1_2	pt-br	Não foi possível limpar a caixa postal do usuário
 it was not possible to clean the mailbox	expressoAdmin1_2	pt-br	Não foi possível limpar a caixa postal
-it was not possible to delete users mailbox	expressoAdmin1_2	pt-br	Não foi possível deletar a caixa postal do usuário
-it was not possible to delete mailbox	expressoAdmin1_2	pt-br	Não foi possível deletar a caixa postal
+it was not possible to delete users mailbox	expressoAdmin1_2	pt-br	Não foi possível excluir a caixa postal do usuário
+it was not possible to delete mailbox	expressoAdmin1_2	pt-br	Não foi possível excluir a caixa postal
 It was not possible create the group because the LDAP schemas are not update	expressoAdmin1_2	pt-br	Não foi possível criar o grupo poruqe os esquemas do LDAP não estão atualizados
 Last name field contains characters not allowed	expressoAdmin1_2	pt-br	Campo último nome contém caracteres não permitidos
 Last name field is empty	expressoAdmin1_2	pt-br	Campo último nome está vazio
@@ -289,10 +289,10 @@ organization	expressoAdmin1_2	pt-br	Organização
 Organizations	expressoAdmin1_2	pt-br	Organizações
 owners	expressoAdmin1_2	pt-br	Donos
 read messages from this shared account	expressoAdmin1_2	pt-br	ler as mensagens da conta compartilhada
-delete/move messages from this shared account	expressoAdmin1_2	pt-br	deletar/mover mas mensagens da conta compartilhada
+delete/move messages from this shared account	expressoAdmin1_2	pt-br	excluir/mover mas mensagens da conta compartilhada
 create/add messages in this shared account	expressoAdmin1_2	pt-br	criar/adicionar mensagens na conta compartilhada
 send message by this shared account	expressoAdmin1_2	pt-br	enviar mensagens pela conta compartilhada
-create or delete folders on this shared account	expressoAdmin1_2	pt-br	criar ou deletar pastas dentro da conta compartilhada
+create or delete folders on this shared account	expressoAdmin1_2	pt-br	criar ou excluir pastas dentro da conta compartilhada
 participants from the list can send email to this list	expressoAdmin1_2	pt-br	Participantes da lista podem enviar e-mail para a mesma
 password and re-Password are different	expressoAdmin1_2	pt-br	Senha e re-senha são diferentes
 Password expired	expressoAdmin1_2	pt-br	Senha expirada
@@ -310,7 +310,7 @@ removed user from group	expressoAdmin1_2	pt-br	Removido usuário do grupo
 removed user from list	expressoAdmin1_2	pt-br	Removido usuário da lista de e-mail
 Remove	expressoAdmin1_2	pt-br	Remover
 Remove exception	expressoAdmin1_2	pt-br	Remover exceção
-remove institutional accounts	expressoAdmin1_2	pt-br	Deletar contas institucionais
+remove institutional accounts	expressoAdmin1_2	pt-br	excluir contas institucionais
 remove owner	expressoAdmin1_2	pt-br	Remover dono
 Remove User	expressoAdmin1_2	pt-br	Remover Usuários
 Remove Users	expressoAdmin1_2	pt-br	Remover Usuários
@@ -319,7 +319,7 @@ Rename users login from	expressoAdmin1_2	pt-br	Renomear login do usuário de
 Re-Password	expressoAdmin1_2	pt-br	Re-Senha
 Removed BlockEmail For Institutional AcounteExeption	expressoAdmin1_2	pt-br	Removido exceção bloqueio de envio de email para conta institucional
 re-password field is empty	expressoAdmin1_2	pt-br	Campo re-senha está vazio
-re-password field is empty	expressoAdmin1_2	pt-br	Campo re-senha está vazio
+password and re-password are different	expressoAdmin1_2	pt-br	Campo senha e re-senha são diferentes
 return user password	expressoAdmin1_2	pt-br	Retornar senha do usuário
 rg	expressoAdmin1_2	pt-br	RG
 rguf	expressoAdmin1_2	pt-br	rgUF
@@ -479,7 +479,7 @@ create	expressoAdmin1_2	pt-br	Criar
 creation of shared accounts	expressoAdmin1_2	pt-br	Criação de contas compartilhadas
 add shared accounts	expressoAdmin1_2	pt-br	Adicionar contas compartilhadas
 edit shared accounts	expressoAdmin1_2	pt-br	Editar contas compartilhadas
-delete shared accounts	expressoAdmin1_2	pt-br	Deletar contas compartilhadas
+delete shared accounts	expressoAdmin1_2	pt-br	Excluir contas compartilhadas
 edit shared accounts acl	expressoAdmin1_2	pt-br	Editar ACL de contas compartilhadas
 edit shared accounts quote	expressoAdmin1_2	pt-br	Editar cota de contas compartilhadas
 empty shared accounts inbox	expressoAdmin1_2	pt-br	Esvaziar INBOX de contas compartilhadas
@@ -586,3 +586,4 @@ added application to group	expressoAdmin1_2	pt-br	aplicação adicionada ao grupo
 removed application from group	expressoAdmin1_2	pt-br	aplicação removida do grupo
 deleted group	expressoAdmin1_2	pt-br	grupo excluído
 modified user telephone	expressoAdmin1_2	pt-br	telefone do usuário alterado
+Manager successful saved	expressoAdmin1_2	pt-br	Gerente salvo com sucesso
