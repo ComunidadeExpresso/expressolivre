@@ -61,15 +61,14 @@
 	{
 		QuickSearchUser.closeWindow();
 		var ldap_id = preferences.expressoMail_ldap_identifier_recipient;
-		
 		if (openTab.type[currentTab] != 4){
-			new_message("new","null");
+            new_message("new","null");
 		}
 		
 		if(ldap_id){
-			draw_email_box(uid, $("#content_id_"+currentTab).find(".to").filter("input")); 
+			draw_email_box(uid, $("#content_id_"+currentTab).find(".to.email-text"));
 		}else{
-			draw_email_box("\""+cn+"\" <"+mail+">", $("#content_id_"+currentTab).find(".to").filter("input")); 
+			draw_email_box("\""+cn+"\" <"+mail+">", $("#content_id_"+currentTab).find(".to.email-text"));
 		}
 	}
 
