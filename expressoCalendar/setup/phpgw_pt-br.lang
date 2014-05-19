@@ -149,13 +149,6 @@ Wed	expressoCalendar	pt-br	Qua
 Thu	expressoCalendar	pt-br	Qui
 Fri	expressoCalendar	pt-br	Sex
 Sat	expressoCalendar	pt-br	Sab
-S	expressoCalendar	pt-br	D
-M	expressoCalendar	pt-br	S
-T	expressoCalendar	pt-br	T
-W	expressoCalendar	pt-br	Q
-T	expressoCalendar	pt-br	Q
-F	expressoCalendar	pt-br	S
-S	expressoCalendar	pt-br	S
 time	expressoCalendar	pt-br	hora
 day	expressoCalendar	pt-br	dia
 minute	expressoCalendar	pt-br	minuto
@@ -476,3 +469,10 @@ Before each event	expressoCalendar	pt-br	Antes de cada acontecimento
 Activity Details	expressoCalendar	pt-br	Detalhes da Atividade
 Use alarms standards	expressoCalendar	pt-br	Use padrões de alarmes
 Scheduled for [startDate] task was modified.	expressoCalendar	pt-br	Agendada para [startDate] tarefa foi modificada.
+SundayShort	expressoCalendar	pt-br	D
+MondayShort	expressoCalendar	pt-br	S
+TuesdayShort	expressoCalendar	pt-br	T
+WednesdayShort	expressoCalendar	pt-br	Q
+ThursdayShort	expressoCalendar	pt-br	Q
+FridayShort	expressoCalendar	pt-br	S
+SaturdayShort	expressoCalendar	pt-br	S
