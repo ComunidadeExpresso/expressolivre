@@ -5155,25 +5155,10 @@ function decodeCreateSchedulable(type, ID){
 function import_implements_calendar(){
 
     if(typeof(Encoder) == "undefined"){
-        /*
-         * Deve-se centralizar as informações do usuário logado afim de não incluir
-         * arquivos de modulos distintos para este fim.
-         */
 
-        //$.ajax({ url: "../expressoCalendar/index.php", async: false});
-        //$.ajax({url: "../prototype/modules/calendar/js/calendar.date.js", async: false, beforeSend: function( xhr ) { xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        $.ajax({url: "../prototype/modules/calendar/js/load.js", async: false, beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        $.ajax({url: "../prototype/modules/calendar/js/map.disponibility.js", async: false, beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        $.ajax({url: "../prototype/modules/calendar/js/helpers.js", async: false, beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        $.ajax({url: "../prototype/modules/calendar/js/task.helpers.js", async: false, beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        //$.ajax({ url: "../prototype/modules/calendar/js/timezone.js", async: false});
-        //$.ajax({ url: "../prototype/modules/calendar/js/calendar.codecs.js", async: false});
-        $.ajax({url: "../prototype/plugins/encoder/encoder.js", async: false, beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        $.ajax({url: "../prototype/plugins/jquery.spinner/jquery.spinner.min.js", async: false, beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-        //$.ajax({url: "../prototype/plugins/dateFormat/dateFormat.js", async: false, beforeSend: function( xhr ) { xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
+        var lang =  !!User.me.lang ? User.me.lang : 'pt_BR';
 
-        $.ajax({url: "../prototype/plugins/fullcalendar/fullcalendar.js", async: false , beforeSend: function( xhr ) {xhr.overrideMimeType('text/javascript; charset=ISO-8859-1')}});
-
+        $.ajax({url: "../prototype/modules/calendar/scripts_import_mail.php?lang="+lang, async: false });
 
         DataLayer.dispatchPath = "../prototype/";
     }
