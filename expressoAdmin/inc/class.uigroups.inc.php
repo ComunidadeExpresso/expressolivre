@@ -125,6 +125,8 @@
 
 				if( count($groups_info) )
 				{
+					$tr_color = "";
+
 					foreach($groups_info as $group)
 					{
 						$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
@@ -284,8 +286,12 @@
 			$p->set_block('create_group','list','list');
 
 			// Obtem combo das organizações e seleciona a org do grupo.
+			$combo_manager_org = "";
 			foreach ($manager_contexts as $index=>$context)
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context, trim(strtolower($group_info['context'])));
+			}
+
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], trim(strtolower($group_info['context'])));
 
 			// Usuarios do grupo.
@@ -307,17 +313,21 @@
 				}
 				natcasesort($array_users);
 				
+				$users 	= "";
+				$unknow	= "";
+
 				foreach ($array_users as $uidnumber=>$cn)
 				{
 					++$user_count;
+					
 					if ($array_users_type[$uidnumber] == 'u')
 					{
 						$users .= "<option value=" . $uidnumber . ">" . utf8_decode($cn) . " (" . $array_users_uid[$uidnumber] . ")</option>";
 					}
-/*					else
+					else
 					{
 						$unknow .= "<option value=-1>" . utf8_decode($cn) . " (Corrigir manualmente)</option>";
-					}*/
+					}					
 				}
 				
 				$opt_tmp_users  = '<option  value="-1" disabled>-----------------------------&nbsp;&nbsp;&nbsp;&nbsp;'.lang('users').'&nbsp;&nbsp;&nbsp;&nbsp;---------------------------- </option>'."\n";
@@ -357,10 +367,10 @@
 				'email'						=> $group_info['email'],
 				'description'				=> $group_info['description'],
 				'apps'						=> $apps,
-				'use_attrs_samba_checked'	=> $group_info['sambaGroup'] ? 'CHECKED' : '',
-				'disabled_samba'			=> $group_info['sambaGroup'] ? '' : 'disabled',
+				'use_attrs_samba_checked'	=> (isset($group_info['sambaGroup']) ? 'CHECKED' : ''),
+				'disabled_samba'			=> (isset($group_info['sambaGroup']) ? '' : 'disabled'),
 				'disable_email_groups'		=> $this->functions->check_acl($manager_lid,'edit_email_groups') ? '' : 'disabled',
-				'sambadomainname_options'	=> $sambadomainname_options,
+				'sambadomainname_options'	=> (isset($sambadomainname_options)? $sambadomainname_options : "" ),
 				'phpgwaccountvisible_checked'	=> $group_info['phpgwaccountvisible'] == '-1' ? 'CHECKED' : '',
 				'back_url'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uigroups.list_groups'),
 				'combo_manager_org'			=> $combo_manager_org,

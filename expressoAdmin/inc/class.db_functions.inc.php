@@ -232,7 +232,9 @@ class db_functions
 	
 	function add_user2group($gidnumber, $uidnumber)
 	{
-		$query = "SELECT acl_location FROM phpgw_acl WHERE acl_appname = 'phpgw_group' AND acl_location = '" . $gidnumber . "' AND acl_account = '" . $uidnumber . "'";
+		$query 			= "SELECT acl_location FROM phpgw_acl WHERE acl_appname = 'phpgw_group' AND acl_location = '" . $gidnumber . "' AND acl_account = '" . $uidnumber . "'";
+		$user_in_group	= array();
+
 		if (!$this->db->query($query))
 		{
 			$result['status'] = false;
@@ -240,12 +242,15 @@ class db_functions
 			return $result;
 		}
 		while($this->db->next_record())
+		{
 			$user_in_group[] = $this->db->row();
+		}
 		
-		if (!isset($user_in_group) || count($user_in_group) == 0)
+		if( count($user_in_group) == 0 )
 		{
 			$sql = "INSERT INTO phpgw_acl (acl_appname, acl_location, acl_account, acl_rights) "
 			. "VALUES('phpgw_group','" . $gidnumber . "','" . $uidnumber . "','1')";
+			
 			if (!$this->db->query($sql))
 			{
 				$result['status'] = false;
@@ -253,7 +258,9 @@ class db_functions
 				return $result;
 			}
 		}
+		
 		$result['status'] = true;
+		
 		return $result;
 	}
 
@@ -339,12 +346,16 @@ class db_functions
 	function add_id2apps($id, $apps)
 	{
 		$result['status'] = true;
+
 		if ($apps)
 		{
+			$user_app = array();
+
 			foreach($apps as $app => $value)
 			{
 				$query = "SELECT * FROM phpgw_acl WHERE acl_appname = '".$app."' AND acl_location = 'run' AND acl_account = '" . $id . "'";
-				if (!$this->db->query($query))
+		
+				if( !$this->db->query($query) )
 				{
 					$result['status'] = false;
 					$result['msg'] = lang('Error on function') . " db_functions->add_id2apps.\n" . lang('Server returns') . ': ' . pg_last_error();
@@ -354,11 +365,11 @@ class db_functions
 				while($this->db->next_record())
 					$user_app[] = $this->db->row();
 					
-				if (isset($user_app) && count($user_app) == 0)
+				if( count($user_app) == 0 ) 
 				{
 					$sql = "INSERT INTO phpgw_acl (acl_appname, acl_location, acl_account, acl_rights) "
 					. "VALUES('".$app."','run','" . $id . "','1')";
-						
+
 					if (!$this->db->query($sql))
 					{
 						$result['status'] = false;

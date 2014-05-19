@@ -161,12 +161,12 @@
 			$new_values['members'] = $array_tmp;
 						
 			$old_values = $this->get_info($new_values['gidnumber'], $new_values['manager_context']);
-			$diff = array_diff($new_values, $old_values);
+			$diff = @array_diff($new_values, $old_values);
 			
 			$dn = 'cn=' . $old_values['cn'] . ',' . $old_values['context'];			
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// RENAME
-			if ($diff['context'] || $diff['cn'])
+			if ( isset($diff['context']) || isset($diff['cn']) )
 			{
 				if ( (strcasecmp($old_values['cn'], $new_values['cn']) != 0) || (strcasecmp($old_values['context'], $new_values['context']) != 0) )
 				{
@@ -272,12 +272,12 @@
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// ADD ATTRIBUTES
 			$ldap_add = array();
-			if (($new_values['phpgwaccountvisible'] == 'on') && ($old_values['phpgwaccountvisible'] != '-1'))
+			if ((isset($new_values['phpgwaccountvisible']) && $new_values['phpgwaccountvisible'] == 'on') && (isset($old_values['phpgwaccountvisible']) && $old_values['phpgwaccountvisible'] != '-1'))
 			{
 				$ldap_add['phpgwaccountvisible'] = '-1';
 				$this->db_functions->write_log("added attribute phpgwAccountVisible to group",$dn);
 			}
-			if ((($new_values['email']) && (!$old_values['email'])) &&
+			if ((isset($new_values['email']) && (!isset($old_values['email']))) &&
 				$this->functions->check_acl($_SESSION['phpgw_session']['session_lid'],'edit_email_groups'))
 			{
 				$ldap_add['mail'] = $new_values['email'];
@@ -306,12 +306,12 @@
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// REMOVE ATTRIBUTES
 			$ldap_remove = array();
-			if (($new_values['phpgwaccountvisible'] != 'on') && ($old_values['phpgwaccountvisible'] == '-1'))
+			if ((isset($new_values['phpgwaccountvisible']) && $new_values['phpgwaccountvisible'] != 'on') && (isset($old_values['phpgwaccountvisible']) && $old_values['phpgwaccountvisible'] == '-1'))
 			{
 				$ldap_remove['phpgwaccountvisible'] = array();
 				$this->db_functions->write_log("removed attribute phpgwAccountVisible from group",$dn);
 			}
-			if (((!$new_values['email']) && ($old_values['email'])) &&
+			if (((!isset($new_values['email'])) && (isset($old_values['email']))) &&
 				$this->functions->check_acl($_SESSION['phpgw_session']['session_lid'],'edit_email_groups'))
 			{
 				$ldap_remove['mail'] = array();
@@ -377,14 +377,16 @@
 			// APPS
 			$new_values2 = array();
 			$old_values2 = array();
-			if (count($new_values['apps'])>0)
+			
+			if( count($new_values['apps']) > 0 )
 			{
 				foreach ($new_values['apps'] as $app=>$tmp)
 				{
 					$new_values2[] = $app;
 				}
 			}
-			if (count($old_values['apps'])>0)
+
+			if( count($old_values['apps']) > 0 )
 			{
 				foreach ($old_values['apps'] as $app=>$tmp)
 				{
@@ -395,28 +397,36 @@
 			$add_apps    = array_flip(array_diff($new_values2, $old_values2));
 			$remove_apps = array_flip(array_diff($old_values2, $new_values2));
 
-			if (count($add_apps)>0)
+			if( count($add_apps) > 0 )
 			{
 				$this->db_functions->add_id2apps($new_values['gidnumber'], $add_apps);
 				
-				foreach ($add_apps as $app => $index)
+				foreach( $add_apps as $app => $index )
+				{
 					$this->db_functions->write_log("added application to group","$app: $dn");
+				}
 			}
 			
-			if (count($remove_apps)>0)
+			if( count($remove_apps) > 0 )
 			{
 				//Verifica se o gerente tem acesso a aplicação antes de remove-la do usuario.
 				$manager_apps = $this->db_functions->get_apps($_SESSION['phpgw_session']['session_lid']);
-					
-				foreach ($remove_apps as $app => $app_index)
+				$remove_apps2 = array();
+
+				foreach( $remove_apps as $app => $app_index )
 				{
-					if ($manager_apps[$app] == 'run')
+					if( isset($manager_apps[$app]) && $manager_apps[$app] == 'run')
+					{
 						$remove_apps2[$app] = $app_index;
+					}
 				}
+				
 				$this->db_functions->remove_id2apps($new_values['gidnumber'], $remove_apps2);
-					
-				foreach ($remove_apps2 as $app => $access)
+				
+				foreach( $remove_apps2 as $app => $access )
+				{
 					$this->db_functions->write_log("removed application from group","$app: $dn");
+				}
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			

@@ -190,19 +190,22 @@
 			$p->set_block('create_maillist','body','body');
 
 			// Obtem combos das organizações.
-			foreach ($manager_contexts as $index=>$context)
+			$combo_manager_org = "";
+			foreach( $manager_contexts as $index => $context )
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context);
+			}
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], '', true, true, true);			
 			
 			// Seta variaveis utilizadas pelo tpl.
 			$var = Array(
 				'color_bg1'					=> "#E8F0F0",
 				'color_bg2'					=> "#D3DCE3",
-				'type'						=> 'create_maillist',
+				'type'						=> "create_maillist",
 				'ldap_context'				=> $GLOBALS['phpgw_info']['server']['ldap_context'],
-				'uid'						=> 'lista-',
-				'accountStatus_checked'		=> 'CHECKED',
-				'restrictionsOnEmailLists'	=> $this->current_config['expressoAdmin_restrictionsOnEmailLists'],
+				'uid'						=> "lista-",
+				'accountStatus_checked'		=> "CHECKED",
+				'restrictionsOnEmailLists'	=> (isset($this->current_config['expressoAdmin_restrictionsOnEmailLists'])?$this->current_config['expressoAdmin_restrictionsOnEmailLists']:""),
 				'back_url'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uimaillists.list_maillists'),
 				'combo_manager_org'			=> $combo_manager_org,
 				'combo_all_orgs'			=> $combo_all_orgs,

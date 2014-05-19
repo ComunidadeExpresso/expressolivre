@@ -827,35 +827,38 @@
 				// 1 coluna 
 				if (($i +1) % 3 == 1)
 				{
-					$checked = is_array($user_applications) && $user_applications[$app] ? 'CHECKED' : '';
-					$app_col1 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
+					$checked	= ((is_array($user_applications) && isset($user_applications[$app])) ? 'CHECKED' : '');
+					$app_col1	= sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
 					$data['title'],$app,$checked, $disabled);
-					if ($i == ($total_apps-1))
+					if( $i == ($total_apps-1) )
+					{
 						$applications_list .= sprintf('<tr bgcolor="%s">%s</tr>','#DDDDDD', $app_col1);
+					}
 				}
 				
 				// 2 coluna
 				if (($i +1) % 3 == 2)
 				{
-					$checked = is_array($user_applications) && $user_applications[$app] ? 'CHECKED' : '';
-					$app_col2 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
+					$checked	= ((is_array($user_applications) && isset($user_applications[$app])) ? 'CHECKED' : '');
+					$app_col2	= sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
 					$data['title'],$app,$checked, $disabled);
-					
-					if ($i == ($total_apps-1))
+					if( $i == ($total_apps-1) )
+					{
 						$applications_list .= sprintf('<tr bgcolor="%s">%s%s</tr>','#DDDDDD', $app_col1,$app_col2);
+					}
 				}
 				// 3 coluna 
 				if (($i +1) % 3 == 0)
 				{
-					$checked = is_array($user_applications) && $user_applications[$app] ? 'CHECKED' : '';
+					$checked = ((is_array($user_applications) && isset($user_applications[$app])) ? 'CHECKED' : '');
 					$app_col3 = sprintf("<td>%s</td><td width='10'><input type='checkbox' name='apps[%s]' value='1' %s %s></td>\n",
 					$data['title'],$app,$checked, $disabled);
-					
 					// Cria nova linha
 					$applications_list .= sprintf('<tr bgcolor="%s">%s%s%s</tr>','#DDDDDD', $app_col1, $app_col2, $app_col3);					
 				}
                 ++$i;
 			}
+			
 			return $applications_list;
 		}
 		

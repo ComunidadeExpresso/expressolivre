@@ -1884,8 +1884,8 @@ class ldap_functions
 				$result['cn']					= $entry[0]['cn'][0];
 				$result['description']			= $entry[0]['description'][0];
 				$result['gidnumber']			= $entry[0]['gidnumber'][0];
-				$result['phpgwaccountvisible']	= isset($entry[0]['phpgwaccountvisible']) ? $entry[0]['phpgwaccountvisible'][0] : '';
-				$result['email']				= $entry[0]['mail'][0];
+				$result['phpgwaccountvisible']	= ( isset($entry[0]['phpgwaccountvisible'] ) ? $entry[0]['phpgwaccountvisible'][0] : '');
+				$result['email']				= ( isset($entry[0]['mail'] )?$entry[0]['mail'][0]:"" );
 		
 				//MemberUid
 				for ($i=0; $i<$entry[0]['memberuid']['count']; ++$i)
