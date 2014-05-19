@@ -149,13 +149,6 @@ Wed	expressoCalendar	es-es	Mié
 Thu	expressoCalendar	es-es	Jue
 Fri	expressoCalendar	es-es	Vie
 Sat	expressoCalendar	es-es	Sáb
-S	expressoCalendar	es-es	D
-M	expressoCalendar	es-es	L
-T	expressoCalendar	es-es	M
-W	expressoCalendar	es-es	M
-T	expressoCalendar	es-es	J
-F	expressoCalendar	es-es	V
-S	expressoCalendar	es-es	S
 time	expressoCalendar	es-es	tiempo
 day	expressoCalendar	es-es	dia
 minute	expressoCalendar	es-es	minuto
@@ -459,3 +452,10 @@ Today	expressoCalendar	es-es	Hoy
 Add reminder	expressoCalendar	es-es	Añadir recordatorio
 Is Spam	expressoCalendar	es-es	Spam
 minutes	expressoCalendar	es-es	minutos
+SundayShort	expressoCalendar	es-es	D
+MondayShort	expressoCalendar	es-es	L
+TuesdayShort	expressoCalendar	es-es	M
+WednesdayShort	expressoCalendar	es-es	M
+ThursdayShort	expressoCalendar	es-es	J
+FridayShort	expressoCalendar	es-es	v
+SaturdayShort	expressoCalendar	es-es	S
