@@ -165,7 +165,7 @@ class db_functions
 		
 		$current_config = $_SESSION['phpgw_info']['expresso']['expressoAdmin'];
 		
-		if( $current_config['expressoAdmin_nextid_db_host'] != '' )
+		if( isset($current_config['expressoAdmin_nextid_db_host']) && $current_config['expressoAdmin_nextid_db_host'] != '' )
 		{
 			$this->db->disconnect();
 			$host = $current_config['expressoAdmin_nextid_db_host'];

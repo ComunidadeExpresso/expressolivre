@@ -105,7 +105,7 @@
 					$user_info['phpgwLastPasswdChange'] = '0';
 				
 				// Gerenciar senhas RFC2617
-				if ($this->current_config['expressoAdmin_userPasswordRFC2617'] == 'true')
+				if ( isset($this->current_config['expressoAdmin_userPasswordRFC2617']) && $this->current_config['expressoAdmin_userPasswordRFC2617'] == 'true' )
 				{
 					$realm		= $this->current_config['expressoAdmin_realm_userPasswordRFC2617'];
 					$uid		= $user_info['uid'];
@@ -304,27 +304,18 @@
 			//retira caracteres que não são números.
 			$new_values['corporative_information_cpf'] = preg_replace('/[^0-9]/', '', $new_values['corporative_information_cpf']);
 
-			$diff = array_diff($new_values, $old_values);
-			
-			/*
-			echo '<pre>';
-			echo '--- OLD: ';
-			print_r($old_values);
-			echo '<br>--- NEW: ';
-			print_r($new_values);
-			echo '<br>';
-			exit;
-			*/
+			$diff = @array_diff($new_values, $old_values);
 
 			//Verifica quota de disco, como estou alterando, não preciso checar quota de usuários. 
-                        if($this->db_functions->use_cota_control()) {            
-                                $setor = $this->functions->get_info($new_values['context']); 
-                                if (!$this->functions->existe_quota_disco($setor[0],$new_values['mailquota'])) { 
-                                        $return['status'] = false; 
-                                        $return['msg'] = "Quota em disco excedida...";//TODO colocar valor de acordo com tabela de traduções. 
-                                        return $return;                          
-                                } 
-                        } 
+            if( $this->db_functions->use_cota_control() )
+            {            
+                    $setor = $this->functions->get_info($new_values['context']); 
+                    if (!$this->functions->existe_quota_disco($setor[0],$new_values['mailquota'])) { 
+                            $return['status'] = false; 
+                            $return['msg'] = "Quota em disco excedida...";//TODO colocar valor de acordo com tabela de traduções. 
+                            return $return;                          
+                    } 
+            } 
  		 
 			$manager_account_lid = $_SESSION['phpgw_session']['session_lid'];
 			if ((!$this->functions->check_acl($manager_account_lid,'edit_users')) &&
@@ -344,7 +335,7 @@
 			{
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// Change user organization
-				if ($diff['context'])
+				if( isset($diff['context']) )
 				{
 					if (strcasecmp($old_values['context'], $new_values['context']) != 0)
 					{
@@ -366,19 +357,19 @@
 			
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// REPLACE some attributes
-				if ($diff['givenname'])
+				if( isset($diff['givenname']) )
 				{
 					$ldap_mod_replace['givenname'] = $new_values['givenname'];
 					$ldap_mod_replace['cn'] = $new_values['givenname'] . ' ' . $new_values['sn'];
 					$this->db_functions->write_log("modified first name", "$dn: " . $old_values['givenname'] . "->" . $new_values['givenname']);
 				}
-				if ($diff['sn'])
+				if( isset($diff['sn']) )
 				{
 					$ldap_mod_replace['sn'] = $new_values['sn'];
 					$ldap_mod_replace['cn'] = $new_values['givenname'] . ' ' . $new_values['sn'];
 					$this->db_functions->write_log("modified last name", "$dn: " . $old_values['sn'] . "->" . $new_values['sn']);
 				}
-				if ($diff['mail'])
+				if( isset($diff['mail']) )
 				{
 					$ldap_mod_replace['mail'] = $new_values['mail'];
 					$this->ldap_functions->replace_user2maillists($new_values['mail'], $old_values['mail']);
@@ -387,7 +378,7 @@
 				}
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// Passwd Expired - Com atributo
-				if (($old_values['passwd_expired'] != 0) && ($new_values['passwd_expired'] == '1'))
+				if( ($old_values['passwd_expired'] != 0) && ($new_values['passwd_expired'] == '1') )
 				{
 					$ldap_mod_replace['phpgwlastpasswdchange'] = '0';
 					$this->db_functions->write_log("Expired user password","$dn");
@@ -397,7 +388,7 @@
 			if ( ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users')) || 
 			     ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'change_users_password')) )
 			{
-				if ($diff['password1'])
+				if( isset($diff['password1']) )
 				{
 					$ldap_mod_replace['userPassword'] = '{md5}' . base64_encode(pack("H*",md5($new_values['password1'])));
 					
@@ -429,19 +420,19 @@
 			if ( ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users')) || 
 			     ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users_phonenumber')) )
 			{
-				if (($diff['telephonenumber']) && ($old_values['telephonenumber'] != ''))
+				if ( isset($diff['telephonenumber']) && (isset($old_values['telephonenumber']) && $old_values['telephonenumber'] != ''))
 				{
 				        $ldap_mod_replace['telephonenumber'] = $new_values['telephonenumber'];
 				        $this->db_functions->write_log('modified user telephonenumber', $dn . ': ' . $old_values['telephonenumber'] . '->' . $new_values['telephonenumber']);
 	                                $ldap_mod_replace['telephonenumber'] = $new_values['telephonenumber']; 
 	                                $this->db_functions->write_log('modified user telephonenumber', $dn . ': ' . $old_values['telephonenumber'] . '->' . $new_values['telephonenumber']); 
 				}
-				else if (($old_values['telephonenumber'] != '') && ($new_values['telephonenumber'] == ''))
+				else if ((isset($old_values['telephonenumber']) && $old_values['telephonenumber'] != '') && (isset($new_values['telephonenumber']) && $new_values['telephonenumber'] == ''))
 				{
 				        $ldap_remove['telephonenumber'] = array();
 				        $this->db_functions->write_log("removed user phone",$dn);
 				}
-				else if (($old_values['telephonenumber'] == '') && ($new_values['telephonenumber'] != ''))
+				else if ((isset($old_values['telephonenumber']) && $old_values['telephonenumber'] == '') && (isset($new_values['telephonenumber']) && $new_values['telephonenumber'] != ''))
 				{
 				        $ldap_add['telephonenumber'] = $new_values['telephonenumber'];
 				        $this->db_functions->write_log("added user phone",$dn);
@@ -461,7 +452,7 @@
 					{
 						$ldap_atribute = str_replace("corporative_information_", "", $atribute);
 						// REPLACE CORPORATIVE ATTRIBUTES
-						if (($diff[$atribute]) && ($old_values[$atribute] != ''))
+						if ( isset($diff[$atribute]) && ($old_values[$atribute] != '') )
 						{
 							$ldap_atribute = str_replace("corporative_information_", "", $atribute);
 							$ldap_mod_replace[$ldap_atribute] = utf8_encode($new_values[$atribute]);
@@ -488,7 +479,7 @@
 			     ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_sambausers_attributes')) )
 			{
 				
-				if ($diff['gidnumber'])
+				if( isset($diff['gidnumber']) )
 				{
 					$ldap_mod_replace['gidnumber'] = $new_values['gidnumber'];
 					$this->db_functions->write_log('modified user primary group', $dn . ': ' . $old_values['gidnumber'] . '->' . $new_values['gidnumber']);
@@ -534,7 +525,7 @@
 			// PHOTO
 			if ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users_picture'))
 			{
-				if ($new_values['delete_photo'])
+				if( isset($new_values['delete_photo']) )
 				{
 					$this->ldap_functions->ldap_remove_photo($dn);
 					$this->db_functions->write_log("removed user photo",$dn);
@@ -565,10 +556,10 @@
 			}
 			
 			// Verifica o acesso ára adicionar ou remover tais atributos
-			if ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users'))
+			if( $this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users') )
 			{
 				// Passwd Expired - Sem atributo
-				if (($old_values['passwd_expired'] == '') && ($new_values['passwd_expired'] == '1'))
+				if((isset($old_values['passwd_expired']) && $old_values['passwd_expired'] == '') && (isset($new_values['passwd_expired']) && $new_values['passwd_expired'] == '1'))
 				{
 					$ldap_add['phpgwlastpasswdchange'] = '0';
 					$this->db_functions->write_log("expired user password",$dn);
@@ -580,12 +571,12 @@
 				}
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// PREF_CHANGEPASSWORD
-				if (($old_values['changepassword'] == '') && ($new_values['changepassword'] != ''))
+				if ((isset($old_values['changepassword']) && $old_values['changepassword'] == '') && (isset($new_values['changepassword']) && $new_values['changepassword'] != ''))
 				{
 					$this->db_functions->add_pref_changepassword($new_values['uidnumber']);
 					$this->db_functions->write_log("turn on changepassword",$dn);
 				}
-				if (($old_values['changepassword'] != '') && ($new_values['changepassword'] == ''))
+				if ((isset($old_values['changepassword']) && $old_values['changepassword'] != '') && (isset($new_values['changepassword']) && $new_values['changepassword'] == ''))
 				{
 					$this->db_functions->remove_pref_changepassword($new_values['uidnumber']);
 					$this->db_functions->write_log("turn of changepassword",$dn);
@@ -603,19 +594,19 @@
 					$this->db_functions->write_log("turn off user account",$dn);
 				}
 
-				if ($new_values['phpgwaccountexpired'] == '1') /////////////////////////
+				if (isset($new_values['phpgwaccountexpired']) && $new_values['phpgwaccountexpired'] == '1') /////////////////////////
 				{
 					$this->db_functions->write_log("Reactivated blocked user by downtime",'',$dn,'','');
 					$this->db_functions->reactivate_inactive_user($old_values['uidnumber']);
 				}
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// ACCOUNT VISIBLE
-				if (($old_values['phpgwaccountvisible'] == '') && ($new_values['phpgwaccountvisible'] != ''))
+				if ((isset($old_values['phpgwaccountvisible']) && $old_values['phpgwaccountvisible'] == '') && (isset($new_values['phpgwaccountvisible']) && $new_values['phpgwaccountvisible'] != ''))
 				{
 					$ldap_add['phpgwaccountvisible'] = '-1';
 					$this->db_functions->write_log("turn on phpgwaccountvisible",$dn);
 				}
-				if (($old_values['phpgwaccountvisible'] != '') && ($new_values['phpgwaccountvisible'] == ''))
+				if ((isset($old_values['phpgwaccountvisible']) && $old_values['phpgwaccountvisible'] != '') && (isset($new_values['phpgwaccountvisible']) && $new_values['phpgwaccountvisible'] == ''))
 				{
 					$ldap_remove['phpgwaccountvisible'] = array();
 					$this->db_functions->write_log("turn off phpgwaccountvisible",$dn);
@@ -690,12 +681,12 @@
 				
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// Delivery Mode
-				if (($old_values['deliverymode'] == '') && ($new_values['deliverymode'] != ''))
+				if ((isset($old_values['deliverymode']) && $old_values['deliverymode'] == '') && (isset($new_values['deliverymode']) && $new_values['deliverymode'] != ''))
 				{
 					$ldap_add['deliverymode'] = 'forwardOnly';
 					$this->db_functions->write_log("added forwardOnly", $dn);
 				}
-				if (($old_values['deliverymode'] != '') && ($new_values['deliverymode'] == ''))
+				if ((isset($old_values['deliverymode']) && $old_values['deliverymode'] != '') && (isset($new_values['deliverymode']) && $new_values['deliverymode'] == ''))
 				{
 					$ldap_remove['deliverymode'] = array();
 					$this->db_functions->write_log("removed forwardOnly", $dn);
@@ -821,7 +812,7 @@
 			}
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// LDAP_MOD_REPLACE
-			if (count($ldap_mod_replace))
+			if( isset($ldap_mod_replace) && count($ldap_mod_replace) )
 			{
 				$result = $this->ldap_functions->replace_user_attributes($dn, $ldap_mod_replace);
 				if (!$result['status'])
@@ -833,7 +824,7 @@
 			
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// LDAP_MOD_ADD
-			if (count($ldap_add))
+			if( isset($ldap_add) && count($ldap_add))
 			{
 				$result = $this->ldap_functions->add_user_attributes($dn, $ldap_add);
 				if (!$result['status'])
@@ -845,7 +836,7 @@
 			
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// LDAP_MOD_REMOVE			
-			if (count($ldap_remove))
+			if( isset($ldap_remove) && count($ldap_remove) )
 			{
 				$result = $this->ldap_functions->remove_user_attributes($dn, $ldap_remove);
 				if (!$result['status'])
@@ -855,19 +846,22 @@
 				}
 			}
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-			if ($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users')) 
+			if($this->functions->check_acl($_SESSION['phpgw_session']['session_lid'], 'edit_users')) 
 			{
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				// MAILLISTS
-				if (!$new_values['maillists'])
+				if( !isset($new_values['maillists']) )
+				{
 					$new_values['maillists'] = array();
-				if (!$old_values['maillists'])
+				}
+				
+				if( !isset($old_values['maillists']) )
+				{
 					$old_values['maillists'] = array();
+				}
 
-				$add_maillists = array_diff($new_values['maillists'], $old_values['maillists']);
-				$remove_maillists = array_diff($old_values['maillists'], $new_values['maillists']);
+				$add_maillists 		= array_diff($new_values['maillists'], $old_values['maillists']);
+				$remove_maillists 	= array_diff($old_values['maillists'], $new_values['maillists']);
 				
 				if (count($add_maillists)>0)
 				{
@@ -891,14 +885,14 @@
 				// APPS
 				$new_values2 = array();
 				$old_values2 = array();
-				if (count($new_values['apps'])>0)
+				if( isset($new_values['apps']) && count($new_values['apps']) > 0 )
 				{
 					foreach ($new_values['apps'] as $app=>$tmp)
 					{
 						$new_values2[] = $app;
 					}
 				}
-				if (count($old_values['apps'])>0)
+				if( isset($old_values['apps']) && count($old_values['apps']) > 0 )
 				{
 					foreach ($old_values['apps'] as $app=>$tmp)
 					{

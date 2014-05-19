@@ -195,37 +195,40 @@
 				if ($this->functions->check_acl($account_lid,'rename_users'))
 					$can_rename = True;
 
-				while (list($null,$account) = each($account_info))
+				if( is_array($account_info) )
 				{
-					$this->nextmatchs->template_alternate_row_color($p);
-
-					$var = array(
-						'row_loginid'	=> $account['account_lid'],
-						'row_cn'		=> $account['account_cn'],
-						'row_mail'		=> (!$account['account_mail']?'<font color=red>Sem E-mail</font>':$account['account_mail'])
-					);
-					$p->set_var($var);
-
-					if ($can_edit)
-						$p->set_var('row_edit',$this->row_action('edit','user',$account['account_id']));
-					elseif ($can_view)
-						$p->set_var('row_edit',$this->row_action('view','user',$account['account_id']));
-					else
-						$p->set_var('row_edit','&nbsp;');
-
-					if ($can_rename)
-						$p->set_var('row_rename',"<a href='#' onClick='javascript:rename_user(\"".$account['account_lid']."\",\"".$account['account_id']."\");'>".lang('to rename')."</a>");
-					else
-						$p->set_var('row_rename','&nbsp;');
-
-					if ($can_delete)
+					while (list($null,$account) = each($account_info))
 					{
-						$p->set_var('row_delete',"<a href='#' onClick='javascript:delete_user(\"".$account['account_lid']."\",\"".$account['account_id']."\");'>".lang('to delete')."</a>");
-					}
-					else
-						$p->set_var('row_delete','&nbsp;');
+						$this->nextmatchs->template_alternate_row_color($p);
 
-					$p->parse('rows','row',True);
+						$var = array(
+							'row_loginid'	=> $account['account_lid'],
+							'row_cn'		=> $account['account_cn'],
+							'row_mail'		=> (!$account['account_mail']?'<font color=red>Sem E-mail</font>':$account['account_mail'])
+						);
+						$p->set_var($var);
+
+						if ($can_edit)
+							$p->set_var('row_edit',$this->row_action('edit','user',$account['account_id']));
+						elseif ($can_view)
+							$p->set_var('row_edit',$this->row_action('view','user',$account['account_id']));
+						else
+							$p->set_var('row_edit','&nbsp;');
+
+						if ($can_rename)
+							$p->set_var('row_rename',"<a href='#' onClick='javascript:rename_user(\"".$account['account_lid']."\",\"".$account['account_id']."\");'>".lang('to rename')."</a>");
+						else
+							$p->set_var('row_rename','&nbsp;');
+
+						if ($can_delete)
+						{
+							$p->set_var('row_delete',"<a href='#' onClick='javascript:delete_user(\"".$account['account_lid']."\",\"".$account['account_id']."\");'>".lang('to delete')."</a>");
+						}
+						else
+							$p->set_var('row_delete','&nbsp;');
+
+						$p->parse('rows','row',True);
+					}
 				}
 			}
 			$p->pfp('out','body');
@@ -475,7 +478,7 @@
 			$GLOBALS['phpgw']->js->validate_file("jscode","users","expressoAdmin");
 			$GLOBALS['phpgw']->js->set_onload("get_available_groups(document.forms[0].context.value);");
 			$GLOBALS['phpgw']->js->set_onload("get_available_maillists(document.forms[0].context.value);");
-			$GLOBALS['phpgw']->js->set_onload("use_samba_attrs('".$user_info['sambaUser']."');");
+			$GLOBALS['phpgw']->js->set_onload("use_samba_attrs('".(isset($user_info['sambaUser'])?$user_info['sambaUser']:"")."');");
 			
 			// Seta header.
 			unset($GLOBALS['phpgw_info']['flags']['noheader']);
@@ -488,9 +491,14 @@
 			$t = CreateObject('phpgwapi.Template',PHPGW_APP_TPL);
 			$t->set_file(array("body" => "accounts_form.tpl"));
 			$t->set_block('body','main');
-							
+				
+			$combo_manager_org = "";							
+			
 			foreach ($contexts as $index=>$context)
+			{
 				$combo_manager_org .= $this->functions->get_organizations($context, $user_info['context']);
+			}
+
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], $user_info['context'], true, true, true);			
 
 			// GROUPS.
@@ -503,17 +511,25 @@
 				natcasesort($array_groups);
 				foreach ($array_groups as $gidnumber=>$cn)
 				{
-                                        //Não foi possível encontrar o grupo do usuário, portanto excluimos o usuário(não tem inserir no grupo do Ldap se não possui grupo)
+					$ea_select_user_groups_options = "";
+
+					//Não foi possível encontrar o grupo do usuário, portanto excluimos o usuário(não tem inserir no grupo do Ldap se não possui grupo)
 					if (is_null($user_info['groups_ldap'][$gidnumber]))
 					{
-                                                $this->db_functions->remove_user2group($gidnumber, $_GET['account_id']);
-						if ($alert_warning == '')
+						$this->db_functions->remove_user2group($gidnumber, $_GET['account_id']);
+						
+						if( $alert_warning == '' )
+						{
 							$alert_warning = lang("the expressoadmin corrected the following inconsistencies") . ":\\n";
+						}
+						
 						$alert_warning .= lang("user excluded because the group do not was found") . ":\\n$cn - gidnumber: $gidnumber.";
 					}
 					else                                               
 						$ea_select_user_groups_options .= "<option value=" . $gidnumber . ">" . $cn . "</option>";
 					
+					$ea_combo_primary_user_group_options = "";
+
 					if ($gidnumber == $user_info['gidnumber'])
 					{
 						$ea_combo_primary_user_group_options .= "<option value=" . $gidnumber . " selected>" . $cn . "</option>";
@@ -530,12 +546,6 @@
 				{
 					if (is_null($groups_db[$gidnumber]))
 					{
-						/*
-						$this->ldap_functions->remove_user2group($gidnumber, $user_info['uid']);
-						if ($alert_warning == '')
-							$alert_warning = "O expressoAdmin corrigiu as seguintes inconsistências:\\n";
-						$alert_warning .= "Removido atributo memberUid do usuário do grupo $cn.\\n";
-						*/
 						$ea_select_user_groups_options .= "<option value=" . $gidnumber . ">" . $cn . " [".lang('only on ldap')."]</option>";
 					}
 				}
@@ -556,13 +566,14 @@
 			}
 			
 			// APPS.
-			if ($disabled == 'disabled')
-				$apps = $this->functions->make_list_app($manager_account_lid, $user_info['apps'], 'disabled');
-			else
-				$apps = $this->functions->make_list_app($manager_account_lid, $user_info['apps']);
+			$apps = $this->functions->make_list_app($manager_account_lid, (isset($user_info['apps'])?$user_info['apps']:""));
+			if( $disabled == 'disabled' )
+			{
+				$apps = $this->functions->make_list_app($manager_account_lid, (isset($user_info['apps'])?$user_info['apps']:""), 'disabled');
+			}
 			
 			//PHOTO
-			if ($user_info['photo_exist'])
+			if( isset($user_info['photo_exist']) )
 			{
 				$photo_bin = "./index.php?menuaction=expressoAdmin.uiaccounts.show_photo&uidNumber=".$_GET['account_id'];
 			}
@@ -573,7 +584,7 @@
 			}
 
 			// Cria combo de dominios do samba
-			if ($this->current_config['expressoAdmin_samba_support'] == 'true')
+			if( $this->current_config['expressoAdmin_samba_support'] == 'true' )
 			{
 				$a_sambadomains = $this->db_functions->get_sambadomains_list();
 				$sambadomainname_options = '';
@@ -620,8 +631,9 @@
 
 			$start_coment = "<!--";
 			$end_coment = "-->";		
-			$time_to_expire = $GLOBALS['phpgw_info']['server']['time_to_account_expires'];
-			if(isset($time_to_expire)) {
+			$time_to_expire = ( isset($GLOBALS['phpgw_info']['server']['time_to_account_expires']) ? $GLOBALS['phpgw_info']['server']['time_to_account_expires']:"");
+			if( trim($time_to_expire) !== "" )
+			{
 				if ($GLOBALS['phpgw']->session->get_last_access_on_history($user_info["uidnumber"])+($time_to_expire*86400) < time())
 				{
 					$start_coment = "";
@@ -629,32 +641,33 @@
 				}
 			}
 
-			if ($alert_warning != '')
+			if( isset($alert_warning) && $alert_warning != '' )
+			{
 				$alert_warning = "alert('". $alert_warning ."')";
+			}
 			
 			$var = Array(
 				'uidnumber'					=> $_GET['account_id'],
 				'type'						=> 'edit_user',
-				'photo_exist'				=> $user_info['photo_exist'],
-				'departmentnumber'			=> $user_info['departmentnumber'],
-				'user_context'				=> $user_info['context'],
-				
+				'photo_exist'				=> (isset($user_info['photo_exist']) ? $user_info['photo_exist'] : "" ),
+				'departmentnumber'			=> (isset($user_info['departmentnumber']) ? $user_info['departmentnumber'] : "" ),
+				'user_context'				=> (isset($user_info['context']) ? $user_info['context'] : "" ),
 				'row_on'					=> "#DDDDDD",
 				'row_off'					=> "#EEEEEE",
 				'color_bg1'					=> "#E8F0F0",
 				'action'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uiaccounts.validate_user_data_edit'),
 				'back_url'					=> './index.php?menuaction=expressoAdmin.uiaccounts.list_users',
-				'disabled'					=> $disabled,
-				'disabled_password'			=> $disabled_password,
-				'disabled_samba'			=> $disabled_samba,
-				'changequote_disabled'		=> $disabled_quote,
-				'disable_phonenumber'		=> $disabled_phonenumber,
-				'disable_group'				=> $disabled_group,
-				'lang_account_expired' 	=> lang('lang_account_expired'),
-				'lang_yes'						=> lang('yes'),
-				'lang_no'						=> lang('no'),
-				'start_coment_expired'						=> $start_coment,
-				'end_coment_expired'						=> $end_coment,	
+				'disabled'					=> ( isset($disabled) ? $disabled : ""),
+				'disabled_password'			=> ( isset($disabled_password) ? $disabled_password : "" ),
+				'disabled_samba'			=> ( isset($disabled_samba) ? $disabled_samba : "" ),
+				'changequote_disabled'		=> ( isset($disabled_quote) ? $disabled_quote : "" ),
+				'disable_phonenumber'		=> ( isset($disabled_phonenumber) ? $disabled_phonenumber : "" ),
+				'disable_group'				=> ( isset($disabled_group) ? $disabled_group : "" ),
+				'lang_account_expired' 		=> lang('lang_account_expired'),
+				'lang_yes'					=> lang('yes'),
+				'lang_no'					=> lang('no'),
+				'start_coment_expired'		=> $start_coment,
+				'end_coment_expired'		=> $end_coment,	
 				
 				// Display ABAS
 				'display_corporative_information'=> $this->functions->check_acl($manager_account_lid,'manipulate_corporative_information') ? '' : 'none',
@@ -701,25 +714,25 @@
 				'mailquota_used'			=> $user_info['mailquota_used'] == '-1' ? lang('without quota') : $user_info['mailquota_used'],
 
 				//Third ABA
-				'ea_select_user_groups_options'	=> $ea_select_user_groups_options,
-				'ea_combo_primary_user_group_options'	=> $ea_combo_primary_user_group_options,
+				'ea_select_user_groups_options'			=> ( isset($ea_select_user_groups_options) ? $ea_select_user_groups_options : "" ),
+				'ea_combo_primary_user_group_options'	=> ( isset($ea_combo_primary_user_group_options) ? $ea_combo_primary_user_group_options : "" ),
 				
 				//Fourd ABA
-				'ea_select_user_maillists_options'  => $ea_select_user_maillists_options,
+				'ea_select_user_maillists_options'	=> ( isset($ea_select_user_maillists_options) ? $ea_select_user_maillists_options : "" ),
 								
 				//Five ABA
 				'apps'	=> $apps,
 
 				//SAMBA ABA
-				'userSamba'					=> $user_info['sambaUser'],
-				'sambadomainname_options'	=> $sambadomainname_options,
-				'use_attrs_samba_checked'	=> $user_info['sambaUser'] ? 'CHECKED' : '',
-				'active_user_selected'		=> $user_info['sambaaccflags'] == '[U          ]' ? 'selected' : '',
-				'desactive_user_selected'	=> $user_info['sambaaccflags'] == '[DU         ]' ? 'selected' : '',
-				'sambalogonscript'			=> $user_info['sambalogonscript'],
-				'sambahomedirectory'		=> $user_info['homedirectory'],
-				'defaultLogonScript'		=> $this->current_config['expressoAdmin_defaultLogonScript'],
-				'use_suggestion_in_logon_script' => $this->current_config['expressoAdmin_defaultLogonScript'] == '' ? 'true' : 'false'
+				'userSamba'						=> ( isset($user_info['sambaUser'])? $user_info['sambaUser']: ""),
+				'sambadomainname_options'		=> ( isset($sambadomainname_options)? $sambadomainname_options : "" ),
+				'use_attrs_samba_checked'		=> ( isset($user_info['sambaUser']) && $user_info['sambaUser'] ? 'CHECKED' : '' ),
+				'active_user_selected'			=> ( isset($user_info['sambaaccflags']) && $user_info['sambaaccflags'] == '[U          ]' ? 'selected' : ''),
+				'desactive_user_selected'		=> ( isset($user_info['sambaaccflags']) && $user_info['sambaaccflags'] == '[DU         ]' ? 'selected' : ''),
+				'sambalogonscript'				=> ( isset($user_info['sambalogonscript']) ? $user_info['sambalogonscript'] : "" ),
+				'sambahomedirectory'			=> ( isset($user_info['homedirectory']) ? $user_info['homedirectory'] : "" ),
+				'defaultLogonScript'			=> ( isset($this->current_config['expressoAdmin_defaultLogonScript']) ? $this->current_config['expressoAdmin_defaultLogonScript'] : "" ),
+				'use_suggestion_in_logon_script' => (isset($this->current_config['expressoAdmin_defaultLogonScript']) && $this->current_config['expressoAdmin_defaultLogonScript'] == '' ? 'true' : 'false')
 			);
 			$t->set_var($var);
 			$t->set_var($this->functions->make_dinamic_lang($t, 'main'));

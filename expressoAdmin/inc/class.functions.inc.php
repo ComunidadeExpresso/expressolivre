@@ -338,6 +338,8 @@
 			$dn			= $GLOBALS['phpgw_info']['server']['ldap_root_dn'];
 			$passwd		= $GLOBALS['phpgw_info']['server']['ldap_root_pw'];
 			$ldap_conn	= ldap_connect($GLOBALS['phpgw_info']['server']['ldap_host']);
+			$return		= "";
+
 			ldap_set_option($ldap_conn, LDAP_OPT_PROTOCOL_VERSION, 3);
 			ldap_set_option($ldap_conn, LDAP_OPT_REFERRALS, 0);
 			ldap_bind($ldap_conn,$dn,$passwd);
@@ -364,7 +366,7 @@
 				}
 				ldap_close($ldap_conn);
 				
-				if (count($sort))
+				if( isset($sort) )
 				{
 					natcasesort($sort);
 					foreach ($sort as $user_uid)
