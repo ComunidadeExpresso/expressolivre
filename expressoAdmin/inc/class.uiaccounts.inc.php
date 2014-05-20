@@ -502,17 +502,20 @@
 			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], $user_info['context'], true, true, true);			
 
 			// GROUPS.
-			if (count($user_info['groups_info']) > 0)
+			if( count($user_info['groups_info']) > 0 )
 			{
-				foreach ($user_info['groups_info'] as $group)
+					
+				foreach( $user_info['groups_info'] as $group )
 				{
-					$array_groups[$group['gidnumber']] = $group['cn'].'('.$group['uid'].')';
+					$array_groups[ $group['gidnumber'] ] = $group['cn'];
 				}
-				natcasesort($array_groups);
-				foreach ($array_groups as $gidnumber=>$cn)
-				{
-					$ea_select_user_groups_options = "";
 
+				natcasesort($array_groups);
+				
+				$ea_select_user_groups_options = "";
+
+				foreach( $array_groups as $gidnumber => $cn )
+				{
 					//Não foi possível encontrar o grupo do usuário, portanto excluimos o usuário(não tem inserir no grupo do Ldap se não possui grupo)
 					if (is_null($user_info['groups_ldap'][$gidnumber]))
 					{

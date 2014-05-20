@@ -781,10 +781,10 @@
 				if (!$old_values['groups'])
 					$old_values['groups'] = array();
 			
-				$add_groups = array_diff($new_values['groups'], $old_values['groups']);
-				$remove_groups = array_diff($old_values['groups'], $new_values['groups']);
-			
-				if (count($add_groups)>0)
+				$add_groups 	= array_diff($new_values['groups'], $old_values['groups']);
+				$remove_groups	= array_diff($old_values['groups'], $new_values['groups']);
+
+				if( count($add_groups) > 0 )
 				{
 					foreach($add_groups as $gidnumber)
 					{
@@ -885,44 +885,51 @@
 				// APPS
 				$new_values2 = array();
 				$old_values2 = array();
-				if( isset($new_values['apps']) && count($new_values['apps']) > 0 )
+				if( $new_values['apps'] && count($new_values['apps']) > 0 )
 				{
 					foreach ($new_values['apps'] as $app=>$tmp)
 					{
 						$new_values2[] = $app;
 					}
 				}
-				if( isset($old_values['apps']) && count($old_values['apps']) > 0 )
+				if( $old_values['apps'] && count($old_values['apps']) > 0 )
 				{
 					foreach ($old_values['apps'] as $app=>$tmp)
 					{
 						$old_values2[] = $app;
 					}
 				}
+
 				$add_apps    = array_flip(array_diff($new_values2, $old_values2));
 				$remove_apps = array_flip(array_diff($old_values2, $new_values2));
 
-				if (count($add_apps)>0)
+				if( count($add_apps ) > 0 )
 				{
 					$this->db_functions->add_id2apps($new_values['uidnumber'], $add_apps);
 
 					foreach ($add_apps as $app => $index)
 						$this->db_functions->write_log("added application to user","$dn: $app");
 				}
-				if (count($remove_apps)>0)
+				
+				if( count($remove_apps) > 0 )
 				{
 					//Verifica se o gerente tem acesso a aplicação antes de remove-la do usuario.
 					$manager_apps = $this->db_functions->get_apps($_SESSION['phpgw_session']['session_lid']);
 					
 					foreach ($remove_apps as $app => $app_index)
 					{
-						if ($manager_apps[$app] == 'run')
+						if($manager_apps[$app] == 'run')
+						{
 							$remove_apps2[$app] = $app_index;
+						}
 					}
+					
 					$this->db_functions->remove_id2apps($new_values['uidnumber'], $remove_apps2);
 					
 					foreach ($remove_apps2 as $app => $access)
+					{
 						$this->db_functions->write_log("removed application to user","$dn: $app");
+					}
 				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}			
