@@ -5261,7 +5261,7 @@ function draw_new_message(border_ID){
 	}).css({
         "height" : "20px", 
         // "width": (is_webkit ? "205px" : "100px"),
-        "width" : "205px",
+        "width" : "100px",
         "margin-top" : ($.browser.mozilla ? "3px" : "0"),
         "margin-right" : ($.browser.mozilla ? "15px" : "0"),
         "border-width": "0 0 0px 0px", 
