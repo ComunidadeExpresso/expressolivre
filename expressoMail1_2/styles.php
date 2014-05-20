@@ -10,7 +10,6 @@ $configProvider['module'] = 'expressoMail1_2';
 
 $fileDuck = new FileDuck( $config , $configProvider );
 
-$fileDuck->add(__DIR__ .'/../prototype/plugins/json2/json2.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/freeow/style/freeow/freeow.css');
 $fileDuck->add(__DIR__ .'/../phpgwapi/js/dftree/dftree.css');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/farbtastic/farbtastic.css');
