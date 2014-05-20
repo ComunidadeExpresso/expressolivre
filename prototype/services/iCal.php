@@ -1605,12 +1605,15 @@ class iCal implements Formatter
             $schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $tzid, '@' . self::date2timestamp($startTime['value'])) . '000';
             $schedulable['allDay'] = 0;
         } else {
+            //Sem informação de timezone 
+             $schedulable['startTime'] = self::date2timestamp($startTime['value'])  . '000';
 
-            //Fixing bug in mozilla
-            //$schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($startTime['value'])) . '000';
 
-            $schedulable['startTime'] = self::date2timestamp($startTime['value'])  . '000';
-
+            //Tratamento thunderbird
+            if ( $component->getProperty('X-MOZ-GENERATION') !== false) 
+                 $schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($startTime['value'])) . '000';
+            
+        
             if (strpos($params['prodid'], 'Outlook') !== false) {
                 //Se o ics veio em utc não aplicar horario de verão
                 $sTime = new DateTime('@' . (int)($schedulable['startTime'] / 1000), new DateTimeZone('UTC'));
@@ -1633,12 +1636,15 @@ class iCal implements Formatter
         else if ($tzid && !isset($endTime['value']['tz'])) /* Caso não tenha um tz na data mais exista um parametro TZID deve ser aplicado o timezone do TZID a data */
             $schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $tzid, '@' . self::date2timestamp($endTime['value'])) . '000';
         else {
+            //Não tem informação de timezone 
+             $schedulable['endTime'] = self::date2timestamp($endTime['value']) . '000';
 
-            //Fixing bug in mozilla
-            //$schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($endTime['value'])) . '000';
+            //Tratamento thunderbid 
+            if ( $component->getProperty('X-MOZ-GENERATION') !== false) {
+                $schedulable['endTime'] = self::date2timestamp($endTime['value']) - self::_getTzOffset('UTC', $schedulable['timezone'], '@' . self::date2timestamp($endTime['value'])) . '000';
+            }
 
-            $schedulable['endTime'] = self::date2timestamp($endTime['value']) . '000';
-
+            //Tratamento par aoutlook
             if (strpos($params['prodid'], 'Outlook') !== false) {
                 //Se o ics veio em utc não aplicar horario de verão
                 $eTime = new DateTime('@' . (int)($schedulable['endTime'] / 1000), new DateTimeZone('UTC'));
