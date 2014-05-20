@@ -433,47 +433,38 @@
 			{
 				$globalSettings['profileID'] = intval($_GET['profileID']);
 			}
-			$globalSettings['description'] = $_POST['globalsettings']['description'];
-			$globalSettings['defaultDomain'] = $_POST['globalsettings']['defaultDomain'];
-			$globalSettings['organisationName'] = $_POST['globalsettings']['organisationName'];
-			$globalSettings['userDefinedAccounts'] = (isset($_POST['globalsettings']['userDefinedAccounts'])) ? $_POST['globalsettings']['userDefinedAccounts'] : "";
+
+			$globalSettings['description'] 			= $_POST['globalsettings']['description'];
+			$globalSettings['defaultDomain'] 		= $_POST['globalsettings']['defaultDomain'];
+			$globalSettings['organisationName'] 	= $_POST['globalsettings']['organisationName'];
+			$globalSettings['userDefinedAccounts'] 	= (isset($_POST['globalsettings']['userDefinedAccounts'])) ? $_POST['globalsettings']['userDefinedAccounts'] : "";
 			
 			// get the settings for the smtp server
 			$smtpType = $_POST['smtpsettings']['smtpType'];
 			foreach($this->boemailadmin->getFieldNames($smtpType,'smtp') as $key)
 			{
-				if( isset($_POST['smtpsettings'][$smtpType][$key]) )
-					$smtpSettings[$key] = $_POST['smtpsettings'][$smtpType][$key];
+				$smtpSettings[$key] = ( isset($_POST['smtpsettings'][$smtpType][$key]) ) ? $_POST['smtpsettings'][$smtpType][$key] : "";
 			}
-			$smtpSettings['smtpType'] = $smtpType;
 			
-			#_debug_array($smtpSettings);
+			$smtpSettings['smtpType'] = $smtpType;
 			
 			// get the settings for the imap/pop3 server
 			$imapType = $_POST['imapsettings']['imapType'];
+			
 			foreach($this->boemailadmin->getFieldNames($imapType,'imap') as $key)
 			{
-				if( isset($_POST['imapsettings'][$imapType][$key]) )
-					$imapSettings[$key] = $_POST['imapsettings'][$imapType][$key];
+				$imapSettings[$key] = ( isset($_POST['imapsettings'][$imapType][$key]) ) ? $_POST['imapsettings'][$imapType][$key] : "";
 			}
+
 			$imapSettings['imapType'] = $imapType;
 			
 			$this->boemailadmin->saveProfile($globalSettings, $smtpSettings, $imapSettings);
-			#if ($HTTP_POST_VARS['bo_action'] == 'save_ldap' || $HTTP_GET_VARS['bo_action'] == 'save_ldap')
-			#{
-				$this->listProfiles();
-			#}
-			#else
-			#{
-			#	$this->editServer($HTTP_GET_VARS["serverid"],$HTTP_GET_VARS["pagenumber"]);
-			#}
+			
+			$this->listProfiles();
 		}
 		
 		function translate()
 		{
-			# skeleton
-			# $this->t->set_var('',lang(''));
-			
 			$this->t->set_var('lang_server_name',lang('server name'));
 			$this->t->set_var('lang_server_description',lang('description'));
 			$this->t->set_var('lang_edit',lang('edit'));

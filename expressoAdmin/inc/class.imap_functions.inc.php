@@ -25,18 +25,19 @@ class imap_functions
     var $imap_draftsfolder;
     var $imap_spamfolder;
 	
-	function imap_functions(){
-		$this->functions	= new functions;
-		$this->imap_admin	= $_SESSION['phpgw_info']['expresso']['email_server']['imapAdminUsername'];
-		$this->imap_passwd	= $_SESSION['phpgw_info']['expresso']['email_server']['imapAdminPW'];
-		$this->imap_server	= $_SESSION['phpgw_info']['expresso']['email_server']['imapServer'];
-		$this->imap_port	= $_SESSION['phpgw_info']['expresso']['email_server']['imapPort'];
-		$this->imap_trashfolder  = $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultTrashFolder']  ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultTrashFolder']  : str_replace("*","", $this->functions->lang("trash"));
-		$this->imap_sentfolder   = $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSentFolder']   ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSentFolder']   : str_replace("*","", $this->functions->lang("sent"));
-		$this->imap_draftsfolder = $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultDraftsFolder'] ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultDraftsFolder'] : str_replace("*","", $this->functions->lang("drafts"));
-		$this->imap_spamfolder   = $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSpamFolder']   ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSpamFolder']   : str_replace("*","", $this->functions->lang("spam"));
-		$this->imapDelimiter= $_SESSION['phpgw_info']['expresso']['email_server']['imapDelimiter'];
-		$this->imap 		= imap_open('{'.$this->imap_server.':'.$this->imap_port.'/novalidate-cert}', $this->imap_admin, $this->imap_passwd, OP_HALFOPEN);
+	function imap_functions()
+	{
+		$this->functions			= new functions;
+		$this->imap_admin			= $_SESSION['phpgw_info']['expresso']['email_server']['imapAdminUsername'];
+		$this->imap_passwd			= $_SESSION['phpgw_info']['expresso']['email_server']['imapAdminPW'];
+		$this->imap_server			= $_SESSION['phpgw_info']['expresso']['email_server']['imapServer'];
+		$this->imap_port			= $_SESSION['phpgw_info']['expresso']['email_server']['imapPort'];
+		$this->imap_trashfolder  	= $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultTrashFolder']  ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultTrashFolder']  : str_replace("*","", $this->functions->lang("trash"));
+		$this->imap_sentfolder   	= $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSentFolder']   ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSentFolder']   : str_replace("*","", $this->functions->lang("sent"));
+		$this->imap_draftsfolder 	= $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultDraftsFolder'] ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultDraftsFolder'] : str_replace("*","", $this->functions->lang("drafts"));
+		$this->imap_spamfolder   	= $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSpamFolder']   ? $_SESSION['phpgw_info']['expresso']['email_server']['imapDefaultSpamFolder']   : str_replace("*","", $this->functions->lang("spam"));
+		$this->imapDelimiter		= $_SESSION['phpgw_info']['expresso']['email_server']['imapDelimiter'];
+		$this->imap 				= imap_open('{'.$this->imap_server.':'.$this->imap_port.'/novalidate-cert}', $this->imap_admin, $this->imap_passwd, OP_HALFOPEN);
 	}
 	
 	function create($uid, $mailquota)

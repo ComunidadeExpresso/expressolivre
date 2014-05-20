@@ -28,39 +28,33 @@
 
 			foreach($_smtpSettings+$_globalSettings+$_imapSettings as $key => $value)
 			{
-				if( isset($this->table['fd'][$key]['type'] ) )
-				{
-					if($key == 'profileID')
-						continue;
+				if($key == 'profileID')
+					continue;
 
-					if($fields != '')
-					{
-						$fields .= ',';
-						$values .= ',';
-						$query  .= ',';
-					}
-					switch($this->table['fd'][$key]['type'])
-					{
-						case 'int': case 'auto':
-							$value = intval($value);
-							break;
-						default:
-							$value = $this->db->db_addslashes($value);
-							break;
-					}
-					$fields .= "$key";
-					$values .= "'$value'";
-					$query  .= "$key='$value'";
+				if($fields != '')
+				{
+					$fields .= ',';
+					$values .= ',';
+					$query  .= ',';
 				}
+				
+				switch( $this->table['fd'][$key]['type'] )
+				{
+					case 'int': case 'auto':
+						$value = intval($value);
+						break;
+					default:
+						$value = $this->db->db_addslashes($value);
+						break;
+				}
+				
+				$fields .= "$key";
+				$values .= "'$value'";
+				$query  .= "$key='$value'";
 			}
-			if ($profileID)
-			{
-				$query = "update phpgw_emailadmin set $query where profileID=$profileID";
-			}
-			else
-			{
-				$query = "insert into phpgw_emailadmin ($fields) values ($values)";
-			}
+			
+			$query = ( $profileID ) ? "update phpgw_emailadmin set $query where profileID=$profileID" : "insert into phpgw_emailadmin ($fields) values ($values)";
+
 			$this->db->query($query,__LINE__,__FILE__);
 		}
 

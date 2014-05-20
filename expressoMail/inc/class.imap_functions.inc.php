@@ -72,14 +72,14 @@ class imap_functions
         if(isset($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache']) && trim($_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache']) != '')
             $this->expirationCache = $_SESSION['phpgw_info']['expresso']['expressoMail']['expressoMail_time_memcache'];
                 
-		if ($_SESSION['phpgw_info']['expressomail']['email_server']['imapTLSEncryption'] == 'yes')
+		if( $_SESSION['phpgw_info']['expressomail']['email_server']['imapTLSEncryption'] == 'yes' )
 			$this->imap_options = '/tls/novalidate-cert';
 		else
 			$this->imap_options = '/notls/novalidate-cert';
-		      
 	}
 	
-	function mount_url_folder($folders){
+	function mount_url_folder($folders)
+	{
 		return implode($this->imap_delimiter,$folders);
 	}
 	
