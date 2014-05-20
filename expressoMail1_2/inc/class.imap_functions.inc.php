@@ -1669,18 +1669,36 @@ class imap_functions
                 case 'REQUEST':
 
                     $ical = $icalService->getComponent('vevent');
-                    if ($ical['dtstart']['value']['tz'] == 'Z') {
-                        $tz = $_SESSION['phpgw_info']['user']['preferences']['common']['tz_offset'];
-                        $ical['dtstart']['value']['hour'] += $tz;
-                        $ical['dtend']['value']['hour'] += $tz;
-                    }
+                    $userTz = in_array( $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'], timezone_identifiers_list()) ? 
+                              $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'] :
+                              'America/Sao_Paulo';
+
+                    $timezoneUser = new DateTimeZone($userTz);
+                    $icalTz = 'UTC';
+
+                    if( isset($ical['dtstart']['params']) && isset($ical['dtstart']['params']['TZID']) && in_array( $ical['dtstart']['params']['TZID'], timezone_identifiers_list()) )
+                        $icalTz = $ical['dtstart']['params']['TZID'];
+
+                    $timezoneIcal = new DateTimeZone($icalTz);
+                    $dateStart = new DateTime();
+                    $dateEnd = new DateTime();
+                    $dateStart->setTimeZone( $timezoneIcal );
+                    $dateEnd->setTimeZone( $timezoneIcal );
+
+                    $dateStart->setDate( $ical['dtstart']['value']['year'] ,  $ical['dtstart']['value']['month'] ,  $ical['dtstart']['value']['day']  );
+                    $dateStart->setTime( $ical['dtstart']['value']['hour'] ,  $ical['dtstart']['value']['min'] );
+                    $dateStart->setTimeZone( $timezoneUser );
+
+                    $dateEnd->setDate( $ical['dtend']['value']['year'] ,  $ical['dtend']['value']['month'] ,  $ical['dtend']['value']['day']  );
+                    $dateEnd->setTime( $ical['dtend']['value']['hour'] ,  $ical['dtend']['value']['min'] );
+                    $dateEnd->setTimeZone( $timezoneUser );
 
                     $content .= '<b>' . $this->functions->getLang('Event Calendar') . '</b><br />' .
                         ' <br /> <b>' . $this->functions->getLang('Title') . ': </b>' . $ical['summary']['value'] .
                         ' <br /> <b>' . $this->functions->getLang('Location') . ': </b>' . $ical['location']['value'] .
                         ' <br /> <b>' . $this->functions->getLang('Details') . ': </b>' . str_ireplace('\n', '<br />', nl2br($ical['description']['value']));
-                    $content .= ' <br /> <b>' . $this->functions->getLang('Start') . ':  </b>' . $ical['dtstart']['value']['day'] . "/" . $ical['dtstart']['value']['month'] . "/" . $ical['dtstart']['value']['year'] . " - " . $ical['dtstart']['value']['hour'] . ":" . $ical['dtstart']['value']['min'];
-                    $content .= ' <br /> <b>' . $this->functions->getLang('End') . ': </b>' . $ical['dtend']['value']['day'] . "/" . $ical['dtend']['value']['month'] . "/" . $ical['dtend']['value']['year'] . " - " . $ical['dtend']['value']['hour'] . ":" . $ical['dtend']['value']['min'];
+                    $content .= ' <br /> <b>' . $this->functions->getLang('Start') . ':  </b>' . $dateStart->format('d/m/Y - H:i') ;
+                    $content .= ' <br /> <b>' . $this->functions->getLang('End') . ': </b>' . $dateEnd->format('d/m/Y - H:i');
 
                     if ($ical['organizer']['params']['CN'])
                         $content .= ' <br /> <b>' . $this->functions->getLang('Organizer') . ': </b>' . $ical['organizer']['params']['CN'] . ' -  <a href="MAILTO:' . $ical['organizer']['value'] . '">' . $ical['organizer']['value'] . '</a></li>';
