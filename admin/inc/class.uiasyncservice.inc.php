@@ -73,7 +73,7 @@
 					}
 				}
 
-				if ($_POST['test'])
+				if( isset($_POST['test']) )
 				{
 					$prefs = $GLOBALS['phpgw']->preferences->create_email_preferences();
 					if (!$async->set_timer($times,'test','admin.uiasyncservice.test',$prefs['email']['address']))
@@ -82,14 +82,14 @@
 					}
 					unset($prefs);
 				}
-				if ($_POST['cancel'])
+				if( isset($_POST['cancel']) )
 				{
 					if (!$async->cancel_timer('test'))
 					{
 						echo '<p><b>'.lang("Error canceling timer, maybe there's none set !!!")."</b></p>\n";
 					}
 				}
-				if ($_POST['install'] || $_POST['deinstall'])
+				if( isset($_POST['install']) || isset($_POST['deinstall']) )
 				{
 					if (!($install = $async->install($_POST['install'] ? $times : False)))
 					{

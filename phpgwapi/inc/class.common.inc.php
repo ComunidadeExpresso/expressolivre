@@ -250,17 +250,12 @@
 		*/
 		function ldapConnect($host='', $dn='', $passwd='', $ldapreferral=false) #default: dont follow the referral
 		{
-			
- 			if(!$host || $host == $GLOBALS['phpgw_info']['server']['ldap_host']) {                       
+ 			if( (isset($GLOBALS['phpgw_info']) ) && (!$host || $host == $GLOBALS['phpgw_info']['server']['ldap_host']) )
+ 			{                       
  				$dn 	= $dn ? $dn : $GLOBALS['phpgw_info']['server']['ldap_root_dn'];
    				$passwd = $passwd ? $passwd : $GLOBALS['phpgw_info']['server']['ldap_root_pw'];
 				$host   = $host ? $host : $GLOBALS['phpgw_info']['server']['ldap_host'];
 			}
-
-			/*else if(strstr($host, "ldap://")){
-				$dn = '';
-				$passwd = '';
-			}*/
 
 			if(!function_exists('ldap_connect'))
 			{
@@ -297,7 +292,7 @@
 				return False;
 			}
 
-			if($GLOBALS['phpgw_info']['server']['ldap_version3'])
+			if( isset($GLOBALS['phpgw_info']['server']['ldap_version3']) )
 			{
 				if(!ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION,3))
 				{
@@ -309,7 +304,7 @@
 			if($ldapreferral){
 				$GLOBALS['phpgw_info']['server']['user_ldap_referral'] = $dn;
 				$GLOBALS['phpgw_info']['server']['password_ldap_referral'] = $passwd;
-				ldap_set_rebind_proc($ds, ldap_rebind);
+				@ldap_set_rebind_proc($ds, ldap_rebind);
 			}
 			// bind as admin
 			if($dn && $passwd && !@ldap_bind($ds,$dn,$passwd))

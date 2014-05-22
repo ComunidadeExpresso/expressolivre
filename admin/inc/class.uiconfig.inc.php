@@ -209,11 +209,11 @@ use prototype\api\Config as Config;
 					foreach ($c->config_data as $key => $config) 
 					{        	
 						$parts = explode('_', $key);
-	                	if (is_numeric($parts[3]) && $parts[1]=='attribute')
+	                	
+	                	if( ( isset($parts[3]) && is_numeric($parts[3]) ) && $parts[1]=='attribute' )
 	                	{
 	                        $fields[$parts[3]][$key] = $config;
 	                	}
-	                	
 	                	
 	                	if($key == 'cc_allow_details') {
 	                		$checkedCoisa = 'value="details"';

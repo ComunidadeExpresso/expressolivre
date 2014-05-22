@@ -221,7 +221,7 @@ class imap_functions
 
             $sort_array_msg = $this->get_msgs($folder, $sort_box_type, $search_box_type, $sort_box_reverse,$msg_range_begin,$msg_range_end);
 
-            $num_msgs = ($search_box_type=="UNSEEN") ? (isset($msgs_info->unseen)?$msgs_info->unseen:0) : (($search_box_type=="SEEN") ? ($msgs_info->messages - (isset($msgs_info->unseen)?$msgs_info->unseen:0)) : $msgs_info->messages);
+            $num_msgs = ($search_box_type=="UNSEEN") ? (isset($msgs_info->unseen)?$msgs_info->unseen:0) : (($search_box_type=="SEEN") ? ((isset($msgs_info->messages)?$msgs_info->messages:0) - (isset($msgs_info->unseen)?$msgs_info->unseen:0)) : (isset($msgs_info->messages)?$msgs_info->messages:0));
 
             $i = 0;
 

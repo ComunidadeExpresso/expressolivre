@@ -163,7 +163,7 @@ class Controller
 
 		$obj = new ReflectionClass($class);
 
-		if ( $pRequest['classCostructor'] )
+		if( isset($pRequest['classCostructor']) )
 		{
 			$obj = $obj->newInstance($pRequest['classCostructor']);
 			unset($pRequest['classCostructor']);
