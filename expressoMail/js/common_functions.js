@@ -720,13 +720,15 @@ function emQuickSearch(emailList, field, ID, Type, force){
 		alert(get_lang('Your search argument must be longer than %1 characters.', preferences.search_characters_number));
 		return false;
 	}
-        if(Type == undefined)
-            cExecute ("$this.ldap_functions.quicksearchcontact&search_for="+search_for+"&field="+field+"&ID="+ID, handler_emQuickSearch);
-        else
-            cExecute ("$this.ldap_functions.quicksearchcontact&search_for="+search_for+"&field="+field+"&ID="+ID+"&Type="+Type, handler_emQuickSearch);
+
+    if( Type == undefined )
+        cExecute ("$this.ldap_functions.quicksearchcontact&search_for="+search_for+"&field="+field+"&ID="+ID, handler_emQuickSearch);
+    else
+        cExecute ("$this.ldap_functions.quicksearchcontact&search_for="+search_for+"&field="+field+"&ID="+ID+"&Type="+Type, handler_emQuickSearch);
 }
 
-function filterbox(){
+function filterbox()
+{
 	init_filters();
 	jQuery('.expresso-window-container').dialog('open');
 }
