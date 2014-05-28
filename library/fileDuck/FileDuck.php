@@ -123,25 +123,23 @@ class FileDuck
     {
         $this->debug( 'FUNCTION: renderContent' );
 
+        if(!$this->fileTranslated)
+            $this->_process();
+
         if( $this->config['environment'] === 'prod'  ){
             $name  = md5( json_encode( $this->files ) . $this->config['lang'] );
             $compiledFile  = $this->config['cacheFolder'] . '/compiled/' . $name;
 
-            if( file_exists($compiledFile) ){
+            if( file_exists($compiledFile) &&  filemtime($compiledFile) > filemtime($this->fileTranslated) ){
                 $data = file_get_contents( $compiledFile );
             } else {
-                $this->_process();
                 ob_start();
                 require_once( $this->fileTranslated );
                 $data = ob_get_clean();
                 file_put_contents( $compiledFile , $data );
-
             }
-
             $this->debug( '    Render file: ' .$compiledFile);
-
         } else {
-            $this->_process();
             ob_start();
             require_once( $this->fileTranslated );
             $data = ob_get_clean();
@@ -160,10 +158,12 @@ class FileDuck
         $this->debug( 'FUNCTION: renderFile' );
         header('Content-Type: '.$contentType.'; charset=utf-8');
 
+        $this->_process();
+
         switch( $this->config['cacheModel'] ) {
             case 'ETag';
                 $this->debug( '    ETag');
-                $md5 = md5_file( $this->fileUnified ) . base64_encode($this->config['lang']);
+                $md5 = md5_file( $this->fileTranslated ) . base64_encode($this->config['lang']);
                 if (!isset($_SERVER['HTTP_IF_NONE_MATCH']) || trim($_SERVER['HTTP_IF_NONE_MATCH']) !==  $md5 ){
                     $this->debug( '    Return http code: 200 ');
                     header('Etag: '.$md5 , true, 200);
@@ -181,14 +181,14 @@ class FileDuck
                 $this->debug( '    LastModified');
                 if (!isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) || (strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) !== filemtime($this->fileUnified))){
                     $this->debug( '    Return http code: 200 ');
-                    header('Last-Modified: '.gmdate('D, d M Y H:i:s', filemtime($this->fileUnified)).' GMT', true, 200);
+                    header('Last-Modified: '.gmdate('D, d M Y H:i:s', filemtime($this->fileTranslated)).' GMT', true, 200);
                     $data = $this->renderContent();
                     header('Content-Length: '.mb_strlen($data, '8bit'));
                     echo $data;
                 }
                 else{
                     $this->debug( '    Return http code: 304 ');
-                    header('Last-Modified: '.gmdate('D, d M Y H:i:s', filemtime($this->fileUnified)).' GMT', true, 304);
+                    header('Last-Modified: '.gmdate('D, d M Y H:i:s', filemtime($this->fileTranslated)).' GMT', true, 304);
                 }
                 break;
 

@@ -370,7 +370,7 @@ class imap_functions
     static function decodeMimeStringCallback($mathes)
     {
         $str = (strtolower($mathes[2]) == 'q') ? quoted_printable_decode(str_replace('_', '=20', $mathes[3])) : base64_decode($mathes[3]);
-        return (strtoupper($mathes[1]) == 'UTF-8') ? mb_convert_encoding($str, 'ISO-8859-1', 'UTF-8') : $str;
+        return (strtoupper($mathes[1]) != 'ISO-8859-1') ? mb_convert_encoding($str, 'ISO-8859-1', strtoupper($mathes[1])) : $str;
     }
 
     /**
