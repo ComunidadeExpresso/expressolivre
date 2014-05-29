@@ -377,7 +377,7 @@ function draw_new_tree_folder(callback, force)
             }));
         },
         delay: 150,
-        //refreshPositions: true,
+        refreshPositions: true,
         zIndex: 2700,
         //scroll: true,
         //scrollSensitivity: 100,
