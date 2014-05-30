@@ -442,13 +442,14 @@ function draw_new_tree_folder(callback, force)
             {
                 move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title, true);
                 //Correção para realinhamento da grid de mensagens no navegador Chrome.
-                if(is_webkit)
+                /*if(is_webkit)
                 {
-                    var table = $('#table_box');
+                    /*var table = $('#table_box');
                     $('#divScrollMain_0').html('');
                     $('#divScrollMain_0').html(table);
                     $(".ui-draggable-dragging").remove();
-                }
+                }*/
+                ui.draggable.draggable({revert: false});
                 return;
             }
             //SE FOR DE UMA PESQUISA RAPIDA
