@@ -8,7 +8,7 @@
 *
 * Created   :   11.04.2011
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -68,7 +68,9 @@ class SyncParameters extends StateObject {
                                     'deletesasmoves' => false,
                                     'conversationmode' => false,
                                     'windowsize' => 5,
-                                    'contentparameters' => array()
+                                    'contentparameters' => array(),
+                                    'foldersynctotal' => false,
+                                    'foldersyncremaining' => false,
                                 );
 
     /**
@@ -191,7 +193,7 @@ class SyncParameters extends StateObject {
             unset($this->uuidNewCounter);
         }
 
-        ZLog::Write(LOGLEVEL_DEBUG, sprintf("SyncParameters->GetLastestSyncKey(): '%s'", $this->GetSyncKey()));
+        ZLog::Write(LOGLEVEL_DEBUG, sprintf("SyncParameters->GetLatestSyncKey(): '%s'", $this->GetSyncKey()));
         return $this->GetSyncKey();
     }
 
@@ -395,7 +397,7 @@ class SyncParameters extends StateObject {
     protected function preSerialize() {
         parent::preSerialize();
 
-        if ($this->changed === true && $this->synckeyChanged)
+        if ($this->changed === true && ($this->synckeyChanged || $this->lastsynctime === false))
             $this->lastsynctime = time();
 
         return true;

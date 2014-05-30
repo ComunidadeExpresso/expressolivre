@@ -6,7 +6,7 @@
 *
 * Created   :   14.02.2011
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -203,14 +203,97 @@ class MAPIUtils {
                             array(
                                 array(RES_CONTENT, array(FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE, ULPROPTAG => PR_DISPLAY_NAME, VALUE => $query)),
                                 array(RES_CONTENT, array(FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE, ULPROPTAG => PR_ACCOUNT, VALUE => $query)),
+                                array(RES_CONTENT, array(FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE, ULPROPTAG => PR_SMTP_ADDRESS, VALUE => $query)),
                             ), // RES_OR
                         ),
-                        array(
-                            RES_PROPERTY,
-                            array(RELOP => RELOP_EQ, ULPROPTAG => PR_OBJECT_TYPE, VALUE => MAPI_MAILUSER)
-                        )
+                        array(RES_OR,
+                            array (
+                                array(
+                                        RES_PROPERTY,
+                                        array(RELOP => RELOP_EQ, ULPROPTAG => PR_OBJECT_TYPE, VALUE => MAPI_MAILUSER)
+                                ),
+                                array(
+                                        RES_PROPERTY,
+                                        array(RELOP => RELOP_EQ, ULPROPTAG => PR_OBJECT_TYPE, VALUE => MAPI_DISTLIST)
+                                )
+                            )
+                        ) // RES_OR
                     ) // RES_AND
         );
+    }
+
+    /**
+     * Create a MAPI restriction for a certain email address
+     *
+     * @access public
+     *
+     * @param MAPIStore  $store         the MAPI store
+     * @param string     $query         email address
+     *
+     * @return array
+     */
+    public static function GetEmailAddressRestriction($store, $email) {
+        $props = MAPIMapping::GetContactProperties();
+        $props = getPropIdsFromStrings($store, $props);
+
+        return array(RES_OR,
+                    array(
+                        array(  RES_PROPERTY,
+                                array(  RELOP => RELOP_EQ,
+                                        ULPROPTAG => $props['emailaddress1'],
+                                        VALUE => array($props['emailaddress1'] => $email),
+                                ),
+                        ),
+                        array(  RES_PROPERTY,
+                                array(  RELOP => RELOP_EQ,
+                                        ULPROPTAG => $props['emailaddress2'],
+                                        VALUE => array($props['emailaddress2'] => $email),
+                                ),
+                        ),
+                        array(  RES_PROPERTY,
+                                array(  RELOP => RELOP_EQ,
+                                        ULPROPTAG => $props['emailaddress3'],
+                                        VALUE => array($props['emailaddress3'] => $email),
+                                ),
+                        ),
+                ),
+        );
+    }
+
+    /**
+     * Create a MAPI restriction for a certain folder type
+     *
+     * @access public
+     *
+     * @param string     $foldertype    folder type for restriction
+     * @return array
+     */
+    public static function GetFolderTypeRestriction($foldertype) {
+        return array(   RES_PROPERTY,
+                        array(  RELOP => RELOP_EQ,
+                                ULPROPTAG => PR_CONTAINER_CLASS,
+                                VALUE => array(PR_CONTAINER_CLASS => $foldertype)
+                        ),
+                );
+    }
+
+    /**
+     * Returns subfolders of given type for a folder or false if there are none.
+     *
+     * @access public
+     *
+     * @param MAPIFolder $folder
+     * @param string $type
+     *
+     * @return MAPITable|boolean
+     */
+    public static function GetSubfoldersForType($folder, $type) {
+        $subfolders = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH);
+        mapi_table_restrict($subfolders, MAPIUtils::GetFolderTypeRestriction($type));
+        if (mapi_table_getrowcount($subfolders) > 0) {
+            return mapi_table_queryallrows($subfolders, array(PR_ENTRYID));
+        }
+        return false;
     }
 
     /**
@@ -290,30 +373,6 @@ class MAPIUtils {
 
 
     /**
-     * Handles recurring item for meeting request coming from tnef
-     *
-     * @param array $mapiprops
-     * @param array $props
-     *
-     * @access public
-     * @return
-     */
-    public static function handleRecurringItem(&$mapiprops, &$props) {
-        $mapiprops[$props["isrecurringtag"]] = true;
-        $mapiprops[$props["sideeffects"]] = 369;
-        //both goids have the same value
-        $mapiprops[$props["goid2tag"]] = $mapiprops[$props["goidtag"]];
-        $mapiprops[$props["type"]] = "IPM.Appointment";
-        $mapiprops[$props["busystatus"]] = 1; //tentative
-        $mapiprops[PR_RESPONSE_REQUESTED] = true;
-        $mapiprops[PR_ICON_INDEX] = 1027;
-        $mapiprops[$props["meetingstatus"]] = olMeetingReceived; // The recipient is receiving the request
-        $mapiprops[$props["responsestatus"]] = olResponseNotResponded;
-        $mapiprops[$props["usetnef"]] = true;
-    }
-
-
-    /**
      * Reads data of large properties from a stream
      *
      * @param MAPIMessage $message
@@ -366,60 +425,6 @@ class MAPIUtils {
     }
 
     /**
-     * Gets attachment from a Mail_mimeDecode parsed email and stores it into MAPI
-     *
-     * @param mixed     $mapimessage        target message
-     * @param object    $part               Mail_mimeDecode part to be stored
-     *
-     * @access public
-     * @return boolean
-     */
-    public static function StoreAttachment($mapimessage, $part) {
-        // attachment
-        $attach = mapi_message_createattach($mapimessage);
-
-        $filename = "";
-        // Filename is present in both Content-Type: name=.. and in Content-Disposition: filename=
-        if(isset($part->ctype_parameters["name"]))
-            $filename = $part->ctype_parameters["name"];
-        else if(isset($part->d_parameters["name"]))
-            $filename = $part->d_parameters["filename"];
-        else if (isset($part->d_parameters["filename"])) // sending appointment with nokia & android only filename is set
-            $filename = $part->d_parameters["filename"];
-        // filenames with more than 63 chars as splitted several strings
-        else if (isset($part->d_parameters["filename*0"])) {
-            for ($i=0; $i< count($part->d_parameters); $i++)
-               if (isset($part->d_parameters["filename*".$i]))
-                   $filename .= $part->d_parameters["filename*".$i];
-        }
-        else
-            $filename = "untitled";
-
-        // Android just doesn't send content-type, so mimeDecode doesn't performs base64 decoding
-        // on meeting requests text/calendar somewhere inside content-transfer-encoding
-        if (isset($part->headers['content-transfer-encoding']) && strpos($part->headers['content-transfer-encoding'], 'base64')) {
-            if (strpos($part->headers['content-transfer-encoding'], 'text/calendar') !== false) {
-                $part->ctype_primary = 'text';
-                $part->ctype_secondary = 'calendar';
-            }
-            if (!isset($part->headers['content-type']))
-                $part->body = base64_decode($part->body);
-        }
-
-        mapi_setprops($attach, array(
-            // Set filename and attachment type
-            PR_ATTACH_LONG_FILENAME => u2wi($filename),
-            PR_ATTACH_METHOD => ATTACH_BY_VALUE,
-            // Set attachment data
-            PR_ATTACH_DATA_BIN => $part->body,
-            // Set MIME type
-            PR_ATTACH_MIME_TAG => $part->ctype_primary . "/" . $part->ctype_secondary));
-
-        ZLog::Write(LOGLEVEL_DEBUG, sprintf("Utils::StoreAttachment: Attachment '%s' with %d bytes saved", $filename, strlen($part->body)));
-        return mapi_savechanges($attach);
-    }
-
-    /**
      * Returns the MAPI PR_CONTAINER_CLASS string for an ActiveSync Foldertype
      *
      * @param int       $foldertype
@@ -466,6 +471,15 @@ class MAPIUtils {
                 return "IPF.Note";
                 break;
         }
+    }
+
+    public static function GetSignedAttachmentRestriction() {
+        return array(  RES_PROPERTY,
+            array(  RELOP => RELOP_EQ,
+                ULPROPTAG => PR_ATTACH_MIME_TAG,
+                VALUE => array(PR_ATTACH_MIME_TAG => 'multipart/signed')
+            ),
+        );
     }
 
 }

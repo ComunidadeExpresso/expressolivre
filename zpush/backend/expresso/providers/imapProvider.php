@@ -86,7 +86,7 @@ class ExpressoImapProvider extends BackendDiff {
 
         /* BEGIN fmbiete's contribution r1527, ZP-319 */
         $this->excludedFolders = array();
-        if (defined('IMAP_EXCLUDED_FOLDERS')) {
+        if (defined('IMAP_EXCLUDED_FOLDERS') && strlen(IMAP_EXCLUDED_FOLDERS) > 0) {
             $this->excludedFolders = explode("|", IMAP_EXCLUDED_FOLDERS);
             ZLog::Write(LOGLEVEL_DEBUG, sprintf("BackendIMAP->Logon(): Excluding Folders (%s)", IMAP_EXCLUDED_FOLDERS));
         }
@@ -222,6 +222,9 @@ class ExpressoImapProvider extends BackendDiff {
         $org_charset = "";
         $org_boundary = false;
         $multipartmixed = false;
+
+
+
         foreach($message->headers as $k => $v) {
             if ($k == "subject" || $k == "to" || $k == "cc" || $k == "bcc")
                 continue;
@@ -319,6 +322,9 @@ class ExpressoImapProvider extends BackendDiff {
             if (!$origmail)
                 throw new StatusException(sprintf("BackendIMAP->SendMail(): Could not open message id '%s' in folder id '%s' to be replied: %s", $reply, $parent, imap_last_error()), SYNC_COMMONSTATUS_ITEMNOTFOUND);
 
+            imap_setflag_full($this->mbox, $reply , "\\Answered", ST_UID);
+            imap_clearflag_full($this->mbox, $reply, "\\Draft", ST_UID);
+
             $mobj2 = new Mail_mimeDecode($origmail);
             // receive only body
             $body .= $this->getBody($mobj2->decode(array('decode_headers' => false, 'decode_bodies' => true, 'include_bodies' => true, 'charset' => 'utf-8')));
@@ -331,7 +337,6 @@ class ExpressoImapProvider extends BackendDiff {
         // contrib - chunk base64 encoded body
         if ($body_base64 && !$sm->forwardflag) $body = chunk_split(base64_encode($body));
 
-
         // forward
         if ($sm->forwardflag && $parent) {
             $this->imap_reopenFolder($parent);
@@ -340,6 +345,8 @@ class ExpressoImapProvider extends BackendDiff {
 
             if (!$origmail)
                 throw new StatusException(sprintf("BackendIMAP->SendMail(): Could not open message id '%s' in folder id '%s' to be forwarded: %s", $forward, $parent, imap_last_error()), SYNC_COMMONSTATUS_ITEMNOTFOUND);
+
+            imap_setflag_full($this->mbox, $forward, "\\Answered \\Draft", ST_UID);
 
             if (!defined('IMAP_INLINE_FORWARD') || IMAP_INLINE_FORWARD === false) {
                 // contrib - chunk base64 encoded body
@@ -498,7 +505,8 @@ class ExpressoImapProvider extends BackendDiff {
             // changed by mku ZP-330
 
 	    require_once(__DIR__."/../../../../library/Mail/Mail.php");
-            $mail_object =& Mail::factory("smtp", $GLOBALS['config']['SMTP']);
+            $mail = new Mail();
+            $mail_object = $mail->factory("smtp", $GLOBALS['config']['SMTP']);
             $send = $mail_object->send($toaddr, $message->headers , $body);
           //  $send =  @mail ( $toaddr, $message->headers["subject"], $body, $headers, $envelopefrom );
         }
@@ -903,15 +911,22 @@ class ExpressoImapProvider extends BackendDiff {
         $this->imap_reopenFolder($folderid);
 
         // build name for new mailboxBackendMaildir
-        $displayname = Utils::Utf7_iconv_encode(Utils::Utf8_to_utf7($displayname));;
-        $new = $this->server . $this->getImapIdFromFolderId($folderid) . $this->serverdelimiter.  $displayname;
+        $displayname = Utils::Utf7_iconv_encode(Utils::Utf8_to_utf7($displayname));
+        $newname = $this->server . $folderid . $this->serverdelimiter . $displayname;
+
         $csts = false;
-
-        $csts = ($oldid) ? imap_renamemailbox($this->mbox,  $this->server .$this->getImapIdFromFolderId($oldid) , $new) : imap_createmailbox($this->mbox, $new);
-
+        // if $id is set => rename mailbox, otherwise create
+        if ($oldid) {
+            // rename doesn't work properly with IMAP
+            // the activesync client doesn't support a 'changing ID'
+            // TODO this would be solved by implementing hex ids (Mantis #459)
+            //$csts = imap_renamemailbox($this->mbox, $this->server . imap_utf7_encode(str_replace(".", $this->serverdelimiter, $oldid)), $newname);
+        }
+        else {
+            $csts = @imap_createmailbox($this->mbox, $newname);
+        }
         if ($csts) {
-           $newId =  $this->convertImapId($new);
-           return $this->StatFolder($newId);
+            return $this->StatFolder($folderid . $this->serverdelimiter . $displayname);
         }
         else
             return false;
@@ -1305,16 +1320,24 @@ class ExpressoImapProvider extends BackendDiff {
      * Called when a message has been changed on the mobile.
      * Added support for FollowUp flag
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param SyncXXX       $message        the SyncObject containing a message
+     * @param string              $folderid            id of the folder
+     * @param string              $id                  id of the message
+     * @param SyncXXX             $message             the SyncObject containing a message
+     * @param ContentParameters   $contentParameters
      *
      * @access public
      * @return array                        same return value as StatMessage()
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function ChangeMessage($folderid, $id, $message) {
+    public function ChangeMessage($folderid, $id, $message, $contentParameters) {
         ZLog::Write(LOGLEVEL_DEBUG, sprintf("BackendIMAP->ChangeMessage('%s','%s','%s')", $folderid, $id, get_class($message)));
+        // TODO this could throw several StatusExceptions like e.g. SYNC_STATUS_OBJECTNOTFOUND, SYNC_STATUS_SYNCCANNOTBECOMPLETED
+
+        // TODO SyncInterval check + ContentParameters
+        // see https://jira.zarafa.com/browse/ZP-258 for details
+        // before changing the message, it should be checked if the message is in the SyncInterval
+        // to determine the cutoffdate use Utils::GetCutOffDate($contentparameters->GetFilterType());
+        // if the message is not in the interval an StatusException with code SYNC_STATUS_SYNCCANNOTBECOMPLETED should be thrown
 
         /* BEGIN fmbiete's contribution r1529, ZP-321 */
         if (isset($message->flag)) {
@@ -1348,17 +1371,24 @@ class ExpressoImapProvider extends BackendDiff {
     /**
      * Changes the 'read' flag of a message on disk
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param int           $flags          read flag of the message
+     * @param string              $folderid            id of the folder
+     * @param string              $id                  id of the message
+     * @param int                 $flags               read flag of the message
+     * @param ContentParameters   $contentParameters
      *
      * @access public
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function SetReadFlag($folderid, $id, $flags) {
+    public function SetReadFlag($folderid, $id, $flags, $contentParameters) {
         ZLog::Write(LOGLEVEL_DEBUG, sprintf("BackendIMAP->SetReadFlag('%s','%s','%s')", $folderid, $id, $flags));
         $folderImapid = $this->getImapIdFromFolderId($folderid);
+
+        // TODO SyncInterval check + ContentParameters
+        // see https://jira.zarafa.com/browse/ZP-258 for details
+        // before setting the read flag, it should be checked if the message is in the SyncInterval
+        // to determine the cutoffdate use Utils::GetCutOffDate($contentparameters->GetFilterType());
+        // if the message is not in the interval an StatusException with code SYNC_STATUS_OBJECTNOTFOUND should be thrown
 
         $this->imap_reopenFolder($folderImapid);
 
@@ -1376,16 +1406,23 @@ class ExpressoImapProvider extends BackendDiff {
     /**
      * Called when the user has requested to delete (really delete) a message
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
+     * @param string              $folderid             id of the folder
+     * @param string              $id                   id of the message
+     * @param ContentParameters   $contentParameters
      *
      * @access public
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function DeleteMessage($folderid, $id) {
+    public function DeleteMessage($folderid, $id, $contentParameters) {
         ZLog::Write(LOGLEVEL_DEBUG, sprintf("BackendIMAP->DeleteMessage('%s','%s')", $folderid, $id));
         $folderImapid = $this->getImapIdFromFolderId($folderid);
+
+        // TODO SyncInterval check + ContentParameters
+        // see https://jira.zarafa.com/browse/ZP-258 for details
+        // before deleting the message, it should be checked if the message is in the SyncInterval
+        // to determine the cutoffdate use Utils::GetCutOffDate($contentparameters->GetFilterType());
+        // if the message is not in the interval an StatusException with code SYNC_STATUS_OBJECTNOTFOUND should be thrown
 
         $this->imap_reopenFolder($folderImapid);
         $s1 = @imap_delete ($this->mbox, $id, FT_UID);
@@ -1400,19 +1437,25 @@ class ExpressoImapProvider extends BackendDiff {
     /**
      * Called when the user moves an item on the PDA from one folder to another
      *
-     * @param string        $folderid       id of the source folder
-     * @param string        $id             id of the message
-     * @param string        $newfolderid    id of the destination folder
+     * @param string              $folderid            id of the source folder
+     * @param string              $id                  id of the message
+     * @param string              $newfolderid         id of the destination folder
+     * @param ContentParameters   $contentParameters
      *
      * @access public
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
-    public function MoveMessage($folderid, $id, $newfolderid) {
+    public function MoveMessage($folderid, $id, $newfolderid, $contentParameters) {
         ZLog::Write(LOGLEVEL_DEBUG, sprintf("BackendIMAP->MoveMessage('%s','%s','%s')", $folderid, $id, $newfolderid));
         $folderImapid = $this->getImapIdFromFolderId($folderid);
         $newfolderImapid = $this->getImapIdFromFolderId($newfolderid);
 
+        // TODO SyncInterval check + ContentParameters
+        // see https://jira.zarafa.com/browse/ZP-258 for details
+        // before moving the message, it should be checked if the message is in the SyncInterval
+        // to determine the cutoffdate use Utils::GetCutOffDate($contentparameters->GetFilterType());
+        // if the message is not in the interval an StatusException with code SYNC_MOVEITEMSSTATUS_INVALIDSOURCEID should be thrown
 
         $this->imap_reopenFolder($folderImapid);
 

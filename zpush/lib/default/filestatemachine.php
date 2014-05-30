@@ -10,7 +10,7 @@
 *
 * Created   :   01.10.2007
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -46,7 +46,11 @@
 ************************************************/
 
 class FileStateMachine implements IStateMachine {
+    const SUPPORTED_STATE_VERSION = IStateMachine::STATEVERSION_02;
+    const VERSION = "version";
+
     private $userfilename;
+    private $settingsfilename;
 
     /**
      * Constructor
@@ -68,9 +72,11 @@ class FileStateMachine implements IStateMachine {
         // checks if the directory exists and tries to create the necessary subfolders if they do not exist
         $this->getDirectoryForDevice(Request::GetDeviceID());
         $this->userfilename = STATE_DIR . 'users';
+        $this->settingsfilename = STATE_DIR . 'settings';
 
-        if (!touch($this->userfilename))
+        if ((!file_exists($this->userfilename) && !touch($this->userfilename)) || !is_writable($this->userfilename))
             throw new FatalMisconfigurationException("Not possible to write to the configured state directory.");
+        Utils::FixFileOwner($this->userfilename);
     }
 
     /**
@@ -199,11 +205,12 @@ class FileStateMachine implements IStateMachine {
      * @param string    $devid
      *
      * @access public
-     * @return array
+     * @return boolean     indicating if the user was added or not (existed already)
      */
     public function LinkUserDevice($username, $devid) {
         include_once("simplemutex.php");
         $mutex = new SimpleMutex();
+        $changed = false;
 
         // exclusive block
         if ($mutex->Block()) {
@@ -213,8 +220,6 @@ class FileStateMachine implements IStateMachine {
                 $users = unserialize($filecontents);
             else
                 $users = array();
-
-            $changed = false;
 
             // add user/device to the list
             if (!isset($users[$username])) {
@@ -235,6 +240,7 @@ class FileStateMachine implements IStateMachine {
 
             $mutex->Release();
         }
+        return $changed;
     }
 
    /**
@@ -244,11 +250,12 @@ class FileStateMachine implements IStateMachine {
      * @param string    $devid
      *
      * @access public
-     * @return array
+     * @return boolean
      */
     public function UnLinkUserDevice($username, $devid) {
         include_once("simplemutex.php");
         $mutex = new SimpleMutex();
+        $changed = false;
 
         // exclusive block
         if ($mutex->Block()) {
@@ -258,8 +265,6 @@ class FileStateMachine implements IStateMachine {
                 $users = unserialize($filecontents);
             else
                 $users = array();
-
-            $changed = false;
 
             // is this user listed at all?
             if (isset($users[$username])) {
@@ -284,6 +289,7 @@ class FileStateMachine implements IStateMachine {
 
             $mutex->Release();
         }
+        return $changed;
     }
 
     /**
@@ -316,6 +322,104 @@ class FileStateMachine implements IStateMachine {
             else
                 return array();
         }
+    }
+
+    /**
+     * Returns the current version of the state files
+     *
+     * @access public
+     * @return int
+     */
+    public function GetStateVersion() {
+        if (file_exists($this->settingsfilename)) {
+            $settings = unserialize(file_get_contents($this->settingsfilename));
+            if (strtolower(gettype($settings) == "string") && strtolower($settings) == '2:1:{s:7:"version";s:1:"2";}') {
+                ZLog::Write(LOGLEVEL_INFO, "Broken state version file found. Attempt to autofix it. See https://jira.zarafa.com/browse/ZP-493 for more information.");
+                unlink($this->settingsfilename);
+                $this->SetStateVersion(IStateMachine::STATEVERSION_02);
+                $settings = array(self::VERSION => IStateMachine::STATEVERSION_02);
+            }
+        }
+        else {
+            $filecontents = @file_get_contents($this->userfilename);
+            if ($filecontents)
+                $settings = array(self::VERSION => IStateMachine::STATEVERSION_01);
+            else {
+                $settings = array(self::VERSION => self::SUPPORTED_STATE_VERSION);
+                $this->SetStateVersion(self::SUPPORTED_STATE_VERSION);
+            }
+        }
+
+        return $settings[self::VERSION];
+    }
+
+    /**
+     * Sets the current version of the state files
+     *
+     * @param int       $version            the new supported version
+     *
+     * @access public
+     * @return boolean
+     */
+    public function SetStateVersion($version) {
+        if (file_exists($this->settingsfilename))
+            $settings = unserialize(file_get_contents($this->settingsfilename));
+        else
+            $settings = array(self::VERSION => IStateMachine::STATEVERSION_01);
+
+        $settings[self::VERSION] = $version;
+        ZLog::Write(LOGLEVEL_INFO, sprintf("FileStateMachine->SetStateVersion() saving supported state version, value '%d'", $version));
+        $status = file_put_contents($this->settingsfilename, serialize($settings));
+        Utils::FixFileOwner($this->settingsfilename);
+        return $status;
+    }
+
+    /**
+     * Returns all available states for a device id
+     *
+     * @param string    $devid              the device id
+     *
+     * @access public
+     * @return array(mixed)
+     */
+    public function GetAllStatesForDevice($devid) {
+        $out = array();
+        $devdir = $this->getDirectoryForDevice($devid) . "/$devid-";
+
+        foreach (glob($devdir . "*", GLOB_NOSORT) as $devdata) {
+            // cut the device dir away and split into parts
+            $parts = explode("-", substr($devdata, strlen($devdir)));
+
+            $state = array('type' => false, 'counter' => false, 'uuid' => false);
+
+            if (isset($parts[0]) && $parts[0] == IStateMachine::DEVICEDATA)
+                $state['type'] = IStateMachine::DEVICEDATA;
+
+            if (isset($parts[0]) && strlen($parts[0]) == 8 &&
+                isset($parts[1]) && strlen($parts[1]) == 4 &&
+                isset($parts[2]) && strlen($parts[2]) == 4 &&
+                isset($parts[3]) && strlen($parts[3]) == 4 &&
+                isset($parts[4]) && strlen($parts[4]) == 12)
+                $state['uuid'] = $parts[0]."-".$parts[1]."-".$parts[2]."-".$parts[3]."-".$parts[4];
+
+            if (isset($parts[5]) && is_numeric($parts[5])) {
+                $state['counter'] = $parts[5];
+                $state['type'] = ""; // default
+            }
+
+            if (isset($parts[5])) {
+                if (is_int($parts[5]))
+                    $state['counter'] = $parts[5];
+
+                else if (in_array($parts[5], array(IStateMachine::FOLDERDATA, IStateMachine::FAILSAVE, IStateMachine::HIERARCHY, IStateMachine::BACKENDSTORAGE)))
+                    $state['type'] = $parts[5];
+            }
+            if (isset($parts[6]) && is_numeric($parts[6]))
+                $state['counter'] = $parts[6];
+
+            $out[] = $state;
+        }
+        return $out;
     }
 
 

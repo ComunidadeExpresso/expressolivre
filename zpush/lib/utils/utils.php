@@ -6,7 +6,7 @@
 *
 * Created   :   03.04.2008
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -75,35 +75,6 @@ class Utils {
             $user = substr($domainuser,$pos+1);
         }
         return array($user, $domain);
-    }
-
-    /**
-     * iPhone defines standard summer time information for current year only,
-     * starting with time change in February. Dates from the 1st January until
-     * the time change are undefined and the server uses GMT or its current time.
-     * The function parses the ical attachment and replaces DTSTART one year back
-     * in VTIMEZONE section if the event takes place in this undefined time.
-     * See also http://developer.berlios.de/mantis/view.php?id=311
-     *
-     * @param string    $ical               iCalendar data
-     *
-     * @access public
-     * @return string
-     */
-    static public function IcalTimezoneFix($ical) {
-        $eventDate = substr($ical, (strpos($ical, ":", strpos($ical, "DTSTART", strpos($ical, "BEGIN:VEVENT")))+1), 8);
-        $posStd = strpos($ical, "DTSTART:", strpos($ical, "BEGIN:STANDARD")) + strlen("DTSTART:");
-        $posDst = strpos($ical, "DTSTART:", strpos($ical, "BEGIN:DAYLIGHT")) + strlen("DTSTART:");
-        $beginStandard = substr($ical, $posStd , 8);
-        $beginDaylight = substr($ical, $posDst , 8);
-
-        if (($eventDate < $beginStandard) && ($eventDate < $beginDaylight) ) {
-            ZLog::Write(LOGLEVEL_DEBUG,"icalTimezoneFix for event on $eventDate, standard:$beginStandard, daylight:$beginDaylight");
-            $year = intval(date("Y")) - 1;
-            $ical = substr_replace($ical, $year, (($beginStandard < $beginDaylight) ? $posDst : $posStd), strlen($year));
-        }
-
-        return $ical;
     }
 
     /**
@@ -445,7 +416,7 @@ class Utils {
      */
     static public function IsSystemFolder($foldertype) {
         return ($foldertype == SYNC_FOLDER_TYPE_INBOX || $foldertype == SYNC_FOLDER_TYPE_DRAFTS || $foldertype == SYNC_FOLDER_TYPE_WASTEBASKET || $foldertype == SYNC_FOLDER_TYPE_SENTMAIL ||
-                $foldertype == SYNC_FOLDER_TYPE_OUTBOX || $foldertype == SYNC_FOLDER_TYPE_TASK /*|| $foldertype == SYNC_FOLDER_TYPE_APPOINTMENT */|| $foldertype == SYNC_FOLDER_TYPE_CONTACT ||
+                $foldertype == SYNC_FOLDER_TYPE_OUTBOX || $foldertype == SYNC_FOLDER_TYPE_TASK || $foldertype == SYNC_FOLDER_TYPE_APPOINTMENT || $foldertype == SYNC_FOLDER_TYPE_CONTACT ||
                 $foldertype == SYNC_FOLDER_TYPE_NOTE || $foldertype == SYNC_FOLDER_TYPE_JOURNAL) ? true:false;
     }
 
@@ -539,6 +510,9 @@ class Utils {
         if (function_exists("iconv")){
             return @iconv("UTF-7", "UTF-8", $string);
         }
+        else
+            ZLog::Write(LOGLEVEL_WARN, "Utils::Utf7_to_utf8() 'iconv' is not available. Charset conversion skipped.");
+
         return $string;
     }
 
@@ -554,6 +528,9 @@ class Utils {
         if (function_exists("iconv")){
             return @iconv("UTF-8", "UTF-7", $string);
         }
+        else
+            ZLog::Write(LOGLEVEL_WARN, "Utils::Utf8_to_utf7() 'iconv' is not available. Charset conversion skipped.");
+
         return $string;
     }
 
@@ -668,6 +645,7 @@ class Utils {
 
             // Webservice commands
             case ZPush::COMMAND_WEBSERVICE_DEVICE:    return 'WebserviceDevice';
+            case ZPush::COMMAND_WEBSERVICE_USERS:    return 'WebserviceUsers';
         }
         return false;
     }
@@ -711,6 +689,7 @@ class Utils {
 
             // Webservice commands
             case 'WebserviceDevice':     return ZPush::COMMAND_WEBSERVICE_DEVICE;
+            case 'WebserviceUsers':      return ZPush::COMMAND_WEBSERVICE_USERS;
         }
         return false;
     }
@@ -827,9 +806,37 @@ class Utils {
     public static function ConvertCodepageStringToUtf8($codepage, $string) {
         if (function_exists("iconv")) {
             $charset = self::GetCodepageCharset($codepage);
-
             return iconv($charset, "utf-8", $string);
         }
+        else
+            ZLog::Write(LOGLEVEL_WARN, "Utils::ConvertCodepageStringToUtf8() 'iconv' is not available. Charset conversion skipped.");
+
+        return $string;
+    }
+
+    /**
+     * Converts a string to another charset.
+     *
+     * @param int $in
+     * @param int $out
+     * @param string $string
+     *
+     * @access public
+     * @return string
+     */
+    public static function ConvertCodepage($in, $out, $string) {
+        // do nothing if both charsets are the same
+        if ($in == $out)
+            return $string;
+
+        if (function_exists("iconv")) {
+            $inCharset = self::GetCodepageCharset($in);
+            $outCharset = self::GetCodepageCharset($out);
+            return iconv($inCharset, $outCharset, $string);
+        }
+        else
+            ZLog::Write(LOGLEVEL_WARN, "Utils::ConvertCodepage() 'iconv' is not available. Charset conversion skipped.");
+
         return $string;
     }
 
@@ -868,6 +875,48 @@ class Utils {
         return $plaintext;
     }
     /* END fmbiete's contribution r1516, ZP-318 */
+
+    /**
+     * Checks if a file has the same owner and group as the parent directory.
+     * If not, owner and group are fixed (being updated to the owner/group of the directory).
+     * Function code contributed by Robert Scheck aka rsc.
+     *
+     * @param string $file
+     *
+     * @access public
+     * @return boolean
+     */
+    public static function FixFileOwner($file) {
+        if(posix_getuid() == 0 && file_exists($file)) {
+            $dir = dirname($file);
+            $perm_dir = stat($dir);
+            $perm_log = stat($file);
+
+            if($perm_dir[4] !== $perm_log[4] || $perm_dir[5] !== $perm_log[5]) {
+                chown($file, $perm_dir[4]);
+                chgrp($file, $perm_dir[5]);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Returns AS-style LastVerbExecuted value from the server value.
+     *
+     * @param int $verb
+     *
+     * @access public
+     * @return int
+     */
+    public static function GetLastVerbExecuted($verb) {
+        switch ($verb) {
+            case NOTEIVERB_REPLYTOSENDER:   return AS_REPLYTOSENDER;
+            case NOTEIVERB_REPLYTOALL:      return AS_REPLYTOALL;
+            case NOTEIVERB_FORWARD:         return AS_FORWARD;
+        }
+
+        return 0;
+    }
 }
 
 

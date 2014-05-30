@@ -6,7 +6,7 @@
 *
 * Created   :   11.05.2010
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -249,6 +249,26 @@ class ImportChangesCombined implements IImportChanges {
         }
         $this->icc->Config($state, $flags);
         ZLog::Write(LOGLEVEL_DEBUG, 'ImportChangesCombined->Config() success');
+    }
+
+
+    /**
+     * Configures additional parameters used for content synchronization
+     *
+     * @param ContentParameters         $contentparameters
+     *
+     * @access public
+     * @return boolean
+     * @throws StatusException
+     */
+    public function ConfigContentParameters($contentparameters) {
+        ZLog::Write(LOGLEVEL_DEBUG, "ImportChangesCombined->ConfigContentParameters()");
+        if (!$this->icc) {
+            ZLog::Write(LOGLEVEL_ERROR, "ImportChangesCombined->ConfigContentParameters() icc not configured");
+            return false;
+        }
+        $this->icc->ConfigContentParameters($contentparameters);
+        ZLog::Write(LOGLEVEL_DEBUG, "ImportChangesCombined->ConfigContentParameters() success");
     }
 
     /**

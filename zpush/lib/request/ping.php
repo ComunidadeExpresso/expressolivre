@@ -6,7 +6,7 @@
 *
 * Created   :   16.02.2012
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -147,10 +147,18 @@ class Ping extends RequestProcessor {
             foreach ($sc as $folderid => $spa)
                 $sc->SaveCollection($spa);
         } // END SYNC_PING_PING
+        else {
+            // if no ping initialization data was sent, we check if we have pingable folders
+            // if not, we indicate that there is nothing to do.
+            if (! $sc->PingableFolders()) {
+                $pingstatus = SYNC_PINGSTATUS_FAILINGPARAMS;
+                ZLog::Write(LOGLEVEL_DEBUG, "HandlePing(): no pingable folders found and no initialization data sent. Returning SYNC_PINGSTATUS_FAILINGPARAMS.");
+            }
+        }
 
         // Check for changes on the default LifeTime, set interval and ONLY on pingable collections
         try {
-            if (empty($fakechanges)) {
+            if (!$pingstatus && empty($fakechanges)) {
                 $foundchanges = $sc->CheckForChanges($sc->GetLifetime(), $interval, true);
             }
         }
@@ -163,7 +171,9 @@ class Ping extends RequestProcessor {
                     $pingstatus = SYNC_PINGSTATUS_FOLDERHIERSYNCREQUIRED;
                     self::$deviceManager->AnnounceProcessStatus(false, $pingstatus);
                     break;
-
+                case SyncCollections::OBSOLETE_CONNECTION:
+                    $foundchanges = false;
+                    break;
             }
         }
 
