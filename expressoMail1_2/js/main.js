@@ -810,7 +810,7 @@ function refresh(alert_new_msg, notifyPermission){
                                         var border_id = ui.draggable.find("input[type=hidden]").attr("name");
                                         // Mensagens : SE O DROP VIER DA LISTA DE MENSAGENS :
                                         if(folder_to_move == "tbody_box"){
-                                            move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title,true);
+                                            move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title, true, true);
                                             return refresh();
                                         }
                                     }
@@ -986,8 +986,6 @@ function synchronize(unseens){
     $('.tr_msg_unread').each(function(i, v){
         $(this).find('td:eq(8) img').attr('src', 'templates/default/images/seen.gif');
         $(this).removeClass('tr_msg_unread');
-    });
-    $('.tr_msg_unread').each(function(i, v){
         if($.inArray(parseInt($(this).attr('id')), unseens) == -1){
             $(this).find('td:eq(8) img').attr('src', 'templates/default/images/seen.gif');
             $(this).removeClass('tr_msg_unread');
@@ -1667,7 +1665,7 @@ function move_msgs2(folder, msgs_number, border_ID, new_folder, new_folder_name,
                             reuse_border: border_ID,
                             new_folder: new_folder,
                             new_folder_name: new_folder_name,
-                            get_previous_msg: ( !not_opem_previus ? preferences.delete_and_show_previous_message : false ),
+                            get_previous_msg: ( !not_opem_previus ? preferences.delete_and_show_previous_message : false ) ? 1 : 0,
                             decoded: true },
                         async: true,
                         success: function( data ){
