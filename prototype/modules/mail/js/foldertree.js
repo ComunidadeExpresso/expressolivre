@@ -440,7 +440,7 @@ function draw_new_tree_folder(callback, force)
             // eventnsagens : SE O DROP VIER DA LISTA DE eventNSAGENS :
             if(folder_to_move == "tbody_box")
             {
-                move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title, true);
+                move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title, true, true);
                 //Correção para realinhamento da grid de mensagens no navegador Chrome.
                 /*if(is_webkit)
                 {
