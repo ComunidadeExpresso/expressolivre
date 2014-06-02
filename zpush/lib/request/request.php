@@ -7,7 +7,7 @@
 *
 * Created   :   01.10.2007
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -116,7 +116,7 @@ class Request {
         if(isset($_GET["User"]))
             self::$getUser = strtolower($_GET["User"]);
         if(isset($_GET["DeviceId"]))
-            self::$devid = self::filterEvilInput($_GET["DeviceId"], self::WORDCHAR_ONLY);
+            self::$devid = strtolower(self::filterEvilInput($_GET["DeviceId"], self::WORDCHAR_ONLY));
         if(isset($_GET["DeviceType"]))
             self::$devtype = self::filterEvilInput($_GET["DeviceType"], self::LETTERS_ONLY);
         if (isset($_GET["AttachmentName"]))
@@ -144,7 +144,7 @@ class Request {
                 self::$getUser = strtolower($query[self::COMMANDPARAM_USER]);
 
             if (!isset(self::$devid) && isset($query['DevID']))
-                self::$devid = self::filterEvilInput($query['DevID'], self::WORDCHAR_ONLY);
+                self::$devid = strtolower(self::filterEvilInput($query['DevID'], self::WORDCHAR_ONLY));
 
             if (!isset(self::$devtype) && isset($query['DevType']))
                 self::$devtype = self::filterEvilInput($query['DevType'], self::LETTERS_ONLY);
@@ -211,6 +211,14 @@ class Request {
         }
 
         ZLog::Write(LOGLEVEL_DEBUG, sprintf("Request::ProcessHeaders() ASVersion: %s", self::$asProtocolVersion));
+
+        if (defined('USE_X_FORWARDED_FOR_HEADER') && USE_X_FORWARDED_FOR_HEADER == true && isset(self::$headers["x-forwarded-for"])) {
+            $forwardedIP = self::filterEvilInput(self::$headers["x-forwarded-for"], self::NUMBERSDOT_ONLY);
+            if ($forwardedIP) {
+                self::$remoteAddr = $forwardedIP;
+                ZLog::Write(LOGLEVEL_INFO, sprintf("'X-Forwarded-for' indicates remote IP: %s", self::$remoteAddr));
+            }
+        }
     }
 
     /**

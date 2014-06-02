@@ -6,7 +6,7 @@
 *
 * Created   :   16.02.2012
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -133,6 +133,12 @@ class ItemOperations extends RequestProcessor {
                     // Save all OPTIONS into a ContentParameters object
                     $operation["cpo"] = new ContentParameters();
                     while(1) {
+                        // Android 4.3 sends empty options tag, so we don't have to look further
+                        $e = self::$decoder->peek();
+                        if($e[EN_TYPE] == EN_TYPE_ENDTAG) {
+                            break;
+                        }
+
                         while (self::$decoder->getElementStartTag(SYNC_AIRSYNCBASE_BODYPREFERENCE)) {
                             if(self::$decoder->getElementStartTag(SYNC_AIRSYNCBASE_TYPE)) {
                                 $bptype = self::$decoder->getElementContent();
@@ -174,6 +180,19 @@ class ItemOperations extends RequestProcessor {
                             $operation["range"] = self::$decoder->getElementContent();
                             if(!self::$decoder->getElementEndTag())
                                 return false;
+                        }
+
+                        if(self::$decoder->getElementStartTag(SYNC_ITEMOPERATIONS_SCHEMA)) {
+                            // read schema tags
+                            while (1) {
+                                // TODO save elements
+                                $el = self::$decoder->getElement();
+                                $e = self::$decoder->peek();
+                                if($e[EN_TYPE] == EN_TYPE_ENDTAG) {
+                                    self::$decoder->getElementEndTag();
+                                    break;
+                                }
+                            }
                         }
 
                         //break if it reached the endtag
@@ -263,7 +282,7 @@ class ItemOperations extends RequestProcessor {
                         $data = self::$backend->Fetch($operation['folderid'], $operation['serverid'], $operation["cpo"]);
                     }
 
-                    if (isset($longid)) {
+                    if (isset($operation['longid'])) {
                         self::$encoder->startTag(SYNC_SEARCH_LONGID);
                         self::$encoder->content($operation['longid']);
                         self::$encoder->endTag(); // end SYNC_FOLDERID

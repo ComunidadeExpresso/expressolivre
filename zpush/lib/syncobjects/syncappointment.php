@@ -10,7 +10,7 @@
 *
 * Created   :   05.09.2011
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -66,7 +66,7 @@ class SyncAppointment extends SyncObject {
     public $attendees;
     public $body;
     public $bodytruncated;
-    public $exception;
+    public $exceptions;
     public $deleted;
     public $exceptionstarttime;
     public $categories;

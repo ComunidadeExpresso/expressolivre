@@ -10,7 +10,7 @@
 *
 * Created   :   01.10.2011
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -44,6 +44,9 @@
 *
 * Consult LICENSE file for details
 *************************************************/
+
+// config file
+require_once("backend/zarafa/config.php");
 
 // include PHP-MAPI classes
 include_once('backend/zarafa/mapi/mapi.util.php');
@@ -86,6 +89,7 @@ class BackendZarafa implements IBackend, ISearchProvider {
     private $changesSinkFolders;
     private $changesSinkStores;
     private $wastebasket;
+    private $addressbook;
 
     /**
      * Constructor of the Zarafa Backend
@@ -402,6 +406,13 @@ class BackendZarafa implements IBackend, ISearchProvider {
      * @throws StatusException
      */
     public function SendMail($sm) {
+        // Check if imtomapi function is available and use it to send the mime message.
+        // It is available since ZCP 7.0.6
+        // @see http://jira.zarafa.com/browse/ZCP-9508
+        if (!(function_exists('mapi_feature') && mapi_feature('INETMAPI_IMTOMAPI'))) {
+            throw new StatusException("ZarafaBackend->SendMail(): ZCP version is too old, INETMAPI_IMTOMAPI is not available. Install at least ZCP version 7.0.6 or later.", SYNC_COMMONSTATUS_MAILSUBMISSIONFAILED, null, LOGLEVEL_FATAL);
+            return false;
+        }
         ZLog::Write(LOGLEVEL_DEBUG, sprintf("ZarafaBackend->SendMail(): RFC822: %d bytes  forward-id: '%s' reply-id: '%s' parent-id: '%s' SaveInSent: '%s' ReplaceMIME: '%s'",
                                             strlen($sm->mime), Utils::PrintAsString($sm->forwardflag), Utils::PrintAsString($sm->replyflag),
                                             Utils::PrintAsString((isset($sm->source->folderid) ? $sm->source->folderid : false)),
@@ -410,14 +421,6 @@ class BackendZarafa implements IBackend, ISearchProvider {
         // by splitting the message in several lines we can easily grep later
         foreach(preg_split("/((\r)?\n)/", $sm->mime) as $rfc822line)
             ZLog::Write(LOGLEVEL_WBXML, "RFC822: ". $rfc822line);
-
-        $mimeParams = array('decode_headers' => true,
-                            'decode_bodies' => true,
-                            'include_bodies' => true,
-                            'charset' => 'utf-8');
-
-        $mimeObject = new Mail_mimeDecode($sm->mime);
-        $message = $mimeObject->decode($mimeParams);
 
         $sendMailProps = MAPIMapping::GetSendMailProperties();
         $sendMailProps = getPropIdsFromStrings($this->store, $sendMailProps);
@@ -437,194 +440,42 @@ class BackendZarafa implements IBackend, ISearchProvider {
         // only save the outgoing in sent items folder if the mobile requests it
         $mapiprops[$sendMailProps["sentmailentryid"]] = $storeprops[$sendMailProps["ipmsentmailentryid"]];
 
-        // Check if imtomapi function is available and use it to send the mime message.
-        // It is available since ZCP 7.0.6
-        // @see http://jira.zarafa.com/browse/ZCP-9508
-        if(function_exists('mapi_feature') && mapi_feature('INETMAPI_IMTOMAPI')) {
-            ZLog::Write(LOGLEVEL_DEBUG, "Use the mapi_inetmapi_imtomapi function");
-            $ab = mapi_openaddressbook($this->session);
-            mapi_inetmapi_imtomapi($this->session, $this->store, $ab, $mapimessage, $sm->mime, array());
+        ZLog::Write(LOGLEVEL_DEBUG, "Use the mapi_inetmapi_imtomapi function");
+        $ab = mapi_openaddressbook($this->session);
+        mapi_inetmapi_imtomapi($this->session, $this->store, $ab, $mapimessage, $sm->mime, array());
 
-            // Set the appSeqNr so that tracking tab can be updated for meeting request updates
-            // @see http://jira.zarafa.com/browse/ZP-68
-            $meetingRequestProps = MAPIMapping::GetMeetingRequestProperties();
-            $meetingRequestProps = getPropIdsFromStrings($this->store, $meetingRequestProps);
-            $props = mapi_getprops($mapimessage, array(PR_MESSAGE_CLASS, $meetingRequestProps["goidtag"]));
-            if (stripos($props[PR_MESSAGE_CLASS], "IPM.Schedule.Meeting.Resp.") === 0) {
-                // search for calendar items using goid
-                $mr = new Meetingrequest($this->store, $mapimessage);
-                $appointments = $mr->findCalendarItems($props[$meetingRequestProps["goidtag"]]);
-                if (is_array($appointments) && !empty($appointments)) {
-                    $app = mapi_msgstore_openentry($this->store, $appointments[0]);
-                    $appprops = mapi_getprops($app, array($meetingRequestProps["appSeqNr"]));
-                    if (isset($appprops[$meetingRequestProps["appSeqNr"]]) && $appprops[$meetingRequestProps["appSeqNr"]]) {
-                        $mapiprops[$meetingRequestProps["appSeqNr"]] = $appprops[$meetingRequestProps["appSeqNr"]];
-                        ZLog::Write(LOGLEVEL_DEBUG, sprintf("Set sequence number to:%d", $appprops[$meetingRequestProps["appSeqNr"]]));
-                    }
+        // Set the appSeqNr so that tracking tab can be updated for meeting request updates
+        // @see http://jira.zarafa.com/browse/ZP-68
+        $meetingRequestProps = MAPIMapping::GetMeetingRequestProperties();
+        $meetingRequestProps = getPropIdsFromStrings($this->store, $meetingRequestProps);
+        $props = mapi_getprops($mapimessage, array(PR_MESSAGE_CLASS, $meetingRequestProps["goidtag"], $sendMailProps["internetcpid"]));
+        if (stripos($props[PR_MESSAGE_CLASS], "IPM.Schedule.Meeting.Resp.") === 0) {
+            // search for calendar items using goid
+            $mr = new Meetingrequest($this->store, $mapimessage);
+            $appointments = $mr->findCalendarItems($props[$meetingRequestProps["goidtag"]]);
+            if (is_array($appointments) && !empty($appointments)) {
+                $app = mapi_msgstore_openentry($this->store, $appointments[0]);
+                $appprops = mapi_getprops($app, array($meetingRequestProps["appSeqNr"]));
+                if (isset($appprops[$meetingRequestProps["appSeqNr"]]) && $appprops[$meetingRequestProps["appSeqNr"]]) {
+                    $mapiprops[$meetingRequestProps["appSeqNr"]] = $appprops[$meetingRequestProps["appSeqNr"]];
+                    ZLog::Write(LOGLEVEL_DEBUG, sprintf("Set sequence number to:%d", $appprops[$meetingRequestProps["appSeqNr"]]));
                 }
             }
-
-            // Delete the PR_SENT_REPRESENTING_* properties because some android devices
-            // do not send neither From nor Sender header causing empty PR_SENT_REPRESENTING_NAME and
-            // PR_SENT_REPRESENTING_EMAIL_ADDRESS properties and "broken" PR_SENT_REPRESENTING_ENTRYID
-            // which results in spooler not being able to send the message.
-            // @see http://jira.zarafa.com/browse/ZP-85
-            mapi_deleteprops($mapimessage,
-                array(  $sendMailProps["sentrepresentingname"], $sendMailProps["sentrepresentingemail"], $sendMailProps["representingentryid"],
-                        $sendMailProps["sentrepresentingaddt"], $sendMailProps["sentrepresentinsrchk"]));
-
-            if(isset($sm->source->itemid) && $sm->source->itemid) {
-                $entryid = mapi_msgstore_entryidfromsourcekey($this->store, hex2bin($sm->source->folderid), hex2bin($sm->source->itemid));
-                if ($entryid)
-                    $fwmessage = mapi_msgstore_openentry($this->store, $entryid);
-
-                if(!isset($fwmessage) || !$fwmessage)
-                    throw new StatusException(sprintf("ZarafaBackend->SendMail(): Could not open message id '%s' in folder id '%s' to be replied/forwarded: 0x%X", $sm->source->itemid, $sm->source->folderid, mapi_last_hresult()), SYNC_COMMONSTATUS_ITEMNOTFOUND);
-
-                //update icon when forwarding or replying message
-                if ($sm->forwardflag) mapi_setprops($fwmessage, array(PR_ICON_INDEX=>262));
-                elseif ($sm->replyflag) mapi_setprops($fwmessage, array(PR_ICON_INDEX=>261));
-                mapi_savechanges($fwmessage);
-
-                // only attach the original message if the mobile does not send it itself
-                if (!isset($sm->replacemime)) {
-                    // get message's body in order to append forward or reply text
-                    $body = MAPIUtils::readPropStream($mapimessage, PR_BODY);
-                    $bodyHtml = MAPIUtils::readPropStream($mapimessage, PR_HTML);
-                    $cpid = mapi_getprops($fwmessage, array($sendMailProps["internetcpid"]));
-                    if($sm->forwardflag) {
-                        // attach the original attachments to the outgoing message
-                        $this->copyAttachments($mapimessage, $fwmessage);
-                    }
-
-                    if (strlen($body) > 0) {
-                        $fwbody = MAPIUtils::readPropStream($fwmessage, PR_BODY);
-                        $fwbody = (isset($cpid[$sendMailProps["internetcpid"]])) ? Utils::ConvertCodepageStringToUtf8($cpid[$sendMailProps["internetcpid"]], $fwbody) : w2u($fwbody);
-                        $mapiprops[$sendMailProps["body"]] = $body."\r\n\r\n".$fwbody;
-                    }
-
-                    if (strlen($bodyHtml) > 0) {
-                        $fwbodyHtml = MAPIUtils::readPropStream($fwmessage, PR_HTML);
-                        $fwbodyHtml = (isset($cpid[$sendMailProps["internetcpid"]])) ? Utils::ConvertCodepageStringToUtf8($cpid[$sendMailProps["internetcpid"]], $fwbodyHtml) : w2u($fwbodyHtml);
-                        $mapiprops[$sendMailProps["html"]] = $bodyHtml."<br /><br />".$fwbodyHtml;
-                    }
-                }
-            }
-
-            mapi_setprops($mapimessage, $mapiprops);
-            mapi_message_savechanges($mapimessage);
-            mapi_message_submitmessage($mapimessage);
-            $hr = mapi_last_hresult();
-
-            if ($hr)
-                throw new StatusException(sprintf("ZarafaBackend->SendMail(): Error saving/submitting the message to the Outbox: 0x%X", mapi_last_hresult()), SYNC_COMMONSTATUS_MAILSUBMISSIONFAILED);
-
-            ZLog::Write(LOGLEVEL_DEBUG, "ZarafaBackend->SendMail(): email submitted");
-            return true;
         }
 
-        $mapiprops[$sendMailProps["subject"]] = u2wi(isset($message->headers["subject"])?$message->headers["subject"]:"");
-        $mapiprops[$sendMailProps["messageclass"]] = "IPM.Note";
-        $mapiprops[$sendMailProps["deliverytime"]] = time();
-
-        if(isset($message->headers["x-priority"])) {
-            $this->getImportanceAndPriority($message->headers["x-priority"], $mapiprops, $sendMailProps);
-        }
-
-        $this->addRecipients($message->headers, $mapimessage);
-
-        // Loop through message subparts.
-        $body = "";
-        $body_html = "";
-        if($message->ctype_primary == "multipart" && ($message->ctype_secondary == "mixed" || $message->ctype_secondary == "alternative")) {
-            $mparts = $message->parts;
-            for($i=0; $i<count($mparts); $i++) {
-                $part = $mparts[$i];
-
-                // palm pre & iPhone send forwarded messages in another subpart which are also parsed
-                if($part->ctype_primary == "multipart" && ($part->ctype_secondary == "mixed" || $part->ctype_secondary == "alternative"  || $part->ctype_secondary == "related")) {
-                    foreach($part->parts as $spart)
-                        $mparts[] = $spart;
-                    continue;
-                }
-
-                // standard body
-                if($part->ctype_primary == "text" && $part->ctype_secondary == "plain" && isset($part->body) && (!isset($part->disposition) || $part->disposition != "attachment")) {
-                    $body .= u2wi($part->body); // assume only one text body
-                }
-                // html body
-                elseif($part->ctype_primary == "text" && $part->ctype_secondary == "html") {
-                    $body_html .= u2wi($part->body);
-                }
-                // TNEF
-                elseif($part->ctype_primary == "ms-tnef" || $part->ctype_secondary == "ms-tnef") {
-                    if (!isset($tnefAndIcalProps)) {
-                        $tnefAndIcalProps = MAPIMapping::GetTnefAndIcalProperties();
-                        $tnefAndIcalProps = getPropIdsFromStrings($this->store, $tnefAndIcalProps);
-                    }
-
-                    require_once('tnefparser.php');
-                    $zptnef = new TNEFParser($this->store, $tnefAndIcalProps);
-
-                    $zptnef->ExtractProps($part->body, $mapiprops);
-                    if (is_array($mapiprops) && !empty($mapiprops)) {
-                        //check if it is a recurring item
-                        if (isset($mapiprops[$tnefAndIcalProps["tnefrecurr"]])) {
-                            MAPIUtils::handleRecurringItem($mapiprops, $tnefAndIcalProps);
-                        }
-                    }
-                    else ZLog::Write(LOGLEVEL_WARN, "ZarafaBackend->Sendmail(): TNEFParser: Mapi property array was empty");
-                }
-                // iCalendar
-                elseif($part->ctype_primary == "text" && $part->ctype_secondary == "calendar") {
-                    if (!isset($tnefAndIcalProps)) {
-                        $tnefAndIcalProps = MAPIMapping::GetTnefAndIcalProperties();
-                        $tnefAndIcalProps = getPropIdsFromStrings($this->store, $tnefAndIcalProps);
-                    }
-
-                    require_once('icalparser.php');
-                    $zpical = new ICalParser($this->store, $tnefAndIcalProps);
-                    $zpical->ExtractProps($part->body, $mapiprops);
-
-                    // iPhone sends a second ICS which we ignore if we can
-                    if (!isset($mapiprops[PR_MESSAGE_CLASS]) && strlen(trim($body)) == 0) {
-                        ZLog::Write(LOGLEVEL_WARN, "ZarafaBackend->Sendmail(): Secondary iPhone response is being ignored!! Mail dropped!");
-                        return true;
-                    }
-
-                    if (! Utils::CheckMapiExtVersion("6.30") && is_array($mapiprops) && !empty($mapiprops)) {
-                        mapi_setprops($mapimessage, $mapiprops);
-                    }
-                    else {
-                        // store ics as attachment
-                        //see Utils::IcalTimezoneFix() in utils.php for more information
-                        $part->body = Utils::IcalTimezoneFix($part->body);
-                        MAPIUtils::StoreAttachment($mapimessage, $part);
-                        ZLog::Write(LOGLEVEL_INFO, "ZarafaBackend->Sendmail(): Sending ICS file as attachment");
-                    }
-                }
-                // any other type, store as attachment
-                else
-                    MAPIUtils::StoreAttachment($mapimessage, $part);
-            }
-        }
-        // html main body
-        else if($message->ctype_primary == "text" && $message->ctype_secondary == "html") {
-            $body_html .= u2wi($message->body);
-        }
-        // standard body
-        else {
-            $body = u2wi($message->body);
-        }
-
-        // some devices only transmit a html body
-        if (strlen($body) == 0 && strlen($body_html) > 0) {
-            ZLog::Write(LOGLEVEL_WARN, "ZarafaBackend->SendMail(): only html body sent, transformed into plain text");
-            $body = strip_tags($body_html);
-        }
+        // Delete the PR_SENT_REPRESENTING_* properties because some android devices
+        // do not send neither From nor Sender header causing empty PR_SENT_REPRESENTING_NAME and
+        // PR_SENT_REPRESENTING_EMAIL_ADDRESS properties and "broken" PR_SENT_REPRESENTING_ENTRYID
+        // which results in spooler not being able to send the message.
+        // @see http://jira.zarafa.com/browse/ZP-85
+        mapi_deleteprops($mapimessage,
+            array(  $sendMailProps["sentrepresentingname"], $sendMailProps["sentrepresentingemail"], $sendMailProps["representingentryid"],
+                    $sendMailProps["sentrepresentingaddt"], $sendMailProps["sentrepresentinsrchk"]));
 
         if(isset($sm->source->itemid) && $sm->source->itemid) {
-            // Append the original text body for reply/forward
+            // answering an email in a public/shared folder
+            if (!$this->Setup(ZPush::GetAdditionalSyncFolderStore($sm->source->folderid)))
+                throw new StatusException(sprintf("ZarafaBackend->SendMail() could not Setup() the backend for folder id '%s'", $sm->source->folderid), SYNC_COMMONSTATUS_SERVERERROR);
 
             $entryid = mapi_msgstore_entryidfromsourcekey($this->store, hex2bin($sm->source->folderid), hex2bin($sm->source->itemid));
             if ($entryid)
@@ -640,54 +491,65 @@ class BackendZarafa implements IBackend, ISearchProvider {
 
             // only attach the original message if the mobile does not send it itself
             if (!isset($sm->replacemime)) {
-                $fwbody = MAPIUtils::readPropStream($fwmessage, PR_BODY);
-                $fwbodyHtml = MAPIUtils::readPropStream($fwmessage, PR_HTML);
-
+                // get message's body in order to append forward or reply text
+                $body = MAPIUtils::readPropStream($mapimessage, PR_BODY);
+                $bodyHtml = MAPIUtils::readPropStream($mapimessage, PR_HTML);
+                $cpid = mapi_getprops($fwmessage, array($sendMailProps["internetcpid"]));
                 if($sm->forwardflag) {
-                    // During a forward, we have to add the forward header ourselves. This is because
-                    // normally the forwarded message is added as an attachment. However, we don't want this
-                    // because it would be rather complicated to copy over the entire original message due
-                    // to the lack of IMessage::CopyTo ..
-                    $fwheader = $this->getForwardHeaders($fwmessage);
-
-                    // add fwheader to body and body_html
-                    $body .= $fwheader;
-                    if (strlen($body_html) > 0)
-                        $body_html .= str_ireplace("\r\n", "<br />", $fwheader);
-
                     // attach the original attachments to the outgoing message
                     $this->copyAttachments($mapimessage, $fwmessage);
                 }
 
-                if(strlen($body) > 0)
-                    $body .= $fwbody;
+                // regarding the conversion @see ZP-470
+                if (strlen($body) > 0) {
+                    $fwbody = MAPIUtils::readPropStream($fwmessage, PR_BODY);
+                    // if both cpids are set convert from the existing charset to the new charset
+                    if (isset($cpid[$sendMailProps["internetcpid"]]) && isset($props[$sendMailProps["internetcpid"]])) {
+                        ZLog::Write(LOGLEVEL_DEBUG, sprintf("ZarafaBackend->SendMail(): convert plain forwarded message charset (both set) from '%s' to '%s'", $cpid[$sendMailProps["internetcpid"]], $props[$sendMailProps["internetcpid"]]));
+                        $fwbody = Utils::ConvertCodepage($cpid[$sendMailProps["internetcpid"]], $props[$sendMailProps["internetcpid"]], $fwbody);
+                    }
+                    // if only the old message's cpid is set, convert from old charset to utf-8
+                    elseif (isset($cpid[$sendMailProps["internetcpid"]])) {
+                        ZLog::Write(LOGLEVEL_DEBUG, sprintf("ZarafaBackend->SendMail(): convert plain forwarded message charset (only fw set) from '%s' to '65001'", $cpid[$sendMailProps["internetcpid"]]));
+                        $fwbody = Utils::ConvertCodepageStringToUtf8($cpid[$sendMailProps["internetcpid"]], $fwbody);
+                    }
+                    // otherwise to the general conversion
+                    else {
+                        ZLog::Write(LOGLEVEL_DEBUG, "ZarafaBackend->SendMail(): no charset conversion done for plain forwarded message");
+                        $fwbody = w2u($fwbody);
+                    }
 
-                if (strlen($body_html) > 0)
-                    $body_html .= $fwbodyHtml;
+                    $mapiprops[$sendMailProps["body"]] = $body."\r\n\r\n".$fwbody;
+                }
+
+                if (strlen($bodyHtml) > 0) {
+                    $fwbodyHtml = MAPIUtils::readPropStream($fwmessage, PR_HTML);
+                    if (isset($cpid[$sendMailProps["internetcpid"]]) && isset($props[$sendMailProps["internetcpid"]])) {
+                        ZLog::Write(LOGLEVEL_DEBUG, sprintf("ZarafaBackend->SendMail(): convert html forwarded message charset (both set) from '%s' to '%s'", $cpid[$sendMailProps["internetcpid"]], $props[$sendMailProps["internetcpid"]]));
+                        $fwbodyHtml = Utils::ConvertCodepage( $cpid[$sendMailProps["internetcpid"]], $props[$sendMailProps["internetcpid"]], $fwbodyHtml);
+                    }
+                    // if only new message's cpid is set, convert to UTF-8
+                    elseif (isset($cpid[$sendMailProps["internetcpid"]])) {
+                        ZLog::Write(LOGLEVEL_DEBUG, sprintf("ZarafaBackend->SendMail(): convert html forwarded message charset (only fw set) from '%s' to '65001'", $cpid[$sendMailProps["internetcpid"]]));
+                        $fwbodyHtml = Utils::ConvertCodepageStringToUtf8($cpid[$sendMailProps["internetcpid"]], $fwbodyHtml);
+                    }
+                    // otherwise to the general conversion
+                    else {
+                        ZLog::Write(LOGLEVEL_DEBUG, "ZarafaBackend->SendMail(): no charset conversion done for html forwarded message");
+                        $fwbodyHtml = w2u($fwbodyHtml);
+                    }
+
+                    $mapiprops[$sendMailProps["html"]] = $bodyHtml."<br><br>".$fwbodyHtml;
+                }
             }
         }
 
-        //set PR_INTERNET_CPID to 65001 (utf-8) if store supports it and to 1252 otherwise
-        $internetcpid = INTERNET_CPID_WINDOWS1252;
-        if (defined('STORE_SUPPORTS_UNICODE') && STORE_SUPPORTS_UNICODE == true) {
-            $internetcpid = INTERNET_CPID_UTF8;
-        }
-
-        $mapiprops[$sendMailProps["body"]] = $body;
-        $mapiprops[$sendMailProps["internetcpid"]] = $internetcpid;
-
-
-        if(strlen($body_html) > 0){
-            $mapiprops[$sendMailProps["html"]] = $body_html;
-        }
-
-        //TODO if setting all properties fails, try setting them infividually like in mapiprovider
         mapi_setprops($mapimessage, $mapiprops);
-
-        mapi_savechanges($mapimessage);
+        mapi_message_savechanges($mapimessage);
         mapi_message_submitmessage($mapimessage);
+        $hr = mapi_last_hresult();
 
-        if(mapi_last_hresult())
+        if ($hr)
             throw new StatusException(sprintf("ZarafaBackend->SendMail(): Error saving/submitting the message to the Outbox: 0x%X", mapi_last_hresult()), SYNC_COMMONSTATUS_MAILSUBMISSIONFAILED);
 
         ZLog::Write(LOGLEVEL_DEBUG, "ZarafaBackend->SendMail(): email submitted");
@@ -773,19 +635,29 @@ class BackendZarafa implements IBackend, ISearchProvider {
         if(!$attach)
             throw new StatusException(sprintf("ZarafaBackend->GetAttachmentData('%s'): Error, unable to open attachment number '%s' with: 0x%X", $attname, $attachnum, mapi_last_hresult()), SYNC_ITEMOPERATIONSSTATUS_INVALIDATT);
 
-        $stream = mapi_openpropertytostream($attach, PR_ATTACH_DATA_BIN);
+        // get necessary attachment props
+        $attprops = mapi_getprops($attach, array(PR_ATTACH_MIME_TAG, PR_ATTACH_MIME_TAG_W, PR_ATTACH_METHOD));
+        $attachment = new SyncItemOperationsAttachment();
+        // check if it's an embedded message and open it in such a case
+        if (isset($attprops[PR_ATTACH_METHOD]) && $attprops[PR_ATTACH_METHOD] == ATTACH_EMBEDDED_MSG) {
+            $embMessage = mapi_attach_openobj($attach);
+            $addrbook = $this->getAddressbook();
+            $stream = mapi_inetmapi_imtoinet($this->session, $addrbook, $embMessage, array('use_tnef' => -1));
+            // set the default contenttype for this kind of messages
+            $attachment->contenttype = "message/rfc822";
+        }
+        else
+            $stream = mapi_openpropertytostream($attach, PR_ATTACH_DATA_BIN);
+
         if(!$stream)
             throw new StatusException(sprintf("ZarafaBackend->GetAttachmentData('%s'): Error, unable to open attachment data stream: 0x%X", $attname, mapi_last_hresult()), SYNC_ITEMOPERATIONSSTATUS_INVALIDATT);
 
-        //get the mime type of the attachment
-        $contenttype = mapi_getprops($attach, array(PR_ATTACH_MIME_TAG, PR_ATTACH_MIME_TAG_W));
-        $attachment = new SyncItemOperationsAttachment();
         // put the mapi stream into a wrapper to get a standard stream
         $attachment->data = MapiStreamWrapper::Open($stream);
-        if (isset($contenttype[PR_ATTACH_MIME_TAG]))
-            $attachment->contenttype = $contenttype[PR_ATTACH_MIME_TAG];
-        elseif (isset($contenttype[PR_ATTACH_MIME_TAG_W]))
-            $attachment->contenttype = $contenttype[PR_ATTACH_MIME_TAG_W];
+        if (isset($attprops[PR_ATTACH_MIME_TAG]))
+            $attachment->contenttype = $attprops[PR_ATTACH_MIME_TAG];
+        elseif (isset($attprops[PR_ATTACH_MIME_TAG_W]))
+            $attachment->contenttype = $attprops[PR_ATTACH_MIME_TAG_W];
             //TODO default contenttype
         return $attachment;
     }
@@ -848,7 +720,7 @@ class BackendZarafa implements IBackend, ISearchProvider {
         if(!$mapimessage)
             throw new StatusException(sprintf("BackendZarafa->MeetingResponse('%s','%s', '%s'): Error, unable to open request message for response 0x%X", $requestid, $folderid, $response, mapi_last_hresult()), SYNC_MEETRESPSTATUS_INVALIDMEETREQ);
 
-        $meetingrequest = new Meetingrequest($this->store, $mapimessage);
+        $meetingrequest = new Meetingrequest($this->store, $mapimessage, $this->session);
 
         if(!$meetingrequest->isMeetingRequest())
             throw new StatusException(sprintf("BackendZarafa->MeetingResponse('%s','%s', '%s'): Error, attempt to respond to non-meeting request", $requestid, $folderid, $response), SYNC_MEETRESPSTATUS_INVALIDMEETREQ);
@@ -877,6 +749,11 @@ class BackendZarafa implements IBackend, ISearchProvider {
         $calendarid = "";
         if (isset($entryid)) {
             $newitem = mapi_msgstore_openentry($this->store, $entryid);
+            // new item might be in a delegator's store. ActiveSync does not support accepting them.
+            if (!$newitem) {
+                throw new StatusException(sprintf("BackendZarafa->MeetingResponse('%s','%s', '%s'): Object with entryid '%s' was not found in user's store (0x%X). It might be in a delegator's store.", $requestid, $folderid, $response, bin2hex($entryid), mapi_last_hresult()), SYNC_MEETRESPSTATUS_SERVERERROR, null, LOGLEVEL_WARN);
+            }
+
             $newprops = mapi_getprops($newitem, array(PR_SOURCE_KEY));
             $calendarid = bin2hex($newprops[PR_SOURCE_KEY]);
         }
@@ -1009,6 +886,38 @@ class BackendZarafa implements IBackend, ISearchProvider {
         }
 
         return $settings;
+    }
+
+    /**
+     * Resolves recipients
+     *
+     * @param SyncObject        $resolveRecipients
+     *
+     * @access public
+     * @return SyncObject       $resolveRecipients
+     */
+    public function ResolveRecipients($resolveRecipients) {
+        if ($resolveRecipients instanceof SyncResolveRecipients) {
+            $resolveRecipients->status = SYNC_RESOLVERECIPSSTATUS_SUCCESS;
+            $resolveRecipients->recipient = array();
+            foreach ($resolveRecipients->to as $i => $to) {
+                $recipient = $this->resolveRecipient($to);
+                if ($recipient instanceof SyncResolveRecipient) {
+                    $resolveRecipients->recipient[$i] = $recipient;
+                }
+                elseif (is_int($recipient)) {
+                    $resolveRecipients->status = $recipient;
+                }
+            }
+
+            return $resolveRecipients;
+        }
+        ZLog::Write(LOGLEVEL_WARN, "Not a valid SyncResolveRecipients object.");
+        // return a SyncResolveRecipients object so that sync doesn't fail
+        $r = new SyncResolveRecipients();
+        $r->status = SYNC_RESOLVERECIPSSTATUS_PROTOCOLERROR;
+        $r->recipient = array();
+        return $r;
     }
 
 
@@ -1513,73 +1422,6 @@ class BackendZarafa implements IBackend, ISearchProvider {
     }
 
     /**
-     * Adds the recipients to an email message from a RFC822 message headers.
-     *
-     * @param MIMEMessageHeader $headers
-     * @param MAPIMessage $mapimessage
-     */
-    private function addRecipients($headers, &$mapimessage) {
-        $toaddr = $ccaddr = $bccaddr = array();
-
-        $Mail_RFC822 = new Mail_RFC822();
-        if(isset($headers["to"]))
-            $toaddr = $Mail_RFC822->parseAddressList($headers["to"]);
-        if(isset($headers["cc"]))
-            $ccaddr = $Mail_RFC822->parseAddressList($headers["cc"]);
-        if(isset($headers["bcc"]))
-            $bccaddr = $Mail_RFC822->parseAddressList($headers["bcc"]);
-
-        if(empty($toaddr))
-            throw new StatusException(sprintf("ZarafaBackend->SendMail(): 'To' address in RFC822 message not found or unparsable. To header: '%s'", ((isset($headers["to"]))?$headers["to"]:'')), SYNC_COMMONSTATUS_MESSHASNORECIP);
-
-        // Add recipients
-        $recips = array();
-        foreach(array(MAPI_TO => $toaddr, MAPI_CC => $ccaddr, MAPI_BCC => $bccaddr) as $type => $addrlist) {
-            foreach($addrlist as $addr) {
-                $mapirecip[PR_ADDRTYPE] = "SMTP";
-                $mapirecip[PR_EMAIL_ADDRESS] = $addr->mailbox . "@" . $addr->host;
-                if(isset($addr->personal) && strlen($addr->personal) > 0)
-                    $mapirecip[PR_DISPLAY_NAME] = u2wi($addr->personal);
-                else
-                    $mapirecip[PR_DISPLAY_NAME] = $mapirecip[PR_EMAIL_ADDRESS];
-
-                $mapirecip[PR_RECIPIENT_TYPE] = $type;
-                $mapirecip[PR_ENTRYID] = mapi_createoneoff($mapirecip[PR_DISPLAY_NAME], $mapirecip[PR_ADDRTYPE], $mapirecip[PR_EMAIL_ADDRESS]);
-
-                array_push($recips, $mapirecip);
-            }
-        }
-
-        mapi_message_modifyrecipients($mapimessage, 0, $recips);
-    }
-
-    /**
-     * Get headers for the forwarded message
-     *
-     * @param MAPIMessage $fwmessage
-     *
-     * @return string
-     */
-    private function getForwardHeaders($message) {
-        $messageprops = mapi_getprops($message, array(PR_SENT_REPRESENTING_NAME, PR_DISPLAY_TO, PR_DISPLAY_CC, PR_SUBJECT, PR_CLIENT_SUBMIT_TIME));
-
-        $fwheader = "\r\n\r\n";
-        $fwheader .= "-----Original Message-----\r\n";
-        if(isset($messageprops[PR_SENT_REPRESENTING_NAME]))
-            $fwheader .= "From: " . $messageprops[PR_SENT_REPRESENTING_NAME] . "\r\n";
-        if(isset($messageprops[PR_DISPLAY_TO]) && strlen($messageprops[PR_DISPLAY_TO]) > 0)
-            $fwheader .= "To: " . $messageprops[PR_DISPLAY_TO] . "\r\n";
-        if(isset($messageprops[PR_DISPLAY_CC]) && strlen($messageprops[PR_DISPLAY_CC]) > 0)
-            $fwheader .= "Cc: " . $messageprops[PR_DISPLAY_CC] . "\r\n";
-        if(isset($messageprops[PR_CLIENT_SUBMIT_TIME]))
-            $fwheader .= "Sent: " . strftime("%x %X", $messageprops[PR_CLIENT_SUBMIT_TIME]) . "\r\n";
-        if(isset($messageprops[PR_SUBJECT]))
-            $fwheader .= "Subject: " . $messageprops[PR_SUBJECT] . "\r\n";
-
-        return $fwheader."\r\n";
-    }
-
-    /**
      * Copies attachments from one message to another.
      *
      * @param MAPIMessage $toMessage
@@ -1594,28 +1436,8 @@ class BackendZarafa implements IBackend, ISearchProvider {
         foreach($rows as $row) {
             if(isset($row[PR_ATTACH_NUM])) {
                 $attach = mapi_message_openattach($fromMessage, $row[PR_ATTACH_NUM]);
-
                 $newattach = mapi_message_createattach($toMessage);
-
-                // Copy all attachments from old to new attachment
-                $attachprops = mapi_getprops($attach);
-                mapi_setprops($newattach, $attachprops);
-
-                if(isset($attachprops[mapi_prop_tag(PT_ERROR, mapi_prop_id(PR_ATTACH_DATA_BIN))])) {
-                    // Data is in a stream
-                    $srcstream = mapi_openpropertytostream($attach, PR_ATTACH_DATA_BIN);
-                    $dststream = mapi_openpropertytostream($newattach, PR_ATTACH_DATA_BIN, MAPI_MODIFY | MAPI_CREATE);
-
-                    while(1) {
-                        $data = mapi_stream_read($srcstream, 4096);
-                        if(strlen($data) == 0)
-                            break;
-
-                        mapi_stream_write($dststream, $data);
-                    }
-
-                    mapi_stream_commit($dststream);
-                }
+                mapi_copyto($attach, array(), array(), $newattach, 0);
                 mapi_savechanges($newattach);
             }
         }
@@ -1745,6 +1567,256 @@ class BackendZarafa implements IBackend, ISearchProvider {
         $mapiquery = array(RES_AND, $resAnd);
 
         return $mapiquery;
+    }
+
+    /**
+     * Resolve recipient based on his email address.
+     *
+     * @param string $to
+     *
+     * @return SyncResolveRecipient|boolean
+     */
+    private function resolveRecipient($to) {
+        $recipient = $this->resolveRecipientGAL($to);
+
+        if ($recipient !== false) {
+            return $recipient;
+        }
+
+        $recipient = $this->resolveRecipientContact($to);
+
+        if ($recipient !== false) {
+            return $recipient;
+        }
+
+        return false;
+    }
+
+    /**
+     * Resolves recipient from the GAL and gets his certificates.
+     *
+     * @param string $to
+     * @return SyncResolveRecipient|boolean
+     */
+    private function resolveRecipientGAL($to) {
+        $addrbook = $this->getAddressbook();
+            $ab_entryid = mapi_ab_getdefaultdir($addrbook);
+        if ($ab_entryid)
+            $ab_dir = mapi_ab_openentry($addrbook, $ab_entryid);
+        if ($ab_dir)
+            $table = mapi_folder_getcontentstable($ab_dir);
+
+        //         if (!$table)
+            //             throw new StatusException(sprintf("ZarafaBackend->resolveRecipient(): could not open addressbook: 0x%X", mapi_last_hresult()), SYNC_RESOLVERECIPSSTATUS_RESPONSE_UNRESOLVEDRECIP);
+
+        if (!$table) {
+            ZLog::Write(LOGLEVEL_WARN, sprintf("Unable to open addressbook:0x%X", mapi_last_hresult()));
+            return false;
+        }
+
+        $restriction = MAPIUtils::GetSearchRestriction(u2w($to));
+        mapi_table_restrict($table, $restriction);
+
+        $querycnt = mapi_table_getrowcount($table);
+        if ($querycnt > 0) {
+            $abentries = mapi_table_queryrows($table, array(PR_DISPLAY_NAME, PR_EMS_AB_TAGGED_X509_CERT), 0, 1);
+            $certificates =
+                // check if there are any certificates available
+                (isset($abentries[0][PR_EMS_AB_TAGGED_X509_CERT]) && is_array($abentries[0][PR_EMS_AB_TAGGED_X509_CERT]) && count($abentries[0][PR_EMS_AB_TAGGED_X509_CERT])) ?
+                    $this->getCertificates($abentries[0][PR_EMS_AB_TAGGED_X509_CERT], $querycnt) : false;
+            if ($certificates === false) {
+                // the recipient does not have a valid certificate, set the appropriate status
+                ZLog::Write(LOGLEVEL_INFO, sprintf("No certificates found for '%s'", $to));
+                $certificates = $this->getCertificates(false);
+            }
+            $recipient = $this->createResolveRecipient(SYNC_RESOLVERECIPIENTS_TYPE_GAL, w2u($abentries[0][PR_DISPLAY_NAME]), $to, $certificates);
+            return $recipient;
+        }
+        else {
+            ZLog::Write(LOGLEVEL_WARN, sprintf("No recipient found for: '%s'", $to));
+            return SYNC_RESOLVERECIPSSTATUS_RESPONSE_UNRESOLVEDRECIP;
+        }
+        return false;
+    }
+
+    /**
+     * Resolves recipient from the contact list and gets his certificates.
+     *
+     * @param string $to
+     *
+     * @return SyncResolveRecipient|boolean
+     */
+    private function resolveRecipientContact($to) {
+        // go through all contact folders of the user and
+        // check if there's a contact with the given email address
+        $root = mapi_msgstore_openentry($this->defaultstore);
+        if (!$root) {
+            ZLog::Write(LOGLEVEL_ERROR, sprintf("Unable to open default store: 0x%X", mapi_last_hresult));
+        }
+        $rootprops = mapi_getprops($root, array(PR_IPM_CONTACT_ENTRYID));
+        $contacts = $this->getContactsFromFolder($this->defaultstore, $rootprops[PR_IPM_CONTACT_ENTRYID], $to);
+        $recipients = array();
+
+        if ($contacts !== false) {
+            // create resolve recipient object
+            foreach ($contacts as $contact) {
+                $certificates =
+                // check if there are any certificates available
+                (isset($contact[PR_USER_X509_CERTIFICATE]) && is_array($contact[PR_USER_X509_CERTIFICATE]) && count($contact[PR_USER_X509_CERTIFICATE])) ?
+                $this->getCertificates($contact[PR_USER_X509_CERTIFICATE], 1) : false;
+
+                if ($certificates !== false) {
+                    return $this->createResolveRecipient(SYNC_RESOLVERECIPIENTS_TYPE_CONTACT, u2w($contact[PR_DISPLAY_NAME]), $to, $certificates);
+                }
+            }
+        }
+
+        $contactfolder = mapi_msgstore_openentry($this->defaultstore, $rootprops[PR_IPM_CONTACT_ENTRYID]);
+        $subfolders = MAPIUtils::GetSubfoldersForType($contactfolder, "IPF.Contact");
+        foreach($subfolders as $folder) {
+            $contacts = $this->getContactsFromFolder($this->defaultstore, $folder[PR_ENTRYID], $to);
+            if ($contacts !== false) {
+                foreach ($contacts as $contact) {
+                    $certificates =
+                    // check if there are any certificates available
+                    (isset($contact[PR_USER_X509_CERTIFICATE]) && is_array($contact[PR_USER_X509_CERTIFICATE]) && count($contact[PR_USER_X509_CERTIFICATE])) ?
+                    $this->getCertificates($contact[PR_USER_X509_CERTIFICATE], 1) : false;
+
+                    if ($certificates !== false) {
+                        return $this->createResolveRecipient(SYNC_RESOLVERECIPIENTS_TYPE_CONTACT, u2w($contact[PR_DISPLAY_NAME]), $to, $certificates);
+                    }
+                }
+            }
+        }
+
+        // search contacts in public folders
+        $storestables = mapi_getmsgstorestable($this->session);
+        $result = mapi_last_hresult();
+
+        if ($result == NOERROR){
+            $rows = mapi_table_queryallrows($storestables, array(PR_ENTRYID, PR_DEFAULT_STORE, PR_MDB_PROVIDER));
+            foreach($rows as $row) {
+                if (isset($row[PR_MDB_PROVIDER]) && $row[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+                    // TODO refactor public store
+                    $publicstore = mapi_openmsgstore($this->session, $row[PR_ENTRYID]);
+                    $publicfolder = mapi_msgstore_openentry($publicstore);
+
+                    $subfolders = MAPIUtils::GetSubfoldersForType($publicfolder, "IPF.Contact");
+                    if ($subfolders !== false) {
+                        foreach($subfolders as $folder) {
+                            $contacts = $this->getContactsFromFolder($publicstore, $folder[PR_ENTRYID], $to);
+                            if ($contacts !== false) {
+                                foreach ($contacts as $contact) {
+                                    $certificates =
+                                    // check if there are any certificates available
+                                    (isset($contact[PR_USER_X509_CERTIFICATE]) && is_array($contact[PR_USER_X509_CERTIFICATE]) && count($contact[PR_USER_X509_CERTIFICATE])) ?
+                                    $this->getCertificates($contact[PR_USER_X509_CERTIFICATE], 1) : false;
+
+                                    if ($certificates !== false) {
+                                        return $this->createResolveRecipient(SYNC_RESOLVERECIPIENTS_TYPE_CONTACT, u2w($contact[PR_DISPLAY_NAME]), $to, $certificates);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        else {
+            ZLog::Write(LOGLEVEL_WARN, sprintf("Unable to open public store: 0x%X", $result));
+        }
+
+        $certificates = $this->getCertificates(false);
+        return $this->createResolveRecipient(SYNC_RESOLVERECIPIENTS_TYPE_CONTACT, $to, $to, $certificates);
+    }
+
+    /**
+     * Creates SyncRRCertificates object for ResolveRecipients
+     *
+     * @param binary $certificates
+     * @param int $recipientCount
+     *
+     * @return SyncRRCertificates
+     */
+    private function getCertificates($certificates, $recipientCount = 0) {
+        $cert = new SyncRRCertificates();
+        if ($certificates === false) {
+            $cert->status = SYNC_RESOLVERECIPSSTATUS_CERTIFICATES_NOVALIDCERT;
+            return $cert;
+        }
+        $cert->status = SYNC_RESOLVERECIPSSTATUS_SUCCESS;
+        $cert->certificatecount = count ($certificates);
+        $cert->recipientcount = $recipientCount;
+        $cert->certificate = array();
+        foreach ($certificates as $certificate) {
+            $cert->certificate[] = base64_encode($certificate);
+        }
+        return $cert;
+    }
+
+    /**
+     *
+     * @param int $type
+     * @param string $displayname
+     * @param string $email
+     * @param array $certificates
+     *
+     * @return SyncResolveRecipient
+     */
+    private function createResolveRecipient($type, $displayname, $email, $certificates) {
+        $recipient = new SyncResolveRecipient();
+        $recipient->type = $type;
+        $recipient->displayname = $displayname;
+        $recipient->emailaddress = $email;
+        $recipient->certificates = $certificates;
+        if ($recipient->certificates === false) {
+            // the recipient does not have a valid certificate, set the appropriate status
+            ZLog::Write(LOGLEVEL_INFO, sprintf("No certificates found for '%s'", $email));
+            $cert = new SyncRRCertificates();
+            $cert->status = SYNC_RESOLVERECIPSSTATUS_CERTIFICATES_NOVALIDCERT;
+            $recipient->certificates = $cert;
+        }
+        return $recipient;
+    }
+
+    /**
+     * Returns contacts matching given email address from a folder.
+     *
+     * @param MAPIStore $store
+     * @param binary $folderEntryid
+     * @param string $email
+     *
+     * @return array|boolean
+     */
+    private function getContactsFromFolder($store, $folderEntryid, $email) {
+        $folder = mapi_msgstore_openentry($store, $folderEntryid);
+        $folderContent = mapi_folder_getcontentstable($folder);
+        mapi_table_restrict($folderContent, MAPIUtils::GetEmailAddressRestriction($store, $email));
+        // TODO max limit
+        if (mapi_table_getrowcount($folderContent) > 0) {
+            return mapi_table_queryallrows($folderContent, array(PR_DISPLAY_NAME, PR_USER_X509_CERTIFICATE));
+        }
+        return false;
+    }
+
+    /**
+     * Get MAPI addressbook object
+     *
+     * @access private
+     * @return MAPIAddressbook object to be used with mapi_ab_* or false on failure
+     */
+    private function getAddressbook() {
+        if (isset($this->addressbook) && $this->addressbook) {
+            return $this->addressbook;
+        }
+        $this->addressbook = mapi_openaddressbook($this->session);
+        $result = mapi_last_hresult();
+        if ($result && $this->addressbook === false) {
+            ZLog::Write(LOGLEVEL_ERROR, sprintf("MAPIProvider->getAddressbook error opening addressbook 0x%X", $result));
+            return false;
+        }
+        return $this->addressbook;
     }
 }
 

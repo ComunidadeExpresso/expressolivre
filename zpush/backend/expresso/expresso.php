@@ -205,9 +205,9 @@ class BackendExpresso extends BackendDiff
      * @return array                        same return value as StatMessage()
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function ChangeMessage($folderid, $id, $message)
+    public function ChangeMessage($folderid, $id, $message, $contentParameters)
     {
-       return $this->getProvider($folderid)->ChangeMessage($folderid, $id, $message);
+       return $this->getProvider($folderid)->ChangeMessage($folderid, $id, $message, $contentParameters);
     }
 
     /**
@@ -226,9 +226,9 @@ class BackendExpresso extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function SetReadFlag($folderid, $id, $flags)
+    public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
-        return $this->getProvider($folderid)->SetReadFlag($folderid,$id, $flags);
+        return $this->getProvider($folderid)->SetReadFlag($folderid,$id, $flags, $contentParameters);
     }
 
     /**
@@ -245,9 +245,9 @@ class BackendExpresso extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function DeleteMessage($folderid, $id)
+    public function DeleteMessage($folderid, $id, $contentParameters)
     {
-        return $this->getProvider($folderid)->DeleteMessage($folderid, $id);
+        return $this->getProvider($folderid)->DeleteMessage($folderid, $id, $contentParameters);
     }
 
     /**
@@ -264,9 +264,9 @@ class BackendExpresso extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
-    public function MoveMessage($folderid, $id, $newfolderid)
+    public function MoveMessage($folderid, $id, $newfolderid, $contentParameters)
     {
-        return $this->getProvider($folderid)->MoveMessage($folderid, $id , $newfolderid);
+        return $this->getProvider($folderid)->MoveMessage($folderid, $id , $newfolderid, $contentParameters);
     }
 
     /**

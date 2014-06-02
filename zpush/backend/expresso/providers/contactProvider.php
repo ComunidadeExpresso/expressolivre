@@ -225,7 +225,7 @@ class ExpressoContactProvider extends BackendDiff
                     $message->department = utf8_encode($row_contact[21]);
                 }
 
-                // Endereço Comercial
+                // Endereï¿½o Comercial
                 $result_addresses_comercial = pg_query($this->db,"select co.id_address, co.id_city, city_name, co.id_state, state_symbol, co.id_country, address1, address2, complement, address_other, postal_code, po_box, address_is_default from phpgw_cc_addresses co join phpgw_cc_contact_addrs ca on (co.id_address = ca.id_address) join phpgw_cc_typeof_ct_addrs tca on (ca.id_typeof_contact_address = tca.id_typeof_contact_address) left outer join phpgw_cc_city ci on (ci.id_city = co.id_city) left outer join phpgw_cc_state cs on (cs.id_state = co.id_state) where tca.contact_address_type_name = 'Comercial' and ca.id_contact = " . $row_contact[0] . ";");
                 if ($result_addresses_comercial == FALSE) throw new Exception(pg_last_error($this->db));
                 while ($row_addresses_comercial = pg_fetch_row($result_addresses_comercial)) {
@@ -269,7 +269,7 @@ class ExpressoContactProvider extends BackendDiff
                         $message->businessstreet .= utf8_encode($row_addresses_comercial[11]);
                     }
                 }
-                // Endereço Residencial
+                // Endereï¿½o Residencial
                 $result_addresses_residencial = pg_query($this->db,"select co.id_address, co.id_city, city_name, co.id_state, state_name, co.id_country, address1, address2, complement, address_other, postal_code, po_box, address_is_default from phpgw_cc_addresses co join phpgw_cc_contact_addrs ca on (co.id_address = ca.id_address) join phpgw_cc_typeof_ct_addrs tca on (ca.id_typeof_contact_address = tca.id_typeof_contact_address) left outer join phpgw_cc_city ci on (ci.id_city = co.id_city) left outer join phpgw_cc_state cs on (cs.id_state = co.id_state) where tca.contact_address_type_name = 'Residencial' and ca.id_contact = " . $row_contact[0] . ";");
                 if ($result_addresses_residencial == FALSE) throw new Exception(pg_last_error($this->db));
                 while ($row_addresses_residencial = pg_fetch_row($result_addresses_residencial)) {
@@ -323,7 +323,7 @@ class ExpressoContactProvider extends BackendDiff
                     if ($row_emails[1] == "Alternativo") {
                         $message->email2address = utf8_encode($row_emails[2]);
                     }
-                    //TODO : Atribuir o email3address. O Expresso ainda não tem campo para um terceiro email :(
+                    //TODO : Atribuir o email3address. O Expresso ainda nï¿½o tem campo para um terceiro email :(
                 }
                 // Telefones
                 $result_tel = pg_query($this->db,"select cn.id_connection, connection_name, connection_value, connection_is_default from phpgw_cc_connections cn join phpgw_cc_contact_conns cc on (cn.id_connection = cc.id_connection) join phpgw_cc_typeof_ct_conns ct on (ct.id_typeof_contact_connection = cc.id_typeof_contact_connection) where ct.contact_connection_type_name = 'Telefone' and cc.id_contact = "  . $row_contact[0] . ";");
@@ -347,7 +347,7 @@ class ExpressoContactProvider extends BackendDiff
                     if ($row_tel[1] == "Alternativo") {
                         $message->home2phonenumber = utf8_encode($row_tel[2]);
                     }
-                    //TODO : Permitir mais de um número de telefone para Trabalho, Casa e Celular. O Expresso ainda não suporta isso :(
+                    //TODO : Permitir mais de um nï¿½mero de telefone para Trabalho, Casa e Celular. O Expresso ainda nï¿½o suporta isso :(
                 }
             }
 
@@ -404,7 +404,7 @@ class ExpressoContactProvider extends BackendDiff
      * @return array                        same return value as StatMessage()
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function ChangeMessage($folderid, $id, $message)
+    public function ChangeMessage($folderid, $id, $message, $contentParameters)
     {
         ZLog::Write(LOGLEVEL_DEBUG, "ExpressoContactProvider->ChangeMessage()");
 
@@ -425,7 +425,7 @@ class ExpressoContactProvider extends BackendDiff
                     }
                 }
             }
-            // se não encontrou id_contact para fazer Update, define o próximo id_contact para fazer Insert
+            // se nï¿½o encontrou id_contact para fazer Update, define o prï¿½ximo id_contact para fazer Insert
             if (!isset($id_contact)) {
                 $result = pg_query($this->db,"LOCK TABLE phpgw_cc_contact IN ACCESS EXCLUSIVE MODE;");
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
@@ -474,12 +474,12 @@ class ExpressoContactProvider extends BackendDiff
                 if (!isset($row_address_max_id)) $row_address_max_id = 0;
             }
             $next_offset_address_to_insert = 0;
-            // se não encontrou id_address_comercial para fazer Update, define o próximo id_address_comercial para fazer Insert
+            // se nï¿½o encontrou id_address_comercial para fazer Update, define o prï¿½ximo id_address_comercial para fazer Insert
             if (!$found_id_address_comercial and $isset_business_address_fields) {
                 $next_offset_address_to_insert += 1;
                 $id_address_comercial = $row_address_max_id + $next_offset_address_to_insert;
             }
-            // se não encontrou id_address_residencial para fazer Update, define o próximo id_address_residencial para fazer Insert
+            // se nï¿½o encontrou id_address_residencial para fazer Update, define o prï¿½ximo id_address_residencial para fazer Insert
             if (!$found_id_address_residencial and $isset_home_address_fields) {
                 $next_offset_address_to_insert += 1;
                 $id_address_residencial = $row_address_max_id + $next_offset_address_to_insert;
@@ -553,42 +553,42 @@ class ExpressoContactProvider extends BackendDiff
                 if (!isset($row_connection_max_id)) $row_connection_max_id = 0;
             }
             $next_offset_connection_to_insert = 0;
-            // se não encontrou id_connection_email_principal para fazer Update, define o próximo id_connection_email_principal para fazer Insert
+            // se nï¿½o encontrou id_connection_email_principal para fazer Update, define o prï¿½ximo id_connection_email_principal para fazer Insert
             if (!$found_id_connection_email_principal and isset($message->email1address)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_email_principal = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou id_connection_email_alternativo para fazer Update, define o próximo id_connection_email_alternativo para fazer Insert
+            // se nï¿½o encontrou id_connection_email_alternativo para fazer Update, define o prï¿½ximo id_connection_email_alternativo para fazer Insert
             if (!$found_id_connection_email_alternativo and isset($message->email2address)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_email_alternativo = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou $id_connection_tel_trabalho para fazer Update, define o próximo $id_connection_tel_trabalho para fazer Insert
+            // se nï¿½o encontrou $id_connection_tel_trabalho para fazer Update, define o prï¿½ximo $id_connection_tel_trabalho para fazer Insert
             if (!$found_id_connection_tel_trabalho and isset($message->businessphonenumber)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_tel_trabalho = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou $id_connection_tel_casa para fazer Update, define o próximo $id_connection_tel_casa para fazer Insert
+            // se nï¿½o encontrou $id_connection_tel_casa para fazer Update, define o prï¿½ximo $id_connection_tel_casa para fazer Insert
             if (!$found_id_connection_tel_casa and isset($message->homephonenumber)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_tel_casa = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou $id_connection_tel_celular para fazer Update, define o próximo $id_connection_tel_celular para fazer Insert
+            // se nï¿½o encontrou $id_connection_tel_celular para fazer Update, define o prï¿½ximo $id_connection_tel_celular para fazer Insert
             if (!$found_id_connection_tel_celular and isset($message->mobilephonenumber)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_tel_celular = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou $id_connection_tel_fax para fazer Update, define o próximo $id_connection_tel_fax para fazer Insert
+            // se nï¿½o encontrou $id_connection_tel_fax para fazer Update, define o prï¿½ximo $id_connection_tel_fax para fazer Insert
             if (!$found_id_connection_tel_fax and isset($message->businessfaxnumber)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_tel_fax = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou $id_connection_tel_principal para fazer Update, define o próximo $id_connection_tel_principal para fazer Insert
+            // se nï¿½o encontrou $id_connection_tel_principal para fazer Update, define o prï¿½ximo $id_connection_tel_principal para fazer Insert
             if (!$found_id_connection_tel_principal and isset($message->business2phonenumber)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_tel_principal = $row_connection_max_id + $next_offset_connection_to_insert;
             }
-            // se não encontrou $id_connection_tel_alternativo para fazer Update, define o próximo $id_connection_tel_alternativo para fazer Insert
+            // se nï¿½o encontrou $id_connection_tel_alternativo para fazer Update, define o prï¿½ximo $id_connection_tel_alternativo para fazer Insert
             if (!$found_id_connection_tel_alternativo and isset($message->home2phonenumber)) {
                 $next_offset_connection_to_insert += 1;
                 $id_connection_tel_alternativo = $row_connection_max_id + $next_offset_connection_to_insert;
@@ -823,7 +823,7 @@ class ExpressoContactProvider extends BackendDiff
                 $result = pg_delete($this->db, "phpgw_cc_connections", array('id_connection' => $id_connection_email_alternativo));
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
             }
-            //TODO : Atribuir o email3address. O Expresso ainda não tem campo para um terceiro email :(
+            //TODO : Atribuir o email3address. O Expresso ainda nï¿½o tem campo para um terceiro email :(
 
             // Telefone Trabalho
             if(isset($message->businessphonenumber)) {
@@ -1023,7 +1023,7 @@ class ExpressoContactProvider extends BackendDiff
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
             }
 
-            //TODO : Permitir mais de um número de telefone para Trabalho, Celular e Casa. O Expresso ainda não suporta isso :(
+            //TODO : Permitir mais de um nï¿½mero de telefone para Trabalho, Celular e Casa. O Expresso ainda nï¿½o suporta isso :(
 
             $result = pg_query($this->db,"COMMIT;");
             if ($result == FALSE) throw new Exception(pg_last_error($this->db));
@@ -1054,7 +1054,7 @@ class ExpressoContactProvider extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function SetReadFlag($folderid, $id, $flags)
+    public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
 
         // TODO: Implement SetReadFlag() method.
@@ -1074,7 +1074,7 @@ class ExpressoContactProvider extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function DeleteMessage($folderid, $id)
+    public function DeleteMessage($folderid, $id, $contentParameters)
     {
         ZLog::Write(LOGLEVEL_DEBUG, "ExpressoContactProvider->DeleteMessage()");
         $result = pg_query($this->db,"BEGIN;");
@@ -1143,7 +1143,7 @@ class ExpressoContactProvider extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
-    public function MoveMessage($folderid, $id, $newfolderid)
+    public function MoveMessage($folderid, $id, $newfolderid, $contentParameters)
     {
         // TODO: Implement MoveMessage() method.
     }
@@ -1266,7 +1266,7 @@ class ExpressoContactProvider extends BackendDiff
     }
 
     function  removeAccents($data){
-        $data = strtr($data,"ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÜÚŞßàáâãäåæçèéêëìíîïğñòóôõö÷øùüúşÿ","aaaaaaaceeeeiiii noooooxouuutbaaaaaaaceeeeiiii nooooo/ouuuty");
+        $data = strtr($data,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","aaaaaaaceeeeiiii noooooxouuutbaaaaaaaceeeeiiii nooooo/ouuuty");
         return $data;
     }
 

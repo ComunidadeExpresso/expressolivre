@@ -6,7 +6,7 @@
 *
 * Created   :   16.02.2012
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -60,6 +60,9 @@ class GetAttachment extends RequestProcessor {
             $attachment = self::$backend->GetAttachmentData($attname);
             $stream = $attachment->data;
             ZLog::Write(LOGLEVEL_DEBUG, sprintf("HandleGetAttachment(): attachment stream from backend: %s", $stream));
+
+            if ($stream == null)
+                throw new StatusException(sprintf("HandleGetAttachment(): No stream resource returned by backend for attachment: %s", $attname), SYNC_ITEMOPERATIONSSTATUS_INVALIDATT);
 
             header("Content-Type: application/octet-stream");
             $l = 0;

@@ -10,7 +10,7 @@
 *
 * Created   :   05.09.2011
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -100,7 +100,8 @@ class SyncTaskRecurrence extends SyncObject {
                     //  64 = Saturday
                     // 127 = The last day of the month. Value valid only in monthly or yearly recurrences.
                     SYNC_POOMTASKS_DAYOFWEEK                            => array (  self::STREAMER_VAR      => "dayofweek",
-                                                                                    self::STREAMER_CHECKS   => array(   self::STREAMER_CHECK_ONEVALUEOF => array(1,2,4,8,16,32,62,64,127) )),
+                                                                                    self::STREAMER_CHECKS   => array(   self::STREAMER_CHECK_CMPHIGHER  => 0,
+                                                                                                                        self::STREAMER_CHECK_CMPLOWER   => 128 )),
 
                     // DayOfMonth values
                     // 1-31 representing the day

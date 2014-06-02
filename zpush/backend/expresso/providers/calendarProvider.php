@@ -500,7 +500,7 @@ class ExpressoCalendarProvider extends BackendDiff
      * @return array                        same return value as StatMessage()
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function ChangeMessage($folderid, $idMessage, $message)
+    public function ChangeMessage($folderid, $idMessage, $message, $contentParameters)
     {
 
         $idNumber = (int)str_replace('calendar' , '' , $folderid);
@@ -1042,7 +1042,7 @@ class ExpressoCalendarProvider extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function SetReadFlag($folderid, $id, $flags)
+    public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
         return true;
     }
@@ -1061,7 +1061,7 @@ class ExpressoCalendarProvider extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
-    public function DeleteMessage($folderid, $id)
+    public function DeleteMessage($folderid, $id, $contentParameters)
     {
 
         $idNumber = (int)str_replace('calendar' , '' , $folderid);
@@ -1114,7 +1114,7 @@ class ExpressoCalendarProvider extends BackendDiff
      * @return boolean                      status of the operation
      * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
-    public function MoveMessage($folderid, $id, $newfolderid)
+    public function MoveMessage($folderid, $id, $newfolderid , $contentParameters)
     {
         return false;
     }

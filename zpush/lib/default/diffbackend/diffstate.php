@@ -13,7 +13,7 @@
 *
 * Created   :   02.01.2012
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -52,6 +52,8 @@ class DiffState implements IChanges {
     protected $syncstate;
     protected $backend;
     protected $flags;
+    protected $contentparameters;
+    protected $cutoffdate;
 
     /**
      * Initializes the state
@@ -73,6 +75,20 @@ class DiffState implements IChanges {
         $this->syncstate = $state;
         $this->flags = $flags;
         return true;
+    }
+
+    /**
+     * Configures additional parameters used for content synchronization
+     *
+     * @param ContentParameters         $contentparameters
+     *
+     * @access public
+     * @return boolean
+     * @throws StatusException
+     */
+    public function ConfigContentParameters($contentparameters) {
+        $this->contentparameters = $contentparameters;
+        $this->cutoffdate = Utils::GetCutOffDate($contentparameters->GetFilterType());
     }
 
     /**

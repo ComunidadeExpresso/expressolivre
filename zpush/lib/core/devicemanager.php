@@ -10,7 +10,7 @@
 *
 * Created   :   11.04.2011
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -50,6 +50,10 @@ class DeviceManager {
     const MSG_BROKEN_UNKNOWN = 1;
     const MSG_BROKEN_CAUSINGLOOP = 2;
     const MSG_BROKEN_SEMANTICERR = 4;
+
+    const FLD_SYNC_INITIALIZED = 1;
+    const FLD_SYNC_INPROGRESS = 2;
+    const FLD_SYNC_COMPLETED = 4;
 
     private $device;
     private $deviceHash;
@@ -330,6 +334,18 @@ class DeviceManager {
     }
 
     /**
+     * Returns the ActiveSync folder type for a FolderID
+     *
+     * @param string    $folderid
+     *
+     * @access public
+     * @return int/boolean        boolean if no type is found
+     */
+    public function GetFolderTypeFromCacheById($folderid) {
+        return $this->device->GetFolderType($folderid);
+    }
+
+    /**
      * Returns a FolderID of default classes
      * this is for AS 1.0 compatibility:
      *      this information was made available during GetHierarchy()
@@ -607,6 +623,19 @@ class DeviceManager {
     }
 
     /**
+     * Announces that the current process is a push connection to the process loop
+     * detection and to the Top collector
+     *
+     * @access public
+     * @return boolean
+     */
+    public function AnnounceProcessAsPush() {
+        ZLog::Write(LOGLEVEL_DEBUG, "Announce process as PUSH connection");
+
+        return $this->loopdetection->ProcessLoopDetectionSetAsPush() && ZPush::GetTopCollector()->SetAsPushConnection();
+    }
+
+    /**
      * Checks if the given counter for a certain uuid+folderid was already exported or modified.
      * This is called when a heartbeat request found changes to make sure that the same
      * changes are not exported twice, as during the heartbeat there could have been a normal
@@ -635,6 +664,35 @@ class DeviceManager {
      */
     public function SetHeartbeatStateIntegrity($folderid, $uuid, $counter) {
         return $this->loopdetection->SetSyncStateUsage($folderid, $uuid, $counter);
+    }
+
+    /**
+     * Sets the current status of the folder
+     *
+     * @param string     $folderid          folder id
+     * @param int        $statusflag        current status: DeviceManager::FLD_SYNC_INITIALIZED, DeviceManager::FLD_SYNC_INPROGRESS, DeviceManager::FLD_SYNC_COMPLETED
+     *
+     * @access public
+     * @return
+     */
+    public function SetFolderSyncStatus($folderid, $statusflag) {
+        $currentStatus = $this->device->GetFolderSyncStatus($folderid);
+
+        // status available or just initialized
+        if (isset($currentStatus[ASDevice::FOLDERSYNCSTATUS]) || $statusflag == self::FLD_SYNC_INITIALIZED) {
+            // only update if there is a change
+            if ($statusflag !== $currentStatus[ASDevice::FOLDERSYNCSTATUS] && $statusflag != self::FLD_SYNC_COMPLETED) {
+                $this->device->SetFolderSyncStatus($folderid, array(ASDevice::FOLDERSYNCSTATUS => $statusflag));
+                ZLog::Write(LOGLEVEL_DEBUG, sprintf("SetFolderSyncStatus(): set %s for %s", $statusflag, $folderid));
+            }
+            // if completed, remove the status
+            else if ($statusflag == self::FLD_SYNC_COMPLETED) {
+                $this->device->SetFolderSyncStatus($folderid, false);
+                ZLog::Write(LOGLEVEL_DEBUG, sprintf("SetFolderSyncStatus(): completed for %s", $folderid));
+            }
+        }
+
+        return true;
     }
 
     /**
