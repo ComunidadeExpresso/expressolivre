@@ -1,9 +1,9 @@
 #content_folders .foldertree-skin-prognus span.selected {font-weight:bold !important; } 
 #content_folders .foldertree-skin-prognus span.inbox {}
-#content_folders .foldertree-skin-prognus span.trash {background-image: url(../img/mail-sprites.png); background-position: 0 -67px;}
-#content_folders .foldertree-skin-prognus span.drafts {background-image: url(../img/mail-sprites.png); background-position: 0 -1121px;}
-#content_folders .foldertree-skin-prognus span.spam {background-image: url(../img/mail-sprites.png); background-position: 0 -989px;}
-#content_folders .foldertree-skin-prognus span.sent {background-image: url(../img/mail-sprites.png); background-position: 0 -1055px;}
+#content_folders .foldertree-skin-prognus span.trash {background-image: url(../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -67px;}
+#content_folders .foldertree-skin-prognus span.drafts {background-image: url(../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -1121px;}
+#content_folders .foldertree-skin-prognus span.spam {background-image: url(../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -989px;}
+#content_folders .foldertree-skin-prognus span.sent {background-image: url(../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -1055px;}
 #content_folders .foldertree-skin-prognus span.folder {display: block;padding-bottom: 1px;padding-left: 18px;padding-right: 0;padding-top: 1px; font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;}
 #content_folders .treeview .closed {display:block;}
 
@@ -31,21 +31,21 @@
 
 .draggin-mail{
 	float: left;
-	background-image: url(../img/mail-sprites.png);
-	background-position: 0 -1383px;
+	background-image: url(../prototype/modules/mail/img/mail-sprites.png);
+	background-position: 0 -1381px;
 	background-repeat:no-repeat;
 	color : red;
 	text-align: right;
 	font-weight : bold;
 	padding-right : 5px;
-	padding-left : 25px;	
+	padding-left : 20px;
 	font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;
 	font-size : 11px;
 }
 
 .draggin-folder{
 	float: left;
-	background-image: url(../img/mail-sprites.png);
+	background-image: url(../prototype/modules/mail/img/mail-sprites.png);
 	background-position: 0 -923px;
 	background-repeat:no-repeat;
 	padding-left : 20px;
