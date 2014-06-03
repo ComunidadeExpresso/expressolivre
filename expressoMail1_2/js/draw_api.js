@@ -1660,7 +1660,7 @@ function draw_box(headers_msgs, msg_folder, alternate){
 								var border_id = ui.draggable.find("input[type=hidden]").attr("name");
 								// Mensagens : SE O DROP VIER DA LISTA DE MENSAGENS :
 								if(folder_to_move == "tbody_box"){
-									move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title,true);
+									move_msgs2(get_current_folder(), 'selected', 0, folder_to, to_folder_title, true, true);
 									return refresh();
 								}
 							}

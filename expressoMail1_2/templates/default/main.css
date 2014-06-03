@@ -1238,13 +1238,13 @@ table.inboxElements th,
 .draggin-mail{
 	float: left;
 	/*background-image: url(../../../prototype/modules/mail/img/mail-sprites.png);*/
-	background-position: 0 -1383px;
+	background-position: 0 -1381px;
 	background-repeat:no-repeat;
 	color : red;
 	text-align: right;
 	font-weight : bold;
 	padding-right : 5px;
-	padding-left : 5px;	
+	padding-left : 20px;
 	padding-top : 2px;	
 	font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;
 	font-size : 11px;
