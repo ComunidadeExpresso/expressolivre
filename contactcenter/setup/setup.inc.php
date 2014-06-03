@@ -16,7 +16,7 @@
 	/* Basic information about this app */
 	$setup_info['contactcenter']['name']      = 'contactcenter';
 	$setup_info['contactcenter']['title']     = 'ContactCenter';
-	$setup_info['contactcenter']['version']   = '2.5.1';
+	$setup_info['contactcenter']['version']   = '2.5.2';
 	$setup_info['contactcenter']['app_order'] = 4;
 	$setup_info['contactcenter']['enable']    = 1;
 

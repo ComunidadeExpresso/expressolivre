@@ -12,7 +12,7 @@
 	/* Basic information about this app */
 	$setup_info['help']['name']      = 'help';
 	$setup_info['help']['title']     = 'User Manual and Help Page';
-	$setup_info['help']['version']   = '2.5.1';
+	$setup_info['help']['version']   = '2.5.2';
 	$setup_info['help']['app_order'] = 5;
 	$setup_info['help']['enable']    = 2;	// Invisible on top (navigation bar)
 

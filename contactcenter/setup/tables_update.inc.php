@@ -109,4 +109,9 @@
         $GLOBALS['setup_info']['contactcenter']['currentver'] = '2.5.1';
         return $GLOBALS['setup_info']['contactcenter']['currentver'];
     }
-?>
+
+    $test[] = '2.5.1';
+    function contactcenter_upgrade2_5_1() {
+        $GLOBALS['setup_info']['contactcenter']['currentver'] = '2.5.2';
+        return $GLOBALS['setup_info']['contactcenter']['currentver'];
+    }

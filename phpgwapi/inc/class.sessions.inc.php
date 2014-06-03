@@ -487,7 +487,7 @@
 				$this->log_access($this->reason,$login,$user_ip,0);	// log unsuccessfull login
 				return False;
 			}
-			// Só verifica tempo de inatividade do usuário, caso esteja configurado no Administrador.
+			// só verifica tempo de inatividade do usuário, caso esteja configurado no Administrador.
 			if(isset($GLOBALS['phpgw_info']['server']['time_to_account_expires']) && 
 				$this->account_id !=null && $this->account_lid != "expresso-admin") {
 					$last_access = $this->get_last_access_on_history($this->account_id);
@@ -663,7 +663,11 @@
 			}
 			*/
 			$login = pg_escape_string($login);
-			$this->db->query("SELECT count(*) FROM phpgw_access_log WHERE account_id=0 AND (loginid='$login' OR loginid LIKE '$login@%') AND li > $block_time",__LINE__,__FILE__);
+
+            $query  = "SELECT count(*) FROM phpgw_access_log l WHERE l.account_id = 0 AND l.li > {$block_time} AND ( EXISTS  ";
+            $query .= "(SELECT 1 FROM phpgw_access_log g WHERE l.loginid = g.loginid AND g.loginid LIKE '{$login}') OR EXISTS (SELECT 1 FROM phpgw_access_log h WHERE l.loginid = h.loginid AND h.loginid LIKE '{$login}@%' ))";
+            $this->db->query( $query , __LINE__ , __FILE__ );
+
 			$this->db->next_record();
 			if (($false_id = $this->db->f(0)) > $GLOBALS['phpgw_info']['server']['num_unsuccessful_id'])
 			{

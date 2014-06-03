@@ -13,7 +13,7 @@
 	/* Basic information about this app */
 	$setup_info['mobile']['name']      = 'mobile';
 	$setup_info['mobile']['title']     = 'Expresso Mini';
-	$setup_info['mobile']['version']   = '2.5.1';
+	$setup_info['mobile']['version']   = '2.5.2';
 	$setup_info['mobile']['app_order'] = 4;
 	$setup_info['mobile']['enable']    = 2;
 

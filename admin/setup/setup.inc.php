@@ -12,7 +12,7 @@
 
 	$setup_info['admin']['name']      = 'admin';
 	$setup_info['admin']['title']      = 'Admin';
-	$setup_info['admin']['version']   = '2.5.1';
+	$setup_info['admin']['version']   = '2.5.2';
 	$setup_info['admin']['app_order'] = 1;
 	$setup_info['admin']['tables']    = '';
 	$setup_info['admin']['enable']    = 1;

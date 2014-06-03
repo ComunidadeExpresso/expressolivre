@@ -37,8 +37,14 @@ if (isset($GLOBALS['phpgw']) && !isset($_SESSION['connection_db_info'])){
 		}		
 		$GLOBALS['phpgw']->db->query("UPDATE phpgw_access_log SET ip='$new_ip' WHERE account_id <> 0 and lo = 0 and sessionid='{$GLOBALS['sessionid']}'",__LINE__,__FILE__);
 	} 
-	 $GLOBALS['phpgw']->db->query("select trim(sessionid),".($_SESSION['phpgw_info']['admin']['server']['sessions_checkip'] ? "ip," : "")."browser from phpgw_access_log where account_id <> 0 and lo = 0 and sessionid='{$GLOBALS['sessionid']}' limit 1",__LINE__,__FILE__); 
-	$GLOBALS['phpgw']->db->next_record(); 
+
+    $checkIP = $_SESSION['phpgw_info']['admin']['server']['sessions_checkip'] ? 'ip, ' : '';
+    $query   = "SELECT trim(sessionid), {$checkIP}browser FROM phpgw_access_log l ";
+    $query  .= "WHERE l.lo = 0 and l.sessionid = '{$GLOBALS['sessionid']}' AND NOT EXISTS ( SELECT account_id FROM phpgw_access_log g WHERE g.account_id = 0 AND l.account_id = g.account_id ) ";
+    $query  .= "LIMIT 1";
+
+    $GLOBALS['phpgw']->db->query($query , __LINE__ , __FILE__ );
+	$GLOBALS['phpgw']->db->next_record();
 	if($GLOBALS['phpgw']->db->row( )) 
 		$_SESSION['connection_db_info']['user_auth'] = implode("",$GLOBALS['phpgw']->db->row( )); 
 } 

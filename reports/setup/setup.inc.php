@@ -12,7 +12,7 @@
 	$setup_info['reports']['name']      	= 'reports';
 	$setup_info['reports']['title']     	= 'Expresso Reports';
 	/* Ao incrementar versão, não esquecer de declarar função do tables_update.inc.php*/
-	$setup_info['reports']['version']   	= '2.5.1';
+	$setup_info['reports']['version']   	= '2.5.2';
 	$setup_info['reports']['app_order']	= 17;
 	$setup_info['reports']['tables']    = '';
 	$setup_info['reports']['enable']		= 1;

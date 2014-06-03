@@ -12,7 +12,7 @@
 	$setup_info['expressoAdmin1_2']['name']      	= 'expressoAdmin1_2';
 	$setup_info['expressoAdmin1_2']['title']     	= 'Expresso Admin';
 	/* Ao incrementar versão, não esquecer de declarar função do tables_update.inc.php*/
-	$setup_info['expressoAdmin1_2']['version']   	= '2.5.1';
+	$setup_info['expressoAdmin1_2']['version']   	= '2.5.2';
 	$setup_info['expressoAdmin1_2']['app_order']	= 1;
 	$setup_info['expressoAdmin1_2']['tables'][]		= 'phpgw_expressoadmin';
 	$setup_info['expressoAdmin1_2']['tables'][]		= 'phpgw_expressoadmin_apps';
