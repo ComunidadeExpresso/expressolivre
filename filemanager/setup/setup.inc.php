@@ -13,7 +13,7 @@
 
 	$setup_info['filemanager']['name']    = 'filemanager';
 	$setup_info['filemanager']['title']   = 'Filemanager';
-	$setup_info['filemanager']['version'] = '2.5.1';
+	$setup_info['filemanager']['version'] = '2.5.2';
 	$setup_info['filemanager']['app_order'] = 6;
 	$setup_info['filemanager']['enable']  = 1;
 

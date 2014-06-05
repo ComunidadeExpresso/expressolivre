@@ -7,7 +7,7 @@
 	
 	$setup_info['jabberit_messenger']['name']      	= 'jabberit_messenger';
 	$setup_info['jabberit_messenger']['title']     	= 'Expresso Messenger';
-	$setup_info['jabberit_messenger']['version']   	= '2.5.1';
+	$setup_info['jabberit_messenger']['version']   	= '2.5.2';
 	$setup_info['jabberit_messenger']['app_order'] 	= 9;
 	$setup_info['jabberit_messenger']['enable']    	= 1;
 	

@@ -158,4 +158,8 @@
 	$oProc->query ("INSERT INTO phpgw_vfs (owner_id, createdby_id, modifiedby_id, created, modified, size, mime_type, deleteable, comment, app, directory, name, link_directory, link_name) VALUES (0,0,0,'1970-01-01',NULL,NULL,'Directory','Y',NULL,NULL,'/','', NULL, NULL)");
 	
 	$oProc->query ("INSERT INTO phpgw_vfs (owner_id, createdby_id, modifiedby_id, created, modified, size, mime_type, deleteable, comment, app, directory, name, link_directory, link_name) VALUES (0,0,0,'1970-01-01',NULL,NULL,'Directory','Y',NULL,NULL,'/','home', NULL, NULL)");
-?>
+
+    $oProc->query ("CREATE INDEX idx_access_log_session_id ON phpgw_access_log USING btree (sessionid COLLATE pg_catalog.\"default\" )");
+    $oProc->query ("CREATE INDEX idx_phpgw_access_log_account_id ON phpgw_access_log USING btree (account_id )");
+    $oProc->query ("CREATE INDEX idx_phpgw_access_log_id_log_li ON phpgw_access_log USING btree  (account_id , li )");
+    $oProc->query ("CREATE INDEX idx_phpgw_access_log_lo_sessionid ON phpgw_access_log USING btree (lo , sessionid COLLATE pg_catalog.\"default\" )");

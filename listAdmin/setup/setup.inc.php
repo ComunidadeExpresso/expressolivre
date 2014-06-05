@@ -8,7 +8,7 @@
 
 	$setup_info['listAdmin']['name'] = 'listAdmin';
 	$setup_info['listAdmin']['title'] = 'Mailman Admin';
-	$setup_info['listAdmin']['version'] = '2.5.1';
+	$setup_info['listAdmin']['version'] = '2.5.2';
 	$setup_info['listAdmin']['app_order'] = 10;
 	$setup_info['listAdmin']['enable'] = 1;
 

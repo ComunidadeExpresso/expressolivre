@@ -224,4 +224,17 @@
         $GLOBALS['setup_info']['phpgwapi']['currentver'] = '2.5.1.0';
         return $GLOBALS['setup_info']['phpgwapi']['currentver'];
     }
-?>
+
+    $test[] = '2.5.1.0';
+    function phpgwapi_upgrade2_5_1_0()
+    {
+        global $phpgw_setup;
+
+        $phpgw_setup->oProc->query("CREATE INDEX idx_access_log_session_id ON phpgw_access_log USING btree (sessionid COLLATE pg_catalog.\"default\" )");
+        $phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_account_id ON phpgw_access_log USING btree (account_id )");
+        $phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_id_log_li ON phpgw_access_log USING btree  (account_id , li )");
+        $phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_lo_sessionid ON phpgw_access_log USING btree (lo , sessionid COLLATE pg_catalog.\"default\" )");
+
+        $GLOBALS['setup_info']['phpgwapi']['currentver'] = '2.5.2';
+        return $GLOBALS['setup_info']['phpgwapi']['currentver'];
+    }

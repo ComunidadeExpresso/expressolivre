@@ -99,4 +99,10 @@
         $GLOBALS['setup_info']['news_admin']['currentver'] = '2.5.1';
         return $GLOBALS['setup_info']['news_admin']['currentver'];
     }
-?>
+
+    $test[] = '2.5.1';
+    function news_admin_upgrade2_5_1()
+    {
+        $GLOBALS['setup_info']['news_admin']['currentver'] = '2.5.2';
+        return $GLOBALS['setup_info']['news_admin']['currentver'];
+    }

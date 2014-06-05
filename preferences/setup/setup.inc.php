@@ -12,7 +12,7 @@
 
 	$setup_info['preferences']['name']      = 'preferences';
 	$setup_info['preferences']['title']     = 'Preferences';
-	$setup_info['preferences']['version']   = '2.5.1';
+	$setup_info['preferences']['version']   = '2.5.2';
 	$setup_info['preferences']['app_order'] = 1;
 	$setup_info['preferences']['tables']    = '';
 	$setup_info['preferences']['enable']    = 2;

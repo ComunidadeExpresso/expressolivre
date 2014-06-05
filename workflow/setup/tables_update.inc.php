@@ -374,5 +374,10 @@
         return $GLOBALS['setup_info']['workflow']['currentver'];
     }
 
+    $test[] = '2.5.1';
+    function workflow_upgrade2_5_1()
+    {
+        $GLOBALS['setup_info']['workflow']['currentver'] = '2.5.2';
+        return $GLOBALS['setup_info']['workflow']['currentver'];
+    }
 
-?>

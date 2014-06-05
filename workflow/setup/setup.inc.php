@@ -12,7 +12,7 @@
 	/* Basic information about this app */
 	$setup_info['workflow']['name']			= 'workflow';
 	$setup_info['workflow']['title']		= 'Workflow Management';
-	$setup_info['workflow']['version']		= '2.5.1';
+	$setup_info['workflow']['version']		= '2.5.2';
 	$setup_info['workflow']['app_order']	= 10;
 	$setup_info['workflow']['enable']		= 1;
 	$setup_info['workflow']['author']		= 'See changeLog for complete list of developers.';
