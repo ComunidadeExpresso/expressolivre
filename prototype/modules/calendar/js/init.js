@@ -495,7 +495,7 @@ $(document).ready(function() {
                                 'type':     'question',
                                 'overlay_opacity': '0.5',
                                 'custom_class':  'occurrence-zebra',
-                                'width': 427,
+                                'width': 444,
                                 'buttons':  ['_[[Edit all occurrences]]', '_[[Edit this event]]', '_[[Cancel]]'],
                                 'onClose':  function(clicked) {
                                     if(clicked == '_[[Edit all occurrences]]') {
