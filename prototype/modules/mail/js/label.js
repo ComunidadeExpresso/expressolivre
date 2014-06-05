@@ -1,13 +1,13 @@
 function msgCallback(msg){
 	switch(msg){
 		case '#LabelNameError': 
-			alert('Já existe um marcador com esse nome.');
+			alert('_[[There is already a bookmark with this name]].');
 			break;
 		case '#LabelSlotError':
-			alert('Atingido limite de marcadores criados.');
+			alert('_[[Reached limit markers created]].');
 			break;	
 		default:
-			alert('Ocorreu um erro ao salvar o Marcador');
+			alert('_[[An error occurred while saving the Marker]]');
 	}
 }
 function configureLabel(event, ui){
@@ -226,7 +226,7 @@ function save_editLabel(nameLabel, apply){
 		}
 		//$(".label-list-container .label-list").find(".label-item-"+labelEdited.id).trigger("click");
 	} else {
-		alert("Mínimo 2 caracteres");
+		alert("_[[Minimum 2 characters]]");
 	}	
 }
 
@@ -508,7 +508,7 @@ function init_label(data){
 			$.Watermark.ShowAll();
 			winElement.find(".insert-label").val("");
 			} else {
-				alert("Mínimo 2 caracteres");
+				alert("_[[Minimum 2 characters]]");
 			}
 		event.stopImmediatePropagation();
 	});

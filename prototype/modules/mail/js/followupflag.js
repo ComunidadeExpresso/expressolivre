@@ -1,13 +1,13 @@
 MsgsCallbackFollowupflag = {
 
     '#FollowupflagMessageIdError': function(){
-	alert('Não foi possível sinalizar esta mensagem. \nDetalhes do erro: mensagem não contém o atributo message-id.');
+	alert('_[[Unable flagging this message. \nError details: message does not contain the attribute message-id]].');
     },
     '#FollowupflagLimitError': function(){
-	alert('Não foi possível sinalizar esta mensagem. \nDetalhes do erro: limite de flags atingido para esta pasta.');
+	alert('_[[Unable flagging this message. \nError details: flags limit reached for this folder]].');
     },
     '#FollowupflagParamsError': function(){
-	alert('Não foi possível sinalizar esta mensagem. \nDetalhes do erro: mensagem não contém todos os atributos necessários.');
+	alert('_[[Unable flagging this message. \nError details: message does not contain all the required attributes]].');
     }
     
 }
@@ -167,10 +167,10 @@ function init_followup(data){
 							}				
 						});
 						if (fail == '#FollowupflagMessageIdError'){
-							 alert('Uma ou mais mensagens não puderam ser sinalizadas. \nDetalhes do erro: mensagem não contém o atributo message-id.');
+							 alert('_[[One or more messages could not be posted. \nError details: message contains the message-id attribute]].');
 						}
 						else if (fail == '#FollowupflagLimitError'){
-							 alert('Uma ou mais mensagens não puderam ser sinalizadas. \nDetalhes do erro: limite de flags atingido para esta pasta.');	
+							 alert('_[[One or more messages could not be posted. \nError details: flags limit reached for this folder]].');
 						}
 						/*DIVIDE O ARRAY EM ARRAYS MENORES*/
 						var splice = function(arr){

@@ -1150,3 +1150,12 @@ Empty trash	expressoMail1_2	pt-br	Esvaziar lixeira
 Mailbox does not exist	expressoMail1_2	pt-br	Caixa de mail não existe
 The folder $folder_name$ was successfully removed	expressoMail1_2	pt-br	A pasta $folder_name$ foi removida com sucesso
 Create Event	expressoMail1_2	pt-br	Criar Evento
+Unable flagging this message. \nError details: flags limit reached for this folder	expressoMail1_2	pt-br	Não foi possível sinalizar esta mensagem. \nDetalhes do erro: limite de flags atingido para esta pasta
+Unable flagging this message. \nError details: message does not contain the attribute message-id	expressoMail1_2	pt-br	Não foi possível sinalizar esta mensagem. \nDetalhes do erro: mensagem não contém o atributo message-id
+Unable flagging this message. \nError details: message does not contain all the required attributes	expressoMail1_2	pt-br	Não foi possível sinalizar esta mensagem. \n Detalhes do erro: mensagem não contém todos os atributos necessários
+One or more messages could not be posted. \nError details: message contains the message-id attribute	expressoMail1_2	pt-br	Uma ou mais mensagens não puderam ser sinalizadas. \nDetalhes do erro: mensagem não contém o atributo message-id
+One or more messages could not be posted. \nError details: flags limit reached for this folder	expressoMail1_2	pt-br	Uma ou mais mensagens não puderam ser sinalizadas. \nDetalhes do erro: mensagem não contém o atributo message-id
+There is already a bookmark with this name	expressoMail1_2	pt-br	Já existe um marcador com esse nome
+Reached limit markers created	expressoMail1_2	pt-br	Atingido limite de marcadores criados
+An error occurred while saving the Marker	expressoMail1_2	pt-br	Ocorreu um erro ao salvar o Marcador
+Minimum 2 characters	expressoMail1_2	pt-br	Mínimo 2 caracteres

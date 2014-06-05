@@ -1126,3 +1126,12 @@ Default schedule for Import Events	expressoMail1_2	es-es	Horario predeterminado 
 Empty trash	expressoMail1_2	es-es	Vaciar papelera
 Mailbox does not exist	expressoMail1_2	es-es	Mailbox no existe
 The folder $folder_name$ was successfully removed	expressoMail1_2	es-es	La carpeta $folder_name$ se ha eliminado correctamente
+Unable flagging this message. \nError details: flags limit reached for this folder	expressoMail1_2	es-es	No se puede marcar este mensaje \nDetalles de error:. Banderas alcanza el límite para esta carpeta
+Unable flagging this message. \nError details: message does not contain the attribute message-id	expressoMail1_2	es-es	No se puede marcar este mensaje \nDetalles de error:. Mensaje no contiene el atributo de mensaje-id
+Unable flagging this message. \nError details: message does not contain all the required attributes	expressoMail1_2	es-es	No se puede marcar este mensaje \nDetalles de error:. Mensaje no contiene todos los atributos necesarios
+One or more messages could not be posted. \nError details: message contains the message-id attribute	expressoMail1_2	es-es	Uno o más mensajes no pueden ser publicados \nDetalles de error:. Atributo contiene el mensaje message-id
+One or more messages could not be posted. \nError details: flags limit reached for this folder	expressoMail1_2	es-es	Uno o más mensajes no pueden ser publicados \nDetalles de error:. Banderas alcanza el límite para esta carpeta
+There is already a bookmark with this name	expressoMail1_2	es-es	Ya hay un marcador con este nombre
+Reached limit markers created	expressoMail1_2	es-es	Llegó a marcadores de límite creados
+An error occurred while saving the Marker	expressoMail1_2	es-es	Se ha producido un error al guardar el marcador
+Minimum 2 characters	expressoMail1_2	es-es	Mínimo 2 caracteres
