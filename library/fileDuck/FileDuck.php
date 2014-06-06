@@ -449,8 +449,9 @@ class FileDuck
                 /*
                  * Line-break 2000 : Evita linhas muito grandes para previnir erros de backtracking do PCRE.
                  * disable-optimizations : Evita a remoção de aspas e concatenações pelo compressor.
+                 * nomunge : Desbilita o renomeio das variaveis (Em alguns javascript o Yuicompressor removia partes do codigo com essa opção ativa)
                  */
-                exec("java -jar $uiCompressor $file -o $minFile --charset {$this->filesEncoding[$i]}  --line-break 2000 --disable-optimizations ");
+                exec("java -jar $uiCompressor $file -o $minFile --charset {$this->filesEncoding[$i]}  --line-break 2000 --disable-optimizations --nomunge ");
                 $this->filesCompressed[$i] = file_exists( $minFile ) ? $minFile : $file;
 
                 if( $this->filesCompressed[$i] !== $minFile )
