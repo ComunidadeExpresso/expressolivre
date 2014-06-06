@@ -63,7 +63,7 @@ $fileDuck->add(__DIR__ .'/js/abas.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/draw_api.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/desktop.notification.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/main.js' , 'ISO-8859-1');
-$fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/followupflag.js');
+$fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/followupflag.js', 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/messages_controller.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/doiMenuData.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/rich_text_editor.js' , 'ISO-8859-1');

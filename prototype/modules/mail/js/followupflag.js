@@ -1,13 +1,13 @@
 MsgsCallbackFollowupflag = {
 
     '#FollowupflagMessageIdError': function(){
-	alert('_[[Unable flagging this message. \nError details: message does not contain the attribute message-id]].');
+	alert('_[[Unable flagging this message. \nError details: message does not contain the attribute message-id]]' + '.');
     },
     '#FollowupflagLimitError': function(){
-	alert('_[[Unable flagging this message. \nError details: flags limit reached for this folder]].');
+	alert('_[[Unable flagging this message. \nError details: flags limit reached for this folder]]' + '.');
     },
     '#FollowupflagParamsError': function(){
-	alert('_[[Unable flagging this message. \nError details: message does not contain all the required attributes]].');
+	alert('_[[Unable flagging this message. \nError details: message does not contain all the required attributes]]' + '.');
     }
     
 }
@@ -167,10 +167,10 @@ function init_followup(data){
 							}				
 						});
 						if (fail == '#FollowupflagMessageIdError'){
-							 alert('_[[One or more messages could not be posted. \nError details: message contains the message-id attribute]].');
+							 alert('_[[One or more messages could not be posted. \nError details: message contains the message-id attribute]]' + '.');
 						}
 						else if (fail == '#FollowupflagLimitError'){
-							 alert('_[[One or more messages could not be posted. \nError details: flags limit reached for this folder]].');
+							 alert('_[[One or more messages could not be posted. \nError details: flags limit reached for this folder]]' + '.');
 						}
 						/*DIVIDE O ARRAY EM ARRAYS MENORES*/
 						var splice = function(arr){

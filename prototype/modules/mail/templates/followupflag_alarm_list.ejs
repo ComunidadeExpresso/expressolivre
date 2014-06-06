@@ -6,7 +6,7 @@
 	<%
 	for(var i=0; i<data.alarms.length; i++){
 		if(data.type == 'filtersDeadline')
-			var openMessageScript = "$(this).parent().remove(); var msgs_count = $('.filtersDeadline').find('li.message-item').length; if(msgs_count == 0){ $('.filtersDeadline').remove(); } $('.subtitle-alarm').find('strong').html((msgs_count == 1)? '_[[' + data.captions.singular + ']]' : get_lang('"+data.captions.plural+"', msgs_count)); cExecute('$this.imap_functions.open_flagged_msg&msg_number="+data.alarms[i].msg_number+"&msg_folder="+data.alarms[i].msg_folder+"&alarm=true', show_msg);";
+			var openMessageScript = "$(this).parent().remove(); var msgs_count = $('.filtersDeadline').find('li.message-item').length; if(msgs_count == 0){ $('.filtersDeadline').remove(); } $('.subtitle-alarm').find('strong').html((msgs_count == 1)? '+ data.captions.singular +' : get_lang('"+data.captions.plural+"', msgs_count)); cExecute('$this.imap_functions.open_flagged_msg&msg_number="+data.alarms[i].msg_number+"&msg_folder="+data.alarms[i].msg_folder+"&alarm=true', show_msg);";
 		else	
 			var openMessageScript = "cExecute('$this.imap_functions.get_info_msg&msg_number="+data.alarms[i].msg_number+"&msg_folder="+data.alarms[i].msg_folder+"&alarm=true', show_msg);";
 	%>
