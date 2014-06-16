@@ -44,7 +44,7 @@
 			$result = array();
 			$sql  = 'SELECT acl_location, acl_rights FROM phpgw_acl ';
 			$sql .= "WHERE acl_appname = 'news_admin' ";
-			if($inc_groups)
+			if( $inc_groups )
 			{
 				$sql .= 'AND acl_account IN('. (int)$user;
 				$sql .= ($groups ? ',' . implode(',', $groups) : '');
@@ -54,11 +54,17 @@
 			{
 				$sql .= 'AND acl_account ='. (int)$user;
 			}
+			
 			$this->db->query($sql,__LINE__,__FILE__);
+			
 			while ($this->db->next_record())
 			{
+				if( !array_key_exists( $this->db->f('acl_location'), $result ) )
+					$result[$this->db->f('acl_location')] = 0;
+				
 				$result[$this->db->f('acl_location')] |= $this->db->f('acl_rights');
 			}
+			
 			return $result;
 		}
 	}

@@ -29,9 +29,9 @@
 	{
 		@ldap_bind($ldap_connection, $GLOBALS['phpgw_info']['server']['user_ldap_referral'], $GLOBALS['phpgw_info']['server']['password_ldap_referral']);
 	}
-	$d1 = strtolower(@substr(PHPGW_API_INC,0,3));
-	$d2 = strtolower(@substr(PHPGW_SERVER_ROOT,0,3));
-	$d3 = strtolower(@substr(PHPGW_APP_INC,0,3));
+	$d1 = strtolower( defined('PHPGW_API_INC')? substr(PHPGW_API_INC,0,3) : '' );
+	$d2 = strtolower( defined('PHPGW_SERVER_ROOT')? substr(PHPGW_SERVER_ROOT,0,3) : '' );
+	$d3 = strtolower( defined('PHPGW_APP_INC')? substr(PHPGW_APP_INC,0,3) : '' );
 	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
 	{
 		echo 'Failed attempt to break in via an old Security Hole!<br />'."\n";
@@ -211,7 +211,7 @@
 				$pieces = explode('-', $value);
 				$value = $pieces[0];
 				# print 'current lang $value<br />';
-				if ($supportedLanguages[$value])
+				if( isset($supportedLanguages[$value]) )
 				{
 					$retValue=$value;
 					break;
@@ -250,24 +250,23 @@
 		*/
 		function ldapConnect($host='', $dn='', $passwd='', $ldapreferral=false) #default: dont follow the referral
 		{
-			
- 			if(!$host || $host == $GLOBALS['phpgw_info']['server']['ldap_host']) {                       
+ 			if( (isset($GLOBALS['phpgw_info']) ) && (!$host || $host == $GLOBALS['phpgw_info']['server']['ldap_host']) )
+ 			{                       
  				$dn 	= $dn ? $dn : $GLOBALS['phpgw_info']['server']['ldap_root_dn'];
    				$passwd = $passwd ? $passwd : $GLOBALS['phpgw_info']['server']['ldap_root_pw'];
 				$host   = $host ? $host : $GLOBALS['phpgw_info']['server']['ldap_host'];
 			}
-
-			/*else if(strstr($host, "ldap://")){
-				$dn = '';
-				$passwd = '';
-			}*/
 
 			if(!function_exists('ldap_connect'))
 			{
 				/* log does not exist in setup(, yet) */
 				if(is_object($GLOBALS['phpgw']->log))
 				{
-					$GLOBALS['phpgw']->log->message('F-Abort, LDAP support unavailable');
+					$GLOBALS['phpgw']->log->message(array(
+						'text' => 'F-Abort', 'LDAP support unavailable',
+						'line' => __LINE__,
+						'file' => __FILE__
+					));
 					$GLOBALS['phpgw']->log->commit();
 				}
 
@@ -281,7 +280,11 @@
 				/* log does not exist in setup(, yet) */
 				if(is_object($GLOBALS['phpgw']->log))
 				{
-					$GLOBALS['phpgw']->log->message('F-Abort, Failed connecting to LDAP server');
+					$GLOBALS['phpgw']->log->message(array(
+						'text' => 'F-Abort, Failed connecting to LDAP server',
+						'line' => __LINE__,
+						'file' => __FILE__
+					));
 					$GLOBALS['phpgw']->log->commit();
 				}
 
@@ -289,7 +292,7 @@
 				return False;
 			}
 
-			if($GLOBALS['phpgw_info']['server']['ldap_version3'])
+			if( isset($GLOBALS['phpgw_info']['server']['ldap_version3']) )
 			{
 				if(!ldap_set_option($ds,LDAP_OPT_PROTOCOL_VERSION,3))
 				{
@@ -301,7 +304,7 @@
 			if($ldapreferral){
 				$GLOBALS['phpgw_info']['server']['user_ldap_referral'] = $dn;
 				$GLOBALS['phpgw_info']['server']['password_ldap_referral'] = $passwd;
-				ldap_set_rebind_proc($ds, ldap_rebind);
+				@ldap_set_rebind_proc($ds, ldap_rebind);
 			}
 			// bind as admin
 			if($dn && $passwd && !@ldap_bind($ds,$dn,$passwd))
@@ -310,7 +313,11 @@
 				if(!@ldap_bind($ds,$dn,$passwd)) {
 					if(is_object($GLOBALS['phpgw']->log))
 					{
-						$GLOBALS['phpgw']->log->message('F-Abort, Failed binding to LDAP server');
+						$GLOBALS['phpgw']->log->message(array(
+							'text' => 'F-Abort, Failed binding to LDAP server',
+							'line' => __LINE__,
+							'file' => __FILE__						
+						));
 						$GLOBALS['phpgw']->log->commit();
 					}
 
@@ -328,7 +335,11 @@
 			{
 				if(is_object($GLOBALS['phpgw']->log))
 				{
-					$GLOBALS['phpgw']->log->message('F-Abort, Failed  (anonymous bind) to LDAP server');
+					$GLOBALS['phpgw']->log->message(array(
+						'text' => 'F-Abort, Failed  (anonymous bind) to LDAP server',
+						'line' => __LINE__,
+						'file' => __FILE__
+					));
 					$GLOBALS['phpgw']->log->commit();
 				}
 				if(function_exists("lang"))
@@ -377,14 +388,12 @@
 				}*/
 				// call the asyncservice check_run function if it is not explicitly set to cron-only
 				//
-
-                /*if ($GLOBALS['phpgw_info']['server']['asyncservice'])
-                {
-                    ExecMethod('phpgwapi.asyncservice.check_run','fallback');
-                }*/
-
+				if ( !isset($GLOBALS['phpgw_info']['server']['asyncservice']) )	// is default
+				{
+					ExecMethod('phpgwapi.asyncservice.check_run','fallback');
+				}
 				/* Clean up mcrypt */
-				if (@is_object($GLOBALS['phpgw']->crypto))
+				if (is_object($GLOBALS['phpgw']->crypto))
 				{
 					$GLOBALS['phpgw']->crypto->cleanup();
 					unset($GLOBALS['phpgw']->crypto);
@@ -488,12 +497,12 @@
 		{
 			if (! $lid && ! $firstname && ! $lastname)
 			{
-				$lid       = $GLOBALS['phpgw_info']['user']['account_lid'];
-				$firstname = $GLOBALS['phpgw_info']['user']['firstname'];
-				$lastname  = $GLOBALS['phpgw_info']['user']['lastname'];
+				$lid       = isset($GLOBALS['phpgw_info']['user']['account_lid'])? $GLOBALS['phpgw_info']['user']['account_lid'] : '';
+				$firstname = isset($GLOBALS['phpgw_info']['user']['firstname'])? $GLOBALS['phpgw_info']['user']['firstname'] : '';
+				$lastname  = isset($GLOBALS['phpgw_info']['user']['lastname'])? $GLOBALS['phpgw_info']['user']['lastname'] : '';
 			}
-
-			$display = $GLOBALS['phpgw_info']['user']['preferences']['common']['account_display'];
+			$display = isset($GLOBALS['phpgw_info']['user']['preferences']['common']['account_display'])?
+				$GLOBALS['phpgw_info']['user']['preferences']['common']['account_display'] : '';
 
 			if ($firstname && $lastname)
 			{
@@ -988,15 +997,15 @@
 			}
 
 			// first look in the selected template dir
-			if(@$this->found_files[$appname][$image.$img_type[0]]==$imagedir)
+			if( isset($this->found_files[$appname][$image.$img_type[0]]) && $this->found_files[$appname][$image.$img_type[0]] == $imagedir )
 			{
 				$imgfile = $GLOBALS['phpgw_info']['server']['webserver_url'].$this->found_files[$appname][$image.$img_type[0]].'/'.$image.$img_type[0];
 			}
-			elseif(@$this->found_files[$appname][$image.$img_type[1]]==$imagedir)
+			elseif( isset($this->found_files[$appname][$image.$img_type[1]]) && $this->found_files[$appname][$image.$img_type[1]] == $imagedir )
 			{
 				$imgfile = $GLOBALS['phpgw_info']['server']['webserver_url'].$this->found_files[$appname][$image.$img_type[1]].'/'.$image.$img_type[1];
 			}
-			elseif(@$this->found_files[$appname][$image.$img_type[2]]==$imagedir)
+			elseif( isset($this->found_files[$appname][$image.$img_type[2]]) && $this->found_files[$appname][$image.$img_type[2]] == $imagedir )
 			{
 				$imgfile = $GLOBALS['phpgw_info']['server']['webserver_url'].$this->found_files[$appname][$image.$img_type[2]].'/'.$image.$img_type[2];
 			}
@@ -1140,9 +1149,9 @@
 				if ($app == 'preferences' || $GLOBALS['phpgw_info']['apps'][$app]['status'] != 2 && $GLOBALS['phpgw_info']['apps'][$app]['status'] != 3)
 				{
 					$GLOBALS['phpgw_info']['navbar'][$app]['title'] = $GLOBALS['phpgw_info']['apps'][$app]['title'];
-					$GLOBALS['phpgw_info']['navbar'][$app]['url']   = $GLOBALS['phpgw']->link('/' . $app . '/index.php',$GLOBALS['phpgw_info']['flags']['params'][$app]);
+					$GLOBALS['phpgw_info']['navbar'][$app]['url']   = $GLOBALS['phpgw']->link('/' . $app . '/index.php',( isset($GLOBALS['phpgw_info']['flags']['params'][$app]) ? $GLOBALS['phpgw_info']['flags']['params'][$app] : "" ) );
 					$GLOBALS['phpgw_info']['navbar'][$app]['name']  = $app;
-                                        
+
 					// create popup target
 					if ($data['status'] == 4)
 					{
@@ -1168,10 +1177,10 @@
 //						$GLOBALS['phpgw_info']['navbar'][$app]['icon']  = $this->image('phpgwapi','nonav');
 //					}
 				}
-                                
-                                //Add 'status' and 'enabled' to global navbar
-                                $GLOBALS['phpgw_info']['navbar'][$app]['enabled'] = $data['enabled'];
-                                $GLOBALS['phpgw_info']['navbar'][$app]['status']  = $data['status'];
+				
+				//Add 'status' and 'enabled' to global navbar
+				$GLOBALS['phpgw_info']['navbar'][$app]['enabled'] = $data['enabled'];
+				$GLOBALS['phpgw_info']['navbar'][$app]['status']  = $data['status'];
 			}
 			if ($GLOBALS['phpgw_info']['flags']['currentapp'] == 'home' || $GLOBALS['phpgw_info']['flags']['currentapp'] == 'preferences' || $GLOBALS['phpgw_info']['flags']['currentapp'] == 'about')
 			{
@@ -1254,7 +1263,7 @@
 		*
 		* @author Dave Hall (*based* on verdilak? css inclusion code)
 		*/
-function get_css( )
+		function get_css( )
 		{
 			$tpl = createObject('phpgwapi.Template', $this->get_tpl_dir('phpgwapi'));
 			$tpl->set_file('css', 'css.tpl');
@@ -1263,10 +1272,12 @@ function get_css( )
 			if(@isset($_GET['menuaction']))
 			{
 				list($app,$class,$method) = explode('.',$_GET['menuaction']);
-				if(is_array($GLOBALS[$class]->public_functions) &&
-					$GLOBALS[$class]->public_functions['css'])
+				if( isset($GLOBALS[$class]) )
 				{
-					$app_css .= $GLOBALS[$class]->css();
+					if( is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['css'] ) )
+					{
+						$app_css .= $GLOBALS[$class]->css();
+					}
 				}
 			}
 			if (isset($GLOBALS['phpgw_info']['flags']['css']))
@@ -1346,10 +1357,12 @@ function get_css( )
 			if(@isset($_GET['menuaction']))
 			{
 				list($app,$class,$method) = explode('.',$_GET['menuaction']);
-				if(is_array($GLOBALS[$class]->public_functions) &&
-					$GLOBALS[$class]->public_functions['java_script'])
+				if( isset($GLOBALS[$class]) )
 				{
-					$java_script .= $GLOBALS[$class]->java_script();
+					if( is_array($GLOBALS[$class]->public_functions) && isset($GLOBALS[$class]->public_functions['java_script']) )
+					{
+						$java_script .= $GLOBALS[$class]->java_script();
+					}
 				}
 			}
 			if (isset($GLOBALS['phpgw_info']['flags']['java_script']))
@@ -1505,15 +1518,9 @@ function get_css( )
 			
 			if (! $format)
 			{
-				$format = $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'] . ' - ';
-				if ($GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat'] == '12')
-				{
-					$format .= 'h:i a';
-				}
-				else
-				{
-					$format .= 'H:i';
-				}
+				$dfmt = isset( $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'])? $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'] : 'd/m/Y';
+				$tfmt = isset( $GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat'])? $GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat'] : '24';
+				$format = $dfmt.' - '.( ($tfmt == '12')? 'h:i a' : 'H:i' );
 			}
 			
 			if((PHP_OS == 'Windows' || PHP_OS == 'WINNT') && (int)$t < 21600)

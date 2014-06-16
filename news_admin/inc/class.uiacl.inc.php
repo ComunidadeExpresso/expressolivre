@@ -34,7 +34,7 @@
 			$this->query = $this->bo->query;
 			$this->order = $this->bo->order;
 			$this->sort = $this->bo->sort;
-			$this->cat_id = $this->bo->cat_id;
+			$this->cat_id = (isset($this->bo->cat_id)) ? $this->bo->cat_id : "";
 		}
 		
 		function acllist()
@@ -44,15 +44,16 @@
 				$this->deny();
 			}
 
-			if ($_POST['btnDone'])
+			if( isset($_POST['btnDone']) )
 			{
 				$GLOBALS['phpgw']->redirect_link('/admin/index.php');
 			}
 
 			$GLOBALS['phpgw']->common->phpgw_header();
+			
 			echo parse_navbar();
 
-			if ($_POST['btnSave'])
+			if( isset($_POST['btnSave']) )
 			{
 				foreach($_POST['catids'] as $cat_id)
 				{
@@ -87,6 +88,9 @@
 			));
 
 			@reset($this->bo->cats);
+			
+			$tr_color = "";
+
 			while (list(,$cat) = @each($this->bo->cats))
 			{
 				$this->rights = $this->bo->get_rights($cat['id']);
@@ -106,7 +110,10 @@
 
 		function selectlist($right)
 		{
+			$selectlist = "";
+			
 			reset($this->bo->accounts);
+			
 			while (list($null,$account) = each($this->bo->accounts))
 			{
  				$selectlist .= '<option value="' . $account['account_id'] . '"';
@@ -117,6 +124,7 @@
 				$selectlist .= '>' . $account['account_firstname'] . ' ' . $account['account_lastname']
 										. ' [ ' . $account['account_lid'] . ' ]' . '</option>' . "\n";
 			}
+			
 			return $selectlist;
 		}
 

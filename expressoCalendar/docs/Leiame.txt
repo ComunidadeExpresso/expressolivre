@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
-		Instala√ß√£o b√°sica da Agenda (expressoCalendar)
+		InstalaÁ„o b·sica da Agenda (expressoCalendar)
 --------------------------------------------------------------------------------
 
-1 - Instalar m√≥dulo a partir do setup do Expresso, conforme o padr√£o de todos os m√≥dulos;
+1 - Instalar mÛdulo a partir do setup do Expresso, conforme o padr„o de todos os mÛdulos;
 
 2 - Configurar obrigatoriamente os arquivos "PostgreSQL.srv", "OpenLDAP.srv" e "SMTP.srv",
-localizados em "/prototype/config/" na √°rvore de diret√≥rios a partir da ra√≠z;
+localizados em "/prototype/config/" na ·rvore de diretÛrios a partir da raÌz;
 
-3 - Ativar o m√≥dulo para os gerentes pelo m√≥dulo Admin;
+3 - Ativar o mÛdulo para os gerentes pelo mÛdulo Admin;
 
-4 - Ativar o m√≥dulo para os usu√°rios ou para um grupo de usu√°rios pelo m√≥dulo ExpressoAdmin;
+4 - Ativar o mÛdulo para os usu·rios ou para um grupo de usu·rios pelo mÛdulo ExpressoAdmin;
 
 5 - Configurar o cron do servidor para executar perioricamente o arquivo de alarmes do
-Expresso, permitindo o envio de notifica√ß√µes de alarmes dos eventos (via e-mail):
+Expresso, permitindo o envio de notificaÁıes de alarmes dos eventos (via e-mail):
 	* Executar o comando "crontab -u apache -e" para centos ou "crontab -u www-data -e" para debian/ubuntu;
 	* Copiar e colar esta linha na linha de comando
 	"*/5 * * * * php -q /CAMINHO ABSOLUTO DO EXPRESSO/prototype/modules/calendar/alarms.php".
@@ -21,35 +21,35 @@ Expresso, permitindo o envio de notifica√ß√µes de alarmes dos eventos (via e-mai
 				Suporte a DaviCal
 --------------------------------------------------------------------------------
 
-1 - Instala√ß√£o do Servidor DaviCal:
+1 - InstalaÁ„o do Servidor DaviCal:
 
  * Seguir o tutorial oficial, disponibilizado em: http://www.davical.org/installation.php
 
- * Observa√ß√£o: O davical DEVE ser instalado na mesma m√°quina do Expresso
-   Livre, mas a base de dados pode estar em outro servidor (j√° que o davical
+ * ObservaÁ„o: O davical DEVE ser instalado na mesma m·quina do Expresso
+   Livre, mas a base de dados pode estar em outro servidor (j· que o davical
    necessita que a base de dados esteja em UTF-8).
 
-2 - Aplicar os tr√™s patches em anexo (localizados na ra√≠z desta pasta corrente) nos arquivos do
+2 - Aplicar os trÍs patches em anexo (localizados na raÌz desta pasta corrente) nos arquivos do
 servidor DaviCal:
 
  * caldav-DELETE.php.diff
  * caldav-MOVE.php.diff
  * caldav-PUT-vcalendar.php.diff
 
-Para aplicar os patches, copie os arquivos acima, acesse o diret√≥rio do c√≥digo do DaviCal
-(geralmente em /usr/share/davical/inc), cole os arquivos neste diret√≥rio e utilize os comandos:
+Para aplicar os patches, copie os arquivos acima, acesse o diretÛrio do cÛdigo do DaviCal
+(geralmente em /usr/share/davical/inc), cole os arquivos neste diretÛrio e utilize os comandos:
 
  * patch -p0 < caldav-DELETE.php.diff
  * patch -p0 < caldav-MOVE.php.diff
  * patch -p0 < caldav-PUT-vcalendar.php.diff
 
-3 - Ap√≥s aplicados os patches, acessar cada um dos arquivos:
+3 - ApÛs aplicados os patches, acessar cada um dos arquivos:
 
  * caldav-DELETE.php
  * caldav-MOVE.php
  * caldav-PUT-vcalendar.php
 
-e especificar o caminho da sua instala√ß√£o Expresso em cada um deles, definido na vari√°vel:
+e especificar o caminho da sua instalaÁ„o Expresso em cada um deles, definido na vari·vel:
 
 $expresso = 'PATH_DO_SEU_EXPRESSO';
 
@@ -58,5 +58,5 @@ $expresso = 'PATH_DO_SEU_EXPRESSO';
  * Configurar a url utilizada para acessar o servidor DaviCal no arquivo
 localizado em "/prototype/config/CalDAV.srv"
 
- * Ativar o suporte ao caldav, definindo para "true" o par√¢metro "useCaldav"
+ * Ativar o suporte ao caldav, definindo para "true" o par‚metro "useCaldav"
 no arquivo localizado em "/prototype/config/expressoCalendar.ini"

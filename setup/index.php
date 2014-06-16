@@ -134,16 +134,16 @@
 			$GLOBALS['phpgw_info']['setup']['stage']['db'] = 6;
 			break;
 	}
-	$setup_tpl->set_var('subtitle',@$subtitle);
-	$setup_tpl->set_var('submsg',@$submsg);
-	$setup_tpl->set_var('subaction',@$subaction);
+	$setup_tpl->set_var( 'subtitle',isset($subtitle)? $subtitle : '' );
+	$setup_tpl->set_var( 'submsg',isset($submsg)? $submsg : '' );
+	$setup_tpl->set_var( 'subaction',isset($subaction)? $subaction : '' );
 
 	// Old PHP
 	if (!function_exists('version_compare'))//version_compare() is only available in PHP4.1+
 	{
 		$GLOBALS['phpgw_setup']->html->show_header($GLOBALS['phpgw_info']['setup']['header_msg'],True);
 		$GLOBALS['phpgw_setup']->html->show_alert_msg('Error',
-			 lang('You appear to be running an old version of PHP <br />It its recommend that you upgrade to a new version. <br />Older version of PHP might not run eGroupWare correctly, if at all. <br /><br />Please upgrade to at least version %1','4.1'));
+			 lang('You appear to be running an old version of PHP <br>It its recommend that you upgrade to a new version. <br>Older version of PHP might not run eGroupWare correctly, if at all. <br><br>Please upgrade to at least version %1','4.1'));
 		$GLOBALS['phpgw_setup']->html->show_footer();
 		exit;
 	}
@@ -180,20 +180,20 @@
 				case 'mysql':
 					$setup_tpl->set_var('instr',
 						lang("Instructions for creating the database in %1:",'MySql')
-						. '<br />'.lang('Login to mysql -')
-						. '<br /><i>[user@server user]# mysql -u root -p</i><br />'
+						. '<br>'.lang('Login to mysql -')
+						. '<br><i>[user@server user]# mysql -u root -p</i><br>'
 						. lang('Create the empty database and grant user permissions -')
-						. "<br /><i>mysql> create database {$info['db_name']};</i>"
-						. "<br /><i>mysql> grant all on " . $info['db_name']
+						. "<br><i>mysql> create database {$info['db_name']};</i>"
+						. "<br><i>mysql> grant all on " . $info['db_name']
 						. ".* to " . $info['db_user'] . "@localhost identified by '" . $info['db_pass'] . "';</i>");
 					break;
 				case 'pgsql':
 					$setup_tpl->set_var('instr',
 						lang('Instructions for creating the database in %1:','PostgreSQL')
-						. '<br />'.lang('Start the postmaster')
-						. "<br /><i>[user@server user]# postmaster -i -D /home/[username]/[dataDir]</i><br />"
+						. '<br>'.lang('Start the postmaster')
+						. "<br><i>[user@server user]# postmaster -i -D /home/[username]/[dataDir]</i><br>"
 						. lang('Create the empty database -')
-						. "<br /><i>[user@server user]# createdb " . $info['db_name'] . "</i>");
+						. "<br><i>[user@server user]# createdb " . $info['db_name'] . "</i>");
 					break;
 				default:
 					$setup_tpl->set_var('instr','');
@@ -203,7 +203,7 @@
 			$setup_tpl->set_var('V_db_filled_block',$db_filled_block);
 			break;
 		case 2:
-			$setup_tpl->set_var('prebeta',lang('You appear to be running a pre-beta version of eGroupWare.<br />These versions are no longer supported, and there is no upgrade path for them in setup.<br /> You may wish to first upgrade to 0.9.10 (the last version to support pre-beta upgrades) <br />and then upgrade from there with the current version.'));
+			$setup_tpl->set_var('prebeta',lang('You appear to be running a pre-beta version of eGroupWare.<br>These versions are no longer supported, and there is no upgrade path for them in setup.<br> You may wish to first upgrade to 0.9.10 (the last version to support pre-beta upgrades) <br>and then upgrade from there with the current version.'));
 			$setup_tpl->set_var('notcomplete',lang('not complete'));
 			$setup_tpl->parse('V_db_stage_2','B_db_stage_2');
 			$db_filled_block = $setup_tpl->get_var('V_db_stage_2');
@@ -257,10 +257,11 @@
 			// FIXME : CAPTURE THIS OUTPUT
 			$GLOBALS['phpgw_setup']->db->Halt_On_Error = 'report';
 
+			$debug = isset($_REQUEST['debug'])? (bool)$_REQUEST['debug'] : false;
 			switch ($GLOBALS['phpgw_info']['setup']['currentver']['phpgwapi'])
 			{
 				case 'dbcreate':
-					$GLOBALS['phpgw_setup']->db->create_database($_POST['db_root'], $_POST['db_pass']);
+					$result = $GLOBALS['phpgw_setup']->db->create_database($_POST['db_root'], $_POST['db_pass']);
 					break;
 				case 'drop':
 					$setup_info = $GLOBALS['phpgw_setup']->detection->get_versions($setup_info);
@@ -269,23 +270,24 @@
 				case 'new':
 					/* process all apps and langs(last param True), excluding apps with the no_mass_update flag set. */
 					$setup_info = $GLOBALS['phpgw_setup']->detection->upgrade_exclude($setup_info);
-					$setup_info = $GLOBALS['phpgw_setup']->process->pass($setup_info,'new',$_REQUEST['debug'],True);
+					$setup_info = $GLOBALS['phpgw_setup']->process->pass($setup_info,'init',$debug,True);
 					$GLOBALS['phpgw_info']['setup']['currentver']['phpgwapi'] = 'oldversion';
 					break;
 				case 'oldversion':
-					$setup_info = $GLOBALS['phpgw_setup']->process->pass($setup_info,'upgrade',$_REQUEST['debug']);
+					$setup_info = $GLOBALS['phpgw_setup']->process->pass($setup_info,'upgrade',$debug);
 					$GLOBALS['phpgw_info']['setup']['currentver']['phpgwapi'] = 'oldversion';
 					break;
 			}
 
 			$GLOBALS['phpgw_setup']->db->Halt_On_Error = 'no';
 
-			$setup_tpl->set_var('tableshave',lang('If you did not receive any errors, your applications have been'));
+			$setup_tpl->set_var('tableshave', ( isset($result) && !$result['status'] ) ? $result['msg'].'<br>' : lang('If you did not receive any errors, your applications have been'));
 			$setup_tpl->set_var('re-check_my_installation',lang('Re-Check My Installation'));
 			$setup_tpl->parse('V_db_stage_6_post','B_db_stage_6_post');
 			$db_filled_block = $db_filled_block . $setup_tpl->get_var('V_db_stage_6_post');
 			$setup_tpl->set_var('V_db_filled_block',$db_filled_block);
 			/* Hack to fix database inconsistency */
+			/*
 			$GLOBALS['phpgw_setup']->db->query("ALTER TABLE phpgw_access_log ADD COLUMN browser varchar(200);");
 			$GLOBALS['phpgw_setup']->db->query("CREATE TABLE phpgw_async (
 				id character varying(255) NOT NULL,
@@ -293,7 +295,8 @@
 				times character varying(255) NOT NULL,
 				method character varying(80) NOT NULL,
 				data text NOT NULL,
-				account_id integer DEFAULT 0 NOT NULL);");      
+				account_id integer DEFAULT 0 NOT NULL);");
+			*/
 
 			break;
 		case 10:
@@ -317,10 +320,6 @@
 	// Config Section
 	$setup_tpl->set_var('config_step_text',lang('Step %1 - Configuration',2));
 	$GLOBALS['phpgw_info']['setup']['stage']['config'] = $GLOBALS['phpgw_setup']->detection->check_config();
-
-	// begin DEBUG code
-	//$GLOBALS['phpgw_info']['setup']['stage']['config'] = 10;
-	// end DEBUG code
 
 	switch($GLOBALS['phpgw_info']['setup']['stage']['config'])
 	{
@@ -363,35 +362,6 @@
 				{
 					$btn_config_ldap = '';
 				}
-/*
-				$GLOBALS['phpgw_setup']->db->query("select config_value FROM phpgw_config WHERE config_name='webserver_url'");
-				$GLOBALS['phpgw_setup']->db->next_record();
-				if ($GLOBALS['phpgw_setup']->db->f(0))
-				{
-					$link_make_accts = $GLOBALS['phpgw_setup']->html->make_href_link_simple(
-						'<br />',
-						'setup_demo.php',
-						lang('Click Here'),
-						'<b>'.lang('to setup 1 admin account and 3 demo accounts.').'</b>'
-					);
-				}
-				else
-				{
-					$link_make_accts = '&nbsp;';
-				}
-			}
-			else
-			{
-				$btn_config_ldap = '';
-				$link_make_accts = $GLOBALS['phpgw_setup']->html->make_href_link_simple(
-					'<br />',
-					'setup_demo.php',
-					lang('Click Here'),
-					'<b>'.lang('to setup 1 admin account and 3 demo accounts.').'</b>'
-				);
-			}
-			$config_td = "$btn_edit_config"."$link_make_accts";
-*/
 			}
 			$setup_tpl->set_var('config_table_data',$btn_edit_config);
 			$setup_tpl->set_var('ldap_table_data',$btn_config_ldap);
@@ -451,7 +421,7 @@
 			$setup_tpl->set_var('admin_status_alt',$no_accounts ? lang('not completed') : lang('completed'));
 			$setup_tpl->set_var('admin_table_data',$GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
 			$no_accounts ? 'Nenhuma conta <font color=red>expresso-admin</font> existe no ldap.' : 'A conta expresso-admin já existe.',
-			                    'POST','setup_demo.php',
+			                    'POST','admin.php',
 			                    'submit',lang('Create admin account'),
 					    ''));
 			break;
@@ -476,7 +446,7 @@
 			$setup_tpl->set_var('lang_status_img',$incomplete);
 			$setup_tpl->set_var('lang_status_alt','not completed');
 			$btn_install_lang = $GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
-				lang('You do not have any languages installed. Please install one now <br />'),
+				lang('You do not have any languages installed. Please install one now <br>'),
 				'POST','lang.php',
 				'submit',lang('Install Language'),
 				'');
@@ -492,7 +462,7 @@
 			$setup_tpl->set_var('lang_status_img',$completed);
 			$setup_tpl->set_var('lang_status_alt','completed');
 			$btn_manage_lang = $GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
-				lang('This stage is completed<br />') . lang('Currently installed languages: %1 <br />',implode(', ',$langs_list)),
+				lang('This stage is completed<br>') . lang('Currently installed languages: %1 <br>',implode(', ',$langs_list)),
 				'POST','lang.php',
 				'submit',lang('Manage Languages'),
 				'');
@@ -500,7 +470,7 @@
 			include_once(PHPGW_API_INC.'/class.translation_sql.inc.php');
 			$translation = new translation;
 			$btn_manage_lang .= lang('Current system-charset is %1, click %2here%3 to change it.',
-				$translation->system_charset ? "'$translation->system_charset'" : lang('not set'),
+				isset($translation->system_charset) ? "'$translation->system_charset'" : lang('not set'),
 				'<a href="system_charset.php">','</a>');
 			$setup_tpl->set_var('lang_table_data',$btn_manage_lang);
 			break;
@@ -522,14 +492,14 @@
 			$to_upgrade = array();
 			foreach($setup_info as $app => $data)
 			{
-				if ($data['currentver'] && $data['version'] && $data['version'] != $data['currentver'])
+				if ( isset($data['currentver']) && isset($data['version']) && $data['version'] != $data['currentver'])
 				{
 					$to_upgrade[] = $app;
 				}
 			}
 			$btn_manage_apps = $GLOBALS['phpgw_setup']->html->make_frm_btn_simple(
 				count($to_upgrade) ? '<b>'.lang('The following applications need to be upgraded:').'</b> '.implode(', ',$to_upgrade) :
-				lang('This stage is completed<br />'),
+				lang('This stage is completed<br>'),
 				'','applications.php',
 				'submit',lang('Manage Applications'),
 				'');

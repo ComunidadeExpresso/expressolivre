@@ -453,7 +453,6 @@ function block_user_email(email) {
             }
         });
         if(!has_folder_spam){
-            connector.loadScript('TreeS');
             create_new_folder("Spam","INBOX");
         }
 		DataLayer.put( 'filter', idd,
@@ -931,33 +930,35 @@ function create_filter_dialog () {
 		width: 700, 
 		modal: true, 
 		resizable: false, 
-		closeOnEscape: true, 
-		close: function(event, ui) 
-		{ 
-			event.stopPropagation(); 
-			if(list_container.find(".cancel").length) list_container.find(".cancel").trigger('click'); 
-			$(".dialog-head-buttonpane").hide(); 
-		}, 
-		open: function() 
-		{ 
-			$(".ui-dialog .ui-dialog-titlebar").append('<a href="#" class="ui-dialog-titlebar-minimize ui-corner-all" role="button"><span class="ui-icon ui-icon-minusthick">minimize</span></a>').find('.ui-dialog-titlebar-minimize').click(function() 
-			{ 
-				$(".ui-dialog-buttonpane, .ui-dialog-content").toggle(); 
-				$(".ui-icon-minusthick, .ui-icon-newwin").toggleClass('ui-icon-minusthick').toggleClass('ui-icon-newwin'); 
-			}); 
-			$(".dialog-head-buttonpane").show(); 
-		}, 
+		// closeOnEscape: false, 
+		// close: function(event, ui) 
+		// { 
+		// 	event.stopPropagation(); 
+		// 	if(list_container.find(".cancel").length) list_container.find(".cancel").trigger('click'); 
+		// 	$(".dialog-head-buttonpane").hide(); 
+		// }, 
+		// open: function() 
+		// { 
+		// 	$(".ui-dialog .ui-dialog-titlebar").append('<a href="#" class="ui-dialog-titlebar-minimize ui-corner-all" role="button"><span class="ui-icon ui-icon-minusthick">minimize</span></a>').find('.ui-dialog-titlebar-minimize').click(function() 
+		// 	{ 
+		// 		$(".ui-dialog-buttonpane, .ui-dialog-content").toggle(); 
+		// 		$(".ui-icon-minusthick, .ui-icon-newwin").toggleClass('ui-icon-minusthick').toggleClass('ui-icon-newwin'); 
+		// 	}); 
+		// 	$(".dialog-head-buttonpane").show(); 
+		// }, 
 		autoOpen: false, 
 		buttons: [ 
 		{ 
 			text: get_lang("Close"), 
 			click: function() 
 			{ 
-				$(this).dialog("close"); 
+				$(this).dialog("destroy"); 
 			} 
 		}] 
 	}); 
  
+	//$(".ui-dialog-titlebar").find("span").
+
 	$(".ui-dialog-titlebar").after("<div class='dialog-head-buttonpane ui-dialog-buttonpane ui-widget-content ui-helper-clearfix' style='background-color: rgb(224, 238, 238); '><div class='ui-dialog-buttonset header-buttonpane'></div></div>"); 
 	$(".dialog-head-buttonpane").css("padding", "5px"). 
 	find(".header-buttonpane").html("<a href='#' class='button add' title='" + get_lang("Add new rule") + "'>" + get_lang("New rule") + "</a>" + (!outoffice ? "<a href='#' class='button add vacation' title='" + get_lang("Add rule out of office") + "'>" + get_lang("Out of office") + "</a>" : "")).find(".button").button(); 

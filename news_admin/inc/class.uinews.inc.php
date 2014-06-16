@@ -83,12 +83,10 @@
 
 		function read_news()
 		{
-			$limit = ($GLOBALS['phpgw_info']['common']['maxmatchs'] ? $GLOBALS['phpgw_info']['common']['maxmatchs'] : 5);
-
+			$limit = ( isset($GLOBALS['phpgw_info']['common']['maxmatchs']) ? $GLOBALS['phpgw_info']['common']['maxmatchs'] : 5 );
 			$news_id = get_var('news_id',Array('GET'));
-
 			$news = $news_id ? array($news_id => $this->bo->get_news($news_id)) :  
-				$this->bo->get_newslist($this->cat_id,$this->start,'','',$limit,True);
+			$this->bo->get_newslist($this->cat_id,$this->start,'','',$limit,True);
 
 			$this->template->set_file(array(
 				'main' => 'read.tpl'
@@ -438,7 +436,7 @@
 				)
 			);
                         
-			$ckeditor = '<script type="text/javascript" src="./library/ckeditor/ckeditor.js"></script>
+			$ckeditor = '<script type="text/javascript" src="./prototype/library/ckeditor/ckeditor.js"></script>
 			<textarea cols="80" id="news[content]" name="news[content]" rows="10">' . $this->news_data['content'] . '</textarea>
 			<script type="text/javascript"> CKEDITOR.replace( \'news[content]\',{
 			removePlugins : \'elementspath\',

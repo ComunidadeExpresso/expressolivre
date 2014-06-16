@@ -1,5 +1,11 @@
 # Arquivos que serao ignorados pelo git
+/.project
+/.settings
+/.buildpath
+/.classpath
+/header.inc.php
 *.log
+*.orig
 
 # Arquivos temporarios do z-push
 zpush/logs/*
@@ -12,3 +18,6 @@ prototype/config/PostgreSQL.srv
 prototype/config/Sieve.srv
 prototype/config/SMTP.srv
 prototype/config/REST.ini
+
+!.empty
+!.gitignore

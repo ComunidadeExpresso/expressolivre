@@ -1,0 +1,10 @@
+[picture1]
+name=msg_login_1.png
+title=Titulo da Imagem 1
+text=Texto para acessibilidade da imagem 1
+
+[picture2]
+name=msg_login_2.png
+title=Titulo da Imagem 2
+text=Texto para acessibilidade da imagem 2,
+link=http://expressolivre.org/ios

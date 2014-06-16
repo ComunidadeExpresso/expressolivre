@@ -1,0 +1,622 @@
+Account Active	expressoAdmin	es-es	Cuenta Activa
+Account Invisible	expressoAdmin	es-es	Ocultar esta cuenta de las búsquedas y del Catálogo General?
+AcctFlags	expressoAdmin	es-es	Tipo de Cuenta
+Active email account	expressoAdmin	es-es	Cuenta de E-mail activa
+Add Email Lists	expressoAdmin	es-es	Añadir listas de e-mails
+Add email lists	expressoAdmin	es-es	Crear listas de E-mail
+Add Groups	expressoAdmin	es-es	Añadir grupos
+Add groups	expressoAdmin	es-es	Crear grupos
+Add Manager	expressoAdmin	es-es	Añadir Gerente
+Add Managers	expressoAdmin	es-es	Añadir Gerentes
+Add Samba Domain	expressoAdmin	es-es	Crear dominio Samba
+Add Samba Domains	expressoAdmin	es-es	Crear dominios Samba
+Add Sectores	expressoAdmin	es-es	Añadir Sectores
+Add Sectors	expressoAdmin	es-es	Crear Sector
+Add Sub-Sectors	expressoAdmin	es-es	Añadir Sub-Sectores
+Add User	expressoAdmin	es-es	Añadir Usuario
+Add users	expressoAdmin	es-es	Añadir Usuarios
+Alias email	expressoAdmin	es-es	E-mail alternativo
+All users, groups and sub-sectors of this sector will be DELETED!	expressoAdmin	es-es	¡Todos los usuarios, grupos y subsectores de este sector serán ELIMINADOS!
+Anonymous	expressoAdmin	es-es	Anónimo
+Aplication Permission	expressoAdmin	es-es	Permiso de aplicativos
+App Info	expressoAdmin	es-es	Info sobre aplicativos
+Applications	expressoAdmin	es-es	Aplicativos
+Applications for this group	expressoAdmin	es-es	Aplicativos para este grupo
+Change password	expressoAdmin	es-es	Cambiar seña
+Change users password	expressoAdmin	es-es	Cambiar señas de los usuarios
+Change users quote	expressoAdmin	es-es	Cambiar cota de los usuarios 
+Computer	expressoAdmin	es-es	Computadora
+Computers	expressoAdmin	es-es	Computadoras
+Computer Type	expressoAdmin	es-es	Tipo de Computadora
+Computer UID	expressoAdmin	es-es	UID de la Computadora
+Content the folling groups	expressoAdmin	es-es	Contiene los siguientes grupos
+Content the folling sectors	expressoAdmin	es-es	Contiene los siguientes grupos
+Content the folling users	expressoAdmin	es-es	Contiene los siguientes usuarios
+Context	expressoAdmin	es-es	Contexto
+Context	expressoAdmin	es-es	Contexto
+Contexts	expressoAdmin	es-es	Contextos
+Corporative Information	expressoAdmin	es-es	Infomaciones Corporativas
+cpf	expressoAdmin	es-es	CPF
+Create Computers	expressoAdmin	es-es	Crear computadoras
+Create Email List	expressoAdmin	es-es	Crear Lista de E-mail
+Create Group	expressoAdmin	es-es	Crear Grupo de Usuarios
+Create Organizations	expressoAdmin	es-es	Crear Organizaciones
+Create Sector	expressoAdmin	es-es	Crear Sector
+Create Sectors	expressoAdmin	es-es	Crear sectores
+Create User	expressoAdmin	es-es	Crear Usuario
+Delete computers	expressoAdmin	es-es	Eliminar computadoras
+Delete email lists	expressoAdmin	es-es	Eliminar listas de e-mails
+Delete Group	expressoAdmin	es-es	Eliminar Grupo
+Delete groups	expressoAdmin	es-es	Eliminar grupos
+Delete Organizations	expressoAdmin	es-es	Eliminar organizaciones
+Delete Sectors	expressoAdmin	es-es	Eliminar sectores
+Delete user	expressoAdmin	es-es	Excluir Usuario
+Delete users	expressoAdmin	es-es	Eliminar usuarios
+Do you realy want delete this Email List?	expressoAdmin	es-es	¿Usted realmente quiere ELIMINAR esta Lista de E-mail?
+Do you realy want delete this group?	expressoAdmin	es-es	¿Usted realmente quiere ELIMINAR este Grupol?
+Do you realy want delete this sector?	expressoAdmin	es-es	¿Usted realmente desea excluir este sector?
+Edit computers	expressoAdmin	es-es	Editar computadoras
+Edit email attribute from the groups	expressoAdmin	es-es	Editar campo e-mail del grupo
+Edit Email Lists	expressoAdmin	es-es	Editar Lista de E-mail
+Edit email lists	expressoAdmin	es-es	Editar Lista de E-mails
+Edit Group	expressoAdmin	es-es	Editar Grupos
+Edit groups	expressoAdmin	es-es	Editar Grupos
+Edit Managers	expressoAdmin	es-es	Editar Gerentes
+Edit Organizations	expressoAdmin	es-es	Editar organizaciones
+Edit SAMBA domains	expressoAdmin	es-es	Editar dominios SAMBA
+Edit SAMBA users attributes	expressoAdmin	es-es	Editar atributos SAMBA
+Edit Sector	expressoAdmin	es-es	Editar Sectores
+Edit Sectors	expressoAdmin	es-es	Editar sectores
+Edit Sending Control List	expressoAdmin	es-es	Editar Lista de Control de Envío
+Edit User	expressoAdmin	es-es	Edición de Usuario
+Edit users	expressoAdmin	es-es	Editar usuarios
+Email Config	expressoAdmin	es-es	Configuración de E-mail
+Email List active	expressoAdmin	es-es	Lista de E-mail activa
+Email List name	expressoAdmin	es-es	Nombre de la Lista de E-mail
+Email Lists	expressoAdmin	es-es	Listas de E-mail
+Email Lists Logins	expressoAdmin	es-es	Autenticación de las Listas de E-mail
+Email Lists Names	expressoAdmin	es-es	Nombre de la Lista de E-mail
+Email quota in MB	expressoAdmin	es-es	Cuenta de E-mail en MB
+Employee number	expressoAdmin	es-es	Matrícula
+Empty user inbox	expressoAdmin	es-es	Baciar BUZÓN DE ENTRADA
+Error in OpenLDAP.	expressoAdmin	es-es	Error em el OpenLDAP.
+Expire	expressoAdmin	es-es	Expira
+expressoadmin	common	es-es	Expresso Admin
+Forwarding email	expressoAdmin	es-es	E-mail de reenvío
+General Information	expressoAdmin	es-es	Informaciones Generales
+Global Configuration	common	es-es	Configuraciones Globales
+Group Info	expressoAdmin	es-es	Info sobre grupos
+Group Organization	expressoAdmin	es-es	Organización del Grupo
+Groups Names	expressoAdmin	es-es	Nombre de los Grupos 
+Groups Permission	expressoAdmin	es-es	Permiso de los Grupos
+Group users	expressoAdmin	es-es	Usuarios del Grupo
+Group success deleted	expressoAdmin	es-es	Grupo excluído com sucesso
+Home Directory	expressoAdmin	es-es	Directorio Central
+Hour	expressoAdmin	es-es	Hora
+leave empty for no quota	expressoAdmin	es-es	deje vacio para no ocupar espacio
+Leave empty for no quota	expressoAdmin	es-es	Mantenga vacía para ninguna cuenta
+ListGroups	expressoAdmin	es-es	Lista de Grupos
+List Managers	expressoAdmin	es-es	Lista de Gerentes
+List of current users	expressoAdmin	es-es	Lista de Usuarios Conectados
+Login ID	expressoAdmin	es-es	Login
+Logon Script	expressoAdmin	es-es	Script de Logon
+Logs	expressoAdmin	es-es	Logs
+Maillist login	expressoAdmin	es-es	Autenticación de la Lista de E-mail
+Maillist Mail	expressoAdmin	es-es	E-mail de la Lista de E-mail
+Maillist name	expressoAdmin	es-es	Nombre de la Lista de E-mail
+Maillist Organization	expressoAdmin	es-es	Organización de la Lista de E-mail 
+Maillist users	expressoAdmin	es-es	Usuarios de la Lista de E-mail
+Manager LID	expressoAdmin	es-es	Autenticación del  Gerente
+Manager Login	expressoAdmin	es-es	Autenticación del  Gerente
+Manager name	expressoAdmin	es-es	Nombre del Gerente
+Managers	common	es-es	Encargados
+Manipulate corporative information	expressoAdmin	es-es	Manipular informaciones corporativas
+Manager successful saved	expressoAdmin	es-es	Gerente guardado correctamente
+No matches found	expressoAdmin	es-es	Ningún registro encontrado
+Occult Sector	expressoAdmin	es-es	Ocultar sector
+Only forwarding	expressoAdmin	es-es	Solamente reenviar
+Organizations	expressoAdmin	es-es	Organizaciones
+partici lists	expressoAdmin	es-es	Participante de las Listas
+Password and Re-Password doesnt are equal.	expressoAdmin	es-es	Seña y  Contraseña no son iguales
+Password expired	expressoAdmin	es-es	Seña expirada
+Phone	expressoAdmin	es-es	Teléfono
+Photo	expressoAdmin	es-es	Fotografía
+Primary Group	expressoAdmin	es-es	Grupo Primario
+Quota used in MB	expressoAdmin	es-es	Espacio utilizado (en MB)
+Rel Lists	expressoAdmin	es-es	Relación de Listas
+Remove	expressoAdmin	es-es	Remover
+Remove User	expressoAdmin	es-es	Remover Usuario
+Remove Users	expressoAdmin	es-es	Remover Usuarios
+Rename users	expressoAdmin	es-es	Renombrar usuarios
+Re-Password	expressoAdmin	es-es	Contraseña
+rg	expressoAdmin	es-es	RG
+rguf	expressoAdmin	es-es	rgUF
+Samba Config	expressoAdmin	es-es	Configuaciones de SAMBA
+Samba domain name	expressoAdmin	es-es	Nombre del dominio Samba
+Samba domain name or SID already exist	expressoAdmin	es-es	El nombre del dominio samba o sambaSID ya existe
+Samba Domains	expressoAdmin	es-es	Dominios Samba
+Samba domain SID	expressoAdmin	es-es	SID del dominio Samba
+Samba domains name	expressoAdmin	es-es	Nombre de los dominios Samba
+Samba domains name is empty	expressoAdmin	es-es	El nombre del dominio samba esta vacío
+sambaSID	expressoAdmin	es-es	sambaSID
+Samba SID is empty	expressoAdmin	es-es	El SID del dominio samba está vacío
+Samba User Active	expressoAdmin	es-es	Usuario Samba Activo
+Samba User Desactive	expressoAdmin	es-es	Usuario Samba Deshabilitado
+scl	expressoAdmin	es-es	scl
+Search Organiztion	expressoAdmin	es-es	Buscar Organización
+Sector	expressoAdmin	es-es	Sector
+Sector name	expressoAdmin	es-es	Nombre del Sector
+Sector Name	expressoAdmin	es-es	Nombre del Sector/Organización
+Sectors	expressoAdmin	es-es	Sectores
+Select users from all sub-organizations	expressoAdmin	es-es	Seleccionar usuarios de todas las sub organizaciones
+Server	expressoAdmin	es-es	Servidor
+Set default user password	expressoAdmin	es-es	Configurar seña stándar
+Set default users password	expressoAdmin	es-es	Configurar seña stándar
+Show Session - Global	expressoAdmin	es-es	Exhibir sesiones - Global
+Show Sessions	expressoAdmin	es-es	Exhibir Sesiones
+Show Sessions - Local	expressoAdmin	es-es	Exhibir Sesiones - Local
+Show users from all sub-organizations	expressoAdmin	es-es	Exhibir usuários de todas las sub-organizaciones
+totalsessions	expressoAdmin	es-es	Total de Sesiones
+Total Sessions	expressoAdmin	es-es	Total de Sesiones
+Trust Account	expressoAdmin	es-es	Cuenta de TRUST
+User Accounts	expressoAdmin	es-es	Cuentas de usuários
+User email alredy exist.	expressoAdmin	es-es	E-mail del usuario ya registrado
+User Groups	expressoAdmin	es-es	Grupo de usuarios
+User Info	expressoAdmin	es-es	Info sobre usuario
+User login alredy exist.	expressoAdmin	es-es	Login del usuario ya registrado
+Users for inclusion	expressoAdmin	es-es	Usuarios para inclusión
+Users in Email List	expressoAdmin	es-es	Usuarios en la Lista de E-mail
+Use samba attributes	expressoAdmin	es-es	Usar atributos samba
+View email lists	expressoAdmin	es-es	Exhibir listas de e-mails
+View Log	expressoAdmin	es-es	Exhibir Log
+View logs	expressoAdmin	es-es	Exhibir Logs
+View sessions (global)	expressoAdmin	es-es	Exhibir sesiones (global)
+View sessions (local)	expressoAdmin	es-es	Exhibir sesiones (local)
+View User	expressoAdmin	es-es	Exhibir usuario
+View user	expressoAdmin	es-es	Exhibir Usuarios
+View users	expressoAdmin	es-es	Exhibir usuarios
+WorkStation Active	expressoAdmin	es-es	Estación de Trabajo (ACTIVO)
+WorkStation Desactive	expressoAdmin	es-es	Estación de Trabajo (INACTIVO)
+You dont have access to this module.	expressoAdmin	es-es	Usted no tiene acceso a este módulo
+shared accounts	expressoAdmin	es-es	Cuentas compartidas
+create shared account	expressoAdmin	es-es	Crear cuenta compartida
+to search	expressoAdmin	es-es	Buscar
+full name	expressoAdmin	es-es	Nombre completo
+mail	expressoAdmin	es-es	E-mail
+manager	expressoAdmin	es-es	Gerente
+search for manager	expressoAdmin	es-es	Buscar gerente
+access control list	expressoAdmin	es-es	Lista de control de acceso
+select all	expressoAdmin	es-es	Seleccionar todos
+edit users picture	expressoAdmin	es-es	Edición de fotos de los usuarios
+edit users phonenumber	expressoAdmin	es-es	Edición de teléfonos de usuarios
+add shared accounts	expressoAdmin	es-es	Crear cuentas compartidas
+edit shared accounts	expressoAdmin	es-es	Editar cuenta compartida
+delete shared accounts	expressoAdmin	es-es	Eliminar cuenta compartida
+edit shared accounts acl	expressoAdmin	es-es	Editar ACL de cuentas compartidas
+edit shared accounts quote	expressoAdmin	es-es	Editar contingente de cuenta compartida
+edit SCL email lists	expressoAdmin	es-es	Editar SCL de listas de correo
+add institutional accounts	expressoAdmin	es-es	Agregar cuentas institucionales
+edit institutional accounts	expressoAdmin	es-es	Editar cuentas institucionales
+remove institutional accounts	expressoAdmin	es-es	Eliminar cuentas institucionales
+Context already added or redundant	expressoAdmin	es-es	Contexto ya se agregado o redundantes
+configuration	expressoAdmin	es-es	Configuraciónes
+A updated version of these files can be found here	expressoAdmin	es-es	Una versión actualizada de estos archivos se puede encontrar aquí
+access log	expressoAdmin	es-es	registro de acceso
+account type	expressoAdmin	es-es	tipo de cuenta
+active blocking sending email to shared accounts	expressoAdmin	es-es	bloqueo activo el envío de correo electrónico a cuentas compartidas
+active user	expressoAdmin	es-es	el usuario activa
+added user samba attribute	expressoAdmin	es-es	atributo samba usuario agregado
+add blocking sending email to shared accounts exception	expressoAdmin	es-es	añadir bloqueando el envío de correo electrónico a excepción cuentas compartida
+add maximum number of recipients by user	expressoAdmin	es-es	agregar el número máximo de destinatarios por usuario
+add maximum number of recipients by group	expressoAdmin	es-es	agregar el número máximo de destinatarios por grupo
+Add exception for the blocking	expressoAdmin	es-es	Añadir excepción para el bloqueo
+Add institutional accounts	expressoAdmin	es-es	Añadir cuentas institucionales
+Add owner	expressoAdmin	es-es	Añadir dueño
+Add shared accounts	expressoAdmin	es-es	Añadir cuentas compartidas
+Add Sub Sectors	expressoAdmin	es-es	Añadir subsectores
+add alternative mail	expressoAdmin	es-es	añadir electrónico alternativa
+alert your administrator about this	expressoAdmin	es-es	alertar a su administrador de este
+all recipients	expressoAdmin	es-es	todos los destinatarios
+all senders	expressoAdmin	es-es	todos los remitentes
+all users groups and subsectors from this sector will be deleted	expressoAdmin	es-es	Se borrarán todos los grupos de usuarios y subsectores de este sector
+allow create or delete folders on this mailbox	expressoAdmin	es-es	permitirá crear o eliminar carpetas de este buzón de correo
+alternative email is being used by 1 user	expressoAdmin	es-es	correo electrónico alternativa está siendo utilizado por el usuario 1
+alternative email is being used by 2 or more users	expressoAdmin	es-es	correo electrónico alternativa está siendo utilizado por 2 o más usuarios
+Amount limit of recipients	expressoAdmin	es-es	Límite de cantidad de beneficiarios
+alternative mail	expressoAdmin	es-es	electrónico alternativa
+Any user is in the list	expressoAdmin	es-es	Cualquier usuario está en la lista
+application info	expressoAdmin	es-es	info aplicación
+applications	expressoAdmin	es-es	aplicaciones
+applications	expressoAdmin	es-es	aplicaciones
+apply send control list to this list	expressoAdmin	es-es	aplicar la lista de control de envío a esta lista
+Are you sure that you want to delete this institutional account	expressoAdmin	es-es	¿Está seguro de que desea eliminar esta cuenta institucional
+Are you sure that you want to delete this Rule	expressoAdmin	es-es	¿Está seguro de que desea eliminar esta Regla
+available groups	expressoAdmin	es-es	grupos disponibles
+available mail lists	expressoAdmin	es-es	listas de correo disponibles
+Blocking sending email to shared accounts	expressoAdmin	es-es	El bloqueo de envío de correo electrónico a cuentas compartidas
+change first name	expressoAdmin	es-es	cambiar nombre
+characters	expressoAdmin	es-es	personajes
+Cleanned user mailbox	expressoAdmin	es-es	Bandeja de usuario limpiado
+Configurations	expressoAdmin	es-es	Configuraciones
+Connection with ldap fail	expressoAdmin	es-es	Conexión con LDAP fallan
+context does not exist	expressoAdmin	es-es	contexto no existe
+context field is empty	expressoAdmin	es-es	campo de contexto está vacía
+cotas control disabled	expressoAdmin	es-es	control de cotas deshabilitado
+created user	expressoAdmin	es-es	usuario creado
+Create Limit Recipients By User	expressoAdmin	es-es	Crear destinatarios límite por usuario
+Create Limit Recipients By Group	expressoAdmin	es-es	Crear destinatarios límite por grupo
+Create BlockEmail For Institutional AcounteExeption	expressoAdmin	es-es	Crear BlockEmail Para AcounteExeption Institucional
+create institutional account	expressoAdmin	es-es	Entrar institucional
+Create Shared Account	expressoAdmin	es-es	Crear cuenta compartida
+Creation of Shared Accounts	expressoAdmin	es-es	Creación de cuentas compartidas
+criation of institutional accounts	expressoAdmin	es-es	criation de cuentas institucionales
+default password already registered	expressoAdmin	es-es	contraseña predeterminada ya registrado
+default password not registered	expressoAdmin	es-es	contraseña predeterminada no registrado
+default password successful saved	expressoAdmin	es-es	contraseña predeterminada éxito salvó
+deleted user	expressoAdmin	es-es	usuario eliminado
+delete	expressoAdmin	es-es	borrar
+delete photo	expressoAdmin	es-es	borrar la fotografía
+Delete shared accounts	expressoAdmin	es-es	Eliminar cuentas compartidas
+desactive user	expressoAdmin	es-es	usuario desactive
+display name	expressoAdmin	es-es	nombre para mostrar
+DESCRIPTION field contains characters not allowed	expressoAdmin	es-es	DESCRIPCIÓN campo contiene caracteres no permitidos
+DESCRIPTION field is empty	expressoAdmin	es-es	DESCRIPCIÓN campo está vacío
+do not show this account in the contact center	expressoAdmin	es-es	no muestran esta cuenta en el centro de contacto
+Login interface not implemented (contact suport)	expressoAdmin	es-es	Interfaz de inicio de sesión no se ha implementado (contacto suport)
+do not show this email list	expressoAdmin	es-es	no mostrar esta lista de correo electrónico
+do not show this group	expressoAdmin	es-es	no muestran este grupo
+do not show this sector	expressoAdmin	es-es	no muestran este sector
+Do you really want delete the email list	expressoAdmin	es-es	¿Realmente desea eliminar la lista de correo electrónico?
+Do you really want delete the group	expressoAdmin	es-es	¿Realmente quiere eliminar el grupo?
+Do you really want delete the user	expressoAdmin	es-es	¿Realmente desea eliminar el usuario?
+do you really want delete this sector	expressoAdmin	es-es	¿Realmente desea borrar este sector?
+Do you really want delete this sector	expressoAdmin	es-es	¿Realmente desea eliminar este sector?
+Do you want to continue anyway	expressoAdmin	es-es	¿Realmente desea continuar de todos modos?
+drafts	expressoAdmin	es-es	borradores
+edit and remove blocking sending email to shared accounts exception	expressoAdmin	es-es	editar y eliminar el bloqueo de envío de correo electrónico a excepción cuentas compartida
+edit and remove maximum number of recipients by user	expressoAdmin	es-es	editar y eliminar el número máximo de destinatarios por usuario
+edit and remove maximum number of recipients by group	expressoAdmin	es-es	editar y eliminar el número máximo de destinatarios por grupo
+edit general maximum number of recipients	expressoAdmin	es-es	editar número máximo general de los destinatarios
+Edit exception	expressoAdmin	es-es	Editar excepción
+Edit Shared Accounts	expressoAdmin	es-es	Editar cuentas compartidas
+Edit Shared Accounts Acl	expressoAdmin	es-es	Editar cuentas compartidas Acl
+Edit Shared Accounts Quote	expressoAdmin	es-es	Editar cuentas compartidas Cita
+Event Accepted	expressoAdmin	es-es	Evento Aceptado
+eg	expressoAdmin	es-es	por ejemplo,
+Email field is empty	expressoAdmin	es-es	Campo eMail está vacía
+Email field is not valid	expressoAdmin	es-es	Campo de correo electrónico no es válida
+email list	expressoAdmin	es-es	lista de correo electrónico
+email list is active	expressoAdmin	es-es	lista de correo electrónico está activa
+email lists	expressoAdmin	es-es	listas de correo electrónico
+Email list successful created	expressoAdmin	es-es	Lista de correo electrónico creado con éxito
+Email list successful deleted	expressoAdmin	es-es	Lista de correo electrónico eliminados con éxito
+Email list successful saved	expressoAdmin	es-es	Lista de correo electrónico con éxito ahorrado
+emails did not find	expressoAdmin	es-es	mensajes de correo electrónico no encontraron
+EmployeeNumber contains characters not allowed	expressoAdmin	es-es	EmployeeNumber contiene caracteres no permitidos
+Emptied	expressoAdmin	es-es	vaciado
+empty inbox	expressoAdmin	es-es	bandeja de entrada vacía
+empty shared accounts inbox	expressoAdmin	es-es	vacío cuentas compartidas bandeja de entrada
+empty user inbox	expressoAdmin	es-es	bandeja de entrada de usuario vacío
+Enable blocking sending email to shared accounts (departments)	expressoAdmin	es-es	Activar el bloqueo de envío de correo electrónico a cuentas compartidas (departamentos)
+error adding application to new manager	expressoAdmin	es-es	error al agregar la aplicación a nuevo gerente
+Email address is not valid	expressoAdmin	es-es	Dirección de correo electrónico no es válida
+Error on function	expressoAdmin	es-es	Error en la función
+Error on insert	expressoAdmin	es-es	Error en la inserción
+Error on remove	expressoAdmin	es-es	Error en remove
+Error on Updating	expressoAdmin	es-es	Error en la actualización de
+User already belongs to the list	expressoAdmin	es-es	El usuario ya pertenece a la lista
+external user	expressoAdmin	es-es	usuario externo
+external users	expressoAdmin	es-es	los usuarios externos
+expressoAdmin	expressoAdmin	es-es	expressoAdmin
+Field CPF is invalid	expressoAdmin	es-es	El campo de la CPF no es válida
+Field CPF must be completed	expressoAdmin	es-es	Campo CPF debe ser completado
+Field CPF used by	expressoAdmin	es-es	CPF campo utilizado por
+Field mail already in use	expressoAdmin	es-es	El campo de correo ya está en uso
+Field mailAlternateAddress is not formed correcty	expressoAdmin	es-es	Campo mailAlternateAddress no está formada registrado correctamente
+Field mail is not formed correcty	expressoAdmin	es-es	Electrónico El campo no está formada registrado correctamente
+Field mail or name is empty	expressoAdmin	es-es	Electrónico o nombre de campo está vacío
+Field description is empty	expressoAdmin	es-es	Descripción del campo está vacío
+Find recipients	expressoAdmin	es-es	Encuentra los destinatarios
+Find senders	expressoAdmin	es-es	Encuentra los remitentes
+First name field contains characters not allowed	expressoAdmin	es-es	Campo Nombre contiene caracteres no permitidos
+First name field is empty	expressoAdmin	es-es	Campo Nombre está vacío
+forward email is empty	expressoAdmin	es-es	correo electrónico hacia adelante está vacía
+found managers	expressoAdmin	es-es	gerentes que se encuentran
+General amount limit of recipients	expressoAdmin	es-es	Cantidad límite general de los destinatarios
+group	expressoAdmin	es-es	grupo
+group only exist on DB, but does not exist on ldap	expressoAdmin	es-es	grupo sólo existe en DB, pero no existe en ldap
+user excluded because the group do not was found	expressoAdmin	es-es	usuario excluido porque el grupo no se encontró
+groups from the sector	expressoAdmin	es-es	grupos del sector
+groups in rule	expressoAdmin	es-es	grupos en regla
+Groups Name	expressoAdmin	es-es	Grupos Nombre
+Group successful created	expressoAdmin	es-es	Grupo creado con éxito
+Group successful deleted	expressoAdmin	es-es	Grupo eliminada con éxito
+Group successful saved	expressoAdmin	es-es	Grupo exitosa ahorrado
+included memberuid on ldap	expressoAdmin	es-es	incluido memberUid en ldap
+included user on group	expressoAdmin	es-es	usuario incluido en el grupo de
+included user to group	expressoAdmin	es-es	usuario incluido al grupo de
+included user to maillist	expressoAdmin	es-es	usuario incluido para MailList
+institutional accounts	expressoAdmin	es-es	cuentas institucionales
+Institutional account successful created	expressoAdmin	es-es	Cuenta institucional exitoso creado
+Institutional account successful deleted	expressoAdmin	es-es	Cuenta institucional exitosa borrado
+Institutional account successful saved	expressoAdmin	es-es	Cuenta institucional exitosa ahorrado
+ip address	expressoAdmin	es-es	dirección IP
+is account active	expressoAdmin	es-es	es cuenta activa
+it is needed to create samba passwords	expressoAdmin	es-es	se necesita para crear contraseñas de samba
+It is not allow select all users from the root organization	expressoAdmin	es-es	No se permite seleccionar todos los usuarios de la organización raíz
+it was not possible to change users mailbox quota	expressoAdmin	es-es	que no era posible cambiar los usuarios cuota de buzón
+it was not possible to clean the users mailbox	expressoAdmin	es-es	no fue posible para limpiar el buzón usuarios
+it was not possible to clean the mailbox	expressoAdmin	es-es	que no era posible limpiar el buzón de correo
+it was not possible to delete users mailbox	expressoAdmin	es-es	que no era posible eliminar el buzón usuarios
+it was not possible to delete mailbox	expressoAdmin	es-es	que no era posible eliminar el buzón
+It was not possible create the group because the LDAP schemas are not update	expressoAdmin	es-es	No fue posible crear el grupo, porque los esquemas LDAP no se actualizan
+Last name field contains characters not allowed	expressoAdmin	es-es	Última campo de nombre contiene caracteres no permitidos
+Last name field is empty	expressoAdmin	es-es	Última campo Nombre está vacío
+Limit by group	expressoAdmin	es-es	Limitar por grupo
+Limit by user	expressoAdmin	es-es	Limitar por usuario
+list	expressoAdmin	es-es	lista
+listname	expressoAdmin	es-es	nombre de la lista
+login field contains characters not allowed	expressoAdmin	es-es	campo de inicio de sesión contiene caracteres no permitidos
+login field is empty	expressoAdmin	es-es	campo login está vacío
+login field is incomplete	expressoAdmin	es-es	campo login es incompleta
+login field must be bigger than	expressoAdmin	es-es	campo de inicio de sesión debe ser más grande que
+Logon script is empty	expressoAdmin	es-es	Escritura de la conexión está vacía
+manager already exist	expressoAdmin	es-es	gerente ya existen
+Maximum number of recipients	expressoAdmin	es-es	Número máximo de destinatarios
+MB from user inbox	expressoAdmin	es-es	MB desde la bandeja de entrada del usuario
+MB from inbox	expressoAdmin	es-es	MB desde la bandeja de entrada
+modified user email	expressoAdmin	es-es	correo electrónico del usuario modificado
+modified user homedirectory	expressoAdmin	es-es	directorio home de usuario modificado
+modified user password	expressoAdmin	es-es	contraseña de usuario modificado
+modified user primary group	expressoAdmin	es-es	grupo principal de usuario modificado
+modified user telephonenumber	expressoAdmin	es-es	telephoneNumber usuario modificado
+More then one uid was found	expressoAdmin	es-es	Se encontró más de un UID
+NAME field contains characters not allowed	expressoAdmin	es-es	Campo NAME contiene caracteres no permitidos
+NAME field is empty	expressoAdmin	es-es	Campo NAME está vacía
+NAME field is incomplete	expressoAdmin	es-es	Campo NAME es incompleta
+No uid was found	expressoAdmin	es-es	No se encontró el uid
+No user selected	expressoAdmin	es-es	No seleccionado por el usuario
+No recipients selecteds	expressoAdmin	es-es	No hay destinatarios selecteds
+No senders selecteds	expressoAdmin	es-es	No hay remitentes selecteds
+all senders and all recipients selecteds	expressoAdmin	es-es	todos los remitentes y destinatarios todos selecteds
+omit account from the catalog	expressoAdmin	es-es	omitir cuenta desde el catálogo
+Only numbers are allowed	expressoAdmin	es-es	Sólo se permiten números
+only on ldap	expressoAdmin	es-es	sólo en LDAP
+organization	expressoAdmin	es-es	organización
+owners	expressoAdmin	es-es	propietarios
+read messages from this shared account	expressoAdmin	es-es	leer mensajes de esta cuenta compartida
+delete/move messages from this shared account	expressoAdmin	es-es	borrar / mover mensajes desde esta cuenta compartida
+create/add messages in this shared account	expressoAdmin	es-es	crear / añadir mensajes en esta cuenta compartida
+send message by this shared account	expressoAdmin	es-es	enviar un mensaje de esta cuenta compartida
+create or delete folders on this shared account	expressoAdmin	es-es	crear o eliminar carpetas de esta cuenta compartida
+participants from the list can send email to this list	expressoAdmin	es-es	participantes de la lista pueden enviar un correo electrónico a esta lista
+password and re-Password are different	expressoAdmin	es-es	contraseña y re-contraseña son diferentes
+Password field is empty	expressoAdmin	es-es	Campo Contraseña está vacío
+Phone field is incorrect	expressoAdmin	es-es	Campo Teléfono es incorrecta
+problems getting user id	expressoAdmin	es-es	problemas para obtener id de usuario
+Recipients	expressoAdmin	es-es	destinatarios
+recipients	expressoAdmin	es-es	destinatarios
+recipients in rule	expressoAdmin	es-es	las personas en la regla
+removed user from group	expressoAdmin	es-es	usuario eliminado del grupo
+removed user from list	expressoAdmin	es-es	usuario eliminado de la lista
+Remove exception	expressoAdmin	es-es	Retire excepción
+remove owner	expressoAdmin	es-es	eliminar propietario
+Rename users login from	expressoAdmin	es-es	Cambiar el nombre de conexión de los usuarios de
+Removed BlockEmail For Institutional AcounteExeption	expressoAdmin	es-es	Eliminado BlockEmail Para AcounteExeption Institucional
+re-password field is empty	expressoAdmin	es-es	re-password campo está vacío
+re-password field is empty	expressoAdmin	es-es	re-password campo está vacío
+return user password	expressoAdmin	es-es	volver contraseña de usuario
+save sucess	expressoAdmin	es-es	guardar sucess
+scl successful saved	expressoAdmin	es-es	scl salvos exitosa
+search email list	expressoAdmin	es-es	lista de correo electrónico de búsqueda
+search for group	expressoAdmin	es-es	buscar grupo
+Search group	expressoAdmin	es-es	Search grupo
+searching	expressoAdmin	es-es	búsqueda
+search organization	expressoAdmin	es-es	organización de búsqueda
+search recipients	expressoAdmin	es-es	beneficiarios de búsqueda
+search senders	expressoAdmin	es-es	remitentes de búsqueda
+Search user	expressoAdmin	es-es	Búsqueda de usuarios
+select one manager	expressoAdmin	es-es	seleccionar un gerente
+senders	expressoAdmin	es-es	remitentes
+senders in rule	expressoAdmin	es-es	remitentes en regla
+sent	expressoAdmin	es-es	enviado
+Server return	expressoAdmin	es-es	retorno del servidor
+Server returns	expressoAdmin	es-es	devuelve el servidor
+Shared account successful created	expressoAdmin	es-es	Cuenta compartido exitoso creado
+Shared account successful deleted	expressoAdmin	es-es	Cuenta compartida exitosa borrado
+Shared account successful saved	expressoAdmin	es-es	Cuenta compartida exitosa ahorrado
+Shared Account	expressoAdmin	es-es	cuenta compartido
+Shared Accounts	expressoAdmin	es-es	Cuentas compartidas
+show access logs	expressoAdmin	es-es	mostrar los registros de acceso
+spam	expressoAdmin	es-es	correo no deseado
+subsectors from the sector	expressoAdmin	es-es	subsectores del sector
+The administrator must update the directory /etc/ldap/schema/ and re-start LDAP	expressoAdmin	es-es	El administrador debe actualizar el directorio / etc / ldap / schema / LDAP y volver a empezar
+the binary file /home/expressolivre/mkntpwd does not exist	expressoAdmin	es-es	el binario de archivo / home / expressolivre / mkntpwd no existe
+the expressoadmin corrected the following inconsistencies	expressoAdmin	es-es	la expressoadmin corrigió las siguientes inconsistencias
+the login field must be formed like	expressoAdmin	es-es	el campo de inicio de sesión debe ser formado como
+the name field must be formed like	expressoAdmin	es-es	el campo nombre debe estar formado como
+the user is part of this email lists	expressoAdmin	es-es	el usuario es parte de esta lista de correo electrónico
+this email address is already used	expressoAdmin	es-es	Esta dirección de correo electrónico ya está en uso
+this email address is being used by 1 user	expressoAdmin	es-es	Esta dirección de correo electrónico está siendo utilizado por 1 usuario
+this email address is being used by 2 or more users	expressoAdmin	es-es	Esta dirección de correo electrónico está siendo utilizado por 2 o más usuarios
+this email list login is already used	expressoAdmin	es-es	esta lista de correo electrónico de acceso ya está en uso
+this login can not be used because is a system account	expressoAdmin	es-es	este inicio de sesión no se puede utilizar porque es una cuenta del sistema
+this login is already used by a user in another organization	expressoAdmin	es-es	este inicio de sesión ya está siendo utilizado por un usuario de otra organización
+this login is already used by	expressoAdmin	es-es	este inicio de sesión ya está siendo utilizado por
+this login is already used by	expressoAdmin	es-es	este inicio de sesión ya está siendo utilizado por
+This login is being used by a group	expressoAdmin	es-es	Este inicio de sesión está siendo utilizado por un grupo
+this user will can create/add messages	expressoAdmin	es-es	este usuario se puede crear / añadir mensajes
+this user will can create events at the mailbox calendar	expressoAdmin	es-es	este usuario se puede crear eventos en el calendario del buzón
+this user will can delete events at the mailbox calendar	expressoAdmin	es-es	este usuario se puede eliminar eventos en el calendario del buzón
+this user will can delete/move messages	expressoAdmin	es-es	este usuario se puede borrar / mover mensajes
+this user will can edit events at the mailbox calendar	expressoAdmin	es-es	este usuario se puede editar eventos en el calendario del buzón
+this user will can read messages	expressoAdmin	es-es	Este usuario puede leer los mensajes
+this user will can read restrict events at the mailbox calendar	expressoAdmin	es-es	este usuario se puede leer restringir los eventos en el calendario del buzón
+this user will can read events at the mailbox calendar	expressoAdmin	es-es	Este usuario puede leer los eventos en el calendario del buzón
+this user will save the sent messages on this mailbox	expressoAdmin	es-es	este usuario se guardarán los mensajes enviados a este buzón
+this user will can send messages	expressoAdmin	es-es	este usuario se puede enviar mensajes
+to delete	expressoAdmin	es-es	para eliminar
+to	expressoAdmin	es-es	a
+to rename	expressoAdmin	es-es	para cambiar el nombre
+trash	expressoAdmin	es-es	basura
+type new managers login	expressoAdmin	es-es	escriba el nuevo inicio de sesión gerentes
+users in rule	expressoAdmin	es-es	usuarios en regla
+User is not in any group	expressoAdmin	es-es	El usuario no se encuentra en ningún grupo
+User login successful renamed	expressoAdmin	es-es	Inicio de sesión exitoso rebautizado
+users did not find on DB, only on ldap	expressoAdmin	es-es	los usuarios no encontraron en DB, sólo en ldap
+users	expressoAdmin	es-es	usuarios
+users from the sector	expressoAdmin	es-es	usuarios del sector
+Users home directory is empty	expressoAdmin	es-es	Directorio home del usuario está vacía
+Users password successful returned	expressoAdmin	es-es	Contraseña Usuarios éxito regresó
+User successful created	expressoAdmin	es-es	Usuario éxito creado
+User successful deleted	expressoAdmin	es-es	Usuario éxito borrado
+User successful saved	expressoAdmin	es-es	Usuario éxito ahorrado
+Update Limit Recipients By User	expressoAdmin	es-es	Destinatarios Update límite por usuario
+Update Limit Recipients By Group	expressoAdmin	es-es	Destinatarios actualización Limitar por Grupo
+users who can send email to this list	expressoAdmin	es-es	usuarios que pueden enviar correo electrónico a esta lista
+user without email quota	expressoAdmin	es-es	usuario sin cuota de correo electrónico
+disable and sets unlimited recipients	expressoAdmin	es-es	desactivar y establece los destinatarios ilimitadas
+without quota	expressoAdmin	es-es	sin cuotas
+you do not have access to create sectors	expressoAdmin	es-es	usted no tiene acceso para crear sectores
+You do not have access to this module	expressoAdmin	es-es	Usted no tiene acceso a este módulo
+You do not have access to clean an user inbox	expressoAdmin	es-es	Usted no tiene acceso a limpiar una bandeja de entrada de usuario
+You do not have access to this organization	expressoAdmin	es-es	Usted no tiene acceso a esta organización
+You do not have right to create institutional accounts	expressoAdmin	es-es	Usted no tiene derecho a crear cuentas institucionales
+You do not have right to create shared accounts	expressoAdmin	es-es	Usted no tiene derecho a crear cuentas compartidas
+You do not have right to delete institutional accounts	expressoAdmin	es-es	Usted no tiene derecho de borrar cuentas institucionales
+You do not have right to delete shared accounts	expressoAdmin	es-es	Usted no tiene derecho de borrar cuentas compartidas
+You do not have right to edit institutional accounts	expressoAdmin	es-es	Usted no tiene derecho de editar cuentas institucionales
+You do not have right to edit an shared accounts	expressoAdmin	es-es	Usted no tiene derecho de editar una cuentas compartidas
+You do not have right to edit an shared accounts quota	expressoAdmin	es-es	Usted no tiene derecho de editar un cupo de cuentas compartida
+You do not have right to edit an shared accounts acl	expressoAdmin	es-es	Usted no tiene derecho a editar una cuentas acl compartida
+You do not have right to empty an shared accounts inbox	expressoAdmin	es-es	Usted no tiene derecho a vaciar una bandeja de entrada de las cuentas compartidas
+You do not have right to list institutional accounts	expressoAdmin	es-es	Usted no tiene derecho a una lista de cuentas institucionales
+you do not have right to list shared accounts	expressoAdmin	es-es	usted no tiene derecho a una lista de cuentas compartidas
+You must type the first and the second name before generate the login	expressoAdmin	es-es	Debe escribir el primer y el segundo nombre antes de generar el inicio de sesión
+Your user was add/updated in the shared account	expressoAdmin	es-es	Tu usuario fue añadir / actualizar en la cuenta compartida
+Your user has the following acl	expressoAdmin	es-es	Tu usuario tiene la siguiente acl
+use login generator	expressoAdmin	es-es	use un generador de inicio de sesión
+Login generator disabled	expressoAdmin	es-es	Generador Login deshabilitado
+Generate login	expressoAdmin	es-es	Generar sesión
+lang_account_expired	expressoAdmin	es-es	lang_account_expired
+list inactives	expressoAdmin	es-es	lista inactivos
+list_inactive	expressoAdmin	es-es	list_inactive
+uidNumber	expressoAdmin	es-es	uidNumber
+user login	expressoAdmin	es-es	inicio de sesión de usuario
+last login	expressoAdmin	es-es	último acceso
+user number cota	expressoAdmin	es-es	número de usuario cota
+disk usage cota	expressoAdmin	es-es	cota uso del disco
+user number	expressoAdmin	es-es	número de usuario
+disk usage	expressoAdmin	es-es	el uso del disco
+view cota	expressoAdmin	es-es	vista cota
+users quota	expressoAdmin	es-es	cuota usuarios
+disk quota	expressoAdmin	es-es	cuota de disco
+exclusion	expressoAdmin	es-es	exclusión
+creation	expressoAdmin	es-es	creación
+folder	expressoAdmin	es-es	carpeta
+close	expressoAdmin	es-es	cerca
+create	expressoAdmin	es-es	crear
+creation of shared accounts	expressoAdmin	es-es	creación de cuentas compartidas
+empty shared accounts inbox	expressoAdmin	es-es	vacío cuentas compartidas bandeja de entrada
+default size value	expressoAdmin	es-es	valor de tamaño predeterminado
+Messages size	expressoAdmin	es-es	Mensajes tamaño
+max size rule	expressoAdmin	es-es	regla de tamaño máximo
+create new rule	expressoAdmin	es-es	crear nueva regla
+rule name	expressoAdmin	es-es	el nombre de regla
+rule created or update successfully	expressoAdmin	es-es	descartar creada o actualizar correctamente
+max message size MB	expressoAdmin	es-es	max tamaño de los mensajes MB
+users or groups	expressoAdmin	es-es	usuarios o grupos
+message size configuration	expressoAdmin	es-es	configuración de tamaño de mensaje
+field rule name is empty	expressoAdmin	es-es	Nombre de la regla campo está vacío
+field size must be a number	expressoAdmin	es-es	tamaño del campo debe ser un número
+no groups or users selected	expressoAdmin	es-es	no hay grupos o usuarios seleccionados
+Rule name is already in use	expressoAdmin	es-es	Nombre de la regla ya está en uso
+New default value successful created	expressoAdmin	es-es	Nuevo valor predeterminado creado con éxito
+New rule successful created	expressoAdmin	es-es	Nueva regla de éxito creado
+Error on insert default rule	expressoAdmin	es-es	Error en la regla por defecto de inserción
+Message size greater than allowed	expressoAdmin	es-es	Tamaño del mensaje mayor de lo permitido
+Message size greater than allowed (Default Rule)	expressoAdmin	es-es	Mayor tamaño de mensaje de lo permitido (Regla predeterminada)
+Messages size configuration	expressoAdmin	es-es	Configuración de mensajes de tamaño
+Field rule name is empty	expressoAdmin	es-es	Nombre de la regla campo está vacío
+Field message size is empty	expressoAdmin	es-es	El tamaño del mensaje El campo está vacío
+Field size must be a number	expressoAdmin	es-es	Tamaño del campo debe ser un número
+no groups or users selected	expressoAdmin	es-es	no hay grupos o usuarios seleccionados
+restrict	expressoAdmin	es-es	restringir
+Rights	expressoAdmin	es-es	Derechos
+search user or groups	expressoAdmin	es-es	búsqueda del usuario o grupos
+save	expressoAdmin	es-es	guardar
+add messages size rule	expressoAdmin	es-es	agregar mensajes regla tamaño
+edit messages size rule	expressoAdmin	es-es	regla editar mensajes de tamaño
+remove messages size rule	expressoAdmin	es-es	eliminar mensajes regla tamaño
+Default size must be a number	expressoAdmin	es-es	Predeterminada debe ser un número
+Default size can not be negative	expressoAdmin	es-es	El tamaño del defecto no puede ser negativo
+Are you sure that you want to delete this shared account	expressoAdmin	es-es	¿Está seguro de que desea eliminar esta cuenta compartida
+Assign default calendar for user	expressoAdmin	es-es	Asignar calendario predeterminado para el usuario
+freebusy	expressoAdmin	es-es	FreeBusy
+write	expressoAdmin	es-es	escribir
+save sent messages in this shared account	expressoAdmin	es-es	guarde los mensajes enviados en esta cuenta compartida
+Created group	expressoAdmin	es-es	Creado grupo
+Added user to group on user criation	expressoAdmin	es-es	Alta de usuario al grupo en criation usuario
+User added from the institutional account	expressoAdmin	es-es	Usuario agregado de la cuenta institucional
+User removed from the institutional account	expressoAdmin	es-es	Retirado de la cuenta institucional usuario
+added user on email list creation	expressoAdmin	es-es	usuario agregado en la creación de lista de correo electrónico
+renamed list login	expressoAdmin	es-es	lista rebautizado sesión
+added user to list	expressoAdmin	es-es	usuario agregado a la lista
+turned on participantCanSendMail	expressoAdmin	es-es	activado participantCanSendMail
+turned on mailListRestriction	expressoAdmin	es-es	activado mailListRestriction
+turned off participantCanSendMail	expressoAdmin	es-es	apagado participantCanSendMail
+turned off mailListRestriction	expressoAdmin	es-es	apagado mailListRestriction
+added user to SCL","$dn: $mail	expressoAdmin	es-es	usuario agregado a SCL "," $ dn: $ mail
+removed user from SCL","$dn: $mail	expressoAdmin	es-es	usuario retirado de SCL "," $ dn: $ mail
+write on ldap	expressoAdmin	es-es	escribir en ldap
+created sector	expressoAdmin	es-es	sector creado
+User removed from the shared account	expressoAdmin	es-es	Retirado de la cuenta compartida de uso
+User added from the shared account	expressoAdmin	es-es	Usuario añadida por la cuenta compartida
+modified first name	expressoAdmin	es-es	primero nombre modificado
+modified last name	expressoAdmin	es-es	apellido modificado
+Expired user password	expressoAdmin	es-es	Usuario contraseña expirada
+removed user phone	expressoAdmin	es-es	teléfono de usuario eliminado
+added user phone	expressoAdmin	es-es	teléfono de usuario añadido
+modified user sambaacctflags	expressoAdmin	es-es	sambaacctflags usuario modificados
+modified user sambalogonscript	expressoAdmin	es-es	sambalogonscript usuario modificado
+removed user photo	expressoAdmin	es-es	eliminado user photo
+modified user photo	expressoAdmin	es-es	modificado user photo
+added user photo	expressoAdmin	es-es	añadido user photo
+expired user password	expressoAdmin	es-es	usuario contraseña caducada
+removed expiry from user password	expressoAdmin	es-es	eliminado de caducidad de la contraseña de usuario
+turn on changepassword	expressoAdmin	es-es	encienda changepassword
+turn of changepassword	expressoAdmin	es-es	vuelta del changepassword
+turn on user account	expressoAdmin	es-es	activar la cuenta de usuario
+turn off user account	expressoAdmin	es-es	desactivar la cuenta de usuario
+Reactivated blocked user by downtime	expressoAdmin	es-es	Reactivado usuario bloqueado por el tiempo de inactividad
+turn on phpgwaccountvisible	expressoAdmin	es-es	encienda phpgwaccountvisible
+turn off phpgwaccountvisible	expressoAdmin	es-es	apague phpgwaccountvisible
+turn on user account email	expressoAdmin	es-es	activar la cuenta de usuario de correo electrónico
+turn off user account email	expressoAdmin	es-es	desactivar la cuenta de usuario de correo electrónico
+added mailalternateaddress	expressoAdmin	es-es	mailalternateaddress añadido
+removed mailalternateaddress	expressoAdmin	es-es	mailalternateaddress eliminado
+added mailforwardingaddress	expressoAdmin	es-es	mailforwardingaddress añadido
+removed mailforwardingaddress	expressoAdmin	es-es	mailforwardingaddress eliminado
+added forwardOnly	expressoAdmin	es-es	añadido ForwardOnly
+removed forwardOnly	expressoAdmin	es-es	eliminado ForwardOnly
+removed user samba attributes	expressoAdmin	es-es	atributos de samba de usuario eliminado
+removed user from maillist	expressoAdmin	es-es	usuario eliminado maillist
+added application to user	expressoAdmin	es-es	añadido a la aplicación de usuario
+removed application to user	expressoAdmin	es-es	aplicación eliminado para el usuario
+inserted default password	expressoAdmin	es-es	introducido la contraseña por defecto
+returned user password	expressoAdmin	es-es	contraseña de usuario devuelto
+deleted users data from ldap	expressoAdmin	es-es	usuarios eliminados datos de ldap
+deleted users data from DB	expressoAdmin	es-es	usuarios eliminados los datos de DB
+deleted users data from IMAP	expressoAdmin	es-es	usuarios eliminados datos de IMAP
+deleted manager data from BD	expressoAdmin	es-es	datos del gestor borrados de BD
+renamed user	expressoAdmin	es-es	usuario renombrado
+Added application	expressoAdmin	es-es	aplicación Alta
+Removed application from id	expressoAdmin	es-es	Aplicación Fuera Identificación
+added attribute phpgwAccountVisible to group	expressoAdmin	es-es	atributo añadido phpgwAccountVisible al grupo
+added attribute mail to group	expressoAdmin	es-es	añadido electrónico atributo al grupo de
+removed attribute phpgwAccountVisible from group	expressoAdmin	es-es	atributo eliminado phpgwAccountVisible del grupo
+removed attribute mail from group	expressoAdmin	es-es	electrónico atributo eliminado del grupo
+added application to group	expressoAdmin	es-es	aplicación añadido al grupo de
+removed application from group	expressoAdmin	es-es	aplicación eliminado del grupo
+deleted group	expressoAdmin	es-es	grupo eliminado
+modified user telephone	expressoAdmin	es-es	teléfono de usuario modificado

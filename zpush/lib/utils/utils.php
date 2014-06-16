@@ -423,7 +423,7 @@ class Utils {
     /**
      * Our own utf7_decode function because imap_utf7_decode converts a string
      * into ISO-8859-1 encoding which doesn't have euro sign (it will be converted
-     * into two chars: [space](ascii 32) and "Â¬" ("not sign", ascii 172)). Also
+     * into two chars: [space](ascii 32) and "¬" ("not sign", ascii 172)). Also
      * php iconv function expects '+' as delimiter instead of '&' like in IMAP.
      *
      * @param string $string IMAP folder name

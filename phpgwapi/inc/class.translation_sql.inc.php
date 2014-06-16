@@ -51,10 +51,10 @@
 			{
 				$this->placeholders[] = '%'.$i;
 			}
-			$this->db = is_object($GLOBALS['phpgw']->db) ? $GLOBALS['phpgw']->db : $GLOBALS['phpgw_setup']->db;
-			if (!isset($GLOBALS['phpgw_setup']))
+			$this->db = ( isset($GLOBALS['phpgw']->db) && is_object($GLOBALS['phpgw']->db) ) ? $GLOBALS['phpgw']->db : $GLOBALS['phpgw_setup']->db;
+			if ( !isset($GLOBALS['phpgw_setup']) && isset($GLOBALS['phpgw_info']['server']['system_charset']) )
 			{
-				$this->system_charset = @$GLOBALS['phpgw_info']['server']['system_charset'];
+				$this->system_charset = $GLOBALS['phpgw_info']['server']['system_charset'];
 			}
 			else
 			{
@@ -65,7 +65,7 @@
 				}
 			}
 			// load multi-byte-string-extension if needed, and set its internal encodeing to your system_charset
-			if ($this->system_charset && substr($this->system_charset,0,9) != 'iso-8859-1')
+			if ( isset($this->system_charset) && substr($this->system_charset,0,9) != 'iso-8859-1')
 			{
 				if ($this->mbstring = extension_loaded('mbstring') || @dl(PHP_SHLIB_PREFIX.'mbstring.'.PHP_SHLIB_SUFFIX))
 				{
@@ -103,12 +103,12 @@
 				}
 				return $this->charsets[$lang];
 			}
-			if ($this->system_charset)	// do we have a system-charset ==> return it
+			if ( isset($this->system_charset) && $this->system_charset )	// do we have a system-charset ==> return it
 			{
 				return $this->system_charset;
 			}
 			// if no translations are loaded (system-startup) use a default, else lang('charset')
-			return !is_array(@$GLOBALS['lang']) ? 'iso-8859-1' : strtolower($this->translate('charset'));
+			return ( !( isset($GLOBALS['lang']) && is_array($GLOBALS['lang']) ) )? 'iso-8859-1' : strtolower( $this->translate( 'charset' ) );
 		}
 
 		function init()
@@ -116,12 +116,12 @@
 			// post-nuke and php-nuke are using $GLOBALS['lang'] too
 			// but not as array!
 			// this produces very strange results
-			if (!is_array(@$GLOBALS['lang']))
+			if ( !( isset($GLOBALS['lang']) && is_array($GLOBALS['lang']) ) )
 			{
 				$GLOBALS['lang'] = array();
 			}
 
-			if ($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'])
+			if ( isset($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']) )
 			{
 				$this->userlang = $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'];
 			}
@@ -148,7 +148,7 @@
 		*/
 		function translate($key, $vars=false, $not_found='*' )
 		{
-			if (!is_array(@$GLOBALS['lang']) || !count($GLOBALS['lang']))
+			if ( !( isset($GLOBALS['lang']) && is_array($GLOBALS['lang']) && count($GLOBALS['lang'])) )
 			{
 				$this->init();
 			}
@@ -250,7 +250,7 @@
 		*/
 		function get_installed_langs()
 		{
-			if (!is_array($this->langs))
+			if ( ! (isset($this->langs) && is_array($this->langs) ) )
 			{
 				$this->db->query("SELECT DISTINCT l.lang,ln.lang_name FROM phpgw_lang l,phpgw_languages ln WHERE l.lang = ln.lang_id",__LINE__,__FILE__);
 				if (!$this->db->num_rows())
@@ -276,7 +276,7 @@
 		*/
 		function get_installed_charsets()
 		{
-			if (!is_array($this->charsets))
+			if ( !( isset($this->charsets) && is_array($this->charsets) ) )
 			{
 				$distinct = 'DISTINCT';
 				switch($this->db->Type)
@@ -405,7 +405,7 @@
 		{
 			@set_time_limit(0);	// we might need some time
 
-			if (!isset($GLOBALS['phpgw_info']['server']) && $upgrademethod != 'dumpold')
+			if ( isset($GLOBALS['phpgw_info']['server']) && $upgrademethod != 'dumpold')
 			{
 				$this->db->query("SELECT * FROM phpgw_config WHERE config_app='phpgwapi' AND config_name='lang_ctimes'",__LINE__,__FILE__);
 				if ($this->db->next_record())
@@ -486,7 +486,7 @@
 							$GLOBALS['phpgw_info']['server']['lang_ctimes'][$lang][$app] = filectime($appfile);
 						}
 					}
-					$charset = strtolower(@$raw['common']['charset'] ? $raw['common']['charset'] : $this->charset($lang));
+					$charset = strtolower( isset($raw['common']['charset'])? $raw['common']['charset'] : $this->charset($lang));
 					//echo "<p>lang='$lang', charset='$charset', system_charset='$this->system_charset')</p>\n";
 					//echo "<p>raw($lang)=<pre>".print_r($raw,True)."</pre>\n";
 					foreach($raw as $app_name => $ids)
@@ -495,7 +495,7 @@
 
 						foreach($ids as $message_id => $content)
 						{
-							if ($this->system_charset)
+							if ( isset($this->system_charset) )
 							{
 								$content = $this->convert($content,$charset,$this->system_charset);
 							}
@@ -536,8 +536,7 @@
 								if($message_id && $content)
 								{
 									//echo "<br />adding - insert into phpgw_lang values ('$message_id','$app_name','$lang','$content')";
-									$result = $this->db->query("INSERT INTO phpgw_lang (message_id,app_name,lang,content) VALUES('$message_id','$app_name','$lang','$content')",__LINE__,__FILE__);
-									if ((int)$result <= 0)
+									if ( $this->db->query("INSERT INTO phpgw_lang (message_id,app_name,lang,content) VALUES('$message_id','$app_name','$lang','$content')",__LINE__,__FILE__) === false )
 									{
 										echo "<br />Error inserting record: phpgw_lang values ('$message_id','$app_name','$lang','$content')";
 									}
@@ -550,7 +549,6 @@
 			$this->db->transaction_commit();
 
 			// update the ctimes of the installed langsfiles for the autoloading of the lang-files
-			//
 			$config =  CreateObject('phpgwapi.config.save_value');
 			$config->save_value('lang_ctimes',$GLOBALS['phpgw_info']['server']['lang_ctimes'],'phpgwapi');
 		}
@@ -608,11 +606,11 @@
 			{
 				echo '<br />get_langs(): checking db...' . "\n";
 			}
-			if (!$this->langs)
+			if ( !isset($this->langs ) )
 			{
 				$this->get_installed_langs();
 			}
-			return $this->langs ? array_keys($this->langs) : array();
+			return ( isset($this->langs) && is_array($this->langs) )? array_keys($this->langs) : array();
 		}
 
 		/*!

@@ -192,21 +192,25 @@ class html
 
 	function input_hidden($vars,$value='',$ignore_empty=True)
 	{
-		if (!is_array($vars))
+		$html = "";
+
+		if ( !is_array($vars) )
 		{
 			$vars = array( $vars => $value );
 		}
+		
 		foreach($vars as $name => $value)
 		{
 			if (is_array($value))
 			{
-			$value = serialize($value);
+				$value = serialize($value);
 			}
 			if (!$ignore_empty || $value && !($name == 'filter' && $value == 'none'))	// dont need to send all the empty vars
 			{
-			$html .= "<input type=\"hidden\" name=\"$name\" value=\"".$this->htmlspecialchars($value)."\" />\n";
+				$html .= "<input type=\"hidden\" name=\"$name\" value=\"".$this->htmlspecialchars($value)."\" />\n";
 			}
 		}
+		
 		return $html;
 	}
 

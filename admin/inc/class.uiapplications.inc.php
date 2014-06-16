@@ -53,9 +53,9 @@
 			$GLOBALS['phpgw']->template->set_block('applications','row','row');
 			$GLOBALS['phpgw']->template->set_block('applications','add','add');
 			
-			$start = get_var('start',array('POST','GET'));
-			$sort  = $_GET['sort'];
-			$order = $_GET['order'];
+			$start 	= get_var('start',array('POST','GET'));
+			$sort  	= (isset($_GET['sort'])?$_GET['sort']:"");
+			$order 	= (isset($_GET['order'])?$_GET['order']:"");
 			$offset = $GLOBALS['phpgw_info']['user']['preferences']['common']['maxmatchs'];
 
 			$apps = $this->bo->get_list();
@@ -115,6 +115,8 @@
 			$GLOBALS['phpgw']->template->set_var('lang_note',lang('(To install new applications use<br /><a href="setup/" target="setup">Setup</a> [Manage Applications] !!!)'));
 			$GLOBALS['phpgw']->template->set_var('lang_add',lang('add'));
 
+			$tr_color = "";
+
 			foreach($applications as $app)
 			{
 				$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
@@ -163,7 +165,9 @@
 			{
 				$GLOBALS['phpgw']->redirect_link('/index.php');
 			}
-			$start = get_var('start',array('POST','GET'));
+			
+			$n_app_name = "";
+			$start 		= get_var('start',array('POST','GET'));
 	
 			$GLOBALS['phpgw']->template->set_file(array('application' => 'application_form.tpl'));
 			$GLOBALS['phpgw']->template->set_block('application','form','form');
@@ -171,12 +175,12 @@
 			$GLOBALS['phpgw']->template->set_block('form','delete_button');
 			$GLOBALS['phpgw']->template->set_var('delete_button','');
 
-			if ($_POST['cancel'])
+			if( isset($_POST['cancel']) )
 			{
 				$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=admin.uiapplications.get_list&start='.$start);
 			}
 
-			if ($_POST['save'])
+			if( isset($_POST['save']) )
 			{
 				$totalerrors = 0;
 
@@ -240,13 +244,15 @@
 			}
 
 			$selected[$n_app_status] = ' selected';
-			$status_html = '<option value="0"' . $selected[0] . '>' . lang('Disabled') . '</option>'
-				. '<option value="1"' . $selected[1] . '>' . lang('Enabled') . '</option>'
-				. '<option value="2"' . $selected[2] . '>' . lang('Enabled - Hidden from navbar') . '</option>'
-				. '<option value="4"' . $selected[4] . '>' . lang('Enabled - Popup Window') . '</option>';
+			
+			$status_html = '<option value="0"'.(isset($selected[0])?$selected[0]:"").'>' . lang('Disabled') . '</option>'
+				. '<option value="1"' . (isset($selected[1])?$selected[1]:"") . '>' . lang('Enabled') . '</option>'
+				. '<option value="2"' . (isset($selected[2])?$selected[2]:"") . '>' . lang('Enabled - Hidden from navbar') . '</option>'
+				. '<option value="4"' . (isset($selected[4])?$selected[4]:"") . '>' . lang('Enabled - Popup Window') . '</option>';
+			
 			$this->display_row(lang('Status'),'<select name="n_app_status">' . $status_html . '</select>');
 
-			if (!$app_order)
+			if( !isset( $app_order ) )
 			{
 				$app_order = $this->bo->app_order();
 			}
@@ -271,17 +277,17 @@
 			$GLOBALS['phpgw']->template->set_block('application','form','form');
 			$GLOBALS['phpgw']->template->set_block('application','row','row');
 
-			if ($_POST['cancel'])
+			if( isset($_POST['cancel']) )
 			{
 				$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=admin.uiapplications.get_list&start='.$start);
 			}
 			
-			if ($_POST['delete'])
+			if( isset($_POST['delete']) )
 			{
 				return $this->delete();
 			}
 
-			if ($_POST['save'])
+			if( isset($_POST['save']) )
 			{
 				$totalerrors = 0;
 
@@ -309,7 +315,7 @@
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 
-			if ($totalerrors)
+			if( isset($totalerrors) )
 			{
 				$GLOBALS['phpgw']->template->set_var('error','<p><center>' . $GLOBALS['phpgw']->common->error_list($error) . '</center><br />');
 			}
@@ -331,10 +337,10 @@
 			$GLOBALS['phpgw']->template->set_var('lang_delete_button',lang('Delete'));
 
 			$selected[$n_app_status] = ' selected';
-			$status_html = '<option value="0"' . $selected[0] . '>' . lang('Disabled') . '</option>'
-				. '<option value="1"' . $selected[1] . '>' . lang('Enabled') . '</option>'
-				. '<option value="2"' . $selected[2] . '>' . lang('Enabled - Hidden from navbar') . '</option>'
-				. '<option value="4"' . $selected[4] . '>' . lang('Enabled - Popup Window') . '</option>';
+			$status_html = '<option value="0"' . (isset($selected[0])?$selected[0]:"") . '>' . lang('Disabled') . '</option>'
+				. '<option value="1"' . (isset($selected[1])?$selected[1]:"") . '>' . lang('Enabled') . '</option>'
+				. '<option value="2"' . (isset($selected[2])?$selected[2]:"") . '>' . lang('Enabled - Hidden from navbar') . '</option>'
+				. '<option value="4"' . (isset($selected[4])?$selected[4]:"") . '>' . lang('Enabled - Popup Window') . '</option>';
 
 			$this->display_row(lang("Status"),'<select name="n_app_status">' . $status_html . '</select>');
 			$this->display_row(lang("Select which location this app should appear on the navbar, lowest (left) to highest (right)"),'<input name="app_order" value="' . $app_order . '">');

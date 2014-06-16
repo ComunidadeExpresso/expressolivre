@@ -352,10 +352,9 @@
 				return $last_run['data'];
 			}
 			//elseif (!$release && !$last_run['data']['end'] && $last_run['data']['start'] > time()-600)
-			elseif (!$release && !$last_run['data']['end'])
+			elseif ( !$release && !( isset($last_run['data']['end']) && $last_run['data']['end'] ) )
 			{
 				// already one instance running (started not more then 10min ago, else we ignore it)
-
 				$this->db->unlock();	// unlock the table again
 
 				//echo "<p>An other instance is running !!!</p>\n";
@@ -382,7 +381,7 @@
 				);
 			}
 			//echo "last_run=<pre>"; print_r($last_run); echo "</pre>\n";
-			$this->write($last_run,!!$exits);
+			$this->write( $last_run, false );
 			
 			$this->db->unlock();
 
@@ -517,7 +516,7 @@
 			$job['times'] = $this->db->db_addslashes(serialize($job['times']));
 			$job['data']  = $this->db->db_addslashes(serialize($job['data']));
 			$job['next']  = (int)$job['next'];
-			$job['account_id']  = (int)$job['account_id'];
+			$job['account_id']  = isset($job['account_id'])? (int)$job['account_id'] : 0;
 
 			if ($exists || $this->read($job['id']))
 			{
@@ -639,6 +638,8 @@
 					//if ($line[0] == '#' || count($parts) < 6 || ($parts[5][0] != '/' && substr($parts[5],0,3) != 'php')) 
 					if ($line[0] == '#' || count($parts) < 6)
 					{
+						$times['error'] = "";
+						
 						// ignore comments
 						if ($line[0] != '#')
 						{

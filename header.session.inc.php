@@ -23,11 +23,15 @@ if( !isset($_SESSION) )
 $sess = $_SESSION[ 'phpgw_session' ];
 $invalidSession = false; 
 $user_agent = array(); 
-if (isset($GLOBALS['phpgw']) && !isset($_SESSION['connection_db_info'])){ 
-	$_SESSION['phpgw_info']['admin']['server']['sessions_checkip'] = $GLOBALS['phpgw_info']['server']['sessions_checkip'];
-	if($GLOBALS['phpgw_info']['server']['use_https'] == 1){ 
+if (isset($GLOBALS['phpgw']) && !isset($_SESSION['connection_db_info']))
+{ 
+	$_SESSION['phpgw_info']['admin']['server']['sessions_checkip'] = (isset($GLOBALS['phpgw_info']['server']['sessions_checkip'])?$GLOBALS['phpgw_info']['server']['sessions_checkip']:"");
+	
+	if($GLOBALS['phpgw_info']['server']['use_https'] == 1)
+	{ 
 		$new_ip = (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR']."," : ""). $_SERVER['REMOTE_ADDR'];		
-		if(strlen($new_ip)>30){
+		if(strlen($new_ip)>30)
+		{
 			$ip_exploded = explode(",",$new_ip);
 			$new_ip = "";
 			for($i=0;$i<2;++$i)
@@ -37,18 +41,18 @@ if (isset($GLOBALS['phpgw']) && !isset($_SESSION['connection_db_info'])){
 		}		
 		$GLOBALS['phpgw']->db->query("UPDATE phpgw_access_log SET ip='$new_ip' WHERE account_id <> 0 and lo = 0 and sessionid='{$GLOBALS['sessionid']}'",__LINE__,__FILE__);
 	} 
-
-    $checkIP = $_SESSION['phpgw_info']['admin']['server']['sessions_checkip'] ? 'ip, ' : '';
-    $query   = "SELECT trim(sessionid), {$checkIP}browser FROM phpgw_access_log l ";
-    $query  .= "WHERE l.lo = 0 and l.sessionid = '{$GLOBALS['sessionid']}' AND NOT EXISTS ( SELECT account_id FROM phpgw_access_log g WHERE g.account_id = 0 AND l.account_id = g.account_id ) ";
-    $query  .= "LIMIT 1";
-
-    $GLOBALS['phpgw']->db->query($query , __LINE__ , __FILE__ );
+	
+	$checkIP = $_SESSION['phpgw_info']['admin']['server']['sessions_checkip'] ? 'ip, ' : '';
+	$query   = "SELECT trim(sessionid), {$checkIP}browser FROM phpgw_access_log l ";
+	$query  .= "WHERE l.lo = 0 and l.sessionid = '{$GLOBALS['sessionid']}' AND NOT EXISTS ( SELECT account_id FROM phpgw_access_log g WHERE g.account_id = 0 AND l.account_id = g.account_id ) ";
+	$query  .= "LIMIT 1";
+	
+	$GLOBALS['phpgw']->db->query( $query, __LINE__, __FILE__ );
 	$GLOBALS['phpgw']->db->next_record();
 	if($GLOBALS['phpgw']->db->row( )) 
 		$_SESSION['connection_db_info']['user_auth'] = implode("",$GLOBALS['phpgw']->db->row( )); 
 } 
-if($_SESSION['connection_db_info']['user_auth']){ 
+if(isset($_SESSION['connection_db_info']['user_auth'])){ 
 	$invalidSession = true; 
 	$http_user_agent = substr($_SERVER[ 'HTTP_USER_AGENT' ],0,199); 
 	$user_ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? array($_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_X_FORWARDED_FOR']) : array($_SERVER['REMOTE_ADDR']); 
@@ -64,7 +68,7 @@ if($_SESSION['connection_db_info']['user_auth']){
 } 
 if (empty($_SESSION['phpgw_session']['session_id']) || $invalidSession) 
 {
-	if($_SESSION['connection_db_info']['user_auth'] && !strstr($_SERVER['SCRIPT_NAME'],"/controller.php")) {
+	if(isset($_SESSION['connection_db_info']['user_auth']) && !strstr($_SERVER['SCRIPT_NAME'],"/controller.php")) {
 		error_log( '[ INVALID SESSION ] >>>>' .$_SESSION['connection_db_info']['user_auth'].'<<<< - >>>>' . implode("",$user_agent), 0 ); 
 		$GLOBALS['phpgw']->session->phpgw_setcookie('sessionid'); 
 		$GLOBALS['phpgw']->redirect($GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=10'); 

@@ -113,17 +113,19 @@ class Schedule{
         return $this->normalizeEvents( $params, $timezones );
     }
 
-    function normalizeEvents( &$result, $timezones ){
+    function normalizeEvents( $result, $timezones ){
 
-        $mySig = Controller::find(array('concept' => 'calendarSignature') , array('calendar') , array('filter' => array( 'AND' , array('=' , 'type' , '0' ) , array( '=' , 'user' ,Config::me('uidNumber') ) , array('=' , 'isOwner' , '0' ))));
+        $mySig = Controller::find(array('concept' => 'calendarSignature') , array('calendar') , array('filter' => array( 'AND' , array('=' , 'type' , '0' ) , array( '=' , 'user' , Config::me('uidNumber') ) , array('=' , 'isOwner' , '0' ))));
 
         $signedCalendars = array();
-        if(is_array($mySig))
+        if( is_array($mySig) )
+        {
             foreach($mySig as $v)
             {
                 $tmp = Controller::find(array('concept' => 'calendarToPermission') , array('acl' ,'owner') , array('filter' => array( 'AND' ,array( '=' , 'calendar' , $v['calendar'] ) , array( '=' , 'user' , Config::me('uidNumber')  ) )));
                 $signedCalendars[$v['calendar']] = $tmp[0];
             }
+        }
 
         $date = new DateTime('now', new DateTimeZone('UTC'));
         $DayLigth = array();

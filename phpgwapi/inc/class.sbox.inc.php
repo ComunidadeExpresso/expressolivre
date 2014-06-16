@@ -51,7 +51,7 @@
 
 		function sbox()
 		{
-			if (!$this->country_array)
+			if( !isset($this->country_array) )
 			{
 				$country = CreateObject('phpgwapi.country');
 				$this->country_array = &$country->country_array;

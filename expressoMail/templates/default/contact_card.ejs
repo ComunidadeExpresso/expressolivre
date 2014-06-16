@@ -1,0 +1,43 @@
+<div style="margin:10px;font-style:inherit;font-weight:normal;">
+	<% if( typeof(data) == 'string' ){ %>
+		<p style="font-weight:bold;"><%=get_lang("Sender's Information")%></p>	
+		<div style="margin:10px;">
+			<label style="font-weight:normal;">
+				<a href="javascript:void(0);" onclick="InfoContact.sendMail('','<%=data%>'); InfoContact.hide();"><%=data%></a>
+			</label>
+		</div>
+	<% } else { %>
+		<div style="position:absolute;float:left;">
+			<img style='float:left' src='./inc/show_img.php?email=<%=data.email%>'>
+		</div>
+		<div style="position:relative;margin-left:75px;">
+			<p style="font-weight:bold;"><%=get_lang("Sender's Information")%></p>
+			<div style="padding-top:5px;">
+				<label><%=((data.cn) ? data.cn : '')%></label>
+			</div>
+			<div style="padding-top:5px;">			
+				<% if( data.mobile ) { %>
+					<a title="<%=get_lang('Call to Mobile Number')%>" href="javascript:void(0);" onclick="InfoContact.connectVoip('<%=data.mobile%>', 'mob');">
+						<%=data.mobile%>
+					</a>
+				<% } else { %>
+					<label>&nbsp;</label>
+				<% } %>
+			</div>
+			<div style="padding-top:5px;">
+				<% if( data.telefone ) { %>
+					<a title="<%=get_lang('Call to Comercial Number')%>" href="javascript:void(0);" onclick="InfoContact.connectVoip('<%=data.telefone%>', 'com');">
+						<%=data.telefone%>
+					</a>
+				<% } else { %>
+					<label>&nbsp;</label>
+				<% } %>
+			</div>
+		</div>	
+		<div style="margin-top:20px;">
+			<label>
+				<a href="javascript:void(0);" onclick="InfoContact.sendMail('<%=data.cn%>','<%=data.email%>'); InfoContact.hide();"><%=data.email%></a>
+			</label>
+		</div>
+	<% } %>
+</div>

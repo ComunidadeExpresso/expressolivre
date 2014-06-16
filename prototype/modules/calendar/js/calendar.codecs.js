@@ -70,9 +70,10 @@ DataLayer.codec( "calendarSignature", "calendar", {
 	    return {
 		events: function( start, end, callback ){
 		    var viewKey = start + ':' + end;
-		    if( Calendar.currentViewKey !== viewKey ){
-			Calendar.currentViewKey = viewKey;
-			Calendar.currentView =  DataLayer.encode('schedulable:calendar', DataLayer.dispatch('modules/calendar/schedules', DataLayer.criteria('schedulable:calendar', {start: start,end: end}))  );   //DataLayer.get( 'schedulable:calendar', {start: start,end: end} );
+		    if( Calendar.currentViewKey !== viewKey )
+		    {
+				Calendar.currentViewKey = viewKey;
+				Calendar.currentView =  DataLayer.encode('schedulable:calendar', DataLayer.dispatch('modules/calendar/schedules', DataLayer.criteria('schedulable:calendar', {start: start,end: end}))  );   //DataLayer.get( 'schedulable:calendar', {start: start,end: end} );
 		    }
 
             if( !!Calendar.currentView[ signature.calendar.id ])
@@ -84,7 +85,6 @@ DataLayer.codec( "calendarSignature", "calendar", {
             }
 
 		    var view = Calendar.currentView[ signature.calendar.id ];
-
 
 		    callback( view && !view.hidden ? view : [] );
 		},

@@ -28,11 +28,12 @@
 	$GLOBALS['phpgw_info']['server']['captcha'] = 1;
 	$GLOBALS['phpgw_info']['server']['num_badlogin'] = 2;
 	$GLOBALS['phpgw_info']['server']['atributoexpiracao'] = '';                                 
-        $GLOBALS['phpgw_info']['server']['atributousuarios'] = '';                                  
+    $GLOBALS['phpgw_info']['server']['atributousuarios'] = '';                                  
 	$GLOBALS['phpgw_info']['server']['certificado'] = 0;
 	$GLOBALS['phpgw_info']['server']['certificado_atributo_cpf'] = '';
 	$GLOBALS['phpgw_info']['server']['use_assinar_criptografar'] = 0;
 	$GLOBALS['phpgw_info']['server']['num_max_certs_to_cipher'] = 0;
+	$GLOBALS['phpgw_info']['server']['webserver_url'] = '';
 	
 	// Opcoes exlusivas para o Expresso Livre
 	$GLOBALS['phpgw_info']['server']['use_https'] = 0;

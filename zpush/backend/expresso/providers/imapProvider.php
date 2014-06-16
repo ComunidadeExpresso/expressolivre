@@ -222,9 +222,6 @@ class ExpressoImapProvider extends BackendDiff {
         $org_charset = "";
         $org_boundary = false;
         $multipartmixed = false;
-
-
-
         foreach($message->headers as $k => $v) {
             if ($k == "subject" || $k == "to" || $k == "cc" || $k == "bcc")
                 continue;
@@ -504,7 +501,7 @@ class ExpressoImapProvider extends BackendDiff {
             if (!empty($bccaddr)) $headers .= "\nBcc: $bccaddr";
             // changed by mku ZP-330
 
-	    require_once(__DIR__."/../../../../library/Mail/Mail.php");
+	    require_once(__DIR__."/../../../../prototype/library/Mail/Mail.php");
             $mail = new Mail();
             $mail_object = $mail->factory("smtp", $GLOBALS['config']['SMTP']);
             $send = $mail_object->send($toaddr, $message->headers , $body);

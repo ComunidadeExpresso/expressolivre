@@ -1,0 +1,29 @@
+{
+    "name": "xmppchat",
+    "title": "jQuery Chat",
+    "description": "jQuery plugin for chat via xmpp",
+    "keywords": [
+        "beta",
+        "chat",
+        "xmpp",
+        "jquery"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Gustavo Pereira dos Santos Stabelini",
+        "url": "https://github.com/gupraga"
+    },
+    "licenses": [
+        {
+            "type": "GPL2",
+            "url": "https://github.com/gupraga/jquery-chat/blob/master/LINCESE"
+        }
+    ],
+    "bugs": "https://github.com/gupraga/jquery-chat/issues",
+    "homepage": "http://gupraga.github.io/jquery-chat/",
+    "docs": "http://gupraga.github.io/jquery-chat/",
+    "download": "https://github.com/gupraga/jquery-chat/zipball/master",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}

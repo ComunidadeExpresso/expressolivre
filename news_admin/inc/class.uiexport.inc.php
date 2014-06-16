@@ -48,12 +48,12 @@
 		
 		function exportlist()
 		{
-			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			if(!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
 			{
 				$this->deny();
 			}
 
-			if ($_POST['btnDone'])
+			if(isset($_POST['btnDone']))
 			{
 				$GLOBALS['phpgw']->redirect_link('/admin/index.php');
 			}
@@ -61,7 +61,7 @@
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 
-			if ($_POST['btnSave'])
+			if ( isset($_POST['btnSave']) )
 			{
 				foreach($_POST['catids'] as $cat_id)
 				{
@@ -72,14 +72,16 @@
 			$GLOBALS['phpgw']->template->set_file('export', 'export.tpl');
 			$GLOBALS['phpgw']->template->set_block('export','cat_list','Cblock');
 			$GLOBALS['phpgw']->template->set_block('cat_list','config','confblock');
-			$GLOBALS['phpgw']->template->set_var(array(
-				'title' => $GLOBALS['phpgw_info']['apps']['news_admin']['title'] . ' - ' . lang('Configure RSS exports'),
-				'lang_search' => lang('Search'),
-				'lang_save' => lang('Save'),
-				'lang_done' => lang('Done'),
-				'lang_search' => lang('Search'),
-				'lang_configuration' => lang('Configuration'),
-			));
+			$GLOBALS['phpgw']->template->set_var(
+				array(
+					'title' => $GLOBALS['phpgw_info']['apps']['news_admin']['title'] . ' - ' . lang('Configure RSS exports'),
+					'lang_search' => lang('Search'),
+					'lang_save' => lang('Save'),
+					'lang_done' => lang('Done'),
+					'lang_search' => lang('Search'),
+					'lang_configuration' => lang('Configuration')
+					)
+			);
 
 			$left  = $this->nextmatchs->left('/index.php',$this->start,$this->bo->catbo->total_records,'menuaction=news_admin.uiexport.exportlist');
 			$right = $this->nextmatchs->right('/index.php',$this->start,$this->bo->catbo->total_records,'menuaction=news_admin.uiexport.exportlist');
@@ -97,6 +99,9 @@
 			));
 
 			@reset($this->bo->cats);
+			
+			$tr_color = "";
+			
 			while (list(,$cat) = @each($this->bo->cats))
 			{
 				$config = $this->bo->readconfig($cat['id']);
@@ -134,15 +139,20 @@
 
 		function selectlist($values,$default)
 		{
+			$selectlist = "";
+
 			while (list($value,$type) = each($values))
 			{
 				$selectlist .= '<option value="' . $value . '"';
-				if ($value == $default)
+				
+				if( $value === $default )
 				{
 					$selectlist .= ' selected="selected"';
 				}
+				
 				$selectlist .= '>' . $type  . '</option>' . "\n";
 			}
+			
 			return $selectlist;
 		}
 

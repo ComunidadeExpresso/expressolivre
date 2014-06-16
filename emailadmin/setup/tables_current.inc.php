@@ -46,10 +46,10 @@
 				'imapCreateSpamFolder' => array('type' => 'varchar','precision' => '3'),
 				'imapCyrusUserPostSpam' => array('type' => 'varchar','precision' => '30'),
 				'imapoldcclient' => array('type' => 'varchar','precision' => '3'),
-				'imapdefaulttrashfolder' => array('type' => 'varchar','precision' => '20'),
-				'imapdefaultsentfolder' => array('type' => 'varchar','precision' => '20'),
-				'imapdefaultdraftsfolder' => array('type' => 'varchar','precision' => '20'),
-				'imapdefaultspamfolder' => array('type' => 'varchar','precision' => '20')
+				'imapDefaultTrashFolder' => array('type' => 'varchar','precision' => '20'),
+				'imapDefaultSentFolder' => array('type' => 'varchar','precision' => '20'),
+				'imapDefaultDraftsFolder' => array('type' => 'varchar','precision' => '20'),
+				'imapDefaultSpamFolder' => array('type' => 'varchar','precision' => '20')
 			),
 			'pk' => array('profileID'),
 			'fk' => array(),

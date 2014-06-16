@@ -67,7 +67,7 @@ class uivoip
 				$ous .= "<option value='".$tmp."'>".$tmp."</option>";
 		}
 		
-		$groups_voip = $GLOBALS['phpgw_info']['server']['voip_groups']; 
+		$groups_voip = (isset($GLOBALS['phpgw_info']['server']['voip_groups']) ? $GLOBALS['phpgw_info']['server']['voip_groups'] :"" ); 
 
 		if( $groups_voip )
 		{
@@ -91,17 +91,17 @@ class uivoip
 										'lang_Enter_your_VoIP_server_port' => lang('Enter your VoIP server port'),
 										'lang_save' => lang('Save'),
 										'lang_cancel' => lang('Cancel'),
-										'value_voip_email_redirect' => ($GLOBALS['phpgw_info']['server']['voip_email_redirect']) ? $GLOBALS['phpgw_info']['server']['voip_email_redirect'] : '',
-										'value_voip_server' => ($GLOBALS['phpgw_info']['server']['voip_server']) ? $GLOBALS['phpgw_info']['server']['voip_server'] : '',
-										'value_voip_url' => ($GLOBALS['phpgw_info']['server']['voip_url']) ? $GLOBALS['phpgw_info']['server']['voip_url'] : '',
-										'value_voip_port' => ($GLOBALS['phpgw_info']['server']['voip_port']) ? $GLOBALS['phpgw_info']['server']['voip_port'] : '',
+										'value_voip_email_redirect' => (isset($GLOBALS['phpgw_info']['server']['voip_email_redirect'])) ? $GLOBALS['phpgw_info']['server']['voip_email_redirect'] : '',
+										'value_voip_server' => (isset($GLOBALS['phpgw_info']['server']['voip_server'])) ? $GLOBALS['phpgw_info']['server']['voip_server'] : '',
+										'value_voip_url' => (isset($GLOBALS['phpgw_info']['server']['voip_url'])) ? $GLOBALS['phpgw_info']['server']['voip_url'] : '',
+										'value_voip_port' => (isset($GLOBALS['phpgw_info']['server']['voip_port'])) ? $GLOBALS['phpgw_info']['server']['voip_port'] : '',
 										'lang_load' => lang('Wait Loading...!'),
 										'lang_grupos_ldap' => 'Grupos Ldap',
 										'lang_grupos_liberados' => 'Grupos Liberados',
 										'lang_groups_ldap' => lang('groups ldap'),
 										'lang_organizations' => lang('Organizations'),
-										'groups_voip' => $gvoip,
-										'ous_ldap' => $ous
+										'groups_voip' => ( isset($gvoip) ? $gvoip : "" ),
+										'ous_ldap' => ( isset($ous) ? $ous : "" )
 										));
 	
 		$GLOBALS['phpgw']->template->pparse('out','voip_page');

@@ -149,8 +149,37 @@
 	$oProc->query("INSERT INTO phpgw_languages (lang_id, lang_name) VALUES ('zt','Chinese(Taiwan)')");
 	$oProc->query("INSERT INTO phpgw_languages (lang_id, lang_name) VALUES ('zu','Zulu')");
 
+	$oProc->query("INSERT INTO phpgw_config (config_app, config_name, config_value) VALUES ('phpgwapi','is_configured','false')");
 	$oProc->query("INSERT INTO phpgw_config (config_app, config_name, config_value) VALUES ('phpgwapi','sessions_checkip','True')");
 	$oProc->query("INSERT INTO phpgw_config (config_app, config_name, config_value) VALUES ('phpgwapi','image_type','1')");
+
+	$oProc->query(
+		'INSERT INTO phpgw_preferences (preference_owner, preference_app, preference_value) VALUES (-1,\'common\',\''.
+			$oProc->m_odb->db_addslashes( serialize( array(
+				'maxmatchs' => '20',
+				'template_set' => 'default',
+				'theme' => 'azul',
+				'navbar_format' => 'icons',
+				'tz_offset' => '0',
+				'dateformat' => 'd/m/Y',
+				'timeformat' => '24',
+				'country' => 'BR',
+				'lang' => 'pt-br',
+				'show_currentusers' => '0',
+				'currency' => 'R$',
+				'account_selection' => 'selectbox',
+				'account_display' => 'firstall',
+				'show_help' => '0',
+				'start_and_logout_icons' => 'yes',
+				'max_icons' => '10',
+				'auto_hide_sidebox' => '1',
+				'click_or_onmouseover' => 'click',
+				'disable_slider_effects' => '1',
+				'disable_pngfix' => '0',
+				'show_generation_time' => '0',
+			) ) ).
+		'\')'
+	);
 
 	$oProc->query("INSERT INTO phpgw_interserv(server_name,server_host,server_url,trust_level,trust_rel,server_mode) VALUES ('eGW demo',NULL,'http://www.egroupware.org/egroupware/xmlrpc.php',99,0,'xmlrpc')");
 

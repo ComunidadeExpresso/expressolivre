@@ -29,7 +29,7 @@ class CatalogAdapter extends ExpressoAdapter {
 		if(!$this->ldapCatalog) {
 			$catalog_config = CreateObject("contactcenter.bo_ldap_manager");
 			$_SESSION['phpgw_info']['expressomail']['ldap_server'] = $catalog_config ? $catalog_config->srcs[1] : null;
-			$this->ldapCatalog = CreateObject("expressoMail1_2.ldap_functions");
+			$this->ldapCatalog = CreateObject("expressoMail.ldap_functions");
 		}
 	
 		return $this->ldapCatalog;

@@ -30,8 +30,8 @@
 * @since      2.4.0
 */
 
-require_once ( dirname(__FILE__).'/../library/mime/mimePart.php' );
-require_once ( dirname(__FILE__).'/../library/mime/mime.php' );
+require_once ( dirname(__FILE__).'/../prototype/library/mime/mimePart.php' );
+require_once ( dirname(__FILE__).'/../prototype/library/mime/mime.php' );
 
 
 class MailService 
@@ -87,7 +87,7 @@ class MailService
 	
         $hdrs = $this->mail->headers($this->arrayFields);
 		
-        require_once (dirname(__FILE__).'/../library/Mail/Mail.php');
+        require_once (dirname(__FILE__).'/../prototype/library/Mail/Mail.php');
        
         $mail_object =& Mail::factory("smtp", self::$configuration);
 	
@@ -128,7 +128,7 @@ class MailService
     
     public function send()
     {
-        require_once (dirname(__FILE__).'/../library/Mail/Mail.php');
+        require_once (dirname(__FILE__).'/../prototype/library/Mail/Mail.php');
         $hdrs = $this->mail->headers($this->arrayFields);
         $mail_object =& Mail::factory("smtp", self::$configuration);
 	

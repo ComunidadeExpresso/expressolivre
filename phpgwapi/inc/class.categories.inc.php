@@ -252,10 +252,10 @@
 				$table_column = ' * ';
 			}
 
-                        $this->app_name = pg_escape_string($this->app_name);
+			$this->app_name = pg_escape_string($this->app_name);
 			$sql = "SELECT".$table_column."FROM phpgw_categories WHERE (cat_appname='" . $this->app_name. "' ".
 					($grant_cats ? " AND".$grant_cats : "") .($global_cats ? " OR".$global_cats: "").
-					")".$querymethod;						
+					")".(isset($querymethod)?$querymethod:"");						
 			
 			$this->db2->query($sql . $parent_select,__LINE__,__FILE__);
 			$total = $this->db2->num_rows();

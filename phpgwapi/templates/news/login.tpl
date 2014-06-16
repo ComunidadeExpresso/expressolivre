@@ -10,19 +10,7 @@
 		<meta NAME="keywords" CONTENT="{website_title} login screen, eGroupWare, groupware, groupware suite">			
 		<link rel="stylesheet" type="text/css" href="./phpgwapi/templates/news/css/login.css"/>
 		<link rel="stylesheet" type="text/css" href="./prototype/plugins/jquery/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="./prototype/plugins/jquery.keyboard/jquery.keypad.css"/>
-		<!-- JavaScript -->
-		<script type="text/javascript" src="./prototype/plugins/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/jquery/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/jquery/jquery-ui.custom.min.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/ejs/ejs.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/ejs/ejs_production.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/ejs/view.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/jquery.cycle/jquery.cycle.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/jquery.keyboard/jquery.keypad.js"></script>
-		<script type="text/javascript" src="./prototype/plugins/jquery.keyboard/jquery.keypad-pt-BR.js"></script>		
-		<script type="text/javascript" src="./phpgwapi/templates/news/js/slider.js"></script>
-		<script type="text/javascript" src="./phpgwapi/templates/news/js/loginExpresso.js"></script>
+		<link rel="stylesheet" type="text/css" href="./prototype/plugins/jquery.keyboard/jquery.keypad.alt.css"/>
 	</head>
 	<body>
 		<div id="container">
@@ -34,24 +22,16 @@
 				      	<input type="hidden" name="account type" value="u">
 				      	<input type="hidden" name="login">
 				      	<input type="hidden" name="show_kbd" value="{show_kbd}">
-				      	<div style="display:{show_organization}">	
-							<label for="organizacao">Organização</label>
-							<select name="organizacao" id="organizacao">{select_organization}</select>
-						</div>
-						<div id="captcha">
-							{captcha}
-						</div>
+						<div id="captcha">{captcha}</div>
 						<label for="user">{lang_username}</label>
 						<input type="text" name="user" id="user"  value="{cookie}"/>
 						<label for="passwd">{lang_password}</label>
-						<input type="password" name="passwd" id="passwd" value=""/>
-						<br/>
+						<input type="password" name="passwd" id="passwd" value=""/><br/>
 						<input type="submit" name="submitit" id="submitit" value="{lang_login}" onclick="loginExpresso.setLogin();" />
 					</form>
-					<div id="keyboard"></div>
 					<div id="msg-login" class="sucesso" style="display:none;">{cd}</div>
 				</div>
-				<div id="informacao-login"></div>
+				<div id="information-login"></div>
 			</div>
 			<center>
 				<div id="footer">
@@ -67,5 +47,18 @@
 			</center>
 		</div>
 		<div>{applet}</div>
+		<!-- JavaScript -->
+		<script type="text/javascript" src="./prototype/plugins/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/jquery/jquery.migrate.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/ejs/ejs.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/ejs/ejs_production.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/ejs/view.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/jquery.cycle/jquery.cycle.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/jquery.keyboard/jquery.keypad.js"></script>
+		<script type="text/javascript" src="./prototype/plugins/jquery.keyboard/jquery.keypad-pt-BR.js"></script>		
+		<script type="text/javascript" src="./phpgwapi/templates/news/js/slider.js"></script>
+		<script type="text/javascript" src="./phpgwapi/templates/news/js/loginExpresso.js"></script>
 	</body>
+<!-- END login_form -->	
 </html>

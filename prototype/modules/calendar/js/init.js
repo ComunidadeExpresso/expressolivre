@@ -26,7 +26,7 @@ $(document).ready(function() {
 	/**
 	  * Make a button to close the tab
 	  */
-	$tabs.find( "span.ui-icon-close" ).live( "click", function() {
+	$tabs.find( "span.ui-icon-close" ).on( "click", function() {
 		var index = $( "li", $tabs ).index( $( this ).parent() );
 		if($tabs.tabs('option' ,'selected') == index){
 			if($tabs.tabs("length") == 2 && Calendar.lastView != 1)
@@ -70,20 +70,20 @@ $(document).ready(function() {
 		.find('.ui-icon-circle-triangle-w').removeClass('ui-icon-circle-triangle-w').addClass('ui-icon-triangle-1-w');
 		
 		//Onclick do mês
-		$('.ui-datepicker-title .ui-datepicker-month').live('click',function(){
+		$('.ui-datepicker-title .ui-datepicker-month').on('click',function(){
 			$tabs.tabs("select", "#calendar");
 			$('#calendar').fullCalendar('gotoDate',$(this).siblings('span').html(), Date.getMonthNumberFromName($(this).html() == 'Março' ? 'Mar' : $(this).html()),'01');
  			$('#calendar').fullCalendar( 'changeView', 'month');
 		});
 		//Onclick do ano
-		$('.ui-datepicker-title .ui-datepicker-year').live('click',function(){
+		$('.ui-datepicker-title .ui-datepicker-year').on('click',function(){
 			$tabs.tabs("select", "#calendar");
 			$('#calendar').fullCalendar('gotoDate',$(this).html(), '0', '01');
 			$('.fc-button-year').click();
 		});
 		
 	//Onclick em um dia do calendário anual
-	$( ".fc-day-number" ).live( "click", function() {
+	$( ".fc-day-number" ).on( "click", function() {
 			
 		var date = $(this).parents('[class*="fc-day-"]').attr('class').match(/fc-day-(\d{4})-(\d{2})-(\d{2})/);
 

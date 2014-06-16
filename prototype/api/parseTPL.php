@@ -6,7 +6,7 @@ class ParseTPL
 	
 	static function load_tpl(&$data, $file)
     {
-        include_once __DIR__ . '/../../library/fileDuck/FileDuck.php';
+        include_once __DIR__ . '/../library/fileDuck/FileDuck.php';
 
         $config = array();
         $config['lang'] = 'pt_BR';

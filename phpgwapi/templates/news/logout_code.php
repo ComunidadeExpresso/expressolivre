@@ -24,12 +24,10 @@
 				
 			case 99:
 				return '<font color="FF0000">' . lang('Blocked, too many attempts(%1)! Retry in %2 minute(s)',$GLOBALS['phpgw_info']['server']['num_unsuccessful_id'],$GLOBALS['phpgw_info']['server']['block_time']) . '</font>';
-
 			case 200:
                             //return '<font color="FF0000">' . lang('Invalid code') . '</font>';
                 return '<font color="FF0000">' . lang('Bad login or password') . '</font>';
 			    break;
-
 			case 10:
 				$GLOBALS['phpgw']->session->phpgw_setcookie('sessionid');
 				$GLOBALS['phpgw']->session->phpgw_setcookie('kp3');

@@ -66,7 +66,7 @@
 			if (!$this->db->query($query))
 				exit ('Query failed! File: '.__FILE__.' on line'.__LINE__);				
 						
-			$objSequence = $this->db->query("SELECT last_value FROM seq_phpgw_cc_groups");			
+			$objSequence = $this->db->query("SELECT last_value FROM phpgw_cc_groups_id_group_seq");			
 			$id = $objSequence -> fields['last_value'];
 			$this -> updateContactsByGroup($id, $data['contact_in_list']);
 

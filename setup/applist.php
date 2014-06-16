@@ -57,7 +57,8 @@
 			)
 		)
 	);
-	echo '<pre>' . htmlentities($login->serialize()) . "</pre>\n";
+	$str = $login->serialize();
+	echo '<pre>' . htmlentities( $str, null, mb_detect_encoding( $str, array( 'ISO-8859-1', 'UTF-8' ), true ) ) . "</pre>\n";
 
 	$c = CreateObject('phpgwapi.xmlrpc_client',$path,$host,80);
 	$c->setDebug(1);
@@ -67,7 +68,8 @@
 
 	/* Get applist */
 	$f = CreateObject('phpgwapi.xmlrpcmsg','system.listApps','');
-	echo '<pre>' . htmlentities($f->serialize()) . "</pre>\n";
+		$str = $f->serialize();
+	echo '<pre>' . htmlentities( $str, null, mb_detect_encoding( $str, array( 'ISO-8859-1', 'UTF-8' ), true ) ) . "</pre>\n";
 
 	$c = CreateObject('phpgwapi.xmlrpc_client',$path,$host,80);
 	$c->setDebug(1);
@@ -90,7 +92,8 @@
 			)
 		)
 	);
-	echo '<pre>' . htmlentities($logout->serialize()) . "</pre>\n";
+	$str = $logout->serialize();
+	echo '<pre>' . htmlentities( $str, null, mb_detect_encoding( $str, array( 'ISO-8859-1', 'UTF-8' ), true ) ) . "</pre>\n";
 
 	$c = CreateObject('phpgwapi.xmlrpc_client',$path,$host,80);
 	$c->setDebug(1);

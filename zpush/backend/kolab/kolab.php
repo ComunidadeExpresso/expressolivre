@@ -2847,7 +2847,7 @@
                     $out = "01 LOGIN " . $this->_username." ". $this->_password ."\r\n";
                     fwrite($fp, $out);   
                     $rec=$rec .  stream_get_line($fp,1024,"\r\n");
-                    if (ereg("01 OK",$rec))
+                    if( preg_match("/01 OK/i",$rec) )
                     {
                         $r=array();
                         //envoi de la commande myrights
@@ -2856,7 +2856,7 @@
                         $rec=fread($fp,1024);
                         $r=split("\r\n",$rec);
                         $rec=$r[0];
-                        if (ereg("ANNOTATION",$rec))
+                        if( preg_match("/ANNOTATION/i",$rec ) )
                         {
                             //bonne reponse
                             //* ANNOTATION "INBOX/Calendrier" "/vendor/kolab/folder-type" ("value.shared" "event.default")

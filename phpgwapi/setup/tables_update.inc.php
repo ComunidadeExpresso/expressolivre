@@ -225,16 +225,132 @@
         return $GLOBALS['setup_info']['phpgwapi']['currentver'];
     }
 
-    $test[] = '2.5.1.0';
-    function phpgwapi_upgrade2_5_1_0()
-    {
-        global $phpgw_setup;
+	$test[] = '2.5.1.0';
+	function phpgwapi_upgrade2_5_1_0()
+	{
+		$GLOBALS['setup_info']['phpgwapi']['currentver'] = '2.5.1.1';
+		
+		// Fixing missing table phpgw_vfs_quota
+		$GLOBALS['phpgw_setup']->oProc->query( 'SELECT tablename FROM pg_catalog.pg_tables WHERE tablename= \'phpgw_vfs_quota\'');
+		if ( !$GLOBALS['phpgw_setup']->oProc->next_record() )
+		{
+			$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_vfs_quota', array(
+				'fd' => array(
+					'directory'  => array( 'type' => 'varchar', 'precision' => '100', 'nullable' => false ),
+					'quota_size' => array( 'type' => 'int', 'precision' => '4', 'nullable' => false ),
+				),
+				'pk' => array( 'directory' ),
+				'fk' => array(),
+				'ix' => array(),
+				'uc' => array(),
+			));
+		}
+		
+		// Set in all tables OIDS = true 
+		$GLOBALS['phpgw_setup']->oProc->query(
+'DO $$
+	DECLARE
+		r record;
+	BEGIN
+		FOR r IN
+			SELECT
+				tb.tablename AS tname
+			FROM
+				pg_catalog.pg_tables AS tb,
+				pg_catalog.pg_class AS cl
+			WHERE tb.tablename = cl.relname
+				AND tb.schemaname = \'public\'
+				AND cl.relhasoids = false
+		LOOP
+			EXECUTE \'ALTER TABLE \'||r.tname||\' SET WITH OIDS\';
+		END LOOP;
+	END;
+$$;'
+		);
+		
+		// Rename sequences to Postgres serial format
+		$GLOBALS['phpgw_setup']->oProc->query(
+'DO $$
+	DECLARE
+		r record;
+	BEGIN
+		FOR r IN
+			SELECT
+				tp.typname AS tname,
+				att.attname AS cname,
+				cl.relname AS sname
+			FROM
+				pg_class AS cl,
+				pg_attrdef AS def,
+				pg_attribute AS att,
+				pg_type AS tp
+			WHERE cl.relkind=\'S\'
+				AND cl.relname LIKE \'seq_%\'
+				AND def.adsrc LIKE \'%\'||quote_literal(cl.relname)||\'%\'
+				AND def.adrelid = att.attrelid
+				AND def.adnum = att.attnum
+				AND def.adrelid = tp.typrelid
+		LOOP
+			EXECUTE \'ALTER SEQUENCE \'||r.sname||\' RENAME TO \'||r.tname||\'_\'||r.cname||\'_seq\';
+			EXECUTE \'ALTER TABLE \'||r.tname||\' ALTER COLUMN \'||r.cname||\' SET DEFAULT nextval(\'||quote_literal(r.tname||\'_\'||r.cname||\'_seq\')||\'::regclass)\';
+			EXECUTE \'ALTER SEQUENCE \'||r.tname||\'_\'||r.cname||\'_seq\'||\' OWNED BY \'||r.tname||\'.\'||r.cname;
+		END LOOP;
+	END;
+$$;'
+		);
+		
+		// Fixing sequences ownership
+		$GLOBALS['phpgw_setup']->oProc->query(
+'DO $$
+	DECLARE
+		r record;
+	BEGIN
+		FOR r IN
+			SELECT
+				tp.typname AS tname,
+				att.attname AS cname,
+				cl.relname AS sname
+			FROM
+				pg_class AS cl,
+				pg_namespace AS ns,
+				pg_attrdef AS def,
+				pg_attribute AS att,
+				pg_type AS tp
+			WHERE cl.relkind=\'S\'
+				AND cl.relnamespace = ns.oid
+				AND NOT EXISTS (
+					SELECT * FROM pg_depend WHERE objid = cl.oid AND deptype = \'a\'
+				)
+				AND def.adsrc LIKE \'%\'||quote_literal(cl.relname)||\'%\'
+				AND def.adrelid = att.attrelid
+				AND def.adnum = att.attnum
+				AND def.adrelid = tp.typrelid
+		LOOP
+			EXECUTE \'ALTER SEQUENCE \'||r.tname||\'_\'||r.cname||\'_seq\'||\' OWNED BY \'||r.tname||\'.\'||r.cname;
+		END LOOP;
+	END;
+$$;'
+		);
+		
+		// Rename modules for update
+		$GLOBALS['phpgw_setup']->oProc->query('UPDATE phpgw_applications SET app_name = \'expressoAdmin\' WHERE app_name = \'expressoAdmin1_2\';');
+		$GLOBALS['phpgw_setup']->oProc->query('UPDATE phpgw_applications SET app_name = \'expressoMail\' WHERE app_name = \'expressoMail1_2\';');
+		
+		$GLOBALS['phpgw_setup']->oProc->query('ALTER TABLE phpgw_history_log ALTER COLUMN history_timestamp SET DEFAULT (now())::timestamp without time zone;');
+		
+		return $GLOBALS['setup_info']['phpgwapi']['currentver'];
+	}
 
-        $phpgw_setup->oProc->query("CREATE INDEX idx_access_log_session_id ON phpgw_access_log USING btree (sessionid COLLATE pg_catalog.\"default\" )");
-        $phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_account_id ON phpgw_access_log USING btree (account_id )");
-        $phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_id_log_li ON phpgw_access_log USING btree  (account_id , li )");
-        $phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_lo_sessionid ON phpgw_access_log USING btree (lo , sessionid COLLATE pg_catalog.\"default\" )");
-
-        $GLOBALS['setup_info']['phpgwapi']['currentver'] = '2.5.2';
-        return $GLOBALS['setup_info']['phpgwapi']['currentver'];
-    }
+	$test[] = '2.5.1.1';
+	function phpgwapi_upgrade2_5_1_1()
+	{
+		global $phpgw_setup;
+		
+		$phpgw_setup->oProc->query("CREATE INDEX idx_access_log_session_id ON phpgw_access_log USING btree (sessionid COLLATE pg_catalog.\"default\" )");
+		$phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_account_id ON phpgw_access_log USING btree (account_id )");
+		$phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_id_log_li ON phpgw_access_log USING btree  (account_id , li )");
+		$phpgw_setup->oProc->query("CREATE INDEX idx_phpgw_access_log_lo_sessionid ON phpgw_access_log USING btree (lo , sessionid COLLATE pg_catalog.\"default\" )");
+		
+		$GLOBALS['setup_info']['phpgwapi']['currentver'] = '2.5.2';
+		return $GLOBALS['setup_info']['phpgwapi']['currentver'];
+	}

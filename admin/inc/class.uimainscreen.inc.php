@@ -21,11 +21,10 @@
 
 		function index()
 		{
-
-			$html = createObject('phpgwapi.html');
-			$section     = addslashes($_POST['section']);
-			$select_lang = addslashes($_POST['select_lang']);
-			$message     = addslashes($_POST['message']);
+			$html			= CreateObject('phpgwapi.html');
+			$section	    = (isset($_POST['section'])?addslashes($_POST['section']):"");
+			$select_lang	= (isset($_POST['section'])?addslashes($_POST['select_lang']):"");
+			$message     	= (isset($_POST['message'])?addslashes($_POST['message']):"");
 
 			if (!$GLOBALS['phpgw']->acl->check('mainscreen_message_access',2,'admin'))
 			{
@@ -35,8 +34,8 @@
 			{
 				$acl_ok['loginhelp'] = True;
 			}
-			if ($_POST['cancel'] && !isset($_POST['message']) || 
-			    !count($acl_ok) || $_POST['submit'] && !isset($acl_ok[$section]))
+			if( isset($_POST['cancel']) && !isset($_POST['message']) || 
+			    !count($acl_ok) || isset($_POST['submit']) && !isset($acl_ok[$section]))
 			{
 				$GLOBALS['phpgw']->redirect_link('/admin/index.php');
 			}
@@ -46,7 +45,7 @@
 			$GLOBALS['phpgw']->template->set_block('message','row','row');
 			$GLOBALS['phpgw']->template->set_block('message','row_2','row_2');
 
-			if ($_POST['submit'])
+			if( isset($_POST['submit']) )
 			{
 				$GLOBALS['phpgw']->db->query("DELETE FROM phpgw_lang WHERE message_id='$section" . "_message' AND app_name='"
 					. "$section' AND lang='$select_lang'",__LINE__,__FILE__);
@@ -59,7 +58,7 @@
 				$section = '';
 
 			}
-			if ($_POST['cancel'])	// back to section/lang-selection
+			if( isset($_POST['cancel']) )	// back to section/lang-selection
 			{
 				$message = $section = '';
 			}
@@ -83,9 +82,8 @@
 				$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
 			}
 
-			
+			$tr_color = "";
 
-			
 			if (empty($section))
 			{
 
@@ -123,7 +121,7 @@
 				foreach($acl_ok as $key => $val)
 				{
 					$select_section .= ' <option value="'.$key.'"'.
-						($key == $_POST['section'] ? ' selected' : '') . '>' . 
+						($key == isset($_POST['section']) ? ' selected' : '') . '>' . 
 						($key == 'mainscreen' ? lang('Main screen') : lang($key)) . "</option>\n";
 				}
 				$select_section .= '</select>';
@@ -145,7 +143,7 @@
 				
 				$current_message = $GLOBALS['phpgw']->db->f('content');
 				
-				$text_or_htmlarea.= '<script type="text/javascript" src="./library/ckeditor/ckeditor.js"></script>';
+				$text_or_htmlarea.= '<script type="text/javascript" src="./prototype/library/ckeditor/ckeditor.js"></script>';
 				$text_or_htmlarea.= '<textarea name="message">'.$current_message.'</textarea>';				
 				$text_or_htmlarea.= '<script type="text/javascript">'.
 						'CKEDITOR.replace( \'message\',{'.
@@ -183,7 +181,7 @@
 			}
 
 			$GLOBALS['phpgw']->template->set_var('lang_cancel',lang('Cancel'));
-			$GLOBALS['phpgw']->template->set_var('error_message',$feedback_message);
+			$GLOBALS['phpgw']->template->set_var('error_message',(isset($feedback_message)?$feedback_message:""));
 			$GLOBALS['phpgw']->template->pfp('out','form');
 		}
 	}

@@ -319,10 +319,10 @@
 				'owner_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'createdby_id' => array('type' => 'int','precision' => '4'),
 				'modifiedby_id' => array('type' => 'int','precision' => '4'),
-				'created' => array('type' => 'timestamp','nullable' => False,'default' => '1970-01-01'),
-				'modified' => array('type' => 'timestamp'),
+				'created' => array('type' => 'date','nullable' => False,'default' => '1970-01-01'),
+				'modified' => array('type' => 'date'),
 				'size' => array('type' => 'int','precision' => '4'),
-				'mime_type' => array('type' => 'varchar','precision' => '64'),
+				'mime_type' => array('type' => 'varchar','precision' => '200'),
 				'deleteable' => array('type' => 'char','precision' => '1','default' => 'Y'),
 				'comment' => array('type' => 'varchar','precision' => '255'),
 				'app' => array('type' => 'varchar','precision' => '25'),
@@ -331,7 +331,9 @@
 				'link_directory' => array('type' => 'varchar','precision' => '255'),
 				'link_name' => array('type' => 'varchar','precision' => '128'),
 				'version' => array('type' => 'varchar','precision' => '30','nullable' => False,'default' => '0.0.0.0'),
-				'content' => array('type' => 'longtext')
+				'content' => array('type' => 'longtext'),
+				'type' => array('type' => 'int','default' => '0'),
+				'summary' => array('type' => 'blob'),
 			),
 			'pk' => array('file_id'),
 			'fk' => array(),
@@ -367,6 +369,16 @@
 			'fk' => array(),
 			'ix' => array(),
 			'uc' => array()
-		)
+		),
+		'phpgw_vfs_quota' => array(
+			'fd' => array(
+				'directory'  => array( 'type' => 'varchar', 'precision' => '100', 'nullable' => false ),
+				'quota_size' => array( 'type' => 'int', 'precision' => '4', 'nullable' => false ),
+			),
+			'pk' => array( 'directory' ),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array(),
+		),
 	);
 ?>

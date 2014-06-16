@@ -51,8 +51,8 @@
 						'name'   => $data['cc_catalog_name'],
 						'host'   => $data['cc_ldap_host0'],
 						'dn'     => $data['cc_ldap_context0'],
-						'acc'    => $data['cc_ldap_browse_dn0'],
-						'pw'     => $data['cc_ldap_pw0'],
+						'acc'    => (isset($data['cc_ldap_browse_dn0'])?$data['cc_ldap_browse_dn0']:""),
+						'pw'     => (isset($data['cc_ldap_pw0'])?$data['cc_ldap_pw0']:""),
 						'obj'    => 'phpgwAccount',
 						'branch' => $ou, //strtolower('ou'),
 						'montaDN'=> $subLevels, //$data['cc_ldap_subLevels'],
@@ -102,8 +102,7 @@
 		function get_external_ldap_sources()
 		{
 			include(PHPGW_INCLUDE_ROOT . '/contactcenter/setup/external_catalogs.inc.php' );
-			//include('external_catalogs.inc.php' );
-			return $external_srcs;
+			return (isset($external_srcs)?$external_srcs : "");
 		}
 
 		/*
@@ -469,13 +468,11 @@
 
 		function get_ldap_tree_level($id_source, $resource, $context, $objectClass, $branch_dn, $external = 0)
 		{			
-
 			/*
 			 * TODO: Search timeouts
 			 */
 
-			$dn_parts = ldap_explode_dn(($refer_context ? $refer_context : $context),1);
-			//$filter = '(!(objectClass='.$objectClass.'))';
+			$dn_parts = ldap_explode_dn((isset($refer_context)? $refer_context : $context),1);
 			// Don't show OU's whith phpgwAccountVisible equal to '-1'
 			if ($external)
 			{

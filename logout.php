@@ -21,11 +21,12 @@
 	);
 	include(dirname( __FILE__ ).'/header.inc.php');
 
-	$GLOBALS['sessionid'] = get_var('sessionid',array('GET','COOKIE'));
-	$GLOBALS['kp3']       = get_var('kp3',array('GET','COOKIE'));
-	$account_id = $GLOBALS['phpgw_info']['user']['account_id'];
-	$verified = $GLOBALS['phpgw']->session->verify();
-	if ($verified)
+	$GLOBALS['sessionid'] 	= get_var('sessionid',array('GET','COOKIE'));
+	$GLOBALS['kp3']       	= get_var('kp3',array('GET','COOKIE'));
+	$account_id 			= ( isset($GLOBALS['phpgw_info']['user']['account_id']) ? $GLOBALS['phpgw_info']['user']['account_id'] : "" );
+	$verified 				= $GLOBALS['phpgw']->session->verify();
+
+	if( $verified )
 	{
 		if (file_exists($GLOBALS['phpgw_info']['server']['temp_dir'] . SEP . $GLOBALS['sessionid']))
 		{
@@ -56,7 +57,7 @@
 	$GLOBALS['phpgw']->session->phpgw_setcookie('sessionid');
 	$GLOBALS['phpgw']->session->phpgw_setcookie('kp3');
 	$GLOBALS['phpgw']->session->phpgw_setcookie('domain');
-	if($GLOBALS['phpgw_info']['server']['sessions_type'] == 'php4')
+	if( $GLOBALS['phpgw_info']['server']['sessions_type'] == 'php4' && defined( 'PHPGW_PHPSESSID' ) )
 	{
 		$GLOBALS['phpgw']->session->phpgw_setcookie(PHPGW_PHPSESSID);
 	}

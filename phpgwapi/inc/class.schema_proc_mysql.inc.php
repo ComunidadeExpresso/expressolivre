@@ -22,6 +22,7 @@
 		var $fk = array();
 		var $ix = array();
 		var $uc = array();
+		var $b_needExplicitNULL = false;
 
 		function schema_proc_mysql()
 		{
@@ -399,7 +400,7 @@
 			return !!($oProc->m_odb->query($query));
 		}
 
-		function GetSequenceSQL($sTableName, &$sSequenceSQL)
+		function GetSequenceSQL($sTableName, $sFieldName, &$sSequenceSQL)
 		{
 			$sSequenceSQL = '';
 			return true;

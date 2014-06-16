@@ -241,9 +241,6 @@
 			$users_process = 0;
 			$new_uidnumber = 12011;
 
-			//error_log( print_r( $_POST[ 'users' ], true ), 3, '/tmp/log' );
-			//error_log( print_r( $config, true ), 3, '/tmp/log' );
-
 			foreach ( array( 'admins', 'users' ) as $type )
 				if ( array_key_exists( $type, $_POST ) )
 				{
@@ -314,7 +311,7 @@
 
 						if ( $type == 'admins' )
 						{
-							$GLOBALS[ 'phpgw_setup' ] -> add_acl(array( 'admin', 'expressoAdmin1_2' ), 'run', ( int ) $thisacctid );
+							$GLOBALS[ 'phpgw_setup' ] -> add_acl(array( 'admin', 'expressoAdmin' ), 'run', ( int ) $thisacctid );
 							$GLOBALS[ 'phpgw_setup' ] -> db -> query( "INSERT INTO phpgw_expressoadmin VALUES ( '{$thisacctlid}', '{$config[ 'ldap_context' ]}', 2199023253495 )" );
 							foreach ( $all_apps as $app )
 								$GLOBALS[ 'phpgw_setup' ] -> db -> query( "INSERT INTO phpgw_expressoadmin_apps VALUES ( '{$thisacctlid}', '{$config[ 'ldap_context' ]}', '{$app}' )" );

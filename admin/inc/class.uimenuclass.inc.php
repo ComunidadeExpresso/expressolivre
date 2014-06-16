@@ -117,7 +117,7 @@
 			}
 
 			$GLOBALS['phpgw']->hooks->process($_hookname);
-			if (count($GLOBALS['menuData']) >= 1) 
+			if( isset($GLOBALS['menuData']) && count($GLOBALS['menuData']) >= 1 ) 
 			{
 				$result = $this->display_section($GLOBALS['menuData']);
 				//clear $menuData

@@ -10,8 +10,8 @@
   *  option) any later version.                                              *
   \**************************************************************************/
 
-define('PHPGW_INCLUDE_ROOT', '../');
-define('PHPGW_API_INC','../phpgwapi/inc');
+if(!defined('PHPGW_INCLUDE_ROOT')){define('PHPGW_INCLUDE_ROOT', '../');}
+if(!defined('PHPGW_API_INC')){ define('PHPGW_API_INC','../phpgwapi/inc'); }
 require_once( PHPGW_API_INC . '/class.common.inc.php' );
 
 class sovoip
@@ -26,10 +26,10 @@ class sovoip
 
 	final function __construct()
 	{
-		$this->ldap_host	 = $_SESSION['admin']['server']['ldap_host'];
-		$this->ldap_root_dn	 = $_SESSION['admin']['server']['ldap_root_dn'];
-		$this->ldap_root_pw  = $_SESSION['admin']['server']['ldap_root_pw'];
-		$this->ldap_context  = $_SESSION['admin']['server']['ldap_context'];
+		$this->ldap_host	 = (isset($_SESSION['admin']['server']['ldap_host'])?$_SESSION['admin']['server']['ldap_host']:"");
+		$this->ldap_root_dn	 = (isset($_SESSION['admin']['server']['ldap_root_dn'])?$_SESSION['admin']['server']['ldap_root_dn']:"");
+		$this->ldap_root_pw  = (isset($_SESSION['admin']['server']['ldap_root_pw'])?$_SESSION['admin']['server']['ldap_root_pw']:"");
+		$this->ldap_context  = (isset($_SESSION['admin']['server']['ldap_context'])?$_SESSION['admin']['server']['ldap_context']:"");
 		$this->common = new common();
 	}
 
@@ -69,35 +69,43 @@ class sovoip
 
 	public final function getGroupsLdap($pOrg)
 	{
-		if($pOrg['ou'] == $this->ldap_context)
+		$result_groups = array();
+
+		if( $pOrg['ou'] == $this->ldap_context )
+		{
 		    $organization = $this->ldap_context;
+		}
 		else
+		{
 		    $organization = 'ou=' . $pOrg['ou'] .",". $this->ldap_context;
+		}
  		
 		$this->ldap = $this->common->ldapConnect($this->ldap_host,$this->ldap_root_dn,$this->ldap_root_pw);
 		
 		if( $this->ldap )	
 		{
-			$filter = "(&(phpgwAccountType=g)(objectClass=posixGroup))";
-			$justthese = array("cn","gidNumber");
-			$search = ldap_search($this->ldap, $organization, $filter, $justthese);
-			$entry = ldap_get_entries( $this->ldap, $search );
+			$filter 	= "(&(phpgwAccountType=g)(objectClass=posixGroup))";
+			$justthese 	= array("cn","gidNumber");
+			$search 	= @ldap_search( $this->ldap, $organization, $filter, $justthese );
+			$entry 		= @ldap_get_entries( $this->ldap, $search );
 
 			if( $entry )
 			{					
 				$idx = 0;
-				foreach($entry as $tmp) {
-					if( $tmp['gidnumber'][0] != "" ){
-						$result_groups[$idx]['gid'] = $tmp['gidnumber'][0];
-						$result_groups[$idx++]['cn'] = $tmp['cn'][0];						
+				foreach( $entry as $tmp )
+				{
+					if( $tmp['gidnumber'][0] != "" )
+					{
+						$result_groups[$idx]['gid'] 	= $tmp['gidnumber'][0];
+						$result_groups[$idx++]['cn'] 	= $tmp['cn'][0];						
 					}
 				}
 			}
 			
-			natcasesort($result_groups);
+			@natcasesort($result_groups);
 		}
 		
-		return (($result_groups) ? $result_groups : '');
+		return ( ( $result_groups ) ? $result_groups : '' );
 	}
 
 	public final function setConfDB($pConf)

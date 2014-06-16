@@ -13,18 +13,23 @@
 
 	require_once "logout_code.php";
 
+	$extra_vars		= "";
+	$lang			= "";
+	$passwd 		= "";
+	$passwd_type	= "";
+	
 	/* Program starts here */
 	if($GLOBALS['phpgw_info']['server']['auth_type'] == 'http' && isset($_SERVER['PHP_AUTH_USER']))
 	{
 		$submit = True;
-		$login  = $_SERVER['PHP_AUTH_USER'];
-		$passwd = $_SERVER['PHP_AUTH_PW'];
+		$login  = ( isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : "" );
+		$passwd = ( isset($_SERVER['PHP_AUTH_PW']) ? $_SERVER['PHP_AUTH_PW'] : "" );
 		$passwd_type = 'text';
 	}
 	else
 	{
-		$passwd = $_POST['passwd'];
-		$passwd_type = $_POST['passwd_type'];
+		$passwd 		= (isset($_POST['passwd']) ? $_POST['passwd'] : "" );
+		$passwd_type 	= (isset($_POST['passwd_type']) ? $_POST['passwd_type'] : "" );
 	}
 
 	# Apache + mod_ssl style SSL certificate authentication
@@ -65,12 +70,12 @@
 		$_SESSION['contador_captcha'] = 0;
 	}
 
-	if( isset($passwd_type) || $_POST['submitit_x'] || $_POST['submitit_y'] || $submit )
+	if( isset($passwd_type) || isset($_POST['submitit_x']) || isset($_POST['submitit_y']) || $submit )
 	{
 	    // Primeiro testa o captcha....se houver......
         if( $GLOBALS['phpgw_info']['server']['captcha'] == 1 )
 		{
-			if( $_SESSION['contador_captcha'] > $GLOBALS['phpgw_info']['server']['num_badlogin'] )
+			if( isset($_SESSION['contador_captcha']) && ($_SESSION['contador_captcha'] > $GLOBALS['phpgw_info']['server']['num_badlogin']) )
 			{
 				if ($_SESSION['CAPTCHAString'] != trim(strtoupper($_POST['codigo'])))
 				{
@@ -83,29 +88,10 @@
 				unset($_SESSION['CAPTCHAString']);
 			}
 		}
-		
-		if( $_POST['user'] )
+
+		if( isset($_POST['user']) && (trim($_POST['user']) != "" ) )
 		{
-			if($GLOBALS['phpgw_info']['server']['use_prefix_organization'])
-			{
-				$common		= CreateObject('phpgwapi.common');
-				$ldap_conn	= $common->ldapConnect();
-				$justthese	= array("uid");
-				$filter		= "(&(phpgwAccountType=u)(uid=".$_POST['user']."))";
-				$ldap_search	= ldap_search($ldap_conn, $GLOBALS['phpgw_info']['server']['ldap_context'], $filter, $justthese);
-				$ldap_info 	 	= ldap_get_entries($ldap_conn, $ldap_search);
-				
-				ldap_close($ldap_conn);
-				
-				if( $ldap_info['count'] != 0 )
-				{
-					$_POST['login'] = $_POST['user'];
-				}
-			}
-			else
-			{
-				$_POST['login'] = $_POST['user'];
-			}
+	 		$_POST['login'] = $_POST['user'];
 		}
 		
 		if(getenv('REQUEST_METHOD') != 'POST' && $_SERVER['REQUEST_METHOD'] != 'POST' &&
@@ -120,18 +106,9 @@
 		// don't get login data again when $submit is true
 		if( $submit == false )
 		{
-			$login = $_POST['login'];
+			$login = ( isset($_POST['login']) ? $_POST['login'] : "" );
 		}
-		
-		if( strstr($login,'@') === False && isset($_POST['logindomain']) )
-		{
-			$login .= '@' . $_POST['logindomain'];
-		}
-		elseif(!isset($GLOBALS['phpgw_domain'][$GLOBALS['phpgw_info']['user']['domain']]))
-		{
-			$login .= '@'.$GLOBALS['phpgw_info']['server']['default_domain'];
-		}
-		
+
 		if( !$_GET['cd'] )
 		{
 			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create(strtolower($login),$passwd,$passwd_type,'u');
@@ -143,7 +120,7 @@
 		}
 		else
 		{
-			if( $_POST['lang'] && preg_match('/^[a-z]{2}(-[a-z]{2}){0,1}$/',$_POST['lang']) &&
+			if( isset($_POST['lang']) && preg_match('/^[a-z]{2}(-[a-z]{2}){0,1}$/',$_POST['lang']) &&
 			    $_POST['lang'] != $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] )
 			{
 				$GLOBALS['phpgw']->preferences->add('common','lang',$_POST['lang'],'session');
@@ -181,7 +158,7 @@
 	}
 
 	// Incrementar Contador para o Uso do Captcha
-    $_SESSION['contador_captcha']++;
+    if(isset($_SESSION['contador_captcha'])){ $_SESSION['contador_captcha']++; } 
 
 	// !!! DONT CHANGE THESE LINES !!!
 	// If there is something wrong with this code TELL ME!
@@ -189,7 +166,6 @@
 	if( isset( $_COOKIE['last_loginid'] ) )
 	{
 		$accounts = CreateObject('phpgwapi.accounts');
-
 		$prefs = CreateObject('phpgwapi.preferences', $accounts->name2id($_COOKIE['last_loginid']));
 
 		if($prefs->account_id)
@@ -198,10 +174,9 @@
 		}
 	}
 	
-	$_GET['lang'] = addslashes($_GET['lang']);
-	
-	if ($_GET['lang'])
+	if ( isset($_GET['lang']) )
 	{
+		$_GET['lang'] = addslashes($_GET['lang']);
 		$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $_GET['lang'];
 	}
 	elseif(!isset($_COOKIE['last_loginid']) || !$prefs->account_id)
@@ -216,75 +191,22 @@
 	$GLOBALS['phpgw']->translation->add_app('login');
 	$GLOBALS['phpgw']->translation->add_app('loginscreen');
 
-	// OUs LDAP
-	$show_Organization = "none";
-	
-	if( $GLOBALS['phpgw_info']['server']['use_prefix_organization'] )
-	{
-		$show_Organization = "block";
-
-		$obj_organization = CreateObject('phpgwapi.sector_search_ldap');
-		
-		$organizations = $obj_organization->organization_search($GLOBALS['phpgw_info']['server']['ldap_context']);
-		
-		for ($i=0; $i<count($organizations); $i++)
-		{
-			$tmp_array[strtolower($organizations[$i])] = $organizations[$i];	
-		}
-		
-		$arrayOrganization = $tmp_array;		
-		
-		ksort($arrayOrganization);
-		
-		foreach($arrayOrganization as $organization_name => $organization_vars)
-		{
-			$organization_select .= '<option value="' . $organization_name . '"';
-
-			if( $organization_name == $_COOKIE['last_organization'] )
-			{
-				$organization_select .= ' selected';
-			}
-			$organization_select .= '>' . $organization_vars . "</option>\n";
-		}
-
-		$tmpl->set_var('select_organization',$organization_select);
-	}
-
-	$tmpl->set_var( 'show_organization', $show_Organization );
-		
-	$domain_select = '&nbsp;';
-
-	$last_loginid = $_COOKIE['last_loginid'];
-	
-	if( $GLOBALS['phpgw_info']['server']['show_domain_selectbox'] )
-	{
-		$domain_select = "<select name=\"logindomain\">\n";
-		
-		foreach($GLOBALS['phpgw_domain'] as $domain_name => $domain_vars)
-		{
-			$domain_select .= '<option value="' . $domain_name . '"';
-
-			if($domain_name == $_COOKIE['last_domain'])
-			{
-				$domain_select .= ' selected';
-			}
-			$domain_select .= '>' . $domain_name . "</option>\n";
-		}
-		$domain_select .= "</select>\n";
-	}
-	elseif($last_loginid !== '')
+	// Get cookie last_loginid
+	$last_loginid = (isset($_COOKIE['last_loginid'])?$_COOKIE['last_loginid']:"");
+	if( $last_loginid !== '' )
 	{
 		reset($GLOBALS['phpgw_domain']);
 		
 		list($default_domain) = each($GLOBALS['phpgw_domain']);
 
-		if($_COOKIE['last_domain'] != $default_domain && !empty($_COOKIE['last_domain']))
+		if( isset($_COOKIE['last_domain']) )
 		{
-			$last_loginid .= '@' . $_COOKIE['last_domain'];
+			if($_COOKIE['last_domain'] != $default_domain && !empty($_COOKIE['last_domain']))
+			{
+				$last_loginid .= '@' . $_COOKIE['last_domain'];
+			}
 		}
 	}
-
-	$tmpl->set_var('select_domain',$domain_select);
 
  	foreach($_GET as $name => $value)
 	{
@@ -307,8 +229,9 @@
 	$cnf_reg = createobject('phpgwapi.config','registration');
 	$cnf_reg->read_repository();
 	$config_reg = $cnf_reg->config_data;
-
-	if($config_reg[enable_registration]=='True' && $config_reg[register_link]=='True')
+	$reg_link	= "";
+	
+	if( ( isset($config_reg['enable_registration']) && $config_reg['enable_registration'] == 'True' ) && $config_reg['register_link'] == 'True' )
 	{
 		$reg_link='&nbsp;<a href="registration/">'.lang('Not a user yet? Register now').'</a><br/>';
 	}
@@ -319,7 +242,7 @@
 
 	$tmpl->set_var('register_link',$reg_link);
 	$tmpl->set_var('charset',$GLOBALS['phpgw']->translation->charset());
-	$tmpl->set_var('login_url', $GLOBALS['phpgw_info']['server']['webserver_url'] . '/login.php' . $extra_vars);
+	$tmpl->set_var('login_url', $GLOBALS['phpgw_info']['server']['webserver_url'] . '/login.php' . ((is_string($extra_vars)? $extra_vars:"")));
 	$tmpl->set_var('registration_url',$GLOBALS['phpgw_info']['server']['webserver_url'] . '/registration/');
 	$tmpl->set_var('version',$GLOBALS['phpgw_info']['server']['versions']['phpgwapi']);
 	$tmpl->set_var('cd',check_logoutcode($_GET['cd']));
@@ -333,16 +256,15 @@
 	$tmpl->set_var('template_set', $template);
 
 	// Keyboard Virtual
-	$tmpl->set_var('show_kbd',$GLOBALS['phpgw_info']['server']['login_virtual_keyboard']); 
-
-	$tmpl->set_var('autocomplete', ($GLOBALS['phpgw_info']['server']['autocomplete_login'] ? 'autocomplete="off"' : ''));
+	$tmpl->set_var('show_kbd',(isset($GLOBALS['phpgw_info']['server']['login_virtual_keyboard']) ? $GLOBALS['phpgw_info']['server']['login_virtual_keyboard'] : "" )); 
+	$tmpl->set_var('autocomplete', ( isset($GLOBALS['phpgw_info']['server']['autocomplete_login']) ? 'autocomplete="off"' : '') );
 
 	// soh mostra o captcha se for login sem certificado....
 	if($GLOBALS['phpgw_info']['server']['captcha'] && $_GET['cd']!='300' )
 	{
 		$aux_captcha = '<input type="hidden" name="'.session_name().'"  value="'.session_id().'">';
 
-		if( $_SESSION['contador_captcha'] > $GLOBALS['phpgw_info']['server']['num_badlogin'] )
+		if( isset($_SESSION['contador_captcha']) > $GLOBALS['phpgw_info']['server']['num_badlogin'] )
 		{
 			$aux_captcha = '<div>'
 			   .'<img id="id_captcha" src="./security/captcha.php?' . session_name() . '=' . session_id() . '" title="'.lang('Security code').'" alt="'.lang('Security code').'" style="position:static;">'
@@ -353,6 +275,8 @@
 
 		$tmpl->set_var('captcha',$aux_captcha);
 	}
+
+	$link_alterna_login = "";
 
 	// Testa se deve incluir applet para login com certificado......
 	if ( $_GET['cd']=='300' && $GLOBALS['phpgw_info']['server']['certificado'] == 1 )
@@ -426,13 +350,6 @@
 	if(is_file(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php'))
 	include_once(dirname( __FILE__ ) . '/../../../infodist/ultima-revisao-svn.php');
 	if(isset($ultima_revisao)) $tmpl->set_var('ultima_rev','<br />' . $ultima_revisao);
-
-	// Adiciona código personalizado de outro template
-	// que esteja utilizando o login_default.php
-	if(is_file('.'.$template_dir.'/login.inc.php'))
-	{
-		include_once('.'.$template_dir.'/login.inc.php');
-	}
 
 	$tmpl->pfp('loginout','login_form');
 

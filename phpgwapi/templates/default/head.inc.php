@@ -25,10 +25,11 @@
 		. $GLOBALS['phpgw_info']['theme']['alink'] . '" link="' . $GLOBALS['phpgw_info']['theme']['link'] . '" vlink="'
 		. $GLOBALS['phpgw_info']['theme']['vlink'] . '"';
 
-	if(!$GLOBALS['phpgw_info']['server']['htmlcompliant'])
+	if( isset($GLOBALS['phpgw_info']['server']['htmlcompliant']) && !$GLOBALS['phpgw_info']['server']['htmlcompliant'] )
 	{
 		$bodyheader .= '';
 	}
+	
 	$currentapp = $GLOBALS['phpgw_info']['flags']['currentapp'] ;
 
 	#_debug_array($GLOBALS['phpgw_info']['user']['preferences']['common']);
@@ -78,9 +79,9 @@
 		'img_icon'      => $webserver_url . $currentapp . '/templates/'.$tmpDefault.'/images/navbar.png',
 		'img_shortcut'  => $webserver_url . $currentapp . '/templates/'.$tmpDefault.'/images/navbar.png',
 		'pngfix'        => $pngfix,
-		'slider_effects'=> $slider_effects,
-		'simple_show_hide'=> $simple_show_hide,
-		'lang_code'=> $lang_code,
+		'slider_effects'	=> ((isset($slider_effects))? $slider_effects:""),
+		'simple_show_hide'	=> $simple_show_hide,
+		'lang_code'		=> $lang_code,
 		'charset'       => $GLOBALS['phpgw']->translation->charset(),
 		'font_family'   => $GLOBALS['phpgw_info']['theme']['font'],
 		'website_title' => $GLOBALS['phpgw_info']['server']['site_title'].$app,

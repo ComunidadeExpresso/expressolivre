@@ -44,7 +44,7 @@
 
 	$GLOBALS['phpgw_setup']->html->show_header(lang('LDAP Config'),False,'config',$GLOBALS['phpgw_setup']->ConfigDomain . '(' . $phpgw_domain[$GLOBALS['phpgw_setup']->ConfigDomain]['db_type'] . ')');
 
-	if ($GLOBALS['error'])
+	if ( isset($GLOBALS['error']) )
 	{
 		//echo '<br /><center><b>Error:</b> '.$error.'</center>';
 		$GLOBALS['phpgw_setup']->html->show_alert_msg('Error',$GLOBALS['error']);
@@ -59,11 +59,9 @@
 	$setup_tpl->set_var('lang_ldapmodify',lang('Modify an existing LDAP account store for use with eGroupWare (for a new install using LDAP accounts)'));
 	$setup_tpl->set_var('lang_ldapimport',lang('Import accounts from LDAP to the eGroupware accounts table (for a new install using SQL accounts)'));
 	$setup_tpl->set_var('lang_ldapexport',lang('Export eGroupware accounts from SQL to LDAP'));
-	$setup_tpl->set_var('lang_ldapdummy',lang('Setup Admin account in LDAP'));
 	$setup_tpl->set_var('ldapmodify','ldapmodify.php');
 	$setup_tpl->set_var('ldapimport','ldapimport.php');
 	$setup_tpl->set_var('ldapexport','ldapexport.php');
-	$setup_tpl->set_var('ldapdummy','setup_demo.php');
 	$setup_tpl->set_var('action_url','index.php');
 	$setup_tpl->set_var('cancel',lang('Cancel'));
 

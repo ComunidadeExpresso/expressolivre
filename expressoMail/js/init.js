@@ -1,0 +1,2 @@
+	init();
+	User.moduleName = "expressoMail";

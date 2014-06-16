@@ -13,9 +13,9 @@ class DynamicContactsResource extends Resource {
      * Retorna uma lista de contatos recentes 
      *
      * @license    http://www.gnu.org/copyleft/gpl.html GPL
-     * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-     * @sponsor    Caixa EconÙmica Federal
-     * @author     JosÈ Vicente Tezza Jr. 
+     * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+     * @sponsor    Caixa Econ√¥mica Federal
+     * @author     Jos√© Vicente Tezza Jr. 
      * @return     Retorna uma lista de contatos recentes
      * @access     public
      * */
@@ -173,9 +173,9 @@ class DynamicContactsResource extends Resource {
      * Salva um contato recente
      *
      * @license    http://www.gnu.org/copyleft/gpl.html GPL
-     * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
-     * @sponsor    Caixa EconÙmica Federal
-     * @author     JosÈ Vicente Tezza Jr. 
+     * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+     * @sponsor    Caixa Econ√¥mica Federal
+     * @author     Jos√© Vicente Tezza Jr. 
      * @return     retorna a uri do contato recente
      * @access     public
      * */
@@ -231,7 +231,7 @@ class DynamicContactsResource extends Resource {
 		//verificar o limite maximo de contatos dinamicos nas preferencias do administrador
 		$sql = 	"SELECT config_value ".
 			"FROM phpgw_config ".
-			"WHERE config_app = 'expressoMail1_2' ".
+			"WHERE config_app = 'expressoMail' ".
 				"AND config_name = 'expressoMail_Number_of_dynamic_contacts'";
 
 		$numberOfMessages = Controller::service('PostgreSQL')->execResultSql($sql, true);
@@ -290,7 +290,7 @@ class DynamicContactsResource extends Resource {
 
     private function isEnabledDynamicContacts($user){
 
-		//recuperando as preferencias (suas preferencias, preferencia padr„o, preferencia obrigatoria)
+		//recuperando as preferencias (suas preferencias, preferencia padr√£o, preferencia obrigatoria)
 		//dos contatos dinamicos
         $sql = 'SELECT preference_owner, preference_value '.
                 'FROM phpgw_preferences '.

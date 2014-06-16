@@ -1,6 +1,5 @@
 <!-- BEGIN main -->
 <center>
-
 <table width="90%" border="0" cellspacing="1" cellpading="1">
 <tr>
 	<td width="33%">

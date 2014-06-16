@@ -37,7 +37,6 @@
 			'projects'    => True,
 			'phonelog'    => True,
 			'infolog'     => True,
-			'filemanager' => True,
 			'tts'         => True,
 			'bookmarks'   => True,
 			'img'         => True,

@@ -38,7 +38,7 @@
 			$template->set_var('cc_css', $GLOBALS['phpgw_info']['server']['webserver_url'] . '/contactcenter/styles/cc_api.css');
 			$template->set_var('cc_dtree_css', $GLOBALS['phpgw_info']['server']['webserver_url'] . '/phpgwapi/js/dftree/dftree.css');
 
-			$template->set_var('cc_email_id_type', $preferences['personCardEmail']);
+			$template->set_var('cc_email_id_type', (isset($preferences['personCardEmail'])?$preferences['personCardEmail']:""));
 			
 			
 			/* Messages */
@@ -50,7 +50,7 @@
 			$template->set_var('cc_msg_err_duplicate_group',lang('This group name already exists, please enter another name.'));
 			/* End Messages */
 
-			if ($preferences['displayConnector'])
+			if( isset($preferences['displayConnector']) )
 			{
 				$template->set_var('cc_connector_visible', 'true');
 			}
@@ -224,13 +224,17 @@
 		function get_full_add()
 		{
 			$template = CreateObject('phpgwapi.Template',PHPGW_APP_TPL);
-            if($GLOBALS['phpgw_info']['server']['personal_contact_type']=='True'){
+            if( isset($GLOBALS['phpgw_info']['server']['personal_contact_type']) && $GLOBALS['phpgw_info']['server']['personal_contact_type']=='True')
+            {
 				$template->set_file(array('full_add' => 'corporative_full_add.tpl'));
 				$template->set_var('cc_contact_type','advanced');
-			}else{
+			}
+			else
+			{
 				$template->set_file(array('full_add' => 'full_add.tpl'));
 				$template->set_var('cc_contact_type','default');
 			}
+
 			if (!$this->commons_loaded)
 			{
 				$template->set_var('cc_api', $this->commons);
@@ -516,19 +520,19 @@
 			$template->set_var('ccAGSave', lang('Save'));
 			$template->set_var('ccAGClear', lang('Reset'));
 			$template->set_var('ccAGCancel', lang('Cancel'));
-			$title = '<input type="text" id="title" name="title" value="'.$group['title'].'" size="53" maxlength="50"/>';			
+			$title = '<input type="text" id="title" name="title" value="'.(isset($group['title'])?$group['title']:"").'" size="53" maxlength="50"/>';			
 				
 			$template->set_var('title', $title);												
 			// set content and label variables.
 			$template->set_var(array(
-						'msg_text' 	=> lang($status),						
+						'msg_text' 		=> (isset($status)?lang($status):""),						
 						'txt_title' 	=> lang('Contact Group List'),						
-						'txt_cancel'=> lang('cancel'),
-						'txt_add'=> lang('Add'),						
-						'txt_rem'=> lang('Remove'),
-						'txt_personal_contacts' => lang('Personal Contacts'),
-						'txt_contacts_in_list' => lang("Participants"),
-						'txt_name'	=> lang('Full Name')));
+						'txt_cancel'	=> lang('cancel'),
+						'txt_add'		=> lang('Add'),						
+						'txt_rem'		=> lang('Remove'),
+						'txt_personal_contacts'	=> lang('Personal Contacts'),
+						'txt_contacts_in_list'	=> lang("Participants"),
+						'txt_name'		=> lang('Full Name')));
 						
 			$template->parse('out_AG', 'addGroup');
 			

@@ -1,76 +1,44 @@
-(function()
-{
-	var divSlider = null;
-
-	function loadImages()
-	{
-		$.ajax(
-		{
-			  url: "./phpgwapi/templates/news/list_images.php",
-			  type	: "POST",
-			  dataType: 'json',
-			  success: function(data)
-			  {
-			  		var _html = "";
-
-			  		for( var i in data )
-			  		{
-		  				// Template EJS
-						_html += new EJS({url: './phpgwapi/templates/news/sliderImages.ejs'}).render(
-						{
-							'name_image'	: data[i]['nome'],
-							'title_image'	: data[i]['titulo'],
-							'text_image'	: data[i]['texto'],
-							'link_image'	: ( data[i]['link'] ) ? data[i]['link'] : ""
-						});
-			  		}
-
-			  		var ulSlider = $("<ul>");
-
-			  		ulSlider.html( _html );
-
-			  		divSlider.append(ulSlider);
-
-			  		configSlider();
-			  }
-		});
-	}
-
-	function configSlider()
-	{
-		divSlider.after('<div id="nav-informacao-login"></div>');
-		divSlider.find('ul').show();
-		divSlider.find('ul').cycle({
-			fx:      'scrollLeft',
-			timeout: 6100,
-			speed:   1000,
-			random:  0,
-			pager:'#nav-informacao-login'
-		});
-		
-		$('#nav-informacao-login-control').toggle(function(e) {
-			e.preventDefault();
-			divSlider.find('ul').cycle('pause');
-			$(this).addClass('play');
-		},
-		
-		function() {
-			divSlider.find('ul').cycle('resume');
-			$(this).removeClass('play');
-		});
-
-	}
-
-	function sliderLoad()
-	{
-		$(document).ready(function()
-		{		
-			divSlider = $('#informacao-login');
+$(document).ready(function(){
+	$.ajax({
+		url:		"./phpgwapi/templates/news/list_images.php",
+		type:		"POST",
+		dataType:	'json',
+		success:	function(data) {
 			
-			loadImages();
-		});
-	}
-
-	window.sliderLoad = new sliderLoad;
-
-})();
+			if ( data == null ) return;
+			
+			var _html = "";
+			var length = 0;
+			for( var i in data ) {
+				// Template EJS
+				_html += new EJS({url: './phpgwapi/templates/news/sliderImages.ejs'}).render({
+					'name_image'	: data[i]['name'],
+					'title_image'	: data[i]['title'],
+					'text_image'	: data[i]['text'],
+					'link_image'	: ( data[i]['link'] ) ? data[i]['link'] : ""
+				});
+				length++;
+			}
+			$('#information-login')
+				.append('<ul id="slider-dock">'+_html+'</ul>')
+				.after('<div id="nav-information-login"></div>');
+			
+			if ( length < 2 ) return;
+			
+			$('#slider-dock').cycle({
+				fx:			'scrollLeft',
+				timeout:	6100,
+				speed:		2000,
+				random:		1,
+				pager:		'#nav-information-login'
+			});
+			
+			$('#nav-information-login').append('<a id="nav-information-login-control" href="#" class="play-pause"></a>');
+			
+			$('#nav-information-login-control').click(function(e) {
+				$('#slider-dock').cycle($(this).hasClass('play')?'resume':'pause');
+				$(this).toggleClass('play');
+			});
+		}
+	});
+});

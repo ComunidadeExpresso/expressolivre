@@ -344,8 +344,7 @@ a.textSidebox
 
 #user_info
 {
-padding-left:17px;
-
+	padding-left:17px;
 }
 
 #admin_info
@@ -595,7 +594,7 @@ table.inboxElements th,
 
 .dsused
 {
-	background-image: url(../../../../expressoMail1_2/templates/default/images/dsused_classic.gif) !important;
+	background-image: url(../../../../expressoMail/templates/default/images/dsused_classic.gif) !important;
 }
 .table_message {
 	background-image: none !important;

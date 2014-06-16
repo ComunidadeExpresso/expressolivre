@@ -38,24 +38,22 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-				
 		'calendar' => array(
-            'fd' => array(
-                'id' => array( 'type' => 'auto', 'nullable' => False),
-                'name' => array( 'type' => 'varchar','precision' => '150', 'nullable' => False),
-                'location' => array( 'type' => 'varchar','precision' => '150', 'nullable' => False),
-                'description' => array('type' => 'text', 'nullable' => True),
-                'duration' => array('type' => 'int', 'precision' => '8' ,'nullable' => True),
-                'tzid' => array('type' => 'varchar', 'precision' => '50' ,'nullable' => True),
-                'type' => array('type' => 'int', 'precision' => '2' ,'nullable' => false, 'default' => 0),
-                'dtstamp' => array('type' => 'int', 'precision' => '8' ,'nullable' => True)
-            ),
-            'pk' => array('id'),
-            'fk' => array(),
-            'ix' => array(),
-            'uc' => array()
+			'fd' => array(
+				'id' => array( 'type' => 'auto', 'nullable' => False),
+				'name' => array( 'type' => 'varchar','precision' => '150', 'nullable' => False),
+				'location' => array( 'type' => 'varchar','precision' => '150', 'nullable' => False),
+				'description' => array('type' => 'text', 'nullable' => True),
+				'duration' => array('type' => 'int', 'precision' => '8' ,'nullable' => True),
+				'tzid' => array('type' => 'varchar', 'precision' => '50' ,'nullable' => True),
+				'type' => array('type' => 'int', 'precision' => '2' , 'default' => 0),
+				'dtstamp' => array('type' => 'int', 'precision' => '8' ,'nullable' => True)
+			),
+			'pk' => array('id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
 		),
-		
 		'calendar_class' => array(
             'fd' => array(
                 'id' => array( 'type' => 'auto', 'nullable' => False),
@@ -113,40 +111,36 @@
             'ix' => array(),
             'uc' => array()
         ),
-            
-            
-        'calendar_object' => array(
-            'fd' => array(
-                'id' => array( 'type' => 'auto', 'nullable' => False),
-                'type_id' => array(  'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'cal_uid' => array(  'type' => 'varchar','precision' => '255', 'nullable' => True),
-                'dtstamp' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True ),
-                'dtstart' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => False),
-                'description' => array( 'type' => 'text', 'nullable' => True),
-                'dtend' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True),
-                'location' => array( 'type' => 'varchar', 'precision' => '255', 'nullable' => True),
-                'class_id' => array( 'type' => 'int', 'precision' => '8', 'nullable' => True),
-                'last_update' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'range_end' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True),
-                'summary' => array( 'type' => 'varchar', 'precision' => '255', 'nullable' => True),
-                'range_start' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True),
-                'allday' => array( 'type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => True),
-                'repeat' => array( 'type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => True),
-                'tzid' => array('type' => 'varchar', 'precision' => '50' ,'nullable' => True),
-                'transp' => array( 'type' => 'int', 'precision' => '2', 'nullable' => FALSE , 'default' => 0 ),
-                'sequence' => array( 'type' => 'int', 'precision' => '8', 'nullable' => FALSE , 'default' => 0 ),
-                'due' => array( 'type' => 'int', 'precision' => '8', 'nullable' => FALSE , 'default' => 0 ),
-                'percentage' => array( 'type' => 'int', 'precision' => '8', 'nullable' => FALSE , 'default' => 0 ),
-                'status' => array( 'type' => 'int', 'precision' => '8', 'nullable' => FALSE , 'default' => 0 ),
-                'priority' => array( 'type' => 'int', 'precision' => '8', 'nullable' => FALSE , 'default' => 2 )
-            ),
-            'pk' => array('id'),
-            'fk' => array(),
-            'ix' => array(),
-            'uc' => array('cal_uid')
+		'calendar_object' => array(
+			'fd' => array(
+				'id'          => array( 'type' => 'auto', 'nullable' => False),
+				'type_id'     => array( 'type' => 'int', 'precision' => '8', 'nullable' => False),
+				'cal_uid'     => array( 'type' => 'varchar','precision' => '255', 'nullable' => True),
+				'dtstamp'     => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True ),
+				'dtstart'     => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => False),
+				'description' => array( 'type' => 'text', 'nullable' => True),
+				'dtend'       => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True),
+				'location'    => array( 'type' => 'varchar', 'precision' => '255', 'nullable' => True),
+				'class_id'    => array( 'type' => 'int', 'precision' => '8', 'nullable' => True),
+				'last_update' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False),
+				'range_end'   => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True),
+				'summary'     => array( 'type' => 'varchar', 'precision' => '255', 'nullable' => True),
+				'range_start' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => True),
+				'allday'      => array( 'type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => True),
+				'repeat'      => array( 'type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => True),
+				'tzid'        => array( 'type' => 'varchar', 'precision' => '50' ,'nullable' => True),
+				'transp'      => array( 'type' => 'int', 'precision' => '2', 'nullable' => FALSE , 'default' => 0 ),
+				'sequence'    => array( 'type' => 'int', 'precision' => '8', 'nullable' => FALSE , 'default' => 0 ),
+				'due'         => array( 'type' => 'int', 'precision' => '8', 'default' => 0 ),
+				'percentage'  => array( 'type' => 'int', 'precision' => '2', 'default' => 0 ),
+				'status'      => array( 'type' => 'int', 'precision' => '2', 'default' => 0 ),
+				'priority'    => array( 'type' => 'int', 'precision' => '2', 'default' => 0 ),
+			),
+			'pk' => array('id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array('cal_uid')
 		),
-		
-            
         'calendar_participant' => array(
             'fd' => array(
                 'id' => array( 'type' => 'auto', 'nullable' => False),
@@ -163,26 +157,23 @@
             'fk' => array(),
             'ix' => array(),
             'uc' => array()
-		),		
-		
-		'calendar_alarm' => array(
-            'fd' => array(
-                'id' => array( 'type' => 'auto', 'nullable' => False),
-                'action_id' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False),
-		'unit' => array('type' => 'varchar','precision' => '20','nullable' => True),
-		'alarm_offset' => array( 'type' => 'bigint', 'precision' => '16', 'nullable' => False),
-                'time' => array('type' => 'varchar','precision' => '50','nullable' => True),
-                'participant_id' => array('type' => 'int', 'precision' => '8','nullable' => True),
-                'object_id' => array('type' => 'int', 'precision' => '8','nullable' => True),
-                'sent' => array('type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => False)
-				
-            ),
-            'pk' => array('id'),
-            'fk' => array(),
-            'ix' => array(),
-            'uc' => array()
 		),
-
+		'calendar_alarm' => array(
+			'fd' => array(
+				'id' => array( 'type' => 'auto', 'nullable' => False),
+				'action_id' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False),
+				'unit' => array('type' => 'varchar','precision' => '20','nullable' => True),
+				'alarm_offset' => array( 'type' => 'bigint', 'precision' => '16' ),
+				'time' => array('type' => 'varchar','precision' => '50','nullable' => True),
+				'participant_id' => array('type' => 'int', 'precision' => '8','nullable' => True),
+				'object_id' => array('type' => 'int', 'precision' => '8','nullable' => True),
+				'sent' => array('type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => False)
+			),
+			'pk' => array('id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
         'calendar_historic' => array(
             'fd' => array(
                 'id' => array( 'type' => 'auto', 'nullable' => False),
@@ -225,24 +216,20 @@
             'ix' => array(),
             'uc' => array()
 		),
-		
-		
-		
 		'calendar_permission' => array(
-            'fd' => array(
-                'id' => array( 'type' => 'auto', 'nullable' => False),
-                'uidnumber' => array(  'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'object_id' => array(  'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'owner' => array(  'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'object_type' => array(  'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'permission' => array(  'type' => 'varchar','precision' => '50', 'nullable' => False)
-            ),
-            'pk' => array('id'),
-            'fk' => array(),
-            'ix' => array(),
-            'uc' => array()
+			'fd' => array(
+				'id' => array( 'type' => 'auto', 'nullable' => False ),
+				'uidnumber' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False ),
+				'object_id' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False ),
+				'owner' => array( 'type' => 'int', 'precision' => '8' ),
+				'object_type' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False ),
+				'permission' => array( 'type' => 'varchar','precision' => '50', 'nullable' => False ),
+			),
+			'pk' => array('id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
 		),
-		
 		'calendar_repeat' => array(
             'fd' => array(
                 'id' => array( 'type' => 'auto', 'nullable' => False),
@@ -298,27 +285,27 @@
 		),
 
 		'calendar_signature' => array(
-            'fd' => array(
-                'id' => array( 'type' => 'auto', 'nullable' => False),
-                'user_uidnumber' => array(  'type' => 'int', 'precision' => '8', 'nullable' => False),
-                'calendar_id' => array(  'type' => 'int', 'precision' => '8', 'nullable' => false),
-                'is_owner' => array( 'type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => False),
-                'dtstamp' => array( 'type' => 'bigint', 'precision' => '16', 'precision' => '16', 'nullable' => False),
-				'msg_add' => array( 'type' => 'text', 'nullable' => True),
-				'msg_cancel' => array( 'type' => 'text', 'nullable' => True),
-				'msg_update' => array( 'type' => 'text', 'nullable' => True),
-				'msg_reply' => array( 'type' => 'text', 'nullable' => True),
-				'msg_alarms' => array( 'type' => 'text', 'nullable' => True),
-				'font_color' => array(  'type' => 'varchar','precision' => '6', 'nullable' => True),
-                'background_color' => array(  'type' => 'varchar','precision' => '6', 'nullable' => True),
-                'border_color' => array(  'type' => 'varchar','precision' => '6', 'nullable' => True),
-                'type' => array('type' => 'int', 'precision' => '2' ,'nullable' => false, 'default' => 0),
-                'hidden' => array('type' => 'int', 'precision' => '2' ,'nullable' => false, 'default' => 0)
-            ),
-            'pk' => array('id'),
-            'fk' => array(),
-            'ix' => array(),
-            'uc' => array()
+			'fd' => array(
+				'id' => array( 'type' => 'auto', 'nullable' => False ),
+				'user_uidnumber' => array( 'type' => 'int', 'precision' => '8', 'nullable' => False ),
+				'calendar_id' => array( 'type' => 'int', 'precision' => '8', 'nullable' => false ),
+				'is_owner' => array( 'type' => 'int', 'precision' => '2', 'default' => 0, 'nullable' => False ),
+				'dtstamp' => array( 'type' => 'bigint', 'precision' => '16', 'precision' => '16', 'nullable' => False ),
+				'msg_add' => array( 'type' => 'text', 'nullable' => True ),
+				'msg_cancel' => array( 'type' => 'text', 'nullable' => True ),
+				'msg_update' => array( 'type' => 'text', 'nullable' => True ),
+				'msg_reply' => array( 'type' => 'text', 'nullable' => True ),
+				'msg_alarms' => array( 'type' => 'text', 'nullable' => True ),
+				'font_color' => array( 'type' => 'varchar','precision' => '6', 'nullable' => True ),
+				'background_color' => array( 'type' => 'varchar','precision' => '6', 'nullable' => True ),
+				'border_color' => array( 'type' => 'varchar','precision' => '6', 'nullable' => True ),
+				'type' => array( 'type' => 'int', 'precision' => '2' , 'default' => 0 ),
+				'hidden' => array( 'type' => 'int', 'precision' => '4' )
+			),
+			'pk' => array('id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
 		),
 
 				

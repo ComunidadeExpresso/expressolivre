@@ -130,7 +130,7 @@
 		*/
 		function standard_substitutes()
 		{
-			if (!is_array(@$GLOBALS['phpgw_info']['user']['preferences']))
+			if ( !( isset($GLOBALS['phpgw_info']['user']['preferences']) && is_array($GLOBALS['phpgw_info']['user']['preferences']) ) )
 			{
 				$GLOBALS['phpgw_info']['user']['preferences'] = $this->data;	// else no lang()
 			}
@@ -141,9 +141,9 @@
 				'fullname'  => $GLOBALS['phpgw']->common->display_fullname('',$fname,$lname),
 				'firstname' => $fname,
 				'lastname'  => $lname,
-				'domain'    => $GLOBALS['phpgw_info']['server']['mail_suffix'],
+				'domain'    => isset($GLOBALS['phpgw_info']['server']['mail_suffix'])? $GLOBALS['phpgw_info']['server']['mail_suffix'] : '',
 				'email'     => $this->email_address($this->account_id),
-				'date'      => $GLOBALS['phpgw']->common->show_date('',$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+				'date'      => $GLOBALS['phpgw']->common->show_date( '', isset($GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'])? $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'] : 'd/m/Y' ),
 			);
 			// do this first, as it might be already contain some substitues
 			//
@@ -228,8 +228,8 @@
 			while($this->db->next_record())
 			{
 				// The following replacement is required for PostgreSQL to work
-				$app = str_replace(' ','',$this->db->f('preference_app'));
-				$value = unserialize($this->db->f('preference_value'));
+				$app 	= str_replace(' ','',$this->db->f('preference_app'));
+				$value	= @unserialize($this->db->f('preference_value'));
 				$this->unquote($value);
 				if (!is_array($value))
 				{
@@ -815,7 +815,7 @@
 				return $email;
 			}
 			$prefs_email_address = $GLOBALS['phpgw']->accounts->id2name($account_id);
-			if (strstr($prefs_email_address,'@') === False)
+			if ( $prefs_email_address !== false && isset($GLOBALS['phpgw_info']['server']['mail_suffix']) && strstr($prefs_email_address,'@') === false )
 			{
 				$prefs_email_address .= '@' . $GLOBALS['phpgw_info']['server']['mail_suffix'];
 			}

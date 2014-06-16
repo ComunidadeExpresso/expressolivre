@@ -29,20 +29,10 @@
 		{
 			$file['Site Configuration']         = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&amp;appname=admin');
 		}
-/*		
-		if (! $GLOBALS['phpgw']->acl->check('peer_server_access',1,'admin'))
-		{
-			$file['Peer Servers']               = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiserver.list_servers');
-		}
-*/
+
 		if (! $GLOBALS['phpgw']->acl->check('applications_access',1,'admin'))
 		{
 			$file['Applications']               = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiapplications.get_list');
-		}
-
-		if (! $GLOBALS['phpgw']->acl->check('global_categories_access',1,'admin'))
-		{
-			$file['Global Categories']          = $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index');
 		}
 
 		if (!$GLOBALS['phpgw']->acl->check('mainscreen_message_access',1,'admin') || !$GLOBALS['phpgw']->acl->check('mainscreen_message_access',2,'admin'))

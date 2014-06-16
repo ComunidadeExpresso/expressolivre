@@ -528,8 +528,6 @@ your php installation does not have appropriate gd support. you need gd library 
 your tables are current	setup	es-es	Sus tablas están actualizadas
 your tables may be altered and you may lose data	setup	es-es	Sus tablas pueden ser modificadas y puede haber perdida de datos.
 your tables will be dropped and you will lose data	setup	es-es	Sus tablas serán borradas y los dados se perderán!!
-
-############################# Expresso Livre ############################
 Welcome to the Expresso Livre (eGroupWare) Installation	setup	es-es	Bienvenido a la instalación de Expresso Livre (eGroupWare)
 The first step in installing Expresso Livre (eGroupWare) is to ensure your environment has the necessary settings to correctly run the application.	setup	es-es	El primer paso para instalar  Expresso Livre (eGroupWare) es asegurarse que su ambiente posee las configuraciones necesarias para ejecutar correctamente la aplicación.
 Checking the Expresso Livre (eGroupWare) Installation	setup	es-es	Verificando as dependencias necesários para  Expresso Livre (eGroupWare)

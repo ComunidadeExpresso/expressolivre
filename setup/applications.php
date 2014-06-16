@@ -10,7 +10,7 @@
   \**************************************************************************/
 
 
-	$DEBUG = @$_POST['debug'] || @$_GET['debug'];
+	$DEBUG = isset($_POST['debug']) || isset($_GET['debug']);
 	/*
 	 TODO: We allow a user to hose their setup here, need to make use
 	 of dependencies so they are warned that they are pulling the rug
@@ -411,10 +411,10 @@
 			if ( array_key_exists( 'name', $value ) )
 			{
 				$i = ($i ? 0 : 1);
-				$setup_tpl->set_var('apptitle',$value['title']?$value['title']:lang($value['name']));
-				$setup_tpl->set_var('currentver',@$value['currentver']);
-				$setup_tpl->set_var('version',$value['version']);
-				$setup_tpl->set_var('bg_color',$bgcolor[$i]);
+				$setup_tpl->set_var( 'apptitle', isset($value['title'])? $value['title'] : lang($value['name']) );
+				$setup_tpl->set_var( 'currentver', isset($value['currentver'])? $value['currentver'] : '' );
+				$setup_tpl->set_var( 'version', $value['version'] );
+				$setup_tpl->set_var( 'bg_color', $bgcolor[$i] );
                         
 				switch($value['status'])
 				{
@@ -457,9 +457,9 @@
 					case 'U':
 						$setup_tpl->set_var('instimg','incomplete.png');
 						$setup_tpl->set_var('instalt',lang('Not Completed'));
-						if (!@$value['currentver'])
+						if ( !isset($value['currentver']) )
 						{
-							if ($value['tables'] && $GLOBALS['phpgw_setup']->detection->check_app_tables($value['name'],True))
+							if ( isset($value['tables']) && $GLOBALS['phpgw_setup']->detection->check_app_tables($value['name'],True))
 							{
 								// Some tables missing
 								$setup_tpl->set_var('remove', allow_remove( $value[ 'name' ] ) );

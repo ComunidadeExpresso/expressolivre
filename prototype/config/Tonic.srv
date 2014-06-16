@@ -1,6 +1,3 @@
-[/AvailableServers]
-AvailableServersResource = /availableServers/AvailableServersResource.php
-
 [/Catalog/Contacts]
 ContactsResource = /catalog/ContactsResource.php
 

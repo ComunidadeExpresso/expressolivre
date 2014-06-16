@@ -194,11 +194,11 @@
 			$header_template = CreateObject('setup.Template','../');
 			$GLOBALS['phpgw_setup']->html->show_header('Generated header.inc.php', False, 'header');
 			echo '<table width="90%"><tr><td>';
-			echo '<br />' . lang('Save this text as contents of your header.inc.php') . '<br /><hr />';
+			echo '<br />' . lang('Save this text as contents of your header.inc.php') . '<br /><hr>';
 			$newheader = $GLOBALS['phpgw_setup']->html->generate_header();
 			echo '<pre>';
-			echo htmlentities($newheader);
-			echo '</pre><hr />';
+			echo htmlentities( $newheader, null, mb_detect_encoding( $newheader, array( 'ISO-8859-1', 'UTF-8' ), true ) );
+			echo '</pre><hr>';
 			echo '<form action="index.php" method="post">';
 			echo '<br />' . lang('After retrieving the file, put it into place as the header.inc.php.  Then, click "continue".') . '<br />';
 			echo '<input type="hidden" name="FormLogout" value="header">';

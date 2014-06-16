@@ -18,8 +18,8 @@
 	* the absolute path to fit your site, and you should be up and running.    *
 	\**************************************************************************/
 	ob_start();
-	define('PHPGW_SERVER_ROOT','{SERVER_ROOT}');
-	define('PHPGW_INCLUDE_ROOT','{INCLUDE_ROOT}');
+	if (!defined('PHPGW_SERVER_ROOT')) define('PHPGW_SERVER_ROOT','{SERVER_ROOT}');
+	if (!defined('PHPGW_INCLUDE_ROOT')) define('PHPGW_INCLUDE_ROOT','{INCLUDE_ROOT}');
 	$GLOBALS['phpgw_info']['server']['header_admin_user'] = '{HEADER_ADMIN_USER}';
 	$GLOBALS['phpgw_info']['server']['header_admin_password'] = '{HEADER_ADMIN_PASSWORD}';
 	$GLOBALS['phpgw_info']['server']['setup_acl'] = '{SETUP_ACL}';
@@ -113,7 +113,7 @@
 	/**************************************************************************\
 	* Do not edit these lines                                                  *
 	\**************************************************************************/
-	define('PHPGW_API_INC',PHPGW_INCLUDE_ROOT.'/phpgwapi/inc');
+	if (!defined('PHPGW_API_INC')) define('PHPGW_API_INC',PHPGW_INCLUDE_ROOT.'/phpgwapi/inc');
 	include(PHPGW_SERVER_ROOT.'/phpgwapi/setup/setup.inc.php');
 	$GLOBALS['phpgw_info']['server']['versions']['phpgwapi'] = $setup_info['phpgwapi']['version'];
 	$GLOBALS['phpgw_info']['server']['versions']['current_header'] = $setup_info['phpgwapi']['versions']['current_header'];
@@ -124,7 +124,7 @@
 	{
 		include(PHPGW_API_INC . '/functions.inc.php');
 	}
-	$connection_id = $GLOBALS['phpgw']->session->sessionid;
+	$connection_id = isset($GLOBALS['phpgw']->session->sessionid)? $GLOBALS['phpgw']->session->sessionid : false;
 	if (!strlen($connection_id) != 32){
 		include("header.session.inc.php");
 	}

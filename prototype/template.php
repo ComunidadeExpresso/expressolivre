@@ -7,7 +7,7 @@ if( !isset($_GET['path']) || substr($_GET['path'], -4) !== '.ejs'  || !file_exis
     exit();
 }
 
-require_once __DIR__ . '/../library/fileDuck/FileDuck.php';
+require_once __DIR__ . '/library/fileDuck/FileDuck.php';
 
 $moduleMap =  parse_ini_file( __DIR__ ."/config/moduleMap.ini", true );
 

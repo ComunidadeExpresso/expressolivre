@@ -18,7 +18,6 @@ bd () {
 	
 	rm -rf $DIR_PG*
 	su - postgres -c "env LC_ALL=C initdb --encoding=LATIN1 -D $DIR_PG"
-	#su - postgres -c "env LANG=pt_BR.ISO-8859-1 initdb --encoding=LATIN1 -D $DIR_PG"
 	sed -e "s/LDAP_DN/$LDAP_DN/g" -e "s/LDAP_PWD/$LDAP_PWD/g" -e "s/ou=ORG/ou=$ORG/g" -e "s/DOMAIN/$DOMAIN/g" $ARQS/expresso.dump > /tmp/expresso.dump
 	
 

@@ -30,12 +30,12 @@
 				$GLOBALS['phpgw']->redirect_link('/index.php');
 			}
 			
-			$_cols    = $_POST['_cols'];
-			$nocols   = $_POST['nocols'];
-			$_delcol  = $_POST['_delcol'];
-			$layout   = $_POST['layout'];
-			$editable = $_GET['editable'];
-			$modifytable = $_GET['modifytable'] ? $_GET['modifytable'] : $_POST['modifytable'];
+			$_cols    = (isset($_POST['_cols'])?$_POST['_cols']:"");
+			$nocols   = (isset($_POST['nocols'])?$_POST['nocols']:"");
+			$_delcol  = (isset($_POST['_delcol'])?$_POST['_delcol']:"");
+			$layout   = (isset($_POST['layout'])?$_POST['layout']:"");
+			$editable = (isset($_GET['editable'])?$_GET['editable']:"");
+			$modifytable = (isset($_GET['modifytable']) ? $_GET['modifytable'] : (isset($_POST['modifytable']))?$_POST['modifytable']:"");
 
 			$this->bolog    = CreateObject('admin.bolog',True);
 			$this->html     = createobject('admin.html_tables');

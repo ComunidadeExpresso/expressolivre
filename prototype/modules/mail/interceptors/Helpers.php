@@ -1,5 +1,5 @@
 <?php
-include_once ROOTPATH."/../expressoMail1_2/inc/class.imap_functions.inc.php";
+include_once ROOTPATH."/../expressoMail/inc/class.imap_functions.inc.php";
 
 use prototype\api\Config as Config;
 

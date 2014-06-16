@@ -6,6 +6,7 @@ button.keypad-trigger {
 img.keypad-trigger {
 	margin: 2px;
 	vertical-align: middle;
+	cursor: pointer;
 }
 .keypad-popup, .keypad-inline, .keypad-key, .keypad-special {
 	font-family: Arial,Helvetica,sans-serif;

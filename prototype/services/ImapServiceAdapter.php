@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Copyright (C) 2012 ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+ * Copyright (C) 2012 Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by
@@ -25,21 +25,21 @@
  * version 2 or above as published by the Free Software Foundation.
  *
  * You can contact Prognus Software Livre headquarters at Av. Tancredo Neves,
- * 6731, PTI, EdifÌcio do Saber, 3∫ floor, room 306, Foz do IguaÁu - PR - Brasil or at
+ * 6731, PTI, Edif√≠cio do Saber, 3¬∫ floor, room 306, Foz do Igua√ßu - PR - Brasil or at
  * e-mail address prognus@prognus.com.br.
  *
- * Classe de abstraÁ„o que faz uma adaptaÁ„o para manipulaÁ„o de informaÁıes
- * no IMAP a partir de v·rios mÈtodos.
+ * Classe de abstra√ß√£o que faz uma adapta√ß√£o para manipula√ß√£o de informa√ß√µes
+ * no IMAP a partir de v√°rios m√©todos.
  *
  * @package    Prototype
  * @license    http://www.gnu.org/copyleft/gpl.html GPL
- * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+ * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
  * @version    2.4
- * @sponsor    Caixa EconÙmica Federal
- * @since      Arquivo disponibilizado na vers„o 2.4
+ * @sponsor    Caixa Econ√¥mica Federal
+ * @since      Arquivo disponibilizado na vers√£o 2.4
  */
 
-include_once ROOTPATH."/../expressoMail1_2/inc/class.imap_functions.inc.php";
+include_once ROOTPATH."/../expressoMail/inc/class.imap_functions.inc.php";
 
 use prototype\api\Config as Config;
 
@@ -47,10 +47,10 @@ use prototype\api\Config as Config;
  *
  * @package    Prototype (Mail)
  * @license    http://www.gnu.org/copyleft/gpl.html GPL
- * @author     ConsÛrcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
+ * @author     Cons√≥rcio Expresso Livre - 4Linux (www.4linux.com.br) e Prognus Software Livre (www.prognus.com.br)
  * @version    2.4
- * @sponsor    Caixa EconÙmica Federal
- * @since      Classe disponibilizada na vers„o 2.4
+ * @sponsor    Caixa Econ√¥mica Federal
+ * @since      Classe disponibilizada na vers√£o 2.4
  */
 class ImapServiceAdapter extends imap_functions/* implements Service*/
 {
@@ -121,11 +121,11 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 				
 				
 				/**
-				 * Trata o caso especÌfico de retorno do atributo messageId
+				 * Trata o caso espec√≠fico de retorno do atributo messageId
 				 *
-				 * TODO - refazer todo a operaÁ„o find do conceito message, uma vez que esta 
+				 * TODO - refazer todo a opera√ß√£o find do conceito message, uma vez que esta 
 				 * foi desenvolvida quando a nova API ainda era muito imatura e se encontra 
-				 * muito acoplada ‡ estrutura de retorno esperada pelo plugin jqGrid
+				 * muito acoplada √† estrutura de retorno esperada pelo plugin jqGrid
 				 */
 				if ( $justthese ) 
 				{
@@ -135,7 +135,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 							'messageNumber' => array()
 						);
 						
-						self::parseFilter($criteria["filter"], &$map);
+						self::parseFilter($criteria["filter"], $map);
 						
 						if (count($map['folderName']) == 0) {
 							$folders = $this->get_folders_list();
@@ -149,7 +149,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 							$this->mbox = $this->open_mbox($folder);
 
 							/**
-							 * Se n„o foi passado messageNumber no filtro, 
+							 * Se n√£o foi passado messageNumber no filtro, 
 							 * busca todas as mensagens de cada pasta
 							 */
 							$messages = empty($map['messageNumber']) ? '1:*' : implode(',', $map['messageNumber']);
@@ -281,7 +281,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 						'labelId' => array()
 					);
 					
-					self::parseFilter($criteria["filter"], &$map);
+					self::parseFilter($criteria["filter"], $map);
 					
 					if (count($map['folderName']) == 0) {
 						$folders = $this->get_folders_list();
@@ -327,7 +327,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					'messageId' => array()
 				);
 				
-				self::parseFilter($criteria["filter"], &$map);
+				self::parseFilter($criteria["filter"], $map);
 	
 				if (empty($map['folderName'])) {
 					$folders = $this->get_folders_list();
@@ -344,7 +344,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					$this->mbox = $this->open_mbox($folder);
 
 					/**
-					 * Se È uma busca por messageId
+					 * Se √© uma busca por messageId
 					 */
 					if (!empty($map['messageId'])) {
 							
@@ -361,15 +361,15 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 						}
 
 					/**
-					 * Se È uma busca por messageNumber.
-					 * Lembrando que, neste caso, sÛ deve ser suportada uma ˙nica pasta no filtro.
+					 * Se √© uma busca por messageNumber.
+					 * Lembrando que, neste caso, s√≥ deve ser suportada uma √∫nica pasta no filtro.
 					 */
 					} else {
 						$messages = imap_search($this->mbox, 'ALL KEYWORD "$Followupflagged"', SE_UID);
 					}
 
 					/**
-					 * Se È uma busca por messageId, deve ser comparado com os messageNumbers 
+					 * Se √© uma busca por messageId, deve ser comparado com os messageNumbers 
 					 * passados no filtro, se houverem.
 					 */
 					if (!empty($map['messageNumber']) && is_array($messages)) {
@@ -380,7 +380,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					}
 
 					/**
-					 * Adicionar demais atributos ‡s mensagens para retorno
+					 * Adicionar demais atributos √†s mensagens para retorno
 					 */
 					if(is_array($messages))
 					foreach ($messages as $k => $m) {
@@ -395,7 +395,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 
 					
 					/**
-					 * Se È uma busca por messageId e todos os messageIds foram econstrados:
+					 * Se √© uma busca por messageId e todos os messageIds foram econstrados:
 					 * Stop searching in all folders
 					 */
 					if (!empty($map['messageId']) && empty($messagesIds))
@@ -455,7 +455,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 			{
 			
 				/** 
-				 * identifica se o formato de ID È "folder/subfolder/subsubfolder/<messageNumber>" ou "<message-id>"
+				 * identifica se o formato de ID √© "folder/subfolder/subsubfolder/<messageNumber>" ou "<message-id>"
 				 */
 				$folderName = $messageNumber = false;
 				if(!($messageHasId = preg_match('/<.*>/', $URI['id']))) {
@@ -482,7 +482,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 				} else {
 					/**
 					 * Busca pela mensagem com o messageId dado. Se uma pasta foi passada, busca nela,
-					 * sen„o busca em todas.
+					 * sen√£o busca em todas.
 					 */
 					
 					$folders = array ();
@@ -552,8 +552,8 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					/*
 					 * TODO
 					 * Verificar erro ao tentar setar uma flag com o limite de flags atingido
-					 * onde o status retornado pelo imap_setflag_full È true mesmo n„o sendo possÌvel
-					 * a inserÁ„o da flag.
+					 * onde o status retornado pelo imap_setflag_full √© true mesmo n√£o sendo poss√≠vel
+					 * a inser√ß√£o da flag.
 					 */
 
 					return (($s) && (imap_last_error() != 'Too many user flags in mailbox')) ? $data : array();
@@ -561,7 +561,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 				} else if (isset($data['messageId'])) {
 					/**
 					 * Busca pela mensagem com o messageId dado. Se uma pasta foi passada, busca nela,
-					 * sen„o busca em todas.
+					 * sen√£o busca em todas.
 					 */
 					$folders = array ();
 					if (isset($data['folderName'])) {
@@ -595,7 +595,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 			{
 				require_once ROOTPATH.'/library/uuid/class.uuid.php';
 				
-				$GLOBALS['phpgw_info']['flags'] = array( 'noheader' => true, 'nonavbar' => true,'currentapp' => 'expressoMail1_2','enable_nextmatchs_class' => True );
+				$GLOBALS['phpgw_info']['flags'] = array( 'noheader' => true, 'nonavbar' => true,'currentapp' => 'expressoMail','enable_nextmatchs_class' => True );
 				$return = array();
 
 				require_once dirname(__FILE__) . '/../../services/class.servicelocator.php';
@@ -603,7 +603,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 
 				$msg_uid = $data['msg_id'];
 				$body = $data['body'];
-				$body = str_replace("&lt;","&yzwkx;",$body); //Alterar as Entities padr„o das tags < > para compatibilizar com o Expresso
+				$body = str_replace("&lt;","&yzwkx;",$body); //Alterar as Entities padr√£o das tags < > para compatibilizar com o Expresso
 				$body = str_replace("&gt;","&xzwky;",$body);
 				$body = str_replace("%nbsp;","&nbsp;",$body);
 				$body = html_entity_decode ( $body, ENT_QUOTES , 'ISO-8859-1' );		
@@ -728,7 +728,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					'messageId' => array()
 				);
 				
-				self::parseFilter($criteria["filter"], &$map);
+				self::parseFilter($criteria["filter"], $map);
 				
 				if (!$map['folderName']) {
 					$folders = array ();
@@ -748,7 +748,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					$this->mbox = $this->open_mbox($folder);
 				
 					/**
-					 * Se È uma busca por messageId
+					 * Se √© uma busca por messageId
 					 */
 					if (!empty($map['messageId'])) {
 							
@@ -762,15 +762,15 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 						}
 
 					/**
-					 * Se È uma busca por messageNumber.
-					 * Lembrando que, neste caso, sÛ deve ser suportada uma ˙nica pasta no filtro.
+					 * Se √© uma busca por messageNumber.
+					 * Lembrando que, neste caso, s√≥ deve ser suportada uma √∫nica pasta no filtro.
 					 */
 					} else {
 						$messages = imap_search($this->mbox, 'ALL KEYWORD "$Followupflagged"', SE_UID);
 					}
 
 					/**
-					 * Se È uma busca por messageId, deve ser comparado com os messageNumbers 
+					 * Se √© uma busca por messageId, deve ser comparado com os messageNumbers 
 					 * passados no filtro, se houverem.
 					 */
 					if (!empty($map['messageNumber'])) {
@@ -785,7 +785,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 					}
 
 					/**
-					 * Se È uma busca por messageId e todos os messageIds foram econstrados:
+					 * Se √© uma busca por messageId e todos os messageIds foram econstrados:
 					 * Stop searching in all folders
 					 */
 					if (!empty($map['messageId']) && empty($messagesIds))
@@ -810,17 +810,17 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 		}
 
 		/**
-		 * TODO - implementar a deleÁ„o de todos os followupflaggeds conforme filtro
+		 * TODO - implementar a dele√ß√£o de todos os followupflaggeds conforme filtro
 		 */
 	}
 
     public function update( $URI, $data, $criteria = false )
     {
 		/**
-		 * Os ˙nicos atributos da sinalizaÁ„o presentes no IMAP s„o folderName, messageNumber e messageId,
-		 * porÈm a operaÁ„o de update desses atributos n„o faz sentido para o usu·rio da DataLayer,
-		 * pois na pr·tica elas s„o executadas atravÈs das operaÁıes de CREATE e DELETE.
-		 * Assim, para os conceitos "labeled" e "followupflagged", sÛ faz sentido o update de 
+		 * Os √∫nicos atributos da sinaliza√ß√£o presentes no IMAP s√£o folderName, messageNumber e messageId,
+		 * por√©m a opera√ß√£o de update desses atributos n√£o faz sentido para o usu√°rio da DataLayer,
+		 * pois na pr√°tica elas s√£o executadas atrav√©s das opera√ß√µes de CREATE e DELETE.
+		 * Assim, para os conceitos "labeled" e "followupflagged", s√≥ faz sentido o update de 
 		 * atributos gravados no banco de dados e nunca no IMAP.
 		 */
 	}
@@ -878,7 +878,7 @@ class ImapServiceAdapter extends imap_functions/* implements Service*/
 		{
 			case 'and': {
 				foreach ($filter as $term)
-					self::parseFilter($term ,&$map);
+					self::parseFilter($term ,$map);
 				return;
 			}
 			case 'in': {

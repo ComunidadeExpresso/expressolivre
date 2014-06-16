@@ -15,7 +15,7 @@
 	{
 		function hash_table($rows,$head='',$obj, $frtn)
 		{
-			$start = $_POST['start'] ? $_POST['start'] : $_GET['start'];
+			$start = (isset($_POST['start']) ? $_POST['start'] : (isset($_GET['start']))?$_GET['start']:"");
 
 			$html = '';
 			$edittable = $head['_edittable'];
@@ -129,7 +129,7 @@
 			if(isset($groupby))
 			{
 				$grno = $start;
-				$gkey = $rows[$start]['#gkey'];
+				$gkey = (isset($rows[$start]['#gkey'])?$rows[$start]['#gkey']:"");
 				for($rno=$start+1;$rno<$stop;++$rno)
 				{
 					$rowspan = 1;
@@ -471,7 +471,7 @@
 				{
 					$title = $cname;
 				}
-				$cparms = $this->arr_merge($values['#parms_hdr'],$pcol);
+				$cparms = $this->arr_merge((isset($values['#parms_hdr'])?$values['#parms_hdr']:""),$pcol);
 				$cparms['value']=$title;
 				$table[0][$pc] = $cparms;
 			}

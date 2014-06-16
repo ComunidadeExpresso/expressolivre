@@ -132,67 +132,66 @@
 </script>
 </HEAD>
 <body style="overflow:hidden" onLoad="javascript:getLogin()" bgcolor="#ffffff">
-<div id="conteudo">
-    <div style="position: absolute; top:0px; right: 10px;"><span class="login_label">{lang_language}&nbsp;&nbsp;</span>{select_language}</div>
-<div align="center">
-	<div id="conteudo_corpo">
-		<div id="superior">
-            <div id="login">
-                <div align="center">
-                    <form id="loginForm" name="flogin" method="post" action="{login_url}" {autocomplete}>
-                    <div id="caixa_login">
-                            <input type="hidden" name="certificado" value="">
-                            <input type="hidden" name="passwd_type" value="text">
-                            <input type="hidden" name="account type" value="u">
-                            <input type="hidden" name="login">
-                            <div id="reflexo">
-                            <div class="titulo_login">Expresso Livre</div>
-                            <div id="mensagem" class="msgInicial" >{cd}<br />{lang_message}</div>
-                            {action}
-                            <div id="conteudo_login" style="display:{show};">{select_organization}
-                              <div class="login_label">
-                                <label for="user">{lang_username}</label>
-                                <br />
-                                <input class="input" type="text" maxlength="70" size="20" name="user" id="user" value="">
-                            </div>
+	<div id="conteudo">
+		<div style="position: absolute; top:0px; right: 10px;"><span class="login_label">{lang_language}&nbsp;&nbsp;</span>{select_language}</div>
+		<div align="center">
+			<div id="conteudo_corpo">
+				<div id="superior">
+					<div id="login">
+						<div align="center">
+							<form id="loginForm" name="flogin" method="post" action="{login_url}" {autocomplete}>
+								<div id="caixa_login">
+									<input type="hidden" name="certificado" value="">
+									<input type="hidden" name="passwd_type" value="text">
+									<input type="hidden" name="account type" value="u">
+									<input type="hidden" name="login">
+          <div id="reflexo">
+           <div class="titulo_login">Expresso Livre</div>
+           <div id="mensagem" class="msgInicial" >{cd}<br />{lang_message}</div>
+	   {action}
+            <div id="conteudo_login" style="display:{show};">{select_organization}
+              <div class="login_label">
+                <label for="user">{lang_username}</label>
+                <br />
+                <input class="input" type="text" maxlength="70" size="20" name="user" id="user" value="">
+              </div>
 
-                            <div class="login_label">
-                                <label for="passwd">{lang_password}</label>
-                                <br />
-                                <input class="input" type="password" maxlength="50" size="20" name="passwd" id="passwd" value="">
-                                <div id="keyboard"></div>
-                            </div>
-                            {captcha}
-
-                            <input value="{lang_login}" name="submitit" class="button" onclick="javascript:setLogin()" type="submit" style="margin-top:10px">
-                                <img style="display:{show_kbd};" src="phpgwapi/templates/default/images/keyboard.png" alt="virtualkeyboard" title="virtualkeyboard" onclick="loadvkbd()" >
-                            </div>
-                            <div id="alterna_login">
-                            {link_alterna_login}
-                            </div>
-                          </div>
-                          <div id="rodape_login">
-                            <div class="ajuda" style="display:{display_help}">
-                                <img src="./phpgwapi/templates/{template}/images/help.png" alt="Obter Ajuda">
-                                <a title="{lang_help}" target="help" href="./help.php?lang={lang}">{lang_help}</a>
-                            </div>
-                          </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
+              <div class="login_label">
+                <label for="passwd">{lang_password}</label>
+                <br />
+                <input class="input" type="password" maxlength="50" size="20" name="passwd" id="passwd" value="">
+		<div id="keyboard"></div>
+              </div>
+		{captcha}
+      
+              <input value="{lang_login}" name="submitit" class="button" onclick="javascript:setLogin()" type="submit" style="margin-top:10px">
+	      <img style="display:{show_kbd};" src="phpgwapi/templates/default/images/keyboard.png" alt="virtualkeyboard" title="virtualkeyboard" onclick="loadvkbd()" > 
+            </div> 
+			<div id="alterna_login">
+			 {link_alterna_login}
+			</div>
+          </div>
+          <div id="rodape_login">
+	    	<div class="ajuda" style="display:{display_help}">
+				<img src="./phpgwapi/templates/{template}/images/help.png" alt="Obter Ajuda">
+				<a title="{lang_help}" target="help" href="./help.php?lang={lang}">{lang_help}</a>
+			</div>
+          </div>
         </div>
-    <div id="inferior"><br />
-        <div id="rodape">
+</form>
+</div>
+</div>
+</div>
+<div id="inferior"><br />
+<div id="rodape">
                 {logo_config}
                 <a title="Projeto Expresso Livre" target="_blank" href="http://www.expressolivre.org/">Expresso Livre</a> {version}{ultima_rev}<br />
                 <a title="eGroupWare" target="_blank" href="http://www.egroupware.org/" style="clear: both"> Powered by eGroupWare </a>
             </div>
-        </div>
-    </div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div>{applet}</div>
-</body>
-</html>
+</body></html>

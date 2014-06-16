@@ -37,7 +37,8 @@
 					$values .= ',';
 					$query  .= ',';
 				}
-				switch($this->table['fd'][$key]['type'])
+				
+				switch( $this->table['fd'][$key]['type'] )
 				{
 					case 'int': case 'auto':
 						$value = intval($value);
@@ -46,18 +47,14 @@
 						$value = $this->db->db_addslashes($value);
 						break;
 				}
+				
 				$fields .= "$key";
 				$values .= "'$value'";
 				$query  .= "$key='$value'";
 			}
-			if ($profileID)
-			{
-				$query = "update phpgw_emailadmin set $query where profileID=$profileID";
-			}
-			else
-			{
-				$query = "insert into phpgw_emailadmin ($fields) values ($values)";
-			}
+			
+			$query = ( $profileID ) ? "update phpgw_emailadmin set $query where profileID=$profileID" : "insert into phpgw_emailadmin ($fields) values ($values)";
+
 			$this->db->query($query,__LINE__,__FILE__);
 		}
 

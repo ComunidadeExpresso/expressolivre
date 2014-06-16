@@ -1,0 +1,1650 @@
+body{overflow: hidden;}
+/* attachments list on message screen */
+.expressomail-attachments { background:#EEE; font-size:11px; width:100%; margin:0; padding:0;}
+.expressomail-attachments-label {display:block; float:left;}
+ul.expressomail-attachments-list { list-style:none; display:block; margin-left:40px;}
+ul.expressomail-attachments-list li {}
+.expressomail-attachments-link { font-size:11px;}
+
+textarea{
+    overflow:hidden;
+    height:auto;
+/*    width:18px;
+	resize: none;*/
+}
+a.rich{
+	padding : 5px;
+	cursor : pointer;
+	text-align: center;
+}
+button.adress_button {width: 47px; text-align: center;}
+span.ui-icon.expressomail-icon-read-confirmation { background-image: url(images/notification.gif) !important; background-position: 0px 0px; width: 24px; height: 24px;}
+span.ui-icon.expressomail-icon-save { background-image: url(images/disk.png) !important; background-position: 0px 2px; width: 16px; height: 16px; background-size: 13px;}
+span.ui-icon.expressomail-icon-signature { background-image: url(images/signature.gif) !important; background-position: 8px 2px; width: 24px; height: 24px; background-size: 13px;}
+span.ui-icon.expressomail-icon-encryption{ background-image: url(images/lock.png) !important; background-position: 7px 1px; width: 24px; height: 24px; background-size: 13px;}
+span.ui-icon.expressomail-icon-send { background-image: url(images/send.png) !important; background-position: -2px 2px; width: 25px; height: 16px; background-size: 19px;}
+span.ui-icon.expressomail-icon-save_and_send { background-image: url(images/save_and_send.png) !important; width: 25px; height: 16px; background-size: 17px;}
+span.ui-icon.expressomail-icon-important { background-image: url(images/important.png) !important; background-position: 7px 1px; width: 24px; height: 24px; background-size: 13px;}
+
+/* thumbs list on message screen */
+.expressomail-thumbs { font-size:11px; width:100%; max-width:100%; margin:20px 0 0 0; border-top:1px solid #AAA; float: left}
+.expressomail-thumbs-label {}
+.message_options {}
+.expressomail-thumbs span.message_tips { display:block; padding-left:18px; line-height:18px;height:18px; background-image: url(images/menu/ktip.png); background-repeat:no-repeat;}
+ul.expressomail-thumbs-list { list-style:none; margin:0; padding:0;}
+ul.expressomail-thumbs-list li {height:80px;  max-width:120px; max-height:80px; display:block; float:left; margin: 5px; padding:0;}
+ul.expressomail-thumbs-list li img {width:auto; height:100%; border: 2px solid #FDE7BC;}
+.expressomail-thumbs-link { font-size:11px;}
+.jcarousel-container { width: auto;}
+ 
+
+
+/* todo o resto */
+table.expressomail-message-body {width:100%; height:100%;}
+table.table_message, div.table_message {
+background: #96b3d3; /* Old browsers */
+background: -moz-linear-gradient(top, #96b3d3 0%, #b4c9e4 30%, #d9e6ef 65%, #e2e9f1 70%, #e9f0f8 78%, #e8f1fa 83%, #dbe5ef 96%, #d9e3ed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#96b3d3), color-stop(30%,#b4c9e4), color-stop(65%,#d9e6ef), color-stop(70%,#e2e9f1), color-stop(78%,#e9f0f8), color-stop(83%,#e8f1fa), color-stop(96%,#dbe5ef), color-stop(100%,#d9e3ed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* IE10+ */
+background: linear-gradient(top, #96b3d3 0%,#b4c9e4 30%,#d9e6ef 65%,#e2e9f1 70%,#e9f0f8 78%,#e8f1fa 83%,#dbe5ef 96%,#d9e3ed 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96b3d3', endColorstr='#d9e3ed',GradientType=0 ); /* IE6-9 */
+}
+table.expressomail-message-body tr{vertical-align:top;}
+
+
+
+
+.table_message_options{
+	background-color: #000;
+	
+	/* Apenas para ie qualquer versao */
+	-moz-border-collapse: separate;
+	border-color: gray;
+
+    border-spacing: 0;
+    border-style: outset;
+    border-width: 0.01;
+    cursor: default;
+    padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	
+}
+
+.table_message_options_ie{
+
+	border-collapse: collapse;
+	background-color: #000;
+	border-color: gray;
+    border-spacing: 0;
+    border-style: outset;
+    border-width: 1;
+    cursor: default;
+    padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	
+}
+
+.table_message{
+	background-color: #000;
+	
+	/* Apenas para ie qualquer versao */
+	-moz-border-collapse: separate;
+	border-color: gray;
+	border-radius: 3px 3px 3px 3px;
+    border-spacing: 0;
+    border-style: outset;
+    border-width: 1px;
+    cursor: default;
+    padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	
+}
+
+.div_message_scroll { background: none repeat scroll 0% 0% WHITE; overflow: auto; padding-right: 5px;}
+a.message-attach-link { margin-left: 20px;}
+
+.messagescol td label {padding-right:20px;}
+.messagescol td.message-general-options .checkbox {margin: 5px 5px 0 0;}
+
+.ui-dialog-dragging {
+	opacity:0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.context-menu-item.icon-important { background-image: url(images/important.png); background-position: 6px 5px !important}
+.context-menu-item.icon-export { background-image: url(images/export.png); }
+.context-menu-item.icon-move { background-image: url(images/move.png); }
+.context-menu-item.icon-seen { background-image: url(images/seen.gif); }
+.context-menu-item.icon-unseen { background-image: url(images/unseen.gif); }
+.context-menu-item.icon-normal { background-image: url(images/door.png); }
+.context-menu-item.icon-followupflag { background-image: url(images/door.png); }
+.context-menu-item.icon-quick-add { background-image: url(images/vcard_add.png); }
+.context-menu-item.icon-delete-box{ background-image: url(images/user_delete.png); }
+.context-menu-item.icon-quick-search-contact{ background-image: url(images/zoom.png); }
+/* Airton. Adicionando o ícone da opção de arquivar do menu de contexto do expressoMail */
+.context-menu-item.icon-archive{ background-image: url(images/archive.png); }
+
+
+.context-menu-item.icon-search-mail { background-image: url(images/menu/search.png); }
+.context-menu-item.icon-filter { background-image: url(images/menu/filters.png); }
+.context-menu-item.icon-edit-folder { background-image: url(images/menu/editfolders.png); }
+.context-menu-item.icon-share-mailbox { background-image: url(images/menu/usersfolders.png); }
+.context-menu-item.icon-label { background-image: url(images/menu/usersfolders.png); }
+.context-menu-item.icon-tag { background-image: url(images/menu/tag.png); background-size: 12px; background-position: 6px 2px !important;}
+.context-menu-item.icon-empty-trash { background-image: url(images/menu/trash.png); }
+.context-menu-item.icon-queue { background-image: url(images/menu/queue.png); }
+.context-menu-item.icon-config { background-image: url(images/menu/config.png); }
+
+
+.ui-button-text-only .ui-button-text
+{
+	font-size: 0.9em;
+	padding: 0.1em 0.6em;
+}
+
+form.fileupload { margin: 14px 0 0 -13px; float: left; margin-bottom: -20px; }
+form.fileupload .files-list { margin-left: 5px; margin-top: -14px; padding: 0.2em 0.7em; }
+form.fileupload .files-list .delete-upload { top: 7px}
+
+div.attachments-list {
+	max-height: 130px;
+	overflow-y: auto;
+	padding-top: 5px;
+}
+
+form.fileupload .ui-button .ui-button-text { line-height: 2; }
+form.fileupload .ui-button { margin-left: 5px; }
+form.fileupload .message-add-original-att { margin-left: 0px; }
+.button.add.button-add-attachment{margin: -9px 0 0 8px;}
+.button.upload{margin-bottom: 4px;}
+div.fileupload-buttonbar{padding: 0.2em 0.5em }
+.archive-error{color: #F00;}
+
+.progress.in-progress{width: 100px; height: 12px;}
+
+.row.fileupload-buttonbar{margin-top: -14px; padding: 0.2em 0.7em;}
+
+.archive-attach.name{width: 310px;}
+.archive-attach.name label{display: block; position: absolute; left: 136px; top: 194px;}
+.size{min-width: 65px;}
+
+.message-attach.name{width: 200px;}
+.message-attach.size{margin:0 4px 0 4px;}
+.message-attach-error{color:red;}
+
+
+/* Estilos da tela de busca rápida de contatos */
+
+.expressomail-qs-container { font-size:11px;} 
+.expressomail-qs-container legend { font-size:1.1em; font-weight: bold; } 
+.expressomail-qs-container #accordion { margin: 5px;} 
+.expressomail-qs-container fieldset, .expressomail-qs-container div {margin:0;}
+.expressomail-qs-container .ui-autocomplete-input { height:22px; width:200px; margin-right:-1px; }
+.expressomail-qs-container #wrap-progressbar { height:22px; width:122px;  float:left; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar { text-align:center; width:100px; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar span { font-size:10px; line-height:12px; }
+.expressomail-qs-container #wrap-progressbar #inner-progressbar #progressbar { width:100px; height:10px; }
+.expressomail-qs-container .clear {clear:both;}
+/*.expressomail-qs-container #fieldset1 label {width:495px;display:inline-block; border:4px solid #72A9D3;}*/
+.expressomail-qs-container fieldset { border:1px solid #AAA; border-radius:5px; margin:5px; }
+.expressomail-qs-container #ul {list-style:none; margin:0; padding:0;}
+.expressomail-qs-container #fieldset1 {color:#444;}
+.expressomail-qs-container #fieldset1 label {font-weight:bold; display:block;}
+
+.expressomail-qs-container #list-acc-users li, .expressomail-qs-container #search-result-users li {margin-right:5px;border-radius:3px;}
+.expressomail-qs-container #list-acc-mails li {margin-right:5px;padding-bottom:4px;border-radius:3px;}
+.expressomail-qs-container #list-acc-users li:hover, .expressomail-qs-container #list-acc-mails li:hover, .expressomail-qs-container #search-result-users li:hover {background-color:#DDD;}
+.expressomail-qs-container #list-acc-users li span.ui-icon, .expressomail-qs-container #list-acc-mails li span.ui-icon, .expressomail-qs-container #search-result-users li span.ui-icon {display:none; margin:2px;}
+.expressomail-qs-container #list-acc-users li input, .expressomail-qs-container #list-acc-mails li input, .expressomail-qs-container #search-result-users li input {margin-top:5px;}
+.expressomail-qs-container #list-acc-users li label, .expressomail-qs-container #list-acc-mails li label, .expressomail-qs-container #search-result-users li label {margin-top:-5px;}
+.expressomail-qs-container #list-acc-users li:hover span, .expressomail-qs-container #list-acc-mails li:hover span, .expressomail-qs-container #search-result-users li:hover span {display:inline;}
+.expressomail-qs-container #search-result-users li span.ui-icon {display:none;}
+.expressomail-qs-container .ui-icon {float:right;}
+.expressomail-qs-container #icon-bar1 .ui-icon {float:left; margin:0 3px;}
+.expressomail-qs-container #icon-bar1 span {float:left; margin:2px 3px 0 0;}
+.expressomail-qs-container .ui-icon-trash, .expressomail-qs-container .ui-icon-edit, .expressomail-qs-container .ui-icon-close, .expressomail-qs-container .ui-icon-plus, .expressomail-qs-container .ui-icon-pencil {background-color:#EEE;}
+.expressomail-qs-container .ui-icon-trash:hover, .expressomail-qs-container .ui-icon-edit:hover, .expressomail-qs-container .ui-icon-close:hover, .expressomail-qs-container .ui-icon-plus:hover, .expressomail-qs-container .ui-icon-pencil:hover {background-color:#BBB;}
+.expressomail-qs-container .ui-autocomplete-input {width:170px;}
+.expressomail-qs-container .ui-accordion .ui-accordion-content{padding:5px;}
+
+.expressomail-qs-container .foot-note {width:905px; padding:5px;margin-top:20px;border-top:1px solid #ddd;}
+.expressomail-qs-container .acc-list {font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif; font-size:11px; color:#555; }
+.expressomail-qs-container .acc-list h3{font-family: "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif; font-size:11px; color:#555; margin:0; padding:5px 3px; background-color:#fff;}
+.expressomail-qs-container .acc-list ul{ margin:5px 0;}
+.expressomail-qs-container .acc-list ul li{ border-radius:3px; padding:5px;}
+.expressomail-qs-container .acc-list ul li:hover {background-color:#DDD;}
+.expressomail-qs-container .acc-list ul li.active {background-color:#EB8F00;}
+.expressomail-qs-container .acc-list ul li strong {display:block;}
+.expressomail-qs-container .acc-list ul li em {display:block;}
+
+/*Específico do selectable*/
+.expressomail-qs-container #feedback { font-size: 1.4em; }
+.expressomail-qs-container #selectable .ui-selecting { background: #DDECF7; }
+/* #selectable .ui-selected { background: #F39814; color: white; }   Aqui eu troquei a cor de quando era selecionada a linha */
+.expressomail-qs-container #selectable .ui-selected { background: #72A9D3; color: white; }
+
+.expressomail-qs-container #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+.expressomail-qs-container ul#selectable { overflow: hidden; width: 444px; height: 250px;}
+.expressomail-qs-container ul#selectable li { width: 435px; overflow:hidden; }
+.expressomail-qs-container ul#selectable li.ui-selected { width: 100%;  }
+.expressomail-qs-container ul#selectable li div { width: 6000px; }
+.expressomail-qs-container .ui-button-icon-only { width: 1.2em; }
+.expressomail-qs-container .ui-icon { margin-left: -8px; }
+.expressomail-qs-container .ui-widget button { border: 0 solid; } 
+
+.expressomail-qs-container .menu-control { float:right; margin-left:400px; position: absolute; z-index: 100; padding-top:5px;}
+.expressomail-qs-container .acc-list { width:444px;height:250px;float:left;border:1px solid #DDD;background-color:#EEE;border-radius:3px;margin-left:1px; margin: 10px 5px 5px 1px;}
+.expressomail-qs-container .details-container { width:300px;height:246px; float:right; margin: 5px 0;}
+
+.expressomail-qs-container .acc-list .demo {width:100%;margin-top:20px;}
+
+.dialog-modal.expressomail-qs-container  { height: 416px; padding:5px; }
+
+.ui-dialog .ui-dialog-buttonpane { padding: 0; border:none; margin: 0;}
+.expressomail-qs-container .menu-control .ui-button-text-only .ui-button-text { padding: 0.1em 0.6em; }
+
+/* search area definition */
+fieldset.search-field, fieldset.search-catalog-options {
+	border:1px solid #CFCFCF;
+	padding: 5px;
+}
+
+fieldset.search-field input, fieldset.search-catalog-options select{
+	display: inline-block;
+	border: none;
+	background-color: #FFF;
+}
+
+fieldset.search-field span {
+	display: inline-block;
+	margin:0 0 -3px 5px;
+}
+
+/* #search area definition */
+fieldset.search-field { max-width: 190px; width: 190px; margin: 0px; text-align: left; display: inline;}
+fieldset.search-field input { max-width: 165px; width: 165px; }
+
+fieldset.search-catalog-options { max-width: 124px; width: 120px; margin: 0px; text-align: left; display: inline;}
+fieldset.search-catalog-options select { max-width: 120px; width: 120px; }
+
+
+.ui-dialog .ui-dialog-titlebar-minimize {
+    height: 18px;
+    margin: -10px 0 0;
+    padding: 1px;
+    position: absolute;
+    right: 1.8em;
+    top: 50%;
+    width: 19px;
+}
+
+.ui-dialog-buttonpane .ui-button {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+ 
+.button-mod { margin-top: -2.5em; }
+
+/*print.css */
+
+.print-all-messages h1 { font-size: 1.35em; }
+.print-all-messages h2 { font-size: 1.05em; }
+.print-all-messages tbody { font-size: 0.95em; }
+.print-all-messages thead td { font-weight: bold; padding: 3px; border-bottom: solid 2px #999; }
+.print-all-messages tbody td { border-bottom: solid 1px #ccc; }
+.print-all-messages img { display: none; }
+.print-all-messages input { display: none; }
+
+/*main.css */
+pre{
+	white-space: pre-wrap !important; /* css-3 */
+	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+	white-space: -pre-wrap !important; /* Opera 4-6 */
+	white-space: -o-pre-wrap !important; /* Opera 7 */
+	word-wrap: break-word !important; /* Internet Explorer 5.5+ */
+	font-family: monospace !important;	
+	/*font-size: 10pt !important;*/
+	font-size: 11px !important;
+}
+/** {
+	font-family: Verdana, Arial, Helvetica, sans-serif;	
+}*/
+
+.checkbox{
+	border:none !important;
+}
+
+textarea{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+.whiteSpace{
+	width: 2px;
+}
+
+.table_box{
+	width: 100%;
+	color: black;
+	background: #ffffff;
+	border-bottom: 1px solid #f4f8fb;
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 13px;
+	cursor: pointer;
+	table-layout: fixed;
+}
+
+
+
+
+.em_div_write_msg{ 
+        height: 0px; 
+        background: transparent; 
+ 	} 
+
+/* begin class msgs */
+.td_msg{
+	border-width: 0px;	
+}
+
+.span-sender:hover{
+	text-decoration: underline;
+}
+
+
+.th_resizable {
+	padding-left: 3px !important;
+	border-left: solid 1px #999;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.td_resizable {
+	padding-left: 1px;
+	border: 0px;
+	border-left: solid 1px #dde1dd;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	border-right-width: 0px !important;
+}
+
+.tr_msg_unread {	
+	font-weight:bold !important;
+}
+
+.table_box tr{ 
+	border:0;  
+	height: 20px;
+}
+
+.table-info-quota{
+	table-layout: fixed;
+}
+
+.td-info-quota{
+	white-space: nowrap;
+	overflow:	hidden;
+	text-overflow: ellipsis;	
+}
+
+.tr_msg_read {
+	color: #3f3f3f;
+	background-color: #ffffff;
+	-moz-user-select: none;
+}
+
+.tr_msg_read2 {
+	color: #3f3f3f;
+	background-color: #DEE8F0;
+	-moz-user-select: none;
+}
+
+.selected_msg{
+	background-color: #ffffcb;
+}
+.flagged_msg{
+	color: red;
+}
+
+.show_img_link{
+	width : 100%;
+	color: black;
+        font-weight: bold;
+	background-color: #ffc;
+	border-bottom:1px solid #cfcfcf;
+	cursor: pointer;		 
+	-moz-user-select: none;
+}
+/* end class msgs */
+
+.show_img_link:hover {
+	color: #000 !important;
+}
+
+.action_info_table {
+	border-spacing: 0px 0px;
+}
+.action_info_th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border-width: 0px 0px 0px 0px;
+	padding: 1px 10px 0px 10px;	
+	border-style: inset inset inset inset;
+	border-color: gray gray gray gray;
+	background-color: rgb(250, 209, 99);
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	border-radius: 6px 6px 6px 6px;
+}
+
+.message_header{
+	background-color: #ABC6E1;
+}
+
+.message_header td {
+	padding: 0px;
+}
+
+.table_message_ruler {
+	width: 10px;
+	border: none;
+	border-left: 1px dotted #88a;
+	display: none;
+	position: absolute;
+	z-index: 10;
+	height: 300px;
+}
+
+.table_message_header_box{
+	width: 100%;
+	color: black;
+	border-style: solid;
+	border-width: 0px;
+	border-collapse: collapse;
+	border-color: #bbbbbb;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 13px;	
+	cursor: pointer;
+	table-layout: fixed;
+}
+.font-menu {
+    color: #000;
+}
+
+.font-menu-sel {
+       	color:#0000FF;
+}
+
+.font-menu, .font-menu-sel {
+    float: left;
+    clear: left;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu-sel{   
+    text-decoration: none;
+    text-align: center;
+    color:#0000FF;
+    height: 20px;
+    width:220px;
+    background-color:#F7F7F7;
+    margin-bottom: 0px;
+    border: 1px solid #4a79b1;
+    border-bottom: 0px;
+    padding:0px 5px 0px 0px;
+    -moz-border-radius: 9px 9px 0px 0px;
+    -moz-user-select: none;
+    -webkit-border-radius: 9px 9px 0px 0px;
+    border-radius: 9px 9px 0px 0px;
+    cursor: pointer;
+ }
+ 
+.menu{
+    text-decoration: none;
+    text-align: center;
+    height: 20px;        
+    width:220px;
+    background-color:#c8d7ea;
+    margin-bottom: 0px;
+    border: 1px solid #f4f7fc;
+    border-bottom: 1px solid #4a79b1;
+    padding:0px 5px 0px 0px;
+    -moz-border-radius: 9px 9px 0px 0px;
+    -moz-user-select: none;
+    -webkit-border-radius: 9px 9px 0px 0px;
+    border-radius: 9px 9px 0px 0px;
+    cursor: pointer;
+}
+
+.last_menu{
+	border-bottom: 1px solid #4a79b1;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+.table_top{
+	background-color: #FFFFFF;
+	padding:1px 1px 1px 1px;
+	height:16px;
+	cursor: default;
+	margin: 0px 0px 0px 0px;
+	border-width: 0px 1px 1px 1px;
+	border-style: outset outset outset outset;
+	border-color: black black black black;	
+}
+
+.tr_message_header{
+	background-color: #EEEEEE;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	cursor: default;
+	border-style: none none none none;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+.tr_message_body{
+	background-color: #FFFFFF;
+	cursor: default;
+	-moz-border-radius: 9px 9px 9px 9px;
+}
+
+.message_body{
+	background-color: #FFFFFF;
+	cursor: default;
+	-moz-border-radius: 9px 9px 9px 9px;
+}
+
+.header_message_field{
+	font-weight: bold;
+}
+
+.suggestion_list{
+background: white;
+border: 1px solid;
+padding: 4px;
+}
+        
+.suggestion_list ul{
+padding: 0;
+margin: 0;
+list-style-type: none;
+}
+
+.suggestion_list a{
+text-decoration: none;
+color: navy;
+}
+
+.suggestion_list .selected{
+background: navy;
+color: white;
+}
+        
+        
+.suggestion_list .selected a{
+color: white;
+}
+
+#autosuggest{
+display: none;
+} 
+
+div#tipDiv {
+  position:absolute; visibility:hidden; left:0; top:0; z-index:10000;
+  background-color:#EFEFEF; border:1px solid #337;
+  width:220px; padding:0px;
+  color:#000; font-size:11px; line-height:1.2;
+  cursor: pointer;
+}
+
+.richtext_toolbar {background-color: #C0C0C0;}
+.imagebutton {border: solid 2px #C0C0C0; background-color: #C0C0C0; float:left;}
+.select_richtext {float:left;}
+/*.image {position: relative; left: 1; top: 1; height:20; width:21; border:none;}*/
+/*.imagebutton_out: {border-style: solid 2px #C0C0C0;}*/
+/*.imagebutton_over: {border-style: outset 20px;}*/
+.sel_color{	border-width:1px;border-color:#FFFFFF;border-style:solid;cursor:pointer;}
+.unsel_color{border-width:1px;border-color:#BBBBBB;border-style:solid;}
+
+/* Conf tree	*/
+.dtree {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: #000000;
+	/*white-space: nowrap;*/
+	background-color: #FFFFFF;
+
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+
+}
+.dtree a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	white-space: nowrap;	
+}
+.dtree table{
+	margin-top: 0%;
+	padding: 0px 0px 0px 0px;
+}
+.dtree td{
+	padding: 0px 0px 0px 0px;
+}
+
+.folderscol{
+	/*width: 18%;*/
+	width: 100%;
+	/*float: left;*/
+	/*padding: 0px 0px 0px 0px;*/
+}
+
+.messagescol{
+	/*padding-left: 18.5%;*/
+	/*width: 85%;*/
+	width: 100%;
+	/*float: left*/
+	/*margin-rigth: 0px;*/
+	padding: 0px 0px 0px 0px;
+}
+
+.menu-folders{
+	text-align: center;
+	text-decoration: none;
+	font: bold 12px Arial, Helvetica, sans-serif;
+	color: rgb(0, 102, 51);
+	width: 100%;
+	height: 20px;
+
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-top: 1px solid #000000;	
+	cursor: default;
+	-moz-border-radius: 9px 9px 0px 0px;
+}
+
+.content-menu{
+	padding: 0px 0px 0px 0px;
+	background-image: url(../../../phpgwapi/templates/default/images/bgBlockContent.jpg);
+}
+.content-menu-td {
+/*	border: 1px solid #f7f7f7;*/
+	margin-left: 5px;
+}
+
+.content-menu-td:hover{background-color: #ffffff; border: 1px solid #CCCCCC;}
+
+.content-folders {
+	width:162px;
+	padding: 0px 0px 0px 0px;
+	position: relative;
+	overflow: auto;
+	
+}
+
+
+/* Conf Filter	*/
+.filter {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	background-color : #FFFFFF;
+}
+.filter img {
+	border: 0px;
+	vertical-align: middle;
+}
+.filter a {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	white-space: nowrap;
+}
+.message_options_trash {
+	background-image: url(images/page_white_delete.png);
+	background-repeat: no-repeat;
+	background-position:left center;
+	padding:0pt 6pt 1pt 14pt;
+}
+.message_options_move {
+	background-image: url(images/move.png);
+	background-repeat: no-repeat;
+	background-position:left center;
+	padding:0pt 6pt 1pt 14pt;
+}
+.message_options_print {
+	background-image: url(images/print.png);
+	background-repeat: no-repeat;
+	background-position:left center;
+	padding:0pt 6pt 1pt 14pt;
+}
+
+.message_options_export {
+	background-image: url(images/export.png);
+	background-repeat: no-repeat;
+	background-position:left center;
+	padding:0pt 6pt 1pt 14pt;
+}
+
+.message_options_import {
+	background-image: url(images/import.png);
+	background-repeat: no-repeat;
+	background-position:left center;
+	padding:0pt 6pt 1pt 14pt;
+}
+
+.message_options_inactive {
+         white-space: nowrap;
+	 color: #999;
+	padding-right: 0 !important;
+}
+
+.message_options_active {
+	white-space: nowrap;
+	color: #990000;
+    font-weight: bold !important;
+	cursor: pointer;
+	padding-right: 0 !important;
+ }
+
+.message_options {
+	cursor: pointer;
+        color: #114fa4;
+/*	color: #2A64B0;*/
+	white-space: nowrap;
+	font-weight: bold;
+	padding-right: 0 !important;
+}
+
+.message_options_over {
+	 cursor: pointer;
+         white-space: nowrap;
+	 color: #FC6103;
+	/*text-decoration: underline;*/
+         font-weight: bold !important;
+	padding-right: 0 !important;
+}
+
+.reply_options {
+	cursor: pointer;
+        color: white;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+.reply_options_active {
+	 cursor: pointer;
+         white-space: nowrap;
+	 color: yellow;
+	 text-decoration: underline;
+         font-weight: bold !important;
+}
+
+.class_search_div{
+	position: relative;
+	left: 12px;
+}
+
+.em_sidebox_menu {
+	position: relative;
+	left: 2px;
+	padding: 0px 13px 0px 0px;
+	font-weight: bold;
+	font-size: 10px;
+	color: #666666;
+	text-decoration: none;
+	white-space: nowrap;
+	font-family: sans-serif;
+}
+
+.em_div_sidebox_menu {
+	position: relative;
+	cursor: pointer;
+	left: 17px;
+}
+.catalog{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+div.quicksearchcontacts {
+	border-width: 1px;
+	border-style: solid;
+	broder-color: grey;
+	overflow: auto;
+	position: relative;
+	left: 10px;
+	height: 302px;
+	width: 577px;
+}
+
+table.quicksearchcontacts {
+	border-width: 0px 0px 0px 0px;
+	border-spacing: 0px;
+	background-color: white;
+	cursor: default;
+}
+
+tr.quicksearchcontacts_unselected {
+	background-color: white;
+}
+
+tr.quicksearchcontacts_selected {
+	background-color: #5598d7;
+	color: white;
+}
+
+td.quicksearchcontacts_cc {
+	border-style: none;
+}
+
+input.em_button_like_span {
+	border:0px none !important;
+	margin: 0px !important;
+	padding:0px !important;
+	color:#114fa4 !important;
+	background:transparent none repeat scroll 0% !important;
+	font-family:Arial,Helvetica,sans-serif !important;
+	font-size:11px !important;
+	height:15px !important;
+	font-weight: bold;
+}
+
+.l {
+	background-image: url(../../../phpgwapi/templates/default/images/foldertree_folder.png);
+}
+
+.sl {
+	background-image: url(../../../phpgwapi/templates/default/images/foldertree_folderopen.png);
+}
+.dsused {
+        background-image: url(../../../expressoMail/templates/default/images/dsused.gif);
+}
+
+.divAppboxHeader{
+	font-style:italic;	
+	font-weight:normal;
+	font-variant: small-caps;	
+	color: #000066 !important;
+	font-size: 16px !important;
+	text-align: center;	
+	padding: 0px;
+}
+
+/* hack para o chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	input[type="file"]{
+	background-color: #FFF;
+	border: 1px solid #e4e4e4;
+	height: 20px;
+	width: 350px;
+	vertical-align: middle;
+	}
+}
+
+.local-messages-search-warning {
+	cursor: pointer;
+	cursor: hand;
+	background: none repeat scroll 0% 0% rgb(255, 238, 187);
+	color: red;
+	line-height: 2em;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+
+/*
+ * Este arquivo limpa o estilo para a nova agenda, .new-event-win.active sobrescrevendo o código CSS
+ * do Expresso.
+ * Deve ser removido quando o módulo Calendar não integrar mais a versão 2.x
+ */
+
+/* Eric Meyer's Reset Reloaded based
+ * http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+ */
+/*
+.new-event-win.active applet, .new-event-win.active object, .new-event-win.active iframe, .new-event-win.active fieldset, .new-event-win.active div
+.new-event-win.active h1, .new-event-win.active h2, .new-event-win.active h3, .new-event-win.active h4, .new-event-win.active h5, .new-event-win.active h6, .new-event-win.active p, .new-event-win.active blockquote, .new-event-win.active pre,
+.new-event-win.active abbr, .new-event-win.active acronym, .new-event-win.active address, .new-event-win.active big, .new-event-win.active cite, .new-event-win.active code,
+.new-event-win.active del, .new-event-win.active dfn, .new-event-win.active em, .new-event-win.active font, .new-event-win.active img, .new-event-win.active ins, .new-event-win.active kbd, .new-event-win.active q, .new-event-win.active s, .new-event-win.active samp,
+.new-event-win.active small, .new-event-win.active strike, .new-event-win.active strong, .new-event-win.active sub, .new-event-win.active sup, .new-event-win.active tt, .new-event-win.active var,
+.new-event-win.active ol, .new-event-win.active ul,
+.new-event-win.active form, .new-event-win.active label, .new-event-win.active select,
+.new-event-win.active table, .new-event-win.active caption, .new-event-win.active tbody, .new-event-win.active tfoot, .new-event-win.active thead, .new-event-win.active tr, .new-event-win.active th, .new-event-win.active td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	/*font-size: 100%;*/
+	/*font-family: inherit;*/
+	/*vertical-align: baseline;*/
+/*	font-family: Arial,Helvetica,sans-serif;*/
+/*}*/
+.new-event-win.active:focus, .new-task-win.active:focus {
+	outline: 0;
+}
+.new-event-win.active body , .new-task-win.active body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+.new-event-win.active ol, .new-event-win.active ul , .new-task-win.active ol, .new-task-win.active ul {
+	list-style: none;
+	list-style-image : none;
+	padding-left : 5px;
+}
+
+.new-event-win.active table , .new-task-win.active table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+.new-event-win.active caption, .new-event-win.active th, .new-event-win.active td, .new-task-win.active caption, .new-task-win.active th, .new-task-win.active td {
+	/*text-align: left;*/
+	font-weight: normal;
+}
+.new-event-win.active blockquote:before, .new-event-win.active blockquote:after,
+.new-event-win.active q:before, .new-event-win.active q:after,
+.new-task-win.active blockquote:before, .new-task-win.active blockquote:after,
+.new-task-win.active q:before, .new-task-win.active q:after {
+	content: "";
+}
+.new-event-win.active blockquote, .new-event-win.active q ,
+.new-task-win.active blockquote, .new-task-win.active q 
+{
+	quotes: "" "";
+}
+.new-event-win.active .mail.name-special, .new-event-win.active .name.name-special,
+.new-task-win.active .mail.name-special, .new-task-win.active .name.name-special
+{
+  padding: 0 0 0 35px;
+}
+
+.new-event-win.active .add-attendee-search.search-field ,
+.new-task-win.active .add-attendee-search.search-field 
+{
+  width: 249px;
+ }
+ 
+ .new-event-win.active #calendar_addevent_details4, .new-task-win.active #calendar_addtask _details4 {
+  margin: 10px 0 0 0;
+ } 
+ 
+ .new-event-win.active input, .new-task-win.active input{
+  color: #000;
+ } 
+ 
+ .new-event-win.active #calendar_addevent_details5 , .new-task-win.active #calendar_addtask_details5 {
+  margin: 10px 0 11px 0;
+ }
+
+ .new-event-win fieldset.tab-level2, .new-task-win fieldset.tab-level2 { padding: 0px 5px; min-height: 110px; max-height: 310px; overflow: hidden;}
+ 
+.new-event-win.active select , .new-task-win.active select {
+    border: 1px solid #CFCFCF;
+    border-color: #CFCFCF;
+    color: #555;
+    background-color: #FFF;
+}
+.new-event-win.active a:link, .new-event-win.active a:visited 
+.new-task-win.active a:link, .new-task-win.active a:visited
+{
+
+    color: #2E6E9E;
+}
+
+.new-event-win.active  dd, .new-event-win.active  dl, .new-event-win.active  dt, 
+.new-task-win.active  dd, .new-task-win.active  dl, .new-task-win.active  dt
+{
+	margin: 0;
+}
+/* azul.css */
+/*body { background-color: #e9e9e9; }*/
+
+/*a:link,
+a:visited
+{ color: #000066; }*/
+
+/*a:hover,
+a:active
+{ color: #ff9933; }*/
+
+.new-event-win.active #divAppbox
+.new-task-win.active #divAppbox
+{
+	overflow-x: auto;
+	overflow-y: scroll;
+}
+
+.new-event-win.active select
+.new-task-win.active select
+{ border-color: #CFCFCF; color: #555; padding-left:0px;}
+
+.qtip-wrapper fieldset{
+	padding: 0;
+	border: 0;
+}
+
+.new-event-win.active .fc-event-skin {
+	border-color: #36C !important;
+	background-color: #36C !important; 
+	color: white !important;
+}
+
+.fc-event-vert .fc-event-bg {
+	display: block !important;
+}
+
+.map-event{
+
+}
+
+#new_event_map .map-event .fc-event-inner.fc-event-skin{
+	border-style: dashed !important;
+	border-width: 2px !important;
+	border-color: #36C !important;
+	background-color: transparent !important;
+}
+
+#new_event_map .map-event .fc-event-inner.fc-event-skin .fc-event-head, #new_event_map .map-event .fc-event-inner.fc-event-skin .fc-event-content{
+	background-color: transparent !important;
+	color: transparent !important;
+}
+
+#new_event_map .map-event .ui-resizable-handle{
+	display : block !important;
+	color: black !important;
+}
+
+div.new-event-win.active div.button-files-upload {margin: 15px 0 0 0;}
+
+fieldset.alarm{  
+    border: none !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.new-task-win dl.block-add-attendee{
+	width: 350px;
+}
+.new-task-win.active .add-attendee-search.search-field{
+	width: 322px;
+}
+
+.new-task-win .menu-container.footer-container{
+	width: 774px;
+}
+
+/*#divAppbox
+{ background: #fff url( ../images/bgBlockContent.jpg ) repeat-x; border-color: #9c9c9c; }
+
+#divAppboxHeader
+{ background: url( ../images/bgAppTitle.png ); border-color: #9c9c9c; color: #006; text-shadow: 0.2em 0.2em 3px #999; }
+
+#divAppIconBar
+{ background: #fff url( ../images/background-icon-bar.png ) repeat-x; border-top-color: #9c9c9c; }
+
+#divAppTextBar
+{ background-color: #fff; }
+
+#divGenTime
+{ color: #f00; }
+
+#divMain
+{ background: #fff; border-color: #7e7e7e; }
+
+#divPoweredBy
+{ background: #fff; color: #999; }
+
+#divSideboxContainer
+{ background: #fff; }
+
+#extraIcons
+{ background: #eee; border-color: #7e7e7e; }
+
+#links_bar,
+#user_info
+{ color: #fff; }
+
+#tdAppbox
+{ background-color: #fff; }
+
+#tdSidebox
+{ background: #fff; }*/
+
+/*.conteudo
+{ border-color: #4A79B1; color: #003; }
+
+.divSideboxHeader
+{ background: #416faa; color: #fff; }
+
+.extraIconsRow
+{ border-top-color: #ddd; }
+
+.greyLine
+{ border-top-color: #7e7e7e; }
+
+.grid_email_class
+{ border-bottom-color: #cfcfcf; }
+
+.image-menu
+{ background: url( ../../../../phpgwapi/templates/default/images/folder_bg.png ); }
+
+.last_menu
+{ border-bottom-color: #4a79b1; }
+
+.logo_expresso
+{ background: url( ../../../../phpgwapi/templates/default/images/logo_expresso.jpg ) no-repeat 0 3px; }
+
+.menu
+{ background: #c8d7ea; border-color: #f4f7fc; border-bottom-color: #4a79b1; }
+
+.menu-sel
+{ background-color: #f7f7f7; border-color: #4a79b1; color: #00f; }
+
+.menu-degrade
+{ background-image: url( ../../../../phpgwapi/templates/default/images/degrade.png ); }
+
+.navbar_but
+{ background-image: url(../../../../phpgwapi/templates/default/images/back_app.png); }
+
+.navbar_butOver
+{ background-image: url( ../../../../phpgwapi/templates/default/images/back_app_over.png ); }
+
+.navbar_butOut
+{ background-image: url( ../../../../phpgwapi/templates/default/images/back_app_out.png ); }
+
+.tblHeadApp
+{ border-color: #9c9c9c; }
+
+.textSidebox
+{ border-top-color: #aaa; }
+
+.toolbar
+{ background-image: url( ../../../../phpgwapi/templates/default/images/fundo_topo.png ); }
+
+.linha0,
+.tr_msg_read
+{ color: #3f3f3f; background: #fff; }
+
+.linha1,
+.tr_msg_read2
+{ color: #3f3f3f; background: #f4f8fb; }
+
+table.inboxElements th,
+.table_elements_tr_header,
+.info_tr_header,
+.message_header
+{
+	background: #abc6e1;
+}
+
+.prefTable
+{
+	background-color: #f4f8fb;
+	margin: 0px 0px 10px 0px ;
+	border: 1px solid #D3DCE3;
+	border-top: 0px;
+}*/
+
+
+/*fixed bug on IE8*/
+#content_folders .foldertree-skin-prognus span.selected {font-weight:bold !important; } 
+#content_folders .foldertree-skin-prognus span.inbox {}
+#content_folders .foldertree-skin-prognus span.trash {;background-image: url(../../../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -67px;}
+#content_folders .foldertree-skin-prognus span.drafts {background-image: url(../../../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -1121px;}
+#content_folders .foldertree-skin-prognus span.spam {background-image: url(../../../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -989px;}
+#content_folders .foldertree-skin-prognus span.sent {background-image: url(../../../prototype/modules/mail/img/mail-sprites.png); background-position: 0 -1055px;}
+#content_folders .foldertree-skin-prognus span.folder {display: block;padding-bottom: 1px;padding-left: 18px;padding-right: 0;padding-top: 1px; font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;}
+#content_folders .treeview .closed {display:block;}
+
+.folders-loading {
+	background: url(../../../prototype/modules/mail/img/loader.gif) !important;
+	background-position: 0 0 !important;
+	background-repeat : no-repeat !important;
+}
+
+.draggin-box{
+	cursor : pointer;
+	background-color: #CDC5BF;
+	float: left;
+	width : auto; 
+	height: 16px; 
+	border:1px solid #333;
+	text-align: right;
+	z-index: 2000;
+}
+
+.ui-draggin-default-image{
+    float: left; 
+    text-align: right;
+}
+
+.draggin-mail{
+	float: left;
+	/*background-image: url(../../../prototype/modules/mail/img/mail-sprites.png);*/
+	background-position: 0 -1381px;
+	background-repeat:no-repeat;
+	color : red;
+	text-align: right;
+	font-weight : bold;
+	padding-right : 5px;
+	padding-left : 20px;
+	padding-top : 2px;	
+	font-family : Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-size : 11px;
+}
+
+.draggin-folder{
+	float: left;
+	/*background-image: url(../../../prototype/modules/mail/img/mail-sprites.png);*/
+	background-position: 0 -923px;
+	background-repeat:no-repeat;
+	padding-right : 5px;
+	padding-left : 5px;	
+	padding-top : 2px;	
+	color : red;
+	text-align: right;
+	font-weight : bold;
+}
+
+.collapse_folders_td{
+	cursor : pointer;
+	width: 12px;
+	height:100%;
+	border-radius : 5px;
+	border-left : 1px solid #CCCCCC;
+}
+.collapse_folders_td.collapse_folders_td_over{
+	border-left: 1px solid #1B75BB;
+} 
+
+.folder-over{
+	border: 1px solid black;
+}
+
+.floating-default{
+    float: left; 
+    text-align: left;
+}
+
+.collapse_folders_td .ui-icon.ui-icon-triangle-1-e{
+	background-position: -37px -20px;
+	width: 8px; 
+	height: 8px;
+}
+
+.collapse_folders_td .ui-icon.ui-icon-triangle-1-w{
+	width: 8px; 
+	height: 8px;
+	background-position: -100px -20px;
+}
+
+.float-menu{
+	float: right;
+	position: relative;
+	border: 1px solid gray;
+	border-radius: 3px;
+	background-color: white;
+	right: 5%;
+}
+
+ button.expressomail-button-icon-ative{color:#E17009 !important; border: 1px solid #E17009 !important;background: none repeat scroll 0 0 #FFE1CC !important;}
+ 
+.outoffice 
+{ 
+    width: 295px;  
+    height: 50px;  
+    overflow: hidden; 
+} 
+        
+.title-outoffice 
+{ 
+        margin-left: 10px; 
+        font-family: verdana; 
+        font-size: 1.2em; 
+} 
+.outoffice span{ 
+        margin: 5px; 
+} 
+
+#detalhes_contato img{ margin-bottom: -4px;}
+
+ button.expressomail-button-icon-ative{color:#E17009 !important; border: 1px solid #E17009 !important;background: none repeat scroll 0 0 #FFE1CC !important;}
+ 
+.box{
+	background-color: #DFEFFC;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 1px solid #ADD9ED; 
+	display: inline-block;
+	cursor : pointer;
+	margin-top : 1px;
+	margin-right: 1px;
+	outline : none;
+	padding : 1px;
+}
+
+
+.box span{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color : #201b41;
+	outline : none;
+}
+
+.out-office-box{
+	background-color: #dac407;
+	border : 1px solid #837c3f !important;
+}
+
+.out-office-box span{
+	color: #837c3f;
+}
+
+.email-area{
+	border-radius: 5px; 
+	width: 98.5%;
+	padding: 5px;
+	border : 1px solid #BBBBBB; 
+	heigth : auto;
+	max-height : 115px;
+	overflow-y: auto;
+	cursor: text;
+}
+.email-text{
+	outline:none;
+	width:15px;
+	border : none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+.box-input{
+	outline:none;
+	border : none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	display : none;
+	width: 40px;
+}
+
+.hidden {
+	display : none;
+}
+
+.loading {
+	background: url(../../../prototype/modules/mail/img/loader.gif) !important;
+	background-position: 0 0 !important;
+	background-repeat : no-repeat !important;
+}
+
+.line-separator{
+	background: url("images/linha.png") repeat-x scroll 0 8px transparent;
+	clear : both;
+}
+
+.box-draggable-hover{
+	border : 1px solid #474747;
+}
+
+.box-loading{
+	background : url("../../../prototype/modules/mail/img/loading.gif") no-repeat !important;
+	background-size: 17px auto !important;
+}
+
+.box-info{
+	background : url("images/information.png") no-repeat !important;
+}
+
+input.required-fail{
+	border-color : red;
+}
+
+div.conteudo
+{
+	overflow: visible !important;
+}
+
+div.conteudo div.new-msg-head-data div.att-box{
+	background-color: #DFEFFC;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 1px solid #ADD9ED; 
+	display: inline-block;
+	cursor : pointer;
+	margin-top : 3px;
+	margin-right: 3px;
+	outline : none;
+	padding : 1px;
+}
+
+
+div.conteudo div.new-msg-head-data  div.att-box span.att-box-value{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color : #201b41;
+	outline : none;
+}
+
+div.conteudo div.new-msg-head-data div.att-box span.att-box-loading{
+	background : url("../../../prototype/modules/mail/img/loading.gif") no-repeat !important;
+	display: inline-block;
+	background-size: 15px auto !important;
+}
+
+div.conteudo div.new-msg-head-data div.att-box.invalid-email-box{
+	background-color: #ea9aa0;
+	border : 1px solid #540303 !important;
+}
+
+div.new-msg-head-data div.email-area .invalid-email-box{
+	color: #540303;
+	background-color: #ea9aa0;
+	border : 1px solid #540303 !important;
+}
+
+div.new-msg-head-data div.email-area .box-selected{
+	background-color : #BBBBBB;
+}
+
+.fileupload_msg_tooltip{
+    width: 99.7%;
+    text-align: center;
+    background: #DFEFFC;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 115px;
+    line-height: 115px;
+    font-size: larger;
+}
+
+.fileupload_msg_tooltip.hover {
+    background: #ADD9ED;
+}
+
+.select-all-messages{
+	min-height: 20px;
+	font-size: 13px;
+	font-family: Arial;
+	white-space: nowrap;
+	text-align: center;
+}
+.select-all-messages .select-link{
+	text-decoration: underline !important;
+}
+
+.none-selected{
+	color: #9F9F9F;
+}
+.selected_shortcut_msg{
+    color: white;
+    background-color: #95A7FC;
+}
+
+.current_selected_shortcut_msg{
+    color: white;
+    background-color: #5194d2;
+}
+
+/*freeow*/
+div.gray.alarmDeadline .button.delete
+{
+/*
+	display: block;
+	position: absolute;
+	right: 19px;
+	top: 50px;
+	*/
+}
+
+/*div.gray.alarmDeadline ul.message-list{overflow: hidden;}*/
+
+/*div.gray.alarmDeadline ul.message-list li{ margin: 5px 0;}*/
+
+div.gray li{float: left; width: 253px;}
+
+div.gray li a.button.delete{float: right;}
+
+
+.div-addtask #calendar_addtask_details1 .h1{
+  width: 100%;
+}
+
+.div-addtask #calendar_addtask_details2 textarea {
+  width: 675px;
+}
+
+.div-addtask .button-files-upload{width: 100%;}
+.div-addtask fieldset.block-add-attendee .search-result-list, fieldset.block-add-activity .search-result-list{width: 330px;}
+
+.new-event-win div.div-addevent, .new-task-win div.div-addtask{width: 775px;}
+
+.calendar-addevent-details-txt-timezone, .calendar-addtask-details-txt-timezone{width: 212px;} 
+
+.div-addtask #calendar_addtask_details1 .time-previsao { width: 40px; }
+
+.div-addtask #calendar_addtask_details1 .date-previsao{ width: 80px; }
+
+.div-addtask #calendar_addtask_details6{ width: 756px; }
+.div-addtask #calendar_addtask_details1 .start-time{ width: 40px; }
+.div-addtask #calendar_addtask_details1 .start-date{ width: 80px; }
+.div-addtask #calendar_addtask_details1 .end-time{ width: 40px; }
+.div-addtask #calendar_addtask_details1 .end-date{ width: 80px; }
+.div-addtask #calendar_addtask_details1 .previsao-termino { margin: 0 0 0 20px; }
+.div-addtask #calendar_addtask_details1 .subitem { margin: 5px; display: block;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done{ margin: 0 30px;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done img{position: relative; top:4px; width:16px; height:16px;}
+.div-addtask #calendar_addtask_details1 .calendar_addevent_details_lnk_timezone { margin: 0 0 0 20px;}
+.div-addtask #calendar_addtask_details1 .subitem .done { width: 45px;}
+.div-addtask #calendar_addtask_details1 .ui-spinner-buttons{ top: -2px !important;}
+
+@-moz-document url-prefix() {.div-addtask #calendar_addtask_details1 .ui-spinner-buttons{ top: -14px !important;}}
+
+.div-addtask #calendar_addtask_details1 .ui-spinner-buttons .ui-spinner-up{height: 7px !important;}
+.div-addtask #calendar_addtask_details1 .ui-spinner-buttons .ui-spinner-down{height: 8px !important;}
+
+.div-addtask #calendar_addtask_details1 .subitem .span_done.noAction{background-image: url("../../../prototype/modules/calendar/img/gray.png"); background-repeat: no-repeat; }
+.div-addtask #calendar_addtask_details1 .subitem .span_done.inProcess{background-image: url("../../../prototype/modules/calendar/img/yellow.png"); background-repeat: no-repeat;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done.finished{background-image: url("../../../prototype/modules/calendar/img/green.png"); background-repeat: no-repeat;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done.canceled{background-image: url("../../../prototype/modules/calendar/img/red.png"); background-repeat: no-repeat;}
+
+#calendar_addtask_details4{margin: 0;}
+#calendar_addtask_details5{margin: -2px 0 0 0;}
+#calendar_addtask_details7{margin: 3px 0 0 0;}
+.div-addtask #calendar_addtask_details1 .subitem .span_done label{position: relative; left: 28px;}
+
+.div-addtask fieldset#calendar_addtask_details5.tab-level2{ margin: 0 }
+
+.div-addtask  #calendar_addtask_details8 .parent {width: 746px; min-height: 208px; float: left;}
+/*.div-addtask  #calendar_addtask_details8 .parent .child-top {width: 745px; height: 20px; background: #E8F4FD; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;}*/
+.div-addtask  #calendar_addtask_details8 .parent .child-top {width: 745px; height: 25px; background: #E8F4FD; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; border-top: 1px solid #CCC;}
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom {width: 745px; height: 208px; overflow: auto;  float: left; border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;}
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each { height: 20px; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each:hover { background: #FFF2F2; cursor: pointer;}
+
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .date-hour {overflow: hidden; width: 140px; float: left; height: 20px}
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .date-hour span { margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .user{overflow: hidden; width: 150px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .user span{ margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .attribute{overflow: hidden; width: 130px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .attribute span{ margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .beforeValue{overflow: hidden; width: 150px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .beforeValue span{ margin: 8px; float: left; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .afterValue{overflow: hidden; width: 150px; float: left;  height: 20px; border-left: 1px solid #CCC; }
+.div-addtask  #calendar_addtask_details8 .parent .child-bottom .child-bottom-each .afterValue span{ margin: 8px; float: left; }
+
+.div-addtask  #calendar_addtask_details8 .parent .child-top .date-hour { width: 140px; float: left; background: #E8F4FD; height: 20px; text-align: center; }
+.div-addtask  #calendar_addtask_details8 .parent .child-top .date-hour span{ display: block; padding: 6px; font-weight: bold; color: #2E6E9E; }
+.div-addtask  #calendar_addtask_details8 .parent .child-top .user { width: 150px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E; text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .user span{display: block; padding: 6px;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .attribute { width: 130px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .attribute span{display: block; padding: 6px;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .beforeValue { width: 150px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .beforeValue span{display: block; padding: 6px; }
+.div-addtask  #calendar_addtask_details8 .parent .child-top .afterValue { width: 150px; float: left; background: #E8F4FD; height: 20px; font-weight: bold; color: #2E6E9E;  text-align: center;}
+.div-addtask  #calendar_addtask_details8 .parent .child-top .afterValue span{display: block; padding: 6px; }
+
+.new-message-input.email-text{
+	resize: none;
+	height: 16px;
+	overflow: hidden;
+	vertical-align: middle;
+	cursor: text;
+}
+
+/* Mail Archive */
+.local-folder {
+
+}
+
+.local-connect {
+ 	width: 16px;
+	height: 16px;
+	background: url("images/connect_delete.gif") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.expressomail-sprites-clip{
+	background-image : url(images/mail-gifs.gif);
+	background-position : 0 -238px;
+	margin-left : 0;
+	margin-top : 3px;
+	background-repeat : no-repeat;
+}
+
+.upper, .lower {
+	background-color: gray;
+	opacity:0.1;
+	height: 16px;
+	position: fixed;
+	width: 230px;
+	display: none;
+}
+
+.lower {
+	top: 585px;
+}		
+
+@media screen and (max-width: 1100px){
+	#span_options, #span_D span
+	{
+		font-size: 0.8333em; /*10/12px*/
+	}
+}

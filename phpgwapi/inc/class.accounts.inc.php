@@ -147,7 +147,7 @@
 		function setup_cache()
 		{
 			if ($this->use_session_cache &&		// are we supposed to use a session-cache
-				!@$GLOBALS['phpgw_info']['accounts']['session_cache_setup'] &&	// is it already setup
+				!( isset($GLOBALS['phpgw_info']['accounts']['session_cache_setup']) && $GLOBALS['phpgw_info']['accounts']['session_cache_setup'] ) &&	// is it already setup
 				// is the account-class ready (startup !)
 				is_object($GLOBALS['phpgw']->session) && $GLOBALS['phpgw']->session->account_id)
 			{
@@ -636,7 +636,7 @@
 				return False;
 			}
 
-			if($id_list[$account_id][$which])
+			if( isset($id_list[$account_id][$which]) )
 			{
 				return $id_list[$account_id][$which];
 			}

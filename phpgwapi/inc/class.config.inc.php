@@ -35,7 +35,7 @@
 				$appname = $GLOBALS['phpgw_info']['flags']['currentapp'];
 			}
 
-			$this->db      = is_object($GLOBALS['phpgw']->db) ? $GLOBALS['phpgw']->db : $GLOBALS['phpgw_setup']->db;
+			$this->db      = (isset($GLOBALS['phpgw']->db) && is_object($GLOBALS['phpgw']->db)) ? $GLOBALS['phpgw']->db : $GLOBALS['phpgw_setup']->db;
 			$this->appname = $appname;
 		}
 
@@ -103,6 +103,8 @@
 		*/
 		function save_value($name,$value,$app=False)
 		{
+			$update = false;
+			
 			//echo "<p>config::save_value('$name','".print_r($value,True)."','$app')</p>\n";
 			if (!$app || $app == $this->appname)
 			{

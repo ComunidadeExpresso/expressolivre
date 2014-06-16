@@ -254,7 +254,7 @@
 			foreach($GLOBALS['phpgw_info']['apps'] as $appname => $app)
 			{			
 				$f = PHPGW_SERVER_ROOT . $SEP . $appname . $SEP . 'setup' . $SEP . 'setup.inc.php';
-				if(@file_exists($f))
+				if(@file_exists($f) && isset($setup_info[$appname]['hooks']))
 				{
 					include($f);
 					$this->register_hooks($appname,$setup_info[$appname]['hooks']);

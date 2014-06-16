@@ -43,7 +43,7 @@
 			{
 				$sSequenceSQL = '';
 				$append_ix = False;
-				if($this->_GetTableSQL($sTableName, $aTableDef, $sTableSQL, $sSequenceSQL,$append_ix))
+				if($this->_GetTableSQL($sTableName, $aTableDef, $sTableSQL, $sSequenceSQL, $append_ix))
 				{
 					if($append_ix)
 					{
@@ -366,10 +366,10 @@
 
 					if($aFieldAttr['type'] == 'auto')
 					{
-						$this->m_oTranslator->GetSequenceSQL($sTableName, $sSequenceSQL);
+						$this->m_oTranslator->GetSequenceSQL($sTableName, $sFieldName, $sSequenceSQL);
 						if($sSequenceSQL != '')
 						{
-							$sTableSQL .= sprintf(" DEFAULT nextval('seq_%s')", $sTableName);
+							$sTableSQL .= sprintf(" DEFAULT nextval('%s_%s_seq')", $sTableName, $sFieldName);
 						}
 					}
 				}

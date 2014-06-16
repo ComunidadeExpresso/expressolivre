@@ -1,0 +1,56 @@
+<div style="margin:5px; height: 400px !important;">
+	<div style="margin-bottom:2px;">
+		<div style="margin-top:5px;">
+			<label style="margin-right:5px;"><%=get_lang('Organization')%></label>
+			<select id="em_combo_org" style="margin-right: 20px;" />
+		</div>
+		<div style="margin-top:10px;">
+			<label style="margin-right:5px;"><%=get_lang('Search user')%></label><br/> 
+			<input id="em_input_searchUser" size="35" autocomplete="off" onkeyup="javascript:sharemailbox.optionFinderTimeout(this, event);" />
+			<span style="margin-left:2px; color:red;" id="em_span_searching" />
+		</div>
+	</div>
+	<br clear="all"/>
+	<div style="position:absolute; float:left;">
+		<label style="font-size:8pt;"><%=get_lang('Users')%></label><br/>
+		<select id="em_select_available_users" size="13" style="width:250px; height:190px;" multiple="true"/>
+	</div>
+	<div style="position:absolute; left: 276px">
+		<div style="margin-top:60px;">
+			<input type="button" onclick="javascript:sharemailbox.add_user();" value=">>" class="button ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false" />
+		</div>
+		
+		<div style="margin-top:10px;">
+			<input type="button" onclick="javascript:sharemailbox.remove_user();" value="<<" class="button ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false" />
+		</div>
+	</div>
+	<div style="position:absolute; left:330px;">
+		<label style="font-size:8pt;"><%=get_lang('Your mailbox is shared with')%></label>
+		<br/>
+		<select id="em_select_sharefolders_users" onclick="sharemailbox.getaclfromuser(this.value);" size="13" style="width:250px; height:190px;"/>
+	</div>
+	<div id="divAccessRight" style="position:absolute; left:600px;">
+		<div style="font-size:8pt;"><%=get_lang('Access right')%></div>
+		<div style="border:1px solid #cecece;font-size: 8pt;">
+			<div title="<%=get_lang('hlp_msg_read_acl')%>">
+				<input type="checkbox" id="em_input_readAcl" onClick="return sharemailbox.setaclfromuser();"/>
+				<label><%=get_lang('Read')%></label>
+			</div>
+			<div title="<%=get_lang('hlp_msg_delmov_acl')%>">
+				<input type="checkbox" id="em_input_deleteAcl" onClick="return sharemailbox.setaclfromuser();"/>
+				<label><%=get_lang('Exclusion')%></label>
+			</div>
+			<div title="<%=get_lang('hlp_msg_addcreate_acl')%>">
+				<input type="checkbox" id="em_input_writeAcl" onClick="return sharemailbox.setaclfromuser();"/>
+				<label><%=get_lang('Write')%></label>
+			</div>
+			<div title="<%=get_lang('hlp_msg_sendlike_acl')%>">
+				<input type="checkbox" id="em_input_sendAcl" onClick="return sharemailbox.setaclfromuser();"/>
+				<label><%=get_lang('Send')%></label>
+			</div>
+		</div>
+	</div>
+	<div class="alertSharedFolders">
+		<%=get_lang('Note: This sharing will take action on all of your folders and messages.')%>
+	</div>
+</div>

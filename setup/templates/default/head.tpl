@@ -34,7 +34,7 @@
 <div id="divMain">
 	<div id="divAppIconBar">
 <table width='100%'>
-<tr><td align='left' background="./templates/default/images/fundo_topo.jpg"><img src="./templates/default/images/topo.jpg" style="overflow:hidden;z-index:-1;"></td></tr></table>
+<tr><td align='left' background="./templates/default/images/fundo_topo.jpg"><img src="../phpgwapi/templates/default/images/logo_expresso.png" style="overflow:hidden;z-index:-1;"></td></tr></table>
 	</div>
 	<div id="divSubContainer">
 		<table width="100%" cellspacing="0" cellpadding="0">

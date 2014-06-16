@@ -95,12 +95,17 @@
 		{
 			$prefs = $GLOBALS['phpgw']->preferences->read();
 
-			if (!$prefs['contactcenter']['displayConnectorDefault'] and !$prefs['contactcenter']['displayConnector'])
+			if( isset($prefs['contactcenter']) )
 			{
-				$prefs['contactcenter']['displayConnector'] = true;
+				if (!$prefs['contactcenter']['displayConnectorDefault'] and !$prefs['contactcenter']['displayConnector'])
+				{
+					$prefs['contactcenter']['displayConnector'] = true;
+				}
+				
+				return $prefs['contactcenter'];
 			}
-			
-			return $prefs['contactcenter'];
+
+			return $prefs;
 		}
 	}
 ?>

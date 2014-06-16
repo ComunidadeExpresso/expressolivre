@@ -554,10 +554,6 @@ Multivalued	admin	pt-br	Multivalorado
 Searchable	admin	pt-br	Pesquisável
 allow hidden copy	admin	pt-br	Liberar todos os usuários a enviar e-mail com cópia oculta
 imap max folders	admin	pt-br	Número de pastas imap
-googlegears url	admin	pt-br	Url Google Gears
-gears firefox windows url	admin	pt-br	Url Google Gears para Firefox (windows)
-gears firefox linux url	admin	pt-br	Url Google Gears para Firefox (linux)
-gears ie url	admin	pt-br	Url Google Gears para Internet Explorer
 Allow importing and creating events directly on ExpressoCalendar module (new)	admin	pt-br	Permitir importar e criar eventos diretamente para o módulo ExpressoCalendar (novo)
 Quick add widget for telephone number	admin	pt-br	Widget para edição rápida de telefone corporativo
 Enable quick add for user	admin	pt-br	Habilitar edição rápida para usuário

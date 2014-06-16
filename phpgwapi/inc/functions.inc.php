@@ -26,8 +26,6 @@
 	/***************************************************************************\
 	* If running in PHP3, then force admin to upgrade                           *
 	\***************************************************************************/
-
-	error_reporting(error_reporting() & ~E_NOTICE);
 	
 	include(PHPGW_API_INC.'/common_functions.inc.php');
 	
@@ -63,26 +61,26 @@
 		return $value;
 	}
 
-        function get_theme()
+    function get_theme()
+    {
+
+        $test_cookie = get_var('THEME', 'COOKIE');
+
+        // se o cookie foi definido coloca tema na sessão
+        if (!empty($test_cookie))
         {
-
-            $test_cookie = get_var('THEME', 'COOKIE');
-
-            // se o cookie foi definido coloca tema na sessão
-            if (!empty($test_cookie))
-            {
-                $_SESSION['THEME'] = $test_cookie;
-            }
-
-            // se tema não estiver definido na sessão retorna $GLOBALS['phpgw_info']['user']['preferences']['common']['theme']
-            if (!$_SESSION['THEME'])
-            {
-                return $GLOBALS['phpgw_info']['user']['preferences']['common']['theme'];
-            }
-            
-            // senão retorna o tema definido na sessão
-            return $_SESSION['THEME'];
+            $_SESSION['THEME'] = $test_cookie;
         }
+
+        // se tema não estiver definido na sessão retorna $GLOBALS['phpgw_info']['user']['preferences']['common']['theme']
+        if ( !isset($_SESSION['THEME'] ) )
+        {
+            return $GLOBALS['phpgw_info']['user']['preferences']['common']['theme'];
+        }
+        
+        // senão retorna o tema definido na sessão
+        return $_SESSION['THEME'];
+    }
 
 	/* Make sure the header.inc.php is current. */
 	if ($GLOBALS['phpgw_info']['server']['versions']['header'] < $GLOBALS['phpgw_info']['server']['versions']['current_header'])
@@ -304,7 +302,7 @@
 	{
 		if ($GLOBALS['phpgw_info']['flags']['currentapp'] == 'login')
 		{
-			if (@$_POST['login'] != '')
+			if ( isset($_POST['login']) && $_POST['login'] != '' )
 			{
 				if (count($GLOBALS['phpgw_domain']) > 1)
 				{
@@ -344,32 +342,10 @@
 				}
 			}
 
-			$ifMobile = false;
-			$browser = CreateObject('phpgwapi.browser');
-			switch ( $browser->get_platform() )
-			{
-				case browser::PLATFORM_IPHONE:
-				case browser::PLATFORM_IPOD:
-				case browser::PLATFORM_IPAD:
-				case browser::PLATFORM_BLACKBERRY:
-				case browser::PLATFORM_NOKIA:
-				case browser::PLATFORM_ANDROID:
-					$ifMobile = true;
-					break;
-			}
-			
-			if( $ifMobile )
-			{
-				Header('Location: '.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=66');
-				exit;
-			}
-			else
-			{
-				// this removes the sessiondata if its saved in the URL
-				$query = preg_replace('/[&]?sessionid(=|%3D)[^&]+&kp3(=|%3D)[^&]+&domain=.*$/','',$_SERVER['QUERY_STRING']);
-				Header('Location: '.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=10&phpgw_forward='.urlencode($relpath.(!empty($query) ? '?'.$query : '')));
-				exit;
-			}
+			// this removes the sessiondata if its saved in the URL
+			$query = preg_replace('/[&]?sessionid(=|%3D)[^&]+&kp3(=|%3D)[^&]+&domain=.*$/','',$_SERVER['QUERY_STRING']);
+			Header('Location: '.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php?cd=10&phpgw_forward='.urlencode($relpath.(!empty($query) ? '?'.$query : '')));
+			exit;
 		}
 
 		$GLOBALS['phpgw']->datetime = CreateObject('phpgwapi.date_time');
@@ -436,20 +412,7 @@
 			$GLOBALS['phpgw']->template = CreateObject('phpgwapi.Template',PHPGW_APP_TPL);
 			preg_match('/(.*)\/(.*)/', PHPGW_APP_TPL, $matches);
 
-			if ( $GLOBALS['phpgw_info']['flags']['currentapp'] != "jabberit_messenger" )
-				$_SESSION['phpgw_info'][$GLOBALS['phpgw_info']['flags']['currentapp']]['user']['preferences']['common']['template_set'] = $matches[2];
-		}
-
-
-		/*************************************************************************\
-		* If they are using frames, we need to set some variables                 *
-		\*************************************************************************/
-		if (((isset($GLOBALS['phpgw_info']['user']['preferences']['common']['useframes']) &&
-			$GLOBALS['phpgw_info']['user']['preferences']['common']['useframes']) &&
-			$GLOBALS['phpgw_info']['server']['useframes'] == 'allowed') ||
-			($GLOBALS['phpgw_info']['server']['useframes'] == 'always'))
-		{
-			$GLOBALS['phpgw_info']['flags']['navbar_target'] = 'phpgw_body';
+			$_SESSION['phpgw_info'][$GLOBALS['phpgw_info']['flags']['currentapp']]['user']['preferences']['common']['template_set'] = $matches[2];
 		}
 
 		/*************************************************************************\

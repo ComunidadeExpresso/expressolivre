@@ -73,7 +73,7 @@
 		{
 			$GLOBALS['phpgw_info']['user']['passwd'] = $passwd_changed;
 			$_SESSION['phpgw_info']['expresso']['user']['account_lid'] = $GLOBALS['phpgw_info']['user']['account_lid'];
-			include(dirname( __FILE__ ).'/../../../expressoAdmin1_2/inc/class.db_functions.inc.php');
+			include(dirname( __FILE__ ).'/../../../expressoAdmin/inc/class.db_functions.inc.php');
 			$db_functions = new db_functions();
 			$db_functions->write_log('modified user password','User change its own password in preferences');
 			$GLOBALS['hook_values']['account_id'] = $GLOBALS['phpgw_info']['user']['account_id'];

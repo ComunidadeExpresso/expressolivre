@@ -534,7 +534,7 @@
 			}
 
 			$query_from = array_unique($query_from);
-			if ($query_fields_mod)
+			if(isset($query_fields_mod))
 			{
 				$query_select .= ' '.$query_fields_mod.'('.implode(',',$fields).') AS mod';
 			}
@@ -564,9 +564,9 @@
 				$query .= ' WHERE '.$this->process_restrictions($rules,$tables_restric);
 			}
 
-			if (count($query_other))
+			if(count($query_other))
 			{
-				if (!($query_other[1] and !$query_other[0]))
+				if (!((isset($query_other[1]) && $query_other[1]) and !isset($query_other[0])))
 				{
 					$query .= ' '.@implode(' ',$query_other);
 				}

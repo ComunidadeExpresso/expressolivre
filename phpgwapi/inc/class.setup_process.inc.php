@@ -71,18 +71,15 @@
 			}
 			// Place api first
 			$pass['phpgwapi'] = $setup_info['phpgwapi'];
-			$pass['admin']    = $setup_info['admin'];
 			$pass['preferences'] = $setup_info['preferences'];
-			@reset($setup_info);
+			reset($setup_info);
 			$setup_info = $GLOBALS['phpgw_setup']->detection->get_versions($setup_info);
-			@reset($setup_info);
+			reset($setup_info);
 
 			$i = 1;
 			$passed = array();
 			$passing = array();
-			$pass_string = implode (':', $pass);
-			$passing_string = implode (':', $passing);
-			while($pass_string != $passing_string)
+			while ( implode (':', array_keys($pass)) != implode(':', array_keys($passing)) )
 			{
 				$passing = array();
 				if($DEBUG) { echo '<br />process->pass(): #' . $i . ' for ' . $method . ' processing' . "\n"; }
@@ -94,7 +91,7 @@
 				//if($i==2) { _debug_array($passed);exit; }
 
 				/* stuff the rest of the apps, but only those with available upgrades */
-				while(list($key,$value) = @each($setup_info))
+				while($method != 'init' && list($key,$value) = @each($setup_info))
 				{
 					if(($value['name'] != 'phpgwapi') && ($value['status'] == 'U'))
 					{
@@ -115,6 +112,7 @@
 				switch($method)
 				{
 					case 'new':
+					case 'init':
 						/* Create tables and insert new records for each app in this list */
 						$passing = $this->current($pass,$DEBUG);
 						$passing = $this->default_records($passing,$DEBUG);
@@ -169,8 +167,6 @@
 					_debug_array($passed);
 					exit;
 				}
-				$pass_string = implode (':', $pass);
-				$passing_string = implode (':', $passing);
 			}
 
 			/* now return the list */
@@ -259,7 +255,7 @@
 			}
 			foreach($setup_info as $app_name => $data)
 			{
-				if(is_array($data['tables']))
+				if ( isset($data['tables']) && is_array($data['tables']))
 				{
 					foreach($data['tables'] as $table)
 					{
@@ -300,11 +296,11 @@
 				$appname  = $setup_info[$key]['name'];
 				$apptitle = $setup_info[$key]['title'];
 
-				if($DEBUG) { echo '<br />process->current(): Incoming status: ' . $appname . ',status: '. $setup_info[$key]['status']; }
+				if($DEBUG) { echo '<br />process->current(): Incoming status: ' . $appname . ',status: '. (isset($setup_info[$key]['status'])? $setup_info[$key]['status'] : '-' ); }
 
 				$appdir  = PHPGW_SERVER_ROOT . SEP . $appname . SEP . 'setup' . SEP;
 
-				if($setup_info[$key]['tables'] && file_exists($appdir.'tables_current.inc.php'))
+				if( isset($setup_info[$key]['tables']) && file_exists($appdir.'tables_current.inc.php') )
 				{
 					if($DEBUG) { echo '<br />process->current(): Including: ' . $appdir.'tables_current.inc.php'; }
 					include ($appdir.'tables_current.inc.php');
@@ -327,7 +323,7 @@
 					else
 					{
 						/* script processing failed */
-						if($DEBUG) { echo '<br />process->current(): Failed for ' . $appname . ',status: '. $setup_info[$key]['status']; }
+						if($DEBUG) { echo '<br />process->current(): Failed for ' . $appname; }
 						$setup_info[$key]['status'] = 'F';
 					}
 				}
@@ -338,11 +334,8 @@
 					 Add the app, but disable it if it has tables defined.
 					 A manual sql script install is needed, but we do add the hooks
 					*/
-					$enabled = 99;
-					if($setup_info[$key]['tables'][0] != '')
-					{
-						$enabled = False;
-					}
+					$enabled = ( isset($setup_info[$key]['tables']) && !count($setup_info[$key]['tables']) )? false : 99;
+					
 					if($GLOBALS['phpgw_setup']->app_registered($appname))
 					{
 						$GLOBALS['phpgw_setup']->update_app($appname);
@@ -382,7 +375,7 @@
 				$appname = $setup_info[$key]['name'];
 				$appdir  = PHPGW_SERVER_ROOT . SEP . $appname . SEP . 'setup' . SEP;
 
-				if($setup_info[$key]['tables'] && file_exists($appdir.'default_records.inc.php'))
+				if( isset($setup_info[$key]['tables']) && file_exists($appdir.'default_records.inc.php'))
 				{
 					if($DEBUG)
 					{

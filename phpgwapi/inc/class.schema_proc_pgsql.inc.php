@@ -26,6 +26,7 @@
 		var $fk = array();
 		var $ix = array();
 		var $uc = array();
+		var $b_needExplicitNULL = false;
 
 		function schema_proc_pgsql()
 		{
@@ -33,7 +34,7 @@
 		}
 
 		/* Return a type suitable for DDL */
-		function TranslateType($sType, $iPrecision = 0, $iScale = 0)
+		function TranslateType( $sType, $iPrecision = 0, $iScale = 0 )
 		{
 			$sTranslated = $sType;
 			switch($sType)
@@ -41,46 +42,29 @@
 				case 'auto':
 					$sTranslated = 'int4';
 					break;
+				
 				case 'blob':
 					$sTranslated = 'bytea';
 					break;
+				
 				case 'char':
-					if($iPrecision > 0 && $iPrecision < 256)
-					{
-						$sTranslated =  sprintf("char(%d)", $iPrecision);
-					}
-					if($iPrecision > 255)
-					{
-						$sTranslated =  'text';
-					}
+				case 'varchar':
+					if ( $iPrecision > 0 )
+						$sTranslated = ( $iPrecision > 65535 )? 'text' : sprintf( $sType.'(%d)', $iPrecision ) ;
 					break;
-				case 'decimal':
-					$sTranslated =  sprintf("decimal(%d,%d)", $iPrecision, $iScale);
-					break;
-				case 'float':
-					if($iPrecision == 4 || $iPrecision == 8)
-					{
-						$sTranslated =  sprintf("float%d", $iPrecision);
-					}
-					break;
-				case 'int':
-					if($iPrecision == 2 || $iPrecision == 4 || $iPrecision == 8)
-					{
-						$sTranslated = sprintf("int%d", $iPrecision);
-					}
-					break;
+				
 				case 'longtext':
 					$sTranslated = 'text';
 					break;
-				case 'varchar':
-					if($iPrecision > 0 && $iPrecision < 256)
-					{
-						$sTranslated =  sprintf("varchar(%d)", $iPrecision);
-					}
-					if($iPrecision > 255)
-					{
-						$sTranslated =  'text';
-					}
+				
+				case 'decimal':
+					$sTranslated = sprintf( $sType.'(%d,%d)', $iPrecision, $iScale );
+					break;
+				
+				case 'int':
+				case 'float':
+					if ( ( $iPrecision == 2 && $sType == 'int' ) || $iPrecision == 4 || $iPrecision == 8 )
+						$sTranslated = sprintf( $sType.'%d', $iPrecision );
 					break;
 			}
 			return $sTranslated;
@@ -92,7 +76,7 @@
 			{
 				case 'current_date':
 				case 'current_timestamp':
-					$sDefault = 'now';
+					return '(now())::timestamp';
 			}
 			return "'$sDefault'";
 		}
@@ -199,8 +183,6 @@
 				$query .= " AND a.attname != '$sDropColumn'";
 			}
 			$query .= ' ORDER BY a.attnum';
-
-//			echo '_GetColumns: ' . $query;
 
 			$oProc->m_odb->query($query);
 			while($oProc->m_odb->next_record())
@@ -338,7 +320,6 @@
 			$sdc->query($sql_pri_keys);
 			while($sdc->next_record())
 			{
-				//echo '<br /> checking: ' . $sdc->f(4);
 				if($sdc->f(4) == 't')
 				{
 					$this->pk[] = $sdc->f(2);
@@ -453,28 +434,33 @@
 			return true;
 		}
 
-		function GetSequenceForTable($oProc,$table,&$sSequenceName)
+		function GetSequencesForTable($oProc,$table,&$sSequenceNames,$fields=null)
 		{
-			if($GLOBALS['DEBUG']) { echo '<br />GetSequenceForTable: ' . $table; }
-
-			$oProc->m_odb->query("SELECT relname FROM pg_class WHERE NOT relname ~ 'pg_.*' AND relname LIKE 'seq_$table' AND relkind='S' ORDER BY relname",__LINE__,__FILE__);
-			$oProc->m_odb->next_record();
-			if($oProc->m_odb->f('relname'))
+			$fields = (array)(is_null($fields)? '%' : $fields);
+			
+			if($GLOBALS['DEBUG']) { echo '<br />GetSequencesForTable: ' . $table.'.[ '.implode(', ', $fields).' ]'; }
+			
+			$sSequenceNames = array();
+			foreach ( $fields as $field )
 			{
-				$sSequenceName = $oProc->m_odb->f('relname');
+				$oProc->m_odb->query('SELECT relname FROM pg_class WHERE NOT relname ~ \'pg_.*\' AND relname LIKE \''.$table.'_'.$field.'_seq\' AND relkind=\'S\' ORDER BY relname',__LINE__,__FILE__);
+				while($oProc->m_odb->next_record())
+				{
+					$sSequenceNames[] = $oProc->m_odb->f('relname');
+				}
 			}
 			return True;
 		}
 
-		function GetSequenceFieldForTable($oProc,$table,&$sField)
+		function GetSequenceFieldsForTable($oProc,$table,&$sFields)
 		{
-			if($GLOBALS['DEBUG']) { echo '<br />GetSequenceFieldForTable: You rang?'; }
-
-			$oProc->m_odb->query("SELECT a.attname FROM pg_attribute a, pg_class c, pg_attrdef d WHERE c.relname='$table' AND c.oid=d.adrelid AND d.adsrc LIKE '%seq_$table%' AND a.attrelid=c.oid AND d.adnum=a.attnum");
-			$oProc->m_odb->next_record();
-			if($oProc->m_odb->f('attname'))
+			if($GLOBALS['DEBUG']) { echo '<br />GetSequenceFieldsForTable: You rang?'; }
+			
+			$sFields = array();
+			$oProc->m_odb->query("SELECT a.attname FROM pg_attribute a, pg_class c, pg_attrdef d WHERE c.relname='$table' AND c.oid=d.adrelid AND d.adsrc LIKE '%nextval%$table%_seq%' AND a.attrelid=c.oid AND d.adnum=a.attnum");
+			while($oProc->m_odb->next_record())
 			{
-				$sField = $oProc->m_odb->f('attname');
+				$sFields[] = $oProc->m_odb->f('attname');
 			}
 			return True;
 		}
@@ -489,12 +475,14 @@
 			return True;
 		}
 
-		function DropSequenceForTable($oProc,$table)
+		function DropSequencesForTable($oProc,$table,$fields=null)
 		{
-			if($GLOBALS['DEBUG']) { echo '<br />DropSequenceForTable: ' . $table; }
+			$fields = (array)(is_null($fields)? '%' : $fields);
+			
+			if($GLOBALS['DEBUG']) { echo '<br />DropSequencesForTable: ' . $table.'.[ '.implode(', ', $fields).' ]'; }
 
-			$this->GetSequenceForTable($oProc,$table,$sSequenceName);
-			if($sSequenceName)
+			$this->GetSequencesForTable($oProc,$table,$sSequenceNames,$fields);
+			foreach ($sSequenceNames as $sSequenceName)
 			{
 				$oProc->m_odb->query("DROP SEQUENCE " . $sSequenceName,__LINE__,__FILE__);
 			}
@@ -503,7 +491,7 @@
 
 		function DropIndexesForTable($oProc,$table)
 		{
-			if($GLOBALS['DEBUG']) { echo '<br />DropSequenceForTable: ' . $table; }
+			if($GLOBALS['DEBUG']) { echo '<br />DropIndexesForTable: ' . $table; }
 
 			$this->GetIndexesForTable($oProc,$table,$sIndexNames);
 			if(@is_array($sIndexNames))
@@ -519,7 +507,7 @@
 		function DropTable($oProc, &$aTables, $sTableName)
 		{
 			return $oProc->m_odb->query("DROP TABLE " . $sTableName) &&
-				$this->DropSequenceForTable($oProc, $sTableName) &&
+				$this->DropSequencesForTable($oProc, $sTableName) &&
 				$this->DropIndexesForTable($oProc, $sTableName);
 		}
 
@@ -537,7 +525,7 @@
 
 			$this->DropTable($oProc, $aTables, $sTableName);
 
-			$oProc->_GetTableSQL($sTableName, $aNewTableDef, $sTableSQL, $sSequenceSQL,$append_ix);
+			$oProc->_GetTableSQL($sTableName, $aNewTableDef, $sTableSQL, $sSequenceSQL, $append_ix);
 			if($sSequenceSQL)
 			{
 				$oProc->m_odb->query($sSequenceSQL);
@@ -564,35 +552,6 @@
 
 		function RenameTable($oProc, &$aTables, $sOldTableName, $sNewTableName)
 		{
-			if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Fetching old sequence for: ' . $sOldTableName; }
-			$this->GetSequenceForTable($oProc,$sOldTableName,$sSequenceName);
-
-			if($GLOBALS['DEBUG']) { echo ' - ' . $sSequenceName; }
-
-			if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Fetching sequence field for: ' . $sOldTableName; }
-			$this->GetSequenceFieldForTable($oProc,$sOldTableName,$sField);
-
-			if($GLOBALS['DEBUG']) { echo ' - ' . $sField; }
-
-			if($sSequenceName)
-			{
-				$oProc->m_odb->query("SELECT last_value FROM seq_$sOldTableName",__LINE__,__FILE__);
-				$oProc->m_odb->next_record();
-				$lastval = $oProc->m_odb->f(0);
-
-				if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): dropping old sequence: ' . $sSequenceName . ' used on field: ' . $sField; }
-				$this->DropSequenceForTable($oProc,$sOldTableName);
-
-				if($lastval)
-				{
-					$lastval = ' start ' . $lastval;
-				}
-				$this->GetSequenceSQL($sNewTableName,$sSequenceSQL);
-				if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Making new sequence using: ' . $sSequenceSQL . $lastval; }
-				$oProc->m_odb->query($sSequenceSQL . $lastval,__LINE__,__FILE__);
-				if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Altering column default for: ' . $sField; }
-				$oProc->m_odb->query("ALTER TABLE $sOldTableName ALTER $sField SET DEFAULT nextval('seq_" . $sNewTableName . "')",__LINE__,__FILE__);
-			}
 			// renameing existing indexes and primary keys
 			$indexes = $oProc->m_odb->Link_ID->MetaIndexes($sOldTableName,True);
 			if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Fetching indexes: '; _debug_array($indexes); }
@@ -603,7 +562,29 @@
 				if($GLOBALS['DEBUG']) { echo "<br />RenameTable(): Renaming the index '$name': $sql"; }
 				$oProc->m_odb->query($sql);
 			}
-			return !!($oProc->m_odb->query("ALTER TABLE $sOldTableName RENAME TO $sNewTableName"));
+			
+			if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Fetching sequence field for: ' . $sOldTableName; }
+			$this->GetSequenceFieldsForTable($oProc,$sOldTableName,$sFields);
+			if($GLOBALS['DEBUG']) { echo ' - ['.implode(', ', $sFields).']'; }
+			
+			// Rename table
+			if ( $result = (bool)$oProc->m_odb->query('ALTER TABLE '.$sOldTableName.' RENAME TO '.$sNewTableName) )
+			{
+				// Rename sequences
+				foreach ( $sFields as $sField )
+				{
+					if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Altering column default for: ' . $sField; }
+					$oProc->m_odb->query( 'ALTER TABLE '.$sNewTableName.' ALTER COLUMN '.$sField.' SET DEFAULT nextval(\''.$sNewTableName.'_'.$sField, '_seq\'::regclass)', __LINE__, __FILE__ );
+					
+					if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Rename sequence'; }
+					$oProc->m_odb->query( 'ALTER SEQUENCE '.$sOldTableName.'_'.$sField, '_seq RENAME TO '.$sNewTableName.'_'.$sField, '_seq', __LINE__, __FILE__ );
+					
+					if($GLOBALS['DEBUG']) { echo '<br />RenameTable(): Altering sequence owner'; }
+					$oProc->m_odb->query( 'ALTER SEQUENCE '.$sNewTableName.'_'.$sField, '_seq OWNED BY '.$sNewTableName, __LINE__, __FILE__ );
+				}
+			}
+			
+			return $result;
 		}
 
 		function RenameColumn($oProc, &$aTables, $sTableName, $sOldColumnName, $sNewColumnName, $bCopyData = true)
@@ -676,7 +657,7 @@
 			$oProc->_GetFieldSQL($aColumnDef, $sFieldSQL);
 			$query = "ALTER TABLE $sTableName ADD COLUMN $sColumnName $sFieldSQL";
 
-			if(($Ok = !!($oProc->m_odb->query($query))) && isset($default))
+			if(($Ok = (bool)($oProc->m_odb->query($query))) && isset($default))
 			{
 				$query = "ALTER TABLE $sTableName ALTER COLUMN $sColumnName SET DEFAULT '$default';\n";
 
@@ -703,22 +684,22 @@
 			$oDb->query($sql,__LINE__,__FILE__);
 			if ($oDb->next_record() && $oDb->f(0))
 			{
-				$sql = "SELECT setval('seq_$sTableName',".(1 + $oDb->f(0)).")";
-				if($GLOBALS['DEBUG']) { echo "<br />Updating sequence 'seq_$sTableName' using: $sql"; }
+				$sql = 'SELECT setval(\''.$sTableName.'_'.$sColName.'_seq\','.(1 + $oDb->f(0)).')';
+				if($GLOBALS['DEBUG']) { echo '<br />Updating sequence \''.$sTableName.'_'.$sColName.'_seq\' using: '.$sql; }
 				return $oDb->query($sql,__LINE__,__FILE__);
 			}
 			return True;
 		}
 			
-		function GetSequenceSQL($sTableName, &$sSequenceSQL)
+		function GetSequenceSQL($sTableName, $sFieldName, &$sSequenceSQL)
 		{
-			$sSequenceSQL = sprintf("CREATE SEQUENCE seq_%s", $sTableName);
+			$sSequenceSQL = sprintf('CREATE SEQUENCE %s_%s_seq;', $sTableName, $sFieldName);
 			return true;
 		}
 
 		function CreateTable($oProc, $aTables, $sTableName, $aTableDef, $bCreateSequence = true)
 		{
-			if($oProc->_GetTableSQL($sTableName, $aTableDef, $sTableSQL, $sSequenceSQL,$append_ix))
+			if($oProc->_GetTableSQL($sTableName, $aTableDef, $sTableSQL, $sSequenceSQL, $append_ix))
 			{
 				/* create sequence first since it will be needed for default */
 				if($bCreateSequence && $sSequenceSQL != '')
@@ -727,16 +708,8 @@
 					$oProc->m_odb->query($sSequenceSQL);
 				}
 
-				if($append_ix)
-				{
-					$query = "CREATE TABLE $sTableName ($sTableSQL";
-				}
-				else
-				{
-					$query = "CREATE TABLE $sTableName ($sTableSQL)";
-				}
-
-				return !!($oProc->m_odb->query($query));
+				$query = 'CREATE TABLE '.$sTableName.' ('.$sTableSQL.($append_ix? '' : ')');
+				return (bool)($oProc->m_odb->query($query));
 			}
 
 			return false;
