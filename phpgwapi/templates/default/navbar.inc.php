@@ -35,6 +35,8 @@
 		$GLOBALS['celepar_tpl']->set_var('title_my_preferences', lang("Click here to change your Expresso password and other preferences"));
 		$GLOBALS['celepar_tpl']->set_var('title_suggestions', lang("Send your critics, doubts or suggestions"));
 		$GLOBALS['celepar_tpl']->set_var('suggestions', lang("Suggestions"));
+		$GLOBALS['celepar_tpl']->set_var('help', lang("Help"));
+		$GLOBALS['celepar_tpl']->set_var('title_help', lang("Click here for help"));
 		$GLOBALS['celepar_tpl']->set_var('template',$GLOBALS['phpgw_info']['server']['template_set']);
 
 		$var['img_root'] = $GLOBALS['phpgw_info']['server']['webserver_url'] . '/phpgwapi/templates/'.$GLOBALS['phpgw_info']['server']['template_set'].'/images';
@@ -222,7 +224,7 @@
 				';
 
 				$var['app_extra_icons_div']= $app_extra_icons_div;				
-				$var['app_extra_icons_icon']= '<td valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#"  onMouseOver="ypSlideOutMenu.showMenu(\'menu1\')" onClick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img src="'.$var['img_root'].'/extra_icons.png" border="0" /></a></td>';
+				$var['app_extra_icons_icon']= '<td width="26" valign="top" align="right" style="zIndex:10000;padding-right:3px;padding-top:10px;"><a title="'.lang('show_more_apps').'" href="#"  onMouseOver="ypSlideOutMenu.showMenu(\'menu1\')" onClick="javascript:ypSlideOutMenu.hide(\'menu1\');showBar()"><img src="'.$var['img_root'].'/extra_icons.png" border="0" /></a></td>';
 
 
 			if( isset($GLOBALS['phpgw_info']['flags']['app_header'] ) )

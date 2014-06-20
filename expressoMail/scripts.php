@@ -30,6 +30,7 @@ $fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/calendar.alarms.js' ,
 $fileDuck->add(__DIR__ .'/../prototype/modules/calendar/js/helpers.js', 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/json2/json2.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/ejs/ejs.js');
+$fileDuck->add(__DIR__ .'/../prototype/plugins/ejs/view.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/scrollto/jquery.scrollTo.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/timepicker/jquery-ui-timepicker-addon.js');
 $fileDuck->add(__DIR__ .'/../prototype/plugins/timepicker/localization/jquery-ui-timepicker-pt-BR.js', 'ISO-8859-1');
@@ -68,6 +69,7 @@ $fileDuck->add(__DIR__ .'/js/doiMenuData.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/js/rich_text_editor.js' , 'ISO-8859-1');
 $fileDuck->add(__DIR__ .'/../prototype/modules/filters/filters.js');
 $fileDuck->add(__DIR__ .'/../prototype/modules/mail/js/label.js' , 'ISO-8859-1');
+$fileDuck->add(__DIR__ .'/js/searchEmails.js');
 $fileDuck->add(__DIR__ .'/js/init.js' , 'ISO-8859-1' );
 $fileDuck->add(__DIR__ .'/js/checkSession.js' );
 $fileDuck->add(__DIR__ .'/../prototype/plugins/farbtastic/farbtastic.js');

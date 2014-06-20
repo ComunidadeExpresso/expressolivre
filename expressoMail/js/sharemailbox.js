@@ -194,7 +194,7 @@ cShareMailbox.prototype.makeWindow =  function(optionsData)
             }
 	});
 
-	windowShare.html( new EJS( {url: 'templates/default/shareMailbox.ejs'} ).render());
+	windowShare.html( DataLayer.render("../prototype/modules/mail/templates/shareMailbox.ejs",{} ) );
 
 	$("#divAccessRight input[type=checkbox]").each(function()
 	{

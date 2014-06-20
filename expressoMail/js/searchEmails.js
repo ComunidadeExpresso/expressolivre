@@ -25,7 +25,7 @@ searchE.prototype.showForms = function()
 {
 	var _this	= this;
 	
-	this.dialog = $("#searchEmails").dialog(
+	$("#searchEmails").dialog(
 	{
 		resizable	: false,
 		title		: get_lang("Search Email"),
@@ -66,7 +66,7 @@ searchE.prototype.showForms = function()
         }
 	});
 
-	$("#searchEmails").html(DataLayer.render("../prototype/modules/mail/templates/searchMails.ejs"));
+	$("#searchEmails").html(DataLayer.render("../prototype/modules/mail/templates/searchMails.ejs",{}));
 	$("#searchEmails").css("overflow","hidden");
 	$("button.addFolder").html(">>").button().on("click",function()
 	{
