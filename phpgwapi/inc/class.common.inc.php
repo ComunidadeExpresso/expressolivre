@@ -1122,7 +1122,7 @@
 			$GLOBALS['phpgw_info']['navbar']['home']['icon_hover']  = $this->image_on('phpgwapi',Array('home','nonav'),'-over');
 
 			list($first) = each($GLOBALS['phpgw_info']['user']['apps']);
-			if(is_array($GLOBALS['phpgw_info']['user']['apps']['admin']) && $first != 'admin')
+			if(isset($GLOBALS['phpgw_info']['user']['apps']['admin']) && $first != 'admin')
 			{
 				$newarray['admin'] = $GLOBALS['phpgw_info']['user']['apps']['admin'];
 				foreach($GLOBALS['phpgw_info']['user']['apps'] as $index => $value)

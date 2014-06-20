@@ -43,7 +43,7 @@
 		$GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] = $GLOBALS['phpgw_info']['server']['force_default_app'];
 	}
 
-	if ( ( isset($_GET['cd']) && $_GET['cd']=='yes' ) && $GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] &&
+	if ( ( isset($_GET['cd']) && $_GET['cd']=='yes' ) && isset($GLOBALS['phpgw_info']['user']['preferences']['common']['default_app']) &&
 		$GLOBALS['phpgw_info']['user']['apps'][$GLOBALS['phpgw_info']['user']['preferences']['common']['default_app']])
 	{
 		$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/' . $GLOBALS['phpgw_info']['user']['preferences']['common']['default_app'] . '/' . 'index.php'));

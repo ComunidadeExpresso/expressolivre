@@ -2366,8 +2366,13 @@ class imap_functions
         $unseens = array();
         $m_search = imap_search($this->mbox, 'UNSEEN');
 
-        foreach($m_search as $m)
-            $unseens[] = imap_uid($this->mbox, $m);
+        if( $m_search && is_array($m_search) )
+        {
+			foreach( $m_search as $m ) 
+			{
+				$unseens[] = imap_uid($this->mbox, $m);
+			}
+        }
 
         $return['unseens'] = $unseens;
 		

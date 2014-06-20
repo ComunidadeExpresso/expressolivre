@@ -142,7 +142,7 @@
 	
 	$preferences = $GLOBALS['phpgw']->preferences->read();
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = (isset($preferences['enable_local_messages'])?$preferences['enable_local_messages']:""); 
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['expressoMail'];
+	$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = (isset($preferences['expressoMail'])?$preferences['expressoMail']:"");
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['voip_enabled'] = $voip_enabled;
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['voip_email_redirect'] = $emailVoip;
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['outoffice'] = (isset($GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['outoffice'])?$GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['outoffice']:"");
@@ -172,7 +172,7 @@
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['confirm_read_message'] = (isset($GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['confirm_read_message']) ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['confirm_read_message'] : 0);
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['alert_message_attachment'] = (isset($GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['alert_message_attachment']) ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['alert_message_attachment'] : 0);
 	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['enable_quickadd_telephonenumber'] = '';
-	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] = $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] : "0";
+	$_SESSION['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] = (isset($GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab']) ? $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['auto_close_first_tab'] : "0");
 	
 	// 	ACL for block edit Personal Data.
 	if( $current_config['expressoMail_enable_quickadd_telephonenumber'] == 'true' ){
@@ -222,7 +222,7 @@
     $_SESSION['phpgw_info']['server']['expressomail']['expressoMail_command_for_spam'] = (isset($current_config['expressoMail_command_for_spam'])?$current_config['expressoMail_command_for_spam']:"");
     $_SESSION['phpgw_info']['server']['expressomail']['expressoMail_use_spam_filter'] = (isset($current_config['expressoMail_use_spam_filter'])?$current_config['expressoMail_use_spam_filter']:"");
     $_SESSION['phpgw_info']['server']['expressomail']['expressoMail_enable_log_messages'] = (isset($current_config['expressoMail_enable_log_messages'])?$current_config['expressoMail_enable_log_messages']:"");   
-    echo '<script> var use_spam_filter = \''.$current_config['expressoMail_use_spam_filter'].'\'; var sieve_forward_domains = \''.$current_config['expressoMail_sieve_forward_domains'].'\'; </script>';
+    echo '<script> var use_spam_filter = \''.(isset($current_config['expressoMail_use_spam_filter'])?$current_config['expressoMail_use_spam_filter']:"").'\'; var sieve_forward_domains = \''.(isset($current_config['expressoMail_sieve_forward_domains'])?$current_config['expressoMail_sieve_forward_domains']:"").'\'; </script>';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////// Hidden Copy options ///////////////////////////////////////////////////////
@@ -331,15 +331,17 @@
 	    }
 	}
 
-    if($inVacation)
+    if( $inVacation )
     {	
 		echo '<script type="text/javascript"> write_msg(get_lang("Attention, you are in out of office mode."), true);   </script>';
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	echo '<script type="text/javascript" src="scripts.php?lang='.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'].'" charset="UTF-8" ></script>';
 	
-	if ( $GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_shortcuts'] ) //usar teclas de atalho ?
+	if ( isset($GLOBALS['phpgw_info']['user']['preferences']['expressoMail']['use_shortcuts']) ) //usar teclas de atalho ?
+	{
 		echo '<script type="text/javascript" src="js/shortcut.js" ></script>';
+	}
 	
 	// Get Preferences or redirect to preferences page.
 	$GLOBALS['phpgw']->preferences->read_repository();

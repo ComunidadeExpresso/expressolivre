@@ -75,7 +75,7 @@
         }
 
         if ($app != 'home') {
-            if ($app_data['enabled'] == false || ($app_data['status'] == 0 || $app_data['status'] == 2)) {
+            if (( isset($app_data['enabled']) && $app_data['enabled'] == false ) || ( isset($app_data['status']) && ($app_data['status'] == 0 || $app_data['status'] == 2 ))) {
                 continue;
             }
         }

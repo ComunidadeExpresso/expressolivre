@@ -24,7 +24,10 @@
 	if( !isset( $_SESSION['phpgw_info']['user']['preferences']['expressoMail'] ) )
 	{ 
 		$preferences = $GLOBALS['phpgw']->preferences->read(); 
-		$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['expressoMail'];
+		if( isset($preferences['expressoMail']) )
+		{
+			$_SESSION['phpgw_info']['user']['preferences']['expressoMail'] = $preferences['expressoMail'];
+		}
 	}
   	
   	if( isset( $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['mainscreen_showmail'] ) )
