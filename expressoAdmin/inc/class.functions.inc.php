@@ -339,6 +339,7 @@
 			$passwd		= $GLOBALS['phpgw_info']['server']['ldap_root_pw'];
 			$ldap_conn	= ldap_connect($GLOBALS['phpgw_info']['server']['ldap_host']);
 			$return		= "";
+			$sort		= array();
 
 			ldap_set_option($ldap_conn, LDAP_OPT_PROTOCOL_VERSION, 3);
 			ldap_set_option($ldap_conn, LDAP_OPT_REFERRALS, 0);
@@ -424,8 +425,11 @@
 				ldap_close($ldap_conn);
 				
 				natcasesort($sort);
+				
 				foreach ($sort as $maillist_uid)
+				{
 					$return[$maillist_uid] = $tmp[$maillist_uid];
+				}
 				
 				return $return;
 			}

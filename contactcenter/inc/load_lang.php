@@ -18,10 +18,12 @@ if(!isset($GLOBALS['phpgw_info'])){
         'noheader'   => true
     );
 }
+
 require_once '../../header.inc.php';
 
 $array_keys = array();
-$fn = dirname(__FILE__) . '/../setup/phpgw_'.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'].'.lang';
+$fn         = dirname(__FILE__) . '/../setup/phpgw_'.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'].'.lang';
+$script     = "";
 
 if (file_exists($fn)){
     $fp = fopen($fn,'r');
@@ -33,4 +35,5 @@ if (file_exists($fn)){
 }
 
 echo "var array_lang = new Array();\n{$script}";
+
 ?>

@@ -56,7 +56,7 @@
 	);
 	display_sidebox($appname,$title,$file);
 
-	if ($GLOBALS['phpgw_info']['user']['apps']['admin'])
+	if( isset($GLOBALS['phpgw_info']['user']['apps']['admin']) )
 	{
         $title = lang('Administration');
         $file = Array(

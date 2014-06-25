@@ -1290,17 +1290,21 @@ class ldap_functions
 	{
 		$options = '';
 		$context = $params['context'];
-		
+
 		//Exibe todas as listas
-		if (empty($params['sentence']))
+		if( empty($params['sentence']) )
 		{
 			$params['sentence'] = '.';
 		}
+			
 		$maillists_info = $this->functions->get_list('maillists', $params['sentence'],(array) $context);
-		
-		foreach ($maillists_info as $maillist)
+
+		if( is_array($maillists_info) && count($maillists_info) > 0 )
 		{
-			$options .= "<option value=" . $maillist['uid'] . ">" . $maillist['uid'] . " (" . $maillist['email'] . ")" . "</option>";
+			foreach( $maillists_info as $maillist )
+			{
+				$options .= "<option value=" . $maillist['uid'] . ">" . $maillist['uid'] . " (" . $maillist['email'] . ")" . "</option>";
+			}
 		}
 		
 		return $options;
