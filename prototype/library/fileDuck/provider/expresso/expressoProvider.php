@@ -15,7 +15,8 @@ class expressoProvider implements iProvider
         $lang = strtolower(str_replace('_' , '-' , $lang ));
 
         if(isset($config['module'])){
-            $langFile = realpath(__DIR__ . '/../../../../' . $config['module'] . '/setup/phpgw_'. $lang . '.lang');
+
+            $langFile = realpath(__DIR__ . '/../../../../../' . $config['module'] . '/setup/phpgw_'. $lang . '.lang');
 
             if ( file_exists( $langFile ) ){
                 $fp = fopen( $langFile , 'r' );
