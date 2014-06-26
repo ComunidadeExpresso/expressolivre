@@ -101,7 +101,7 @@ function validDateEvent(){
 }
 
 /**
- * Renderiza relatÛrios dos Eventos.... etc.
+ * Renderiza relat√≥rios dos Eventos.... etc.
  */
 function printNow(){
 	if($("#calendar").fullCalendar('getView').name == "agendaWeek" || $("#calendar").fullCalendar('getView').name == "basicWeek" || $("#calendar").fullCalendar('getView').name == "year")
@@ -176,8 +176,8 @@ function printEvents(){
 
 /**
  * TODO - repeat foi adicionado pois melhorias devem ser feitas no rollback do
- *DataLayer, repeat somente È usado quando se trata da criaÁ„o de um evento
- *pela ediÁ„o de uma ocorrÍncia.
+ *DataLayer, repeat somente √© usado quando se trata da cria√ß√£o de um evento
+ *pela edi√ß√£o de uma ocorr√™ncia.
  **/
 
 function eventDetails(objEvent, decoded, path, isMail, repeat, buttonClicked) {
@@ -223,12 +223,12 @@ function eventDetails(objEvent, decoded, path, isMail, repeat, buttonClicked) {
     }
 	
     /**
-	 * canDiscardEventDialog deve ser true se n„o houver alteraÁıes no evento
+	 * canDiscardEventDialog deve ser true se n√£o houver altera√ß√µes no evento
 	 */
     canDiscardEventDialog = true;
     /**
-	 * zebraDiscardEventDialog È uma flag indicando que uma janela de confirmaÁ„o (Zebra_Dialog)
-	 * j· est· aberta na tela, uma vez que n„o È possivel acessar o evento ESC utilizado para fech·-la
+	 * zebraDiscardEventDialog √© uma flag indicando que uma janela de confirma√ß√£o (Zebra_Dialog)
+	 * j√° est√° aberta na tela, uma vez que n√£o √© possivel acessar o evento ESC utilizado para fech√°-la
 	 */
     zebraDiscardEventDialog = false;
 	
@@ -263,7 +263,7 @@ function eventDetails(objEvent, decoded, path, isMail, repeat, buttonClicked) {
     };
 
     var callbackAttendee = function(){
-	//Cria qtip de permissıes pelo click do checkbox
+	//Cria qtip de permiss√µes pelo click do checkbox
 	var checked = false;
 	blkAddAtendee.find("li.not-attendee").addClass('hidden');
 	
@@ -490,7 +490,7 @@ if (!UI.dialogs.addEvent) {
 			    if(clicked == '_[[Discard changes]]') {
 				canDiscardEventDialog = true;
 				/**
-				*RemoÁ„o dos anexos do eventos caso seja cancelado a ediÁ„o
+				*Remo√ß√£o dos anexos do eventos caso seja cancelado a edi√ß√£o
 				*/
 				DataLayer.rollback();
 
@@ -511,10 +511,10 @@ if (!UI.dialogs.addEvent) {
 			    }
 									
 			    /**
-			    * Uma vez aberta uma janela de confirmaÁ„o (Zebra_Dialog), ao fech·-la
-			    * com ESC, para que o evento ESC n„o seja propagado para fechamento da
-			    * janela de ediÁ„o de eventos, deve ser setada uma flag indicando que
-			    * j· existe uma janela de confirmaÁ„o aberta.
+			    * Uma vez aberta uma janela de confirma√ß√£o (Zebra_Dialog), ao fech√°-la
+			    * com ESC, para que o evento ESC n√£o seja propagado para fechamento da
+			    * janela de edi√ß√£o de eventos, deve ser setada uma flag indicando que
+			    * j√° existe uma janela de confirma√ß√£o aberta.
 			    */
 			    if (!clicked) {
 				window.setTimeout(function() {
@@ -804,11 +804,11 @@ var myCalendar = function(){
 		return Calendar.signatures[i].calendar.id;
 }
 
-/*Seleciona a agenda padr„o para visualizaÁ„o/ediÁ„o de um evento*/
+/*Seleciona a agenda padr√£o para visualiza√ß√£o/edi√ß√£o de um evento*/
 if(objEvent.id)
     UI.dialogs.addEvent.find('option[value="'+objEvent.calendar+'"]').attr('selected','selected').trigger('change');
 
-/*Adicionar alarms padrıes, quando alterado a agenda do usu·rio*/		
+/*Adicionar alarms padr√µes, quando alterado a agenda do usu√°rio*/		
 UI.dialogs.addEvent.find('select[name="calendar"]').change(function(){
     if((typeof($('input[name = "idEvent"]').val()) == 'undefined') || (!!!$('input[name = "idEvent"]').val())) {
 	$('input[name = "isDefaultAlarm[]"]').parent().remove();
@@ -872,7 +872,7 @@ UI.dialogs.addEvent.find('select[name="calendar"]').change(function(){
 
 });
 
-/*Checkbox adicionar alarms padrıes*/
+/*Checkbox adicionar alarms padr√µes*/
 UI.dialogs.addEvent.find('input[name="defaultAlarm"]').click(function(){
     if($(this).attr("checked")){
 	$('input[name="isDefaultAlarm[]"]').parent().remove();
@@ -970,7 +970,7 @@ UI.dialogs.addEvent.find(".menu-addevent")
 }).end()
 	    
 .children(".save").click(function(){
-    /* ValidaÁ„o */
+    /* Valida√ß√£o */
     var msg = false;			
     if(msg = validDateEvent()){
 	$(".new-event-win.active").find('.messages-validation').removeClass('hidden').find('.message label').html(msg); 
@@ -1188,7 +1188,7 @@ UI.dialogs.addEvent.find('.button.suggestion-hours').button({
     icons: {
 	primary: "ui-icon-clock"
     },
-    text: 'Sugerir hor·rio'
+    text: 'Sugerir hor√°rio'
 }).click(function () {
     $(this).siblings('input').removeAttr('disabled')
     .end().parents().find('input[name="allDay"]').removeAttr('disabled');		
@@ -1213,7 +1213,7 @@ var blkAddAtendee = UI.dialogs.addEvent.find('#calendar_addevent_details6').appe
 if(objEvent.attendee.length) 
 	 	callbackAttendee(); 
 /**
-OpÁıes de delegaÁ„o do participante/organizer
+Op√ß√µes de delega√ß√£o do participante/organizer
 */		
 blkAddAtendee.find(".button.participant-delegate").button({
     icons: {
@@ -1243,7 +1243,7 @@ blkAddAtendee.find(".button.participant-delegate").button({
 
 UI.dialogs.addEvent.find(".attendee-list-add .add-attendee-input input").Watermark("_[[enter an email invite]]");
 /* 
- * Trata a ediÁ„o de um novo participante adicionado
+ * Trata a edi√ß√£o de um novo participante adicionado
  */
 var hasNewAttendee = false;
 			
@@ -1263,19 +1263,19 @@ blkAddAtendee.find('.attendee-list-add .add-attendee-input input').keydown(funct
 	var info = $(this).val();
 
 	/**
-	* email v·lido?
+	* email v√°lido?
 	*/
 	info.match(/^[\w!#$%&'*+\/=?^`{|}~-]+(\.[\w!#$%&'*+\/=?^`{|}~-]+)*@(([\w-]+\.)+[A-Za-z]{2,6}|\[\d{1,3}(\.\d{1,3}){3}\])$/) ? 
 	newAttendeeEmail = info : newAttendeeName = info;
 
 	/**
-	* 1) busca no banco para saber se o usu·rio j· existe
+	* 1) busca no banco para saber se o usu√°rio j√° existe
 	*		1.1) se existe, atualiza as info na lista de participantes e nao abre o tooltip
-	*		1.2) se n„o existe
+	*		1.2) se n√£o existe
 	*			a) salva como novo usuario externo no banco (apenas com email)
 	*			b) exibe tooltip pedindo o nome
-	*			c) se o usu·rio preenche tooltip e salva, atualiza com o nome o usu·rio recÈm criado
-	*			d) se o usu·rio cancela o tooltip, fica o usu·rio salvo apenas com email e sem nome
+	*			c) se o usu√°rio preenche tooltip e salva, atualiza com o nome o usu√°rio rec√©m criado
+	*			d) se o usu√°rio cancela o tooltip, fica o usu√°rio salvo apenas com email e sem nome
 	*/
 
 	var user = DataLayer.get('user', ["=", "mail", $(this).val()]);
@@ -1285,7 +1285,7 @@ blkAddAtendee.find('.attendee-list-add .add-attendee-input input').keydown(funct
 		};
 					
 	/**
-	* guarda o ˙ltimo tooltip aberto referente ‡ lista de participantes 
+	* guarda o √∫ltimo tooltip aberto referente √† lista de participantes 
 	*/
 	lastEditAttendeeToolTip = [];
 
@@ -1320,7 +1320,7 @@ blkAddAtendee.find('.attendee-list-add .add-attendee-input input').keydown(funct
 	}
 						
 	/**
-					 * Formata e adequa um tootip abert para ediÁ„o de um participante na lista
+					 * Formata e adequa um tootip abert para edi√ß√£o de um participante na lista
 					 */
 	var onShowToolTip = function(arg0) {
 	    $('.qtip-active .button.close').button({
@@ -1358,8 +1358,8 @@ blkAddAtendee.find('.attendee-list-add .add-attendee-input input').keydown(funct
 	}
 					
 	/**
-					 * Se o email digitado j· foi adicionado na lista,
-					 * o usu·rio deve ser avisado e um bot„o de ediÁ„o deve ser exibido
+					 * Se o email digitado j√° foi adicionado na lista,
+					 * o usu√°rio deve ser avisado e um bot√£o de edi√ß√£o deve ser exibido
 					 */
 	if(blkAddAtendee.find('label.mail[title="' + newAttendeeEmail + '"]').length) {
 	    hasNewAttendee  = false;
@@ -1369,8 +1369,8 @@ blkAddAtendee.find('.attendee-list-add .add-attendee-input input').keydown(funct
 	    .find('.message label').html('_[[The above user has been added!]]' + ' <a class=\"small button\">' + '_[[Edit]]' + '</a>')
 	    .find(".button").button().click(function () { 
 		/**
-							 * Se o usu·rio optar por editar o participante anteriormente adicionado,
-							 * uma tooltip deve ser aberta para este participante, viabilizando a ediÁ„o
+							 * Se o usu√°rio optar por editar o participante anteriormente adicionado,
+							 * uma tooltip deve ser aberta para este participante, viabilizando a edi√ß√£o
 							 */
 		blkAddAtendee.find("ul.attendee-list").scrollTo('label.mail[title="' + newAttendeeEmail + '"]');
 		/**
@@ -1469,7 +1469,7 @@ if (user){
 } else if (!skipAddNewLine) {
     /**
      * a) salva como novo usuario externo no banco (apenas com email) e...
-     * adiciona novo contato externo ‡ lista de convidados
+     * adiciona novo contato externo √† lista de convidados
      */
 
     userId = DataLayer.put('user', {
@@ -1497,8 +1497,8 @@ if (user){
     callbackAttendee();
 
     /** 
-						 * Adiciona tootip para atualizaÁ„o dos dados do contato externo
-						 * recÈm adicionado.
+						 * Adiciona tootip para atualiza√ß√£o dos dados do contato externo
+						 * rec√©m adicionado.
 						 */
     lastEditAttendeeToolTip = blkAddAtendee.find('dd.attendee-list li:last');
     lastEditAttendeeToolTip.qtip({
@@ -1560,7 +1560,7 @@ event.preventDefault();
 });
 
 /** 
-* Trata a busca de usu·rios para adiÁ„o de participantes
+* Trata a busca de usu√°rios para adi√ß√£o de participantes
 */
 blkAddAtendee.find('.add-attendee-search .ui-icon-search').click(function(event) {
     blkAddAtendee.find('.add-attendee-search input').keydown();
@@ -1619,7 +1619,7 @@ blkAddAtendee.find('.add-attendee-search input').keydown(function(event) {
 		    }]))
 		.scrollTo('max');
 		/**
-							* DelegaÁ„o de participaÁ„o de um participante com permiss„o apenas de leitura
+							* Delega√ß√£o de participa√ß√£o de um participante com permiss√£o apenas de leitura
 							*
 							*/
 		if(!objEvent.acl.organization && !objEvent.acl.write && !objEvent.acl.inviteGuests && objEvent.acl.read ){
@@ -1725,7 +1725,7 @@ if(objEvent.isShared){
 
 disponibily(objEvent, path, attendees, 'event');
 
-/*Seleciona a agenda padr„o para criaÁ„o de um evento*/
+/*Seleciona a agenda padr√£o para cria√ß√£o de um evento*/
 if(!objEvent.id){
     var selectedCalendar = (objEvent.calendar != undefined) ? objEvent.calendar : (User.preferences.defaultCalendar ? User.preferences.defaultCalendar : myCalendar());
     UI.dialogs.addEvent.find('option[value="'+selectedCalendar+'"]').attr('selected','selected').trigger('change');
@@ -1765,7 +1765,7 @@ $newTab = (function(){
 }());
 
 function add_tab_preferences(){
-    var tab_title = "PreferÍncias",tab_id = "preference_tab";
+    var tab_title = "Prefer√™ncias",tab_id = "preference_tab";
     if (!(document.getElementById('preference_tab'))){
         $newTab.createTab(tab_id,tab_title);
 	DataLayer.render( 'templates/preferences_calendar.ejs', {
@@ -2023,7 +2023,7 @@ function add_tab_configure_calendar(calendar, type) {
 		});
 
 		/**
-					 * Trata a mudanÁa dos valores dos campos de cores.
+					 * Trata a mudan√ßa dos valores dos campos de cores.
 					 * Se mudar um conjunto de cores sugerido,
 					 * este vira um conjunto de cores personalizado.
 					 */
@@ -2071,7 +2071,7 @@ DataLayer.render( 'templates/configure_calendars.ejs', {
     });
 
     /**
-			 * Muda a estrutura do template para a aplicaÁ„o do plugin accordion
+			 * Muda a estrutura do template para a aplica√ß√£o do plugin accordion
 			 */
     template_content.find('.header-menu-container').after('<div class="accordion-user-calendars"></div>').end().find('.accordion-user-calendars')
     .append(template_content.children('fieldset'));
@@ -2135,7 +2135,7 @@ function getSelectedCalendars( reverse, type ){
 }
 
 /**
- * TODO - transformar em preferÍncia do mÛdulo e criar telas de adiÁ„o e exclus„o de conjunto de cores
+ * TODO - transformar em prefer√™ncia do m√≥dulo e criar telas de adi√ß√£o e exclus√£o de conjunto de cores
  */
 function colors_suggestions(){
     return [
@@ -2825,7 +2825,7 @@ function pageselectCallback(keyword, page_index, view, type){
 	//var results = DataLayer.get('schedulable:detail', criteria);
         keyword = ( keyword || '' ).replace( /\s+/g, "_" );
 	}
-// n„o h· resultados	
+// n√£o h√° resultados	
 
 var currentView = '#'+tab_selector[type] + ((Base64.encode(keyword)).replace(/[^\w\s]/gi, "") || '');
 
@@ -2835,7 +2835,7 @@ if ((((typeof(results) == 'undefined') || (!results.events_list )) && selecteds)
 		'<label>'+label_nofound_search[type]+'</label>' +
 		'</div>'
 	);
-// h· resultados e Agendas Selecionadas
+// h√° resultados e Agendas Selecionadas
 } else{ 
     if(typeof(results) != 'undefined'){
 		results['page_index'] = page_index;
@@ -3071,7 +3071,7 @@ function show_modal_import_export(tab, calendarId, typeView){
 	    $('.export-event-form', UI.dialogs.importCalendar).submit();
 	    UI.dialogs.importCalendar.dialog("close");
 	/**
-			 * TODO - implementar aÁ„o de exportaÁ„o
+			 * TODO - implementar a√ß√£o de exporta√ß√£o
 			 */
 	});
        

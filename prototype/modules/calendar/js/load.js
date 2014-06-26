@@ -1,5 +1,5 @@
 Refresh = {
-    //Tempo em que após a ultima sincronização será verificado atualizações
+    //Tempo em que apÃ³s a ultima sincronizaÃ§Ã£o serÃ¡ verificado atualizaÃ§Ãµes
     timeRefresh : 180,
     clookRefresh: false,
 
@@ -7,7 +7,7 @@ Refresh = {
 
 	delete DataLayer.tasks[this.clookRefresh];
 	
-	//Realiza agendamentos de atualização de view somente se o módulo aberto for expressoCalendar
+	//Realiza agendamentos de atualizaÃ§Ã£o de view somente se o mÃ³dulo aberto for expressoCalendar
 	if(User.moduleName == "expressoCalendar"){
 	    this.clookRefresh = (parseInt(($.now()) / 1000) + this.timeRefresh);
 
@@ -72,11 +72,11 @@ Calendar = {
     },
 
     rerenderView: function(force){
-        //TODO - Remover if quando centralizar o objeto User que contem as informações do usuário logado em um local acessível a todos módulos
+        //TODO - Remover if quando centralizar o objeto User que contem as informaÃ§Ãµes do usuÃ¡rio logado em um local acessÃ­vel a todos mÃ³dulos
         if(User.moduleName == "expressoCalendar"){
             if((typeof($tabs) != "undefined") && $tabs.tabs('option' ,'active') == 0){
                 if(force){
-                    //Remove a incônsistencia do aninhamento de um mesmo tipo em diferentes conceitos
+                    //Remove a incÃ´nsistencia do aninhamento de um mesmo tipo em diferentes conceitos
                     DataLayer.rollback('user');
 
                     delete Calendar.currentViewKey;

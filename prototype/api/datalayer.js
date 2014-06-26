@@ -122,15 +122,15 @@ DataLayer = {
     tasks: {},
     
     /**
-     * A funÁ„o render È respons·vel pela integraÁ„o dos templates com os dados provenientes do conceito, ou mesmo dados custom.
+     * A fun√ß√£o render √© respons√°vel pela integra√ß√£o dos templates com os dados provenientes do conceito, ou mesmo dados custom.
      * 
      * Use:
      * 
      * DataLayer.render	( 
-     *			 'template/listaEmArvore', 								//aqui se passa a URL do template em quest„o
+     *			 'template/listaEmArvore', 								//aqui se passa a URL do template em quest√£o
      *			 'folder:tree' OR { 'node': ['1', '2', '3'] },						//aqui se passa o conceito da qual o template vai ser compilado, juntamente com seu respectivo codec
-     *			 '123' OR [ 'AND', [ '=', 'name', 'dedeu' ], [ '=', 'icon', 'folder.png' ] ] OR false   //aqui se passa um id ou filtro quando for nescess·rio filtrar os conceitos que v„o ser usados no render. 
-     *														//Se for suprimido, ou receber false, s„o trazidos todos os conceitos sem filtro
+     *			 '123' OR [ 'AND', [ '=', 'name', 'dedeu' ], [ '=', 'icon', 'folder.png' ] ] OR false   //aqui se passa um id ou filtro quando for nescess√°rio filtrar os conceitos que v√£o ser usados no render. 
+     *														//Se for suprimido, ou receber false, s√£o trazidos todos os conceitos sem filtro
      *			);
      */
 
@@ -330,13 +330,13 @@ DataLayer = {
     },
 
     /**
-     * A funÁ„o put È respons·vel pela inserÁ„o de dados no DataLayer.
+     * A fun√ß√£o put √© respons√°vel pela inser√ß√£o de dados no DataLayer.
      * 
      * Use:
      * 
      * DataLayer.put	( 
      *			 'folder' OR 'folder:tree', 								//aqui se passa o conceito a ser armazenado. Caso o :codec seja declarado, os dados passam pelo decode do mesmo antes de ser armazenado
-     *			 '123' OR [ 'AND', [ '=', 'name', 'dedeu' ], [ '=', 'icon', 'folder.png' ] ] OR false,	//aqui se passa um id ou filtro quando for nescess·rio setar especificamente quais s„o os conceitos que v„o ser atualizados. Caso se passe false ou mesmo o suprima o DataLayer cria um novo elemento e retorna o novo ID.
+     *			 '123' OR [ 'AND', [ '=', 'name', 'dedeu' ], [ '=', 'icon', 'folder.png' ] ] OR false,	//aqui se passa um id ou filtro quando for nescess√°rio setar especificamente quais s√£o os conceitos que v√£o ser atualizados. Caso se passe false ou mesmo o suprima o DataLayer cria um novo elemento e retorna o novo ID.
      *			  { 'node': [ '1', '2', '3' ] }								//aqui se passa a estrutura de dados a serem armazenados. Caso venha um id na mesma, o conceito e armazenado e atualizado seguindo o mesmo.
      *			);
      */
@@ -374,7 +374,7 @@ DataLayer = {
 	    data = [ data ];
 
 	    if(res = internalUrl.exec( concept )){
-	    //TODO: verificar se a decodificaÁao deve ser feita em cada item do array
+	    //TODO: verificar se a decodifica√ßao deve ser feita em cada item do array
 	    data = this.decode( concept, data );
 	    concept = res[1];
 	    decoder = res[2];
@@ -466,13 +466,13 @@ DataLayer = {
     },
     
      /**
-     * A funÁ„o remove È respons·vel pela remoÁ„o de dados no DataLayer.
+     * A fun√ß√£o remove √© respons√°vel pela remo√ß√£o de dados no DataLayer.
      * 
      * Use:
      * 
      * DataLayer.remove	( 
      *			 'folder', 	 //aqui se passa o conceito a ser removido.
-     *			 '123' OR false, //aqui se passa um id quando for nescess·rio remover especificamente alguÈm. Caso se passe false ou mesmo o suprima o DataLayer remove o conceito inteiro.
+     *			 '123' OR false, //aqui se passa um id quando for nescess√°rio remover especificamente algu√©m. Caso se passe false ou mesmo o suprima o DataLayer remove o conceito inteiro.
      *			);
      */
     
@@ -542,9 +542,9 @@ DataLayer = {
     },
     
     /*
-     * RemoveFilter = mÈtodo para remoÁ„o de objetos por critÈrio, funcionalidade n„o implementada no mÈtodo remove
-     * TODO - A remoÁ„o È feira em tempo real, onde ainda o mesmo n„o suporta remoÁ„o apenas na camada do cliente
-     * caso necess·ria tao funcionalidade a mesma ser· implementada no futuro
+     * RemoveFilter = m√©todo para remo√ß√£o de objetos por crit√©rio, funcionalidade n√£o implementada no m√©todo remove
+     * TODO - A remo√ß√£o √© feira em tempo real, onde ainda o mesmo n√£o suporta remo√ß√£o apenas na camada do cliente
+     * caso necess√°ria tao funcionalidade a mesma ser√° implementada no futuro
      **/
     removeFilter: function( concept, filter, oneSide ){
 	//remover
@@ -1177,7 +1177,7 @@ DataLayer = {
 	}
 
 	if( /*result &&*/ encoder )
-	    result = this.encode( encoder, result, filter ); //TODO: retirar o filtro no mÈtodo encode
+	    result = this.encode( encoder, result, filter ); //TODO: retirar o filtro no m√©todo encode
 
 	return( result );
     },
@@ -2415,7 +2415,7 @@ DataLayer.init();
 // 
 // 	if( res = internalUrl.exec( concept ) )
 // 	{
-// 	    //TODO: verificar se a decodificaÁao deve ser feita em cada item do array
+// 	    //TODO: verificar se a decodifica√ßao deve ser feita em cada item do array
 // 	    data = this.decode( concept, data );
 // 	    concept = res[1];
 // 	    decoder = res[2];
@@ -3148,7 +3148,7 @@ DataLayer.init();
 // 	}
 // 
 // 	if( /*result &&*/ encoder )
-// 	    result = this.encode( encoder, result, filter ); //TODO: retirar o filtro no mÈtodo encode
+// 	    result = this.encode( encoder, result, filter ); //TODO: retirar o filtro no m√©todo encode
 // 
 // 	return( result );
 //     },
@@ -3501,7 +3501,7 @@ DataLayer.init();
 // // 	return( obj );
 // //     },
 //     
-//            //TODO: definir a 'usage' desta funÁ„o e refatora-la
+//            //TODO: definir a 'usage' desta fun√ß√£o e refatora-la
 // //     set: function( concept, filter, data, oneSide ){
 // // 
 // // 	///////////////////////////// normalize ////////////////////////////////
@@ -3530,7 +3530,7 @@ DataLayer.init();
 // // 
 // // 	if( res = internalUrl.exec( concept ) )
 // // 	{
-// // 	    //TODO: verificar se a decodificaÁao deve ser feita em cada item do array
+// // 	    //TODO: verificar se a decodifica√ßao deve ser feita em cada item do array
 // // 	    data = this.decode( concept, data );
 // // 	    concept = res[1];
 // // 	    decoder = res[2];
@@ -3626,4 +3626,4 @@ DataLayer.init();
 // // 
 // // 	if( res = internalUrl.exec( concept ) )
 // // 	{
-// // 	    //TODO: verificar se a decodificaÔø
+// // 	    //TODO: verificar se a decodifica√Ø¬ø
