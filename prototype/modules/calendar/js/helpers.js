@@ -100,6 +100,9 @@ function validDateEvent(){
     return false;
 }
 
+/**
+ * Renderiza relatórios dos Eventos.... etc.
+ */
 function printNow(){
 	if($("#calendar").fullCalendar('getView').name == "agendaWeek" || $("#calendar").fullCalendar('getView').name == "basicWeek" || $("#calendar").fullCalendar('getView').name == "year")
 		alert('_[[The printing view is best viewed with the preference "landscape" selected in your browser.]]');
@@ -132,7 +135,8 @@ function printNow(){
 		}));
 		
 		var aux = 0;
-		setTimeout(function(){$(window_print.document).find(".all-day").each(function(){
+        setTimeout(function () {
+            $(window_print.document).find(".all-day").each(function () {
 			if($(this).height() > aux)
 				aux = $(this).height();
 		});
@@ -170,20 +174,18 @@ function printEvents(){
 	});
 }
 
-/*
+/**
  * TODO - repeat foi adicionado pois melhorias devem ser feitas no rollback do
  *DataLayer, repeat somente é usado quando se trata da criação de um evento
  *pela edição de uma ocorrência.
- */
+ **/
 
-function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
-{
+function eventDetails(objEvent, decoded, path, isMail, repeat, buttonClicked) {
     $('.qtip.qtip-blue').remove();
 
     attendees = {};
 
-    if(!!objEvent.participants)
-    {
+    if (!!objEvent.participants){
         $.each(objEvent.participants ,function(index, value) {
 
             var part = DataLayer.get('participant' , value );
@@ -195,11 +197,15 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 
     if( path == undefined ) path = "";
 	
-    if( !decoded ){ objEvent = DataLayer.decode("schedulable:calendar", objEvent ); }
+    if (!decoded){
+        objEvent = DataLayer.decode("schedulable:calendar", objEvent);
+    }
 
 	var dtstamp = objEvent.dtstamp;
     
-    if(!isMail){ objEvent = DataLayer.encode( "schedulable:preview", objEvent ); }
+    if (!isMail) {
+        objEvent = DataLayer.encode("schedulable:preview", objEvent);
+    }
 	
 	if (!dtstamp)
 		var date = new Date();
@@ -211,8 +217,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 	objEvent.creationDate[1] = date.getHours();
 	objEvent.creationDate[2] = date.getMinutes();	
     
-    if( typeof(objEvent.id) == 'undefined' )
-    {
+    if (typeof(objEvent.id) == 'undefined') {
 		objEvent.alarms = Calendar.signatureOf[User.preferences.defaultCalendar || Calendar.calendarIds[0] ].defaultAlarms || false;
 		objEvent.useAlarmDefault = 1;
     }
@@ -284,11 +289,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 	    if(blkAddAtendee.find(".attendee-list li").length == 1)
 		blkAddAtendee.find("li.not-attendee").removeClass('hidden');
      delete attendees[participant.user];
-	})
-	.addClass('tiny disable ui-button-disabled ui-state-disabled')
-	.removeClass('new').end()
-	
-	.filter(".delegate.new").button({
+            }).addClass('tiny disable ui-button-disabled ui-state-disabled').removeClass('new').end().filter(".delegate.new").button({
 	    icons: {
 		primary: "ui-icon-transferthick-e-w"
 	    },
@@ -296,8 +297,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 	}).click(function () {
 	    var me = $(this).parents('li');
 	    if($(this).hasClass('attendee-permissions-change-button')){
-		$(this).removeClass('attendee-permissions-change-button')   
-		    .find('.ui-icon-transferthick-e-w').removeClass('attendee-permissions-change').end();               
+                    $(this).removeClass('attendee-permissions-change-button').find('.ui-icon-transferthick-e-w').removeClass('attendee-permissions-change').end();
 		
 		me.find('input[name="delegatedFrom[]"]').val('');
 		dependsDelegate(me, true);
@@ -310,8 +310,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 	    }else{
 		removeOthers();
 			
-		$(this).addClass('attendee-permissions-change-button')   
-		.find('.ui-icon-transferthick-e-w').addClass('attendee-permissions-change').end();               
+                    $(this).addClass('attendee-permissions-change-button').find('.ui-icon-transferthick-e-w').addClass('attendee-permissions-change').end();
 		
 		me.find('input[name="delegatedFrom[]"]').val(blkAddAtendee.find('.me input[name="attendee[]"]').val());
 		
@@ -323,11 +322,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 			
 		blkAddAtendee.find('option[value=5]').attr('selected','selected').trigger('change');
 	    }
-	})
-	.addClass('tiny disable ui-button-disabled ui-state-disabled')
-	.removeClass('new').end()
-		
-	.filter(".edit.new").button({
+            }).addClass('tiny disable ui-button-disabled ui-state-disabled').removeClass('new').end().filter(".edit.new").button({
 	    icons: {
 		primary: "ui-icon-key"
 	    },
@@ -381,15 +376,13 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 	    y:0
 	    }
 	    }
-	    })
-	.qtip("api").onShow = function(arg0) {
+                    }).qtip("api").onShow = function (arg0) {
 	    $('.qtip-active .button.close').button({
 		icons: {
 		    primary: "ui-icon-close"
 		},
 		text: false
-	    })
-	    .click(function(){
+                        }).click(function () {
 		blkAddAtendee.find('dd.attendee-list').qtip('destroy');
 	    });
 					
@@ -430,12 +423,8 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 		$('.qtip-active .button.save .ui-button-text').html('_[[Apply to All]]')
 	    }
 			
-	};			
-    })
-.addClass('tiny disable ui-button-disabled ui-state-disabled')
-.removeClass('new').end()
-		
-.filter(".open-delegate.new").click(function(){
+                };
+            }).addClass('tiny disable ui-button-disabled ui-state-disabled').removeClass('new').end().filter(".open-delegate.new").click(function () {
     if($(this).hasClass('ui-icon-triangle-1-e')){
 	$(this).removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
 	$(this).parents('li').find('.list-delegates').removeClass('hidden');
@@ -459,22 +448,18 @@ blkAddAtendee.find("li input[type=checkbox].new").click(function(){
 UI.dialogs.addEvent.find('.attendees-list li').hover(
     function () {
 	$(this).addClass("hover-attendee");
-	$(this).find('.button').removeClass('disable ui-button-disabled ui-state-disabled').end()
-	.find('.attendee-options').addClass('hover-attendee');
+                $(this).find('.button').removeClass('disable ui-button-disabled ui-state-disabled').end().find('.attendee-options').addClass('hover-attendee');
     },
     function () {
 	$(this).removeClass("hover-attendee");
-	$(this).find('.button').addClass('disable ui-button-disabled ui-state-disabled').end()
-	.find('.attendee-options').removeClass('hover-attendee');;
+                $(this).find('.button').addClass('disable ui-button-disabled ui-state-disabled').end().find('.attendee-options').removeClass('hover-attendee');
     }
     );
 	
 		
 }
 
-var html = DataLayer.render( path+'templates/event_add.ejs', {
-    event:objEvent
-});	
+    var html = DataLayer.render(path + 'templates/event_add.ejs',{event: objEvent});
 		
 if (!UI.dialogs.addEvent) {
     UI.dialogs.addEvent = jQuery('#sandbox').append("<div title='_[[Create Event]]' class='new-event-win active'> <div>").find('.new-event-win.active').html(html).dialog({
@@ -1757,20 +1742,32 @@ UI.dialogs.addEvent.dialog('open');
 
 }
 
+/**
+ * Classe para adicionar uma Nova Aba "tab"
+ */
+$newTab = (function(){
+    return tab = {
+        'createTab':function(tabId,tabTitle){
+            var tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
+                li = $( tabTemplate.replace( /#\{href\}/g, "#" + tabId ).replace( /#\{label\}/g, tabTitle ) );
 
+            $tabs.find(".ui-tabs-nav").append(li);
+            $tabs.append("<div id='"+tabId+"'></div>");
+            $tabs.tabs("refresh");
+            $tabs.tabs({active:-1});
+        },
+        'removeTab':function(){
+            var panelId = $tabs.find('ul > .ui-state-active').remove().attr("aria-controls");
+            $("#"+panelId).remove();
+            $tabs.tabs("refresh");
+        }
+    };
+}());
 
-function add_tab_preferences() 
-{
-    if(!(document.getElementById('preference_tab')))
-    {
-	var tab_title = "Preferencias";
-	$tabs.tabs( "add", "#preference_tab", tab_title );
-		
-	/*
-		DataLayer.render( 'templates/timezone_list.ejs', {}, function( timezones_options ){
-			tabPrefCalendar.find('select[name="timezone"]').html(timezones_options).find('option[value="'+User.preferences.timezone+'"]').attr('selected','selected').trigger('change');
-		});
-		*/
+function add_tab_preferences(){
+    var tab_title = "Preferências",tab_id = "preference_tab";
+    if (!(document.getElementById('preference_tab'))){
+        $newTab.createTab(tab_id,tab_title);
 	DataLayer.render( 'templates/preferences_calendar.ejs', {
 	    preferences:User.preferences, 
 	    calendars: Calendar.calendars,
@@ -1785,14 +1782,13 @@ function add_tab_preferences()
 		tabPrefCalendar.find('select[name="timezone"]').html(timezones_options).find('option[value="'+User.preferences.timezone+'"]').attr('selected','selected').trigger('change');
 	    });
 		
-	    tabPrefCalendar.find('.button').button()
-	    .filter('.save').click(function(evt){
+                tabPrefCalendar.find('.button').button().filter('.save').click(function (evt) {
 		tabPrefCalendar.find('form').submit();
 		$('#calendar').fullCalendar('render');
 		$('.block-vertical-toolbox .mini-calendar').datepicker( "refresh" );
-		$tabs.tabs( "remove", "#preference_tab");
+                    $newTab.removeTab();
 	    }).end().filter('.cancel').click(function(evt){
-		$tabs.tabs( "remove", "#preference_tab");
+                    $newTab.removeTab();
 	    });
 			
 	    tabPrefCalendar.find('.number').numeric();
@@ -1854,7 +1850,7 @@ function add_tab_preferences()
                 
 		if (parseInt($("select[name=hourFormat] option:selected").val().length) > 5) { // am/pm
 		    tabPrefCalendar.find("input[name=defaultStartHour]").val(dateCalendar.defaultToAmPm(defaultStartHour));
-		    tabPrefCalendar.find("input[name=defaultEndHour]").val(dateCalendar.defaultToAmPm(defaultEndHour))
+                        tabPrefCalendar.find("input[name=defaultEndHour]").val(dateCalendar.defaultToAmPm(defaultEndHour));
 					
 		} else { //24h
 		    tabPrefCalendar.find("input[name=defaultStartHour]").val(dateCalendar.AmPmTo24(defaultStartHour));
@@ -1866,15 +1862,14 @@ function add_tab_preferences()
 			
 	});		
     } else {
-	$tabs.tabs("select", "#preference_tab");
+            $tabs.tabs({active: $(".ui-tabs-nav li#"+tab_id).index()});
 		
 	return true;
     }
 }
 
+function add_tab_configure_calendar(calendar, type) {
 
-function add_tab_configure_calendar(calendar, type) 
-{
     $('.qtip.qtip-blue').remove();
 
     var calendars = [];
@@ -1902,7 +1897,7 @@ function add_tab_configure_calendar(calendar, type)
 	}else{
 		var tab_title = "_[[Group Settings]]";
 	}
-	$tabs.tabs( "add", "#"+tab_selector[type], tab_title );
+        $newTab.createTab(tab_selector[type],tab_title);
 		
 	var dataColorPicker = {
 	    colorsSuggestions: colors_suggestions()
@@ -1949,7 +1944,7 @@ function add_tab_configure_calendar(calendar, type)
 
 		form_content.find('.button-add-alarms').click(function(){
 		    DataLayer.render( 'templates/alarms_add_itemlist.ejs', {type: (parseInt(type) == 1 ? '4' : type) }, function( template ){
-			jQuery('.preferences-alarms-list').append(template)
+            form_content.find('.preferences-alarms-list').append(template)
 			.find('li:last label:eq(0)').remove().end()
 			.find('.number').numeric().end()
 			.find('.button.remove').button({
@@ -2063,7 +2058,7 @@ DataLayer.render( 'templates/configure_calendars.ejs', {
 	if(calendarAlarms.length)
 		DataLayer.removeFilter('calendarSignatureAlarm', {filter: ['IN','id', calendarAlarms]});	
 	template_content.find('form').submit();
-	$tabs.tabs( "remove", "#"+tab_selector[type]);
+                $newTab.removeTab();
 	DataLayer.commit( false, false, function( received ){
 	    delete Calendar.currentViewKey;
 	    Calendar.load();
@@ -2072,7 +2067,7 @@ DataLayer.render( 'templates/configure_calendars.ejs', {
 	if(calendarAlarms.length)
 		Calendar.load();
     }).end().filter('.cancel').click(function(evt){
-	$tabs.tabs( "remove", "#"+tab_selector[type]);
+                $newTab.removeTab();
     });
 
     /**
@@ -2086,11 +2081,11 @@ DataLayer.render( 'templates/configure_calendars.ejs', {
     });
 			
     template_content.find('.accordion-user-calendars').accordion({ 
-	autoHeight: false, 
+                heightStyle: "content",
 	collapsible: true, 
 	clearStyle: true,
 	active: previewActiveCalendarConf, 
-	changestart: populateAccordionOnActive 
+                beforeActivate:populateAccordionOnActive
     });
     populateAccordionOnActive(previewActiveCalendarConf);
 });
@@ -2098,8 +2093,8 @@ DataLayer.render( 'templates/configure_calendars.ejs', {
 } else {
 	$('.positionHelper').css('display','none');
     $('.cal-list-options-btn').removeClass('fg-menu-open ui-state-active');
-    $tabs.tabs("select", "#"+tab_selector[type]);
-    $('.accordion-user-calendars').accordion( "activate" , previewActiveCalendarConf );
+        $tabs.tabs("option","select","#"+tab_selector[type]);
+        $('.accordion-user-calendars').accordion({activate: previewActiveCalendarConf});
 		
     return true;
 }
@@ -2206,7 +2201,7 @@ function remove_event(eventId, idCalendar, type){
 function mount_exception(eventID, exception){
 
     getSchedulable( eventID.toString() , '');
-    var schedulable = DataLayer.get('schedulable', eventID.toString() )
+    var schedulable = DataLayer.get('schedulable', eventID.toString());
     var edit = { repeat: (DataLayer.get('repeat', schedulable.repeat)) };
 
     edit.repeat.startTime = new Date(parseInt(edit.repeat.startTime)).toString('yyyy-MM-dd HH:mm:00');
@@ -2305,7 +2300,7 @@ function refresh_calendars(type){
 	
 	doMenu();
 	var currentToolTip = null;
-	$('#divAppbox').on('scroll',function(){
+        $page.on('scroll','#divAppbox', function () {
 		if ($('.cal-list-options-btn.fg-menu-open.ui-state-active')){			
 			var offset = $('.cal-list-options-btn.fg-menu-open.ui-state-active').offset();
 			if (offset)
@@ -2324,7 +2319,9 @@ function refresh_calendars(type){
 		
 	});
 
-     $('ul.list-calendars .cal-list-options-btn').on('click',function(){doMenu();});
+        $page.on('click','ul.list-calendars .cal-list-options-btn', function () {
+            doMenu();
+        });
 	
 
     /***************************************New Calendar***************************************/
@@ -2518,7 +2515,7 @@ function refresh_calendars(type){
         DataLayer.commit();
 
 
-         if($tabs.tabs('option' ,'selected') == 0){
+            if ($tabs.tabs('option', 'active') == 0) {
 
              if(Calendar.currentView && !!Calendar.currentView[ calendarId ]){
 
@@ -2527,7 +2524,7 @@ function refresh_calendars(type){
              }
 
          }else{
-             type = $tabs.tabs('option' ,'selected');
+                type = $tabs.tabs('option', 'active');
              type = type > 2 ? 2 : (type - 1)
 
              pageselectCallback('', 0, false, type);
@@ -2536,8 +2533,9 @@ function refresh_calendars(type){
 });
 }
 
-function add_events_list(keyword, type)
-{
+function add_events_list(keyword, type) {
+
+    Calendar.lastView = $tabs.tabs('option', 'active');
     if ($.trim(keyword) == "") return;
     var tab_title = "";	
     if (keyword){
@@ -2557,10 +2555,11 @@ function add_events_list(keyword, type)
 	var tab_selector = ['tab_events_list_', 'tab_tasks_list_', 'tab_all_list_'];
     keyword = ( keyword || '' ).replace( /\s+/g, "_" );
 	
-    if(!(document.getElementById(tab_selector[type] + (Base64.encode(keyword)).replace(/[^\w\s]/gi, "") )))	
-    {
+    if (!(document.getElementById(tab_selector[type] + (Base64.encode(keyword)).replace(/[^\w\s]/gi, "")))) {
 	Encoder.EncodeType = "entity";
-	$tabs.tabs( "add", "#"+tab_selector[type] + (Base64.encode(keyword)).replace(/[^\w\s]/gi, ""), Encoder.htmlEncode(tab_title) );
+        var k = Base64.encode(keyword).replace(/[^\w\s]/gi, "");
+        $tabs.find('ul.ui-tabs-nav').append('<li><a href="#' + tab_selector[type] + k + '">' + Encoder.htmlEncode(tab_title) + '</a><span class="ui-icon ui-icon-close">Remove Tab</span></li>');
+        $tabs.append('<div id="' + tab_selector[type] + k + '"></div>');
     }
     else /* Tab already opened */
     {
@@ -2928,8 +2927,29 @@ if ((((typeof(results) == 'undefined') || (!results.events_list )) && selecteds)
 		paginatorListEvent(currentView, 'list', !!view ? view : User.preferences.defaultCalView, type);
     }
 }
-	if(currentView != '#'+tab_selector[type])
-	    $tabs.tabs("select", currentView);
+    if (currentView != '#' + tab_selector[type]){
+        //$tabs.tabs('refresh');
+        //console.log(currentView);
+        //console.log(apt$('#tabs').find('ul.ui-tabs-nav li:last-child a').attr('href'));
+        /*$tabs.find('ul.ui-tabs-nav li:last-child a').attr('href', currentView);
+
+        console.log($('#tabs').find('ul.ui-tabs-nav li:last-child a').attr('href'));
+        var id = currentView.substring(1);
+
+        //console.log($tabs.find('div.ui-tabs-panel').last().attr('id'));
+        var l = parseInt($('div.ui-tabs-panel').length);
+        l--;
+
+        console.log($('div.ui-tabs-panel:eq(' + l + ')').attr('id'));
+        console.log($('div.ui-tabs-panel').length);
+        $tabs.find('div.ui-tabs-panel').last().attr('id', id);*/
+
+        //$tabs.tabs('refresh');
+        $tabs.tabs('refresh');
+        //$(currentView).tabs('option', 'active');
+        $tabs.tabs('option', 'active', -1);
+        //$tabs.tabs('refresh');
+    }
 }
 
 function show_modal_import_export(tab, calendarId, typeView){
@@ -3007,7 +3027,7 @@ function show_modal_import_export(tab, calendarId, typeView){
                     type = 'confirmation';
                     Calendar.rerenderView(true);
                 }else{
-                    var res = JSON.parse(data.result);
+                        var res = JSON.parse(data.result || "[[]]");
                     var asData = false;
 
                     for(var i = 0; i < res.length; i++)
@@ -3065,7 +3085,7 @@ function show_modal_import_export(tab, calendarId, typeView){
 }
 
 function copyAndMoveTo(calendar, event, idRecurrence, type, evt ){
-    /*
+    /**
      * Types
      * 0 = Move
      * 1 = Copy Event end Repet

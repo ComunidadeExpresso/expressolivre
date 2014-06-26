@@ -42,7 +42,7 @@ Alarms = {
                             }
                         }else{
                             $.Zebra_Dialog(html , {
-                                'type':     'information',
+			    'type':     'question',
                                 'overlay_opacity': '0.5',
                                 'buttons':  ['_[[Close]]'],
                                 'onClose':  function(clicked) {}

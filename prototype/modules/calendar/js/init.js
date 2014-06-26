@@ -4,42 +4,50 @@ $(document).ready(function() {
 	$('#sideboxdragarea').addClass('hidden');
 
 	refresh_calendars();
+    $page = $('#tableDivAppbox');
 	$tabs = $('#tabs').tabs({
-	    add: function( event, ui ) {
-			Calendar.lastView = $tabs.tabs('option' ,'selected');
+        appendTo:function(event,ui){
+            Calendar.lastView = $tabs.tabs('option', 'active');
 			$('#tabs .events-list-win.active').removeClass('active');
-			$tabs.tabs('select', '#' + ui.panel.id);
+            $tabs.tabs('option', 'active', '#' + ui.panel.id);
 		},
 		remove: function( event, ui ) {
-			$tabs.tabs('select', Calendar.lastView);
+            $tabs.tabs('option', 'active', Calendar.lastView);
 		},
-		show: function( event, ui ){
+        beforeActivate: function(event, ui){
 
-            if( $('#tabs').tabs('option' ,'selected') == 0){
+            if($('#tabs').tabs('option', 'active') == 1){
                 delete Calendar.currentViewKey;
                 $('#calendar').fullCalendar('refetchEvents');
             }
 		}
-	})
-	.tabs('option', 'tabTemplate', "<li><a href='#{href}'>#{label}</a><span class='ui-icon ui-icon-close'>Remove Tab</span></li>" );
+    }).tabs('option', 'tabTemplate', "<li><a href='#{href}'>#{label}</a><span class='ui-icon ui-icon-close'>Remove Tab</span></li>" );
 
 	/**
 	  * Make a button to close the tab
 	  */
-	$tabs.find( "span.ui-icon-close" ).on( "click", function() {
-		var index = $( "li", $tabs ).index( $( this ).parent() );
-		if($tabs.tabs('option' ,'selected') == index){
-			if($tabs.tabs("length") == 2 && Calendar.lastView != 1)
-				$tabs.tabs( "select", 0);
-			$tabs.tabs( "select", Calendar.lastView);
+    $page.on("click", "span.ui-icon-close", function() {
+        //console.log('Close');
+
+        var index = $('li', $tabs).index($(this).parent());
+        /*console.log(index);
+        console.log(Calendar.lastView);
+        console.log($tabs.find('ul li').size());*/
+        if($tabs.tabs('option', 'active') == index){
+            if($tabs.find('ul li').size() == 2 && Calendar.lastView != 1)
+                $tabs.tabs('option', 'active', 0);
+            $tabs.tabs('option', 'active', Calendar.lastView);
 		}
-		if($tabs.tabs('option' ,'selected') == 0 || $tabs.tabs('option' ,'selected') == 1)
-			Calendar.lastView = $tabs.tabs('option' ,'selected');
-		if(index != -1)
-		  $tabs.tabs( "remove", index );	
+        if($tabs.tabs('option', 'active') == 0 || $tabs.tabs('option', 'active') == 1)
+            Calendar.lastView = $tabs.tabs('option', 'active');
+        if(index != -1){
+            var tab = $tabs.find(".ui-tabs-nav li:eq(" + index + ") a").attr('href');
+            $tabs.find('div' + tab).remove();
+            $tabs.find(".ui-tabs-nav li:eq(" + index + ")").remove();
+        }
+        $tabs.tabs("refresh");
+    });
 			
-		
-		});	
 	$('.button.config-menu').button({
 	    icons: {
 		primary: "ui-icon-gear",
@@ -51,16 +59,15 @@ $(document).ready(function() {
 	      icons: {
 		      secondary: "ui-icon-plus"
 	      }
-      })
+    });
 
 		var miniCalendar = $('.block-vertical-toolbox .mini-calendar').datepicker({
 			dateFormat: 'yy-m-d',
 			//dateFormat: 'DD, d MM, yy',
 			//inline: true,
 			firstDay: dateCalendar.dayOfWeek[User.preferences.weekStart],
-			onSelect: function(dateText, inst)
-			{	
-				$tabs.tabs("select", "#calendar");
+		onSelect:function(dateText,inst){
+            $tabs.tabs({active: 0});
 				var toDate = $('.block-vertical-toolbox .mini-calendar').datepicker("getDate").toString('yyyy-MM-dd').split('-');
 				$('#calendar').fullCalendar('gotoDate', toDate[0], parseInt(toDate[1]-1), toDate[2] );
 				$('#calendar').fullCalendar( 'changeView', 'agendaDay' );
@@ -70,20 +77,20 @@ $(document).ready(function() {
 		.find('.ui-icon-circle-triangle-w').removeClass('ui-icon-circle-triangle-w').addClass('ui-icon-triangle-1-w');
 		
 		//Onclick do mês
-		$('.ui-datepicker-title .ui-datepicker-month').on('click',function(){
-			$tabs.tabs("select", "#calendar");
+    $page.on('click','.ui-datepicker-title .ui-datepicker-month',function(){
+		$tabs.tabs("option","active", 0);
 			$('#calendar').fullCalendar('gotoDate',$(this).siblings('span').html(), Date.getMonthNumberFromName($(this).html() == 'Março' ? 'Mar' : $(this).html()),'01');
  			$('#calendar').fullCalendar( 'changeView', 'month');
 		});
 		//Onclick do ano
-		$('.ui-datepicker-title .ui-datepicker-year').on('click',function(){
-			$tabs.tabs("select", "#calendar");
+    $page.on('click','.ui-datepicker-title .ui-datepicker-year',function(){
+		$tabs.tabs("option","active", 0);
 			$('#calendar').fullCalendar('gotoDate',$(this).html(), '0', '01');
 			$('.fc-button-year').click();
 		});
 		
 	//Onclick em um dia do calendário anual
-	$( ".fc-day-number" ).on( "click", function() {
+	$page.on("click",".fc-day-number",function(){
 			
 		var date = $(this).parents('[class*="fc-day-"]').attr('class').match(/fc-day-(\d{4})-(\d{2})-(\d{2})/);
 
@@ -146,13 +153,14 @@ $(document).ready(function() {
 
 			eventDetails({ 
 				startTime: startEvent.getTime(),
-				endTime: dateCalendar.decodeRange(startEvent, (!!User.preferences.defaultCalendar ? (	!!Calendar.signatureOf[User.preferences.defaultCalendar].calendar.defaultDuration ?  
+				endTime: dateCalendar.decodeRange(startEvent,
+                (User.preferences.defaultCalendar ? (	Calendar.signatureOf[User.preferences.defaultCalendar].calendar.defaultDuration ?
 						(Calendar.signatureOf[User.preferences.defaultCalendar].calendar.defaultDuration) : (User.preferences.defaultDuration)) : (User.preferences.defaultDuration)))
 			}, true, undefined, undefined, undefined, true );
 		});
 		
 		var currentToolTip = null;
-		$('#divAppbox').on('scroll',function(){
+		$page.on('scroll','#divAppbox',function(){
 			if ($(".new-task").length)			
 				currentToolTip.qtip('destroy');
 		});

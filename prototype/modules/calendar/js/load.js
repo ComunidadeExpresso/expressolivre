@@ -74,7 +74,7 @@ Calendar = {
     rerenderView: function(force){
         //TODO - Remover if quando centralizar o objeto User que contem as informações do usuário logado em um local acessível a todos módulos
         if(User.moduleName == "expressoCalendar"){
-            if((typeof($tabs) != "undefined") && $tabs.tabs('option' ,'selected') == 0){
+            if((typeof($tabs) != "undefined") && $tabs.tabs('option' ,'active') == 0){
                 if(force){
                     //Remove a incônsistencia do aninhamento de um mesmo tipo em diferentes conceitos
                     DataLayer.rollback('user');
@@ -96,9 +96,9 @@ Calendar = {
                 $('#calendar').fullCalendar( 'refetchEvents' );	
 
                 contentMenu();
-            }else if((typeof($tabs) != "undefined") && $tabs.tabs('option' ,'selected') != 0)
+            }else if((typeof($tabs) != "undefined") && $tabs.tabs('option' ,'active') != 0)
 				
-                pageselectCallback($('.events-list-win.active [name=keyword]').val(), 0, false, ($tabs.tabs('option' ,'selected') > 2) ? 2 : ($tabs.tabs('option' ,'selected') == 1) ? 0 : 1);
+                pageselectCallback($('.events-list-win.active [name=keyword]').val(), 0, false, ($tabs.tabs('option' ,'active') > 2) ? 2 : ($tabs.tabs('option' ,'active') == 1) ? 0 : 1);
         }
     }
 }

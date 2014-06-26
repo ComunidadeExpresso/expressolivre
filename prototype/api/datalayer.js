@@ -77,40 +77,27 @@ $.ajaxPrefilter(function( options, originalOptions, jqXHR ){
 
 });
 
-$("form").on( "submit", function( event ){
-
-    var $this = $(this), action = $this.attr('action'), res = false,
-    
-    method = $this.attr( 'method' ) || 'POST',
-    
-    fileInputs = $this.find('input[type="file"]');
+$("body").on("submit","form",function(event){
+    var $this = $(this), action = $this.attr('action'), res = false, method = $this.attr( 'method' ) || 'POST', fileInputs = $this.find('input[type="file"]');
     
     if( fileInputs.length && !$this.is('[enctype="multipart/form-data"]') )
     {
 	event.preventDefault();
 
-	DataLayer.send( action, 
-			[ method, 'iframe json' ], {}, 
-			//TODO: check the type for conversion
-			DataLayer.receive, 
+	    DataLayer.send( action, [ method, 'iframe json' ], {}, DataLayer.receive,
 			false, { 'formData': $this.serializeArray(),  'fileInput': fileInputs, 'paramName': FILE + '[]' } );
 
 	return( false );
     }
     
-    if( res = internalUrl.exec( action ) )
-    {
+    if(res = internalUrl.exec( action )){
 	event.preventDefault();
 
 	var data = DataLayer.form( this );
 	
-	switch( method.toUpperCase() )
-	{
-	  case 'GET':
-		DataLayer.get( res[0], data );
-
-	  case 'POST':
-		DataLayer.put( res[1], data );
+	    switch(method.toUpperCase()){
+	        case 'GET': DataLayer.get( res[0], data );
+	        case 'POST': DataLayer.put( res[1], data );
 	}
 
 	return( false );
@@ -362,8 +349,7 @@ DataLayer = {
 	    data = filter;
 	    filter = false;
 	}
-	if( typeof data === "undefined" ||
-	    $.type(data) === "boolean" )
+	    if( typeof data === "undefined" || $.type(data) === "boolean" )
 	{
 	    oneSide = data;
 	    data = filter;
@@ -387,8 +373,7 @@ DataLayer = {
 	if( notArray = ( $.type( data ) !== "array" ) )
 	    data = [ data ];
 
-	if( res = internalUrl.exec( concept ) )
-	{
+	    if(res = internalUrl.exec( concept )){
 	    //TODO: verificar se a decodificaçao deve ser feita em cada item do array
 	    data = this.decode( concept, data );
 	    concept = res[1];
@@ -397,8 +382,7 @@ DataLayer = {
 
       ////////////////////////////////////////////////////////////////////////
 
-	if( bothSides || !oneSide )
-	{
+	    if( bothSides || !oneSide ){
 	    var result = false, links = this.links( concept ), nestedLinks = this.links( concept, true ), 
 	    current = this.check( concept ) || {}, ids = [];
 
@@ -558,9 +542,9 @@ DataLayer = {
     },
     
     /*
-     * RemoveFilter = mï¿½todo para remoï¿½ï¿½o de objetos por critï¿½rio, funcionalidade nï¿½o implementada no mï¿½todo remove
-     * TODO - A remoï¿½ï¿½o ï¿½ feira em tempo real, onde ainda o mesmo nï¿½o suporta remoï¿½ï¿½o apenas na camada do cliente
-     * caso necessï¿½ria tao funcionalidade a mesma serï¿½ implementada no futuro
+     * RemoveFilter = método para remoção de objetos por critério, funcionalidade não implementada no método remove
+     * TODO - A remoção é feira em tempo real, onde ainda o mesmo não suporta remoção apenas na camada do cliente
+     * caso necessária tao funcionalidade a mesma será implementada no futuro
      **/
     removeFilter: function( concept, filter, oneSide ){
 	//remover
