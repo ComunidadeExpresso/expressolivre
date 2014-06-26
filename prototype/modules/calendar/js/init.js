@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$("#wrap").css("visibility","visible");
-	//Remove o icone de configuraÃ§Ãµe padrÃ£o antigo do expresso
+	//Remove o icone de configuraçõe padrão antigo do expresso
 	$('#sideboxdragarea').addClass('hidden');
 
 	refresh_calendars();
@@ -27,12 +27,9 @@ $(document).ready(function() {
 	  * Make a button to close the tab
 	  */
     $page.on("click", "span.ui-icon-close", function() {
-        //console.log('Close');
 
         var index = $('li', $tabs).index($(this).parent());
-        /*console.log(index);
-        console.log(Calendar.lastView);
-        console.log($tabs.find('ul li').size());*/
+
         if($tabs.tabs('option', 'active') == index){
             if($tabs.find('ul li').size() == 2 && Calendar.lastView != 1)
                 $tabs.tabs('option', 'active', 0);
@@ -76,10 +73,10 @@ $(document).ready(function() {
 		.find('.ui-icon-circle-triangle-e').removeClass('ui-icon-circle-triangle-e').addClass('ui-icon-triangle-1-e').end()
 		.find('.ui-icon-circle-triangle-w').removeClass('ui-icon-circle-triangle-w').addClass('ui-icon-triangle-1-w');
 		
-		//Onclick do mÃªs
+		//Onclick do mês
     $page.on('click','.ui-datepicker-title .ui-datepicker-month',function(){
 		$tabs.tabs("option","active", 0);
-			$('#calendar').fullCalendar('gotoDate',$(this).siblings('span').html(), Date.getMonthNumberFromName($(this).html() == 'MarÃ§o' ? 'Mar' : $(this).html()),'01');
+			$('#calendar').fullCalendar('gotoDate',$(this).siblings('span').html(), Date.getMonthNumberFromName($(this).html() == 'Março' ? 'Mar' : $(this).html()),'01');
  			$('#calendar').fullCalendar( 'changeView', 'month');
 		});
 		//Onclick do ano
@@ -89,7 +86,7 @@ $(document).ready(function() {
 			$('.fc-button-year').click();
 		});
 		
-	//Onclick em um dia do calendÃ¡rio anual
+	//Onclick em um dia do calendário anual
 	$page.on("click",".fc-day-number",function(){
 			
 		var date = $(this).parents('[class*="fc-day-"]').attr('class').match(/fc-day-(\d{4})-(\d{2})-(\d{2})/);
@@ -219,7 +216,7 @@ $(document).ready(function() {
     	    	.qtip("api").onShow = function(arg0) {
 
 	    		/*------------------------------------------------------------------------*/
-	    		/*               Seta os valores padrÃµes nos inputs do qtip               */
+	    		/*               Seta os valores padrões nos inputs do qtip               */
 	    		 $('div.qtip div.add-simple-task input.task').Watermark("_[[Untitled task]]");
 			     $('div.qtip div.add-simple-task textarea').Watermark("_[[Description]]");
     			/*------------------------------------------------------------------------*/
@@ -285,7 +282,7 @@ $(document).ready(function() {
 
     					taskDetails({
                             summary: $('div.qtip div.add-simple-task input[name="summary"]').val(),
-                            description: description == 'DescriÃ§Ã£o' ? '' : description,
+                            description: description == 'Descrição' ? '' : description,
     						startTime: startEvent.getTime(),
     						endTime: dateCalendar.decodeRange(startEvent, (!!User.preferences.defaultCalendar ? (	!!Calendar.signatureOf[User.preferences.defaultCalendar].calendar.defaultDuration ?  
     							(Calendar.signatureOf[User.preferences.defaultCalendar].calendar.defaultDuration) : (User.preferences.defaultDuration)) : (User.preferences.defaultDuration)))
@@ -514,8 +511,8 @@ $(document).ready(function() {
                                     }else if (clicked == '_[[Edit this event]]'){
                                         /*
                                         * TODO - repeat foi adicionado pois melhorias devem ser feitas no rollback do
-                                        *DataLayer, repeat somente Ã© usado quando se trata da criaÃ§Ã£o de um evento
-                                        *pela ediÃ§Ã£o de uma ocorrÃªncia.
+                                        *DataLayer, repeat somente é usado quando se trata da criação de um evento
+                                        *pela edição de uma ocorrência.
                                         */      
                                         var repeat = mount_exception(evt.id, evt.occurrence);
 
