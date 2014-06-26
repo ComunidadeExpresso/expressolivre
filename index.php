@@ -134,7 +134,7 @@ if( isset($_GET['menuaction']) )
 {
 	$modulo = explode('.', $_GET['menuaction']);
 	
-	if($modulo[0] == 'expressoAdmin' || $modulo[0] == 'calendar')
+	if( $modulo[0] == 'expressoAdmin' || $modulo[0] == 'calendar' )
 	{
 		echo '<link rel="stylesheet" href="prototype/plugins/jqgrid/themes/prognusone/jquery-ui-1.8.2.custom.css" type="text/css"/>';
 		echo '<link rel="stylesheet" type="text/css" href="prototype/plugins/zebradialog/css/zebra_dialog.css"/>';
@@ -147,9 +147,9 @@ if( isset($_GET['menuaction']) )
 		echo '<script type="text/javascript" src="prototype/api/datalayer.js"></script>';
 		echo '<script type="text/javascript">DataLayer.dispatchPath = "/"; REST.dispatchPath = "prototype/";REST.load("")</script>';
 		echo '<script type="text/javascript" src="prototype/plugins/zebradialog/javascript/zebra_dialog.js"></script>';
-		echo '<script type="text/javascript" src="calendar/templates/default/js/quickSearch.js"></script>';
 		echo '<script type="text/javascript" src="expressoMail/js/ccQuickAdd.js"></script>';
-		if($modulo[0] == 'calendar')
+
+		if( $modulo[0] == 'calendar' )
 		{
 			echo '<link rel="stylesheet" href="prototype/plugins/jquery.jrating/jRating.jquery.css" type="text/css"/>';
 			echo '<script type="text/javascript" src="prototype/plugins/jquery.jrating/jRating.jquery.js"></script>';
