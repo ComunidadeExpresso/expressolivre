@@ -149,6 +149,11 @@ if( isset($_GET['menuaction']) )
 		echo '<script type="text/javascript" src="prototype/plugins/zebradialog/javascript/zebra_dialog.js"></script>';
 		echo '<script type="text/javascript" src="expressoMail/js/ccQuickAdd.js"></script>';
 
+		if($_GET['input']){
+            echo '<script type="text/javascript">get_shared_accounts("' . $_GET['input'] . '", 13);
+                    document.getElementById("ea_shared_account_search").value = "' . $_GET['input'] . '"</script>';
+        }
+
 		if( $modulo[0] == 'calendar' )
 		{
 			echo '<link rel="stylesheet" href="prototype/plugins/jquery.jrating/jRating.jquery.css" type="text/css"/>';

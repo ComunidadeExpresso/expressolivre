@@ -62,6 +62,12 @@ class DBMapping extends Helpers {
         }
     }
 
+    static function validateCreateSchedulable(&$uri, &$params, &$criteria, $original)
+    {
+        $permission = Controller::find(array('concept' => 'calendarToPermission'), false, array('filter' => array('AND', array('=', 'calendar', $params['calendar']), array('=', 'user', Config::me('uidNumber')), 'deepness' => 2)));
+        if (is_array($permission) && $permission[0]['acl'] == 'r')
+            return false;
+    }
 
     static function encodeCreateSchedulable(&$uri, &$params, &$criteria, $original) 
     {
@@ -568,6 +574,11 @@ class DBMapping extends Helpers {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function updateCalendar(&$uri, &$params, &$criteria, $original) {       
+        $calendarToObject = self::schedulable2calendarToObject($uri['id']);
+        $permission = Controller::find(array('concept' => 'calendarToPermission'), false, array('filter' => array('AND', array('=', 'calendar', $calendarToObject[0]['calendar_id']), array('=', 'user', Config::me('uidNumber')), 'deepness' => 2)));
+
+        if (is_array($permission) && $permission[0]['acl'] == 'r')
+            return false;
         if (isset($params['calendar'])) {
             if(isset($params['lastCalendar'])){
                 $calendarObjects = self::referenceCalendarToObject($uri['id'], $params['lastCalendar']);
