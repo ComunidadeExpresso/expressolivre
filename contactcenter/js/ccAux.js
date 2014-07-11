@@ -413,7 +413,8 @@ function showMessage(msg, type)
 }
 
 function formatPhone(obj){
-	var key = window.event.keyCode;
+    var obj = window.event || obj;
+	var key = obj.keyCode;
 	if (!Element("cc_conn_type_1").checked) {
 		// if the user press backspace...
 		if(key != 8){
