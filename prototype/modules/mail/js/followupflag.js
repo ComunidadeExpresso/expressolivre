@@ -586,7 +586,7 @@ function alarmFollowupflagged(alert_type, filter_list){
 		data.filtersAlarms = {
 				alarms: itens,
 				title: '_[[Filter by sender]]',
-				caption: (itens.length == 1) ? '_[[You have an archived message:]]' : '_[[You have $itens.length$ messages archived' + ':',
+				caption: (itens.length == 1) ? '_[[You have an archived message:]]' : '_[[You have $itens.length$ messages archived]]' + ':',
 				type: 'filtersDeadline',
 				captions: {
 				    singular:'You have one undone message today:', 
