@@ -1793,6 +1793,7 @@ function add_tab_preferences()
                     $('#calendar').fullCalendar('render');
                     $('.block-vertical-toolbox .mini-calendar').datepicker( "refresh" );
                     $tabs.tabs( "remove", "#preference_tab");
+                    location.reload();
                 }).end().filter('.cancel').click(function(evt){
                     $tabs.tabs( "remove", "#preference_tab");
                 });
