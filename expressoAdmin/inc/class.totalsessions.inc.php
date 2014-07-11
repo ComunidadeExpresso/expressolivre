@@ -76,10 +76,10 @@
                                                 !$session || // happens if webserver runs multiple user-ids
                                                 strstr( $session, 'phpgw_sess' ) === FALSE ) 
                                             {
+                                                    $total++;
                                                     continue;
                                             }
 
-                                            ++$total;
                                     }
                                     
                                     closedir($dir);
