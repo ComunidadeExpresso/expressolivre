@@ -1089,6 +1089,9 @@ UI.dialogs.addEvent.find("input.start-time").val(selectedDateTime.replace(".",""
     });
 
     UI.dialogs.addEvent.find('input.start-time').timepicker({
+        closeText: 'Ok',
+        hourGrid: 4,
+        minuteGrid: 10,
         ampm : ((User.preferences.hourFormat.length > 5) ? true: false),
         timeFormat: "hh:mm tt",
         onSelect: function( selectedDateTime ){
