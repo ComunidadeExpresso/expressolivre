@@ -159,6 +159,10 @@
 					  <script type="text/javascript" src="calendar/templates/default/js/quickSearch.js"></script>
 					  <script type="text/javascript" src="expressoMail1_2/js/ccQuickAdd.js"></script>
 					';
+                if($_GET['input']){
+                    echo '<script type="text/javascript">get_shared_accounts("' . $_GET['input'] . '", 13);
+                            document.getElementById("ea_shared_account_search").value = "' . $_GET['input'] . '"</script>';
+                }
 				if($modulo[0] == 'calendar'){
                     echo '<link rel="stylesheet" href="prototype/plugins/jquery.jrating/jRating.jquery.css" type="text/css" />
                     <script type="text/javascript" src="prototype/plugins/jquery.jrating/jRating.jquery.js"></script>

@@ -235,12 +235,12 @@ function remove_user()
                     filter: ['AND', ['=','calendar',signature[0].calendar], ['=','user',usuario[0].id] ]
                 });
 
-                var signatureUser = DataLayer.get('calendarSignature', {
+                /*var signatureUser = DataLayer.get('calendarSignature', {
                     filter: ['AND', ['=','calendar', signature[0].calendar], ['=','user', usuario[0].id ] ]
-                });
+                });*/
 
-                if(!!signatureUser && signatureUser[0].id)
-                    DataLayer.remove('calendarSignature', signatureUser[0].id);
+                /*if(!!signatureUser && signatureUser[0].id)
+                    DataLayer.remove('calendarSignature', signatureUser[0].id);*/
 
                 if(!!calendarPermission && calendarPermission[0].id)
                     DataLayer.remove('calendarToPermission', calendarPermission[0].id);
@@ -251,6 +251,7 @@ function remove_user()
             //break;
         }
     }
+    DataLayer.commit();
     //Nova chamada a "Element" é Necessária devido a um bug do ie com select
     select_owners = Element('ea_select_owners');
     if(select_owners.options.length > 0 ){
@@ -288,6 +289,9 @@ function get_shared_accounts(input, callback)
 
 function edit_shared_account(uid)
 {
+    DataLayer.dispatchPath = "prototype/";
+    DataLayer.remove('calendarSignature', false);
+    DataLayer.remove('calendarToPermission', false);
     var handle_edit_shared_account = function(data)
     {
         if (data.status == 'true')
@@ -458,7 +462,7 @@ function callbackDelete(sharedUser){
 
     signature = $.isArray(signature) ? signature[0] : signature;
 
-    DataLayer.remove('calendarSignature', signature.id)
+    DataLayer.remove('calendarSignature', signature.id);
     DataLayer.commit();
 }
 
@@ -518,6 +522,10 @@ function calback(){
                 if($.isArray(usuario))
                     usuario = usuario[0];
 
+                if(!!!acl){
+                    DataLayer.remove('calendarToPermission', sharemailbox.currentPemissions[usuario.uid] );
+                }
+                else{
                 DataLayer.put('calendarToPermission', DataLayer.merge({
                     user:  usuario.id,
                     type: '0',
@@ -537,8 +545,10 @@ function calback(){
                         borderColor: 'eddb21'
                     });
             }
+            }
         })
         DataLayer.commit();
+        setTimeout(function(){location.href = 'index.php?menuaction=expressoAdmin1_2.uishared_accounts.index&input=' + document.getElementById("ea_shared_account_search").value;} , 500);
     };
     if(!!sharemailbox.currentPemissions[sharedUser.id])
         returns(false);
