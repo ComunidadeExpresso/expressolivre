@@ -1664,7 +1664,8 @@ DataLayer.codec( "schedulable", "print", {
 
             for( var ii = 0; ii < occurrences.length; ii++ )
             {
-                var currentDate = new Date( parseInt(occurrences[ii]) );
+                var clientOffSet = new Date().getTimezoneOffset() * 60 * 1000;
+                var currentDate = new Date( parseInt(occurrences[ii]) + clientOffSet );
                 var counter = currentDate.clone();
                         
                 var res2 = $.extend( {}, res[i], {
