@@ -1790,6 +1790,7 @@ function add_tab_preferences(){
 		$('#calendar').fullCalendar('render');
 		$('.block-vertical-toolbox .mini-calendar').datepicker( "refresh" );
                     $newTab.removeTab();
+		location.reload();
 	    }).end().filter('.cancel').click(function(evt){
                     $newTab.removeTab();
 	    });
