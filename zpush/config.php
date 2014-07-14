@@ -6,7 +6,7 @@
 *
 * Created   :   01.10.2007
 *
-* Copyright 2007 - 2012 Zarafa Deutschland GmbH
+* Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License, version 3,
@@ -53,9 +53,16 @@
     // Try to set unlimited timeout
     define('SCRIPT_TIMEOUT', 0);
 
-    //Max size of attachments to display inline. Default is 2 MB
+    // When accessing through a proxy, the "X-Forwarded-For" header contains the original remote IP
+    define('USE_X_FORWARDED_FOR_HEADER', false);
+
+    
+	//Max size of attachments to display inline. Default is 2 MB
     define('MAX_EMBEDDED_SIZE', 2097152);
 
+    // When using client certificates, we can check if the login sent matches the owner of the certificate.
+    // This setting specifies the owner parameter in the certificate to look at.
+    define("CERTIFICATE_OWNER_PARAMETER", "SSL_CLIENT_S_DN_CN");
 
 /**********************************************************************************
  *  Default FileStateMachine settings
@@ -89,9 +96,14 @@
 
     // To save e.g. WBXML data only for selected users, add the usernames to the array
     // The data will be saved into a dedicated file per user in the LOGFILEDIR
+    // Users have to be encapusulated in quotes, several users are comma separated, like:
+    //   $specialLogUsers = array('info@domain.com', 'myusername');
     define('LOGUSERLEVEL', LOGLEVEL_DEVICEID);
     $specialLogUsers = array();
 
+    // Location of the trusted CA, e.g. '/etc/ssl/certs/EmailCA.pem'
+    // Uncomment and modify the following line if the validation of the certificates fails.
+    // define('CAINFO', '/etc/ssl/certs/EmailCA.pem');
 
 /**********************************************************************************
  *  Mobile settings
@@ -156,6 +168,33 @@
     // Z-Push will use the lowest value, either set here or by the mobile.
     // default: 100 - value used if mobile does not limit amount of items
     define('SYNC_MAX_ITEMS', 100);
+
+    // The devices usually send a list of supported properties for calendar and contact
+    // items. If a device does not includes such a supported property in Sync request,
+    // it means the property's value will be deleted on the server.
+    // However some devices do not send a list of supported properties. It is then impossible
+    // to tell if a property was deleted or it was not set at all if it does not appear in Sync.
+    // This parameter defines Z-Push behaviour during Sync if a device does not issue a list with
+    // supported properties.
+    // See also https://jira.zarafa.com/browse/ZP-302.
+    // Possible values:
+    // false - do not unset properties which are not sent during Sync (default)
+    // true  - unset properties which are not sent during Sync
+    define('UNSET_UNDEFINED_PROPERTIES', false);
+
+    // ActiveSync specifies that a contact photo may not exceed 48 KB. This value is checked
+    // in the semantic sanity checks and contacts with larger photos are not synchronized.
+    // This limitation is not being followed by the ActiveSync clients which set much bigger
+    // contact photos. You can override the default value of the max photo size.
+    // default: 49152 - 48 KB default max photo size in bytes
+    define('SYNC_CONTACTS_MAXPICTURESIZE', 49152);
+
+    // Over the WebserviceUsers command it is possible to retrieve a list of all
+    // known devices and users on this Z-Push system. The authenticated user needs to have
+    // admin rights and a public folder must exist.
+    // In multicompany environments this enable an admin user of any company to retrieve
+    // this full list, so this feature is disabled by default. Enable with care.
+    define('ALLOW_WEBSERVICE_USERS_ACCESS', false);
 
 /**********************************************************************************
  *  Backend settings
