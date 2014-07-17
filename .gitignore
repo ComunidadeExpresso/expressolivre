@@ -12,6 +12,7 @@ zpush/logs/*
 zpush/states/*
 
 # Arquivos de configuracao especificos de cada ambiente
+header.inc.php
 prototype/config/CalDAV.srv
 prototype/config/OpenLDAP.srv
 prototype/config/PostgreSQL.srv
