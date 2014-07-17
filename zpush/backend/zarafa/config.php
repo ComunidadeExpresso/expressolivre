@@ -1,10 +1,10 @@
 <?php
 /***********************************************
-* File      :   version.php
+* File      :   config.php
 * Project   :   Z-Push
-* Descr     :   version number
+* Descr     :   VCardDir backend configuration file
 *
-* Created   :   18.04.2008
+* Created   :   27.11.2012
 *
 * Copyright 2007 - 2013 Zarafa Deutschland GmbH
 *
@@ -41,6 +41,11 @@
 * Consult LICENSE file for details
 ************************************************/
 
-define("ZPUSH_VERSION", "2.1.3-1892");
+// ************************
+//  BackendZarafa settings
+// ************************
+
+// Defines the server to which we want to connect
+define('MAPI_SERVER', 'file:///var/run/zarafa');
 
 ?>
