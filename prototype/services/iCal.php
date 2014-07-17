@@ -1605,6 +1605,7 @@ class iCal implements Formatter
             $schedulable['startTime'] = self::date2timestamp($startTime['value']) - self::_getTzOffset('UTC', $tzid, '@' . self::date2timestamp($startTime['value'])) . '000';
             $schedulable['allDay'] = 0;
         } else {
+            $schedulable['allDay'] = 0;
             //Sem informação de timezone 
              $schedulable['startTime'] = self::date2timestamp($startTime['value'])  . '000';
 
