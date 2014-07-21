@@ -34,6 +34,7 @@ $fileDuck->add(__DIR__ .'/../../plugins/ejs/ejs.js');
 $fileDuck->add(__DIR__ .'/../../plugins/fgmenu/fg.menu.js');
 $fileDuck->add(__DIR__ .'/../../plugins/qtip/jquery.qtip-1.0.0-rc3.min.js');
 $fileDuck->add(__DIR__ .'/../../plugins/jquery.spinner/jquery.spinner.min.js');
+$fileDuck->add(__DIR__ .'/../../plugins/jquery/hack.js');
 $fileDuck->add(__DIR__ .'/js/base64.js');
 $fileDuck->add(__DIR__ .'/js/map.disponibility.js');
 $fileDuck->add(__DIR__ .'/js/activity.helpers.js' , 'ISO-8859-1');
