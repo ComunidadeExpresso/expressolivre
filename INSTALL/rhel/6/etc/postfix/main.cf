@@ -1,14 +1,14 @@
 # Configuracoes para o Expresso
 mydomain = DOMAIN
 myorigin = $mydomain
-myhostname = $mydomain
+myhostname = expresso.$mydomain
 biff = no
 
 append_at_myorigin = no
 append_dot_mydomain = no
 
 # A lista de dominios que esta maquina considera seu destino final.
-mydestination = $mydomain, $myhostname, expresso.$mydomain
+mydestination = $mydomain, $myhostname
 
 recipient_delimiter = + 
 smtpd_banner = $myhostname ESMTP Expresso Livre - (GNU/Linux)

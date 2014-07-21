@@ -84,7 +84,9 @@ qualSO ()
 		KERNEL=`uname -r`
 		# RedHat ou Centos
 		if [ -f /etc/redhat-release ] ; then
-			DIST=`cat /etc/redhat-release | cut -d' ' -f1`
+            DIST="`cat /etc/redhat-release | awk '{print $1;}' FS="release"`"
+            # Para compatibilizar com o nome esperado, que e RedHat
+            echo "$DIST" | grep -qi "red hat" && DIST="`echo $DIST | awk '{print $1$2;}'`"
 			PSUEDONAME=`cat /etc/redhat-release | sed s/.*\(// | sed s/\)//`
 			REV=`cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//`
 		# Debian, Ubuntu e variantes
