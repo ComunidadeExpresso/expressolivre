@@ -61,12 +61,12 @@
 		<legend class="hidden"><%= '_[[Event Detail]]' %></legend>
 		<p class="input-group event-info">
 			<label for="calendar_addevent_details_txt_local"><%= '_[[Where]]' %></label>
-			<input type="text" name="location" <%=(data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> value="<%= (data.event) ? data.event.location : '' %>"/>
+			<input type="text" name="location" <%=(data.event.acl.organization || data.event.acl.write) ? '' : 'readonly="readonly"' %> value="<%= (data.event) ? data.event.location : '' %>"/>
 		</p>
 
 		<p class="input-group">
 			<label for="calendar_addevent_details_txtarea_description" class="for-textarea" ><%= '_[[Description]]' %></label>
-			<textarea name="description" <%= (data.event.acl.organization || data.event.acl.write) ? '' : 'disabled="disabled"' %> ><%=(data.event) ? data.event.description : '' %></textarea>
+			<textarea name="description" <%= (data.event.acl.organization || data.event.acl.write) ? '' : 'readonly="readonly"' %> ><%=(data.event) ? data.event.description : '' %></textarea>
 		</p>
 
 		<p class="input-group">
