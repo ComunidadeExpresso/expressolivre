@@ -1034,13 +1034,13 @@ class ExpressoCalendarProvider extends BackendDiff
      * change 'mod', simply setting the message to 'read' on the mobile will trigger
      * a full resync of the item from the server.
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param int           $flags          read flag of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
+     * @param int $flags read flag of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
@@ -1054,16 +1054,15 @@ class ExpressoCalendarProvider extends BackendDiff
      * as it will be seen as a 'new' item. This means that if this method is not implemented, it's possible to
      * delete messages on the PDA, but as soon as a sync is done, the item will be resynched to the mobile
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function DeleteMessage($folderid, $id, $contentParameters)
     {
-
         $idNumber = (int)str_replace('calendar' , '' , $folderid);
         $calendarSignature =  Controller::read( array( 'concept' => 'calendarSignature' , 'id' => $idNumber ));
         $even = $this->_getSchedulable($id );
@@ -1106,17 +1105,25 @@ class ExpressoCalendarProvider extends BackendDiff
      * should show the items to have a new parent. This means that it will disappear from GetMessageList()
      * of the sourcefolder and the destination folder will show the new message
      *
-     * @param string        $folderid       id of the source folder
-     * @param string        $id             id of the message
-     * @param string        $newfolderid    id of the destination folder
+     * @param string $folderid id of the source folder
+     * @param string $id id of the message
+     * @param string $newfolderid id of the destination folder
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
     public function MoveMessage($folderid, $id, $newfolderid , $contentParameters)
     {
-        return false;
+        $idNumber = (int)str_replace('calendar' , '' , $folderid);
+        $idNumberNew = (int)str_replace('calendar' , '' , $newfolderid);
+        $calendarSignature =  Controller::read( array( 'concept' => 'calendarSignature' , 'id' => $idNumber ));
+        $calendarSignatureNew =  Controller::read( array( 'concept' => 'calendarSignature' , 'id' => $idNumberNew ));
+        $even = $this->_getSchedulable($id );
+        $link = Controller::read(array('concept' => 'calendarToSchedulable'), false, array('filter' => array('AND', array('=','calendar',$calendarSignature['calendar']), array('=','schedulable',$even['id']))));
+        Controller::update( array('concept' => 'calendarToSchedulable' , 'id' => $link['id']), array( 'calendar' => $calendarSignatureNew['calendar']) );
+
+        return true;
     }
 
     /**
