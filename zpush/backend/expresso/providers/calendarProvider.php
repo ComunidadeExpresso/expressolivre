@@ -48,7 +48,7 @@ class ExpressoCalendarProvider extends BackendDiff
         {
             $defaultCalendar = Controller::find(array('concept' => 'modulePreference'), array('value','id') , array('filter' => array( 'and' , array('=' , 'name' , 'defaultCalendar') , array('=' , 'module' , 'expressoCalendar') , array('=' , 'user' , $this->_uidnumber )  )) );
 
-            if(isset($defaultCalendar[0])) //Prioriza agenda default de importação pois o android so sincroniza a primeira agenda.
+            if(isset($defaultCalendar[0])) //Prioriza agenda default de importaÃ§Ã£o pois o android so sincroniza a primeira agenda.
             {
                 foreach($sigs as $i => $sig)
                 {
@@ -312,12 +312,12 @@ class ExpressoCalendarProvider extends BackendDiff
         }
 
         $message->sensitivity = 0; // 0 - Normal,
-        $message->alldayevent = (int)$schedulable['allDay']; // (0 - Não(default), 1- Sim)
+        $message->alldayevent = (int)$schedulable['allDay']; // (0 - NÃ£o(default), 1- Sim)
         $message->timezone = base64_encode($this->_getSyncBlobFromTZ($this->_getGMTTZ()));
 
 
         /*
-         * Sincronização de participantes e organizador
+         * SincronizaÃ§Ã£o de participantes e organizador
          */
         $participants = Controller::find(array('concept' => 'participant'), null , array('deepness' => 1 , 'filter' => array( '=' , 'schedulable' , $schedulable['id'] )));
         if(is_array($participants) && count($participants) > 0)
@@ -340,7 +340,7 @@ class ExpressoCalendarProvider extends BackendDiff
 
                 if($participant['user']['id'] == $this->_uidnumber  )
                 {
-                    if($participant['isOrganizer'] == 1 || strpos($participant['acl'] ,'w') !== false) // Caso ele seja organizador ou tenha permisão de editar o evento
+                    if($participant['isOrganizer'] == 1 || strpos($participant['acl'] ,'w') !== false) // Caso ele seja organizador ou tenha permisÃ£o de editar o evento
                     {
                         $message->meetingstatus = 0;
                     }
@@ -389,7 +389,7 @@ class ExpressoCalendarProvider extends BackendDiff
         //------------------------------------------------------------------------------------------------------------//
 
         /*
-        * Sincronização de Recorrência
+        * SincronizaÃ§Ã£o de RecorrÃªncia
         */
         $repeats = Controller::find(array('concept' => 'repeat'), null , array( 'filter' => array( 'and' , array( '=' , 'schedulable' , $schedulable['id'] ),array( '!=' , 'frequency' , 'none' )  ) ));
         if(is_array($repeats) && count($repeats) > 0)
@@ -431,7 +431,7 @@ class ExpressoCalendarProvider extends BackendDiff
             if($repeat["byday"])
                 $recur->dayofweek = $this->formatDoWeek($repeat["byday"]);
 
-            //$recurrence->monthofyear ; //Não implementado no expresso
+            //$recurrence->monthofyear ; //NÃ£o implementado no expresso
 
             $expetions = Controller::find(array('concept' => 'repeatOccurrence'), null , array( 'filter' => array( 'and' , array( '=' , 'exception' , '1' ),array( '=' , 'repeat' , $repeat['id'] ) )));
             if(is_array($expetions) && count($expetions) > 0)
@@ -517,7 +517,7 @@ class ExpressoCalendarProvider extends BackendDiff
             {
                 if($v['user']['id'] == $this->_uidnumber )
                 {
-                    if(strpos($v['acl'] ,'w') !== false) //Caso o usuario tenha permissão de editar o evento
+                    if(strpos($v['acl'] ,'w') !== false) //Caso o usuario tenha permissÃ£o de editar o evento
                     {
                         return  $this->updateEvent($folderid, $idMessage, $message , $calendar ,$schedulable);
                     }
@@ -540,7 +540,7 @@ class ExpressoCalendarProvider extends BackendDiff
 
                         $status  = $this->formatBusy($message->busystatus);
 
-                        if($status == STATUS_DECLINED ) //Caso ele não seja dono do evento e recusou o convite deletar o evento da sua agenda.
+                        if($status == STATUS_DECLINED ) //Caso ele nÃ£o seja dono do evento e recusou o convite deletar o evento da sua agenda.
                         {
                             Controller::deleteAll(array('concept' => 'calendarToSchedulable' ) , false , array('filter' => array('AND', array('=','calendar',$calendarSignature['calendar']), array('=','schedulable',$schedulable['id']))));
                         }
@@ -607,7 +607,7 @@ class ExpressoCalendarProvider extends BackendDiff
         $schedulable['class'] = 1;
 
         /// Eliminana o timezone, enviado pelo ceulular e coloca no timezone do calendario.
-        // o celular não manda o nome do timezone apenas o offset dele dae não tem como saber qual foi o timezone selecionado.
+        // o celular nÃ£o manda o nome do timezone apenas o offset dele dae nÃ£o tem como saber qual foi o timezone selecionado.
         $calendarSignatureTimezone = new DateTimeZone($calendar['timezone']) ;
         $schedulable['startTime'] = (($message->starttime + $GMT_CEL) + ($calendarSignatureTimezone->getOffset(new DateTime('@'.($message->starttime + $GMT_CEL), new DateTimeZone('UTC'))) * -1) ) *1000; //$message->starttime  * 1000;
         $schedulable['endTime'] = (($message->endtime + $GMT_CEL) + ($calendarSignatureTimezone->getOffset(new DateTime('@'.($message->endtime + $GMT_CEL), new DateTimeZone('UTC')))* -1)) *1000;//$message->endtime  * 1000;
@@ -747,7 +747,7 @@ class ExpressoCalendarProvider extends BackendDiff
                     $participant['isOrganizer'] = '0';
                     $participant['acl'] = 'r';
 
-                    /* Verifica se este usuario é um usuario interno do ldap */
+                    /* Verifica se este usuario Ã© um usuario interno do ldap */
                     $intUser = Controller::find(array('concept' => 'user'), array('id', 'isExternal'), array('filter' => array('OR', array('=', 'mail', $attendee->email), array('=', 'mailAlternateAddress', $attendee->email))));
 
                     $user = null;
@@ -830,7 +830,7 @@ class ExpressoCalendarProvider extends BackendDiff
 
 
         /// Eliminana o timezone, enviado pelo ceulular e coloca no timezone do calendario.
-        // o celular não manda o nome do timezone apenas o offset dele dae não tem como saber qual foi o timezone selecionado.
+        // o celular nÃ£o manda o nome do timezone apenas o offset dele dae nÃ£o tem como saber qual foi o timezone selecionado.
         $calendarSignatureTimezone = new DateTimeZone($calendar['timezone']) ;
         $schedulable['startTime'] = (($message->starttime + $GMT_CEL) + ($calendarSignatureTimezone->getOffset(new DateTime('@'.($message->starttime + $GMT_CEL), new DateTimeZone('UTC'))) * -1) ) *1000; //$message->starttime  * 1000;
         $schedulable['endTime'] = (($message->endtime + $GMT_CEL) + ($calendarSignatureTimezone->getOffset(new DateTime('@'.($message->endtime + $GMT_CEL), new DateTimeZone('UTC')))* -1)) *1000;//$message->endtime  * 1000;
@@ -862,7 +862,7 @@ class ExpressoCalendarProvider extends BackendDiff
 
         if($message->organizeremail)
         {
-            /* Verifica se este usuario é um usuario interno do ldap */
+            /* Verifica se este usuario Ã© um usuario interno do ldap */
             $intUser = Controller::find(array('concept' => 'user'), array('id', 'isExternal'), array('filter' => array('OR', array('=', 'mail', $message->organizeremail), array('=', 'mailAlternateAddress', $message->organizeremail))));
 
             $user = null;
@@ -959,7 +959,7 @@ class ExpressoCalendarProvider extends BackendDiff
                 $participant['isOrganizer'] = '0';
                 $participant['acl'] = 'r';
 
-                /* Verifica se este usuario é um usuario interno do ldap */
+                /* Verifica se este usuario Ã© um usuario interno do ldap */
                 $intUser = Controller::find(array('concept' => 'user'), array('id', 'isExternal'), array('filter' => array('OR', array('=', 'mail', $attendee->email), array('=', 'mailAlternateAddress', $attendee->email))));
 
                 $user = null;
@@ -1034,13 +1034,13 @@ class ExpressoCalendarProvider extends BackendDiff
      * change 'mod', simply setting the message to 'read' on the mobile will trigger
      * a full resync of the item from the server.
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param int           $flags          read flag of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
+     * @param int $flags read flag of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
@@ -1054,16 +1054,15 @@ class ExpressoCalendarProvider extends BackendDiff
      * as it will be seen as a 'new' item. This means that if this method is not implemented, it's possible to
      * delete messages on the PDA, but as soon as a sync is done, the item will be resynched to the mobile
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function DeleteMessage($folderid, $id, $contentParameters)
     {
-
         $idNumber = (int)str_replace('calendar' , '' , $folderid);
         $calendarSignature =  Controller::read( array( 'concept' => 'calendarSignature' , 'id' => $idNumber ));
         $even = $this->_getSchedulable($id );
@@ -1106,17 +1105,25 @@ class ExpressoCalendarProvider extends BackendDiff
      * should show the items to have a new parent. This means that it will disappear from GetMessageList()
      * of the sourcefolder and the destination folder will show the new message
      *
-     * @param string        $folderid       id of the source folder
-     * @param string        $id             id of the message
-     * @param string        $newfolderid    id of the destination folder
+     * @param string $folderid id of the source folder
+     * @param string $id id of the message
+     * @param string $newfolderid id of the destination folder
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
     public function MoveMessage($folderid, $id, $newfolderid , $contentParameters)
     {
-        return false;
+        $idNumber = (int)str_replace('calendar' , '' , $folderid);
+        $idNumberNew = (int)str_replace('calendar' , '' , $newfolderid);
+        $calendarSignature =  Controller::read( array( 'concept' => 'calendarSignature' , 'id' => $idNumber ));
+        $calendarSignatureNew =  Controller::read( array( 'concept' => 'calendarSignature' , 'id' => $idNumberNew ));
+        $even = $this->_getSchedulable($id );
+        $link = Controller::read(array('concept' => 'calendarToSchedulable'), false, array('filter' => array('AND', array('=','calendar',$calendarSignature['calendar']), array('=','schedulable',$even['id']))));
+        Controller::update( array('concept' => 'calendarToSchedulable' , 'id' => $link['id']), array( 'calendar' => $calendarSignatureNew['calendar']) );
+
+        return true;
     }
 
     /**
