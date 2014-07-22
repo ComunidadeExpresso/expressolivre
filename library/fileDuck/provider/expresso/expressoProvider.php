@@ -22,7 +22,7 @@ class expressoProvider implements iProvider
                 while ($data = fgets($fp,8000)){
                     $data = mb_convert_encoding( $data , 'UTF-8' , 'ISO-8859-1' );
                     list($messageId,,,$content) = explode("\t",$data);
-                    $this->trans[trim($messageId)] = preg_replace("/\r?\n/",'',$content);
+                    $this->trans[preg_replace( "/\%[0-9]/" , '%s', trim($messageId)) ] = preg_replace( array("/\r?\n/", "/\%[0-9]/"),array('','%s'),$content);
                 }
                 fclose($fp);
             }
