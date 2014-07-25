@@ -329,8 +329,8 @@ function show_modal_shared(calendarId){
                             name: dataCurrent[i].user.name,
                             mail: dataCurrent[i].user.mail,
                             acl:dataCurrent[i].acl,
-                            aclValue: dataCurrent[i].aclValues,
-                            current: true,
+                            aclValues: dataCurrent[i].aclValues,
+                            isCurrent: true,
                             idPermission: dataCurrent[i].id
                         }]))
                         .scrollTo('max');
