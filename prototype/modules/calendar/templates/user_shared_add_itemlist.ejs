@@ -1,4 +1,4 @@
-<li class="user-list <%=data[0].current ? 'current' : 'new' %>"> 
+<li class="user-list <%=data[0].isCurrent ? 'current' : 'new' %>">
 	<div style="overflow:hidden; width:999px; display:table;">
 		<%if(data[0].isCalendar){%>
 			<div class="user-acls-shared-calendar calendar">
@@ -19,9 +19,9 @@
 					<a class="button close new"><%= '_[[Remove]]' %></a>
 			</div>
 
-		<input type="checkbox" value="<%=data[0].current ? data[0].idPermission : data[0].id%>">
+		<input type="checkbox" value="<%=data[0].isCurrent ? data[0].idPermission : data[0].id%>">
 		<input type="hidden" name="user[]" value="<%=data[0].id%>">
-		<input type="hidden" name="attendeeAcl[]" value="<%=data[0].aclValue%>">
+		<input type="hidden" name="attendeeAcl[]" value="<%=data[0].aclValues%>">
 		
 		<label title="<%=data[0].name%>" class="name"><%= data[0].name ? data[0].name : '' %></label>
 		<label title="<%=data[0].mail%>" class="mail <%= data[0].name ? 'hidden' : ''%>"><%= data[0].mail ? data[0].mail : '' %></label>
