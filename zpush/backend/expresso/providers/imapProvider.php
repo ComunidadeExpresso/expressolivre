@@ -742,7 +742,7 @@ class ExpressoImapProvider extends BackendDiff {
     public function GetFolderList() {
         $folders = array();
 
-        $list = @imap_getmailboxes($this->mbox, $this->server, "*");
+        $list = @imap_getmailboxes($this->mbox, $this->server, "INBOX*");
         if (is_array($list)) {
             // reverse list to obtain folders in right order
             $list = array_reverse($list);
@@ -904,44 +904,37 @@ class ExpressoImapProvider extends BackendDiff {
      * @throws StatusException              could throw specific SYNC_FSSTATUS_* exceptions
      *
      */
-    public function ChangeFolder($folderid, $oldid, $displayname, $type){
+    public function ChangeFolder($folderid, $oldid, $displayname, $type)
+    {
         ZLog::Write(LOGLEVEL_INFO, sprintf("BackendIMAP->ChangeFolder('%s','%s','%s','%s')", $folderid, $oldid, $displayname, $type));
 
         // go to parent mailbox
-        $this->imap_reopenFolder($folderid);
+	        $this->imap_reopenFolder($folderid);
 
-        // build name for new mailboxBackendMaildir
-        $displayname = Utils::Utf7_iconv_encode(Utils::Utf8_to_utf7($displayname));
-        $newname = $this->server . $folderid . $this->serverdelimiter . $displayname;
+	        // build name for new mailboxBackendMaildir
+	        $displayname = Utils::Utf7_iconv_encode(Utils::Utf8_to_utf7($displayname));;
+	        $new = $this->server . $this->getImapIdFromFolderId($folderid) . $this->serverdelimiter.  $displayname;
 
-        $csts = false;
-        // if $id is set => rename mailbox, otherwise create
-        if ($oldid) {
-            // rename doesn't work properly with IMAP
-            // the activesync client doesn't support a 'changing ID'
-            // TODO this would be solved by implementing hex ids (Mantis #459)
-            //$csts = imap_renamemailbox($this->mbox, $this->server . imap_utf7_encode(str_replace(".", $this->serverdelimiter, $oldid)), $newname);
-        }
-        else {
-            $csts = @imap_createmailbox($this->mbox, $newname);
-        }
-        if ($csts) {
-            return $this->StatFolder($folderid . $this->serverdelimiter . $displayname);
-        }
-        else
-            return false;
+	        $csts = ($oldid) ? imap_renamemailbox($this->mbox,  $this->server .$this->getImapIdFromFolderId($oldid) , $new) : imap_createmailbox($this->mbox, $new);
+
+	        if ($csts) {
+               $newId =  $this->convertImapId($new);
+	           return $this->StatFolder($newId);
+	        }
+	        else
+	            return false;
+
     }
 
     /**
      * Deletes a folder
      *
-     * @param string        $id
-     * @param string        $parent         is normally false
+     * @param string $id
+     * @param $parentid
+     * @internal param string $parent is normally false
      *
      * @access public
      * @return boolean                      status - false if e.g. does not exist
-     * @throws StatusException              could throw specific SYNC_FSSTATUS_* exceptions
-     *
      */
     public function DeleteFolder($id, $parentid)
     {
@@ -953,9 +946,10 @@ class ExpressoImapProvider extends BackendDiff {
     /**
      * Returns a list (array) of messages
      *
-     * @param string        $folderid       id of the parent folder
-     * @param long          $cutoffdate     timestamp in the past from which on messages should be returned
+     * @param string $folderid id of the parent folder
+     * @param long $cutoffdate timestamp in the past from which on messages should be returned
      *
+     * @throws StatusException
      * @access public
      * @return array/false  array with messages or false if folder is not available
      */

@@ -97,12 +97,12 @@ class ExpressoContactProvider extends BackendDiff
     /**
      * Deletes a folder
      *
-     * @param string        $id
-     * @param string        $parent         is normally false
+     * @param string $id
+     * @param $parentid
+     * @internal param string $parent is normally false
      *
      * @access public
      * @return boolean                      status - false if e.g. does not exist
-     * @throws StatusException              could throw specific SYNC_FSSTATUS_* exceptions
      */
     public function DeleteFolder($id, $parentid)
     {
@@ -120,9 +120,10 @@ class ExpressoContactProvider extends BackendDiff
      * the cutoffdate is ignored, the user will not be able to select their own cutoffdate, but all
      * will work OK apart from that.
      *
-     * @param string        $folderid       id of the parent folder
-     * @param long          $cutoffdate     timestamp in the past from which on messages should be returned
+     * @param string $folderid id of the parent folder
+     * @param long $cutoffdate timestamp in the past from which on messages should be returned
      *
+     * @throws Exception
      * @access public
      * @return array/false                  array with messages or false if folder is not available
      */
@@ -152,10 +153,11 @@ class ExpressoContactProvider extends BackendDiff
      * Tasks folder will not do anything. The SyncXXX objects should be filled with as much information as possible,
      * but at least the subject, body, to, from, etc.
      *
-     * @param string            $folderid           id of the parent folder
-     * @param string            $id                 id of the message
-     * @param ContentParameters $contentparameters  parameters of the requested message (truncation, mimesupport etc)
+     * @param string $folderid id of the parent folder
+     * @param string $id id of the message
+     * @param ContentParameters $contentparameters parameters of the requested message (truncation, mimesupport etc)
      *
+     * @throws Exception
      * @access public
      * @return object/false                 false if the message could not be retrieved
      */
@@ -357,9 +359,10 @@ class ExpressoContactProvider extends BackendDiff
     /**
      * Returns message stats, analogous to the folder stats from StatFolder().
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
      *
+     * @throws Exception
      * @access public
      * @return array or boolean if fails
      *          Associative array(
@@ -396,13 +399,13 @@ class ExpressoContactProvider extends BackendDiff
      * This method will never be called on E-mail items as it's not 'possible' to change e-mail items. It's only
      * possible to set them as 'read' or 'unread'.
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param SyncXXX       $message        the SyncObject containing a message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
+     * @param SyncXXX $message the SyncObject containing a message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return array                        same return value as StatMessage()
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function ChangeMessage($folderid, $id, $message, $contentParameters)
     {
@@ -481,7 +484,12 @@ class ExpressoContactProvider extends BackendDiff
             }
             // se n�o encontrou id_address_residencial para fazer Update, define o pr�ximo id_address_residencial para fazer Insert
             if (!$found_id_address_residencial and $isset_home_address_fields) {
-                $next_offset_address_to_insert += 1;
+                $next_offset_address_to_insert += 1;//            if(isset($message->rtf)) {
+//                $rtf_to_ascii = new rtf();
+//                $rtf_to_ascii->output("ascii");
+//                $result_loadrtf = $rtf_to_ascii->loadrtf(base64_decode($message->rtf));
+//                if ($result_loadrtf == true) $rtf_to_ascii->parse();
+//                $array
                 $id_address_residencial = $row_address_max_id + $next_offset_address_to_insert;
             }
 
@@ -498,6 +506,9 @@ class ExpressoContactProvider extends BackendDiff
             $found_id_connection_tel_alternativo = false;
             $tel_default = "";
             $email_default = "";
+
+
+
             while ($row_connection = pg_fetch_row($result_connection)) {
                 if(isset($row_connection[0])) {
                     if ($row_connection[1] == "Principal" and $row_connection[3] == 1) {
@@ -513,35 +524,36 @@ class ExpressoContactProvider extends BackendDiff
                     if ($row_connection[1] == "Trabalho") {
                         $id_connection_tel_trabalho = $row_connection[0];
                         $found_id_connection_tel_trabalho = true;
-                        if ($row_connection[2] == 't') $tel_default = "Trabalho";
+                        if ($row_connection[2] == 't' && isset($message->businessphonenumber)) $tel_default = "Trabalho";
                     }
                     if ($row_connection[1] == "Casa") {
                         $id_connection_tel_casa = $row_connection[0];
                         $found_id_connection_tel_casa = true;
-                        if ($row_connection[2] == 't') $tel_default = "Casa";
+                        if ($row_connection[2] == 't' & isset($message->homephonenumber)) $tel_default = "Casa";
                     }
                     if ($row_connection[1] == "Celular") {
                         $id_connection_tel_celular = $row_connection[0];
                         $found_id_connection_tel_celular = true;
-                        if ($row_connection[2] == 't') $tel_default = "Celular";
+                        if ($row_connection[2] == 't' & isset($message->mobilephonenumber)) $tel_default = "Celular";
                     }
                     if ($row_connection[1] == "Fax") {
                         $id_connection_tel_fax = $row_connection[0];
                         $found_id_connection_tel_fax = true;
-                        if ($row_connection[2] == 't') $tel_default = "Fax";
+                        if ($row_connection[2] == 't' & isset($message->businessfaxnumber)) $tel_default = "Fax";
                     }
                     if ($row_connection[1] == "Principal" and $row_connection[3] == 2) {
                         $id_connection_tel_principal = $row_connection[0];
                         $found_id_connection_tel_principal = true;
-                        if ($row_connection[2] == 't') $tel_default = "Principal";
+                        if ($row_connection[2] == 't' & isset($message->business2phonenumber)) $tel_default = "Principal";
                     }
                     if ($row_connection[1] == "Alternativo" and $row_connection[3] == 2) {
                         $id_connection_tel_alternativo = $row_connection[0];
                         $found_id_connection_tel_alternativo = true;
-                        if ($row_connection[2] == 't') $tel_default = "Alternativo";
+                        if ($row_connection[2] == 't' & isset($message->home2phonenumber)) $tel_default = "Alternativo";
                     }
                 }
             }
+
             // Obtem o ultimo id_connection
             if (!($found_id_connection_email_principal and $found_id_connection_email_alternativo and $found_id_connection_tel_trabalho and $found_id_connection_tel_celular and $found_id_connection_tel_casa and $found_id_connection_tel_fax and $found_id_connection_tel_principal and $found_id_connection_tel_alternativo) and (isset($message->email1address) or isset($message->email2address) or isset($message->businessphonenumber) or isset($message->homephonenumber) or isset($message->mobilephonenumber) or isset($message->businessfaxnumber) or isset($message->business2phonenumber) or isset($message->home2phonenumber))){
                 $result = pg_query($this->db,"LOCK TABLE phpgw_cc_connections IN ACCESS EXCLUSIVE MODE;");
@@ -631,13 +643,17 @@ class ExpressoContactProvider extends BackendDiff
             }
             //TODO: Incluir o campo de Aniversario na Sincronizacao. O DB do Expresso nao tem esse campo :-(
 
-            if(isset($message->rtf)) {
-                $rtf_to_ascii = new rtf();
-                $rtf_to_ascii->output("ascii");
-                $result_loadrtf = $rtf_to_ascii->loadrtf(base64_decode($message->rtf));
-                if ($result_loadrtf == true) $rtf_to_ascii->parse();
-                $arrayContact["notes"] = $rtf_to_ascii->out;
+
+            if(isset($message->body)) {
+                $arrayContact["notes"] = utf8_decode($message->body);
             }
+//            if(isset($message->rtf)) {
+//                $rtf_to_ascii = new rtf();
+//                $rtf_to_ascii->output("ascii");
+//                $result_loadrtf = $rtf_to_ascii->loadrtf(base64_decode($message->rtf));
+//                if ($result_loadrtf == true) $rtf_to_ascii->parse();
+//                $arrayContact["notes"] = $rtf_to_ascii->out;
+//            }
             //TODO: Tratar o conteudo do campo de categorias
             //if(isset($message->categories)) {
             //	$arrayContact["category"] = $this->truncateString(utf8_decode($message->categories),20);
@@ -661,8 +677,7 @@ class ExpressoContactProvider extends BackendDiff
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
             } else {
                 $result = pg_update($this->db, 'phpgw_cc_contact', $arrayContact, array('id_contact' => $id_contact));
-                if ($result == FALSE) throw new Exception(pg_last_error($this->db));
-            }
+                if ($result == FALSE) throw new Exception(pg_last_error($this->db)); }
 
             // Incluir/Alterar Endereco Comercial na tabela phpgw_cc_addresses no Banco de Dados
             if(isset($message->businessstate)) {
@@ -783,6 +798,7 @@ class ExpressoContactProvider extends BackendDiff
                 }
 
             } elseif ($found_id_connection_email_principal) {
+
                 $result = pg_delete($this->db, "phpgw_cc_contact_conns", array('id_contact' => $id_contact, 'id_connection' => $id_connection_email_principal));
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                 $result = pg_delete($this->db, "phpgw_cc_contact_grps", array('id_connection' => $id_connection_email_principal));
@@ -828,15 +844,17 @@ class ExpressoContactProvider extends BackendDiff
             // Telefone Trabalho
             if(isset($message->businessphonenumber)) {
                 $arrayConnectionTelTrabalho["connection_value"] = $this->truncateString(utf8_decode($message->businessphonenumber),100);
+
+                if ($tel_default != "Celular" and $tel_default != "Casa" and $tel_default != "Fax"  and $tel_default != "Principal"  and $tel_default != "Alternativo"){
+                    $arrayConnectionTelTrabalho["connection_is_default"] = 't';
+                    $tel_default = "Trabalho";
+                } else {
+                    $arrayConnectionTelTrabalho["connection_is_default"] = 'f';
+                }
+
                 if (!$found_id_connection_tel_trabalho){
                     $arrayConnectionTelTrabalho["id_connection"] = $id_connection_tel_trabalho;
                     $arrayConnectionTelTrabalho["connection_name"] = "Trabalho";
-                    if ($tel_default != "Celular" and $tel_default != "Casa" and $tel_default != "Fax"  and $tel_default != "Principal"  and $tel_default != "Alternativo"){
-                        $arrayConnectionTelTrabalho["connection_is_default"] = 't';
-                        $tel_default = "Trabalho";
-                    } else {
-                        $arrayConnectionTelTrabalho["connection_is_default"] = 'f';
-                    }
                     $result = pg_insert($this->db, 'phpgw_cc_connections', $arrayConnectionTelTrabalho);
                     if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                     $arrayContactConnection["id_contact"] = $id_contact;
@@ -850,6 +868,7 @@ class ExpressoContactProvider extends BackendDiff
                 }
 
             } elseif ($found_id_connection_tel_trabalho) {
+
                 $result = pg_delete($this->db, "phpgw_cc_contact_conns", array('id_contact' => $id_contact, 'id_connection' => $id_connection_tel_trabalho));
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                 $result = pg_delete($this->db, "phpgw_cc_contact_grps", array('id_connection' => $id_connection_tel_trabalho));
@@ -861,15 +880,18 @@ class ExpressoContactProvider extends BackendDiff
             // Telefone Celular
             if(isset($message->mobilephonenumber)) {
                 $arrayConnectionTelCelular["connection_value"] = $this->truncateString(utf8_decode($message->mobilephonenumber),100);
+
+                if ($tel_default != "Trabalho" and $tel_default != "Casa" and $tel_default != "Fax"   and $tel_default != "Principal"  and $tel_default != "Alternativo"){
+                    $arrayConnectionTelCelular["connection_is_default"] = 't';
+                    $tel_default = "Celular";
+                } else {
+                    $arrayConnectionTelCelular["connection_is_default"] = 'f';
+                }
+
                 if (!$found_id_connection_tel_celular){
                     $arrayConnectionTelCelular["id_connection"] = $id_connection_tel_celular;
                     $arrayConnectionTelCelular["connection_name"] = "Celular";
-                    if ($tel_default != "Trabalho" and $tel_default != "Casa" and $tel_default != "Fax"   and $tel_default != "Principal"  and $tel_default != "Alternativo"){
-                        $arrayConnectionTelCelular["connection_is_default"] = 't';
-                        $tel_default = "Celular";
-                    } else {
-                        $arrayConnectionTelCelular["connection_is_default"] = 'f';
-                    }
+
                     $result = pg_insert($this->db, 'phpgw_cc_connections', $arrayConnectionTelCelular);
                     if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                     $arrayContactConnection["id_contact"] = $id_contact;
@@ -894,15 +916,18 @@ class ExpressoContactProvider extends BackendDiff
             // Telefone Casa
             if(isset($message->homephonenumber)) {
                 $arrayConnectionTelCasa["connection_value"] = $this->truncateString(utf8_decode($message->homephonenumber),100);
+
+                if ($tel_default != "Trabalho" and $tel_default != "Celular" and $tel_default != "Fax" and $tel_default != "Principal"  and $tel_default != "Alternativo"){
+                    $arrayConnectionTelCasa["connection_is_default"] = 't';
+                    $tel_default = "Casa";
+                } else {
+                    $arrayConnectionTelCasa["connection_is_default"] = 'f';
+                }
+
                 if (!$found_id_connection_tel_casa){
                     $arrayConnectionTelCasa["id_connection"] = $id_connection_tel_casa;
                     $arrayConnectionTelCasa["connection_name"] = "Casa";
-                    if ($tel_default != "Trabalho" and $tel_default != "Celular" and $tel_default != "Fax" and $tel_default != "Principal"  and $tel_default != "Alternativo"){
-                        $arrayConnectionTelCasa["connection_is_default"] = 't';
-                        $tel_default = "Casa";
-                    } else {
-                        $arrayConnectionTelCasa["connection_is_default"] = 'f';
-                    }
+
                     $result = pg_insert($this->db, 'phpgw_cc_connections', $arrayConnectionTelCasa);
                     if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                     $arrayContactConnection["id_contact"] = $id_contact;
@@ -916,6 +941,7 @@ class ExpressoContactProvider extends BackendDiff
                 }
 
             } elseif ($found_id_connection_tel_casa) {
+
                 $result = pg_delete($this->db, "phpgw_cc_contact_conns", array('id_contact' => $id_contact, 'id_connection' => $id_connection_tel_casa));
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                 $result = pg_delete($this->db, "phpgw_cc_contact_grps", array('id_connection' => $id_connection_tel_casa));
@@ -927,15 +953,18 @@ class ExpressoContactProvider extends BackendDiff
             // Fax
             if(isset($message->businessfaxnumber)) {
                 $arrayConnectionFax["connection_value"] = $this->truncateString(utf8_decode($message->businessfaxnumber),100);
+
+                if ($tel_default != "Trabalho" and $tel_default != "Celular" and $tel_default != "Casa" and $tel_default != "Principal"  and $tel_default != "Alternativo"){
+                    $arrayConnectionFax["connection_is_default"] = 't';
+                    $tel_default = "Fax";
+                } else {
+                    $arrayConnectionFax["connection_is_default"] = 'f';
+                }
+
                 if (!$found_id_connection_tel_fax){
                     $arrayConnectionFax["id_connection"] = $id_connection_tel_fax;
                     $arrayConnectionFax["connection_name"] = "Fax";
-                    if ($tel_default != "Trabalho" and $tel_default != "Celular" and $tel_default != "Casa" and $tel_default != "Principal"  and $tel_default != "Alternativo"){
-                        $arrayConnectionFax["connection_is_default"] = 't';
-                        $tel_default = "Fax";
-                    } else {
-                        $arrayConnectionFax["connection_is_default"] = 'f';
-                    }
+
                     $result = pg_insert($this->db, 'phpgw_cc_connections', $arrayConnectionFax);
                     if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                     $arrayContactConnection["id_contact"] = $id_contact;
@@ -949,6 +978,7 @@ class ExpressoContactProvider extends BackendDiff
                 }
 
             } elseif ($found_id_connection_tel_fax) {
+
                 $result = pg_delete($this->db, "phpgw_cc_contact_conns", array('id_contact' => $id_contact, 'id_connection' => $id_connection_tel_fax));
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                 $result = pg_delete($this->db, "phpgw_cc_contact_grps", array('id_connection' => $id_connection_tel_fax));
@@ -960,15 +990,17 @@ class ExpressoContactProvider extends BackendDiff
             // Telefone Principal
             if(isset($message->business2phonenumber)) {
                 $arrayConnectionTelPrincipal["connection_value"] = $this->truncateString(utf8_decode($message->business2phonenumber),100);
+                if ($tel_default != "Celular" and $tel_default != "Casa" and $tel_default != "Fax"  and $tel_default != "Trabalho"  and $tel_default != "Alternativo"){
+                    $arrayConnectionTelPrincipal["connection_is_default"] = 't';
+                    $tel_default = "Principal";
+                } else {
+                    $arrayConnectionTelPrincipal["connection_is_default"] = 'f';
+                }
+
                 if (!$found_id_connection_tel_principal){
                     $arrayConnectionTelPrincipal["id_connection"] = $id_connection_tel_principal;
                     $arrayConnectionTelPrincipal["connection_name"] = "Principal";
-                    if ($tel_default != "Celular" and $tel_default != "Casa" and $tel_default != "Fax"  and $tel_default != "Trabalho"  and $tel_default != "Alternativo"){
-                        $arrayConnectionTelPrincipal["connection_is_default"] = 't';
-                        $tel_default = "Principal";
-                    } else {
-                        $arrayConnectionTelPrincipal["connection_is_default"] = 'f';
-                    }
+
                     $result = pg_insert($this->db, 'phpgw_cc_connections', $arrayConnectionTelPrincipal);
                     if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                     $arrayContactConnection["id_contact"] = $id_contact;
@@ -982,6 +1014,7 @@ class ExpressoContactProvider extends BackendDiff
                 }
 
             } elseif ($found_id_connection_tel_principal) {
+
                 $result = pg_delete($this->db, "phpgw_cc_contact_conns", array('id_contact' => $id_contact, 'id_connection' => $id_connection_tel_principal));
                 if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                 $result = pg_delete($this->db, "phpgw_cc_contact_grps", array('id_connection' => $id_connection_tel_principal));
@@ -993,15 +1026,18 @@ class ExpressoContactProvider extends BackendDiff
             // Telefone Alternativo
             if(isset($message->home2phonenumber)) {
                 $arrayConnectionTelAlternativo["connection_value"] = $this->truncateString(utf8_decode($message->home2phonenumber),100);
+
+                if ($tel_default != "Trabalho" and $tel_default != "Celular" and $tel_default != "Fax" and $tel_default != "Principal"  and $tel_default != "Casa"){
+                    $arrayConnectionTelAlternativo["connection_is_default"] = 't';
+                    $tel_default = "Alternativo";
+                } else {
+                    $arrayConnectionTelAlternativo["connection_is_default"] = 'f';
+                }
+
                 if (!$found_id_connection_tel_alternativo){
                     $arrayConnectionTelAlternativo["id_connection"] = $id_connection_tel_alternativo;
                     $arrayConnectionTelAlternativo["connection_name"] = "Alternativo";
-                    if ($tel_default != "Trabalho" and $tel_default != "Celular" and $tel_default != "Fax" and $tel_default != "Principal"  and $tel_default != "Casa"){
-                        $arrayConnectionTelAlternativo["connection_is_default"] = 't';
-                        $tel_default = "Alternativo";
-                    } else {
-                        $arrayConnectionTelAlternativo["connection_is_default"] = 'f';
-                    }
+
                     $result = pg_insert($this->db, 'phpgw_cc_connections', $arrayConnectionTelAlternativo);
                     if ($result == FALSE) throw new Exception(pg_last_error($this->db));
                     $arrayContactConnection["id_contact"] = $id_contact;
@@ -1031,6 +1067,7 @@ class ExpressoContactProvider extends BackendDiff
                 $id = $id_contact;
             }
         } catch (Exception $e) {
+
             debugLog("exception -> " . $e->getMessage() . " - ARQUIVO: " . $e->getFile() . " - LINHA: " . $e->getLine());
             pg_query($this->db,"ROLLBACK;");
             return false;
@@ -1046,13 +1083,13 @@ class ExpressoContactProvider extends BackendDiff
      * change 'mod', simply setting the message to 'read' on the mobile will trigger
      * a full resync of the item from the server.
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param int           $flags          read flag of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
+     * @param int $flags read flag of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
@@ -1067,12 +1104,12 @@ class ExpressoContactProvider extends BackendDiff
      * as it will be seen as a 'new' item. This means that if this method is not implemented, it's possible to
      * delete messages on the PDA, but as soon as a sync is done, the item will be resynched to the mobile
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function DeleteMessage($folderid, $id, $contentParameters)
     {
@@ -1122,6 +1159,7 @@ class ExpressoContactProvider extends BackendDiff
             $result = pg_query($this->db,"COMMIT;");
             if ($result == FALSE) throw new Exception(pg_last_error($this->db));
         } catch (Exception $e) {
+
             pg_query($this->db,"ROLLBACK;");
             debugLog("exception -> " . $e->getMessage() . " - ARQUIVO: " . $e->getFile() . " - LINHA: " . $e->getLine());
             return false;
@@ -1135,13 +1173,13 @@ class ExpressoContactProvider extends BackendDiff
      * should show the items to have a new parent. This means that it will disappear from GetMessageList()
      * of the sourcefolder and the destination folder will show the new message
      *
-     * @param string        $folderid       id of the source folder
-     * @param string        $id             id of the message
-     * @param string        $newfolderid    id of the destination folder
+     * @param string $folderid id of the source folder
+     * @param string $id id of the message
+     * @param string $newfolderid id of the destination folder
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
     public function MoveMessage($folderid, $id, $newfolderid, $contentParameters)
     {
