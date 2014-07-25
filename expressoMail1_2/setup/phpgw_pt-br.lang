@@ -559,8 +559,8 @@ The event was imported successfully.	expressoMail1_2	pt-br	O compromisso foi imp
 The expresso imap server is currently down, expresso noticed you have offline mail module installed, would you like to use it?	expressoMail1_2	pt-br	O servidor de caixas está aparentemente fora do ar. O expresso notou que você possui o módulo de e-mails offline instalado. Deseja utilizá-lo?
 The extension %1 is incorrect.	expressoMail1_2	pt-br	O ramal %1 está incorretamente cadastrado.
 The field \"%1\" of the message it contains	expressoMail1_2	pt-br	O campo \"%1\" da mensagem contém
-The folder %1 was successfully removed	expressoMail1_2	pt-br	A pasta %1 foi removida com sucesso!
-The local folder %1 was successfully removed	expressoMail1_2	pt-br	A pasta local %1 foi removida com sucesso!
+The folder %1 was successfully removed	expressoMail1_2	pt-br	A pasta %1 foi removida com sucesso.
+The local folder %1 was successfully removed	expressoMail1_2	pt-br	A pasta local %1 foi removida com sucesso.
 The folder was not deleted!	expressoMail1_2	pt-br	A pasta não foi removida!
 The import was executed successfully.	expressoMail1_2	pt-br	A importação foi executada com sucesso.
 The list has no participant.	expressoMail1_2	pt-br	Essa lista não possui nenhum participante.
@@ -1140,10 +1140,10 @@ Updated successfully	expressoMail1_2	pt-br	Atualizado com sucesso
 Invalid login or password	expressoMail1_2	pt-br	login ou senha inválida
 Filter "Out of Office" active.	expressoMail1_2	pt-br	Filtro "Fora do Escritório" ativo.
 No Results Found	expressoMail1_2	pt-br	Nenhum Resultado Encontrado
-messages in your current folder	expressoMail1_2	pt-br	mensagem na sua pasta atual
-messages in your other folders	expressoMail1_2	pt-br	mensagens nas suas outras pastas
-messages in your shared folders	expressoMail1_2	pt-br	mensagens nas suas pastas compartilhadas
-searching	expressoMail1_2	pt-br	pesquisando
+messages in your current folder	expressoMail1_2	pt-br	mensagem na sua pasta atual.
+messages in your other folders	expressoMail1_2	pt-br	mensagens nas suas outras pastas.
+messages in your shared folders	expressoMail1_2	pt-br	mensagens nas suas pastas compartilhadas.
+searching	expressoMail1_2	pt-br	Pesquisando
 Were found	expressoMail1_2	pt-br	Foram encontradas
 in	expressoMail1_2	pt-br	no
 Empty trash	expressoMail1_2	pt-br	Esvaziar lixeira
@@ -1199,3 +1199,4 @@ Fri	expressoMail1_2	pt-br	Sex
 Sat	expressoMail1_2	pt-br	Sab
 Today	expressoMail1_2	pt-br	Hoje
 Number of recipients greater than allowed	expressoMail1_2	pt-br	Quantidade de destinatários não permitido
+you are blocked from sending mail to the following addresses	expressoMail1_2	pt-br	Você está bloqueado de enviar e-mail para os seguintes endereços
