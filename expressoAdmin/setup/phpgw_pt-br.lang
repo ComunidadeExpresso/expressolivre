@@ -587,3 +587,21 @@ removed application from group	expressoAdmin	pt-br	aplicação removida do grupo
 deleted group	expressoAdmin	pt-br	grupo excluído
 modified user telephone	expressoAdmin	pt-br	telefone do usuário alterado
 Manager successful saved	expressoAdmin	pt-br	Gerente salvo com sucesso
+Some users are without permission and will be automatically removed. Do you want to continue?	expressoAdmin	pt-br	Alguns usuários estão sem permissões e serão automaticamente removidos. Deseja continuar?
+Share calendar	expressoAdmin	pt-br	Compartilhar agenda
+Remove calendar	expressoAdmin	pt-br	Remover agenda
+No results found.	expressoAdmin	pt-br	Nenhum resultado encontrado.
+Search agendas	expressoAdmin	pt-br	Pesquisar agendas
+Search users	expressoAdmin	pt-br	Pesquisar usuários
+Continue	expressoAdmin	pt-br	Continuar
+Cancel	expressoAdmin	pt-br	Cancelar
+Calendar	expressoAdmin	pt-br	Calendário
+Selected Agendas	expressoAdmin	pt-br	Agendas Selecionadas
+Share with	expressoAdmin	pt-br	Compartilhar com
+Edit permissions	expressoAdmin	pt-br	Editar permissões
+Remove	expressoAdmin	pt-br	Remover
+Unshared	expressoAdmin	pt-br	Não compartilhado
+No schedule selected	expressoAdmin	pt-br	Nenhuma agenda selecionada
+Public agenda	expressoAdmin	pt-br	Agenda pública
+Public	expressoAdmin	pt-br	Pública
+Free/Busy	expressoAdmin	pt-br	Livre/Ocupado
