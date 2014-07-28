@@ -134,14 +134,14 @@ class FileDuck
                 $data = file_get_contents( $compiledFile );
             } else {
                 ob_start();
-                require_once( $this->fileTranslated );
+                require( $this->fileTranslated );
                 $data = ob_get_clean();
                 file_put_contents( $compiledFile , $data );
             }
             $this->debug( '    Render file: ' .$compiledFile);
         } else {
             ob_start();
-            require_once( $this->fileTranslated );
+            require( $this->fileTranslated );
             $data = ob_get_clean();
             $this->debug( '    Render file: ' .$this->fileTranslated);
         }
