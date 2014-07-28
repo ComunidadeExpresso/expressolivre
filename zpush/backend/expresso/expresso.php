@@ -23,8 +23,6 @@ class BackendExpresso extends BackendDiff
 
     private function getProvider( $folderId )
     {
-
-
         foreach($this->providers as $provider)
         {
             if(!isset($this->cacheFolders[$provider]))
@@ -116,12 +114,12 @@ class BackendExpresso extends BackendDiff
     /**
      * Deletes a folder
      *
-     * @param string        $id
-     * @param string        $parent         is normally false
+     * @param string $id
+     * @param $parentid
+     * @internal param string $parent is normally false
      *
      * @access public
      * @return boolean                      status - false if e.g. does not exist
-     * @throws StatusException              could throw specific SYNC_FSSTATUS_* exceptions
      */
     public function DeleteFolder($id, $parentid)
     {
@@ -197,17 +195,17 @@ class BackendExpresso extends BackendDiff
      * This method will never be called on E-mail items as it's not 'possible' to change e-mail items. It's only
      * possible to set them as 'read' or 'unread'.
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param SyncXXX       $message        the SyncObject containing a message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
+     * @param SyncXXX $message the SyncObject containing a message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return array                        same return value as StatMessage()
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function ChangeMessage($folderid, $id, $message, $contentParameters)
     {
-       return $this->getProvider($folderid)->ChangeMessage($folderid, $id, $message, $contentParameters);
+        return $this->getProvider($folderid)->ChangeMessage($folderid, $id, $message, $contentParameters);
     }
 
     /**
@@ -218,13 +216,13 @@ class BackendExpresso extends BackendDiff
      * change 'mod', simply setting the message to 'read' on the mobile will trigger
      * a full resync of the item from the server.
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
-     * @param int           $flags          read flag of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
+     * @param int $flags read flag of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function SetReadFlag($folderid, $id, $flags, $contentParameters)
     {
@@ -238,12 +236,12 @@ class BackendExpresso extends BackendDiff
      * as it will be seen as a 'new' item. This means that if this method is not implemented, it's possible to
      * delete messages on the PDA, but as soon as a sync is done, the item will be resynched to the mobile
      *
-     * @param string        $folderid       id of the folder
-     * @param string        $id             id of the message
+     * @param string $folderid id of the folder
+     * @param string $id id of the message
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_STATUS_* exceptions
      */
     public function DeleteMessage($folderid, $id, $contentParameters)
     {
@@ -256,16 +254,22 @@ class BackendExpresso extends BackendDiff
      * should show the items to have a new parent. This means that it will disappear from GetMessageList()
      * of the sourcefolder and the destination folder will show the new message
      *
-     * @param string        $folderid       id of the source folder
-     * @param string        $id             id of the message
-     * @param string        $newfolderid    id of the destination folder
+     * @param string $folderid id of the source folder
+     * @param string $id id of the message
+     * @param string $newfolderid id of the destination folder
      *
+     * @param ContentParameters $contentParameters
      * @access public
      * @return boolean                      status of the operation
-     * @throws StatusException              could throw specific SYNC_MOVEITEMSSTATUS_* exceptions
      */
     public function MoveMessage($folderid, $id, $newfolderid, $contentParameters)
     {
+        if( $this->getProvider($folderid) instanceof ExpressoContactProvider ) //Contatos não tem lixeria, mensagem deve ser removida imediatamente
+            return $this->DeleteMessage($folderid , $id , $contentParameters);
+
+        if( $this->getProvider($folderid) instanceof ExpressoCalendarProvider && !($this->getProvider($newfolderid) instanceof ExpressoCalendarProvider ) )
+            return $this->DeleteMessage($folderid , $id , $contentParameters);
+
         return $this->getProvider($folderid)->MoveMessage($folderid, $id , $newfolderid, $contentParameters);
     }
 
@@ -342,7 +346,7 @@ class BackendExpresso extends BackendDiff
      */
     public function GetWasteBasket()
     {
-      return $this->providerInstances['Imap']->GetWasteBasket();
+        return $this->providerInstances['Imap']->GetWasteBasket();
     }
 
     /**
