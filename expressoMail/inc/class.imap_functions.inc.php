@@ -277,6 +277,7 @@ class imap_functions
                             if($return[$i]['msg_number'] == $labeleds[$ii]['messageNumber'])
                             {
                                 $labels = Controller::read( array( 'concept' => 'label', 'id' =>  $labeleds[$ii]['labelId']));
+                                $labels['name'] = utf8_decode($labels['name']);
                                 $return[$i]['labels'][$labeleds[$ii]['labelId']] = $labels;
                             }
                         }
