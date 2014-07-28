@@ -13,11 +13,7 @@
 	include('../header.inc.php');
     
         echo '
-	<link rel="stylesheet" type="text/css" href="../prototype/plugins/jquery/jquery-ui.css" />
-	<link rel="stylesheet" type="text/css" href="../prototype/plugins/zebradialog/css/zebra_dialog.css" />
-	<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/layout.css" />
-	<link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="templates/default/assing_calendar.css" />
+            <link rel="Stylesheet" type="text/css" href="../prototype/plugins/jquery/jquery-ui.css" />
 	
 	<script type="text/javascript" src="../prototype/plugins/jquery/jquery.min.js" ></script>
 	<script type="text/javascript" src="../prototype/plugins/jquery/jquery-ui.min.js" ></script>
@@ -25,17 +21,17 @@
 	<script type="text/javascript" src="../prototype/plugins/json2/json2.js" ></script>
 	<script type="text/javascript" src="../prototype/plugins/ejs/ejs.js" ></script>
 	<script type="text/javascript" src="../prototype/plugins/store/jquery.store.js" ></script>
+            <script type="text/javascript" src="../prototype/plugins/scrollto/jquery.scrollTo.js"></script>
 	<script type="text/javascript" src="../prototype/api/datalayer.js" ></script>
+            <link rel="stylesheet" type="text/css" href="../prototype/plugins/zebradialog/css/zebra_dialog.css" />
 	<script type="text/javascript" src="../prototype/plugins/zebradialog/javascript/zebra_dialog.js" ></script>
-	<script type="text/javascript" >DataLayer.dispatchPath = "../prototype/";</script>
-	<script type="text/javascript" src="../prototype/plugins/datejs/date-pt-BR.js" ></script>
-	<script type="text/javascript" src="../prototype/plugins/datejs/sugarpak.js" ></script>
-	<script type="text/javascript" src="../prototype/plugins/datejs/parser.js" ></script>
-	<script type="text/javascript" src="../prototype/modules/calendar/js/timezone.js" ></script>
-	<script type="text/javascript" src="../prototype/modules/calendar/js/calendar.codecs.js" ></script>
-	<script type="text/javascript" src="../prototype/modules/calendar/js/load.js" ></script>
-	<script type="text/javascript" src="js/jscode/assing_calendar.js" ></script>
-	<script type="text/javascript" src="../prototype/plugins/scrollto/jquery.scrollTo.js" ></script>
+            <script type="text/javascript" language="javascript">DataLayer.dispatchPath = "../prototype/";</script>
+
+            <script type="text/javascript" src="scripts.php" charset="UTF-8"></script>
+
+            <link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/layout.css" />
+            <link rel="stylesheet" type="text/css" href="../prototype/modules/calendar/css/style.css" />
+            <link rel="stylesheet" type="text/css" href="templates/default/assing_calendar.css" />
 ';
 
     $debug = false;	
