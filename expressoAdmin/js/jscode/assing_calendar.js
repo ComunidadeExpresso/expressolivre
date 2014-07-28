@@ -1,7 +1,7 @@
 function assing_calendar_user(path){
         
-        path = !!path ? path : 'templates/default/';
-    	var html = DataLayer.render(path+'assing_calendar.ejs', {});	
+    path = !!path ? path : '../prototype/modules/calendar/templates/';
+    var html = DataLayer.render('../prototype/modules/calendar/templates/assing_calendar.ejs', {});
 	
 	//Variaval global para manipulação dos usuários
 	//melhor perforface
@@ -11,7 +11,7 @@ function assing_calendar_user(path){
         searchType = 'calendar';
 	
 	if (!UI.dialogs.assingCalendar) {
-			UI.dialogs.assingCalendar = jQuery('#assingCalendar').append('<div title="Compatilhamento de Agenda" class="shared-calendar assing-calendar active"> <div>').find('.assing-calendar.active').html(html).dialog({
+        UI.dialogs.assingCalendar = jQuery('#assingCalendar').append('<div title="_[[Share calendar]]" class="shared-calendar assing-calendar active"> <div>').find('.assing-calendar.active').html(html).dialog({
 				resizable: false, 
 				modal:true, 
 				autoOpen: false,
@@ -38,7 +38,7 @@ function assing_calendar_user(path){
 				if($('li.not-user').length == 0)
 				$.each(UI.dialogs.assingCalendar.find('.user-list li.new'), function( i , element ){
 					var user = $(element).find('input[name="user[]"]').val();
-					var acl = $(element).find('input[name="attendeeAcl[]"]').val()+'p';
+                        var acl = $(element).find('input[name="attendeeAcl[]"]').val();
 					if(acl == "")
                                             return true;
 					
@@ -58,11 +58,12 @@ function assing_calendar_user(path){
                                 $.each(UI.dialogs.assingCalendar.find('.user-list li.current'), function( i , element ){
                                     
                                     var user = $(element).find('input[name="user[]"]').val();
-                                    var acl = $(element).find('input[name="attendeeAcl[]"]').val()+'p';
-                                    var id = $(element).find('input[name="permission[]"]').val();
-                                    if(acl == "")
+                    var acl = $(element).find('input[name="attendeeAcl[]"]').val();
+                    var id = $(element).find('input[type="checkbox"]').val();
+                    if (acl == '')
                                         DataLayer.remove('calendarToPermission', id);
 					
+                    else
                                     DataLayer.put('calendarToPermission', {id: id, calendar: calendarSelected, type: 0, user: user, acl: acl});
                                     
                                 });
@@ -73,12 +74,12 @@ function assing_calendar_user(path){
 			};
 
 			if(!!UI.dialogs.assingCalendar.find('.user-list li input[name="attendeeAcl[]"][value=""]').length){
-				$.Zebra_Dialog('Alguns usuários estão sem permissões e serão automáticamente removidos, deseja continuar ?', {
+                $.Zebra_Dialog('_[[Some users are without permission and will be automatically removed. Do you want to continue?]]', {
 					'type':     'question',
 					'overlay_opacity': '0.5',
-					'buttons':  ['Continuar', 'Cancelar'],
+                    'buttons': ['_[[Continue]]', '_[[Cancel]]'],
 					'onClose':  function(clicked) {
-						if(clicked == 'Continuar') {
+                        if (clicked == '_[[Continue]]') {
 							save();
 						}
 					}
@@ -87,54 +88,20 @@ function assing_calendar_user(path){
 				save();		
 		});
 		
-		UI.dialogs.assingCalendar.find('.add-user-search .ui-icon-search').click(function(event) {
-			UI.dialogs.assingCalendar.find('.add-user-search input').keydown();
-		});
-		
-		var incompatibleAcl = function (obj, acls, buttons){
-			for (var i = 0; i < acls.length; i++){
-				var objremove = obj.parent().find('.'+buttons[i]+'');
-				if(objremove.hasClass('attendee-permissions-change-button'))
-					changeAcl(objremove, acls[i]);
-			}
-		}
-
-		var removeAcl = function(current, acl){
-			var acls = '';
-			for(var i = 0; i < current.length; i++)
-				if(current.charAt(i) != acl)
-					acls += current.charAt(i) ;
-			return acls;
-		}
-
-		var dependsAcl = function(obj, acls, buttons){
-			for (var i = 0; i < acls.length; i++){
-				var objremove = obj.parent().find('.'+buttons[i]+'');
-				if(!objremove.hasClass('attendee-permissions-change-button'))
-					changeAcl(objremove, acls[i]);
-			}
-		}
-		
-		var changeAcl = function(obj, acl){
-			if(obj.hasClass('attendee-permissions-change-button')){
-				 obj.parent().siblings('input[name="attendeeAcl[]"]').val(removeAcl( obj.parent().siblings('input[name="attendeeAcl[]"]').val(), acl)) ; 
-			}else{
-				var acls = obj.parent().siblings('input[name="attendeeAcl[]"]').val();
-				obj.parent().siblings('input[name="attendeeAcl[]"]').val(acls + acl);
-			}
-			obj.toggleClass('attendee-permissions-change-button')
-			.find('span:first').toggleClass('attendee-permissions-change').end();  
-		}
-		
-		
-		UI.dialogs.assingCalendar.find('.add-user-search input').bind('keypress', function(event) {
+    var keydownSearch = function (event) {
 			if(event.keyCode == '13' || typeof(event.keyCode) == 'undefined') {
                             
                                 var result = '';
                                 var group  = '';
+            var keyword = '';
+
+            if (event.keyCode == '13')
+                keyword = $(this).val();
+            else
+                keyword = $(this).prev().val();
                                 if(searchType == 'calendar') {
                                     var calendarIds = [];
-                                	var findCalendars = DataLayer.get('calendar', {filter: ['OR', ['i*', 'name', $(this).val()], ['i*', 'description', $(this).val()] ] });
+                var findCalendars = DataLayer.get('calendar', {filter: ['OR', ['i*', 'name', keyword], ['i*', 'description', keyword] ] });
                                 
                                 	for( var i in findCalendars ) { 
                                 		if (findCalendars[i]['id']) 
@@ -143,8 +110,8 @@ function assing_calendar_user(path){
 
                                 	result = DataLayer.get('calendarToPermission',  {filter: ['AND', ['=','type','1'], ['IN', 'calendar', calendarIds] ], criteria: {deepness: 2} });
                                 } else {
-                                    result = DataLayer.get('user', ["*", "name", $(this).val()], true);
-                                    group = DataLayer.get('group', ["*", "name", $(this).val()], true); 
+                result = DataLayer.get('user', ["*", "name", keyword], true);
+                group = DataLayer.get('group', ["*", "name", keyword], true);
 				
                                     if(!!group){
                                         if(!!result)
@@ -164,6 +131,8 @@ function assing_calendar_user(path){
                                 if(searchType == 'calendar')
                                      for(i=0; i<result.length; i++){
                                     	result[i].name = result[i].calendar.name;
+                    var user = result[i].calendar.location.split('/'); //user para exibir nome na pesquisa de agendas públicas
+                    result[i].user = user[0];
                                         result[i].id = result[i].calendar.id;
                                         result[i].enabled = true;
                                      }
@@ -188,7 +157,7 @@ function assing_calendar_user(path){
                                                  '<a class="button tiny removeCalendar"></a></li>');
                                              
                                              
-                                                 var currentData = DataLayer.get('calendarToPermission:detail', {filter: ['AND', ['=','calendar', old_item.find('.id').html()], ['i*','acl','p'] ],  criteria: {deepness: 2}})
+                        var currentData = DataLayer.get('calendarToPermission:detail', {filter: ['AND', ['=', 'type', '0' ], ['=','calendar', old_item.find('.id').html()], ['i*', 'acl', ''] ], criteria: {deepness: 2}})
                                                  
                                                  if(currentData){
                                                      for(var i = 0; i < currentData.length; i++){
@@ -196,7 +165,9 @@ function assing_calendar_user(path){
                                                          currentUsers[currentData[i].user.id] = currentData[i].user;
                                                          
                                                          UI.dialogs.assingCalendar.find('dd.calendar-list ul.user-list')
-                                                        .append(DataLayer.render(path+'user_shared_add_itemlist.ejs', [{id: currentData[i].user.id, name: currentData[i].user.name, mail: currentData[i].user.mail, isCurrent: true, permission: currentData[i].id}]))
+                                    .append(DataLayer.render(path + 'user_shared_add_itemlist.ejs', [
+                                        {id: currentData[i].user.id, name: currentData[i].user.name, mail: currentData[i].user.mail, isCurrent: true, idPermission: currentData[i].id, aclValues: currentData[i].aclValues}
+                                    ]))
                                                         .scrollTo('max');
 
                                                         $('li.not-user').remove();
@@ -223,11 +194,13 @@ function assing_calendar_user(path){
                                                         searchType = 'calendar';
                                                         
                                                         UI.dialogs.assingCalendar.find('ul.search-result-list li').remove();
-                                                        UI.dialogs.assingCalendar.find('dt.add-user.search').html('Pesquisa agendas');
+                            UI.dialogs.assingCalendar.find('dt.add-user.search').html('_[[Search agendas]]');
+
+                            UI.dialogs.assingCalendar.find('.user-list.current').parent().html('');
                                                  });
                                                  
                                                  UI.dialogs.assingCalendar.find('ul.search-result-list li').remove();
-                                                 UI.dialogs.assingCalendar.find('dt.add-user.search').html('Pesquisa usuários');
+                        UI.dialogs.assingCalendar.find('dt.add-user.search').html('_[[Search users]]');
                                                  
                                                  
                                              }else{
@@ -241,7 +214,9 @@ function assing_calendar_user(path){
 						};
 											
 						UI.dialogs.assingCalendar.find('dd.calendar-list ul.user-list')
-						.append(DataLayer.render(path+'user_shared_add_itemlist.ejs', [{id: id, name: currentUsers [id] .name, mail: currentUsers [id] .mail}]))
+                            .append(DataLayer.render(path + 'user_shared_add_itemlist.ejs', [
+                                {id: id, name: currentUsers [id].name, mail: currentUsers [id].mail}
+                            ]))
 						.scrollTo('max');
 						
 						$('li.not-user').remove();
@@ -252,7 +227,47 @@ function assing_calendar_user(path){
 				});
 				event.preventDefault();
 			}
-		});
+    };
+
+    UI.dialogs.assingCalendar.find('.add-user-search .ui-icon-search').bind('click', keydownSearch);
+
+    var incompatibleAcl = function (obj, acls, buttons) {
+        for (var i = 0; i < acls.length; i++) {
+            var objremove = obj.parent().find('.' + buttons[i] + '');
+            if (objremove.hasClass('attendee-permissions-change-button'))
+                changeAcl(objremove, acls[i]);
+        }
+    }
+
+    var removeAcl = function (current, acl) {
+        var acls = '';
+        for (var i = 0; i < current.length; i++)
+            if (current.charAt(i) != acl)
+                acls += current.charAt(i);
+        return acls;
+    }
+
+    var dependsAcl = function (obj, acls, buttons) {
+        for (var i = 0; i < acls.length; i++) {
+            var objremove = obj.parent().find('.' + buttons[i] + '');
+            if (!objremove.hasClass('attendee-permissions-change-button'))
+                changeAcl(objremove, acls[i]);
+        }
+    }
+
+    var changeAcl = function (obj, acl) {
+        if (obj.hasClass('attendee-permissions-change-button')) {
+            obj.parent().siblings('input[name="attendeeAcl[]"]').val(removeAcl(obj.parent().siblings('input[name="attendeeAcl[]"]').val(), acl));
+        } else {
+            var acls = obj.parent().siblings('input[name="attendeeAcl[]"]').val();
+            obj.parent().siblings('input[name="attendeeAcl[]"]').val(acls + acl);
+        }
+        obj.toggleClass('attendee-permissions-change-button')
+            .find('span:first').toggleClass('attendee-permissions-change').end();
+    }
+
+
+    UI.dialogs.assingCalendar.find('.add-user-search input').bind('keypress', keydownSearch);
 
 		var callbackSharedCotactsAdd = function(event){
 			UI.dialogs.assingCalendar.find('.button').filter(".read.new").button({
@@ -345,7 +360,8 @@ function assing_calendar_user(path){
 			function () {
 				$(this).removeClass("hover-user");
 				$(this).find('.button').addClass('disable ui-button-disabled ui-state-disabled').end()
-				.find('.user-acls-shared-calendar').removeClass('hover-user');;
+                    .find('.user-acls-shared-calendar').removeClass('hover-user');
+                ;
 			}
 		);		
 	}

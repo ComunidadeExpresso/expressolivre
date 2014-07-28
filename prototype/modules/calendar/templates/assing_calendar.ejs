@@ -3,13 +3,13 @@
             <fieldset class="remove-border">
 		<dl class="block-user-list users-list">
 			
-                    <dt class="calendar-list calendar-name">Calendario</dt>
+                    <dt class="calendar-list calendar-name">_[[Calendar]]</dt>
                     <dd class="calendar">
                         <input type="hidden" name="calendarId" value=""/>
                         <ul class="calendarName"></ul>        
                     </dd>
 			
-			<dt class="<%=data.calendar ? "user-list" : "calendar-list"%>"><%=data.calendar ? 'Compartilhar com' : 'Agendas Selecionadas'%></dt>
+			<dt class="<%=data.calendar ? "user-list" : "calendar-list"%>"><%=data.calendar ? '_[[Selected Agendas]]' : '_[[Share with]]'%></dt>
 			<dd class="<%=data.calendar ? "user-list" : "calendar-list"%>">
 				<ul class="user-list">
 				<% if (false) {
@@ -22,13 +22,13 @@
 								<label class="mail"></label>
 							</div> 
 							<div class="assing-acl">
-									<a class="button edit user-options-button-edit new">Editar permissões</a>
-									<a class="button close new">Remover</a>
+									<a class="button edit user-options-button-edit new">_[[Edit permissions]]</a>
+									<a class="button close new">_[[Remove]]</a>
 							</div>
 						</li>	
 					<%} 
 				} else { %>
-					<li class="not-user"><%=data.calendar ? "Não compartilhado." : "Nenhuma agenda selecionada"%></li>
+					<li class="not-user"><%=data.calendar ? "_[[Unshared]]" : "_[[No schedule selected]]"%></li>
 				<% } %>
 				</ul>
 			</dd>	
@@ -36,19 +36,19 @@
 
 		<%if(data.calendar){%>
 			<dl class="block-public-calendar">
-				<dt class="calendar-public">Agenda pública</dt>
+				<dt class="calendar-public">_[[Public agenda]]</dt>
 				<dd class="calendar-public">
 						<ul>
-							<input type="checkbox" name="isPublic"/><label>Pública</label>
-							<input type="checkbox" name="busy" class="free-busy hidden"/><label class="free-busy hidden">Livre/Ocupado</label>
+							<input type="checkbox" name="isPublic"/><label>_[[Public]]</label>
+							<input type="checkbox" name="busy" class="free-busy hidden"/><label class="free-busy hidden">_[[Free/Busy]]</label>
 						</ul>
 				</dd>
 			</dl>
 		<%}%>
 		<dl class="block-add-user search ">
-			<dt class="add-user search">Pesquisar agendas</dt>
+			<dt class="add-user search">_[[Search agendas]]</dt>
 			<dd class="add-user">
-				<fieldset class="block-add-user" title="Usuários">
+				<fieldset class="block-add-user" title="_[[Users]]">
 					<fieldset class="add-user-search search-field ui-corner-all">
 						<input class="search" type="text" />
 						<span class="ui-icon ui-icon-search"></span>
@@ -62,8 +62,8 @@
 		</dl>
 	</fieldset>
 	<div class="menu-container footer-container menu-addevent">
-		<a class="button cancel" href="#">Cancelar</a>
-	    <a class="button save" href="#">Salvar</a>
+		<a class="button cancel" href="#">_[[Cancel]]</a>
+	    <a class="button save" href="#">_[[Save]]</a>
     </div>
 	</form>
 </fieldset>
