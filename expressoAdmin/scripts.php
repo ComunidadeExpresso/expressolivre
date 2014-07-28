@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../library/fileDuck/FileDuck.php';
+require __DIR__ . '/../prototype/library/fileDuck/FileDuck.php';
 
 $config = array();
 $config['provider'] = 'expresso';
