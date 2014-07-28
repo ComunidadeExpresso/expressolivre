@@ -8,7 +8,7 @@ $config['lang'] = isset($_GET['lang'])  ? $_GET['lang'] : 'pt_BR';
 
 
 $configProvider = array();
-$configProvider['module'] = 'expressoAdmin1_2';
+$configProvider['module'] = 'expressoAdmin';
 
 $fileDuck = new FileDuck( $config , $configProvider );
 
