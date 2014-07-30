@@ -1321,7 +1321,7 @@ function decodeRepeat ( form ) {
 		array['bymonthday'] = date.getDate();
 		break;
 	    case 'yearly':
-		array['byyearday'] = getDayOfYear(date);
+		array['byyearday'] = Date.prototype.getDayOfYear(date);
 		break;
 	    default :
 		return array;
@@ -1351,13 +1351,6 @@ function decodeRepeat ( form ) {
     */	  
     return( array );
       
-}
-
-function getDayOfYear(date){
-    var start = new Date(date.getFullYear(), 0, 0);
-    var diff = date - start;
-    var oneDay = 1000 * 60 * 60 * 24;
-    return Math.floor(diff / oneDay);
 }
 
 function encodeRepeat( repeat ){
