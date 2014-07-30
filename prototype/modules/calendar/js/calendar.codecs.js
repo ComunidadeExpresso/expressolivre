@@ -1281,76 +1281,76 @@ return User.me;
 
 function decodeRepeat ( form ) {
 
-    var patati = {};
-	
+    var array = {};
+
     if( form.repeatId )
-	patati['id'] = form.repeatId;
+        array['id'] = form.repeatId;
 
-    patati['frequency'] = form.frequency;
+    array['frequency'] = form.frequency;
 
-    patati['bymonthday'] = patati['byyearday'] = patati['byday'] = '';
-	
-    patati['interval'] = 1 ,
-    
-    patati['endTime'] = patati['count'] = patati['startTime'] = 0;
-	
+    array['bymonthday'] = array['byyearday'] = array['byday'] = '';
+
+    array['interval'] = 1 ,
+
+        array['endTime'] = array['count'] = array['startTime'] = 0;
+
     if( form.frequency === 'none' )
-	return( patati );
-	
+        return( array );
+
     var day = [];
 
-    $("input[type=checkbox][name='repeatweekly[]']:checked").each(function() { 
-	day[ day.length ] = $(this).val();
+    $("input[type=checkbox][name='repeatweekly[]']:checked").each(function() {
+        day[ day.length ] = $(this).val();
     });
 
-    patati['byday'] = day.join(',');
+    array['byday'] = day.join(',');
 
     var formatString = User.preferences.dateFormat + " " + User.preferences.hourFormat;
 
     var date = Date.parseExact( form.startDate + " "+$.trim(form.startHour) , formatString )
-    
-    patati['startTime'] = date.toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
-	
-    if( !patati['byday'] )
-	switch(form.frequency) {
-	    case 'weekly':
-		break;
-	    case 'daily':
-		break;
-	    case 'monthly':
-		patati['bymonthday'] = date.getDate();
-		break;
-	    case 'yearly':
-		patati['byyearday'] = (date.getOrdinalNumber());
-		break;
-	    default :
-		return patati;
-	}
 
-    if (($(".endRepeat").val() == 'occurrences')) 
-	patati['count'] = $(".occurrencesEnd").val(); 
-	
+    array['startTime'] = date.toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
+
+    if( !array['byday'] )
+        switch(form.frequency) {
+            case 'weekly':
+                break;
+            case 'daily':
+                break;
+            case 'monthly':
+                array['bymonthday'] = date.getDate();
+                break;
+            case 'yearly':
+                array['byyearday'] = Date.prototype.getDayOfYear(date);
+                break;
+            default :
+                return array;
+        }
+
+    if (($(".endRepeat").val() == 'occurrences'))
+        array['count'] = $(".occurrencesEnd").val();
+
     if (($(".endRepeat").val() == 'customDate'))
-	patati['endTime'] = Date.parseExact( $(".customDateEnd").val() + (" "+$.trim(form.endHour)) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
-	
-    patati['interval']  = $(".eventInterval").val();
+        array['endTime'] = Date.parseExact( $(".customDateEnd").val() + (" "+$.trim(form.endHour)) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
+
+    array['interval']  = $(".eventInterval").val();
 
     /**
-	wkst = [ 'MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU' ]
-	weekno = number
-	minute = number
-	second = number
-	yearday = number
-	monthday = number
-	setpos = number
-	day = number
-	hour = number
-	interval = number
-	frequency = [ 'monthly', 'daily', 'weekly', 'yearly', 'hourly', 'minutely', 'secondly' ]
-	endTime = milliseconds
-    */	  
-    return( patati );
-      
+     wkst = [ 'MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU' ]
+     weekno = number
+     minute = number
+     second = number
+     yearday = number
+     monthday = number
+     setpos = number
+     day = number
+     hour = number
+     interval = number
+     frequency = [ 'monthly', 'daily', 'weekly', 'yearly', 'hourly', 'minutely', 'secondly' ]
+     endTime = milliseconds
+     */
+    return( array );
+
 }
 
 
