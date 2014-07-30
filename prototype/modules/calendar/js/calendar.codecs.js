@@ -1281,21 +1281,21 @@ return User.me;
 
 function decodeRepeat ( form ) {
 
-    var patati = {};
+    var array = {};
 	
     if( form.repeatId )
-	patati['id'] = form.repeatId;
+	array['id'] = form.repeatId;
 
-    patati['frequency'] = form.frequency;
+    array['frequency'] = form.frequency;
 
-    patati['bymonthday'] = patati['byyearday'] = patati['byday'] = '';
+    array['bymonthday'] = array['byyearday'] = array['byday'] = '';
 	
-    patati['interval'] = 1 ,
+    array['interval'] = 1 ,
     
-    patati['endTime'] = patati['count'] = patati['startTime'] = 0;
+    array['endTime'] = array['count'] = array['startTime'] = 0;
 	
     if( form.frequency === 'none' )
-	return( patati );
+	return( array );
 	
     var day = [];
 
@@ -1303,37 +1303,37 @@ function decodeRepeat ( form ) {
 	day[ day.length ] = $(this).val();
     });
 
-    patati['byday'] = day.join(',');
+    array['byday'] = day.join(',');
 
     var formatString = User.preferences.dateFormat + " " + User.preferences.hourFormat;
 
     var date = Date.parseExact( form.startDate + " "+$.trim(form.startHour) , formatString )
     
-    patati['startTime'] = date.toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
+    array['startTime'] = date.toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
 	
-    if( !patati['byday'] )
+    if( !array['byday'] )
 	switch(form.frequency) {
 	    case 'weekly':
 		break;
 	    case 'daily':
 		break;
 	    case 'monthly':
-		patati['bymonthday'] = date.getDate();
+		array['bymonthday'] = date.getDate();
 		break;
 	    case 'yearly':
-		patati['byyearday'] = (date.getOrdinalNumber());
+		array['byyearday'] = getDayOfYear(date);
 		break;
 	    default :
-		return patati;
+		return array;
 	}
 
     if (($(".endRepeat").val() == 'occurrences')) 
-	patati['count'] = $(".occurrencesEnd").val(); 
+	array['count'] = $(".occurrencesEnd").val();
 	
     if (($(".endRepeat").val() == 'customDate'))
-	patati['endTime'] = Date.parseExact( $(".customDateEnd").val() + (" "+$.trim(form.endHour)) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
+	array['endTime'] = Date.parseExact( $(".customDateEnd").val() + (" "+$.trim(form.endHour)) , formatString ).toString(!!form.allDay ? 'yyyy-MM-dd 00:00:00' : 'yyyy-MM-dd HH:mm:00');
 	
-    patati['interval']  = $(".eventInterval").val();
+    array['interval']  = $(".eventInterval").val();
 
     /**
 	wkst = [ 'MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU' ]
@@ -1349,11 +1349,16 @@ function decodeRepeat ( form ) {
 	frequency = [ 'monthly', 'daily', 'weekly', 'yearly', 'hourly', 'minutely', 'secondly' ]
 	endTime = milliseconds
     */	  
-    return( patati );
+    return( array );
       
 }
 
-
+function getDayOfYear(date){
+    var start = new Date(date.getFullYear(), 0, 0);
+    var diff = date - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    return Math.floor(diff / oneDay);
+}
 
 function encodeRepeat( repeat ){
   
