@@ -1258,7 +1258,7 @@ function eventDetails( objEvent, decoded, path, isMail, repeat, buttonClicked)
 //show or hidden permissions attendees
 //blkAddAtendee.find('.block-attendee-list #attendees-users li').click(show_permissions_attendees);
 
-    UI.dialogs.addEvent.find(".attendee-list-add .add-attendee-input input").Watermark("_[[enter an email invite]]");
+    UI.dialogs.addEvent.find(".attendee-list-add .add-attendee-input input").Watermark("_[[enter an email to invite]]");
     /*
      * Trata a edição de um novo participante adicionado
      */
