@@ -406,7 +406,7 @@ create_check_box('Wish you receive notifications for: "New messages", "Filter cr
 create_check_box('Show default view on main screen?','mainscreen_showmail','Show unread messages in your home page');
 create_check_box('Do you want to use remove attachments function?','remove_attachments_function','It allow you to remove attachments from messages');
 create_check_box('Do you want to use important flag in email editor?','use_important_flag','It allow you to send emails with important flag, but you can receive unwanted messages with important flag');
-create_check_box('Do you want to use SpellChecker in email editor?','use_SpellChecker','It allow you to check the spelling of your emails');
+//create_check_box('Do you want to use SpellChecker in email editor?','use_SpellChecker','It allow you to check the spelling of your emails');
 //Use user folders from email
 
 require_once('class.imap_functions.inc.php');
