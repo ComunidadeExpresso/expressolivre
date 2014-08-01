@@ -603,7 +603,7 @@ function draw_new_tree_folder(callback, force)
                 var name = $.trim($(this).parents(".closed:first").find("span:first").text().split("[")[0]);
                 if($(this).parents(".closed:first").find("span:first").hasClass("selected"))
                 {
-                    return write_msg('_[[It\'s not possible rename this folder, because it is being used in the moment!]');
+                    return write_msg('_[[It\'s not possible rename this folder, because it is being used in the moment!]]');
                 }
                 if($(this).parents(".closed:first").find("span.selected").length)
                 {
