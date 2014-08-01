@@ -370,6 +370,7 @@ table.inboxElements th,
     height: 24px;
 }
 
-div.button-files-upload span.fileinput-button.button.small{height: 20px; padding-top: 2px}
+div.button-files-upload span.fileinput-button.button.small{height: 20px; padding-top: 2px;}
 div.button-files-upload span.fileinput-button.button.small span.ui-button-text{padding: 0 0.6em}
-div.button-files-upload span.fileinput-button.button.small input[type="file"]{left:100; width: 50px; position: absolute}
+div.button-files-upload span.fileinput-button.button.small input[type="file"]{left:100; position: absolute}
+div.button-files-upload .ui-button-text-only span.ui-button-text{padding: 0.3em 1em}
