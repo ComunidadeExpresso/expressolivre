@@ -594,6 +594,7 @@ The sender was blocked	expressoMail	pt-br	O remetente foi bloqueado
 The size of the message is	expressoMail	pt-br	O tamanho da mensagem seja
 The size of this message has exceeded  the limit (%1B).	expressoMail	pt-br	O tamanho desta mensagem excedeu o limite (maior que %1B).
 The Timezone you're in.	expressoMail	pt-br	O fuso-horário em que você está.
+This browser does not support desktop notification	expressoMail	pt-br	Seu browser atual não suporta notificações no Desktop. As notificações de novas mensagens serão desativadas.
 This is the number of messages shown in your mailbox per page	expressoMail	pt-br	Este é o número de mensagens mostradas na sua caixa de correio por página
 This list has no participants	expressoMail	pt-br	Esta lista nao possui nenhum participante.
 This mail box is empty	expressoMail	pt-br	Esta pasta está vazia
@@ -658,6 +659,7 @@ When you are away from computer it saves automatically the message you are writi
 Where should the quick search be performed by default?	expressoMail	pt-br	Onde a pesquisa rápida deve atuar por padrão?
 It is where the keyword should be searched when the user executes a quick search.	expressoMail	pt-br	Onde a busca deve ser realizada quando o usuário realizar uma pesquisa rápida.
 Who	expressoMail	pt-br	Quem
+wish installing notification plugin?	expressoMail	pt-br	Deseja instalar o plugin de notificação desktop?
 With all	expressoMail	pt-br	com todas
 Without Quota	expressoMail	pt-br	Sem Quota
 without save	expressoMail	pt-br	sem arquivar
@@ -691,6 +693,7 @@ You must choose a file	expressoMail	pt-br	Você deve escolher um arquivo
 You must choose a folder	expressoMail	pt-br	Você deve escolher uma pasta
 You must wait while the messages will be exported...	expressoMail	pt-br	Aguarde enquanto as mensagens serão exportadas...
 You must wait while the messages will be imported...	expressoMail	pt-br	Aguarde enquanto as mensagens serão importadas...
+you must unninstall html5 notifications	expressoMail	pt-br	Detectamos que você possui uma extensão que era utilizada em versões anteriores do expresso e que na versão atual precisa ser removida. Para isso, você deverá fazer essa remoção manualmente pressionando as teclas "ctrl+shift+a" e removendo o plugin HTML5 Notifications. Lembre-se ainda que é necessário reiniciar o navegador.
 You wrote "%1" in your message, but there are no files attached. Send it anyway?	expressoMail	pt-br	Você escreveu "%1" na sua mensagem, mas não há arquivos anexados. Enviar assim mesmo?
 Your Mailbox is 100% full! You must free more space or will not receive messages.	expressoMail	pt-br	Sua caixa postal está 100% cheia! Libere espaço ou não irá receber mensagens.
 Your mailbox is shared with	expressoMail	pt-br	Sua caixa postal está compartilhada com
