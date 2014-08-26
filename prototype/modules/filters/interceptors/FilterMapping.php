@@ -613,11 +613,20 @@ class FilterMapping
 		if( !$this->rules )
 			$this->rules = $this->getRules();
 
-	    $uri['id'] = $params['id'] = isset($params['id']) ? $params['id'] : urlencode($params['name']);
 
+
+		if(isset($params['id'])) {
+			$uri['id'] = $params['id'];
+			$checkfor = 'id';
+		}
+		else {
+			$uri['id'] = $params['id'] = urlencode($params['name']);
+			$checkfor = 'name';
+		}
+		echo $checkfor;
 	    $i = 0;
 
-	    for( ; isset($this->rules[$i]) && $this->rules[$i]['id'] !== $params['id']; ++$i );
+	    for( ; isset($this->rules[$i]) && $this->rules[$i][$checkfor] !== $params['id']; ++$i );
 
 	    $this->rules[$i] = array_merge( ( isset($this->rules[$i]) ? $this->rules[$i] : array() ), $params );
 
