@@ -5607,9 +5607,10 @@ class imap_functions
        
        foreach ($matches as $i => &$v)
        {
-            $ext = explode(';', $v[1]); //quebra todos os parametros em um array. 
-            $mailService->addStringImage(base64_decode($v[2]), $ext[0] , 'EmbeddedImage'.$i.'.'.$this->mimeToExtension($v[1])); 
-            $body = str_replace($v[0], 'src="EmbeddedImage'.$i.'.'.$this->mimeToExtension($ext[0]).'"' , $body); 
+            $ext = explode(';', $v[1]); //quebra todos os parametros em um array.
+            $name = 'EmbeddedImage' . substr(str_shuffle(md5(time())), 0, 7) . '.' . $this->mimeToExtension($v[1]);
+            $mailService->addStringImage(base64_decode($v[2]), $ext[0], $name );
+            $body = str_replace($v[0], 'src="' . $name . '"', $body);
        }
    }
 
