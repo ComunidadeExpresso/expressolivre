@@ -257,7 +257,10 @@ class FilterMapping
 					case 'discard':
 						break;
 				}
-				if ($vacation == false && $action[$k]['type'] != 'addflag') $script_action .= $action[$k]['type'] . " \"" . $action[$k]['parameter'] . "\";\r\n ";
+				if($action[$k]['type']=='discard') { //Old rules could have it, so, we keep as before untill it be saved
+					$script_action .= $action[$k]['type'].";\r\n";
+				}
+				elseif ($vacation == false && $action[$k]['type'] != 'addflag') $script_action .= $action[$k]['type'] . " \"" . $action[$k]['parameter'] . "\";\r\n ";
 			}
 			
 			/* ATENÇÃO: Colocar sempre o comando addflag antes de qualquer outro no caso de ações compostas no Sieve */
@@ -394,6 +397,11 @@ class FilterMapping
 					case 'reject':
 						$action_type[$i_action] = 'reject';
 						$action_parameter[$i_action] = $array_rule[7];
+						++$i_action;
+						break;
+					case 'discard':
+						$action_type[$i_action] = 'discard';
+						$action_parameter[$i_action] = "";
 						++$i_action;
 						break;
 					case 'folder':
@@ -605,11 +613,20 @@ class FilterMapping
 		if( !$this->rules )
 			$this->rules = $this->getRules();
 
-	    $uri['id'] = $params['id'] = isset($params['id']) ? $params['id'] : urlencode($params['name']);
 
+
+		if(isset($params['id'])) {
+			$uri['id'] = $params['id'];
+			$checkfor = 'id';
+		}
+		else {
+			$uri['id'] = $params['id'] = urlencode($params['name']);
+			$checkfor = 'name';
+		}
+		echo $checkfor;
 	    $i = 0;
 
-	    for( ; isset($this->rules[$i]) && $this->rules[$i]['id'] !== $params['id']; ++$i );
+	    for( ; isset($this->rules[$i]) && $this->rules[$i][$checkfor] !== $params['id']; ++$i );
 
 	    $this->rules[$i] = array_merge( ( isset($this->rules[$i]) ? $this->rules[$i] : array() ), $params );
 

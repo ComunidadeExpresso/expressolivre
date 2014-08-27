@@ -7,27 +7,44 @@ desktopNotification = {
 			if ($.cookie('no-notification') == 'true'){
 				return false;
 			}
-			if (!window.webkitNotifications && $.browser.mozilla)
-			this.installDektopNotificationAddon();
 
-			if(window.webkitNotifications && window.webkitNotifications.checkPermission()){
-			    if($.browser.safari){
-                     $.Zebra_Dialog('_[[Do you want to install the notification plugin desktop?]]', {
+
+			if (window.webkitNotifications && $.browser.mozilla) {
+				$.Zebra_Dialog(get_lang("you must unninstall html5 notifications"), {
                         'custom_class': 'request-notification-permission',
                         'type':     'question',
                         'overlay_opacity': '0.5',
-                        'buttons':  ['_[[No]]', '_[[Yes]]']
+                    'buttons':  ['Ok']
                     });
 
-                    $('div.ZebraDialog.request-notification-permission a').click(function() {
-                        if($(this).html() == '_[[Yes]]'){
-                            window.webkitNotifications.requestPermission();       
-                    	}else if ($(this).html() == '_[[No]]'){
-                    		$.cookie('no-notification','true');
-                    	}
+					$('div.ZebraDialog.request-notification-permission a').click(function() {
+						$.cookie('no-notification','true');
+					});
+			}
+			else {
+				if ($.browser.msie || !("Notification" in window)) {
+					$.cookie('no-notification',null);
+					alert(get_lang("This browser does not support desktop notification"));
+				}
+				else if (Notification.permission === 'default') {
+	                 $.Zebra_Dialog(get_lang("wish installing notification plugin?"), {
+	                    'custom_class': 'request-notification-permission',
+	                    'type':     'question',
+	                    'overlay_opacity': '0.5',
+	                    'buttons':  ['Não', 'Sim']
                     });
-                }else
-                    window.webkitNotifications.requestPermission();
+	                $('div.ZebraDialog.request-notification-permission a').click(function() {
+	                    if($(this).html() == 'Sim'){
+	                        Notification.requestPermission(function (permission) {
+								if(!('permission' in Notification)) {
+									$.cookie('no-notification','true');
+								}
+							});      
+	                	}else if ($(this).html() == 'Não'){
+	                		$.cookie('no-notification','true');
+	                	}
+	                });
+				}			
             }
 		}else{
 			$.cookie('no-notification',null);
@@ -53,10 +70,10 @@ desktopNotification = {
 
     verifyComplement: function(){
 
-		if(!window.webkitNotifications)
+		if ($.browser.msie || !("Notification" in window))
 			return false;
 
-		if(window.webkitNotifications.checkPermission())
+		if (Notification.permission !== 'granted')
 			return false;
 
 		return true;
@@ -64,25 +81,28 @@ desktopNotification = {
 
     sentNotification: function(icon, title, body){
 		var reference = this.notification.length;
-		this.notification[reference] = window.webkitNotifications.createNotification( icon, title, body);
+		this.notification[reference] = {icon: icon, title: title, body:body};
 		return reference;
 	},
 
 	cancelByReference: function(index){
-		if(this.notification[index])
-			this.notification[index].cancel();
+		if(this.notification[index]) {
+			if(!this.notification[index].icon) //if showNotification was called, theres no this.notification[index].icon, but we must close the popup.
+				this.notification[index].close();
+			this.notification.splice(index,1);
+		}
 	},
 	
 	
     showNotification: function(onClose, onClick, onDisplay, onError){
 		var length = this.notification.length -1; 
 
-		this.notification[length].ondisplay = onDisplay;
-		this.notification[length].onclose = onClose;
-		this.notification[length].onclick = onClick;
-		this.notification[length].onerror = onError;
-
-		this.notification[length].show();
+		var notify = new Notification(this.notification[length].title,this.notification[length]);
+		notify.ondisplay = onDisplay;
+		notify.onclose = onClose;
+		notify.onclick = onClick;
+		notify.onerror = onError;
+		this.notification[length] = notify;
     }
 }
 
