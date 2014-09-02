@@ -87,7 +87,11 @@
 	echo '<script type="text/javascript" src="../prototype/plugins/mask/jquery.maskedinput.js"></script>';
 	echo '<script type="text/javascript" src="../prototype/plugins/lazy/jquery.lazy.js"></script>';
 	echo '<script type="text/javascript" src="../prototype/plugins/jquery.autoscroll/jquery.aautoscroll.min.2.41.js"></script>';
-	
+
+	// Jquery - Expresso Messenger
+	echo '<link rel="stylesheet" type="text/css" href="../prototype/plugins/wijmo/jquery.wijmo.css"/>';
+	echo '<link rel="stylesheet" type="text/css" href="../prototype/plugins/messenger/im.css"/>';
+
 	//Configuração Datalayer
 	echo '<script type="text/javascript">
 		DataLayer.dispatchPath = "../prototype/";
