@@ -184,7 +184,6 @@
 			$manager_lid 		= $GLOBALS['phpgw']->accounts->data['account_lid'];
 			$manager_acl 		= $this->functions->read_acl($manager_lid);
 			$manager_contexts 	= $manager_acl['contexts'];
-			$group_info 		=  array();
 
 			// Verifica se tem acesso a este modulo
 			if (!$this->functions->check_acl($manager_lid,'add_groups'))
@@ -206,12 +205,10 @@
 			//$combo_manager_org = $this->functions->get_organizations($manager_context, trim(strtolower($group_info['context'])));
 			foreach( $manager_contexts as $index => $context )
 			{
-				if( isset($group_info['context']) )
-					$combo_manager_org .= $this->functions->get_organizations($context, trim(strtolower($group_info['context'])));
+				$combo_manager_org .= $this->functions->get_organizations($context);
 			}
 			
-			if( isset($group_info['context']) )
-				$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context'], trim(strtolower($group_info['context'])));
+			$combo_all_orgs = $this->functions->get_organizations($GLOBALS['phpgw_info']['server']['ldap_context']);
 			
 			// Chama funcao para criar lista de aplicativos disponiveis.
 			$apps = $this->functions->make_list_app($manager_lid);
