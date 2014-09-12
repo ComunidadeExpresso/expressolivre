@@ -42,7 +42,7 @@
         <label><%= '_[[Alarms]]' %>:</label>
             <span class="large" >
                 <% for (var l=0; l < _event.alarms.length; l++) { %>
-                    <span class="large" ><%= '_[[You will be notified by a]]' %> <%= dateCalendar.alarmtype[_event.alarms[l].type]%> <%= _event.alarms[l].time %> <%= dateCalendar.timeunit[_event.alarms[l].unit]%><%=_event.alarms[l].time > 1 ? 's' : '' %> <%= '_[[before]]' %> <%= encoder.alarm[ event.type ] %></span>
+                    <span class="large" ><%= '_[[You will be notified by a]]' %> <%= dateCalendar.alarmtype[_event.alarms[l].type]%> <%= _event.alarms[l].time %> <%= dateCalendar.timeunit[_event.alarms[l].unit]%><%=_event.alarms[l].time > 1 ? 's' : '' %> <%= '_[[before]]' %> <%= encoder.alarm[ _event.type ] %></span>
                 <% } %>
             </span>
     </p>
