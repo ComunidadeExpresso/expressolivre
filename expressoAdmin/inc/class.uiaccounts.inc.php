@@ -150,7 +150,7 @@
 			$p->set_block('accounts','row');
 			$p->set_block('accounts','row_empty');
 
-			$var = Array(
+			$var = array(
 				'bg_color'					=> $GLOBALS['phpgw_info']['theme']['bg_color'],
 				'th_bg'						=> $GLOBALS['phpgw_info']['theme']['th_bg'],
 				'accounts_url'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=expressoAdmin.uiaccounts.list_users'),

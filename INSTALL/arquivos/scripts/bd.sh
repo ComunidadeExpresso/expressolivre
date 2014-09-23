@@ -82,7 +82,7 @@ bd_debian_7 ()
 	/etc/init.d/postgresql stop
 	
 	# Faz backup da base do Postgres
-	mv $DIR_PG $DIR_PG.`date +"%s"`
+	rm -rf $DIR_PG
 	mkdir -p $DIR_PG
 
 	# Muda as permissoes
@@ -90,7 +90,6 @@ bd_debian_7 ()
 	chmod -R 700 $DIR_PG
 
 	# Recria a base do Postgres
-	rm -rf $DIR_PG*
 	su - postgres -c "env LC_ALL=C /usr/lib/postgresql/9.1/bin/initdb --encoding=LATIN1 -D $DIR_PG"
 	sed -e "s/LDAP_DN/$LDAP_DN/g" -e "s/LDAP_PWD/$LDAP_PWD/g" -e "s/ou=ORG/ou=$ORG/g" -e "s/DOMAIN/$DOMAIN/g" $ARQS/expresso.dump > /tmp/expresso.dump
 	
@@ -100,9 +99,6 @@ bd_debian_7 ()
 	# Cria o link simbolico para os certificados
 	ln -sf /etc/ssl/certs/ssl-cert-snakeoil.pem $DIR_PG/server.crt
 	ln -sf /etc/ssl/private/ssl-cert-snakeoil.key $DIR_PG/server.key
-
-	rm -f $DIR_PG/postgresql.conf
-	rm -f $DIR_PG/pg_hba.conf
 
 	/etc/init.d/postgresql start
 

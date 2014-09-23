@@ -295,7 +295,7 @@ It allow you to send emails with important flag, but you can receive unwanted me
 It's not possible create inside: 	expressoMail	pt-br	Não é possivel criar dentro de: 
 It's not possible delete the folder: 	expressoMail	pt-br	Não é possível remover a pasta: 
 It's not possible delete this folder, because it is being used in the moment!	expressoMail	pt-br	Não é possível remover esta pasta, pois está em uso no momento!
-It's not possible remove this folder, because it is being used in the moment!	expressoMail1_1	pt-br	Não é possível remover esta pasta, pois estão em uso no momento!
+It's not possible remove this folder, because it is being used in the moment!	expressoMail	pt-br	Não é possível remover esta pasta, pois estão em uso no momento!
 It's not possible rename the folder: 	expressoMail	pt-br	Não é possível renomear a pasta: 
 It's not possible rename this folder, because it is being used in the moment!	expressoMail	pt-br	Não é possível renomear esta pasta, pois está em uso no momento!
 It's not possible move this folder, because it is being used in the moment!	expressoMail	pt-br	Não é possível mover esta pasta, pois está em uso no momento!
@@ -1176,44 +1176,44 @@ There is already a bookmark with this name	expressoMail	pt-br	Já existe um marca
 Reached limit markers created	expressoMail	pt-br	Atingido limite de marcadores criados
 An error occurred while saving the Marker	expressoMail	pt-br	Ocorreu um erro ao salvar o Marcador
 Minimum 2 characters	expressoMail	pt-br	Mínimo 2 caracteres
-Jan     expressoMail    pt-br   Jan
-Feb     expressoMail    pt-br   Fev
-Mar     expressoMail    pt-br   Mar
-Apr     expressoMail    pt-br   Abr
-May     expressoMail    pt-br   Mai
-June    expressoMail    pt-br   Jun
-July    expressoMail    pt-br   Jul
-Aug     expressoMail    pt-br   Ago
-Sept    expressoMail    pt-br   Set
-Oct     expressoMail    pt-br   Out
-Nov     expressoMail    pt-br   Nov
-Dec     expressoMail    pt-br   Dez
-January expressoMail    pt-br   Janeiro
-February        expressoMail    pt-br   Fevereiro
-March   expressoMail    pt-br   Março
-April   expressoMail    pt-br   Abril
-May     expressoMail    pt-br   Maio
-June    expressoMail    pt-br   Junho
-July    expressoMail    pt-br   Julho
-August  expressoMail    pt-br   Agosto
-September       expressoMail    pt-br   Setembro
-October expressoMail    pt-br   Outubro
-November        expressoMail    pt-br   Novembro
-December        expressoMail    pt-br   Dezembro
-Sunday  expressoMail    pt-br   Domingo
-Monday  expressoMail    pt-br   Segunda
-Tuesday expressoMail    pt-br   Terça
-Wednesday       expressoMail    pt-br   Quarta
-Thursday        expressoMail    pt-br   Quinta
-Friday  expressoMail    pt-br   Sexta
-Saturday        expressoMail    pt-br   Sábado
-Sun     expressoMail    pt-br   Dom
-Mon     expressoMail    pt-br   Seg
-Tue     expressoMail    pt-br   Ter
-Wed     expressoMail    pt-br   Qua
-Thu     expressoMail    pt-br   Qui
-Fri     expressoMail    pt-br   Sex
-Sat     expressoMail    pt-br   Sab
-Today   expressoMail    pt-br   Hoje
-Number of recipients greater than allowed       expressoMail1   pt-br   Quantidade de destinatários não permitido
+Jan	expressoMail	pt-br	Jan
+Feb	expressoMail	pt-br	Fev
+Mar	expressoMail	pt-br	Mar
+Apr	expressoMail	pt-br	Abr
+May	expressoMail	pt-br	Mai
+June	expressoMail	pt-br	Jun
+July	expressoMail	pt-br	Jul
+Aug 	expressoMail	pt-br	Ago
+Sept	expressoMail	pt-br	Set
+Oct	expressoMail	pt-br	Out
+Nov	expressoMail	pt-br	Nov
+Dec	expressoMail	pt-br	Dez
+January	expressoMail	pt-br	Janeiro
+February	expressoMail	pt-br	Fevereiro
+March	expressoMail	pt-br	Março
+April	expressoMail	pt-br	Abril
+May	expressoMail	pt-br	Maio
+June	expressoMail	pt-br	Junho
+July	expressoMail	pt-br	Julho
+August	expressoMail	pt-br	Agosto
+September	expressoMail	pt-br	Setembro
+October	expressoMail	pt-br	Outubro
+November	expressoMail	pt-br	Novembro
+December	expressoMail	pt-br	Dezembro
+Sunday	expressoMail	pt-br	Domingo
+Monday	expressoMail	pt-br	Segunda
+Tuesday	expressoMail	pt-br	Terça
+Wednesday	expressoMail	pt-br	Quarta
+Thursday	expressoMail	pt-br	Quinta
+Friday	expressoMail	pt-br	Sexta
+Saturday	expressoMail	pt-br	Sábado
+Sun	expressoMail	pt-br	Dom
+Mon	expressoMail	pt-br	Seg
+Tue	expressoMail	pt-br	Ter
+Wed	expressoMail	pt-br	Qua
+Thu	expressoMail	pt-br	Qui
+Fri	expressoMail	pt-br	Sex
+Sat	expressoMail	pt-br	Sab
+Today	expressoMail	pt-br	Hoje
+Number of recipients greater than allowed	expressoMail	pt-br	Quantidade de destinatários não permitido
 you are blocked from sending mail to the following addresses	expressoMail	pt-br	Você está bloqueado de enviar e-mail para os seguintes endereços

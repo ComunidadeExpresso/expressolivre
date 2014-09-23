@@ -349,6 +349,9 @@ class FilterMapping
                     if (preg_match("/#rule&&/i", $line)) {
                         $retorno['rule'][] = ltrim($line) . "\n";                          
                     }
+					if(preg_match("/#vacation/i",$line)) {
+						$retorno['vacation'] = true;
+					}
                 }
             }
             // Pega a proxima linha do sript;
@@ -433,19 +436,19 @@ class FilterMapping
 						//break;
 				}
 				if($array_rule[3] != "") {
-					$criteria_value[$i_criteria] = $array_rule[3];
+					$criteria_value[$i_criteria] = mb_convert_encoding ($array_rule[3],'UTF-8');
 					$criteria_operator[$i_criteria] = '=';
 					$criteria_field[$i_criteria] = 'from';
 					++$i_criteria;
 				} 
 				if($array_rule[4] != "") {
-					$criteria_value[$i_criteria] = $array_rule[4];
+					$criteria_value[$i_criteria] = mb_convert_encoding ($array_rule[4],'UTF-8');
 					$criteria_operator[$i_criteria] = '=';
 					$criteria_field[$i_criteria] = 'to';
 					++$i_criteria;
 				} 
 				if($array_rule[5] != "") {
-					$criteria_value[$i_criteria] = $array_rule[5];
+					$criteria_value[$i_criteria] = mb_convert_encoding ($array_rule[5],'UTF-8');
 					$criteria_operator[$i_criteria] = '=';
 					$criteria_field[$i_criteria] = 'subject';
 					++$i_criteria;
@@ -475,6 +478,25 @@ class FilterMapping
 
 				$old_rules[$i_return] = $old_retorno;
 				++$i_return;
+			}
+			if(isset($parsed_rule["vacation"])) {
+				$old_retorno = array();
+				$old_retorno['isExact']  = "false";
+				$old_retorno['name'] = 'vacation';
+				$old_retorno['id'] = 'vacation';
+				$old_retorno['enabled'] = 'true';
+				$old_retorno['applyMessages'] = array();
+				$old_retorno['isExact'] = "false";
+				$old_retorno['actions'] = array();			
+				$old_retorno['actions'][0] = array();
+				$old_retorno['actions'][0]['parameter'] = "";
+				$old_retorno['actions'][0]['type'] = "vacation";
+				$old_retorno['criteria'] = array();
+				$old_retorno['criteria'][0] = array();
+				$old_retorno['criteria'][0]['value'] = "vacation";
+				$old_retorno['criteria'][0]['operator'] = "";
+				$old_retorno['criteria'][0]['field'] = "vacation";
+				$old_rules[] = $old_retorno;
 			}			
 			return $old_rules;
 		} 
@@ -623,7 +645,7 @@ class FilterMapping
 			$uri['id'] = $params['id'] = urlencode($params['name']);
 			$checkfor = 'name';
 		}
-		echo $checkfor;
+
 	    $i = 0;
 
 	    for( ; isset($this->rules[$i]) && $this->rules[$i][$checkfor] !== $params['id']; ++$i );

@@ -87,7 +87,11 @@
 	echo '<script type="text/javascript" src="../prototype/plugins/mask/jquery.maskedinput.js"></script>';
 	echo '<script type="text/javascript" src="../prototype/plugins/lazy/jquery.lazy.js"></script>';
 	echo '<script type="text/javascript" src="../prototype/plugins/jquery.autoscroll/jquery.aautoscroll.min.2.41.js"></script>';
-	
+
+	// Jquery - Expresso Messenger
+	echo '<link rel="stylesheet" type="text/css" href="../prototype/plugins/wijmo/jquery.wijmo.css"/>';
+	echo '<link rel="stylesheet" type="text/css" href="../prototype/plugins/messenger/im.css"/>';
+
 	//Configuração Datalayer
 	echo '<script type="text/javascript">
 		DataLayer.dispatchPath = "../prototype/";
@@ -318,17 +322,24 @@
     @$sieve->connect( $sieveConf['host'] , $sieveConf['port'] , $sieveConf['options'] , $sieveConf['useTLS'] );
     @$sieve->login( $_SESSION['wallet']['Sieve']['user'], $_SESSION['wallet']['Sieve']['password'] , $sieveConf['loginType']);
     $script = $sieve->getScript($sieve->getActive());
-    $pos = strripos($script, "#PseudoScript#");
-    $pseudo_script = substr( $script, $pos+17 );
-    $sieveRules = json_decode( $pseudo_script, true );
+    $old_rule = strripos($script, "##PSEUDO script start");
+	if($old_rule) {
+		if (preg_match("/^ *#vacation/im", $script))
+			$inVacation = true;
+	}
+	else {
+		$pos = strripos($script, "#PseudoScript#");
+		$pseudo_script = substr( $script, $pos+17 );
+		$sieveRules = json_decode( $pseudo_script, true );
 
-	if( count($sieveRules) > 0 )
-    {
-	    foreach( $sieveRules as $i => $v)
-	    {
-	        if($v['id'] == 'vacation' && $v['enabled'] == 'true')
-	            $inVacation = true;
-	    }
+		if( count($sieveRules) > 0 )
+		{
+			foreach( $sieveRules as $i => $v)
+			{
+			    if($v['id'] == 'vacation' && $v['enabled'] == 'true')
+			        $inVacation = true;
+			}
+		}
 	}
 
     if( $inVacation )
