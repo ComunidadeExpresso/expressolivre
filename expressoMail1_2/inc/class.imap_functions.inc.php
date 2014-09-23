@@ -1670,9 +1670,9 @@ class imap_functions
                 case 'REQUEST':
 
                     $ical = $icalService->getComponent('vevent');
-                    $userTz = in_array( $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'], timezone_identifiers_list()) ? 
-                              $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'] :
-                              'America/Sao_Paulo';
+                    $userTz = in_array( $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'], timezone_identifiers_list()) ?
+                        $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'] :
+                        'America/Sao_Paulo';
 
                     $timezoneUser = new DateTimeZone($userTz);
                     $icalTz = 'UTC';
@@ -1688,11 +1688,15 @@ class imap_functions
 
                     $dateStart->setDate( $ical['dtstart']['value']['year'] ,  $ical['dtstart']['value']['month'] ,  $ical['dtstart']['value']['day']  );
                     $dateStart->setTime( $ical['dtstart']['value']['hour'] ,  $ical['dtstart']['value']['min'] );
-                    $dateStart->setTimeZone( $timezoneUser );
 
                     $dateEnd->setDate( $ical['dtend']['value']['year'] ,  $ical['dtend']['value']['month'] ,  $ical['dtend']['value']['day']  );
                     $dateEnd->setTime( $ical['dtend']['value']['hour'] ,  $ical['dtend']['value']['min'] );
-                    $dateEnd->setTimeZone( $timezoneUser );
+
+                    if(!isset($ical['dtstart']['params']['TZID']))
+                    {
+                        $dateEnd->setTimeZone( $timezoneUser );
+                        $dateStart->setTimeZone( $timezoneUser );
+                    }
 
                     $content .= '<b>' . $this->functions->getLang('Event Calendar') . '</b><br />' .
                         ' <br /> <b>' . $this->functions->getLang('Title') . ': </b>' . $ical['summary']['value'] .
