@@ -1796,9 +1796,9 @@ class imap_functions
                     case 'REQUEST':
 
                         $ical = $icalService->getComponent('vevent');
-                        $userTz = in_array( $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'], timezone_identifiers_list()) ? 
-                              $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'] :
-                              'America/Sao_Paulo';
+                        $userTz = in_array( $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'], timezone_identifiers_list()) ?
+                            $_SESSION['phpgw_info']['user']['preferences']['expressoMail']['timezone'] :
+                            'America/Sao_Paulo';
 
                         $timezoneUser = new DateTimeZone($userTz);
                         $icalTz = 'UTC';
@@ -1814,38 +1814,40 @@ class imap_functions
 
                         $dateStart->setDate( $ical['dtstart']['value']['year'] ,  $ical['dtstart']['value']['month'] ,  $ical['dtstart']['value']['day']  );
                         $dateStart->setTime( $ical['dtstart']['value']['hour'] ,  $ical['dtstart']['value']['min'] );
-                        $dateStart->setTimeZone( $timezoneUser );
 
                         $dateEnd->setDate( $ical['dtend']['value']['year'] ,  $ical['dtend']['value']['month'] ,  $ical['dtend']['value']['day']  );
                         $dateEnd->setTime( $ical['dtend']['value']['hour'] ,  $ical['dtend']['value']['min'] );
-                        $dateEnd->setTimeZone( $timezoneUser );
 
-                        $content.= '<b>'.$this->functions->getLang('Event Calendar').'</b><br />'.
-                                   ' <br /> <b>'.$this->functions->getLang('Title').': </b>'.$ical['summary']['value'].
-                                   ' <br /> <b>'.$this->functions->getLang('Location').': </b>'.$ical['location']['value'].
-                                   ' <br /> <b>'.$this->functions->getLang('Details').': </b>'. str_ireplace('\n','<br />',nl2br($ical['description']['value']));
-                        $content.= ' <br /> <b>'.$this->functions->getLang('Start') . ':  </b>' . $dateStart->format('d/m/Y - H:i');
-                        $content.= ' <br /> <b>'.$this->functions->getLang('End') . ': </b>' . $dateEnd->format('d/m/Y - H:i');
-
-                        if($ical['organizer']['params']['CN'])
-                             $content.= ' <br /> <b>'.$this->functions->getLang('Organizer').': </b>'.$ical['organizer']['params']['CN'].' -  <a href="MAILTO:'.$ical['organizer']['value'].'">'.$ical['organizer']['value'].'</a></li>' ;
-                        else
-                             $content.= ' <br /> <b>'.$this->functions->getLang('Organizer').': </b> <a href="MAILTO:'.$ical['organizer']['value'].'">'.$ical['organizer']['value'].'</a>' ;
-
-                        if($ical['attendee'])
+                        if(!isset($ical['dtstart']['params']['TZID']))
                         {
-                            $att = ' <br /> <b>'.$this->functions->getLang('Participants').': </b>';
-                            $att .= '<ul> ';
-                            foreach ($ical['attendee'] as $attendee)
-                            {
-                                if($attendee['params']['CN'])
-                                    $att .= '<li>'.$attendee['params']['CN'].' -  <a href="MAILTO:'.$attendee['value'].'">'.$attendee['value'].'</a></li>'  ;
-                                else
-                                    $att .= '<li><a href="MAILTO:'.$attendee['value'].'">'.$attendee['value'].'</a></li>'  ;
-                            }
-                            $att .= '</ul> <br />'  ;
+                            $dateEnd->setTimeZone( $timezoneUser );
+                            $dateStart->setTimeZone( $timezoneUser );
                         }
-                        $content.= $att;
+
+                        $content .= '<b>' . $this->functions->getLang('Event Calendar') . '</b><br />' .
+                            ' <br /> <b>' . $this->functions->getLang('Title') . ': </b>' . $ical['summary']['value'] .
+                            ' <br /> <b>' . $this->functions->getLang('Location') . ': </b>' . $ical['location']['value'] .
+                            ' <br /> <b>' . $this->functions->getLang('Details') . ': </b>' . str_ireplace('\n', '<br />', nl2br($ical['description']['value']));
+                        $content .= ' <br /> <b>' . $this->functions->getLang('Start') . ':  </b>' . $dateStart->format('d/m/Y - H:i') ;
+                        $content .= ' <br /> <b>' . $this->functions->getLang('End') . ': </b>' . $dateEnd->format('d/m/Y - H:i');
+
+                        if ($ical['organizer']['params']['CN'])
+                            $content .= ' <br /> <b>' . $this->functions->getLang('Organizer') . ': </b>' . $ical['organizer']['params']['CN'] . ' -  <a href="MAILTO:' . $ical['organizer']['value'] . '">' . $ical['organizer']['value'] . '</a></li>';
+                        else
+                            $content .= ' <br /> <b>' . $this->functions->getLang('Organizer') . ': </b> <a href="MAILTO:' . $ical['organizer']['value'] . '">' . $ical['organizer']['value'] . '</a>';
+
+                        if ($ical['attendee']) {
+                            $att = ' <br /> <b>' . $this->functions->getLang('Participants') . ': </b>';
+                            $att .= '<ul> ';
+                            foreach ($ical['attendee'] as $attendee) {
+                                if ($attendee['params']['CN'])
+                                    $att .= '<li>' . $attendee['params']['CN'] . ' -  <a href="MAILTO:' . $attendee['value'] . '">' . $attendee['value'] . '</a></li>';
+                                else
+                                    $att .= '<li><a href="MAILTO:' . $attendee['value'] . '">' . $attendee['value'] . '</a></li>';
+                            }
+                            $att .= '</ul> <br />';
+                        }
+                        $content .= $att;
 
                         break;
                     default:
