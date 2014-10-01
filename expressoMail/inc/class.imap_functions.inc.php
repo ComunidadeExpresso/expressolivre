@@ -1770,6 +1770,8 @@ class imap_functions
             if($codificao == 'UTF-8')
                 $calendar = utf8_decode($calendar);
 
+            $calendar = trim($calendar);
+            
             if($icalService->setIcal($calendar))
             {
                 $content = '';
