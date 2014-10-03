@@ -455,7 +455,7 @@ class imap_functions
         $return['Size'] = $header->Size;
         $return['from'] = (isset($header->from[0])) ? self::formatMailObject($header->from[0]) : array('name' => '', 'email' => '');
         $return['subject'] = (isset($header->subject) && trim($header->subject) !== '') ? self::decodeMimeString($header->subject) : $this->functions->getLang('(no subject)   ');
-        $return['attachment'] = (preg_match('/((Content-Disposition:(.)*([\r\n\s]*filename))|(Content-Type:(.)*([\r\n\s]*name)))/i', $mimeBody)) ? '1' : '0'; //Verifica se a anexos na mensagem
+        $return['attachment'] = (preg_match('/((Content-Disposition:(.)*([\r\n\s]*filename))|(Content-Type:(.)*([\r\n\s]*type\/calendar))|(BEGIN:VCALENDAR))/i', $mimeBody)) ? '1' : '0'; //Verifica se a anexos na mensagem
         $return['reply_toaddress'] = isset($header->reply_toaddress) ? self::decodeMimeString($header->reply_toaddress) : '';
         $return['flag'] = $header->Unseen .
             $header->Recent .
